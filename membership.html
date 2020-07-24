@@ -31,7 +31,7 @@
             position: absolute;
         }
 
-        .tag-login {
+        .tag {
             position: absolute;
             background: #F2DE79;
             border-radius: 15px;
@@ -40,10 +40,11 @@
             right: 0;
             top: 50%;
             transform: translate(0, -50%);
+            z-index: -1;
             /* border: 1px solid red; */
         }
 
-        .tag-login h5 {
+        .tag h5 {
             writing-mode: vertical-lr;
             letter-spacing: 3px;
             font-weight: 400;
@@ -53,15 +54,14 @@
             transform: translate(-12%, -50%);
         }
 
-        .tag-login.sign-up {
+        .tag-signup {
             right: 0;
             top: 90%;
             transform: translate(0, -90%);
             background: #0388A6;
-            z-index: -1;
         }
 
-        .tag-login.sign-up h5 {
+        .tag-signup h5 {
             color: #ffffff;
         }
 
@@ -184,6 +184,10 @@
         .member-login a {
             color: #0388A6;
         }
+
+        .box-login{
+            z-index: 1;
+        }
     </style>
 </head>
 
@@ -234,11 +238,11 @@
             </div>
         </nav>
         <ul class="member-bblock">
-            <li>
-                <div class="tag-login">
+            <li class="box-login">
+                <!-- <div class="tag tag-login">
                     <h5>登入會員</h5>
-                </div>
-                <div class="tag-login sign-up">
+                </div> -->
+                <div class="tag tag-signup">
                     <h5>註冊帳號</h5>
                 </div>
                 <form class="member-login">
@@ -266,15 +270,13 @@
                     </h5>
                 </form>
             </li>
-        </ul>
-        <ul class="member-bblock">
-            <li>
-                <div class="tag-login">
+            <li class="box-signup">
+                <div class="tag tag-login">
                     <h5>登入會員</h5>
                 </div>
-                <div class="tag-login sign-up">
+                <!-- <div class="tag-login sign-up">
                     <h5>註冊帳號</h5>
-                </div>
+                </div> -->
                 <form class="member-login signup">
                     <h2>LOG IN</h2>
                     <div class="member-account">
