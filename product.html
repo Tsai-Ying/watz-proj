@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+      <!--jquery-plugin-vegas  -->
+      <link rel="stylesheet" href="/css/vegas.min.css">
+      <!--jquery-plugin-vegas  -->
+       <!---------------nav--------------->
+     <link rel="stylesheet" href="/css/nav.css">
+     <!---------------/nav--------------->
+    <style>
+
+    
+    
+        /* ------------------- vegas-box  ----------------- */
+        .vegas-box{
+            width:100vw;
+            height:500px;
+            /* background: #000; */
+            z-index: -1;
+            /* display:block; */
+        }
+        .wrapper{
+            border: 10px solid black;
+            min-height:100vw;
+        }
+        .selector{
+            width: 490px;
+            height:1400px;
+            background: white;
+        }
+       .remove{
+        width: 1200px;
+        min-height:70px;
+        border: blue 2px solid;
+        padding: 10px;
+       }
+
+       .remove-box{
+        min-height: 30px;
+        min-width: 80px;
+        flex-direction: row;
+        align-items: center;
+        background: #F2DE79;
+        justify-content: space-around;
+        border-radius: 2px;
+        margin:5px;
+       }
+       .remove-box h5 ,.remove-box span{
+        flex-direction:row;
+        /* justify-content: space-around; */
+        align-items: center;
+        font-weight: 400;
+       }
+
+       .remove-box h5{
+           border: 1px solid slateblue;
+       }
+       .remove-box span{
+        border: 1px solid seagreen;
+       }
+    
+    </style>
+  
+</head>
+
+<body>
+   
+        <div class="container flex ">
+            <nav class="nav flex  transition">
+                <div class="nav-logo flex">
+                    <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
+                    <a class="img-logo-text" href=""><img src="images/logo-text.svg" alt=""></a>
+                </div>
+                <ul class="nav-list flex transition">
+                    <li><a href="">Project</a><div class="line"></div></li>
+                    <li><a href="">Shop</a></li>
+                    <li><a href="">DIY</a></li>
+                    <li><a href="">WATZ</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+                <div class="nav-icon flex transition">
+                    <a class="icon-wrapper" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
+                    <a class="icon-wrapper" href=""><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
+                    <div class="menu flex transition">
+                        <div class="box-bar">
+                            <div class="bar bar1 transition"></div>
+                            <div class="bar bar2 transition"></div>
+                            <div class="bar bar3 transition"></div>
+                        </div>
+                        <div class="menu-bg transition">
+                            <div class="menu-content transition flex">
+                                <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
+                                <ul class="menu-list">
+                                    <li><a href="">Project</a></li>
+                                    <li><a href="">Shop</a></li>
+                                    <li><a href="">DIY</a></li>
+                                    <li><a href="">WATZ</a></li>
+                                    <li><a href="">Contact</a></li>
+                                </ul>
+                                <div class="menu-icon flex">
+                                    <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
+                                    <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
+                                    <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
+                                    <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class=" vegas-box" id="example">
+            </div>
+            <div class="wrapper">
+                    <div class="remove flex">
+                        <div class="remove-box flex"> 
+                            <h5 class="flex">黃色</h5>
+                            <span class="flex">+</span>
+                        </div>
+                        <div class="remove-box flex"> 
+                            <h5>素色極簡款</h5>
+                            <span>+</span>
+                        </div>
+                        <div class="remove-box flex"> 
+                            <h5>黃色</h5>
+                            <span>+</span>
+                        </div>
+                        
+                    </div>
+                <div class="selector">
+                </div> 
+            </div>
+        </div>
+      
+    
+    
+
+
+
+    <script src="/js/jquery-3.5.1.js"></script>
+    <script src="/js/vegas.min.js"></script>
+    <script src="/js/nav.js"></script>
+    <script>
+        // --------------- nav -----------------
+        $(".box-bar").click(function () {
+            $(".menu").toggleClass('current');
+
+        });
+
+        let slideIndex = 0;
+        let slideCount = $("#blockPhoto ul").find("li").length;
+        let slideWidth = $("#blockPhoto ul li").width();
+        // -------------- /nav ---------------
+        //  ----------- vegas -----------------
+        $("#example").vegas({
+            timer: false,
+            align: 'bottom',
+            autoplay:true,
+    transition: 'slideLeft2',
+    slides: [
+        { src: "/images/asym06-1.jpg" },
+        { src: "/images/asym06-2.jpg" },
+        { src: "/images/asym10-1.jpg" },
+        { src: "/images/asym02-2.jpg" }
+    ]
+});
+
+
+// $elmt.vegas({
+//     timer: false,
+//     transition: 'slideLeft2',
+//     slides: [
+//         { src: '/img/slide1.jpg' },
+//         { src: '/img/slide2.jpg', transition: 'slideRight2' },
+//         { src: '/img/slide3.jpg' },
+//         { src: '/img/slide4.jpg', transition: 'slideRight2' }
+//     ]
+// });
+//  ----------- /vegas --------------
+    </script>
+
+</body>
+
+</html>
