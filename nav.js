@@ -1,19 +1,36 @@
-// --------------------nav-----------------------//
-$(window).scroll(function(){
-  let scrollNow=$(this).scrollTop();
-  if(scrollNow<=150){
-    $(".nav").removeClass('hide-nav');
-  }else{
-    
-      $(".nav").addClass('hide-nav');
-  }
+// hide-nav //
+$(window).scroll(function () {
+    let scrollTop = $(this).scrollTop();
+    if (scrollTop <= 150) {
+        $(".nav").removeClass('hide-nav');
+    } else {
+        $(".nav").addClass('hide-nav');
+    }
 });
 
 $(".menu").click(function () {
     $(".menu").toggleClass('current');
 })
 
-// --------------------nav-----------------------//
+// btn-top //
+let vh = $(window).height();
+
+$("#goTop").css("opacity", "0")
+
+$("#goTop").click(function () {
+    $("html").animate({
+        scrollTop: 0
+    })
+});
+$(window).scroll(function () {
+    let scrollTop = $(this).scrollTop();
+    if (scrollTop < vh) {
+        $("#goTop").css("opacity", "0")
+    }
+    else {
+        $("#goTop").css("opacity", "1")
+    }
+})
 
 //-------------- SVG 變色 -------------//
 jQuery('img.svg').each(function () {
