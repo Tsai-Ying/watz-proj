@@ -86,6 +86,22 @@ p {
     display: flex;
 }
 
+.block-fixed .btn-coral {
+    height: 45px;
+    background: #FF9685;
+    border: 0;
+    border-radius: 2px;
+    color: white;
+    font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.block-fixed .btn-coral:hover {
+    background: #0388A6;
+}
+
 
 a.icon-wrapper {
     height: 44px;
@@ -142,15 +158,21 @@ a.icon-wrapper {
 
 .nav-logo {
     align-items: center;
+    width: 200px;
 }
 
-.nav-logo .img-logo-img img {
+.nav-logo .img-logo-img {
     height: 50px;
     margin: 0 20px;
 }
 
-.nav-logo .img-logo-text img {
+.nav-logo .img-logo-text{
     height: 32px;
+}
+.nav-logo img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 .nav-list {
@@ -320,13 +342,16 @@ a:hover .st0 {
         padding: 5px;
         margin: 10px 0;
     }
+    .nav-logo{
+        width: 150px;
+    }
     
-    .nav-logo .img-logo-img img {
+    .nav-logo .img-logo-img{
         height: 30px;
         margin: 0 20px;
     }
     
-    .nav-logo .img-logo-text img {
+    .nav-logo .img-logo-text{
         height: 21px;
     }
 
