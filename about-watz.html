@@ -6,6 +6,45 @@
     <title>關於WATZ</title>
     <link rel="stylesheet" href="nav.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .block-left{
+            height: calc(90vh - 100px);
+            margin-top: 100px;
+        }
+        .block-left .box-process{
+            width: 14vh;
+            height: 14vh;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .block-left li{
+            width: 40vw;
+            align-items: center;
+        }
+
+        .block-left li h4{
+            padding-left: 20px;
+            font-weight: 500;
+        }
+
+        .box-process .img-about-select{
+            position: absolute;
+        }
+        .img-process{
+            width: 12vh;
+            height: 12vh;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .img-process img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container flex">
@@ -52,12 +91,50 @@
                 </div>
             </div>
         </nav>
-        <!-- <div class="wrapper"></div> -->
         <!-- btn-top -->
         <div class="btn-top flex transition" id="goTop">
             <img src="images/arrow-top.svg" alt="">
             <h3>TOP</h3>
             <div class="bg-btn-top transition"></div>
+        </div>
+        <div class="wrapper">
+            <ul class="block-left">
+                <li class="flex">
+                    <div class="box-process flex">
+                        <img class="img-about-select" src="images/about-select.svg" alt="">
+                        <div class="img-process"><img src="images/process1.jpg" alt=""></div>
+                    </div>
+                    <h4>『社頭』一直以來是台灣最強揚名世界的棉襪產地，WATZ生產於在地經營60年老字號工廠。</h4>
+                </li>
+                <li class="flex">
+                    <div class="box-process flex">
+                        <img class="img-about-select" src="images/about-select.svg" alt="">
+                        <div class="img-process"><img src="images/process2.jpg" alt=""></div>
+                    </div>
+                    <h4>精細裁縫，不會產生足部的壓迫感，均勻的彈力編織，防滑且不易鬆脫。</h4>
+                </li>
+                <li class="flex">
+                    <div class="box-process flex">
+                        <img class="img-about-select" src="images/about-select.svg" alt="">
+                        <div class="img-process"><img src="images/process3.jpg" alt=""></div>
+                    </div>
+                    <h4>經過檢驗的紗線，不含偶氮染料，水洗不退色，歐盟OEKO-TEX無毒認證。</h4>
+                </li>
+                <li class="flex">
+                    <div class="box-process flex">
+                        <img class="img-about-select" src="images/about-select.svg" alt="">
+                        <div class="img-process"><img src="images/process4.jpg" alt=""></div>
+                    </div>
+                    <h4>堅持使用有口碑的台灣機台製作，製作襪子的過程中，提升襪子品質。</h4>
+                </li>
+                <li class="flex">
+                    <div class="box-process flex">
+                        <img class="img-about-select" src="images/about-select.svg" alt="">
+                        <div class="img-process"><img src="images/process5.jpg" alt=""></div>
+                    </div>
+                    <h4>所有產品皆使用天然及可回收材質，不過度包裝。</h4>
+                </li>
+            </ul>
         </div>
         <!-- footer -->
         <footer class="flex">
@@ -70,7 +147,6 @@
             <h6>Copyright© WATZ Company All rights Reserved.</h6>
             <img class="bg-footer flex" src="images/footer.svg" alt="">
         </footer>
-        
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"
