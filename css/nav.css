@@ -118,7 +118,6 @@ a.icon-wrapper {
 
 .container {
     width: 100vw;
-    overflow: hidden;
     position: relative;
     min-height: 100vh;
     align-items: center;
@@ -127,7 +126,6 @@ a.icon-wrapper {
 
 .wrapper {
     width: 1200px;
-    overflow: hidden;
 }
 
 /*------------- KITS END------------------------------ */
@@ -411,7 +409,7 @@ a:hover .st0 {
     align-items: center;
     position: fixed;
     right: 3vw;
-    top: 60vh;
+    top: 70vh;
 }
 .btn-top .bg-btn-top{
     position: absolute;
