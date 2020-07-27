@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nav</title>
+    <title>Membership</title>
     <link rel="stylesheet" href="/nav.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
     <style>
         .wrapper {
-            display: flex;
             justify-content: center;
             align-items: center;
         }
@@ -21,14 +20,12 @@
             transform: translateY(-50%);
             width: 465px;
             height: 545px;
-            /* border: 1px solid red; */
             position: absolute;
         }
 
         .member-bblock li {
             width: 465px;
             height: 545px;
-            /* border: 1px solid red; */
             position: absolute;
         }
 
@@ -42,7 +39,6 @@
             top: 50%;
             transform: translate(0, -50%);
             z-index: -1;
-            /* border: 1px solid red; */
         }
 
         .tag h5 {
@@ -66,12 +62,11 @@
             color: #ffffff;
         }
 
-        .member-login {
+        .member-login{
             background: #F2DE79;
             width: 420px;
             height: 545px;
             border-radius: 15px;
-            display: flex;
             align-items: center;
             flex-direction: column;
             position: relative;
@@ -87,17 +82,19 @@
             text-align: center;
             padding: 72px;
             letter-spacing: 4px;
-            margin-bottom: 40px;
+            margin-bottom: 2px;
             color: #404040;
         }
-
-        .member-account {
+        .member-login.signup h2{
+            color: #ffffff;
+        }
+        .input-wrapper{
             background: #ffffff;
             width: 292px;
             height: 45px;
             border-radius: 2px;
-            display: flex;
             justify-content: flex-start;
+            margin-bottom: 20px;
         }
 
         .member-login img {
@@ -109,27 +106,32 @@
         .member-input {
             border: transparent;
             outline: none;
-        }
-
-        .member-password {
-            background: #ffffff;
             width: 292px;
             height: 45px;
-            margin-top: 20px;
-            border-radius: 2px;
-            display: flex;
-            justify-content: flex-start;
         }
-
         .member-remember {
             margin: 20px auto;
             width: 292px;
             height: 45px;
-            display: flex;
             justify-content: flex-start;
             align-items: center;
         }
-
+        .agree{
+            width: 292px;
+            height: 45px;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .agree h6{
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+        .member-login.signup a{
+            color: #F2DE79;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
         .member-checkbox {
             margin: 11px 10px 11px 0px;
         }
@@ -140,7 +142,6 @@
             letter-spacing: 1px;
 
         }
-
         .member-forget {
             width: 100px;
             text-align: right;
@@ -152,9 +153,11 @@
             cursor: pointer;
             letter-spacing: 3px;
         }
-
-        .remember-flex {
-            display: flex;
+        .flex{
+            /* text-align: center; */
+            
+        }
+        .remember {
             justify-content: space-between;
             align-items: center;
             width: 292px;
@@ -169,7 +172,6 @@
             color: #ffffff;
             letter-spacing: 4px;
             font-size: 14px;
-            font-family: ;
             border: none;
             cursor: pointer;
             border-radius: 2px;
@@ -187,7 +189,7 @@
         }
 
         .box-login{
-            z-index: 10;
+            z-index: -10;
         }
     </style>
 </head>
@@ -246,31 +248,29 @@
                 <div class="tag tag-signup">
                     <h5>註冊帳號</h5>
                 </div>
-                <form class="member-login">
+                <form class="member-login flex signup">
                     <h2>JOIN US</h2>
-                    <div class="member-account">
+                    <div class="input-wrapper flex">
                         <img src="images/icon-account.svg" alt="">
                         <input class="member-input" type="text" placeholder="Email">
                     </div>
-                    <div class="member-password">
+                    <div class="input-wrapper flex">
                         <img src="images/icon-password.svg" alt="">
                         <input class="member-input" type="text" placeholder="Password">
                     </div>
-                    <div class="remember-flex">
-                        <div class="member-remember">
-                            <input class="member-checkbox" type="checkbox" name="" id="">
-                            <h6>Remember me</h6>
-                        </div>
-                        <div class="member-forget">
-                            <a href="">忘記密碼</a>
-                        </div>
+                    <div class="input-wrapper flex">
+                        <img src="images/icon-confirmPassword.svg" alt="">
+                        <input class="member-input" type="text" placeholder="Confirm Your Password">
                     </div>
-                    <button class="btn-login">登入帳號</button>
-                    <h5>還不是會員?點這邊
-                        <a href="">加入會員!</a>
-                    </h5>
+                        <div class="agree flex">
+                            <input class="member-checkbox" type="checkbox" name="" id="">
+                            <h6>同意</h6><a href="">會員條款</a>
+                            <h6>與</h6><a href="">隱私權政策</a>
+                        </div>
+                    <button class="btn-login">註冊會員</button>
                 </form>
             </li>
+<!------------------------login------------------------------------------>
             <li class="box-login">
                 <div class="tag tag-login">
                     <h5>登入會員</h5>
@@ -278,18 +278,18 @@
                 <!-- <div class="tag-login sign-up">
                     <h5>註冊帳號</h5>
                 </div> -->
-                <form class="member-login signup">
+                <form class="member-login flex">
                     <h2>LOG IN</h2>
-                    <div class="member-account">
+                    <div class="input-wrapper flex">
                         <img src="images/icon-account.svg" alt="">
                         <input class="member-input" type="text" placeholder="Email">
                     </div>
-                    <div class="member-password">
+                    <div class="input-wrapper flex">
                         <img src="images/icon-password.svg" alt="">
                         <input class="member-input" type="text" placeholder="Password">
                     </div>
-                    <div class="remember-flex">
-                        <div class="member-remember">
+                    <div class="remember flex">
+                        <div class="member-remember flex">
                             <input class="member-checkbox" type="checkbox" name="" id="">
                             <h6>Remember me</h6>
                         </div>
