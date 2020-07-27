@@ -10,9 +10,30 @@
         href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
     <style>
+        .block1 {
+            height: calc(90vh - 120px);
+            margin-top: 120px;
+            width: 100vw;
+            justify-content: center;
+        }
+
+        .block-right{
+            width: 50vw;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .block-right .box-logo{
+            height: 135px;
+        }
+        .box-logo img{
+            height: 100%;
+        }
+
         .block-left {
-            height: calc(90vh - 100px);
-            margin-top: 100px;
+            width: 50vw;
+            align-items: center;
+            flex-direction: column;
         }
 
         .block-left .box-process {
@@ -23,14 +44,15 @@
             justify-content: center;
         }
 
-        .block-left li {
-            width: 40vw;
+        .block-left li{
             align-items: center;
+            margin: 5px;
         }
+
 
         .block-left li h4 {
             padding-left: 20px;
-            width: 300px;
+            width: 400px;
             font-weight: 500;
         }
 
@@ -108,8 +130,8 @@
             <h3>TOP</h3>
             <div class="bg-btn-top transition"></div>
         </div>
-        <div class="wrapper">
-            <ul class="block-left">
+        <div class="block1 flex">
+            <ul class="block-left flex">
                 <li class="flex">
                     <div class="box-process flex">
                         <img class="img-about-select" src="images/about-select.svg" alt="">
@@ -146,6 +168,19 @@
                     <h4>所有產品皆使用天然及可回收材質，不過度包裝。</h4>
                 </li>
             </ul>
+            <div class="block-right flex">
+                <div class="box-logo flex">
+                    <img src="images/logo-w.svg" alt="">
+                    <img src="images/logo-a.svg" alt="">
+                    <img src="images/logo-t.svg" alt="">
+                    <img src="images/logo-z.svg" alt="">
+                </div>
+                <ul>
+                    <li>
+                        <img src="images/about-line.svg" alt="">                       
+                    </li>
+                </ul>
+            </div>
         </div>
         <!-- footer -->
         <footer class="flex">
