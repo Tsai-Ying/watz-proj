@@ -7,50 +7,53 @@
     <title>Home Delivery</title>
     <link rel="stylesheet" href="css/nav.css">
     <style>
+        .container{
+            overflow: none;
+        }
         .nav {
             position: fixed;
 
         }
 
         .wrapper {
-            width: 1280px;
-            height: 300vh;
+            width: 1200px;
             padding-top: 140px;
-            /* border: 1px solid palevioletred; */
             justify-content: space-between;
+            margin-bottom: 50px;
 
 
         }
 
         .block-left {
             width: 800px;
-            height: 200vh;
             /* border: 1px solid blue; */
 
 
         }
 
         .block-right {
-            width: 400px;
-            height: 100vh;
+            width: 350px;
 
 
 
         }
 
         .block-fixed {
-            width: 400px;
-            height: 100vh;
+            width: 350px;
+            /* height: 80vh; */
             /* border: 1px solid rgb(22, 165, 110); */
-            position: fixed;
+            /* position: fixed; */
             flex-direction: column;
+            position: sticky; 
+            top:130px;
+            /* bottom: 0; */
+        
         }
 
         /* ------------------process------------------ */
 
         .buy-process {
-            width: 850px;
-            height: 105px;
+            width: 800px;
             background-color: #ffffff;
             border-radius: 15px;
             flex-direction: row;
@@ -61,7 +64,7 @@
 
         .process {
             width: 150px;
-            height: 55px;
+            /* height: 55px; */
             background-color: #F8F4EB;
             border-radius: 2px;
             margin: 20px;
@@ -70,7 +73,6 @@
             padding: 10px;
 
         }
-
         .here {
             background-color: #F2DE79;
 
@@ -79,14 +81,14 @@
         /* -----------choose box------------- */
 
         .shipping-form {
-            width: 850px;
-            /* height: 150vh; */
+            width: 800px;
             background-color: #ffffff;
             border-radius: 15px;
             margin-top: 30px;
             flex-direction: column;
             justify-content: flex-start;
             padding: 40px 50px;
+            
 
         }
 
@@ -96,7 +98,6 @@
 
         .order-ppl-info {
             width: 750px;
-            height: 450px;
             /* border: 1px solid blue; */
             flex-direction: column;
             align-items: flex-start;
@@ -130,11 +131,12 @@
         .same-bookppl {
             align-items: center;
             /* justify-content: space-between; */
+            cursor: pointer;
+
         }
 
         .pickup-ppl-info {
             width: 750px;
-            height: 450px;
             /* border: 1px solid blue; */
             flex-direction: column;
             align-items: flex-start;
@@ -164,6 +166,7 @@
             outline: none;
             text-align: center;
             padding: 10px 20px;
+            cursor: pointer;
 
         }
 
@@ -172,13 +175,6 @@
             background-color: #F2DE79;
         }
 
-        /* .button:focus{
-            width: 70px;
-            height: 40px;
-            border-radius: 2px;
-            background-color: #F2DE79; 
-            border: transparent;
-        } */
         .pay-choose {
             margin-top: 30px;
         }
@@ -194,7 +190,8 @@
             flex-direction: column;
             display: none;
         }
-        .peper-receipt.show{
+
+        .peper-receipt.show {
             display: block;
         }
 
@@ -209,6 +206,8 @@
             position: relative;
             margin: 0px 15px;
             outline: none;
+            cursor: pointer;
+
         }
 
         .receipt-btn:before {
@@ -243,6 +242,7 @@
             top: 5px;
             left: 5px;
         }
+
         .info .info-input {
             width: 250px;
             height: 35px;
@@ -258,14 +258,15 @@
             align-items: center;
             justify-content: start;
         }
-        
-        .cloud-receipt{
+
+        .cloud-receipt {
             display: none;
         }
-        .cloud-receipt.show{
+
+        .cloud-receipt.show {
             display: block;
         }
-        
+
 
         .cloud-receipt .info {
             width: 600px;
@@ -273,43 +274,52 @@
             align-items: center;
             justify-content: start;
         }
-        .donate-receipt{
+
+        .donate-receipt {
             display: none;
         }
-        .donate-receipt.show{
+
+        .donate-receipt.show {
             display: block;
         }
 
-        .order-remark{
+        .order-remark {
             margin-top: 30px;
         }
-        .remark-textarea{
+
+        .remark-textarea {
             margin: 30px 50px;
             width: 600px;
             height: 130px;
             border: 1px solid #F2DE79;
             outline: none;
         }
-        .prev-next-btn{
+
+        .prev-next-btn {
             width: 300px;
-            justify-content:space-between;
+            justify-content: space-between;
             margin: 0 auto;
+            
         }
-        .pay-btn {
+
+        .prev-next-btn .pay-btn {
             /* width: 250px; */
-            height: 40px;
+            /* height: 40px; */
             border: none;
             background-color: #FF9685;
-            color: #ffffff;
             margin: 0;
             outline: none;
             padding: 10px 30px;
+            color: #ffffff;
+            cursor: pointer;
+
         }
-        .pay-btn.gopay:hover{
+        .pay-btn.gopay:hover {
             background-color: #0388A6;
 
         }
-        .pay-btn.prev{
+
+        .pay-btn.prev {
             background-color: #0388A6;
 
         }
@@ -318,9 +328,8 @@
             background-color: #FF9685;
         }
 
-        .return-detail{
-            width: 850px;
-            /* height: 150vh; */
+        .return-detail {
+            width: 800px;
             background-color: #ffffff;
             border-radius: 15px;
             margin-top: 30px;
@@ -328,12 +337,16 @@
             justify-content: flex-start;
             padding: 40px 50px;
         }
+        .return-detail p{
+            margin-top: 10px;
+        }
+
         /* --------------right fix part------------- */
         /* --------------box-shipping------------- */
 
 
         .box-shipping {
-            width: 400px;
+            width: 350px;
             height: 180px;
             background-color: #ffffff;
             border-radius: 15px;
@@ -359,43 +372,113 @@
 
         /* --------------total-price------------- */
 
-        .total-price-frame {
-            width: 400px;
-            height: 400px;
+        .orderd-list {
+            width: 350px;
+            height: 80vh;
             background-color: #ffffff;
             border-radius: 15px;
-            padding: 20px 50px;
+            padding: 30px 20px;
             /* border: 1px solid rgb(212, 52, 132); */
             flex-direction: column;
             align-items: flex-start;
+            justify-content: start;
+        }
+
+        .list-scroll {
+            width: 320px;
+            height: 1500px;
+            /* border: 1px solid peru; */
+            overflow-x: hidden;
+            overflow-y: auto;
+            margin: 20px 0;
+
+
+        }
+
+        .list-scroll::-webkit-scrollbar-track-piece {
+            background-color: #F8F4EB;
+        }
+
+        .list-scroll::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+            
+        }
+
+        .list-scroll::-webkit-scrollbar-thumb {
+            background-color: #F2DE79;
+            background-clip: padding-box;
+            min-height: 28px;
+            border-radius: 20px;
+        }
+
+        .list-scroll::-webkit-scrollbar-thumb:hover {
+            background-color: #F2DE79;
+            border-radius: 20px;
+        }
+
+
+
+        .box-info .box-img {
+            width: 150px;
+        }
+
+        .box-detail {
+            padding: 5px 0;
+            flex-direction: column;
             justify-content: space-between;
 
-
-
         }
 
-        .total-price-frame h3 {
-            color: #03588C;
-
-        }
-
-        .coupon {
-            align-items: center;
+        .box-product-orderlist {
+            width: 350px;
+            height: 200px;
+            padding: 20px 0px;
+            margin: 10px 0px;
+            flex-direction: column;
             justify-content: center;
 
         }
 
-        .coupon input {
-            width: 230px;
-            height: 40px;
-            border: 1px solid #F2DE79;
-            border-radius: 2px;
+        .product-orderlist {
+            width: 350px;
+            height: 200px;
+            padding: 20px 0px;
+            margin: 10px 0px;
+            flex-direction: column;
+            justify-content: center;
+
         }
 
-        .coupon button {
-            height: 40px;
-            margin: 0;
-            background-color: #F2DE79;
+        .img-product {
+            width: 100px;
+        }
+
+        .img-product img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+
+        .box-socks {
+            width: 300px;
+            align-items: center;
+            justify-content: space-between;
+            /* border: 1px solid rgb(124, 77, 30); */
+        }
+
+        .socks {
+            width: 300px;
+            align-items: center;
+            justify-content: space-between;
+            /* border: 1px solid rgb(124, 77, 30); */
+        }
+
+        .socks-nameNprice {
+            width: 180px;
+            align-items: center;
+            justify-content: space-between;
+            /* border: 1px solid steelblue; */
         }
 
         .total-price ul {
@@ -410,18 +493,11 @@
         }
 
         .line {
+            width: 95%;
             height: 1px;
             border-top: 2px solid #E2E2E2;
-            margin-bottom: 10px;
-        }
+            margin: 10px auto;
 
-        .btn-pay {
-            width: 300px;
-            height: 40px;
-            border: none;
-            background-color: #FF9685;
-            color: #ffffff;
-            margin: 0;
         }
     </style>
 </head>
@@ -496,23 +572,23 @@
                     <div class="order-ppl-info flex">
 
                         <div class="info flex">
-                            <p>訂購人姓名</p>
+                            <h4>訂購人姓名</h4>
                             <input type="text">
                         </div>
                         <div class="info flex">
-                            <p>電話</p>
+                            <h4>電話</h4>
                             <input type="text">
                         </div>
                         <div class="info flex">
-                            <p>E-mail</p>
+                            <h4>E-mail</h4>
                             <input type="text">
                         </div>
                         <div class="info flex">
-                            <p>郵遞區號</p>
+                            <h4>郵遞區號</h4>
                             <input type="text">
                         </div>
                         <div class="info flex">
-                            <p>地址</p>
+                            <h4>地址</h4>
                             <input type="text">
                         </div>
 
@@ -522,29 +598,29 @@
                         <h3>收件人資料填寫</h3>
                         <div class="same-bookppl flex">
                             <input type="checkbox">
-                            <h5>收件人同訂購人</h5>
+                            <h6>收件人同訂購人</h6>
                         </div>
                     </div>
                     <div class="pickup-ppl-info flex">
 
                         <div class="info flex">
-                            <p>收件人姓名</p>
+                            <h4>收件人姓名</h4>
                             <input type="text">
                         </div>
                         <div class="info flex">
-                            <p>電話</p>
+                            <h4>電話</h4>
                             <input type="text">
                         </div>
                         <div class="info flex">
-                            <p>E-mail</p>
+                            <h4>E-mail</h4>
                             <input type="text">
                         </div>
                         <div class="info flex">
-                            <p>郵遞區號</p>
+                            <h4>郵遞區號</h4>
                             <input type="text">
                         </div>
                         <div class="info flex">
-                            <p>地址</p>
+                            <h4>地址</h4>
                             <input type="text">
                         </div>
 
@@ -559,7 +635,7 @@
                     </div>
                     <div class="receipt-choose">
                         <h3>發票選擇</h3>
-                        <div>
+                        <div class="receipt-btns">
                             <button class="button active" href="#" id="paper">紙本發票</button>
                             <button class="button" href="#" id="elec">電子發票</button>
                             <button class="button " href="#" id="icloud">雲端載具</button>
@@ -567,32 +643,32 @@
                         </div>
                         <div class="peper-receipt flex show">
                             <div class="receipt flex">
-                                <input class="receipt-btn " name="receipt-btn" type="radio"  checked="checked"></input>
-                                <div class="">二聯式發票</div>
+                                <input class="receipt-btn " name="receipt-btn" type="radio" value="2"
+                                    checked>
+                                    <h5>二聯式發票</h5></input>
                             </div>
                             <div class="receipt flex">
-                                <input class="receipt-btn" name="receipt-btn" type="radio"></input>
-                                <div class="">三聯式發票</div>
+                                <input class="receipt-btn" name="receipt-btn" type="radio" value="3"><h5>三聯式發票</h5></input>
                             </div>
                             <div class="info flex">
-                                    <p>統一編號</p>
-                                    <input class="info-input" type="text">
-                                </div>
-                                <div class="info flex">
-                                    <p>公司抬頭名稱</p>
-                                    <input class="info-input" type="text">
-                                </div>
+                                <h5>統一編號</h5>
+                                <input class="info-input" type="text">
+                            </div>
+                            <div class="info flex">
+                                <h5>公司抬頭名稱</h5>
+                                <input class="info-input" type="text">
+                            </div>
                         </div>
                         <div class="cloud-receipt">
                             <div class="info flex">
-                                <p>載具手機條碼</p>
+                                <h5>載具手機條碼</h5>
                                 <input class="info-input" type="text">
                             </div>
                         </div>
                         <div class="donate-receipt flex">
                             <div class="receipt flex">
-                                <input class="receipt-btn " name="receipt-btn" type="radio" checked="checked"></input>
-                                <div class="">捐贈至心路基金會</div>
+                                <input class="receipt-btn " name="receipt-btn" type="radio"></input>
+                                <h5>捐贈至心路基金會</h5>
                             </div>
                         </div>
                     </div>
@@ -609,26 +685,62 @@
                 </div>
                 <div class="return-detail">
                     <h3>退/換貨與退款資訊</h3>
-                    <p>退/換貨與退款 
+                    <p>
                         <br>
                         ・襪子屬個人貼身用品，如拆封襪子吊牌，將不適用七天鑑賞期。
                         <br>
-                        ・如需退/換貨或退款，請務必保留完整包裝，並在收到商品後七天內mail至     
-                           nihow@10moresocks.com。
-                           <br>
+                        <br>
+                        ・如需退/換貨或退款，請務必保留完整包裝，並在收到商品後七天內mail至
+                        nihow@10moresocks.com。
+                        <br>
+                        <br>
                         ・可退/換貨之狀況：商品內容或數量有誤、商品瑕疵（需提供清晰照片）。
                         <br>
-                        ・不可退/換貨之狀況：尺寸不合、商品與想像不符等。   </p>
+                        <br>
+                        ・不可退/換貨之狀況：尺寸不合、商品與想像不符等。 </p>
                 </div>
             </div>
             <div class="block-right ">
                 <div class="block-fixed flex">
 
-                    <div class="total-price-frame flex">
+                    <div class="orderd-list flex">
                         <h3>訂單資訊</h3>
-                        <div class="box-detail">
-                            <!-- <img src="images/watzbox01.png" alt=""> -->
-                            <div class="box-detail"></div>
+                        <div class="list-scroll">
+                            <div class="box-info flex">
+                                <img class="box-img" src="images/watzbox1-2.png" alt="">
+                                <div class="box-detail flex">
+                                    <div class="box-title">芒果派對</div>
+                                    <div class="box-detail">
+                                        <div class="box-type">包裝禮盒</div>
+                                        <div class="box-socks-amount">3入裝</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-product-orderlist flex">
+                                <h4>禮盒內容</h4>
+                                <div class="box-socks flex">
+                                    <div class="img-product">
+                                        <img src="img-product/yellowline-01.jpg" alt="">
+                                    </div>
+                                    <div class="socks-nameNprice flex">
+                                        <h5 class="socks-title">偶速襪子</h5>
+                                        <h5 class="socks-price">NT $180</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="product-orderlist flex">
+                                <h4>單購襪子</h4>
+                                <div class="socks flex">
+                                    <div class="img-product">
+                                        <img src="img-product/yellowline-01.jpg" alt="">
+                                    </div>
+                                    <div class="socks-nameNprice flex">
+                                        <h5 class="socks-title">偶速襪子</h5>
+                                        <h5 class="socks-price">NT $180</h5>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="total-price flex">
                             <ul>
@@ -651,7 +763,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <button class="btn-pay">前往結帳</button>
+
                     </div>
                 </div>
             </div>
@@ -680,7 +792,7 @@
             $(this).addClass('active')
                 .siblings().removeClass('active');
         });
-       
+
 
         $("#paper").click(function () {
             $(".peper-receipt").addClass('show')
@@ -699,8 +811,13 @@
                 .siblings().removeClass('show');
         });
 
-        let result = "";
-        $('input:checkbox:checked[name="receipt-btn"]').val();
+        // $(".receipt-btns button").click(function(){
+        //    let btnIndex=$(this).index();
+        //     console.log(btnIndex)
+        // })
+
+        // let result = "";
+        // $('input:checkbox:checked[name="receipt-btn"]').val();
     </script>
 </body>
 
