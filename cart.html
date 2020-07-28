@@ -7,60 +7,50 @@
     <title>cart</title>
     <link rel="stylesheet" href="css/nav.css">
     <style>
+        body {
+            background-size: cover;
+            background-image: url(images/BG3.svg);
+            background-repeat: repeat-y;
+        }
+
         .container {
-            width: 100vw;
-            overflow: hidden;
-            position: relative;
-            min-height: 100vh;
+            overflow: none;
         }
 
         .nav {
             position: fixed;
-
         }
 
         .wrapper {
             width: 1200px;
-            height: 200vh;
-            padding-top: 140px;
-            overflow: hidden;
             /* border: 1px solid palevioletred; */
             justify-content: space-between;
-
-
+            margin-top: 120px;
         }
 
         .block-left {
             width: 800px;
-            height: 200vh;
             /* border: 1px solid blue; */
-
-
         }
 
         .block-right {
             width: 350px;
-            height: 100vh;
-
-
-
         }
 
         .block-fixed {
             width: 350px;
-            height: 100vh;
             /* border: 1px solid rgb(22, 165, 110); */
-
             position: fixed;
             right: calc(50vw - 600px);
             flex-direction: column;
+            position: sticky;
+            top: 120px;
         }
 
         /* ------------------process------------------ */
 
         .buy-process {
             width: 800px;
-            height: 105px;
             background-color: #ffffff;
             border-radius: 15px;
             flex-direction: row;
@@ -77,28 +67,28 @@
             margin: 20px;
             align-items: center;
             justify-content: space-evenly;
-            padding: 10px;
-
         }
 
         .here {
             background-color: #F2DE79;
-
         }
 
         /* -----------choose box------------- */
 
         .box-watzbox {
             width: 800px;
-            height: 700px;
             background-color: #ffffff;
             border-radius: 15px;
             margin-top: 30px;
             flex-direction: column;
-            justify-content: flex-start;
-            padding: 40px 50px;
+            align-items: center;
             position: relative;
+        }
 
+        .box-watzbox-frame {
+            width: 700px;
+            margin: 40px 0;
+            border: 1px solid pink;
         }
 
         .box-watzbox h3 {
@@ -111,17 +101,14 @@
         }
 
         .watzbox-choose {
-            /* border: 1px solid green; */
+            width: 700px;
             align-items: center;
-            justify-content: center;
-
+            justify-content: space-evenly;
         }
-
 
         .img-watzbox img {
             width: 200px;
-            margin: 10px;
-            opacity: .6;
+            opacity: .3;
         }
 
         .img-watzbox.choose img {
@@ -129,6 +116,8 @@
         }
 
         .button {
+            width: 70px;
+            height: 35px;
             border: 1px solid #F2DE79;
             border-radius: 2px;
             background-color: #ffffff;
@@ -136,7 +125,7 @@
             color: #707070;
             outline: none;
             text-align: center;
-            padding: 10px 20px;
+            cursor: pointer;
         }
 
         .button.active {
@@ -144,20 +133,12 @@
             background-color: #F2DE79;
         }
 
-        /* .button:focus{
-            width: 70px;
-            height: 40px;
-            border-radius: 2px;
-            background-color: #F2DE79; 
-            border: transparent;
-        } */
         .step3 {
             width: 600px;
-            height: 120px;
             opacity: 1;
-            align-items: flex-end;
+            align-items: center;
             position: absolute;
-            bottom: -70px;
+            bottom: -90px;
         }
 
         .step3 img {
@@ -176,31 +157,40 @@
 
         .box-product {
             width: 800px;
-            height: 515px;
             background-color: #ffffff;
             border-radius: 15px;
             margin-top: 30px;
-            padding: 40px 50px;
             flex-direction: column;
             align-items: center;
-            justify-content: start;
+        }
 
+        .box-product-frame {
+            width: 800px;
+            /* border: 1px solid pink; */
+            margin: 40px 0;
         }
 
         .eachsock-list {
-            width: 750px;
+            width: 800px;
             align-items: center;
-            justify-content: space-around;
+            justify-content: space-evenly;
             /* border: 1px solid yellow; */
         }
 
-        .box-product .line {
-            width: 700px;
-            border-top: 2px solid #E2E2E2;
+        .add-box {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            color: #F2DE79;
+            font-weight: 600;
+            border: 2px solid #F2DE79;
+            cursor: pointer;
+
         }
 
-        .box-product span {
-            font-size: 20px;
+        .box-product .line {
+            width: 680px;
+            border-top: 2px solid #E2E2E2;
         }
 
         .img-socks {
@@ -211,34 +201,30 @@
         .img-socks img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: fill;
 
         }
 
         .product-detail {
             width: 500px;
-            height: 150px;
+            height: 130px;
             /* border: 1px solid paleturquoise; */
+            justify-content: space-between;
         }
 
         .sock-name {
-            width: 100px;
-            height: 150px;
+            width: 120px;
             flex-direction: column;
             justify-content: space-between;
-            padding: 20px 0;
             /* border: 1px solid brown; */
 
         }
 
         .socks-amount-choose {
-            width: 450px;
-            height: 150px;
-            padding: 20px 0;
+            width: 400px;
             align-items: flex-end;
             justify-content: space-around;
             /* border: 1px solid rgb(56, 197, 240); */
-
         }
 
         .quantity-choose {
@@ -254,7 +240,7 @@
         .minus,
         .plus {
             width: 30px;
-            height: 30px;
+            height: 25px;
             border-radius: 4px;
             text-align: center;
             cursor: pointer;
@@ -275,24 +261,27 @@
             width: 20px;
             height: 20px;
             background: url(images/remove.svg);
+            cursor: pointer;
         }
 
         /* --------------right fix part------------- */
         /* --------------box-shipping------------- */
-        .block-fixed {}
-
         .box-shipping {
             width: 350px;
-            height: 180px;
             background-color: #ffffff;
             border-radius: 15px;
-            padding: 20px 50px;
             /* border: 1px solid royalblue; */
             flex-direction: column;
             align-items: flex-start;
             justify-content: space-between;
             margin-bottom: 30px;
 
+        }
+
+        .box-shipping-frame {
+            width: 300px;
+            margin: 20px 30px;
+            flex-direction: column;
         }
 
         .box-shipping h3 {
@@ -305,24 +294,38 @@
 
         }
 
-        /* --------------total-price------------- */
-
-        .total-price-frame {
-            width: 350px;
-            height: 400px;
-            background-color: #ffffff;
-            border-radius: 15px;
-            padding: 20px 50px;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: space-between;
-
-
-
+        .shipping-btn {
+            align-items: center;
         }
 
-        .total-price-frame h3 {
+        .conv-store {
+            width: 100px;
+        }
+
+        /* --------------total-price------------- */
+        .total-price {
+            width: 350px;
+            width: 350px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .total-price-frame {
+            width: 300px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .total-price h3 {
             color: #03588C;
+            margin: 30px;
+            align-self: start;: flex-start;
 
         }
 
@@ -356,9 +359,11 @@
         }
 
         .total-price ul {
-            width: 250px;
+            width: 300px;
+            margin: 30px;
             /* border: 1px solid orange; */
             justify-content: space-between;
+            
         }
 
         .total-price ul li {
@@ -378,12 +383,16 @@
             border: none;
             background-color: #FF9685;
             color: #ffffff;
-            margin: 0;
+            margin-bottom: 30px;
             outline: none;
+            cursor: pointer;
         }
 
         .btn-pay:hover {
             background-color: #0388A6;
+        }
+        footer{
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -454,58 +463,63 @@
                     </li>
                 </ul>
                 <div class="box-watzbox flex">
-                    <div class="flex">
-                        <span></span>
-                        <h3>客製你的WATZ box</h3>
-                    </div>
-                    <h4>Step1 想要什麼包裝呢?</h4>
-                    <ul class="watzbox-choose flex" id="">
-                        <li class="img-watzbox choose">
-                            <img src="images/watzbox01.png" alt="">
+                    <div class="box-watzbox-frame">
+                        <div class="flex">
+                            <span></span>
+                            <h3>客製你的WATZ box</h3>
+                        </div>
+                        <h4>Step1 想要什麼包裝呢?</h4>
+                        <ul class="watzbox-choose flex" id="">
+                            <li class="img-watzbox choose">
+                                <img src="images/watzbox1-2.png" alt="">
 
-                        </li>
-                        <li class="img-watzbox 02"><img src="images/watzbox03.png" alt=""></li>
-                        <li class="img-watzbox 03"><img src="images/watzbox05.png" alt=""></li>
-                    </ul>
-                    <h4>Step2 想放幾雙襪子呢?</h4>
-                    <div class="pair-choose">
-                        <button id="pair-choose3" class="button active" type="button" href="#jdhfkj">3雙</button>
-                        <button id="pair-choose6" class="button" href="#">6雙</button>
-                        <button id="pair-choose8" class="button" href="#">8雙</button>
-                    </div>
-                    <div class="step3 flex" id="step3">
-                        <img src="images/dotted line.svg" alt="">
-                        <h4>Step3 請勾選3雙襪子到你的包裝盒裡</h4>
+                            </li>
+                            <li class="img-watzbox 02"><img src="images/watzbox2-2.png" alt=""></li>
+                            <li class="img-watzbox 03"><img src="images/watzbox3-2.png" alt=""></li>
+                        </ul>
+                        <h4>Step2 想放幾雙襪子呢?</h4>
+                        <div class="pair-choose">
+                            <button id="pair-choose3" class="button active" type="button" href="#jdhfkj">3雙</button>
+                            <button id="pair-choose6" class="button" href="#">6雙</button>
+                            <button id="pair-choose8" class="button" href="#">8雙</button>
+                        </div>
+                        <div class="step3 flex" id="step3">
+                            <img src="images/dotted-line.svg" alt="">
+                            <h4>Step3 請勾選3雙襪子到您的包裝盒裡</h4>
+                        </div>
                     </div>
                 </div>
                 <div class="box-product flex">
-                    <div class="eachsock-list flex ">
-                        <div class="add-box">
-                            <span>+</span>
-                        </div>
-                        <div class="img-socks"><img src="img-product/animal-01.jpg" alt=""></div>
-                        <div class="product-detail flex">
-                            <div class="sock-name flex">
-                                <h4>偶素襪子</h4>
-                                <div>
-                                    <h6>中長襪</h6>
-                                    <h6>22-25cm</h6>
-                                    <h6>材質:100%純棉</h6>
+                    <div class="box-product-frame">
+                        <div class="eachsock-list flex ">
+                            <div class="add-box">
+                                <span>+</span>
+                            </div>
+                            <div class="img-socks"><img src="/images/product/yellowline-01.jpg" alt=""></div>
+                            <div class="product-detail flex">
+                                <div class="sock-name flex">
+                                    <h4>偶素襪子</h4>
+                                    <div>
+                                        <h6>中長襪</h6>
+                                        <h6>22-25cm</h6>
+                                        <h6>材質:100%純棉</h6>
+                                    </div>
+                                </div>
+                                <div class="socks-amount-choose flex">
+                                    <div class="quantity-choose flex">
+                                        <span class="minus">-</span>
+                                        <input class="quantity-input" type="text" value="1" />
+                                        <span class="plus">+</span>
+                                    </div>
+                                    <div class="price">
+                                        <h4>NT $180</h4>
+                                    </div>
+                                    <div class="remove">
+                                        <span>X</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="socks-amount-choose flex">
-                                <div class="quantity-choose flex">
-                                    <span class="minus">-</span>
-                                    <input class="quantity-input" type="text" value="1" />
-                                    <span class="plus">+</span>
-                                </div>
-                                <div class="price">
-                                    <h4>NT $180</h4>
-                                </div>
-                                <div class="remove">
-                                    <span></span>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                     <div class="line"></div>
@@ -514,42 +528,46 @@
             <div class="block-right ">
                 <div class="block-fixed flex">
                     <div class="box-shipping flex">
-                        <h3>寄送方式</h3>
-                        <div>
-                            <button class="button active" href="#">宅配</button>
-                            <button class="button" href="#">超商取貨</button>
+                        <div class="box-shipping-frame flex">
+                            <h3>寄送方式</h3>
+                            <div class="shipping-btn flex">
+                                <button class="button active" href="#">宅配</button>
+                                <button class="button conv-store" href="#">超商取貨</button>
+                            </div>
+                            <p>只差60元即享1000元免運！</p>
                         </div>
-                        <p>只差60元即享1000元免運！</p>
-
                     </div>
-                    <div class="total-price-frame flex">
+                    <div class="total-price flex">
                         <h3>結帳金額</h3>
-                        <div class="coupon flex">
-                            <input type="text" placeholder="輸入折扣代碼">
-                            <button class="button">兌換</button>
+                        <div class="total-price-frame flex">
+                            
+                            <div class="coupon flex">
+                                <input type="text" placeholder="輸入折扣代碼">
+                                <button class="button">兌換</button>
+                            </div>
+                            <div class="total-price-detail flex">
+                                <ul>
+                                    <li class="flex">
+                                        <p>商品總計</p>
+                                        <p>900</p>
+                                    </li>
+                                    <li class="flex">
+                                        <p>運費</p>
+                                        <p>60</p>
+                                    </li>
+                                    <li class="flex">
+                                        <p>折扣</p>
+                                        <p>-20</p>
+                                    </li>
+                                    <div class="line"></div>
+                                    <li class="flex">
+                                        <h4>結帳金額</h4>
+                                        <h4>940 元</h4>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button class="btn-pay">前往結帳</button>
                         </div>
-                        <div class="total-price flex">
-                            <ul>
-                                <li class="flex">
-                                    <p>商品總計</p>
-                                    <p>900</p>
-                                </li>
-                                <li class="flex">
-                                    <p>運費</p>
-                                    <p>60</p>
-                                </li>
-                                <li class="flex">
-                                    <p>折扣</p>
-                                    <p>-20</p>
-                                </li>
-                                <div class="line"></div>
-                                <li class="flex">
-                                    <h4>結帳金額</h4>
-                                    <h4>940 元</h4>
-                                </li>
-                            </ul>
-                        </div>
-                        <button class="btn-pay">前往結帳</button>
                     </div>
                 </div>
             </div>
