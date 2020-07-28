@@ -12,14 +12,13 @@
     <style>
         body {
             width: 100vw;
-            background-image: url(images/BG3.svg);
+            background-image: url(images/BG2.svg);
             background-repeat: no-repeat;
             background-size: cover;
         }
-        
+
         .wrapper {
             height: 100vh;
-            /* border: 1px solid red; */
             align-items: center;
             justify-content: center;
         }
@@ -27,7 +26,6 @@
         .membercard {
             width: 680px;
             height: 460px;
-            /* border: 2px solid red; */
             position: relative;
         }
 
@@ -46,6 +44,12 @@
             position: absolute;
             top: 20%;
             left: 8%;
+            overflow: hidden;
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
         }
 
         .membercard ul li {
@@ -67,19 +71,19 @@
 
         .title {
             margin-right: 20px;
-
         }
 
         .selector {
             width: 120px;
             flex-direction: column;
-            /* border: 1px solid red; */
-            margin-right: 10%;
+            margin-right: 20%;
         }
-        .box{
+
+        .box {
             width: 120px;
             height: 70px;
         }
+
         .selector a {
             padding: 10px;
             margin-bottom: 10px;
@@ -87,10 +91,15 @@
             transition: .2s;
 
         }
-        .selector a:hover{
-            border-bottom: 4px solid #FF9685 ;
+
+        .selector a:hover {
+            border-bottom: 4px solid #FF9685;
         }
-        
+
+        .member-info {
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -139,30 +148,30 @@
             </div>
         </nav>
         <div class="wrapper flex">
-                <div class="selector flex">
-                    <div class="box"><a href="">會員資料</a></div>
-                    <div class="box"><a href="">訂單紀錄</a></div>
-                    <div class="box"><a href="">會員條款</a></div>
-                    <div class="box"><a href="">隱私權政策</a></div>
-                </div>
-                <div class="membercard">
-                    <img src="images/user_card_before_1.svg" alt="">
-                    <div class="flex">
-                        <div class="member-photo">
-                            <img src="" alt="">
-                        </div>
-                        <ul>
-                            <li class="form-name flex">
-                                <h5 class="title">姓名</h5>
-                                <h5>王小明</h5>
-                            </li>
+            <div class="selector flex">
+                <div class="box"><a href="">會員資料</a></div>
+                <div class="box"><a href="">訂單紀錄</a></div>
+                <div class="box"><a href="">會員條款</a></div>
+                <div class="box"><a href="">隱私權政策</a></div>
+            </div>
+            <div class="membercard">
+                <img src="images/user_card_before_1.svg" alt="">
+                <div class="member-info flex">
+                    <div class="member-photo">
+                        <img src="images/product/red square-01.jpg" alt="">
                     </div>
+                    <ul>
+                        <li class="form-name flex">
+                            <h5 class="title">姓名</h5>
+                            <h5>王小明</h5>
+                        </li>
                 </div>
                 <li></li>
                 <li></li>
                 <li></li>
                 <li></li>
                 </ul>
+            </div>
         </div>
     </div>
     <div class="btn-top flex transition" id="goTop">
