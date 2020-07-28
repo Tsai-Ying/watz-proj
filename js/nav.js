@@ -7,6 +7,7 @@ $(window).scroll(function () {
         $(".nav").addClass('hide-nav');
     }
 });
+// menu //
 
 $(".menu").click(function () {
     $(".menu").toggleClass('current');
@@ -24,6 +25,7 @@ $("#goTop").click(function () {
 });
 $(window).scroll(function () {
     let scrollTop = $(this).scrollTop();
+    // console.log(scrollTop)
     if (scrollTop < vh) {
         $("#goTop").css("opacity", "0")
     }

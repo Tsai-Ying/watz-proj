@@ -29,13 +29,14 @@
         .block-left {
             height: 90%;
             width: 50vw;
+            padding-left: 10vw;
             align-items: center;
             flex-direction: column;
         }
 
         .block-left li {
             position: relative;
-            width: 50vw;
+            width: 40vw;
             height: 20%;
             margin: 5px;
         }
@@ -68,7 +69,7 @@
             justify-content: center;
         }
 
-        .block-left li h5 {
+        .block-left li h4 {
             padding-left: 20px;
             width: 350px;
             font-weight: 400;
@@ -82,13 +83,14 @@
 
         .box-process.active .img-about-select{
             opacity: 1;
+            transform: rotate(60deg);
         }
 
         .box-process.active .img-process{
             opacity: 1;
         }
 
-        .box-process.active h5{
+        .box-process.active h4{
             color: #404040;
         }
 
@@ -109,7 +111,8 @@
         /* block-right */
 
         .block-right {
-            width: 30vw;
+            width: 40vw;
+            padding-right: 10vw;
             align-items: center;
             flex-direction: column;
         }
@@ -125,12 +128,13 @@
         }
 
         .block-right li {
-            width: 30vw;
+            width: 40vw;
             align-items: center;
             height: 12vh;
         }
 
-        .block-right .line {
+        .block-right .line,
+        .block2 .line {
             background: #E1DDDD;
             height: .5px;
             transform: rotate(-60deg);
@@ -166,10 +170,18 @@
 
         .block-right li.active .line{
             background: #404040;
+            width: 120px;
         }
 
         .block-right li.active h3{
             color: #404040;
+        }
+
+        /* block2 */
+
+        .block2 .line-aboutWATZ{
+            background: #404040;
+            width: 200px;
         }
 
     </style>
@@ -234,12 +246,12 @@
             <div class="block1-fixed flex position-sticky">       
                 <ul class="block-left flex">
                     <li class="">
-                        <div class="process1 box-process flex" id="process1">
+                        <div class="process1 box-process flex active" id="process1">
                             <div class="box-process-photo flex">
                                 <img class="img-about-select transition"  src="images/about-select.svg" alt="">
                                 <div class="img-process transition"><img src="images/process1.jpg" alt=""></div>
                             </div>
-                            <h5 class="transition">『社頭』一直以來是台灣最強揚名世界的棉襪產地，WATZ生產於在地經營60年老字號工廠。</h5>
+                            <h4 class="transition">『社頭』一直以來是台灣最強揚名世界的棉襪產地，WATZ生產於在地經營60年老字號工廠。</h4>
                         </div>
                     </li>
                     <li class="">
@@ -248,7 +260,7 @@
                                 <img class="img-about-select transition"  src="images/about-select.svg" alt="">
                                 <div class="img-process transition"><img src="images/process2.jpg" alt=""></div>
                             </div>
-                            <h5 class="transition">精細裁縫，不會產生足部的壓迫感，均勻的彈力編織，防滑且不易鬆脫。</h5>
+                            <h4 class="transition">精細裁縫，不會產生足部的壓迫感，均勻的彈力編織，防滑且不易鬆脫。</h4>
                         </div>
                     </li>
                     <li class="">
@@ -257,7 +269,7 @@
                                 <img class="img-about-select transition"  src="images/about-select.svg" alt="">
                                 <div class="img-process transition"><img src="images/process3.jpg" alt=""></div>
                             </div>
-                            <h5 class="transition">經過檢驗的紗線，不含偶氮染料，水洗不退色，歐盟OEKO-TEX無毒認證。</h5>
+                            <h4 class="transition">經過檢驗的紗線，不含偶氮染料，水洗不退色，歐盟OEKO-TEX無毒認證。</h4>
                         </div>
                     </li>
                     <li class="">
@@ -266,7 +278,7 @@
                                 <img class="img-about-select transition"  src="images/about-select.svg" alt="">
                                 <div class="img-process transition"><img src="images/process4.jpg" alt=""></div>
                             </div>
-                            <h5 class="transition">堅持使用有口碑的台灣機台製作，製作襪子的過程中，提升襪子品質。</h5>
+                            <h4 class="transition">堅持使用有口碑的台灣機台製作，製作襪子的過程中，提升襪子品質。</h4>
                         </div>
                     </li>
                     <li class="">
@@ -275,7 +287,7 @@
                                 <img class="img-about-select transition" src="images/about-select.svg" alt="">
                                 <div class="img-process transition"><img src="images/process5.jpg" alt=""></div>
                             </div>
-                            <h5 class="transition">所有產品皆使用天然及可回收材質，不過度包裝。</h5>
+                            <h4 class="transition">所有產品皆使用天然及可回收材質，不過度包裝。</h4>
                         </div>
                     </li>
                 </ul>
@@ -287,29 +299,32 @@
                         <img src="images/logo-z.svg" alt="">
                     </div>
                     <ul>
-                        <li class="flex" id="processText1">
-                            <div class="line line1"></div>
-                            <h3>台灣製造</h3>
+                        <li class="flex active" id="processText1">
+                            <div class="line line1 transition"></div>
+                            <h3 class="transition">台灣製造</h3>
                         </li>
                         <li class="flex" id="processText2">
-                            <div class="line line2"></div>
-                            <h3>織法</h3>
+                            <div class="line line2 transition"></div>
+                            <h3 class="transition">織法</h3>
                         </li>
                         <li class="flex" id="processText3">
-                            <div class="line line3"></div>
-                            <h3>無毒</h3>
+                            <div class="line line3 transition"></div>
+                            <h3 class="transition">無毒</h3>
                         </li>
                         <li class="flex" id="processText4">
-                            <div class="line line4"></div>
-                            <h3>質感</h3>
+                            <div class="line line4 transition"></div>
+                            <h3 class="transition">質感</h3>
                         </li>
                         <li class="flex" id="processText5">
-                            <div class="line line5"></div>
-                            <h3>環保</h3>
+                            <div class="line line5 transition"></div>
+                            <h3 class="transition">環保</h3>
                         </li>
                     </ul>
                 </div>
             </div>
+        </div>
+        <div class="block2">
+            <div class="line line-aboutWATZ"></div>
         </div>
         <!-- footer -->
         <footer class="flex">
@@ -333,38 +348,46 @@
     let scrollTop = $(this).scrollTop();
     if (scrollTop < vh) {
         $("#process1").addClass("active");
-        $("processText1").addClass("active");
+        $("#processText1").addClass("active");
     }
     else {
         $("#process1").removeClass("active");
+        $("#processText1").removeClass("active");
     }
 
     if (scrollTop > vh && scrollTop < 2*vh) {
         $("#process2").addClass("active");
+        $("#processText2").addClass("active");
     }
     else {
         $("#process2").removeClass("active");
+        $("#processText2").removeClass("active");
     }
 
     if (scrollTop > 2*vh && scrollTop < 3*vh) {
         $("#process3").addClass("active");
+        $("#processText3").addClass("active");
     }
     else {
         $("#process3").removeClass("active");
+        $("#processText3").removeClass("active");
     }
 
     if (scrollTop > 3*vh && scrollTop < 4*vh) {
         $("#process4").addClass("active");
+        $("#processText4").addClass("active");
     }
     else {
         $("#process4").removeClass("active");
+        $("#processText4").removeClass("active");
     }
 
     if (scrollTop > 4*vh && scrollTop < 5*vh) {
-        $("#process5").addClass("active");
+        $("#process5").addClass("active");$("#processText5").addClass("active");
     }
     else {
         $("#process5").removeClass("active");
+        $("#processText5").removeClass("active");
     }
 })
 </script>
