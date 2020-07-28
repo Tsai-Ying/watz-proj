@@ -142,7 +142,7 @@ a.icon-wrapper {
     margin: 20px 0;
     right: 3vw;
     position: fixed;
-    z-index: 10;
+    z-index: 20;
     box-shadow: 0px 3px 6px #70707050;
 }
 
@@ -402,6 +402,7 @@ a:hover .st0 {
 
 /* btn-top */
 .btn-top{
+    opacity: 0;
     height: 80px;
     width: 80px;
     flex-direction: column;
@@ -410,6 +411,7 @@ a:hover .st0 {
     position: fixed;
     right: 3vw;
     top: 70vh;
+    z-index: 20;
 }
 .btn-top .bg-btn-top{
     position: absolute;
