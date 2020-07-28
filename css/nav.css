@@ -402,6 +402,7 @@ a:hover .st0 {
 
 /* btn-top */
 .btn-top{
+    opacity: 0;
     height: 80px;
     width: 80px;
     flex-direction: column;
