@@ -13,7 +13,8 @@
 <style>
     .container {
         width: 100%;
-        min-height: 100vh;
+        /* min-height: 100vh; */
+        height: 100vh;
         position: relative;
         background-size: cover;
         background-image: url(images/BG2.svg);
@@ -71,6 +72,8 @@
     }
 
     footer {
+        position: absolute;
+        bottom: 0;
         z-index: 0;
     }
 
@@ -176,8 +179,8 @@
                 <img class="img-bling" src="images/bling.svg" alt="">
                 <img class="img-pattern-watz" src="images/pattern-watz.svg" alt="">
             </div>
-            <h2>恭喜完成專屬於你的WATZ襪子!</h2>
-            <div class="btn flex">
+            <h2 class="transition">恭喜完成專屬於你的WATZ襪子!</h2>
+            <div class="btn flex transition">
                 <button class="btn-blue">我還要修改</button>
                 <button class="btn-coral">加入購物車</button>
             </div>
