@@ -140,6 +140,7 @@
         background: #FCF2C1;
         border-radius: 15px;
         position: relative;
+        z-index: 2;
     }
 
     .socks-color {
@@ -157,7 +158,6 @@
         border: 2px dashed #F2DE79;
         position: absolute;
         top: 0;
-        /* z-index: 2; */
     }
 
     .pattern-with-shape {
@@ -176,7 +176,6 @@
         border: 2px dashed #F2DE79;
         position: absolute;
         top: 0;
-        /* z-index: 2; */
 
     }
 
@@ -194,14 +193,19 @@
         width: 49%;
         height: 16vh;
         border: 2px dashed #F2DE79;
-        /* z-index: 2; */
+    }
+
+    .dot-side {
+        width: 50px;
+        height: 100%;
+        border: 2px dashed #F2DE79;
+        position: absolute;
     }
 
     .btn-left,
     .btn-right {
         width: 49%;
         height: 16vh;
-        /* border: 1px solid red; */
         justify-content: center;
         align-items: center;
         cursor: pointer;
@@ -360,50 +364,113 @@
         height: 22vh;
         background: white;
         border-radius: 15px;
-        /* position: absolute; */
-        z-index: 2;
-        bottom: 0;
-        right: 0;
-    }
-
-    .dot-side {
-        width: 50px;
-        height: 100%;
-        border: 2px dashed #F2DE79;
-        /* z-index: 2; */
-    }
-
-    .side-title {
         position: absolute;
-        transform: rotate(270deg);
-        top: 90px;
-        left: -42px;
-    }
-
-    .side-title h2 {
-        color: #FF9685;
-        font-family: 'Fredoka One';
-        letter-spacing: 5px;
+        z-index: 0;
+        bottom: 310px;
+        right: 328px;
     }
 
     .shape-color-dots {
         width: 450px;
         height: 100%;
-        border: 1px solid red;
-        /* position: absolute; */
+        /* border: 1px solid red; */
+        position: absolute;
         top: 0;
         right: 0;
     }
 
-    .ul-flex {
-        width: 450px;
-        flex-wrap: wrap;
-        justify-content: space-between;
+    .sockscolor-dots#ul2 {
+        padding: 50px 50px 0 0;
+        margin: 10px 0 0 80px;
+    }
+
+    .sockscolor-dots#ul2 li {
+        margin-bottom: 15px;
+    }
+
+    .shape-color h3 {
+        color: #FF9685;
+        font-family: 'Fredoka One';
+        letter-spacing: 5px;
+        transform: rotate(270deg);
+        position: absolute;
+        top: 100px;
+        left: -25px;
         cursor: pointer;
     }
 
-    .ul-flex .color {
-        margin: 50px 10px 0 30px;
+    .color#b1 {
+        background: #03588C;
+    }
+
+    .color#b2 {
+        background: #F2DE79;
+    }
+
+    .color#b3 {
+        background: #0388A6;
+    }
+
+    .color#b3 {
+        background: #FF9685;
+    }
+
+    .color#b4 {
+        background: #AA9BDC;
+    }
+
+    .color#b5 {
+        background: #C24343;
+    }
+
+    .color#b6 {
+        background: #C2437A;
+    }
+
+    .color#b7 {
+        background: #337A3A;
+    }
+
+    .color#b8 {
+        background: #F88C00;
+    }
+
+    .color#b9 {
+        background: #0388A6;
+    }
+
+    .color#b10 {
+        background: #E5B48E;
+    }
+
+    .block-black {
+        width: 100vw;
+        height: calc(100vh + 220px);
+        background: black;
+        opacity: .6;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .tutorial#tutor2 {
+        position: absolute;
+        top: calc(100vh + 1px);
+        right: 323px;
+        z-index: 3;
+    }
+    .img-btn-closebg img {
+        width: 70px;
+    }
+
+    .img-btn-closebg {
+        position: absolute;
+    }
+
+    .img-btn-closebg div {
+        font-size: 60px;
+        transform: rotate(45deg);
+        font-weight: 900;
+        margin: -75px 0 0 17.5px;
     }
 
     footer {
@@ -574,98 +641,62 @@
                                 <button class="btn-coral btn-finish">Finish</button>
                             </div>
                         </div>
-                        <!-- <div class="shape-color">
-                            <div class="dot-side"></div>
-                            <div class="side-title">
-                                <h2>COLOR</h2>
-                            </div>
-                            <div class="shape-color-dots">
-                                <ul class="ul-flex flex">
-                                    <li>
-                                        <div class="color" id="b1"></div>
-                                    </li>
-                                    <li>
-                                        <div class="color" id="b2"></div>
-                                    </li>
-                                    <li>
-                                        <div class="color" id="b3"></div>
-                                    </li>
-                                    <li>
-                                        <div class="color" id="b4"></div>
-                                    </li>
-                                    <li>
-                                        <div class="color" id="b5"></div>
-                                    </li>
-                                    <li>
-                                        <div class="color" id="b6"></div>
-                                    </li>
-                                    <li>
-                                        <div class="color" id="b7"></div>
-                                    </li>
-                                    <li>
-                                        <div class="color" id="b8"></div>
-                                    </li>
-                                    <li>
-                                        <div class="color" id="b9"></div>
-                                    </li>
-                                    <li>
-                                        <div class="color" id="b10"></div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div> -->
-                        <div class="box-right">
-                            <div class="socks-color flex">
-                                <div class="dot1"></div>
-                                <h3>Socks Color</h3>
-                                <ul class="sockscolor-dots flex">
-                                    <li>
-                                        <img class="transition img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a1"></div>
-                                    </li>
-                                    <li>
-                                        <img class="transition img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a2"></div>
-                                    </li>
-                                    <li>
-                                        <img class="transition img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a3"></div>
-                                    </li>
-                                    <li>
-                                        <img class="transition img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a4"></div>
-                                    </li>
-                                    <li>
-                                        <img class="transition img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a5"></div>
-                                    </li>
-                                    <li>
-                                        <img class="transition img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a6"></div>
-                                    </li>
-                                    <li>
-                                        <img class="transition img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a7"></div>
-                                    </li>
-                                    <li>
-                                        <img class="transition img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a8"></div>
-                                    </li>
-                                    <li>
-                                        <img class="transition img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a9"></div>
-                                    </li>
-                                    <li>
-                                        <img class="transition img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a10"></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                    </div>
+                </div>
+                <div class="shape-color flex">
+                    <div class="dot-side"></div>
+                    <h3>COLOR</h3>
+                    <ul class="sockscolor-dots flex" id="ul2">
+                        <li>
+                            <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                            <div class="color" id="b1"></div>
+                        </li>
+                        <li>
+                            <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                            <div class="color" id="b2"></div>
+                        </li>
+                        <li>
+                            <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                            <div class="color" id="b3"></div>
+                        </li>
+                        <li>
+                            <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                            <div class="color" id="b4"></div>
+                        </li>
+                        <li>
+                            <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                            <div class="color" id="b5"></div>
+                        </li>
+                        <li>
+                            <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                            <div class="color" id="b6"></div>
+                        </li>
+                        <li>
+                            <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                            <div class="color" id="b7"></div>
+                        </li>
+                        <li>
+                            <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                            <div class="color" id="b8"></div>
+                        </li>
+                        <li>
+                            <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                            <div class="color" id="b9"></div>
+                        </li>
+                        <li>
+                            <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                            <div class="color" id="b10"></div>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="block-bottom-black"></div>
+        </div>
+        <div class="block-black"></div>
+        <div class="tutorial transition" id="tutor2">
+            <div class="img-btn-closebg">
+                <img src="images/btn-closebg.svg" alt="">
+                <div>+</div>
+            </div>
         </div>
         <!------------------------------- footer ------------------------------->
         <footer class="flex">
