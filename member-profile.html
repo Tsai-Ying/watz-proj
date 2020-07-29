@@ -22,11 +22,15 @@
             align-items: center;
             justify-content: center;
         }
-
+        .bg-membercard{
+            flex-direction: column;
+            align-items: flex-end;
+        }
         .membercard {
             width: 680px;
             height: 460px;
             position: relative;
+            margin-bottom: 20px;
         }
 
         .membercard img {
@@ -36,15 +40,28 @@
 
         }
 
+        .member-info {
+            justify-content: center;
+            margin-top: 10%;
+        }
+
+        .bg-photo {
+            width: 190px;
+            height: 350px;
+
+            z-index: 2;
+            align-items: center;
+            justify-content: center;
+        }
+
         .member-photo {
-            width: 185px;
-            height: 185px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             background: darkcyan;
             position: absolute;
-            top: 20%;
-            left: 8%;
             overflow: hidden;
+
         }
 
         .member-photo img {
@@ -52,14 +69,27 @@
             height: 100%;
         }
 
+        .bg-form {
+            width: 400px;
+            height: 350px;
+
+            z-index: 1;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .membercard ul li {
-            position: absolute;
+
+            align-items: center;
+            /* position: absolute; */
         }
 
         .membercard ul li h5 {
             font-weight: 400;
             letter-spacing: 3px;
             color: #707070;
+            margin-left: 20px;
         }
 
         .form-name {
@@ -67,21 +97,31 @@
             width: 336px;
             height: 56px;
             border-radius: 26px;
+            align-items: center;
+            margin-left: 10px;
         }
 
-        .title {
-            margin-right: 20px;
+        .form-item {
+            width: 336px;
+            height: 56px;
+            border-radius: 26px;
+            /* align-items: center; */
+            margin-left: 10px;
+
         }
 
         .selector {
             width: 120px;
             flex-direction: column;
+            justify-content:flex-start ;
             margin-right: 20%;
         }
 
         .box {
             width: 120px;
             height: 70px;
+            justify-content:flex-start ;
+
         }
 
         .selector a {
@@ -96,9 +136,22 @@
             border-bottom: 4px solid #FF9685;
         }
 
-        .member-info {
-            justify-content: center;
-            align-items: center;
+        .btn-blue {
+            height: 45px;
+            background: #03588C;
+            border: 0;
+            border-radius: 2px;
+            color: white;
+            font-family: 'Noto Sans TC', sans-serif;
+            letter-spacing: 2px;
+            outline: none;
+            cursor: pointer;
+            transition: .4s;
+
+        }
+
+        .adress {
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -154,24 +207,42 @@
                 <div class="box"><a href="">會員條款</a></div>
                 <div class="box"><a href="">隱私權政策</a></div>
             </div>
-            <div class="membercard">
-                <img src="images/user_card_before_1.svg" alt="">
-                <div class="member-info flex">
-                    <div class="member-photo">
-                        <img src="images/product/red square-01.jpg" alt="">
+            <div class="bg-membercard flex">
+                <div class="membercard">
+                    <img src="images/user_card_before_1.svg" alt="">
+                    <div class="member-info flex">
+                        <div class="bg-photo flex">
+                            <div class="member-photo flex">
+                                <img src="images/product/red square-01.jpg" alt="">
+                            </div>
+                        </div>
+                        <ul class="bg-form flex">
+                            <li class="form-name flex">
+                                <h5 class="title">姓名</h5>
+                                <h5>王小明</h5>
+                            </li>
+                            <li class="form-item flex">
+                                <h5>電話</h5>
+                                <h5>0912345678</h5>
+                            </li>
+                            <li class="form-item flex">
+                                <h5>信箱</h5>
+                                <h5>text@text.com</h5>
+                            </li>
+                            <li class="form-item flex">
+                                <h5 class="adress">地址</h5>
+                                <h5>106台北市大安區復興南路一段390號2樓</h5>
+                            </li>
+                            <li class="form-item flex">
+                                <h5>密碼</h5>
+                                <h5>**********</h5>
+                            </li>
+                        </ul>
                     </div>
-                    <ul>
-                        <li class="form-name flex">
-                            <h5 class="title">姓名</h5>
-                            <h5>王小明</h5>
-                        </li>
                 </div>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                </ul>
+                <div class="flex"><button class="btn-blue">修改會員資料</button></div>
             </div>
+
         </div>
     </div>
     <div class="btn-top flex transition" id="goTop">
