@@ -78,6 +78,45 @@ p {
     cursor: default;
 }
 
+@media screen and (max-width: 992px){
+    h1 {
+        margin: 0;
+        color: #404040;
+        font-size: 2rem;
+        cursor: default;
+    
+    }
+    
+    h2 {
+        margin: 0;
+        color: #404040;
+        font-size: 1.4rem;
+        cursor: default;
+    }
+    
+    h3 {
+        margin: 0;
+        color: #404040;
+        font-size: 1.1rem;
+        cursor: default;
+    
+    }
+    
+    h4 {
+        margin: 0;
+        color: #404040;
+        font-size: 1rem;
+        cursor: default;
+    }
+
+    p {
+        color: #404040;
+        margin: 0;
+        font-size: .9rem;
+        cursor: default;
+    }
+}
+
 .transition {
     transition: .4s;
 }
@@ -86,7 +125,7 @@ p {
     display: flex;
 }
 
-.block-fixed .btn-coral {
+.btn-coral {
     height: 45px;
     background: #FF9685;
     border: 0;
@@ -96,10 +135,28 @@ p {
     letter-spacing: 2px;
     outline: none;
     cursor: pointer;
+    transition: .4s;
 }
 
-.block-fixed .btn-coral:hover {
+.btn-coral:hover {
     background: #0388A6;
+}
+
+.btn-blue {
+    height: 45px;
+    background: #03588C;
+    border: 0;
+    border-radius: 2px;
+    color: white;
+    font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: 2px;
+    outline: none;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.btn-coral:hover {
+    background: #FF9685;
 }
 
 
