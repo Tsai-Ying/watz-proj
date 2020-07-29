@@ -135,10 +135,28 @@ p {
     letter-spacing: 2px;
     outline: none;
     cursor: pointer;
+    transition: .4s;
 }
 
 .btn-coral:hover {
     background: #0388A6;
+}
+
+.btn-blue {
+    height: 45px;
+    background: #03588C;
+    border: 0;
+    border-radius: 2px;
+    color: white;
+    font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: 2px;
+    outline: none;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.btn-coral:hover {
+    background: #FF9685;
 }
 
 
