@@ -44,26 +44,27 @@
 
         /* -------------區塊二------------- */
         .block2 {
-            height: 100vh;
             width: 100vw;
+            height: 56vw;
             position: relative;
         }
 
         .slideWrapper {
             width: 100vw;
-            height: 100vh;
+            height: 56vw;
             overflow: hidden;
             position: relative;
         }
 
         .slideImages {
             left: 0;
-            transition: 1s;
+            transition: 2s;
             position: absolute;
         }
 
         .slideImages li {
             width: 100vw;
+            height: 56vw;
         }
 
         .slideImages img {
@@ -72,57 +73,24 @@
             object-fit: cover;
         }
 
-        .slideDots {
-            justify-content: center;
-            flex-direction: column;
-            align-self: flex-start;
-        }
-
-        .slideDots li {
-            width: 15px;
-            height: 15px;
-            background: #929D6A;
-            border-radius: 50%;
-            margin: 5px 5px;
-        }
-
-        .slideDots li:hover,
-        .slideDots li.current {
-            background: #D08254;
-        }
-
-        .arrow-btn {
-            top: 0;
-            bottom: 0;
-            width: 48px;
-            opacity: .6;
-            cursor: pointer;
+        .slideDots{
+            height: 20px;
+            width: 100%;
+            bottom: 10px;
             position: absolute;
+            left: 0;
             justify-content: center;
             align-items: center;
-            color: #fff;
         }
-
-        .arrow-btn:hover {
-            opacity: 1;
-            color: #D08254;
+        .slideDots li{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 1px solid #fff;
+            margin: 0 5px;
         }
-
-        .arrow-btn img{
-            position: absolute;
-
-        }
-
-        /* .arrow-btn img{
-            width: 100px;
-        } */
-
-        .arrow-left {
-            left: 0;
-        }
-
-        .arrow-right {
-            right: 0;
+        .slideDots li:hover, .slideDots li.active{
+            background: #fff;
         }
 
         /* -------------區塊三------------- */
@@ -279,23 +247,12 @@
             </div>
         </div>
         <!---區塊二：slider---->
-        <div class="block2" id="blockPhoto">
+        <div class="block2 flex" id="blockPhoto">
             <div class="slideWrapper">
                 <ul id="slideImages" class="slideImages flex"></ul>
-                <a id="goNext" class="arrow-btn arrow-right flex transition">
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a id="goPrev" class="arrow-btn arrow-left flex transition">
-                    <i class="fas fa-arrow-left"></i>
-                </a>
             </div>
             <ul id="slideDots" class="slideDots flex"></ul>
-            <div id="goNext" class="arrow-btn arrow-right flex transition">
-                <img src="images/arrow-right.svg" alt="">
-            </div>
-            <div id="goPrev" class="arrow-btn arrow-left flex transition">
-                <img src="images/arrow-left.svg" alt="">
-            </div>
+            
         </div>
 
         <!---區塊三：禮盒---->
@@ -372,7 +329,7 @@
 
     //  slider
 
-    let slideImages = ["index-slider1.png", "index-slider2.png", "index-slider3.png", "index-slider4.png", "index-slider5.png", "index-slider6.png"]
+    let slideImages = ["index-slider1.png", "index-slider2.png", "index-slider3.png", "index-slider4.jpeg", "index-slider5.png", "index-slider6.png"]
     let slideIndex = 0;
     let slideCount = slideImages.length;
     let slideWidth = $(".slideWrapper").width();
@@ -381,6 +338,8 @@
         $("#slideImages").append(`<a href=""><li><img src="images/${slideImages[i]}" alt=""></li></a>`)
         $("#slideDots").append(`<li></li>`)
     }
+
+    $("#slideDots li").eq(0).addClass("active")
 
     $(window).resize(function () {
         slideCount = slideImages.length;
@@ -414,8 +373,8 @@
         }
         $("#slideImages").css("left", 0 - slideIndex * slideWidth)
 
-        $("#slideDots li").eq(slideIndex).addClass("current")
-            .siblings().removeClass("current")
+        $("#slideDots li").eq(slideIndex).addClass("active")
+        .siblings().removeClass("active")
     }
 </script>
 
