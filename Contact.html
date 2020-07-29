@@ -9,6 +9,30 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
+        <style>
+            .block-top{
+                width: 800px;
+                margin-top: 240px;
+            }
+            .qa-title-list{
+                justify-content:space-evenly;
+            }
+            .block1{
+                width:800px;
+                background: #fff;
+                border-radius: 30px;
+            }
+            .qa-content{
+                width:650px ;
+            }
+            .quest{
+                justify-content: space-between;
+            }
+            .quest img{
+                height:16px;
+            }
+
+        </style>
 </head>
 
 <body>
@@ -58,18 +82,20 @@
         </nav>
         <div class="block-top">
             <h3>常見問題集</h3>
-            <ul>
+            <ul class="qa-title-list flex">
                 <li><h5>會員條款</h5></li>
                 <li><h5>購物 / 配送</h5></li>
                 <li><h5>退換貨 / 退款</h5></li>
                 <li><h5>其他常見問題</h5></li>
             </ul>
             <div class="block1">
-                <div class="qa-title">
+                <div class="qa-title-inblock">
+                    <h3>會員條款</h3>
+                </div>
                     <ul>
-                        <li>
-                            <div class="quest">
-                                <h6>如何成為會員？</h6>
+                        <li class="qa-content">
+                            <div class="quest flex">
+                                <h5>如何成為會員？</h5><img src="images/arrow-down.svg" alt="">
                             </div>
                             <div class="ans">
                                 <h6>首次購買請先以個人Email註冊帳號，確認後即寄出驗證信，驗證無誤後即享有一張9折優惠券！</h6>
@@ -78,7 +104,7 @@
                         <li></li>
                         <li></li>
                     </ul>
-                </div>
+                
             </div>
         </div>
         <form class="block-bottom" action="">
