@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!---------------nav--------------->
+    <link rel="stylesheet" href="/css/nav.css">
+    <!---------------/nav--------------->
+    <style>
+        .help-bg {
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+        }
+        .help-bg ul {
+            width: 4560px;
+            height: 530px;
+            position: fixed;
+            background: white;
+            border-radius: 15px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        .help-bg ul li{
+            width:760px;
+            height: 530px;
+            border: 2px solid springgreen;
+            
+        }
+        .box1{
+            background-image: url("/images/BG2.svg");
+            background-size: cover;
+            background-repeat: repeat-y;
+            align-items:center;
+            justify-content:center;
+        }
+        .box1-title{
+            width: 380px;
+            height: 500px;
+            border: steelblue 2px solid;
+            /* align-items:center; */
+            justify-content:center;
+        }
+
+        .box1-title h2{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="help-bg">
+        <ul class="flex">
+            <li class="box1 flex" >
+                <div class="box1-title flex ">
+                    <h2 class="flex">想知道哪種襪子<br>
+                        最適合你的日常穿搭嗎?</h2>
+                </div>
+            </li>
+            <li class="flex">
+                <div class="photoWrapper"><img class="transition" src="images/farmphoto02.jpg" alt=""></div>
+                <p class="transition">牧場主人為畜產本科專業，曾實習於日本畜牧場，將畜牧職人精神帶回台灣！專業的放牧飼養管理，讓阿奔們自然生長，不使用抗生素等動物用藥。</p>
+            </li>
+            <li class="flex">
+                <div class="photoWrapper"><img class="transition" src="images/farmphoto03.jpg" alt=""></div>
+                <p class="transition">獨特的飼料配方，補充植物性營養素：金盞花萃取之葉黃素、紅藻萃取之蝦紅素，讓珍貴營養素自然轉嫁於雞蛋中。
+                </p>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/vegas.min.js"></script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>empty-cart</title>
+    <title>pay</title>
     <link rel="stylesheet" href="css/nav.css">
     <style>
         /* -----------------empty-cart---------------        */
@@ -15,68 +15,112 @@
         }
 
         .container {
-            align-items: center;
+            width: 100vw;
+            overflow: hidden;
+            position: relative;
+            min-height: 100vh;
             justify-content: space-between;
         }
 
-        .empty-outside-frame {
-            width: 400px;
+        .wrapper {
+            width: 1200px;
+            height: 740px;
+            overflow: hidden;
+            border: 1px solid pink;
+            margin-top: 100px;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
+        }
+        .pay-title{
+            width: 1200px;
+            height: 30px;
+        }
+        .pay-title h3{
+            margin: 0 30px;
+            color: #03588C;
+        }
+
+
+        .pay-frame {
+            width: 1000px;
+            height: 500px;
+            justify-content: space-around;
+
+        }
+
+        .block-right {
+            width: 450px;
+            border: 1px solid rgb(123, 233, 34);
+
+        }
+
+        .block-left {
+            width: 450px;
+            position: relative;
+            border: 1px solid royalblue;
+            flex-direction: column;
+            align-items: center;
+
+        }
+/* --------------------credit-card--------------------- */
+        .credit-card {
+            width: 300px;
+            height: 200px;
+            border: 1px solid rgb(113, 126, 151);
+            position: absolute;
+            z-index: -1;
 
 
         }
 
-        .icon-empty-cart {
-            width: 250px;
-            margin-bottom: 20px;
-            transform: translateX(35px);
+        .credit-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
 
         }
 
-        .empty-cart {
-            text-align: center;
+        .credit-form {
+            width: 450px;
+            height: 420px;
+            background-color: #F2DE79;
+            border-radius: 15px;
+            position: absolute;
+            bottom: 0;
+            z-index: -2;
+
+        }
+/* ------------------btn------------------- */
+        .prev-next-btn {
+            width: 300px;
+            justify-content: space-between;
+            margin: 0 auto;
         }
 
-        .goshopping {
-            width: 160px;
+        .pay-btn {
+            width: 200px;
             height: 40px;
             border: none;
             background-color: #FF9685;
             color: #ffffff;
-            padding: 5px 0;
-            margin-top: 50px;
-            text-align: center;
             outline: none;
             cursor: pointer;
+            margin: 0 20px;
         }
 
-        .goshopping:hover {
-            background-color: #03588C;
+        .pay-btn.gopay:hover {
+            background-color: #0388A6;
+
         }
 
-        @media screen and (max-width: 576px) {
-            body {
-                background-size: cover;
-                background-image: url(images/BG-mobile2.svg);
-                background-repeat: repeat-y;
-            }
+        .pay-btn.prev {
+            background-color: #0388A6;
 
-            .empty-outside-frame {
-                width: 250px;
-            }
+        }
 
-            .icon-empty-cart {
-                width: 150px;
-                transform: translateX(15px);
-            }
-            
-            .goshopping {
-                width: 150px;
-                height: 40px;
-                margin-top: 40px;
-            }
+        .pay-btn.prev:hover {
+            background-color: #FF9685;
         }
     </style>
 </head>
@@ -126,14 +170,59 @@
                 </div>
             </div>
         </nav>
-        <div class="empty-outside-frame flex">
-            <div class="icon-empty-cart">
-                <img src="images/cart-empty.svg" alt="">
+        <!-- <div class="wrapper"></div> -->
+        <div class="wrapper flex">
+            <div class="pay-title">
+                <h3>填寫信用卡資訊</h3>
             </div>
-            <h3 class="empty-cart">購物車空空的。</h3>
-            <button class="goshopping" href="" type="button">
-                逛街去</button>
+            <div class="pay-frame flex">
+                <div class="block-left flex">
+                    <div class="credit-card">
+                        <img src="images/credit-card.svg" alt="">
+                    </div>
+                    <div class="credit-info ">
+                        
+                    </div>
+                    <div class="credit-form">
+                        <!-- <div class="credit-info-frame flex">
+                            <div class="info flex">
+                                <p>信用卡姓名
+                                <br>
+                                Name
+                                </p>
+                                <input type="text">
+                            </div>
+                            <div class="info flex">
+                                <p>信用卡卡號
+                                <br>
+                                Card Number
+                                </p>
+                                <input type="text">
+                            </div>
+                            <div class="info flex">
+                                <p>有效期限<br>Expiration</p>
+                                <input type="text">
+                            </div>
+                            <div class="info flex">
+                                <p>安全碼<br>
+                                    CCV</p>
+                                <input type="text">
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="block-right">
+
+                </div>
+            </div>
+            <div class="prev-next-btn flex">
+                <button class="pay-btn prev">回上一頁</button>
+                <button class="pay-btn gopay">前往付款</button>
+
+            </div>
         </div>
+
+        <!-- footer -->
 
         <footer class="flex">
             <div class="flex">
