@@ -36,6 +36,15 @@
             top: 140px;
         }
 
+        @media screen and (max-width: 992px){
+            .container{
+                background-image: unset;
+            }
+            .block1-fixed{
+                flex-direction: column-reverse;
+            }
+        }
+
         .block-left {
             height: 90%;
             width: 55vw;
@@ -45,7 +54,7 @@
 
         .block-left li {
             position: relative;
-            width: 40vw;
+            width: 45vw;
             height: 20%;
             margin: 5px 0;
         }
@@ -117,6 +126,14 @@
             object-fit: cover;
         }
 
+        @media screen and (max-width: 992px){
+            .block-left{
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 100vw;
+
+            }
+        }
         /* block-right */
 
         .block-right {
@@ -146,6 +163,10 @@
 
         .box-logo .img-logo-z{
             --animate-delay: 1.5s;
+        }
+
+        .block-right ul{
+            flex-direction: column;
         }
 
         .block-right li {
@@ -206,6 +227,46 @@
             background-size: contain;
             align-self: flex-end;
             margin: 5vh 10vw 0 0;
+        }
+
+        @media screen and (max-width: 1200px){
+            .box-logo img{
+                height: 80%;
+            }
+        }
+
+        @media screen and (max-width: 996px){
+
+            .block-right{
+                width: 100vw;
+                padding: 0 5vw;
+            }
+
+            .block-right .box-logo{
+                align-self: flex-end;
+                margin: 0;
+            }
+            
+
+            .block-right ul{
+                width: 100vw;
+                flex-direction: row;
+                margin: 0;
+            }
+
+            .block-right li{
+                width: 18vw;
+            }
+
+            .block-right li .line{
+                width: 50px;
+                margin-left: 0;
+            }
+
+            .block-right li.active .line {
+            background: #404040;
+            width: 80px;
+        }
         }
 
         /* block2 */
@@ -357,7 +418,7 @@
                         <img class="animate__animated animate__bounceIn animate__delay-1s img-logo-z" 
                         src="images/logo-z.svg" alt="">
                     </div>
-                    <ul class="animate__animated animate__slideInRight animate__delay-2s">
+                    <ul class="animate__animated animate__slideInRight animate__delay-2s flex">
                         <li class="flex active" id="processText1">
                             <div class="line line1 transition"></div>
                             <h3 class="transition">台灣製造</h3>
