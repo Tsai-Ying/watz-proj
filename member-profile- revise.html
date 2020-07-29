@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>profile</title>
+    <title>profile-revise</title>
     <link rel="stylesheet" href="css/nav.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
@@ -25,17 +25,19 @@
         .bg-membercard{
             flex-direction: column;
             align-items: flex-end;
+            width: 680px;
+            height: 540px;
         }
         .membercard {
             width: 680px;
-            height: 460px;
+            height: 540px;
             position: relative;
             margin-bottom: 20px;
         }
 
         .membercard img {
             width: 680px;
-            height: 460px;
+            height: 540px;
             position: absolute;
 
         }
@@ -80,9 +82,7 @@
         }
 
         .membercard ul li {
-
             align-items: center;
-            /* position: absolute; */
         }
 
         .membercard ul li h5 {
@@ -96,6 +96,7 @@
             height: 40px;
             border-radius: 2px;
             align-items: center;
+            justify-content: center;
         }
         .title{
             white-space: nowrap;
@@ -216,7 +217,7 @@
             </div>
             <div class="bg-membercard flex">
                 <div class="membercard">
-                    <img src="images/user_card_before_1.svg" alt="">
+                    <img src="images/user_card_after.svg" alt="">
                     <div class="member-info flex">
                         <div class="bg-photo flex">
                             <div class="member-photo flex">
@@ -225,36 +226,36 @@
                         </div>
                         <ul class="bg-form flex">
                             <li class="form-wrapper flex">
-                                <h5 class="title">姓名</h5>
-                                <input class="form-name" type="text">
+                                <div><h5 class="title flex">姓名</h5></div>
+                                <div><input class="form-name flex" type="text"></div>
                             </li>
                             <li class="form-item flex">
-                                <h5 class="title">電話</h5>
-                                <input class="form-name" type="text">
+                                <div><h5 class="title flex">電話</h5></div>
+                                <div><input class="form-name" type="text"></div>
                             </li>
                             <li class="form-item flex">
-                                <h5 class="title">信箱</h5>
-                                <input class="form-name" type="text">
+                                <div><h5 class="title flex">信箱</h5></div>
+                                <div><input class="form-name" type="text"></div>
                             </li>
                             <li class="form-item flex">
-                                <h5 class="adress title">地址</h5>
-                                <input class="form-name" type="text">
+                                <div><h5 class="adress title flex">地址</h5></div>
+                                <div><input class="form-name" type="text"></div>
                             </li>
                             <li class="form-item flex">
-                                <h5 class="title">密碼</h5>
-                                <input class="form-name" type="text">
+                                <div><h5 class="title flex">密碼</h5></div>
+                                <div><input class="form-name" type="text"></div>
                             </li>
                             <li class="form-item flex">
-                                <h5 class="title">新密碼</h5>
-                                <input class="form-name" type="text"> 
+                                <div><h5 class="title flex">新密碼</h5></div>
+                                <div><input class="form-name" type="text"></div> 
                             </li>
                             <li class="form-item flex">
-                                <h5 class="title">舊密碼</h5>
-                                <input class="form-name" type="text">
+                                <div><h5 class="title flex">舊密碼</h5></div>
+                                <div><input class="form-name" type="text"></div>
                             </li>
                             <li class="form-item flex">
-                                <h5 class="title">再次確認密碼</h5>
-                                <input class="form-name" type="text">  
+                                <div><h5 class="title flex">再次確認密碼</h5></div>
+                                <div><input class="form-name" type="text"></div>
                             </li>
                         </ul>
                     </div>
