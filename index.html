@@ -151,12 +151,12 @@
         /* -------------區塊四 plugin-------------*/
         .block4 {
             height: 100vh;
-            /* background-color: #fff; */
-            /* background: url(images/BG6.svg);
-            background-size: 100vw; */
-            /* align-items: center;
+            background-color: #fff;
+            background-image: url(images/BG6.svg);
+            background-size: 100vw;
+            align-items: center;
             justify-content: center;
-            overflow: hidden; */
+            overflow: hidden;
         }
 
         /* .block4 p {
@@ -189,6 +189,12 @@
             border-bottom: 10px solid #fff;
             border-left: 5px solid #fff;
             border-right: 5px solid #fff;
+        }
+
+        footer{
+            position: absolute;
+            bottom: 0;
+            z-index: 20;
         }
     </style>
 </head>
@@ -411,9 +417,9 @@
     $(document).ready(function () {
         $('.slider-product').slick({
             slidesToShow: 5,
-            slidesToScroll: 4,
-            // autoplay: true,
-            autoplaySpeed: 2000,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 1000,
         });
     });
 </script>
