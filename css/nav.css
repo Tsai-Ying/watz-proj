@@ -78,6 +78,45 @@ p {
     cursor: default;
 }
 
+@media screen and (max-width: 992px){
+    h1 {
+        margin: 0;
+        color: #404040;
+        font-size: 2rem;
+        cursor: default;
+    
+    }
+    
+    h2 {
+        margin: 0;
+        color: #404040;
+        font-size: 1.4rem;
+        cursor: default;
+    }
+    
+    h3 {
+        margin: 0;
+        color: #404040;
+        font-size: 1.1rem;
+        cursor: default;
+    
+    }
+    
+    h4 {
+        margin: 0;
+        color: #404040;
+        font-size: 1rem;
+        cursor: default;
+    }
+
+    p {
+        color: #404040;
+        margin: 0;
+        font-size: .9rem;
+        cursor: default;
+    }
+}
+
 .transition {
     transition: .4s;
 }
