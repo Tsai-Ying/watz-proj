@@ -10,6 +10,7 @@
         href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <style>
         /* -------------區塊一------------- */
         .block1 {
@@ -44,7 +45,14 @@
         .block2 {
             width: 100vw;
             height: 56vw;
-            position: relative;
+            overflow: hidden;
+            /* position: relative; */
+        }
+
+        .block2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .slideWrapper {
@@ -71,7 +79,7 @@
             object-fit: cover;
         }
 
-        .slideDots {
+        .slick-dots {
             height: 20px;
             width: 100%;
             bottom: 10px;
@@ -81,7 +89,7 @@
             align-items: center;
         }
 
-        .slideDots li {
+        .slick-dots li {
             width: 15px;
             height: 15px;
             border-radius: 50%;
@@ -89,9 +97,25 @@
             margin: 0 5px;
         }
 
-        .slideDots li:hover,
-        .slideDots li.active {
-            background: #fff;
+        .slick-dots li button:before {
+            font-family: 'slick';
+            font-size: 17px;
+            line-height: 15px;
+            position: absolute;
+            top: 0;
+            left: -2px;
+            width: 15px;
+            height: 15px;
+            content: •;
+            text-align: center;
+            opacity: .25;
+            color: white;
+
+        }
+
+        .slick-dots li.slick-active button:before{
+            opacity: 1;
+            color: white;
         }
 
         /* -------------區塊三------------- */
@@ -173,15 +197,16 @@
             z-index: 1;
         } */
 
-        .slider-product{
+        .slider-product {
             height: 200px;
             width: 100vw;
         }
+
         /* .slider-product div{
             width: 20vw;
             height: 24vw;
         } */
-        .slider-product img{
+        .slider-product img {
             width: 20vw;
             height: 25vw;
             object-fit: cover;
@@ -191,7 +216,7 @@
             border-right: 5px solid #fff;
         }
 
-        footer{
+        footer {
             position: absolute;
             bottom: 0;
             z-index: 20;
@@ -272,14 +297,22 @@
             </div>
         </div>
         <!---區塊二：slider---->
-        <div class="block2 flex" id="blockPhoto">
+        <!-- <div class="block2 flex" id="blockPhoto">
             <div class="slideWrapper">
                 <ul id="slideImages" class="slideImages flex"></ul>
             </div>
             <ul id="slideDots" class="slideDots flex"></ul>
 
-        </div>
+        </div> -->
 
+        <div class="block2">
+            <div><a href=""><img src="images/index-slider1.png" alt=""></a></div>
+            <div><a href=""><img src="images/index-slider4.jpeg" alt=""></a></div>
+            <div><a href=""><img src="images/index-slider2.png" alt=""></a></div>
+            <div><a href=""><img src="images/index-slider5.png" alt=""></a></div>
+            <div><a href=""><img src="images/index-slider3.png" alt=""></a></div>
+            <div><a href=""><img src="images/index-slider6.png" alt=""></a></div>
+        </div>
         <!---區塊三：禮盒---->
         <div class="block3 flex">
             <div class="img-boxtitle-img flex">
@@ -364,62 +397,64 @@
 
     //  slider
 
-    let slideImages = ["index-slider1.png", "index-slider2.png", "index-slider3.png", "index-slider4.jpeg", "index-slider5.png", "index-slider6.png"]
-    let slideIndex = 0;
-    let slideCount = slideImages.length;
-    let slideWidth = $(".slideWrapper").width();
+    // let slideImages = ["index-slider1.png", "index-slider2.png", "index-slider3.png", "index-slider4.jpeg", "index-slider5.png", "index-slider6.png"]
+    // let slideIndex = 0;
+    // let slideCount = slideImages.length;
+    // let slideWidth = $(".slideWrapper").width();
 
-    for (i = 0; i < slideImages.length; i++) {
-        $("#slideImages").append(`<a href=""><li><img src="images/${slideImages[i]}" alt=""></li></a>`)
-        $("#slideDots").append(`<li></li>`)
-    }
+    // for (i = 0; i < slideImages.length; i++) {
+    //     $("#slideImages").append(`<a href=""><li><img src="images/${slideImages[i]}" alt=""></li></a>`)
+    //     $("#slideDots").append(`<li></li>`)
+    // }
 
-    $("#slideDots li").eq(0).addClass("active")
+    // $("#slideDots li").eq(0).addClass("active")
 
-    $(window).resize(function () {
-        slideCount = slideImages.length;
-        slideWidth = $(".slideWrapper").width();
-        $("#slideImages").css("left", 0 - slideIndex * slideWidth)
-        $("#slideImages").css("width", slideWidth * slideCount)
-    })
+    // $(window).resize(function () {
+    //     slideCount = slideImages.length;
+    //     slideWidth = $(".slideWrapper").width();
+    //     $("#slideImages").css("left", 0 - slideIndex * slideWidth)
+    //     $("#slideImages").css("width", slideWidth * slideCount)
+    // })
 
-    $("#slideDots li").eq(0).addClass("current")
-    $("#slideDots li").mouseenter(function () {
-        slideIndex = $(this).index();
-        goSlide()
-    })
+    // $("#slideDots li").eq(0).addClass("current")
+    // $("#slideDots li").mouseenter(function () {
+    //     slideIndex = $(this).index();
+    //     goSlide()
+    // })
 
-    $("#goNext").click(function () {
-        slideIndex = slideIndex + 1;
-        goSlide()
+    // function goSlide() {
+    //     if (slideIndex < 0) {
+    //         slideIndex = slideCount - 1
+    //     }
+    //     if (slideIndex >= slideCount) {
+    //         slideIndex = 0
+    //     }
+    //     $("#slideImages").css("left", 0 - slideIndex * slideWidth)
 
-    })
-    $("#goPrev").click(function () {
-        slideIndex = slideIndex - 1;
-        goSlide()
-    })
-
-    function goSlide() {
-        if (slideIndex < 0) {
-            slideIndex = slideCount - 1
-        }
-        if (slideIndex >= slideCount) {
-            slideIndex = 0
-        }
-        $("#slideImages").css("left", 0 - slideIndex * slideWidth)
-
-        $("#slideDots li").eq(slideIndex).addClass("active")
-            .siblings().removeClass("active")
-    }
+    //     $("#slideDots li").eq(slideIndex).addClass("active")
+    //         .siblings().removeClass("active")
+    // }
 
     //slick
+    $(document).ready(function () {
+        $('.block2').slick({
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear',
+            dots: true,
+            autoplay: true,
+            autoplaySpeed: 2000
+        });
+    });
+
 
     $(document).ready(function () {
         $('.slider-product').slick({
             slidesToShow: 5,
             slidesToScroll: 1,
             autoplay: true,
-            autoplaySpeed: 1000,
+            autoplaySpeed: 1000
         });
     });
 </script>
