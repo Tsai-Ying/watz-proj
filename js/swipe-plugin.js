@@ -1,5 +1,5 @@
  // 多張輪播 一次播5張
- $('.autoplay-set').slick({
+ $('#test').slick({
 	arrows: true,
 	slidesToShow: 5,         //一次顯示幾張
 	slidesToScroll: 5,       //一次卷幾張

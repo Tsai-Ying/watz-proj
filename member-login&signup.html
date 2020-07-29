@@ -9,10 +9,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-    <style>123
+    <style>
         body {
             width: 100vw;
             background-image: url(images/BG2.svg);
+            background-repeat: no-repeat;
             background-size: cover;
         }
 
@@ -163,14 +164,15 @@
 
         @media screen and (max-width: 576px) {
             .member-input {
-                width: 150px;
+                width: 182px;
                 height: 28px;
-                font-size: 10px;
+                font-size: 12px;
             }
 
             .input-wrapper {
                 width: 182px;
                 height: 28px;
+                margin-bottom: 15px;
             }
 
             .input-wrapper img {
@@ -255,6 +257,10 @@
             .member-forget a {
                 letter-spacing: 1px;
             }
+            .agree{
+                width:200px;
+                height: 20px;
+            }
         }
 
         /* ---------------------------------h6 or a--------------------------------------------------- */
@@ -281,7 +287,7 @@
             color: #0388A6;
         }
 
-        .box-login {
+        .box-signup {
             z-index: 10;
         }
 
@@ -371,7 +377,7 @@
                         </div>
                         <div class="input-wrapper flex">
                             <img src="images/icon-confirmPassword.svg" alt="">
-                            <input class="member-input" type="text" placeholder="Confirm Your Password">
+                            <input class="member-input" type="text" placeholder="Confirm Password">
                         </div>
                         <div class="agree flex">
                             <input class="member-checkbox" type="checkbox" name="" id="">
@@ -381,7 +387,7 @@
                         <button class="btn-login">註冊會員</button>
                     </form>
                 </li>
-                <!------------------------login------------------------------------------>
+                <!------------------------signup------------------------------------------>
                 <li class="box-login">
                     <div class="tag tag-login">
                         <h5>登入會員</h5>
