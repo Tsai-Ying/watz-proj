@@ -149,13 +149,21 @@
 
         /* -------------區塊四 plugin-------------*/
         .block4 {
-            height: 100vh;
-            background-color: #fff;
-            /* background: url(images/BG6.svg);
-            background-size: 100vw; */
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
+            width:100%;
+            height:100vh;
+            background-image: url(images/BG5.svg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: repeat-y;
+            position: relative;
+            margin-bottom: 100px;
+        }
+        .socks-gallery-title{
+            width: 1200px;
+            border: 2px solid red;
+            z-index: 5;
+            position: absolute;
+            bottom:10px;
         }
 
         .block4 p {
@@ -164,13 +172,17 @@
             letter-spacing: 5px;
             color: #0388A6;
             opacity: 0.2;
-            z-index: -1;
+           
         }
-
         .socks-gallery {
             margin-top: 100px;
-            z-index: 1;
+            min-width: 100vw;
+            height: 670px;
+            background: #ccc;
+            z-index: 3;
+            display: none;
         }
+        
     </style>
 </head>
 
@@ -281,7 +293,12 @@
         </div>
         <!---區塊四：plugin---->
         <div class="block4 flex">
+            <div class="socks-gallery">
 
+            </div>
+            <div class="socks-gallery-title">
+                <p>SOCKS GALLERY</p>
+            </div>
         </div>
         <!-- <div class="wrapper"></div> -->
         <!-- btn-top -->
