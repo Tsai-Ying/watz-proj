@@ -70,19 +70,17 @@
         .credit-card {
             width: 300px;
             height: 200px;
-            border: 1px solid rgb(113, 126, 151);
+            /* border: 1px solid rgb(113, 126, 151); */
             position: relative;
-        }
+            flex-direction: column;
+            align-items: center;
 
-        /* .credit-card-frame{
-            width: 270px;
-            margin: 0 10px;
-        } */
+        }
 
         .credit-card-bg {
             width: 300px;
             height: 200px;
-            border: 1px solid rgb(126, 148, 28);
+            /* border: 1px solid rgb(126, 148, 28); */
             position: absolute;
             z-index: -1;
         }
@@ -93,29 +91,20 @@
             object-fit: cover;
         }
 
-        .credit-input-form {
-            width: 450px;
-            height: 420px;
-            background-color: #F2DE79;
-            border-radius: 15px;
-            position: absolute;
-            bottom: 0;
-            z-index: -2;
-        }
-
         .credit-info {
-            height: 200px;
             flex-direction: column;
-            align-items: center;
+            margin: 20px 0;
+            height: 180px;
             justify-content: space-between;
+
         }
 
         .credit-top {
             width: 270px;
-            height: 50px;
+            /* height: 50px; */
             align-items: flex-start;
             justify-content: space-between;
-            border: 1px solid pink;
+            /* border: 1px solid pink; */
         }
 
         .credit-top-img {
@@ -133,31 +122,62 @@
 
         .credit-mid {
             width: 270px;
-            height: 50px;
+            /* height: 50px; */
             flex-direction: column;
             justify-content: space-between;
-            border: 1px solid rgb(255, 251, 15);
+            /* border: 1px solid rgb(255, 251, 15); */
         }
 
         .info-number {
-            width: 40px;
+            width: 50px;
             border-bottom: 1px solid #FF9685;
-            margin-left: 20px;
+            margin-right: 20px;
+            text-align: center;
         }
 
         .credit-bottom {
             width: 270px;
-            height: 50px;
-            justify-content: space-around;
-            border: 1px solid rgb(106, 37, 218);
+            /* height: 50px; */
+            align-items: flex-start;
+            justify-content: start;
+            /* border: 1px solid rgb(106, 37, 218); */
         }
 
         .credit-bottom img {
             width: 10px;
+            margin-right: 10px;
         }
 
         .credit-month {
             flex-direction: column;
+            align-items: flex-start;
+            margin-right: 40px;
+        }
+
+        .credit-month .info-number {
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        /* -----------------input form-------------- */
+        .credit-input-form {
+            width: 450px;
+            height: 420px;
+            background-color: #F2DE79;
+            border-radius: 15px;
+            position: absolute;
+            bottom: 0;
+            z-index: -2;
+        }
+        .credit-info-frame{
+            width: 450px;
+            height: 250px;
+            border: 1px solid coral;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            position: absolute;
+            bottom: 10%;
         }
 
         /* ------------------btn------------------- */
@@ -246,91 +266,94 @@
             </div>
             <div class="pay-frame flex">
                 <div class="block-left flex">
-                    <div class="credit-card">
-                        <div class="credit-card-frame">
-                            <div class="credit-card-bg">
-                                <img src="images/credit-card.svg" alt="">
+                    <div class="credit-card flex">
+                        <div class="credit-card-bg">
+                            <img src="images/credit-card.svg" alt="">
+                        </div>
+                        <div class="credit-info flex">
+                            <div class="credit-top flex">
+                                <div class="name-frame">
+                                    <h6>Name</h6>
+                                    <h5>MEI SHAO NU</h5>
+                                </div>
+                                <div class="credit-top-img flex">
+                                    <img class="img-chip" src="images/chip .svg" alt="">
+                                    <img class="img-visa" src="images/visa.svg" alt="">
+                                </div>
                             </div>
-                            <div class="credit-info flex">
-                                <div class="credit-top flex">
-                                    <div class="name-frame">
-                                        <h6>Name</h6>
-                                        <h5>MEI SHAO NU</h5>
+                            <div class="credit-mid flex">
+                                <h6>Card Number</h6>
+                                <div class="flex">
+                                    <div class="info-number">
+                                        <h5>1234</h5>
                                     </div>
-                                    <div class="credit-top-img flex">
-                                        <img class="img-chip" src="images/chip .svg" alt="">
-                                        <img class="img-visa" src="images/visa.svg" alt="">
+                                    <div class="info-number">
+                                        <h5>1234</h5>
+                                    </div>
+                                    <div class="info-number">
+                                        <h5>1234</h5>
+                                    </div>
+                                    <div class="info-number">
+                                        <h5>1234</h5>
                                     </div>
                                 </div>
-                                <div class="credit-mid flex">
-                                    <h6>Card Number</h6>
+                            </div>
+                            <div class="credit-bottom flex">
+
+                                <div class="credit-month">
+                                    <h6>Expiration</h6>
                                     <div class="flex">
                                         <div class="info-number">
-                                            <h5>1234</h5>
+                                            <h5>07</h5>
                                         </div>
+                                        <img src="images/credit-down.svg" alt="">
                                         <div class="info-number">
-                                            <h5>1234</h5>
+                                            <h5>25</h5>
                                         </div>
-                                        <div class="info-number">
-                                            <h5>1234</h5>
-                                        </div>
-                                        <div class="info-number">
-                                            <h5>1234</h5>
-                                        </div>
+                                        <img src="images/credit-down.svg" alt="">
                                     </div>
                                 </div>
-                                <div class="credit-bottom">
-
-                                    <div class="credit-month">
-                                        <h6>Expiration</h6>
-                                        <div class="info-number">
-                                            <h5>1234</h5>
-                                        </div>
-                                        <div class="flex">
-                                            <img src="images/credit-down.svg" alt="">
-                                            <div class="info-number">
-                                                <h5>1234</h5>
-                                            </div>
-                                            <img src="images/credit-down.svg" alt="">
-                                        </div>
+                                <div class="credit-ccv">
+                                    <h6>CCV</h6>
+                                    <div class="info-number">
+                                        <h5>1234</h5>
                                     </div>
-                                    <div class="credit-ccv">
-                                        <h6>CCV</h6>
-                                        <div class="info-number">
-                                            <h5>1234</h5>
-                                        </div>
-                                    </div>
-
                                 </div>
+
                             </div>
                         </div>
                     </div>
                     <div class="credit-input-form">
-                        <!-- <div class="credit-info-frame flex">
+                        <div class="credit-info-frame flex">
                             <div class="info flex">
-                                <p>信用卡姓名
-                                <br>
-                                Name
-                                </p>
+                                <div class="info-title">
+                                    <h5>信用卡姓名</h5>
+                                    <p>Name</p>
+                                </div>
                                 <input type="text">
                             </div>
                             <div class="info flex">
-                                <p>信用卡卡號
-                                <br>
-                                Card Number
-                                </p>
+                                <div class="info-title">
+                                    <p>信用卡卡號</p>
+                                    <p>Card Number</p>
+                                </div>
                                 <input type="text">
                             </div>
                             <div class="info flex">
-                                <p>有效期限<br>Expiration</p>
+                                <div class="info-title">
+                                    <p>有效期限</p>
+                                    <p>Expiration</p>
+                                </div>
                                 <input type="text">
                             </div>
                             <div class="info flex">
-                                <p>安全碼<br>
-                                    CCV</p>
+                                <div class="info-title">
+                                    <p>安全碼</p>
+                                    <p>CCV</p>
+                                </div>
                                 <input type="text">
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
                 <div class="block-right">
