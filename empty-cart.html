@@ -32,12 +32,18 @@
         }
         .goshopping{
             width: 160px;
-            height: 45px;
+            height: 40px;
+            border: none;
             background-color: #FF9685;
             color: #ffffff;
+            padding: 5px 0;
+            margin: 50px 0;
             text-align: center;
-            padding: 10px 0;
-            margin-top: 60px;
+            outline: none;
+            cursor: pointer;
+        }
+        .goshopping:hover{
+            background-color: #03588C;
         }
         @media screen and (max-width: 576px){
             .empty-outside-frame{
@@ -52,8 +58,8 @@
             .goshopping{
                 width: 150px;
                 height: 40px;
-            margin-top: 40px;
-            padding: 8px 0;
+                margin-top: 40px;
+                
 
             }
         }
@@ -108,10 +114,11 @@
         </nav>
         <div class="empty-outside-frame flex">
             <div class="icon-empty-cart">
-            <img src="images/empty-cart.svg" alt="">
+            <img src="images/cart-empty.svg" alt="">
             </div>
             <h3 class="empty-cart">購物車空空的。</h3>
-            <a class="goshopping" href="" type="button">逛街去</a>
+            <button class="goshopping" href="" type="button">
+                逛街去</button>
         </div>
 
         <footer class="flex">
