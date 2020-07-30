@@ -17,7 +17,7 @@
             border: 1px solid red;
         }
 
-        .block-top h3 {
+        .b-bt-coral h3 {
             color: #03588C;
         }
 
@@ -79,7 +79,9 @@
             margin-bottom: 25px;
             /* border: 1px solid green; */
         }
-        .line-none{
+
+        /* -----最後一個QA的底線取消----- */
+        .block ul .line-none {
             border-bottom: 0px;
         }
 
@@ -102,6 +104,15 @@
 
         .quest img {
             height: 16px;
+        }
+
+        h6 span {
+            background: #F2DE79;
+        }
+
+        .block-bottom {
+            background: #F2DE79;
+            border-radius: 30px;
         }
     </style>
 </head>
@@ -178,94 +189,191 @@
                 </li>
             </ul>
             <!-- block1:member -->
-            <div class="block block1 flex">
+            <div class="block flex">
                 <div class="qa-title-wrapper">
                     <h3>會員條款</h3>
                 </div>
-                <ul class="qa-content-wrapper">
-                    <li class="qa-content flex">
+                <ul>
+                    <li class="flex">
                         <div class="quest flex">
                             <h5>如何成為會員？</h5><img src="images/arrow-top.svg" alt="">
                         </div>
-                        <div class="ans">                            
-                                <h6>首次購買請先以個人Email註冊帳號，確認後即寄出驗證信，驗證無誤後即享有一張9折優惠券！</h6>
+                        <div class="ans">
+                            <h6>首次購買請先以個人Email註冊帳號，確認後即寄出驗證信，驗證無誤後即享有一張9折優惠券！</h6>
                         </div>
                     </li>
-                    <li class="qa-content flex">
+                    <li class="flex">
                         <div class="quest flex">
                             <h5>未加入會員可以購物嗎？</h5><img src="images/arrow-top.svg" alt="">
                         </div>
                         <div class="ans">
-                                <h6>可以！但結帳前請先註冊會員。若商品加入購物車但未完成結帳前，並無保留商品庫存功能。</h6>
+                            <h6>可以！但結帳前請先註冊會員。若商品加入購物車但未完成結帳前，並無保留商品庫存功能。</h6>
                         </div>
                     </li>
-                    <li class="qa-content line-none flex">
+                    <li class="line-none flex">
                         <div class="quest flex">
                             <h5>忘記密碼怎麼辦？</h5><img src="images/arrow-top.svg" alt="">
                         </div>
                         <div class="ans">
-                                <h6>若您忘記密碼，請至 「會員登入」點選「忘記密碼」， 輸入會員帳號及驗證碼，系統即會自動將重製的新密碼寄至您Email信箱提供您登入使用。</h6>
+                            <h6>若您忘記密碼，請至 「會員登入」點選「忘記密碼」， 輸入會員帳號及驗證碼，系統即會自動將重製的新密碼寄至您Email信箱提供您登入使用。</h6>
                         </div>
                     </li>
                 </ul>
-
             </div>
             <!-- block2:shopping deliver -->
-            <div class="block block2 flex">
+            <div class="block flex">
                 <div class="qa-title-wrapper">
                     <h3>購物 / 配送</h3>
                 </div>
-                <ul class="qa-content-wrapper">
-                    <li class="qa-content flex">
+                <ul>
+                    <li class="flex">
                         <div class="quest flex">
                             <h5>如何確認訂單有沒有成立呢？</h5><img src="images/arrow-top.svg" alt="">
                         </div>
                         <div class="ans">
-                                <h6>訂單成立後系統會送通知信件至您留下的會員信箱，也可於官網－會員登入－訂單查詢內查看喔！
-                                </h6>
+                            <h6>訂單成立後系統會送通知信件至您留下的會員信箱，也可於官網－會員登入－訂單查詢內查看喔！
+                            </h6>
                         </div>
                     </li>
-                    <li class="qa-content flex">
+                    <li class="flex">
                         <div class="quest flex">
                             <h5>折價卷使用說明</h5><img src="images/arrow-top.svg" alt="">
                         </div>
                         <div class="ans">
-                                <h6>每筆訂單限抵用一張折價券，若您同時擁有2張以上折價券，可於結帳時擇一使用。</h6>
+                            <h6>每筆訂單限抵用一張折價券，若您同時擁有2張以上折價券，可於結帳時擇一使用。</h6>
                         </div>
                     </li>
-                    <li class="qa-content flex">
+                    <li class="flex">
                         <div class="quest flex">
                             <h5>包裹何時會出貨呢？</h5><img src="images/arrow-top.svg" alt="">
                         </div>
                         <div class="ans">
-                                <h6>每天14:00前的訂單會安排當天出貨，宅配大約1-2天送到(週日不配送)超商大概2-3天？</h6>
+                            <h6>每天14:00前的訂單會安排當天出貨，宅配大約1-2天送到(週日不配送)超商大概2-3天？</h6>
                         </div>
                     </li>
-                    <li class="qa-content flex">
+                    <li class="flex">
                         <div class="quest flex">
                             <h5>信用卡交易失敗怎麼辦？</h5><img src="images/arrow-top.svg" alt="">
                         </div>
                         <div class="ans">
-                                <h6>訂單因交易失敗導致訂單未成立成功，交易失敗的訂單無法再恢復訂單狀態重新付款。若您還需要此訂單內商品，請您重新訂購。
-                                </h6>
+                            <h6>訂單因交易失敗導致訂單未成立成功，交易失敗的訂單無法再恢復訂單狀態重新付款。若您還需要此訂單內商品，請您重新訂購。
+                            </h6>
                         </div>
                     </li>
-                    <li class="qa-content line-none flex">
+                    <li class="line-none flex">
                         <div class="quest flex">
                             <h5>要怎麼DIY自己的襪子？多久會收到呢？</h5><img src="images/arrow-top.svg" alt="">
                         </div>
                         <div class="ans">
-                                <h6>WATZ提供三種樣版、一種自製襪供您挑選一雙屬於自己獨一無二的襪子。樣板包括：WATZ logo款、條紋、點點，您能夠自由搭配選擇底色及樣式的配色。自製款有十種圖樣，您一樣能自由選擇底色及圖樣的配色。
-                                </h6>
+                            <h6>WATZ提供三種樣版、一種自製襪供您挑選一雙屬於自己獨一無二的襪子。樣板包括：WATZ
+                                logo款、條紋、點點，您能夠自由搭配選擇底色及樣式的配色。自製款有十種圖樣，您一樣能自由選擇底色及圖樣的配色。
+                            </h6>
                         </div>
                     </li>
                 </ul>
 
             </div>
-        </div>
-        <form class="block-bottom" action="">
+            <!-- block3:return purchase -->
+            <div class="block flex">
+                <div class="qa-title-wrapper">
+                    <h3>退換貨 / 退款</h3>
+                </div>
+                <ul>
+                    <li>
+                        <div class="quest flex">
+                            <h5>商品可以換貨嗎？</h5>
+                            <img src="images/arrow-top.svg" alt="">
+                        </div>
+                        <div class="ans">
+                            <h6>我們提供收到包裹後七天鑑賞期內一次退貨服務，沒有換貨服務喔！</h6>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="quest flex">
+                            <h5>如何申請退貨？ </h5>
+                            <img src="images/arrow-top.svg" alt="">
+                        </div>
+                        <div class="ans">
+                            <h6>收到包裹後隔天於官網會員登入－訂單查詢－該筆訂單會顯示【我要退貨】選項。可【部分】勾選不合適商品或【整筆】退貨辦理得到超商退貨代碼。退貨時請留意組合優惠商品或是原訂單免運門檻資格。
+                            </h6>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="quest flex">
+                            <h5>退貨需要運費嗎？</h5>
+                            <img src="images/arrow-top.svg" alt="">
+                        </div>
+                        <div class="ans">
+                            <h6>七天鑑賞期內WATZ免費提供一次退貨服務。使用退貨申辦提供之退貨代碼辦理無須付費。</h6>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="quest flex">
+                            <h5>退貨款項何時會歸還呢？</h5>
+                            <img src="images/arrow-top.svg" alt="">
+                        </div>
+                        <div class="ans">
+                            <h6>退貨包裹至超商辦理寄出後約7-10個工作天會退回WATZ，待收到後將盡快完成退款作業並以MAIL通知。
+                            </h6>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="quest flex">
+                            <h5>退貨金額如何退回？</h5>
+                            <img src="images/arrow-top.svg" alt="">
+                        </div>
+                        <div class="ans">
+                            <h6>信用卡付款→直接線上申請退刷金額，因信用卡結帳日不同的關係，若當期信用卡帳單未查看到，請您留意下期信用卡帳單喔！
+                            </h6>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- block4:other FAQ -->
+            <div class="block flex">
+                <div class="qa-title-wrapper">
+                    <h3>其他常見問題</h3>
+                </div>
 
-        </form>
+                <ul>
+                    <li>
+                        <div class="quest flex">
+                            <h5>若收到異常商品怎麼辦？</h5>
+                            <img src="images/arrow-top.svg" alt="">
+                        </div>
+                        <div class="ans">
+                            <h6>若商品有異常疑慮，
+                                請您至下方聯絡我欄位填寫表單，或是私訊至粉絲團提供商品實際照片，記得附上您的<span>1/手機號碼 2/訂單編號
+                                    3/會員帳號</span>，待收到後將會盡快請相關部門確認並且回覆。
+                            </h6>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="b-bt-coral">
+            <h3>聯絡我們</h3>
+        </div>
+            <form class="block-bottom" action="">
+                <ul>
+                    <li class="flex">
+                        <p>姓名</p><input type="text">
+                    </li>
+                    <li class="flex">
+                        <p>電話</p><input type="text">
+                    </li>
+                    <li class="flex">
+                        <p>E-mail</p><input type="text">
+                    </li>
+                    <li class="flex">
+                        <p>主旨</p><input type="text">
+                    </li>
+                    <li class="flex">
+                        <p>回覆內容</p><input type="text">
+                    </li>
+                </ul>
+                <button>送出</button>
+            </form>
         <!-- btn-top -->
         <div class="btn-top flex transition" id="goTop">
             <img src="images/arrow-top.svg" alt="">
