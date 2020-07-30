@@ -73,26 +73,29 @@
             z-index: 1;
         }
 
-        .pay-frame.open .block-right{
+        .pay-frame.open .block-right {
             transform: translateX(53%);
         }
 
-        .pay-frame.open .block-left{
+        .pay-frame.open .block-left {
             transform: translateX(-53%);
             z-index: 1;
         }
-        .pay-frame.open .open-btn p{
+
+        .pay-frame.open .open-btn p {
             display: none;
-                 
+
 
         }
-        .pay-frame.open .open-btn img{
+
+        .pay-frame.open .open-btn img {
             display: block;
-                    
+
 
         }
+
         /* --------------------credit-card--------------------- */
-         .credit-card {
+        .credit-card {
             width: 300px;
             height: 200px;
             /* border: 1px solid rgb(113, 126, 151);  */
@@ -101,7 +104,7 @@
             align-items: center;
 
         }
-        
+
         .credit-card-bg {
             width: 300px;
             height: 200px;
@@ -221,7 +224,7 @@
             height: 250px;
             flex-direction: column;
             justify-content: space-evenly;
-    
+
         }
 
         .credit-number-input {
@@ -239,47 +242,52 @@
         .name-input input {
             width: 200px;
             height: 30px;
-            
+
         }
-       
+
         .month-input input {
             align-items: center;
-          
+
         }
 
         .month-input p {
             margin: 0 10px;
         }
+
         /* ------------------total price------------ */
-        .ordered-list{
+        .ordered-list {
             height: 300px;
             /* border: 1px solid gray; */
             align-items: flex-end;
         }
+
         .total-price {
             width: 400px;
             height: 300px;
+            /* height: 500px; */
             background-color: #ffffff;
             border-radius: 15px;
             flex-direction: column;
             align-items: center;
-            justify-content: center;   
+            justify-content: center;
         }
 
-        .total-price-frame {
-            width: 300px;
+        /* .total-price-frame {
+            width: 500px;
             border-radius: 15px;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
             margin-top: 30px;
-        }
-        .total-price-title{
+        } */
+
+        .total-price-title {
             width: 320px;
             align-items: flex-end;
             justify-content: space-between;
         }
-        .open-btn{
+
+        .open-btn {
             width: 40px;
             height: 130px;
             background-color: #03588C;
@@ -288,9 +296,10 @@
             cursor: pointer;
             align-items: center;
             justify-content: center;
-            transition: all 1s ease-in-out;          
+            transition: all 1s ease-in-out;
         }
-        .open-btn p{
+
+        .open-btn p {
             writing-mode: vertical-lr;
             color: #ffffff;
             cursor: pointer;
@@ -298,26 +307,29 @@
 
         }
 
-        .open-btn img{
+        .open-btn img {
             width: 20px;
-            display: none;              
+            display: none;
         }
+
         .total-price h3 {
             color: #03588C;
             align-self: flex-start;
 
         }
-        .seemore{
+
+        .seemore {
             color: #FF9685;
             text-decoration: underline;
             cursor: pointer;
 
         }
+
         .total-price ul {
             width: 300px;
             margin: 10px;
             justify-content: space-between;
-            
+
         }
 
         .total-price ul li {
@@ -330,7 +342,109 @@
             border-top: 2px solid #E2E2E2;
             margin-bottom: 10px;
         }
+        .ordered-list.open{
+            transform: scaleX(500px);
+            transition: all 1s ease-in-out;
+
+        }
+        .ordered-list.open .total-price{
+            height: 500px;
+
+        }
+        .ordered-list.open .list-scroll{
+            display: block;
+        }
+        /* ---------------hide scroll---------- */
+        .list-scroll {
+            width: 300px;
+            height: 25vh;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .list-scroll h4 {
+            color: #707070;
+        }
+
+        .list-scroll::-webkit-scrollbar-track-piece {
+            background-color: #F8F4EB;
+        }
+
+        .list-scroll::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+
+        }
+
+        .list-scroll::-webkit-scrollbar-thumb {
+            background-color: #F2DE79;
+            background-clip: padding-box;
+            min-height: 28px;
+            border-radius: 20px;
+        }
+
+        .box-info {
+            align-items: center;
+            
+        }
+
+        .box-info .box-img {
+            width: 80px;
+        }
+
+        .box-detail {
+            width: 200px;
+            height: 60px;
+            justify-content: space-between;
+        }
+
+        .box-product-orderlist {
+            width: 280px;
+            flex-direction: column;
+            justify-content: center;
+
+        }
+
+        .product-orderlist {
+            width: 280px;
+            height: 200px;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* .img-product {
+            width: 75px;
+        }
+
+        .img-product img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        } */
+
+        .box-socks {
+            width: 280px;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #E2E2E2;
+        }
+
+        .socks {
+            width: 280px;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #E2E2E2;
+        }
+
+        .socks-nameNprice {
+            width: 280px;
+            align-items: center;
+            justify-content: space-between;
+        }
         
+
 
         /* ------------------btn------------------- */
         .prev-next-btn {
@@ -416,7 +530,7 @@
             <div class="pay-title">
                 <h3>填寫信用卡資訊</h3>
             </div>
-            <div class="pay-frame close flex" >
+            <div class="pay-frame close flex">
                 <div class="block-left close flex">
                     <div class="credit-card flex">
                         <div class="credit-card-bg">
@@ -517,11 +631,54 @@
                     </div>
                 </div>
                 <div class="block-right close flex">
-                    <div class="ordered-list flex">
-                        <div class="total-price flex">
-                            <div class="total-price-title flex">
+                    <div class="ordered-list  flex">
+                        <div class="total-price open flex">
+                            <div class="total-price-title open flex">
                                 <h3>結帳金額</h3>
                                 <h4 class="seemore">查看訂單內容</h4>
+                            </div>
+                            <div class="list-scroll">
+                                <div class="box-detail">
+                                    <div class="box-info flex">
+                                        <!-- <img class="box-img" src="images/watzbox1-2.png" alt=""> -->
+                                        <div class="box-detail flex">
+                                            <h4>芒果派對</h4>
+                                            <div class="box-amount-detail">
+                                                <h6 class="box-type">包裝禮盒</h6>
+                                                <h6 class="box-socks-amount">3入裝</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-product-orderlist flex">
+                                        <h4>禮盒內容</h4>
+                                        <div class="box-socks flex">
+                                            <!-- <div class="img-product">
+                                                <img src="/images/product/yellowline-01.jpg" alt="">
+                                            </div> -->
+                                            <div class="socks-nameNprice flex">
+                                                <h5 class="socks-title">偶速襪子</h5>
+                                                <h5>數量：1</h5>
+                                                <h5 class="socks-price">NT $180</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="line"></div> -->
+                                    <div class="product-orderlist flex">
+                                        <h4>單購襪子</h4>
+                                        <div class="socks flex">
+                                            <!-- <div class="img-product">
+                                                <img src="/images/product/yellowline-01.jpg" alt="">
+                                            </div> -->
+                                            <div class="socks-nameNprice flex">
+                                                <h5 class="socks-title">偶速襪子</h5>
+                                                <h5>數量：1</h5>
+                                                <h5 class="socks-price">NT $180</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
                             </div>
                             <div class="total-price-frame flex">
                                 <div class="total-price-detail flex">
@@ -581,10 +738,13 @@
 <script src="js/nav.js"></script>
 <script>
 
-	$(".open-btn").click(function() {
-		$(".pay-frame").toggleClass("open");
-	});
-           
+    $(".open-btn").click(function () {
+        $(".pay-frame").toggleClass("open");
+    });
+    $(".seemore").click(function () {
+        $(".ordered-list").toggleClass("open");
+    });
+
 </script>
 
 </html>
