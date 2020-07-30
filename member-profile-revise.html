@@ -25,8 +25,8 @@
         .bg-membercard{
             flex-direction: column;
             align-items: flex-end;
-            width: 680px;
-            height: 540px;
+            /* width: 680px;
+            height: 540px; */
         }
         .membercard {
             width: 680px;
@@ -36,7 +36,6 @@
             background-image: url(images/user_card_after.svg);
             background-repeat: no-repeat;
             background-size: cover;
-            border: 1px solid red;
         }
         .member-info {
             justify-content: center;
@@ -67,12 +66,14 @@
         }
 
         .bg-form {
+            /* border: 1px solid slategrey; */
             width: 400px;
             height: 350px;
             z-index: 1;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+           margin-top: 13px;
         }
 
         .membercard ul li {
@@ -83,33 +84,32 @@
             font-weight: 400;
             letter-spacing: 3px;
             color: #707070;
-            margin-left: 20px;
+            margin-right:20px;
+            justify-content: flex-end;
+            white-space: nowrap;
+            width: 100px;
+            
         }
         .form-wrapper{
             width: 240px;
             height: 40px;
             border-radius: 2px;
-            align-items: center;
-            justify-content: center;
-        }
-        .title{
-            white-space: nowrap;
+            
         }
         .form-name {
             background: #ffffff;
             width: 240px;
             height: 40px;
-            margin-left: 10px;
+            margin: 5px 10px;
             outline: none;
             border: none;
         }
 
         .form-item {
-            width: 336px;
+            width: 380px;
             height: 56px;
             border-radius: 26px;
             margin-left: 10px;
-
         }
 
         .selector {
@@ -220,37 +220,37 @@
                             </div>
                         </div>
                         <ul class="bg-form flex">
-                            <li class="form-wrapper flex">
-                                <div><h5 class="title flex">姓名</h5></div>
-                                <div><input class="form-name flex" type="text"></div>
+                            <li class="form-item flex">
+                                <h5 class="flex">姓名</h5>
+                                <input class="form-name flex" type="text">
                             </li>
                             <li class="form-item flex">
-                                <div><h5 class="title flex">電話</h5></div>
-                                <div><input class="form-name" type="text"></div>
+                                <h5 class="flex">電話</h5>
+                                <input class="form-name" type="text">
                             </li>
                             <li class="form-item flex">
-                                <div><h5 class="title flex">信箱</h5></div>
-                                <div><input class="form-name" type="text"></div>
+                                <h5 class="flex">信箱</h5>
+                               <input class="form-name" type="text">
                             </li>
                             <li class="form-item flex">
-                                <div><h5 class="adress title flex">地址</h5></div>
-                                <div><input class="form-name" type="text"></div>
+                                <h5 class="adress flex">地址</h5>
+                                <input class="form-name" type="text">
                             </li>
                             <li class="form-item flex">
-                                <div><h5 class="title flex">密碼</h5></div>
-                                <div><input class="form-name" type="text"></div>
+                                <h5 class="flex">密碼</h5>
+                                <input class="form-name" type="text">
                             </li>
                             <li class="form-item flex">
-                                <div><h5 class="title flex">新密碼</h5></div>
-                                <div><input class="form-name" type="text"></div> 
+                                <h5 class="flex">新密碼</h5>
+                                <input class="form-name" type="text">
                             </li>
                             <li class="form-item flex">
-                                <div><h5 class="title flex">舊密碼</h5></div>
-                                <div><input class="form-name" type="text"></div>
+                                <h5 class="flex">舊密碼</h5>
+                                <input class="form-name" type="text">
                             </li>
                             <li class="form-item flex">
-                                <div><h5 class="title flex">再次確認密碼</h5></div>
-                                <div><input class="form-name" type="text"></div>
+                                <h5 class="flex">再次確認密碼</h5>
+                                <input class="form-name" type="text">
                             </li>
                         </ul>
                     </div>
