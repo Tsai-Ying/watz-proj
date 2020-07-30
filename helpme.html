@@ -9,16 +9,32 @@
     <link rel="stylesheet" href="/css/nav.css">
     <!---------------/nav--------------->
     <style>
-        .help-bg {
+      .help-bg {
             width: 100vw;
             height: 100vh;
             background: rgba(0, 0, 0, 0.5);
             position: fixed;
+            overflow: hidden;
+
         }
+       
+
         .help-bg ul {
             width: 4560px;
             height: 530px;
+            background: white;
+            border-radius: 15px;
+            /* top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto; */
+        }
+        .mask{
+            width: 760px;
+            height: 530px;
             position: fixed;
+            overflow: hidden;
             background: white;
             border-radius: 15px;
             top: 0;
@@ -28,53 +44,619 @@
             margin: auto;
         }
 
-        .help-bg ul li{
-            width:760px;
+        .help-bg ul li {
+            width: 760px;
             height: 530px;
-            border: 2px solid springgreen;
-            
+
         }
-        .box1{
+
+        /* --------block1----------- */
+
+        .block1 {
             background-image: url("/images/BG2.svg");
             background-size: cover;
             background-repeat: repeat-y;
-            align-items:center;
-            justify-content:center;
-        }
-        .box1-title{
-            width: 380px;
-            height: 500px;
-            border: steelblue 2px solid;
-            /* align-items:center; */
-            justify-content:center;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
 
-        .box1-title h2{
-            text-align: center;
+        .box1-title {
+            width: 380px;
+            height: 500px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
         }
+
+        .box1-title h2 {
+            height: 100px;
+            text-align: center;
+            color: #03588C;
+            line-height: 50px;
+        }
+
+        .img-centerkv {
+            width: 380px;
+            justify-content: center;
+        }
+
+        .help-btn {
+            width: 150px;
+            height: 150px;
+            background-color:#FF9685;
+            border: white 5px solid;
+            border-radius: 50%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .help-btn img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .help-btn h3 {
+            color: white;
+            font-size: 27px;
+        }
+
+        .float-img {
+            width: 80px;
+            position: absolute;
+        }
+
+        .sock1,
+        .sock2 {
+            right: 5%;
+            top: 20%;
+            transform: rotate(25deg);
+            width: 100px;
+        }
+
+        .sock2 {
+            top: 28%;
+        }
+
+        .sock3 {
+            right: 8%;
+            bottom: 10%;
+            transform: rotate(-60deg) scaleX(-1);
+        }
+
+        .sock4 {
+            right: 12%;
+            bottom: 2%;
+            transform: rotate(-30deg) scaleX(-1);
+        }
+
+        .sock5 {
+            left: 3%;
+            top: 2%;
+            transform: rotate(-20deg) scaleX(-1);
+            width: 130px;
+        }
+
+        .sock6 {
+            left: 8%;
+            bottom: 2%;
+            transform: rotate(20deg);
+            width: 90px;
+        }
+
+         .end {
+        font-size: 60px;
+        transform: rotate(45deg);
+        font-weight: 900;
+        margin: -75px 0 0 17px;
+        position: absolute;
+        right: 4%;
+        top: 10%;
+        color:#707070;
+        border-radius: 10px;
+    }
+
+        
+
+        /* ---------選單的全block設定-------------- */
+        .block2,
+        .block3,.block4,.block5 {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #F8F4EB;
+        }
+
+        .box-top {
+            margin-bottom: 20px;
+        }
+
+        .bottom-left {
+            width: 45px;
+            height: 350px;
+        }
+        .bottom-right {
+            width: 600px;
+            height: 350px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .BR-left,
+        .BR-right {
+            width: 250px;
+            height: 350px;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .block-img {
+            width: 95px;
+            height: 200px;
+
+        }
+
+        .block-img>img {
+            width: 100%;
+            height: 100%;
+        }
+        .bottom-left img {
+            width: 80%;
+        }
+        /* -----radio-button 設定--- */
+        .radio-group {
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .radio-input {
+            visibility: hidden;
+            /* 把原本的input藏起來 */
+        }
+
+        .radio-label {
+            font-size: 1.6rem;
+            cursor: pointer;
+            position: relative;
+            padding-left: 3.5rem;
+        }
+
+        .radio-button {
+            height: 2rem;
+            width: 2rem;
+            border: 3px solid #FFB3A7;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .radio-button::after {
+            content: "";
+            display: block;
+            height: 1rem;
+            width: 1rem;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #FFB3A7;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .radio-input:checked~.radio-label .radio-button::after {
+            opacity: 1;
+        }
+
+
+        /* -----------block2--------------- */
+        .block2-bottom-left {
+            display: none;
+        }
+        /* ----------block5--------------- */
+    
+
+        .bottom-result{
+            width: 100px;
+            height: 350px;
+            align-items: center;
+            justify-content: center;
+        }
+        .block5-helpBtn {
+            width: 80px;
+            height: 80px;
+            background-color:#FFB3A7;
+            border: white 5px solid;
+            border-radius: 50%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .block5-helpBtn img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .block5-helpBtn h3 {
+            
+            font-size: 12px;
+        }
+
+        .block5-box-bottom{
+            width: 700px;
+            align-items: center;
+            justify-content: space-around;
+
+        }
+
+        /* --------finish block6-------- */
+        .block6 {
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+        }
+        .block6-box{
+            width: 250px;
+            height: 300px;
+            align-items: center;
+            justify-content:space-evenly;
+            flex-direction: column;
+        }
+
+        .block6-box>div{
+            width: 150px;
+            height:150px;
+            background:#FFB3A7;
+            border-radius: 50%;
+            align-items: center;
+            justify-content:center;
+        }
+        .block6-box>div>img{
+            width: 70%;
+            height: 70%;
+        }
+        .block6-box h5{
+            width:220px;
+            height: 30px;
+            background: #0388A6;
+            border-radius: 13px;
+            color: white;
+            align-items: center;
+            justify-content:center;
+        }
+       
+
     </style>
 </head>
 
 <body>
     <div class="help-bg">
-        <ul class="flex">
-            <li class="box1 flex" >
+        <div class="mask">
+        <ul class="flex" id="blockPhoto">
+            <li class="block1 flex">
                 <div class="box1-title flex ">
                     <h2 class="flex">想知道哪種襪子<br>
                         最適合你的日常穿搭嗎?</h2>
+                    <div class="img-centerkv flex">
+                        <img class="flex" src="images/dapei-centerkv.svg" alt="">
+                    </div>
+                    <div class="help-btn flex">
+                        <img class="flex" src="images/magic.svg" alt="">
+                        <h3>幫我搭</h3>
+                    </div>
+                </div>
+                <img class="float-img sock1" src="/images/product/index-clear-03.png" alt="">
+                <img class="float-img sock2" src="/images/product/index-clear-03.png" alt="">
+                <img class="float-img sock3" src="/images/product/index-clear-07.png" alt="">
+                <img class="float-img sock4" src="/images/product/index-clear-07.png" alt="">
+                <img class="float-img sock5" src="/images/product/index-clear-02.png" alt="">
+                <img class="float-img sock6" src="/images/product/index-clear-08.png" alt="">
+               <div class="end">+</div>
+            </li>
+            <li class="block2 flex">
+                <div class="box-top flex">
+                    <h3>1. 你平常最常穿的襪子子長度?</h3>
+                </div>
+                <div class="box-bottom flex">
+                    <div class="block2-bottom-left flex"> <img class="" src="/images/arrow-left.svg" alt="">
+                    </div>
+                    <form action="" class="bottom-right flex">
+                        <div class="BR-left flex">
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-lengthA.svg" alt="">
+                                </div>
+                                <h5>隱形襪</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block2-btn1" name="number">
+                                    <label for="block2-btn1" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+                            </div>
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-lengthB.svg" alt="">
+                                </div>
+                                <h5>踝襪</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block2-btn2" name="number">
+                                    <label for="block2-btn2" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="BR-right flex">
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-lengthC.svg" alt="">
+                                </div>
+                                <h5>短襪</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block2-btn3" name="number">
+                                    <label for="block2-btn3" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+                            </div>
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-lengthD.svg" alt="">
+                                </div>
+                                <h5>長襪</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block2-btn4" name="number">
+                                    <label for="block2-btn4" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
             </li>
-            <li class="flex">
-                <div class="photoWrapper"><img class="transition" src="images/farmphoto02.jpg" alt=""></div>
-                <p class="transition">牧場主人為畜產本科專業，曾實習於日本畜牧場，將畜牧職人精神帶回台灣！專業的放牧飼養管理，讓阿奔們自然生長，不使用抗生素等動物用藥。</p>
+            <li class="block3 flex">
+                <div class="box-top flex">
+                    <h3>2. 你穿著以下哪種服裝感到最自在？</h3>
+                </div>
+                <div class="box-bottom flex">
+                    <div class="bottom-left flex"> <img class="" src="/images/arrow-left.svg" alt="">
+                    </div>
+                    <form action="" class="bottom-right flex">
+                        <div class="BR-left flex">
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-wearA.png" alt="">
+                                </div>
+                                <h5>古著文青風</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block3-btn1" name="number">
+                                    <label for="block3-btn1" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+                            </div>
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-wearB.png" alt="">
+                                </div>
+                                <h5>時下流行單品</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block3-btn2" name="number">
+                                    <label for="block3-btn2" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="BR-right flex">
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-wearC.png" alt="">
+                                </div>
+                                <h5>素色襯衫和長褲</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block3-btn3" name="number">
+                                    <label for="block3-btn3" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+                            </div>
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-wearD.png" alt="">
+                                </div>
+                                <h5>休閒洋裝</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block3-btn4" name="number">
+                                    <label for="block3-btn4" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
             </li>
-            <li class="flex">
-                <div class="photoWrapper"><img class="transition" src="images/farmphoto03.jpg" alt=""></div>
-                <p class="transition">獨特的飼料配方，補充植物性營養素：金盞花萃取之葉黃素、紅藻萃取之蝦紅素，讓珍貴營養素自然轉嫁於雞蛋中。
-                </p>
+            <li class="block4 flex">
+                <div class="box-top flex">
+                    <h3>3. 想穿去哪裡呢 ?</h3>
+                </div>
+                <div class="box-bottom flex">
+                    <div class="bottom-left flex"> <img class="" src="/images/arrow-left.svg" alt="">
+                    </div>
+                    <form action="" class="bottom-right flex">
+                        <div class="BR-left flex">
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-doA.svg" alt="">
+                                </div>
+                                <h5>朋友聚會</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block4-btn1" name="number">
+                                    <label for="block4-btn1" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+                            </div>
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-doB.svg" alt="">
+                                </div>
+                                <h5>辦公室</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block4-btn2" name="number">
+                                    <label for="block4-btn2" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="BR-right flex">
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-doC.svg" alt="">
+                                </div>
+                                <h5>露營踏青</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block4-btn3" name="number">
+                                    <label for="block4-btn3" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+                            </div>
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-doD.svg" alt="">
+                                </div>
+                                <h5>逛街血拼</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block4-btn4" name="number">
+                                    <label for="block4-btn4" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </li>
+            <li class="block5 flex">
+                <div class="box-top flex">
+                    <h3>4. 你的穿衣色系偏向?</h3>
+                </div>
+                <div class="block5-box-bottom flex">
+                    <div class="bottom-left flex"> <img class="" src="/images/arrow-left.svg" alt="">
+                    </div>
+                    <form action="" class="block5-bottom-right flex">
+                        <div class="BR-left flex">
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-colorA.svg" alt="">
+                                </div>
+                                <h5>粉嫩色系</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block5-btn1" name="number">
+                                    <label for="block5-btn1" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+                            </div>
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-colorB.svg" alt="">
+                                </div>
+                                <h5>大地色系</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block5-btn2" name="number">
+                                    <label for="block5-btn2" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="BR-right flex">
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-colorC.svg" alt="">
+                                </div>
+                                <h5>黑白灰</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block5-btn3" name="number">
+                                    <label for="block5-btn3" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+                            </div>
+                            <div class="radio-group flex">
+                                <div class="block-img">
+                                    <img src="/images/test-colorD.svg" alt="">
+                                </div>
+                                <h5>繽紛色系</h5>
+                                <div>
+                                    <input type="radio" class="radio-input" id="block5-btn4" name="number">
+                                    <label for="block5-btn4" class="radio-label">
+                                        <span class="radio-button"></span>
+                                    </label>
+                                    </input>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                    <div class="bottom-result flex">
+                        <div class="block5-helpBtn flex">
+                            <img class="flex" src="images/magic.svg" alt="">
+                            <h3>完成!</h3>
+                        </div>
+                    </div>
+                   
+                </div>
+            </li>
+            <li class="block6 flex">
+                <div class="block6-box flex">
+                    <div class="flex" >
+                        <img class="flex" src="images/magic.svg" alt="">
+                    </div>
+                    <h5 class="flex">讓我來 搜尋你的理想型....</h5>
+                </div>
+               
             </li>
         </ul>
-
+    </div>
 
     </div>
 
@@ -82,6 +664,9 @@
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="js/nav.js"></script>
     <script src="js/vegas.min.js"></script>
+    <script>
+     
+    </script>
 </body>
 
 </html>
