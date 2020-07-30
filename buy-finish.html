@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>empty-cart</title>
+    <title>buy-finish</title>
     <link rel="stylesheet" href="css/nav.css">
     <style>
         /* -----------------empty-cart---------------        */
@@ -33,10 +33,10 @@
             justify-content: space-around;
         }
 
-        .icon-empty-cart {
+        .pay-finish {
             width: 550px;
             height: 450px;
-            /* background-color: #ffffff; */
+            background-color: #ffffff;
             border-radius: 15px;
             justify-content: center;
             /* border: 1px solid rgb(121, 126, 138); */
@@ -45,7 +45,7 @@
             justify-content: center;
         }
 
-        .pay-finish-frame {
+        .pay-finish-frame{
             width: 500px;
             height: 380px;
             flex-direction: column;
@@ -55,38 +55,34 @@
             /* border: 1px solid royalblue; */
 
         }
-
-        .icon-empty-cart img {
-            width: 280px;
-            transform: translateX(30px);
-            margin-bottom: 30px;
+        .pay-finish img{
+            width: 200px;
+            transform: translateX(40px);
         }
-
-        .btn-coral {
+        .pay-finish h3{
+            color: #03588C;
+        }
+        .pay-finish h4{
+            color: #FF9685;
+        }
+        .pay-finish h5{
+            color: #707070;
+        }
+        .pay-finish button{
             width: 160px;
             height: 40px;
-            margin-top: 50px;
+            border-radius: 2px;
+            background-color: #F2DE79;
+            margin: 15px;
+            color: #707070;
+            outline: none;
+            text-align: center;
             cursor: pointer;
+        
         }
-
-        .btn-coral:hover {
-            background: #0388A6;
-        }
-        @media screen and (max-width: 576px) {
-            .icon-empty-cart {
-                width: 250px;
-            }
-
-            .icon-empty-cart img {
-                width: 150px;
-                transform: translateX(15px);
-            }
-            
-            .goshopping {
-                width: 150px;
-                height: 40px;
-                margin-top: 40px;
-            }
+        .pay-finish button:hover{
+            background-color: #03588C;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -138,31 +134,33 @@
         </nav>
         <!-- <div class="wrapper"></div> -->
         <div class="wrapper flex">
-            <div class="icon-empty-cart flex">
+            <div class="pay-finish flex">
+                <div class="pay-finish-frame flex">
+                    <img src="images/cart-finished.svg" alt="">
+                    <h3>訂單已完成</h3>
+                    <h4>訂單編號：000123456</h4>
+                    <h5>感謝您的購買</h5>
+                        <h5>訂單明細已寄到您的信箱：
+                        meishaonu***@gamil.com</h5>
+                    <button class="pay-btn btn-blue prev">查看訂單</button>
+                </div>
 
-                <img src="images/cart-empty.svg" alt="">
 
-                <h3 class="empty-cart">購物車空空的。</h3>
-                <button class="goshopping btn-coral" href="" type="button">
-                    逛街去</button>
             </div>
-
-
         </div>
-    </div>
 
-    <!-- footer -->
+        <!-- footer -->
 
-    <footer class="flex">
-        <div class="flex">
-            <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
-            <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
-            <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
-            <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
-        </div>
-        <h6>Copyright© WATZ Company All rights Reserved.</h6>
-        <img class="bg-footer flex" src="images/footer.svg" alt="">
-    </footer>
+        <footer class="flex">
+            <div class="flex">
+                <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
+            </div>
+            <h6>Copyright© WATZ Company All rights Reserved.</h6>
+            <img class="bg-footer flex" src="images/footer.svg" alt="">
+        </footer>
     </div>
 
 </body>
@@ -171,6 +169,7 @@
 <script src="js/nav.js"></script>
 <script>
 
+   
 
 </script>
 
