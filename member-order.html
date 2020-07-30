@@ -23,12 +23,55 @@
             justify-content: center;
         }
 
+        .wrapper ul li h5 {
+            font-weight: 400;
+        }
+
+        .bg-orderpage {
+            position: relative;
+            width: 1200px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .order-title {
+            flex-direction: column;
+        }
+
+        .title {
+            width: 937px;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .box2 {
+            width: 133px;
+        }
+
+        .order {
+            justify-content: space-around;
+            align-items: center;
+            background: #ffffff;
+            width: 937px;
+            height: 65px;
+            margin-bottom: 10px;
+        }
+
+        .absolute {
+            position: absolute;
+            left: 0;
+
+        }
+        .absolute2{
+            position: absolute;
+            right: 0;
+        }
         .selector {
             width: 120px;
             flex-direction: column;
             justify-content: flex-start;
             margin-right: 20%;
-            border: 1px solid navy;
         }
 
         .box {
@@ -76,6 +119,13 @@
             outline: none;
             cursor: pointer;
             transition: .4s;
+        }
+
+        ul h4,
+        ul h5 {
+            display: inline-block;
+            width: 100px;
+            text-align: center;
         }
     </style>
 </head>
@@ -125,75 +175,79 @@
             </div>
         </nav>
         <div class="wrapper flex">
-            <div class="selector flex">
-                <div class="box"><a href="">會員資料</a></div>
-                <div class="box"><a href="">訂單紀錄</a></div>
-                <div class="box"><a href="">會員條款</a></div>
-                <div class="box"><a href="">隱私權政策</a></div>
+            <div class="bg-orderpage flex">
+                <div class="absolute">
+                    <div class="selector flex">
+                        <div class="box"><a href="">會員資料</a></div>
+                        <div class="box"><a href="">訂單紀錄</a></div>
+                        <div class="box"><a href="">會員條款</a></div>
+                        <div class="box"><a href="">隱私權政策</a></div>
+                    </div>
+                </div>
+                <div class="absolute2">
+                    <div class="flex">
+                        <ul class="order-title flex">
+                            <li class="title flex">
+                                <h4>訂單編號</h4>
+                                <h4>訂購時間</h4>
+                                <h4>訂購金額</h4>
+                                <h4>出貨狀態</h4>
+                                <div class="box2"></div>
+                                <div class="box2"></div>
+                            </li>
+                            <li class="order flex">
+                                <h5>20200730</h5>
+                                <h5>20200730</h5>
+                                <h5>2,200</h5>
+                                <h5>待出貨</h5>
+                                <button class="btn-coral">詳細訂單</button>
+                                <button class="btn-gray">退貨申請</button>
+                            </li>
+                            <li class="order flex">
+                                <h5>20200730</h5>
+                                <h5>20200730</h5>
+                                <h5>2,200</h5>
+                                <h5>待出貨</h5>
+                                <button class="btn-coral">詳細訂單</button>
+                                <button class="btn-gray">退貨申請</button>
+                            </li>
+                            <li class="order flex">
+                                <h5>20200730</h5>
+                                <h5>20200730</h5>
+                                <h5>2,200</h5>
+                                <h5>待出貨</h5>
+                                <button class="btn-coral">詳細訂單</button>
+                                <button class="btn-gray">退貨申請</button>
+                            </li>
+                            <li class="order flex">
+                                <h5>20200730</h5>
+                                <h5>20200730</h5>
+                                <h5>2,200</h5>
+                                <h5>待出貨</h5>
+                                <button class="btn-coral">詳細訂單</button>
+                                <button class="btn-gray">退貨申請</button>
+                            </li>
+                            <li class="order flex">
+                                <h5>20200730</h5>
+                                <h5>20200730</h5>
+                                <h5>2,200</h5>
+                                <h5>待出貨</h5>
+                                <button class="btn-coral">詳細訂單</button>
+                                <button class="btn-gray">退貨申請</button>
+                            </li>
+                            <li class="order flex">
+                                <h5>20200730</h5>
+                                <h5>20200730</h5>
+                                <h5>2,200</h5>
+                                <h5>待出貨</h5>
+                                <button class="btn-coral">詳細訂單</button>
+                                <button class="btn-gray">退貨申請</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <ul>
-                <li>
-                    <h4>訂單編號</h4>
-                    <h4>訂購時間</h4>
-                    <h4>訂購金額</h4>
-                    <h4>出貨狀態</h4>
-                </li>
-                <li>
-                    <h5>20200730</h5>
-                    <h5>20200730</h5>
-                    <h5>2,200</h5>
-                    <h5>待出貨</h5>
-                    <button class="btn-coral">詳細訂單</button>
-                    <button class="btn-gray">退貨申請</button>
-                </li>
-                <li>
-                    <h5>20200730</h5>
-                    <h5>20200730</h5>
-                    <h5>2,200</h5>
-                    <h5>待出貨</h5>
-                    <button class="btn-coral">詳細訂單</button>
-                    <button class="btn-gray">退貨申請</button>
-                </li>
-                <li>
-                    <h5>20200730</h5>
-                    <h5>20200730</h5>
-                    <h5>2,200</h5>
-                    <h5>待出貨</h5>
-                    <button class="btn-coral">詳細訂單</button>
-                    <button class="btn-gray">退貨申請</button>
-                </li>
-                <li>
-                    <h5>20200730</h5>
-                    <h5>20200730</h5>
-                    <h5>2,200</h5>
-                    <h5>待出貨</h5>
-                    <button class="btn-coral">詳細訂單</button>
-                    <button class="btn-gray">退貨申請</button>
-                </li>
-                <li>
-                    <h5>20200730</h5>
-                    <h5>20200730</h5>
-                    <h5>2,200</h5>
-                    <h5>待出貨</h5>
-                    <button class="btn-coral">詳細訂單</button>
-                    <button class="btn-gray">退貨申請</button>
-                </li>
-                <li>
-                    <h5>20200730</h5>
-                    <h5>20200730</h5>
-                    <h5>2,200</h5>
-                    <h5>待出貨</h5>
-                    <button class="btn-coral">詳細訂單</button>
-                    <button class="btn-gray">退貨申請</button>
-                </li>
-            </ul>
-
-
-
-
         </div>
-
-
         <div class="btn-top flex transition" id="goTop">
             <img src="images/arrow-top.svg" alt="">
             <h3>TOP</h3>
