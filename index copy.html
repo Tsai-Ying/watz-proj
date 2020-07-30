@@ -21,25 +21,59 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
         }
 
-        /* .box-kvTop img{
-            width: 150px;
-        } */
+        .block1-flexcontrol {
+            width: 600px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box-kvTop img {
+            width: 200px;
+        }
 
         .box-kvBottom img {
-            width: 100%;
-            height: 135px;
+            height: 130px;
+            padding: 10px;
         }
 
-        .img-logo-w,
-        .img-logo-a,
-        .img-logo-t,
-        .img-logo-z {
-            margin: 4px;
+        @media screen and (max-width: 992px) {
+
+            .block1 {
+                background: url(images/BG-mobile1.svg) center center no-repeat;
+                background-size: cover;
+            }
+
+            .block1-flexcontrol {
+                width: 80vw;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .box-kvTop img {
+                width: 26vw;
+                margin: 20px 0;
+            }
+
+            .box-kvBottom {
+                margin-left: 3vw;
+                width: 70vw;
+                justify-content: space-evenly;
+            }
+
+            .box-wa {
+                order: -1;
+            }
+
+            .box-kvBottom img {
+                height: 22vw;
+            }
+
         }
 
         /* -------------區塊二------------- */
@@ -97,6 +131,53 @@
 
         .slick-dotted.slick-slider {
             margin-bottom: 0;
+        }
+
+        @media screen and (max-width: 992px) {
+            .block2 {
+                height: 100vh;
+                overflow: hidden;
+                /* position: relative; */
+            }
+
+            .block2 img {
+                height: 100vh;
+                object-fit: cover;
+            }
+
+            .slick-dots {
+                height: 20px;
+                width: 100%;
+                bottom: 10px;
+                position: absolute;
+                left: 0;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .slick-dots li {
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                border: 1px solid #fff;
+                margin: 0 5px;
+            }
+
+            .slick-dots li button:before {
+                font-family: 'slick';
+                font-size: 17px;
+                line-height: 15px;
+                position: absolute;
+                top: 0;
+                left: -2px;
+                width: 15px;
+                height: 15px;
+                content: •;
+                text-align: center;
+                opacity: .25;
+                color: white;
+
+            }
         }
 
         /* -------------區塊三------------- */
@@ -226,23 +307,24 @@
             border-left: 5px solid #fff;
         }
 
-        .block4-bg{
+        .block4-bg {
             justify-content: center;
             position: relative;
             width: 100vw;
         }
 
-        .block4-bg .img-BG-dotted1{
+        .block4-bg .img-BG-dotted1 {
             width: 500px;
             position: absolute;
             left: 0;
-            transform: translate(-50%,-60%);
+            transform: translate(-50%, -60%);
         }
-        .block4-bg .img-BG-dotted2{
+
+        .block4-bg .img-BG-dotted2 {
             position: absolute;
             width: 300px;
             right: 0;
-            transform: translate(5%,-60%);
+            transform: translate(5%, -60%);
         }
 
         .block4-bg span {
@@ -277,8 +359,15 @@
         }
 
         @media screen and (max-width: 576px) {
+            .block4{
+                background: transparent;
+            }
+
             .slider-product {
-                height: 60vw;
+                margin: 10vh;
+                width: 100vw;
+                height: 120vw;
+                margin-top: 0;
             }
 
             .slider-product img {
@@ -286,6 +375,17 @@
                 height: 120vw;
                 border: 0;
             }
+
+            .block4-bg {
+            position: relative;
+            width: 100vw;
+        }
+
+            .block4-bg span{
+                font-size:40px;
+                transform: translateY(0);
+            }
+
         }
 
         footer {
@@ -342,29 +442,33 @@
         </nav>
         <!---區塊一：主視覺---->
         <div class="block1 flex">
-            <div class="box-kvTop flex">
-                <div class="img-socksanimate-left">
-                    <img src="/images/product/index-clear-01.png" alt="">
+            <div class="block1-flexcontrol flex">
+                <div class="box-kvTop flex">
+                    <div class="">
+                        <img id="kvSocks1" src="/images/product/index-clear-01.png" alt="">
+                    </div>
+                    <div class="">
+                        <img id="kvSocks2" src="/images/product/index-clear-02.png" alt="">
+                    </div>
+                    <div class="">
+                        <img id="kvSocks3" src="/images/product/index-clear-03.png" alt="">
+                    </div>
                 </div>
-                <div class="img-socksanimate-center">
-                    <img src="/images/product/index-clear-02.png" alt="">
+                <div class="box-kvBottom box-wa flex">
+                    <div class="img-logo-w">
+                        <img src="images/logo-w.svg" alt="">
+                    </div>
+                    <div class="img-logo-a">
+                        <img src="images/logo-a.svg" alt="">
+                    </div>
                 </div>
-                <div class="img-socksanimate-right">
-                    <img src="/images/product/index-clear-03.png" alt="">
-                </div>
-            </div>
-            <div class="box-kvBottom flex">
-                <div class="img-logo-w">
-                    <img src="images/logo-w.svg" alt="">
-                </div>
-                <div class="img-logo-a">
-                    <img src="images/logo-a.svg" alt="">
-                </div>
-                <div class="img-logo-t">
-                    <img src="images/logo-t.svg" alt="">
-                </div>
-                <div class="img-logo-z">
-                    <img src="images/logo-z.svg" alt="">
+                <div class="box-kvBottom box-tz flex">
+                    <div class="img-logo-t">
+                        <img src="images/logo-t.svg" alt="">
+                    </div>
+                    <div class="img-logo-z">
+                        <img src="images/logo-z.svg" alt="">
+                    </div>
                 </div>
             </div>
         </div>
@@ -416,9 +520,9 @@
                 <div><a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a></div>
             </div>
             <div class="block4-bg flex">
-                <img class="img-BG-dotted1" src="images/BG-dotted1.svg" alt="">
+                <img class="img-BG-dotted1 mobile-none" src="images/BG-dotted1.svg" alt="">
                 <span>SOCKS GALLERY</span>
-                <img class="img-BG-dotted2" src="images/BG-dotted2.svg" alt="">
+                <img class="img-BG-dotted2 mobile-none" src="images/BG-dotted2.svg" alt="">
             </div>
         </div>
         <!-- btn-top -->
@@ -445,6 +549,57 @@
 <script src="js/nav.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
+    //kv Socks-Changing Animatie
+
+    function sockChange(n) {
+        changeSocks1(n);
+        setInterval(function () {
+            if (n > 3) n = 1;
+            changeSocks1(n);
+            n++;
+        }, 1500);
+    }
+
+    function changeSocks1(n) {
+        $("#kvSocks1").attr("src", "images/product/index-clear-0" + n + ".png");
+
+        setTimeout(function () {
+            changeSocks2(n);
+        }, 500);
+
+    }
+
+    function changeSocks2(n, cb) {
+        n = n + 3;
+        $("#kvSocks2").attr("src", "images/product/index-clear-0" + n + ".png")
+
+        setTimeout(function () {
+            changeSocks3(n)
+        }, 500);
+    }
+
+    function changeSocks3(n) {
+        n = n + 3;
+        $("#kvSocks3").attr("src", "images/product/index-clear-0" + n + ".png")
+    }
+
+    sockChange(1);
+
+    // function sock1change(n) {
+    //     if (n > 3) n = 1;
+    //     i = n + 3;
+    //     j = n + 6;
+    //     $("#kvSocks1").attr("src", "images/product/index-clear-0" + n + ".png");
+    //     $("#kvSocks2").attr("src", "images/product/index-clear-0" + i + ".png");
+    //     $("#kvSocks3").attr("src", "images/product/index-clear-0" + j + ".png");
+    //     n++;
+    //     setTimeout("sock1change(" + n + ")", 1000);
+    // }
+
+    // window.onload = function () { setTimeout("sock1change(1)", 1000); }
+
+
+
     // watz-box
 
     $("#watzbox1").hover(function () {
