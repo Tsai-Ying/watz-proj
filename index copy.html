@@ -168,7 +168,7 @@
                 margin: 0 auto;
             }
 
-            .block3 .giftbox h3{
+            .block3 .giftbox h3 {
                 text-align: center;
             }
 
@@ -180,7 +180,7 @@
                 opacity: 1;
             }
 
-            .slick-next:before{
+            .slick-next:before {
                 z-index: 1;
                 color: #03588C;
                 opacity: 1;
@@ -192,11 +192,9 @@
         .block4 {
             height: 100vh;
             background-color: #fff;
-            background-image: url(images/BG6.svg);
-            background-size: cover;
             align-items: center;
-            justify-content: center;
             overflow: hidden;
+            flex-direction: column;
         }
 
         /* .block4 p {
@@ -217,16 +215,43 @@
             height: 20vw;
             width: 100vw;
             background: #fff;
+            margin-top: 15vh;
+            z-index: 1;
         }
 
         .slider-product img {
             width: 16.6vw;
             height: 20vw;
             object-fit: cover;
-            border-top: 10px solid #fff;
-            border-bottom: 10px solid #fff;
             border-left: 5px solid #fff;
-            border-right: 5px solid #fff;
+        }
+
+        .block4-bg{
+            justify-content: center;
+            position: relative;
+            width: 100vw;
+        }
+
+        .block4-bg .img-BG-dotted1{
+            width: 500px;
+            position: absolute;
+            left: 0;
+            transform: translate(-50%,-60%);
+        }
+        .block4-bg .img-BG-dotted2{
+            position: absolute;
+            width: 300px;
+            right: 0;
+            transform: translate(5%,-60%);
+        }
+
+        .block4-bg span {
+            font-size: 135px;
+            font-family: 'Fredoka One', cursive;
+            color: #0388A6;
+            opacity: .2;
+            transform: translateY(-38%);
+            white-space: nowrap;
         }
 
         @media screen and (max-width: 1200px) {
@@ -389,6 +414,11 @@
                 <div><a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a></div>
                 <div><a href=""><img src="images/product/banana-02.jpeg" alt=""></a></div>
                 <div><a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a></div>
+            </div>
+            <div class="block4-bg flex">
+                <img class="img-BG-dotted1" src="images/BG-dotted1.svg" alt="">
+                <span>SOCKS GALLERY</span>
+                <img class="img-BG-dotted2" src="images/BG-dotted2.svg" alt="">
             </div>
         </div>
         <!-- btn-top -->
