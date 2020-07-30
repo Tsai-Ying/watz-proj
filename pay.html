@@ -24,7 +24,7 @@
 
         .wrapper {
             width: 1200px;
-            height: 740px;
+            height: 640px;
             overflow: hidden;
             position: relative;
             /* border: 1px solid pink; */
@@ -73,24 +73,22 @@
             z-index: 1;
         }
 
-        .pay-frame.close .block-right{
+        .pay-frame.open .block-right{
             transform: translateX(53%);
         }
 
-        .pay-frame.close .block-left{
+        .pay-frame.open .block-left{
             transform: translateX(-53%);
             z-index: 1;
         }
-        .pay-frame.close .open-btn p{
+        .pay-frame.open .open-btn p{
             display: none;
-            transition: all 1s ease-in-out;    
-            opacity: 0;        
+                 
 
         }
-        .pay-frame.close .open-btn img{
+        .pay-frame.open .open-btn img{
             display: block;
-            transition: all 1s ease-in-out;   
-            opacity: 1;         
+                    
 
         }
         /* --------------------credit-card--------------------- */
@@ -122,13 +120,13 @@
             flex-direction: column;
             margin: 20px 0;
             height: 180px;
-            justify-content: space-between;
+            justify-content: space-around;
             z-index: 2;
-
+            /* border: 1px solid cadetblue; */
         }
 
         .credit-top {
-            width: 270px;
+            width: 260px;
             height: 40px;
             align-items: flex-start;
             justify-content: space-between;
@@ -149,7 +147,7 @@
         }
 
         .credit-mid {
-            width: 270px;
+            width: 260px;
             height: 40px;
             flex-direction: column;
             justify-content: space-between;
@@ -165,7 +163,7 @@
         }
 
         .credit-bottom {
-            width: 270px;
+            width: 260px;
             height: 40px;
             align-items: flex-start;
             justify-content: start;
@@ -295,10 +293,8 @@
         .open-btn p{
             writing-mode: vertical-lr;
             color: #ffffff;
-            transition: all 1s ease-in-out; 
-            opacity: 1;     
-            text-align: center;    
-            /* margin: 0 auto;   */
+            cursor: pointer;
+
 
         }
 
@@ -314,6 +310,8 @@
         .seemore{
             color: #FF9685;
             text-decoration: underline;
+            cursor: pointer;
+
         }
         .total-price ul {
             width: 300px;
@@ -557,8 +555,8 @@
                 </div>
             </div>
             <div class="prev-next-btn flex">
-                <button class="pay-btn prev">回上一頁</button>
-                <button class="pay-btn gopay">前往付款</button>
+                <button class="pay-btn btn-blue prev">回上一頁</button>
+                <button class="pay-btn btn-coral gopay">前往付款</button>
 
             </div>
         </div>
@@ -584,7 +582,7 @@
 <script>
 
 	$(".open-btn").click(function() {
-		$(".pay-frame").toggleClass("close");
+		$(".pay-frame").toggleClass("open");
 	});
            
 </script>
