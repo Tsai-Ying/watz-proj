@@ -11,6 +11,7 @@
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <style>
         /* -------------區塊一------------- */
         .block1 {
@@ -55,30 +56,6 @@
             object-fit: cover;
         }
 
-        /* .slideWrapper {
-            width: 100vw;
-            height: 56vw;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .slideImages {
-            left: 0;
-            transition: 2s;
-            position: absolute;
-        }
-
-        .slideImages li {
-            width: 100vw;
-            height: 56vw;
-        }
-
-        .slideImages img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        } */
-
         .slick-dots {
             height: 20px;
             width: 100%;
@@ -113,12 +90,12 @@
 
         }
 
-        .slick-dots li.slick-active button:before{
+        .slick-dots li.slick-active button:before {
             opacity: 1;
             color: white;
         }
 
-        .slick-dotted.slick-slider{
+        .slick-dotted.slick-slider {
             margin-bottom: 0;
         }
 
@@ -153,19 +130,19 @@
             z-index: 1;
         }
 
-        .block3 ul {
+        .block3 .giftbox {
             width: 900px;
             justify-content: space-between;
             margin-top: 10vh;
         }
 
-        .block3>ul>li {
+        .block3 .giftbox .gift {
             flex-direction: column;
             align-items: center;
             width: 250px;
         }
 
-        .block3>ul>li>h3 {
+        .block3 .gift h3 {
             color: #0388A6;
             margin-top: 30px;
         }
@@ -176,15 +153,48 @@
             object-fit: cover;
         }
 
+        @media screen and (max-width: 576px) {
+            .block3 .giftbox {
+                justify-content: center;
+                align-items: center;
+                width: 80vw;
+                height: 40vh;
+                /* overflow: hidden; */
+            }
+
+            .block3 .giftbox img {
+                width: 65vw;
+                object-fit: contain;
+                margin: 0 auto;
+            }
+
+            .block3 .giftbox h3 {
+                text-align: center;
+            }
+
+            .slick-prev:before {
+                left: 0;
+                top: 50%;
+                z-index: 1;
+                color: #03588C;
+                opacity: 1;
+            }
+
+            .slick-next:before {
+                z-index: 1;
+                color: #03588C;
+                opacity: 1;
+            }
+
+        }
+
         /* -------------區塊四 plugin-------------*/
         .block4 {
             height: 100vh;
             background-color: #fff;
-            background-image: url(images/BG6.svg);
-            background-size: 100vw;
             align-items: center;
-            justify-content: center;
             overflow: hidden;
+            flex-direction: column;
         }
 
         /* .block4 p {
@@ -202,18 +212,80 @@
         } */
 
         .slider-product {
-            height: 200px;
+            height: 20vw;
             width: 100vw;
+            background: #fff;
+            margin-top: 15vh;
+            z-index: 1;
         }
 
         .slider-product img {
-            width: 20vw;
-            height: 25vw;
+            width: 16.6vw;
+            height: 20vw;
             object-fit: cover;
-            border-top: 10px solid #fff;
-            border-bottom: 10px solid #fff;
             border-left: 5px solid #fff;
-            border-right: 5px solid #fff;
+        }
+
+        .block4-bg{
+            justify-content: center;
+            position: relative;
+            width: 100vw;
+        }
+
+        .block4-bg .img-BG-dotted1{
+            width: 500px;
+            position: absolute;
+            left: 0;
+            transform: translate(-50%,-60%);
+        }
+        .block4-bg .img-BG-dotted2{
+            position: absolute;
+            width: 300px;
+            right: 0;
+            transform: translate(5%,-60%);
+        }
+
+        .block4-bg span {
+            font-size: 135px;
+            font-family: 'Fredoka One', cursive;
+            color: #0388A6;
+            opacity: .2;
+            transform: translateY(-38%);
+            white-space: nowrap;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .slider-product {
+                height: 25vw;
+            }
+
+            .slider-product img {
+                width: 20vw;
+                height: 25vw;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .slider-product {
+                height: 39vw;
+            }
+
+            .slider-product img {
+                width: 33vw;
+                height: 39vw;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .slider-product {
+                height: 60vw;
+            }
+
+            .slider-product img {
+                width: 100vw;
+                height: 120vw;
+                border: 0;
+            }
         }
 
         footer {
@@ -297,21 +369,11 @@
             </div>
         </div>
         <!---區塊二：slider---->
-        <!-- <div class="block2 flex" id="blockPhoto">
-            <div class="slideWrapper">
-                <ul id="slideImages" class="slideImages flex"></ul>
-            </div>
-            <ul id="slideDots" class="slideDots flex"></ul>
-
-        </div> -->
 
         <div class="block2">
             <div><a href=""><img src="images/index-slider1.png" alt=""></a></div>
-            <div><a href=""><img src="images/index-slider4.jpeg" alt=""></a></div>
             <div><a href=""><img src="images/index-slider2.png" alt=""></a></div>
-            <div><a href=""><img src="images/index-slider5.png" alt=""></a></div>
             <div><a href=""><img src="images/index-slider3.png" alt=""></a></div>
-            <div><a href=""><img src="images/index-slider6.png" alt=""></a></div>
         </div>
         <!---區塊三：禮盒---->
         <div class="block3 flex">
@@ -319,23 +381,26 @@
                 <h1>WATZ BOX</h1>
                 <img src="images/title-bgc.svg" alt="">
             </div>
-            <ul class="giftbox flex">
-                <li class="gift-left flex"><a href="">
+            <div class="giftbox flex">
+                <div class="gift flex">
+                    <a href="">
                         <img id="watzbox1" src="images/watzbox1-1.png" alt="">
                     </a>
                     <h3>芒果派對</h3>
-                </li>
-                <li class="gift-center flex"><a href="">
+                </div>
+                <div class="gift flex">
+                    <a href="">
                         <img id="watzbox2" src="images/watzbox2-1.png" alt="">
                     </a>
                     <h3>群魔亂舞</h3>
-                </li>
-                <li class="gift-right flex"><a href="">
+                </div>
+                <div class="gift flex">
+                    <a href="">
                         <img id="watzbox3" src="images/watzbox3-1.png" alt="">
                     </a>
                     <h3>灰姑娘的水晶襪</h3>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
         <!---區塊四：plugin---->
         <div class="block4 flex">
@@ -349,6 +414,11 @@
                 <div><a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a></div>
                 <div><a href=""><img src="images/product/banana-02.jpeg" alt=""></a></div>
                 <div><a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a></div>
+            </div>
+            <div class="block4-bg flex">
+                <img class="img-BG-dotted1" src="images/BG-dotted1.svg" alt="">
+                <span>SOCKS GALLERY</span>
+                <img class="img-BG-dotted2" src="images/BG-dotted2.svg" alt="">
             </div>
         </div>
         <!-- btn-top -->
@@ -395,48 +465,10 @@
         $(this).attr("src", "images/watzbox3-1.png");
     })
 
-    //  slider
-
-    // let slideImages = ["index-slider1.png", "index-slider2.png", "index-slider3.png", "index-slider4.jpeg", "index-slider5.png", "index-slider6.png"]
-    // let slideIndex = 0;
-    // let slideCount = slideImages.length;
-    // let slideWidth = $(".slideWrapper").width();
-
-    // for (i = 0; i < slideImages.length; i++) {
-    //     $("#slideImages").append(`<a href=""><li><img src="images/${slideImages[i]}" alt=""></li></a>`)
-    //     $("#slideDots").append(`<li></li>`)
-    // }
-
-    // $("#slideDots li").eq(0).addClass("active")
-
-    // $(window).resize(function () {
-    //     slideCount = slideImages.length;
-    //     slideWidth = $(".slideWrapper").width();
-    //     $("#slideImages").css("left", 0 - slideIndex * slideWidth)
-    //     $("#slideImages").css("width", slideWidth * slideCount)
-    // })
-
-    // $("#slideDots li").eq(0).addClass("current")
-    // $("#slideDots li").mouseenter(function () {
-    //     slideIndex = $(this).index();
-    //     goSlide()
-    // })
-
-    // function goSlide() {
-    //     if (slideIndex < 0) {
-    //         slideIndex = slideCount - 1
-    //     }
-    //     if (slideIndex >= slideCount) {
-    //         slideIndex = 0
-    //     }
-    //     $("#slideImages").css("left", 0 - slideIndex * slideWidth)
-
-    //     $("#slideDots li").eq(slideIndex).addClass("active")
-    //         .siblings().removeClass("active")
-    // }
-
     //slick
+
     $(document).ready(function () {
+
         $('.block2').slick({
             infinite: true,
             speed: 500,
@@ -450,18 +482,79 @@
         });
     });
 
+    $(document).ready(function () {
+
+        if ($(window).width() < 576) {
+
+            $('.giftbox').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: false,
+                // autoplaySpeed: 2000,
+                cssEase: 'linear',
+                arrows: true,
+                speed: 800
+            });
+        }
+    });
+
 
     $(document).ready(function () {
+
+        if ($(window).width() < 1200 && $(window).width() > 992) {
+
+            $('.slider-product').slick({
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 0,
+                cssEase: 'linear',
+                arrows: false,
+                speed: 3000
+            });
+        }
+
+        if ($(window).width() < 992 && $(window).width() > 576) {
+
+            $('.slider-product').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 0,
+                cssEase: 'linear',
+                arrows: false,
+                speed: 3000
+            });
+        }
+
+        if ($(window).width() < 576) {
+
+            $('.slider-product').slick({
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: false,
+                pauseOnHover: false
+            });
+        }
+
         $('.slider-product').slick({
-            slidesToShow: 5,
+            slidesToShow: 6,
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 0,
             cssEase: 'linear',
             arrows: false,
-            speed:3000
+            speed: 3000
         });
     });
+
+    // scroll event
+
+
 </script>
 
 </html>
