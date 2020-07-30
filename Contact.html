@@ -67,18 +67,20 @@
         }
 
         /* -----content----- */
-        .qa-content-wrapper {
+        .block ul {
             margin-bottom: 25px;
         }
 
-        .qa-content {
+        .block ul li {
             width: 650px;
             flex-direction: column;
-            align-items: center;
             justify-content: space-around;
             border-bottom: 2px solid #E2E2E2;
             margin-bottom: 25px;
             /* border: 1px solid green; */
+        }
+        .line-none{
+            border-bottom: 0px;
         }
 
         .quest {
@@ -93,14 +95,9 @@
         }
 
         .ans {
-            width: 650px;
+            width: 600px;
             margin-bottom: 15px;
             /* border: 1px solid red; */
-        }
-
-        .ans-wrapper {
-            width: 600px;
-            /* border: 1px solid blue; */
         }
 
         .quest img {
@@ -190,10 +187,8 @@
                         <div class="quest flex">
                             <h5>如何成為會員？</h5><img src="images/arrow-top.svg" alt="">
                         </div>
-                        <div class="ans">
-                            <div class="ans-wrapper">
+                        <div class="ans">                            
                                 <h6>首次購買請先以個人Email註冊帳號，確認後即寄出驗證信，驗證無誤後即享有一張9折優惠券！</h6>
-                            </div>
                         </div>
                     </li>
                     <li class="qa-content flex">
@@ -201,58 +196,67 @@
                             <h5>未加入會員可以購物嗎？</h5><img src="images/arrow-top.svg" alt="">
                         </div>
                         <div class="ans">
-                            <div class="ans-wrapper">
                                 <h6>可以！但結帳前請先註冊會員。若商品加入購物車但未完成結帳前，並無保留商品庫存功能。</h6>
-                            </div>
                         </div>
                     </li>
-                    <li>
+                    <li class="qa-content line-none flex">
                         <div class="quest flex">
                             <h5>忘記密碼怎麼辦？</h5><img src="images/arrow-top.svg" alt="">
                         </div>
                         <div class="ans">
-                            <div class="ans-wrapper">
                                 <h6>若您忘記密碼，請至 「會員登入」點選「忘記密碼」， 輸入會員帳號及驗證碼，系統即會自動將重製的新密碼寄至您Email信箱提供您登入使用。</h6>
-                            </div>
                         </div>
                     </li>
                 </ul>
 
             </div>
-            <!-- block1:shopping deliver -->
+            <!-- block2:shopping deliver -->
             <div class="block block2 flex">
                 <div class="qa-title-wrapper">
-                    <h3>會員條款</h3>
+                    <h3>購物 / 配送</h3>
                 </div>
                 <ul class="qa-content-wrapper">
                     <li class="qa-content flex">
                         <div class="quest flex">
-                            <h5>如何成為會員？</h5><img src="images/arrow-top.svg" alt="">
+                            <h5>如何確認訂單有沒有成立呢？</h5><img src="images/arrow-top.svg" alt="">
                         </div>
                         <div class="ans">
-                            <div class="ans-wrapper">
-                                <h6>首次購買請先以個人Email註冊帳號，確認後即寄出驗證信，驗證無誤後即享有一張9折優惠券！</h6>
-                            </div>
+                                <h6>訂單成立後系統會送通知信件至您留下的會員信箱，也可於官網－會員登入－訂單查詢內查看喔！
+                                </h6>
                         </div>
                     </li>
                     <li class="qa-content flex">
                         <div class="quest flex">
-                            <h5>未加入會員可以購物嗎？</h5><img src="images/arrow-top.svg" alt="">
+                            <h5>折價卷使用說明</h5><img src="images/arrow-top.svg" alt="">
                         </div>
                         <div class="ans">
-                            <div class="ans-wrapper">
-                                <h6>可以！但結帳前請先註冊會員。若商品加入購物車但未完成結帳前，並無保留商品庫存功能。</h6>
-                            </div>
+                                <h6>每筆訂單限抵用一張折價券，若您同時擁有2張以上折價券，可於結帳時擇一使用。</h6>
                         </div>
                     </li>
-                    <li>
+                    <li class="qa-content flex">
                         <div class="quest flex">
-                            <h5>忘記密碼怎麼辦？</h5><img src="images/arrow-top.svg" alt="">
+                            <h5>包裹何時會出貨呢？</h5><img src="images/arrow-top.svg" alt="">
                         </div>
                         <div class="ans">
-                            <div class="ans-wrapper">
-                                <h6>若您忘記密碼，請至 「會員登入」點選「忘記密碼」， 輸入會員帳號及驗證碼，系統即會自動將重製的新密碼寄至您Email信箱提供您登入使用。</h6>
-                            </div>
+                                <h6>每天14:00前的訂單會安排當天出貨，宅配大約1-2天送到(週日不配送)超商大概2-3天？</h6>
+                        </div>
+                    </li>
+                    <li class="qa-content flex">
+                        <div class="quest flex">
+                            <h5>信用卡交易失敗怎麼辦？</h5><img src="images/arrow-top.svg" alt="">
+                        </div>
+                        <div class="ans">
+                                <h6>訂單因交易失敗導致訂單未成立成功，交易失敗的訂單無法再恢復訂單狀態重新付款。若您還需要此訂單內商品，請您重新訂購。
+                                </h6>
+                        </div>
+                    </li>
+                    <li class="qa-content line-none flex">
+                        <div class="quest flex">
+                            <h5>要怎麼DIY自己的襪子？多久會收到呢？</h5><img src="images/arrow-top.svg" alt="">
+                        </div>
+                        <div class="ans">
+                                <h6>WATZ提供三種樣版、一種自製襪供您挑選一雙屬於自己獨一無二的襪子。樣板包括：WATZ logo款、條紋、點點，您能夠自由搭配選擇底色及樣式的配色。自製款有十種圖樣，您一樣能自由選擇底色及圖樣的配色。
+                                </h6>
                         </div>
                     </li>
                 </ul>
