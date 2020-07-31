@@ -25,14 +25,19 @@
             width: 1200px;
             justify-content: space-between;
             margin-top: 120px;
+            border: 1px solid gold;
         }
 
         .block-left {
             width: 800px;
+            border: 1px solid rgb(100, 248, 63);
+
         }
 
         .block-right {
             width: 350px;
+            border: 1px solid rgb(34, 220, 245);
+        
         }
 
         .block-fixed {
@@ -42,6 +47,13 @@
             flex-direction: column;
             position: sticky;
             top: 120px;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .wrapper {
+                width: 90vw;
+                
+            }
         }
 
         /* ------------------process------------------ */
@@ -68,6 +80,11 @@
 
         .here {
             background-color: #F2DE79;
+        }
+        @media screen and (max-width: 1200px) {
+            .buy-process {
+                
+            }
         }
 
         /* -----------choose box------------- */
@@ -148,7 +165,13 @@
         .step3.show {
             opacity: 1;
         }
-
+        @media screen and (max-width: 1200px) {
+            .box-watzbox {
+              
+                
+            }
+            
+        }
         /* -------------order list-------------- */
 
         .box-product {
@@ -252,6 +275,13 @@
             background: url(images/remove.svg);
             cursor: pointer;
         }
+        @media screen and (max-width: 1200px) {
+            .box-product {
+        
+                
+            }
+            
+        }
 
         /* --------------right fix part------------- */
         /* --------------box-shipping------------- */
@@ -288,6 +318,13 @@
 
         .conv-store {
             width: 100px;
+        }
+        @media screen and (max-width: 1200px) {
+            .box-shipping {
+                width: 25vw;
+                
+            }
+            
         }
 
         /* --------------total-price------------- */
@@ -350,7 +387,7 @@
             width: 300px;
             margin: 30px;
             justify-content: space-between;
-            
+
         }
 
         .total-price ul li {
@@ -378,7 +415,8 @@
         .btn-pay:hover {
             background-color: #0388A6;
         }
-        footer{
+
+        footer {
             margin-top: 50px;
         }
     </style>
@@ -527,7 +565,7 @@
                     <div class="total-price flex">
                         <h3>結帳金額</h3>
                         <div class="total-price-frame flex">
-                            
+
                             <div class="coupon flex">
                                 <input type="text" placeholder="輸入折扣代碼">
                                 <button class="button">兌換</button>
