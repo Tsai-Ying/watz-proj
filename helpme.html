@@ -50,6 +50,10 @@
             transition: ease-in-out 1s;
         }
 
+        .cursor {
+            cursor: pointer;
+        }
+
 
         /* --------block1----------- */
 
@@ -93,26 +97,34 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: 0.5s ease-in-out;
+            transition: 0.5s ;
         }
 
-        .help-btn:hover {
+        .help-btn:hover,
+        .block5-helpBtn:hover {
             background-color: #0388A6;
         }
 
         .help-btn img {
             width: 50px;
             height: 50px;
+            filter:drop-shadow(5px 5px 0px rgba(70, 70, 70, 0.5));
         }
 
         .help-btn h3 {
             color: white;
             font-size: 27px;
+            filter:drop-shadow(2px 2px 0px rgba(124, 124, 124, 0.637));
         }
 
         .float-img {
             width: 80px;
             position: absolute;
+        }
+        .animation{
+            animation: 1s 0s infinite alternate;
+            animation-timing-function:linear;
+            filter:drop-shadow(0px 0px 5px rgba(70, 70, 70, 0.5));
         }
 
         .sock1,
@@ -121,37 +133,100 @@
             top: 20%;
             transform: rotate(25deg);
             width: 100px;
+            width: 100px;
+            height: 100px;
+            animation-name: sock1;
+        }
+
+        @keyframes sock1 {
+            0% {
+                top: 20%;
+                transform: rotate(30deg);
+            }
+            100% {
+                top: 23%;
+            }
         }
 
         .sock2 {
             top: 28%;
+            animation-name: sock2;
+        }
+        
+        @keyframes sock2 {
+            0% {
+                top: 28%;
+                transform: rotate(15deg);
+            }
+            100% {
+                top: 30%;
+            }
         }
 
         .sock3 {
-            right: 8%;
-            bottom: 10%;
-            transform: rotate(-60deg) scaleX(-1);
+            left: 8%;
+            bottom: 2%;
+            transform: rotate(20deg);
+            width: 90px;
+            animation-name: sock3;
         }
 
         .sock4 {
-            right: 12%;
-            bottom: 2%;
-            transform: rotate(-30deg) scaleX(-1);
+            left: 8%;
+            bottom: 5%;
+            transform: rotate(20deg);
+            width: 90px;
+            animation-name: sock4;
+            
         }
+
+        @keyframes sock3 {
+            0% {
+                bottom: 2%;
+                transform: rotate(-10deg);
+            }
+            100% {
+                bottom: 5%;
+            }
+        }
+        @keyframes sock4 {
+            0% {
+                left: 15%;
+                transform: rotate(30deg);
+            }
+            100% {
+                left: 12%;
+                bottom: 1%;
+            }
+        }
+
 
         .sock5 {
             left: 3%;
             top: 2%;
             transform: rotate(-20deg) scaleX(-1);
             width: 130px;
+            animation-name: sock5;
+        }
+        @keyframes sock5 {
+            0% {
+                transform: rotate(-10deg)scaleX(-1);
+            }
         }
 
+
         .sock6 {
-            left: 8%;
-            bottom: 2%;
-            transform: rotate(20deg);
-            width: 90px;
+            right: 8%;
+            bottom: 10%;
+            transform: rotate(30deg)scaleX(-1);
+            animation-name: sock6;
         }
+        @keyframes sock6 {
+            0% {
+                transform: rotate(10deg)scaleX(-1);
+            }
+        }
+        
 
         .end {
             font-size: 60px;
@@ -164,6 +239,8 @@
             color: #707070;
             border-radius: 10px;
         }
+
+
 
 
 
@@ -210,9 +287,10 @@
 
         }
 
-        .block-img> label>img {
+        .block-img>label>img {
             width: 100%;
             height: 100%;
+            filter:drop-shadow(0px 0px 2px rgba(114, 114, 114, 0.5));
         }
 
         .bottom-left img {
@@ -306,7 +384,7 @@
         }
 
         .block5-helpBtn h3 {
-
+            color: white;
             font-size: 12px;
         }
 
@@ -369,18 +447,18 @@
                         <div class="img-centerkv flex">
                             <img class="flex" src="images/dapei-centerkv.svg" alt="">
                         </div>
-                        <div class="help-btn flex goNext">
+                        <div class="help-btn flex goNext cursor">
                             <img class="flex" src="images/magic.svg" alt="">
-                            <h3>幫我搭</h3>
+                            <h3 class="cursor">幫我搭</h3>
                         </div>
                     </div>
-                    <img class="float-img sock1" src="/images/product/index-clear-03.png" alt="">
-                    <img class="float-img sock2" src="/images/product/index-clear-03.png" alt="">
-                    <img class="float-img sock3" src="/images/product/index-clear-07.png" alt="">
-                    <img class="float-img sock4" src="/images/product/index-clear-07.png" alt="">
-                    <img class="float-img sock5" src="/images/product/index-clear-02.png" alt="">
-                    <img class="float-img sock6" src="/images/product/index-clear-08.png" alt="">
-                    <div class="end">+</div>
+                    <img class="float-img sock1 animation" src="/images/product/index-clear-03.png" alt="">
+                    <img class="float-img sock2 animation" src="/images/product/index-clear-03.png" alt="">
+                    <img class="float-img sock3 animation" src="/images/product/index-clear-07.png" alt="">
+                    <img class="float-img sock4 animation" src="/images/product/index-clear-07.png" alt="">
+                    <img class="float-img sock5 animation" src="/images/product/index-clear-02.png" alt="">
+                    <img class="float-img sock6 animation" src="/images/product/index-clear-08.png" alt="">
+                    <div class="end cursor">+</div>
                 </li>
                 <li class="block2 flex ">
                     <div class="box-top flex">
@@ -392,14 +470,15 @@
                         <form action="" class="bottom-right flex">
                             <div class="BR-left flex">
                                 <div class="radio-group flex ">
-                                    <div class="block-img">
-                                        <label for="block2-btn1">
-                                            <img  src="/images/test-lengthA.svg" alt="">
+                                    <div class="block-img ">
+                                        <label for="block2-btn1" class="cursor">
+                                            <img src="/images/test-lengthA.svg" alt="">
                                         </label>
                                     </div>
-                                    <h5 class="goNext">隱形襪</h5>
+                                    <h5>隱形襪</h5>
                                     <div>
-                                        <input type="radio" class="radio-input  goNext" id="block2-btn1" name="number">
+                                        <input type="radio" class="radio-input goNext cursor" id="block2-btn1"
+                                            name="number">
                                         <label for="block2-btn1" class="radio-label">
                                             <span class="radio-button"></span>
                                         </label>
@@ -408,11 +487,11 @@
                                 </div>
                                 <div class="radio-group flex">
                                     <div class="block-img">
-                                        <label for="block2-btn2">
+                                        <label for="block2-btn2" class="cursor">
                                             <img src="/images/test-lengthB.svg" alt="">
                                         </label>
                                     </div>
-                                    <h5 class="goNext">踝襪</h5>
+                                    <h5>踝襪</h5>
                                     <div>
                                         <input type="radio" class="radio-input goNext" id="block2-btn2" name="number">
                                         <label for="block2-btn2" class="radio-label">
@@ -426,12 +505,11 @@
                             <div class="BR-right flex">
                                 <div class="radio-group flex">
                                     <div class="block-img">
-                                        <label for="block2-btn3">
-                                                <img  src="/images/test-lengthC.svg" alt="">        
-                                            </label>
-                                   
+                                        <label for="block2-btn3" class="cursor">
+                                            <img src="/images/test-lengthC.svg" alt="">
+                                        </label>
                                     </div>
-                                    <h5 class="goNext">短襪</h5>
+                                    <h5>短襪</h5>
                                     <div>
                                         <input type="radio" class="radio-input goNext" id="block2-btn3" name="number">
                                         <label for="block2-btn3" class="radio-label">
@@ -442,11 +520,11 @@
                                 </div>
                                 <div class="radio-group flex">
                                     <div class="block-img">
-                                        <label for="block2-btn4" >
+                                        <label for="block2-btn4" class="cursor">
                                             <img src="/images/test-lengthD.svg" alt="">
                                         </label>
                                     </div>
-                                    <h5 class="goNext">長襪</h5>
+                                    <h5>長襪</h5>
                                     <div>
                                         <input type="radio" class="radio-input goNext" id="block2-btn4" name="number">
                                         <label for="block2-btn4" class="radio-label">
@@ -472,11 +550,11 @@
                             <div class="BR-left flex">
                                 <div class="radio-group flex">
                                     <div class="block-img">
-                                        <label for="block3-btn1" >
-                                            <img  src="/images/test-wearA.png" alt="">
+                                        <label for="block3-btn1" class="cursor">
+                                            <img src="/images/test-wearA.png" alt="">
                                         </label>
                                     </div>
-                                    <h5 class="goNext">古著文青風</h5>
+                                    <h5>古著文青風</h5>
                                     <div>
                                         <input type="radio" class="radio-input goNext" id="block3-btn1" name="number">
                                         <label for="block3-btn1" class="radio-label">
@@ -487,11 +565,11 @@
                                 </div>
                                 <div class="radio-group flex">
                                     <div class="block-img">
-                                        <label for="block3-btn2" >
-                                            <img  src="/images/test-wearB.png" alt="">
+                                        <label for="block3-btn2" class="cursor">
+                                            <img src="/images/test-wearB.png" alt="">
                                         </label>
                                     </div>
-                                    <h5 class="goNext">時下流行單品</h5>
+                                    <h5>時下流行單品</h5>
                                     <div>
                                         <input type="radio" class="radio-input goNext" id="block3-btn2" name="number">
                                         <label for="block3-btn2" class="radio-label">
@@ -505,11 +583,11 @@
                             <div class="BR-right flex">
                                 <div class="radio-group flex">
                                     <div class="block-img">
-                                        <label for="block3-btn3">
-                                            <img  src="/images/test-wearC.png" alt="">    
+                                        <label for="block3-btn3" class="cursor">
+                                            <img src="/images/test-wearC.png" alt="">
                                         </label>
                                     </div>
-                                    <h5 class="goNext">素色襯衫和長褲</h5>
+                                    <h5>素色襯衫和長褲</h5>
                                     <div>
                                         <input type="radio" class="radio-input goNext" id="block3-btn3" name="number">
                                         <label for="block3-btn3" class="radio-label">
@@ -520,11 +598,11 @@
                                 </div>
                                 <div class="radio-group flex">
                                     <div class="block-img">
-                                        <label for="block3-btn4">
+                                        <label for="block3-btn4" class="cursor">
                                             <img src="/images/test-wearD.png" alt="">
                                         </label>
                                     </div>
-                                    <h5 class="goNext">休閒洋裝</h5>
+                                    <h5>休閒洋裝</h5>
                                     <div>
                                         <input type="radio" class="radio-input goNext" id="block3-btn4" name="number">
                                         <label for="block3-btn4" class="radio-label">
@@ -549,12 +627,12 @@
                         <form action="" class="bottom-right flex">
                             <div class="BR-left flex">
                                 <div class="radio-group flex">
-                                    <div class="block-img"> 
-                                        <label for="block4-btn1" >
-                                            <img  src="/images/test-doA.svg" alt="">
-                                    </label>
+                                    <div class="block-img">
+                                        <label for="block4-btn1" class="cursor">
+                                            <img src="/images/test-doA.svg" alt="">
+                                        </label>
                                     </div>
-                                    <h5 class="goNext">朋友聚會</h5>
+                                    <h5>朋友聚會</h5>
                                     <div>
                                         <input type="radio" class="radio-input goNext" id="block4-btn1" name="number">
                                         <label for="block4-btn1" class="radio-label">
@@ -565,11 +643,11 @@
                                 </div>
                                 <div class="radio-group flex">
                                     <div class="block-img">
-                                        <label for="block4-btn2" >
+                                        <label for="block4-btn2" class="cursor">
                                             <img src="/images/test-doB.svg" alt="">
                                         </label>
                                     </div>
-                                    <h5 class="goNext">辦公室</h5>
+                                    <h5>辦公室</h5>
                                     <div>
                                         <input type="radio" class="radio-input goNext" id="block4-btn2" name="number">
                                         <label for="block4-btn2" class="radio-label">
@@ -583,11 +661,11 @@
                             <div class="BR-right flex">
                                 <div class="radio-group flex">
                                     <div class="block-img">
-                                        <label for="block4-btn3" >
+                                        <label for="block4-btn3" class="cursor">
                                             <img src="/images/test-doC.svg" alt="">
                                         </label>
                                     </div>
-                                    <h5 class="goNext">露營踏青</h5>
+                                    <h5>露營踏青</h5>
                                     <div>
                                         <input type="radio" class="radio-input goNext" id="block4-btn3" name="number">
                                         <label for="block4-btn3" class="radio-label">
@@ -598,11 +676,11 @@
                                 </div>
                                 <div class="radio-group flex">
                                     <div class="block-img">
-                                        <label for="block4-btn4">
+                                        <label for="block4-btn4" class="cursor">
                                             <img src="/images/test-doD.svg" alt="">
                                         </label>
                                     </div>
-                                    <h5 class="goNext">逛街血拼</h5>
+                                    <h5>逛街血拼</h5>
                                     <div>
                                         <input type="radio" class="radio-input goNext" id="block4-btn4" name="number">
                                         <label for="block4-btn4" class="radio-label">
@@ -628,7 +706,7 @@
                             <div class="BR-left flex">
                                 <div class="radio-group flex">
                                     <div class="block-img">
-                                        <label for="block5-btn1">
+                                        <label for="block5-btn1" class="cursor">
                                             <img src="/images/test-colorA.svg" alt="">
                                         </label>
                                     </div>
@@ -643,8 +721,8 @@
                                 </div>
                                 <div class="radio-group flex">
                                     <div class="block-img">
-                                        <label for="block5-btn2">
-                                            <img src="/images/test-colorB.svg" alt="">    
+                                        <label for="block5-btn2" class="cursor">
+                                            <img src="/images/test-colorB.svg" alt="">
                                         </label>
                                     </div>
                                     <h5>大地色系</h5>
@@ -661,7 +739,7 @@
                             <div class="BR-right flex">
                                 <div class="radio-group flex">
                                     <div class="block-img">
-                                        <label for="block5-btn3">
+                                        <label for="block5-btn3" class="cursor">
                                             <img src="/images/test-colorC.svg" alt="">
                                         </label>
                                     </div>
@@ -676,7 +754,7 @@
                                 </div>
                                 <div class="radio-group flex">
                                     <div class="block-img">
-                                        <label for="block5-btn4">
+                                        <label for="block5-btn4" class="cursor">
                                             <img src="/images/test-colorD.svg" alt="">
                                         </label>
                                     </div>
@@ -692,10 +770,10 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="bottom-result flex ">
+                        <div class="bottom-result flex cursor ">
                             <div class="block5-helpBtn flex goNext">
                                 <img class="flex" src="images/magic.svg" alt="">
-                                <h3>完成!</h3>
+                                <h3 class="cursor">完成!</h3>
                             </div>
                         </div>
 
@@ -719,7 +797,7 @@
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="js/nav.js"></script>
     <script>
-
+        // 滑動
         let slideIndex = 0;
         let slideCount = $("#blockPhoto ul").find("li").length;
         let slideWidth = $("#blockPhoto ul li").width();
@@ -731,7 +809,7 @@
             $(".goNext").click(function () {
                 slideIndex = slideIndex + 1;
                 goSlide()
-                $("#blockPhoto ul").css("transition-delay","600ms");
+                $("#blockPhoto ul").css("transition-delay", "600ms");
                 $("#blockPhoto ul .block5").css("transition-delay", "50ms");
             });
 
@@ -756,16 +834,8 @@
 
         slider()
 
-    // 同款樣式hover
-        // $("help-btn").hover(function (event) {
-        //     $(".help-btn").removeClass("active")
-        // })
 
-        // $("help-btn").mouseleave(function (event) {
-        //     $(".help-btn").eq(0).addClass("active")
-        // })
-
-
+        // -----------------------
 
     </script>
 </body>
