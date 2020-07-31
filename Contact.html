@@ -10,18 +10,22 @@
         href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
     <style>
-        /* -----FAQ-block----- */
-        .block-top {
-            width: 800px;
-            margin-top: 200px;
-            border: 1px solid red;
+        .container{
+            background: url(images/BG4.svg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
-
-        .b-bt-coral h3 {
+        .block-wrapper {
+            width: 800px;
+            margin-top: 160px;
+        }
+        /* -----FAQ-block----- */
+        .b-bt-blue h3 {
             color: #03588C;
         }
 
-        .b-bt-coral {
+        .b-bt-blue {
             display: inline-block;
             padding: 5px;
             border-bottom: 4px solid #FF9685;
@@ -109,10 +113,70 @@
         h6 span {
             background: #F2DE79;
         }
+        .b-bt-blue{
+            align-self: flex-start;
+        }
 
         .block-bottom {
+            width: 600px;
             background: #F2DE79;
             border-radius: 30px;
+            flex-direction: column;
+            align-items: center;
+            margin:25px 100px;
+        }
+        .block-bottom ul{
+            margin-top:50px;
+            align-items: center;
+        }
+        .block-bottom li{
+            max-width: 500px;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .btn-blue{
+            width:200px;
+            margin-top:25px;
+            margin-bottom: 25px;
+        }
+        .block-bottom ul li input{
+            width: 350px;
+            height: 30px;
+            margin-left:20px;
+            border-radius: 2px;
+            outline: none;
+            border: none;
+        }
+        .block-bottom ul li textarea{
+            align-self:flex-start;
+            width:350px;
+            height:150px;
+            margin-left:20px;
+            border-radius: 2px;
+            outline: none;
+            border: none;
+            resize: none;
+        }
+        .block-bottom ul li textarea::-webkit-scrollbar-track-piece{
+            background-color: #F8F4EB;
+        }
+        .block-bottom ul li textarea::-webkit-scrollbar{
+            width: 5px;
+            height: 5px;
+        }
+        .block-bottom ul li textarea::-webkit-scrollbar-thumb{
+            background-color: #E2E2E2;
+            background-clip: padding-box;
+            min-height: 28px;
+            border-radius:20px;
+        }
+        .block-bottom .p-reply{
+            align-self: flex-start;
+        }
+        footer{
+            z-index: 1;
         }
     </style>
 </head>
@@ -162,8 +226,8 @@
                 </div>
             </div>
         </nav>
-        <div class="block-top">
-            <div class="b-bt-coral">
+        <div class="block-wrapper">
+            <div class="b-bt-blue">
                 <h3>常見問題集</h3>
             </div>
             <ul class="qa-title-list flex">
@@ -350,30 +414,31 @@
                     </li>
                 </ul>
             </div>
+            <div class="b-bt-blue">
+                <h3>聯絡我們</h3>
+            </div>
+                <form class="block-bottom flex" action="">
+                    <ul>                   
+                        <li class="flex">
+                            <p>姓名</p><input type="text">
+                        </li> 
+                        <li class="flex">
+                            <p>電話</p><input type="text">
+                        </li>
+                        <li class="flex">
+                            <p>E-mail</p><input type="text">
+                        </li>
+                        <li class="flex">
+                            <p>主旨</p><input type="text">
+                        </li>
+                        <li class="flex">
+                            <p class="p-reply">回覆內容</p><textarea placeholder="(文字限長度為255字)"></textarea>
+                    </ul>
+                    <button class="btn-blue">送出</button>
+                </form>
         </div>
-        <div class="b-bt-coral">
-            <h3>聯絡我們</h3>
-        </div>
-            <form class="block-bottom" action="">
-                <ul>
-                    <li class="flex">
-                        <p>姓名</p><input type="text">
-                    </li>
-                    <li class="flex">
-                        <p>電話</p><input type="text">
-                    </li>
-                    <li class="flex">
-                        <p>E-mail</p><input type="text">
-                    </li>
-                    <li class="flex">
-                        <p>主旨</p><input type="text">
-                    </li>
-                    <li class="flex">
-                        <p>回覆內容</p><input type="text">
-                    </li>
-                </ul>
-                <button>送出</button>
-            </form>
+        
+        
         <!-- btn-top -->
         <div class="btn-top flex transition" id="goTop">
             <img src="images/arrow-top.svg" alt="">
