@@ -13,10 +13,17 @@ $(".menu").click(function () {
     $(".menu").toggleClass('current');
 })
 
+$(".dropdown a").click(function(){
+    $(this).closest(".dropdown").toggleClass('show');
+})
+
 // btn-top //
 let vh = $(window).height();
 
-$("#goTop").css("opacity", "0")
+$("#goTop").css({
+    "visibility" : "hidden",
+    "opacity": "0"
+})
 
 $("#goTop").click(function () {
     $("html").animate({
@@ -24,13 +31,20 @@ $("#goTop").click(function () {
     })
 });
 $(window).scroll(function () {
-    let scrollTop = $(this).scrollTop();
+    let scrollTop2 = $(this).scrollTop();
     // console.log(scrollTop)
-    if (scrollTop < vh) {
-        $("#goTop").css("opacity", "0")
+    if (scrollTop2 < vh) {
+        $("#goTop").css({
+            "visibility" : "hidden",
+            "opacity": "0"
+        })
     }
     else {
-        $("#goTop").css("opacity", "1")
+        $("#goTop").css({
+            "visibility": "visible",
+            "opacity": "1",
+            "cursor": "pointer"
+        })
     }
 })
 

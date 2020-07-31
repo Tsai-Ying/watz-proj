@@ -9,6 +9,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
+    <style>
+
+    </style>
 </head>
 
 <body>
@@ -20,11 +23,20 @@
                 <a class="img-logo-text" href=""><img src="images/logo-text.svg" alt=""></a>
             </div>
             <ul class="nav-list flex transition">
-                <li><a href="">PROJECT</a></li>
-                <li><a href="">SHOP</a></li>
-                <li><a href="">DIY</a></li>
-                <li><a href="">WATZ</a></li>
-                <li><a href="">CONTACT</a></li>
+                <li class="dropdown flex">
+                    <a>PROJECT</a>
+                    <!-- <div class="dropdown-menu flex transition">
+                        <div class="dropdown-bg flex transition">
+                            <a class="transition" href="">芒果派對</a>
+                            <a class="transition" href="">群魔亂舞</a>
+                            <a class="transition" href="">灰姑娘的<br>水晶襪</a>
+                        </div>
+                    </div> -->
+                </li>
+                <li class="dropdown flex"><a href="">SHOP</a></li>
+                <li class="dropdown flex"><a href="">DIY</a></li>
+                <li class="dropdown flex"><a href="">WATZ</a></li>
+                <li class="dropdown flex"><a href="">CONTACT</a></li>
             </ul>
             <div class="nav-icon flex transition">
                 <a class="icon-wrapper" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
@@ -56,7 +68,7 @@
                 </div>
             </div>
         </nav>
-        <!-- <div class="wrapper"></div> -->
+        <div class="wrapper"></div>
         <!-- btn-top -->
         <div class="btn-top flex transition" id="goTop">
             <img src="images/arrow-top.svg" alt="">

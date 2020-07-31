@@ -230,6 +230,7 @@ a.icon-wrapper {
 
 .nav.hide-nav .nav-list{
     width: 0;
+    overflow: hidden;
 }
 
 .nav-logo {
@@ -255,7 +256,7 @@ a.icon-wrapper {
     flex-grow: 1;
     justify-content: flex-end;
     margin: 0 20px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .nav-list ul {
@@ -268,7 +269,7 @@ a.icon-wrapper {
     font-size: 1.2rem;
     color: #404040;
     padding: 20px 20px;
-    line-height: 70px;
+    background: #ffffff;
 }
 
 .nav-list li:hover{
@@ -279,6 +280,55 @@ a.icon-wrapper {
     border-bottom: 4px solid transparent;
     transition: .2s;
     height: 70px;
+    overflow: hidden;
+}
+
+.nav-list .dropdown{
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+
+}
+.dropdown-menu{
+    width: 100%;
+    top: 80px;
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 3px 3px #70707050;
+    border-radius: 0 0 15px 15px;
+}
+
+.dropdown .dropdown-bg{
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+}
+
+.dropdown-bg a{
+    text-align: center;
+    padding: 0;
+    padding-top: 10px;
+    font-size: 1rem;
+    transition: .2s;
+    border-bottom: 4px solid transparent;
+}
+.dropdown-bg a:hover{
+    border-bottom: 4px solid #FF9685;
+}
+.dropdown.show{
+    overflow: visible;
+}
+
+.dropdown.show .dropdown-bg{
+    overflow: auto;
+    padding-bottom: 20px;
+}
+
+.dropdown.show .dropdown-menu{
+    height: 180px;
 }
 
 .nav-icon {
@@ -507,7 +557,7 @@ a:hover .st0 {
     opacity: .5;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 3px 6px #70707050;
+    box-shadow: 0 3px 3px #70707050;
 }
 .btn-top img{
     cursor: pointer;

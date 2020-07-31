@@ -81,6 +81,35 @@
         z-index: 0;
     }
 
+    @media screen and (max-width: 1200px) {
+        .wrapper {
+            width: 100vw;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        .block {
+            width: 50vw;
+            height: 50vw;
+        }
+
+        .img-pattern-watz {
+            width: 40vw;
+            height: 40vw;
+        }
+
+        .btn {
+            width: 280px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn button {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+    }
+
     @media screen and (max-width: 576px) {
         .container {
             background-size: cover;
@@ -88,19 +117,14 @@
             background-repeat: repeat-y;
         }
 
-        .wrapper {
-            width: 375px;
-            height: calc(100vh - 160px);
-        }
-
         .block {
-            width: 300px;
-            height: 300px;
+            width: 70vw;
+            height: 70vw;
         }
 
         .img-pattern-watz {
-            width: 220px;
-            height: 220px;
+            width: 60vw;
+            height: 60vw;
         }
 
         .wrapper h2 {
@@ -178,10 +202,10 @@
             <div class="bg-btn-top transition"></div>
         </div>
         <!-- btn-top -->
-        <div class="wrapper flex">
-            <div class="block flex">
-                <img class="img-bling" src="images/bling.svg" alt="">
-                <img class="img-pattern-watz" src="images/pattern-watz.svg" alt="">
+        <div class="wrapper flex transition">
+            <div class="block flex transition">
+                <img class="img-bling transition" src="images/bling.svg" alt="">
+                <img class="img-pattern-watz transition" src="images/pattern-watz.svg" alt="">
             </div>
             <h2 class="transition">恭喜完成專屬於你的WATZ襪子!</h2>
             <div class="btn flex transition">

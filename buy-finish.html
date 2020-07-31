@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>empty-cart</title>
+    <title>buy-finish</title>
     <link rel="stylesheet" href="css/nav.css">
     <style>
         /* -----------------empty-cart---------------        */
@@ -17,8 +17,8 @@
         .container {
             width: 100vw;
             overflow: hidden;
+            position: relative;
             min-height: 100vh;
-            flex-direction: column;
             justify-content: space-between;
         }
 
@@ -30,54 +30,88 @@
             margin-top: 100px;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
         }
 
-        .icon-empty-cart {
-            width: 550px;
-            height: 450px;
-            /* background-color: #ffffff; */
+        .pay-finish {
+            width: 500px;
             border-radius: 15px;
+            justify-content: center;
             /* border: 1px solid rgb(121, 126, 138); */
             flex-direction: column;
             align-items: center;
             justify-content: center;
         }
 
-        .icon-empty-cart img {
-            width: 280px;
-            transform: translateX(30px);
-            margin-bottom: 30px;
+        .pay-finish-frame {
+            width: 500px;
+            height: 500px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+            /* border: 1px solid royalblue; */
+
         }
 
-        .btn-coral {
+        .pay-finish img {
+            width: 280px;
+            transform: translateX(48px);
+        }
+
+        .pay-finish h3 {
+            color: #03588C;
+        }
+
+        .pay-finish h4 {
+            color: #FF9685;
+        }
+
+        .pay-finish h5,h6 {
+            color: #707070;
+        }
+
+        .pay-finish button {
             width: 160px;
             height: 40px;
-            margin-top: 50px;
+            border-radius: 2px;
+            background-color: #F2DE79;
+            margin: 15px;
+            color: #707070;
+            outline: none;
+            text-align: center;
             cursor: pointer;
+
         }
 
-        .btn-coral:hover {
-            background: #0388A6;
+        .pay-finish button:hover {
+            background-color: #03588C;
+            color: #ffffff;
         }
+
         @media screen and (max-width: 576px) {
-            .container{
+            .container {
                 height: 100vh;
-                overflow: hidden;
-            }
-            .icon-empty-cart {
-                width: 100vw;
+                /* overflow: hidden; */
             }
 
-            .icon-empty-cart img {
-                width: 150px;
-                transform: translateX(15px);
+            .pay-finish {
+                height: 100vh;
+
             }
-            
-            .goshopping {
+            .pay-finish-frame{
+                height: 50vh;
+            }
+
+            .pay-finish h5 {
+                width: 300px;
+                text-align: center;
+
+            }
+
+            .pay-finish img {
                 width: 200px;
-                height: 40px;
-                margin-top: 40px;
+                transform: translateX(35px);
             }
         }
     </style>
@@ -85,6 +119,7 @@
 
 <body>
     <div class="container flex">
+        <div class="div"></div>
         <nav class="nav flex transition">
             <div class="nav-logo flex">
                 <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
@@ -129,25 +164,35 @@
         </nav>
         <!-- <div class="wrapper"></div> -->
         <div class="wrapper flex">
-            <div class="icon-empty-cart flex">
-                <img src="images/cart-empty.svg" alt="">
-                <h3 class="empty-cart">購物車空空的。</h3>
-                <button class="goshopping btn-coral" href="" type="button">
-                    逛街去</button>
+            <div class="pay-finish flex">
+                <div class="pay-finish-frame flex">
+                    <img src="images/cart-finished.svg" alt="">
+                    <h3>訂單已完成</h3>
+                    <h4>訂單編號：000123456</h4>
+                    <h5>感謝您的購買</h5>
+                    <h5>訂單明細已寄到您的信箱：
+                        meishaonu***@gamil.com</h5>
+                    
+                    <h6>有任何問題請洽客服  Mon.-Fir. 9:00-17:00</h6>
+                    <button class="pay-btn btn-blue prev">查看訂單</button>
+                </div>
+
+
             </div>
         </div>
-    <!-- footer -->
 
-    <footer class="flex">
-        <div class="flex">
-            <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
-            <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
-            <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
-            <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
-        </div>
-        <h6>Copyright© WATZ Company All rights Reserved.</h6>
-        <img class="bg-footer flex" src="images/footer.svg" alt="">
-    </footer>
+        <!-- footer -->
+
+        <footer class="flex">
+            <div class="flex">
+                <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
+            </div>
+            <h6>Copyright© WATZ Company All rights Reserved.</h6>
+            <img class="bg-footer flex" src="images/footer.svg" alt="">
+        </footer>
     </div>
 
 </body>
@@ -155,6 +200,7 @@
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="js/nav.js"></script>
 <script>
+
 
 
 </script>
