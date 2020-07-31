@@ -13,6 +13,10 @@ $(".menu").click(function () {
     $(".menu").toggleClass('current');
 })
 
+$(".dropdown a").click(function(){
+    $(this).closest(".dropdown").toggleClass('show');
+})
+
 // btn-top //
 let vh = $(window).height();
 
