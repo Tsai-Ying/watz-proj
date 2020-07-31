@@ -78,6 +78,7 @@
         letter-spacing: 5px;
         font-size: 2rem;
         margin-top: 10px;
+        cursor: pointer;
     }
 
     .img-title-bgc .cls-1 {
@@ -91,8 +92,9 @@
 
     .block-bottom {
         flex-direction: column;
-        margin: 0 60px 150px;
+        margin: 0px 60px 150px;
         position: relative;
+        padding-top: 100px;
     }
 
     .tutorial {
@@ -114,6 +116,7 @@
         right: 0;
         z-index: 3;
         display: none;
+        padding-top: 100px;
     }
 
     .img-btn-closebg img {
@@ -155,6 +158,7 @@
         margin-top: 90px;
         z-index: 3;
         display: none;
+        padding-top: 100px;
     }
 
     .step1 {
@@ -438,6 +442,7 @@
         z-index: 0;
         bottom: 0;
         right: 0;
+        overflow: hidden;
     }
 
     .shape-color-dots {
@@ -458,6 +463,10 @@
         margin-bottom: 15px;
     }
 
+    .socks-color#ul3 {
+        display: none;
+    }
+
     .shape-color h3 {
         color: #FF9685;
         font-family: 'Fredoka One';
@@ -468,9 +477,9 @@
         left: -25px;
         cursor: pointer;
     }
-    
+
     .move-left {
-        transform: translateX(-500px);
+        transform: translateX(-100%);
     }
 
     .color#b1 {
@@ -530,6 +539,242 @@
 
     footer {
         z-index: 0;
+    }
+
+    @media screen and (max-width: 1200px) {
+        .wrapper {
+            width: 990px;
+        }
+
+        .diy-socks img {
+            width: 250px;
+            height: 340px;
+        }
+
+        .box-right {
+            width: 350px;
+            height: 750px;
+        }
+
+        .diy-area {
+            margin-left: 100px;
+        }
+
+        .shape-color {
+            width: 400px;
+            height: 180px;
+        }
+
+        .shape-color h3 {
+            top: 77px;
+        }
+
+        .sockscolor-dots {
+            width: 350px;
+            padding: 0 5px 0 15px;
+        }
+
+        .sockscolor-dots {
+            margin-top: 20px;
+        }
+
+        .sockscolor-dots li {
+            margin: 0 5px;
+        }
+
+        .sockscolor-dots li img {
+            margin: 0 6px -1px 5px;
+            width: 45px;
+            /* opacity: 1; */
+        }
+
+        .image-select-circle {
+            margin: 0;
+        }
+
+        .color {
+            margin: -46px 0 0 8px;
+            width: 37px;
+            height: 37px;
+        }
+
+        .pattern-with-shape {
+            height: 350px;
+        }
+
+        .pattern h3 {
+            margin-top: 0;
+        }
+
+        .img-pattern {
+            width: 350px;
+        }
+
+        .img-pattern div {
+            width: 40px;
+        }
+
+        .shape h3 {
+            margin-top: 10px;
+        }
+
+        .shape-flex {
+            width: 350px;
+            padding: 10px 0 0 12px;
+        }
+
+        .shape-flex div {
+            margin: 10px 12px 0;
+        }
+
+        .sockscolor-dots#ul2 {
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 25px 0 0 50px;
+        }
+
+        .btn-box button {
+            width: 160px;
+        }
+
+        .dash-box {
+            width: 870px;
+            height: 750px;
+        }
+
+        .dash1,
+        .dash2 {
+            width: 350px;
+        }
+
+        .dash-left,
+        .dash-right {
+            width: 173px;
+        }
+
+        .dash-left {
+            right: 176px;
+        }
+
+        .dash2 {
+            height: 360px;
+        }
+
+        .dash-side {
+            right: 750px;
+            height: 180px;
+        }
+
+        .clean-all {
+            right: 210px;
+        }
+
+        .step4 {
+            right: 0;
+        }
+
+        .step3 {
+            right: 440px;
+            bottom: 200px;
+        }
+
+    }
+
+    @media screen and (max-width: 992px) {
+        body {
+            height: calc(100vh + 160px);
+        }
+
+        .wrapper {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .block-top,
+        .shape-color {
+            display: none;
+        }
+
+        .block-bottom {
+            width: 90vw;
+        }
+
+        .flexbox {
+            flex-direction: column;
+        }
+
+        .box-left {
+            width: 90vw;
+            height: 30vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2vw;
+        }
+
+        .box-right {
+            background: white;
+            width: 90vw;
+            height: 57vh;
+        }
+
+        .diy-area {
+            width: 100%;
+            height: 100%;
+            margin: 5vw 0 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .diy-area img {
+            width: 25vw;
+            height: 25vh;
+        }
+
+        .box-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .socks-color,
+        .pattern-with-shape,
+        .socks-color#ul3 {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-pattern-empty, .shape {
+            display: none;
+        }
+
+        .tutorial {
+            position: absolute;
+            z-index: 3;
+        }
+
+
+
+
+
+
+
+    }
+
+    @media screen and (max-width: 576px) {
+
+        .container {
+            background-size: cover;
+            background-image: url(images/BG-mobile2.svg);
+            background-repeat: repeat-y;
+        }
     }
 </style>
 
@@ -591,12 +836,12 @@
         </div>
         <!-- btn-top -->
         <div class="wrapper">
-            <div class="block-top flex">
-                <h1>Create your own WATZ !</h1>
-                <div class="flex">
-                    <div class="diy-socks"><img src="images/product/linebox-02.png" alt=""></div>
-                    <div class="diy-socks"><img src="images/product/linebox2-05.png" alt=""></div>
-                    <div class="diy-socks"><img src="images/product/linebox2-04.png" alt=""></div>
+            <div class="block-top flex mobile-none">
+                <h1 class="transition">Create your own WATZ !</h1>
+                <div class="flex transition">
+                    <div class="diy-socks"><img class="transition" src="images/product/linebox-02.png" alt=""></div>
+                    <div class="diy-socks"><img class="transition" src="images/product/linebox2-05.png" alt=""></div>
+                    <div class="diy-socks"><img class="transition" src="images/product/linebox2-04.png" alt=""></div>
                 </div>
                 <div class="img-title-bgc flex transition go-next">
                     <img class="svg icon" src="images/title-bgc.svg" alt="">
@@ -626,52 +871,52 @@
                     <h3 class="step3">Step3. 點選此處選擇圖樣顏色</h3>
                     <div class="dash-side"></div>
                 </div>
-                <div class="flexbox flex">
-                    <div class="box-left">
-                        <div class="diy-area"><img src="images/pattern-empty.svg" alt=""></div>
+                <div class="flexbox flex transition">
+                    <div class="box-left transition">
+                        <div class="diy-area transition"><img src="images/pattern-empty.svg" alt=""></div>
                     </div>
-                    <div class="box-right">
+                    <div class="box-right ">
                         <div class="socks-color flex">
                             <h3>Socks Color</h3>
                             <ul class="sockscolor-dots flex">
                                 <li>
-                                    <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                     <div class="color" id="a1"></div>
                                 </li>
                                 <li>
-                                    <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                     <div class="color" id="a2"></div>
                                 </li>
                                 <li>
-                                    <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                     <div class="color" id="a3"></div>
                                 </li>
                                 <li>
-                                    <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                     <div class="color" id="a4"></div>
                                 </li>
                                 <li>
-                                    <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                     <div class="color" id="a5"></div>
                                 </li>
                                 <li>
-                                    <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                     <div class="color" id="a6"></div>
                                 </li>
                                 <li>
-                                    <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                     <div class="color" id="a7"></div>
                                 </li>
                                 <li>
-                                    <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                     <div class="color" id="a8"></div>
                                 </li>
                                 <li>
-                                    <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                     <div class="color" id="a9"></div>
                                 </li>
                                 <li>
-                                    <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                     <div class="color" id="a10"></div>
                                 </li>
                             </ul>
@@ -684,10 +929,11 @@
                                     <div class="img-pattern-watz"><img src="images/pattern-watz.svg" alt=""></div>
                                     <div class="img-pattern-stripe"><img src="images/pattern-stripe.svg" alt=""></div>
                                     <div class="img-pattern-dotted"><img src="images/pattern-dotted.svg" alt=""></div>
-                                    <div class="img-pattern-empty"><img src="images/pattern-white.svg" alt=""></div>
+                                    <div class="img-pattern-empty mobile-none"><img src="images/pattern-white.svg"
+                                            alt=""></div>
                                 </div>
                             </div>
-                            <div class="shape">
+                            <div class="shape mobile-none">
                                 <h3>Shape</h3>
                                 <div class="shape-flex flex">
                                     <div><img src="images/shape-triangle.svg" alt=""></div>
@@ -702,6 +948,51 @@
                                     <div><img src="images/shape-pizza.svg" alt=""></div>
                                 </div>
                             </div>
+                            <div class="socks-color flex mobile-show" id="ul3">
+                                <h3>Shape Color</h3>
+                                <ul class="sockscolor-dots flex">
+                                    <li>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a1"></div>
+                                    </li>
+                                    <li>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a2"></div>
+                                    </li>
+                                    <li>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a3"></div>
+                                    </li>
+                                    <li>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a4"></div>
+                                    </li>
+                                    <li>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a5"></div>
+                                    </li>
+                                    <li>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a6"></div>
+                                    </li>
+                                    <li>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a7"></div>
+                                    </li>
+                                    <li>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a8"></div>
+                                    </li>
+                                    <li>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a9"></div>
+                                    </li>
+                                    <li>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a10"></div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="btn-box flex">
                             <div class="btn-left flex">
@@ -713,47 +1004,47 @@
                             </div>
                         </div>
                     </div>
-                    <div class="shape-color flex transition">
+                    <div class="shape-color flex ">
                         <h3 class="color-active">COLOR</h3>
                         <ul class="sockscolor-dots flex" id="ul2">
                             <li>
-                                <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                 <div class="color" id="b1"></div>
                             </li>
                             <li>
-                                <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                 <div class="color" id="b2"></div>
                             </li>
                             <li>
-                                <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                 <div class="color" id="b3"></div>
                             </li>
                             <li>
-                                <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                 <div class="color" id="b4"></div>
                             </li>
                             <li>
-                                <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                 <div class="color" id="b5"></div>
                             </li>
                             <li>
-                                <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                 <div class="color" id="b6"></div>
                             </li>
                             <li>
-                                <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                 <div class="color" id="b7"></div>
                             </li>
                             <li>
-                                <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                 <div class="color" id="b8"></div>
                             </li>
                             <li>
-                                <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                 <div class="color" id="b9"></div>
                             </li>
                             <li>
-                                <img class="transition img-select-circle" src="images/select circle.svg" alt="">
+                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
                                 <div class="color" id="b10"></div>
                             </li>
                         </ul>
@@ -781,11 +1072,21 @@
 <script>
     // anchor point
     $(".go-next").click(function () {
-        let nextPosition = $(".tutorial").offset().top;
+        let nextPosition = $(".block-bottom").offset().top;
         console.log(nextPosition)
         $("html").animate({
             scrollTop: nextPosition
         })
+        $(".modal").css({
+            "display": "block"
+        })
+        $(".tutorial#tutor2").css({
+            "display": "block"
+        })
+        $(".dash-box").css({
+            "display": "block"
+        })
+        $(".shape-color").addClass("move-left")
     })
 
     // shape-color move left
@@ -794,11 +1095,12 @@
         // $(this).css({
         //     transform: "translateX(-500px)",
         // })
+        $(".shape-color").addClass("transition")
         $(".shape-color").toggleClass("move-left")
     })
 
     // 打開使用說明
-    $(".tutorial").click(function(){
+    $(".tutorial").click(function () {
         console.log("click")
         $(".modal").css({
             "display": "block"
@@ -812,7 +1114,7 @@
         $(".shape-color").addClass("move-left")
     })
 
-    $(".tutorial#tutor2").click(function(){
+    $(".tutorial#tutor2").click(function () {
         $(".modal").css({
             "display": "none"
         })
