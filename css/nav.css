@@ -164,7 +164,7 @@ p {
     background: #FF9685;
 }
 
-.web-none{
+.mobile-show{
     display: none;
 }
 
@@ -192,14 +192,16 @@ a.icon-wrapper {
 
 .wrapper {
     width: 1200px;
+    height: 500vh;
 }
+
 
 @media screen and (max-width: 576px){
     .mobile-none{
         display: none;
     }
 
-    .web-none{
+    .mobile-show{
         display: unset;
     }
 }
@@ -493,8 +495,8 @@ a:hover .st0 {
     right: 3vw;
     top: 70vh;
     z-index: 21;
-    cursor: pointer;
     font-family: 'Fredoka One', cursive;
+    cursor: pointer;
 }
 .btn-top .bg-btn-top{
     position: absolute;
@@ -504,20 +506,41 @@ a:hover .st0 {
     width: 80px;
     opacity: .5;
     border-radius: 50%;
+    cursor: pointer;
     box-shadow: 0 3px 6px #70707050;
 }
 .btn-top img{
-    height: 20px;
     cursor: pointer;
+    height: 20px;
 }
 .btn-top h3{
     color: #03588C;
     font-weight: 400;
     cursor: pointer;
+    margin-top: 5px;
 }
 
 .btn-top:hover .bg-btn-top{
     opacity: 1;
+}
+
+@media screen and (max-width: 576px){
+    .btn-top{
+        height: 60px;
+        width: 60px;
+    }
+    .btn-top .bg-btn-top{
+        height: 60px;
+        width: 60px;
+    }
+    .btn-top img{
+        height: 15px;
+    }
+    .btn-top h3{
+        color: #03588C;
+        font-weight: 300;
+        margin-top: 3px;
+    }
 }
 
 /* footer */
