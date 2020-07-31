@@ -13,8 +13,11 @@ $(".menu").click(function () {
     $(".menu").toggleClass('current');
 })
 
-$(".dropdown a").click(function(){
-    $(this).closest(".dropdown").toggleClass('show');
+$(".dropdown>a").hover(function(){
+    $(this).closest(".dropdown").addClass('show');
+})
+$(".dropdown").mouseleave(function(){
+    $(this).closest(".dropdown").removeClass('show');
 })
 
 // btn-top //
