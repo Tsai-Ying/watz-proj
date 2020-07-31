@@ -34,9 +34,7 @@
         }
 
         .pay-finish {
-            width: 550px;
-            height: 450px;
-            background-color: #ffffff;
+            width: 500px;
             border-radius: 15px;
             justify-content: center;
             /* border: 1px solid rgb(121, 126, 138); */
@@ -45,9 +43,9 @@
             justify-content: center;
         }
 
-        .pay-finish-frame{
+        .pay-finish-frame {
             width: 500px;
-            height: 380px;
+            height: 500px;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
@@ -55,20 +53,25 @@
             /* border: 1px solid royalblue; */
 
         }
-        .pay-finish img{
-            width: 200px;
-            transform: translateX(40px);
+
+        .pay-finish img {
+            width: 280px;
+            transform: translateX(48px);
         }
-        .pay-finish h3{
+
+        .pay-finish h3 {
             color: #03588C;
         }
-        .pay-finish h4{
+
+        .pay-finish h4 {
             color: #FF9685;
         }
-        .pay-finish h5{
+
+        .pay-finish h5,h6 {
             color: #707070;
         }
-        .pay-finish button{
+
+        .pay-finish button {
             width: 160px;
             height: 40px;
             border-radius: 2px;
@@ -78,11 +81,38 @@
             outline: none;
             text-align: center;
             cursor: pointer;
-        
+
         }
-        .pay-finish button:hover{
+
+        .pay-finish button:hover {
             background-color: #03588C;
             color: #ffffff;
+        }
+
+        @media screen and (max-width: 576px) {
+            .container {
+                height: 100vh;
+                /* overflow: hidden; */
+            }
+
+            .pay-finish {
+                height: 100vh;
+
+            }
+            .pay-finish-frame{
+                height: 50vh;
+            }
+
+            .pay-finish h5 {
+                width: 300px;
+                text-align: center;
+
+            }
+
+            .pay-finish img {
+                width: 200px;
+                transform: translateX(35px);
+            }
         }
     </style>
 </head>
@@ -140,8 +170,10 @@
                     <h3>訂單已完成</h3>
                     <h4>訂單編號：000123456</h4>
                     <h5>感謝您的購買</h5>
-                        <h5>訂單明細已寄到您的信箱：
+                    <h5>訂單明細已寄到您的信箱：
                         meishaonu***@gamil.com</h5>
+                    
+                    <h6>有任何問題請洽客服  Mon.-Fir. 9:00-17:00</h6>
                     <button class="pay-btn btn-blue prev">查看訂單</button>
                 </div>
 
@@ -169,7 +201,7 @@
 <script src="js/nav.js"></script>
 <script>
 
-   
+
 
 </script>
 
