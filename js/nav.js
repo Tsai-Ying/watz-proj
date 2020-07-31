@@ -13,11 +13,16 @@ $(".menu").click(function () {
     $(".menu").toggleClass('current');
 })
 
-$(".dropdown>a").hover(function(){
+$(".nav-list .dropdown>a").hover(function(){
     $(this).closest(".dropdown").addClass('show');
 })
-$(".dropdown").mouseleave(function(){
+$(".nav-list .dropdown").mouseleave(function(){
     $(this).closest(".dropdown").removeClass('show');
+})
+
+$(".menu-list .dropdown>a").click(function(){
+    console.log("abc")
+    $(this).closest(".dropdown").toggleClass('show');
 })
 
 // btn-top //

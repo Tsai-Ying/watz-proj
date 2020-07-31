@@ -436,6 +436,7 @@ a.icon-wrapper {
     font-size: 1rem;
     padding: 20px 100px 20px 100px;
     font-weight: 500;
+    cursor: pointer;
 }
 .menu-list li:hover{
     background: #03588C;
@@ -443,6 +444,41 @@ a.icon-wrapper {
 .menu-list li:hover a{
     color: #ffffff;
 }
+
+.menu-list .dropdown{
+    /* height: 0; */
+}
+
+.menu-list .dropdown-menu{
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #ffffff; */
+    height: 0;
+    overflow: hidden;
+}
+
+.menu-list .dropdown-bg{
+    /* background-color: #ffffff; */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.menu-list .dropdown-menu a{
+    padding: 10px 0 10px 100px;
+}
+.menu-list .dropdown-menu a:hover{
+    background: #0388A6 ;
+}
+
+.menu-list .dropdown.show .dropdown-menu{
+    height: 150px;
+}
+
 
 .st0 {
     transition: .2s;
@@ -527,8 +563,12 @@ a:hover .st0 {
 
     .menu-list li a{
         font-size: 1rem;
-        padding: 20px 40vw;
+        padding: 20px 20vw;
         font-weight: 500;
+    }
+
+    .menu-list .dropdown-menu a{
+        padding: 10px 20vw 10px 20vw;
     }
 
 }
