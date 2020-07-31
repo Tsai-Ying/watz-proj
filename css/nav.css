@@ -31,6 +31,7 @@ h1 {
     color: #404040;
     font-size: 2.5rem;
     cursor: default;
+    transition: .4s;
 
 }
 
@@ -39,6 +40,7 @@ h2 {
     color: #404040;
     font-size: 2rem;
     cursor: default;
+    transition: .4s;
 }
 
 h3 {
@@ -46,7 +48,7 @@ h3 {
     color: #404040;
     font-size: 1.4rem;
     cursor: default;
-
+    transition: .4s;
 }
 
 h4 {
@@ -54,6 +56,7 @@ h4 {
     color: #404040;
     font-size: 1.1rem;
     cursor: default;
+    transition: .4s;
 }
 
 h5 {
@@ -77,6 +80,7 @@ p {
     margin: 0;
     font-size: 1rem;
     cursor: default;
+    transition: .4s;
 }
 
 @media screen and (max-width: 992px){
