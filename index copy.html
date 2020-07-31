@@ -85,8 +85,8 @@
         }
 
         .block2 img {
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 54vw;
             object-fit: cover;
         }
 
@@ -121,7 +121,6 @@
             text-align: center;
             opacity: .25;
             color: white;
-
         }
 
         .slick-dots li.slick-active button:before {
@@ -200,7 +199,7 @@
         }
 
         .img-boxtitle-img img {
-            height: 145px;
+            height: 120px;
             top: 0;
             position: absolute;
         }
@@ -226,6 +225,7 @@
         .block3 .gift h3 {
             color: #0388A6;
             margin-top: 30px;
+            white-space: nowrap;
         }
 
         .block3 .giftbox img {
@@ -234,7 +234,27 @@
             object-fit: cover;
         }
 
+        @media screen and (max-width: 992px) {
+
+            .block3 .giftbox {
+                width: 70vw;
+                justify-content: space-between;
+                margin-top: 10vh;
+            }
+
+            .block3 .giftbox .gift {
+                width: 20vw;
+            }
+        }
+
         @media screen and (max-width: 576px) {
+
+            .img-boxtitle-img img {
+                width: 50vw;
+                top: 0;
+                position: absolute;
+            }
+
             .block3 .giftbox {
                 justify-content: center;
                 align-items: center;
@@ -277,20 +297,6 @@
             overflow: hidden;
             flex-direction: column;
         }
-
-        /* .block4 p {
-            font-family: 'Fredoka One', cursive;
-            font-size: 130px;
-            letter-spacing: 5px;
-            color: #0388A6;
-            opacity: 0.2;
-            z-index: -1;
-        }
-
-        .socks-gallery {
-            margin-top: 100px;
-            z-index: 1;
-        } */
 
         .slider-product {
             height: 20vw;
@@ -359,12 +365,12 @@
         }
 
         @media screen and (max-width: 576px) {
-            .block4{
+            .block4 {
                 background: transparent;
             }
 
             .slider-product {
-                margin: 10vh;
+                /* margin: 10vh; */
                 width: 100vw;
                 height: 120vw;
                 margin-top: 0;
@@ -377,12 +383,26 @@
             }
 
             .block4-bg {
-            position: relative;
-            width: 100vw;
-        }
+                position: relative;
+                width: 100vw;
+            }
 
-            .block4-bg span{
-                font-size:40px;
+            .block4-bg .img-BG-dotted1 {
+                width: 250px;
+                position: absolute;
+                left: 0;
+                transform: translate(-50%, -65%);
+            }
+
+            .block4-bg .img-BG-dotted2 {
+                position: absolute;
+                width: 150px;
+                right: 0;
+                transform: translate(5%, -65%);
+            }
+
+            .block4-bg span {
+                font-size: 40px;
                 transform: translateY(0);
             }
 
@@ -483,22 +503,22 @@
         <div class="block3 flex">
             <div class="img-boxtitle-img flex">
                 <h1>WATZ BOX</h1>
-                <img src="images/title-bgc.svg" alt="">
+                <img class="transition" src="images/title-bgc.svg" alt="">
             </div>
             <div class="giftbox flex">
-                <div class="gift flex">
+                <div class="gift flex transition">
                     <a href="">
                         <img id="watzbox1" src="images/watzbox1-1.png" alt="">
                     </a>
                     <h3>芒果派對</h3>
                 </div>
-                <div class="gift flex">
+                <div class="gift flex transition">
                     <a href="">
                         <img id="watzbox2" src="images/watzbox2-1.png" alt="">
                     </a>
                     <h3>群魔亂舞</h3>
                 </div>
-                <div class="gift flex">
+                <div class="gift flex transition">
                     <a href="">
                         <img id="watzbox3" src="images/watzbox3-1.png" alt="">
                     </a>
@@ -520,9 +540,9 @@
                 <div><a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a></div>
             </div>
             <div class="block4-bg flex">
-                <img class="img-BG-dotted1 mobile-none" src="images/BG-dotted1.svg" alt="">
+                <img class="img-BG-dotted1" src="images/BG-dotted1.svg" alt="">
                 <span>SOCKS GALLERY</span>
-                <img class="img-BG-dotted2 mobile-none" src="images/BG-dotted2.svg" alt="">
+                <img class="img-BG-dotted2" src="images/BG-dotted2.svg" alt="">
             </div>
         </div>
         <!-- btn-top -->
