@@ -16,11 +16,6 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-
-        .container{
-            width: 100vw;
-        }
-
         .wrapper {
             justify-content: center;
             align-items: center;
@@ -92,6 +87,14 @@
         }
 
         @media screen and (max-width: 576px) {
+            body {
+                background-image: url(images/BG-mobile2.svg);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .wrapper{
+                width: 0;
+            }
             .member-bblock {
                 width: 290px;
                 height: 341px;
@@ -148,7 +151,7 @@
                 font-size: 32px;
                 /* padding: 40px; */
                 margin-top: 40px;
-            margin-bottom: 40px;
+                margin-bottom: 40px;
             }
         }
 
@@ -229,7 +232,7 @@
         .member-checkbox {
             margin: 0px 10px 0px 0px;
         }
-        
+
         .member-remember h6 {
             color: #404040;
             font-weight: 400;
@@ -273,8 +276,9 @@
             .member-forget a {
                 letter-spacing: 1px;
             }
-            .agree{
-                width:200px;
+
+            .agree {
+                width: 200px;
                 height: 20px;
             }
         }
@@ -304,7 +308,7 @@
         }
 
         .box-signup {
-            z-index:10;
+            z-index: 10;
         }
 
         footer {
