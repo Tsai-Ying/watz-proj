@@ -662,6 +662,7 @@
         }
         footer h6 {
             transform: translateY(-5vw);
+            white-space: nowrap;
         }
         .bg-footer {
             width: 100vw;
@@ -676,6 +677,7 @@
             bottom: 0;
             background: #ffffff;
             width: 100vw;
+            z-index: 20;
         }
         .fixedlist-icon {
             width: 100vw;
