@@ -24,22 +24,66 @@
         .wrapper {
             width: 1200px;
             justify-content: space-between;
-            margin-bottom: 50px;
             margin-top: 120px;
+            /* border: 1px solid gold; */
         }
 
         .block-left {
-            width: 800px;
+            width: 67%;
+            /* border: 1px solid rgb(100, 248, 63); */
         }
 
         .block-right {
-            width: 350px;
+            width: 30%;
+            /* border: 1px solid rgb(34, 220, 245); */
+        }
+
+        .block-fixed {
+            width: 100%;
+            right: calc(50vw - 600px);
+            flex-direction: column;
+            position: sticky;
+            top: 120px;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .wrapper {
+                width: 90vw;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .wrapper {
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+
+            .container {
+                overflow: hidden;
+            }
+
+            .block-left {
+                width: 100%;
+                order: 1;
+            }
+
+            .block-right {
+                width: 100%;
+                margin-top: 30px;
+                order: 2;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .wrapper {
+                margin-top: 80px;
+            }
         }
 
         /* ------------------process------------------ */
 
         .buy-process {
-            width: 800px;
+            width: 100%;
             background-color: #ffffff;
             border-radius: 15px;
             flex-direction: row;
@@ -47,31 +91,88 @@
             align-items: center;
         }
 
-        .process {
-            width: 150px;
-            height: 55px;
-            background-color: #F8F4EB;
-            border-radius: 2px;
-            margin: 20px;
-            align-items: center;
-            justify-content: space-evenly;
+        .buy-process-frame {
+            width: 90%;
+            justify-content: space-between;
+            /* border: 1px solid palevioletred; */
         }
 
-        .here {
+        .each-process {
+            width: 130px;
+            /* height: 55px; */
+            background-color: #F8F4EB;
+            border-radius: 2px;
+            margin: 20px 0;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .each-process h3 {
+            margin: 10px 0;
+        }
+
+        .each-process h6 {
+            margin-left: 10px;
+        }
+
+        .each-process.here {
             background-color: #F2DE79;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .each-process {
+                width: 120px;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .each-process {
+                width: 22%;
+            }
+
+            .each-process h3 {
+                margin: 10px;
+            }
+
+            .each-process h6 {
+                margin: 0 5px;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .each-process {
+                width: 22%;
+                height: 70px;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .each-process h3 {
+                margin: 0px;
+            }
+
+            .each-process.first h6 {
+                margin-right: 0;
+            }
+
+            .each-process h6 {
+                /* margin-right: 0px; */
+                text-align: center;
+            }
         }
 
         /* -----------shipping-form------------- */
 
         .shipping-form {
-            width: 800px;
-            /* height: 150vh; */
             background-color: #ffffff;
             border-radius: 15px;
             margin-top: 30px;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            /* order: 0; */
+            
         }
 
         .shipping-form h3 {
@@ -79,62 +180,50 @@
         }
 
         .shipping-form-frame {
-            width: 700px;
-            margin: 40px 0;
+            width: 90%;
+            margin: 30px 0 0 0;
+            border: 1px solid plum;
         }
 
-        .order-ppl-info {
-            width: 750px;
+        .shipping-form-frame ul {
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             justify-content: space-between;
             margin-bottom: 20px;
-            margin-left: 30px;
         }
 
-        .order-ppl-info input {
-            width: 410px;
+        .shipping-form-frame ul input {
+            width: 70%;
             height: 50px;
             border: 1px solid #F2DE79;
             border-radius: 2px;
+            outline: none;
         }
 
-        .info {
-            width: 600px;
+        .shipping-form-frame ul li {
+            width: 80%;
             align-items: center;
             justify-content: space-between;
-            margin: 20px 0;
+            margin: 15px 0;
+            padding-inline-start: 2;
+
         }
 
         .pickup-ppl-title {
+            width: 95%;
             align-items: flex-end;
             justify-content: space-between;
-            margin-top: 15px;
+            margin-top: 20px;
+        }
+
+        .pickup-ppl-title input {
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
         }
 
         .same-bookppl {
             align-items: center;
-            cursor: pointer;
-        }
-
-        .pickup-ppl-info {
-            width: 750px;
-            height: 450px;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            outline: none;
-            text-align: center;
-            margin-left: 30px;
-        }
-
-
-        .pickup-ppl-info input {
-            width: 410px;
-            height: 50px;
-            border: 1px solid #F2DE79;
-            border-radius: 2px;
         }
 
         .button {
@@ -155,14 +244,21 @@
             background-color: #F2DE79;
         }
 
+        .button:hover {
+            background-color: #f2de79a6;
+        }
+
         .pay-choose {
             margin-top: 30px;
         }
 
         .receipt-choose {
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
+        /* .receipt-choose-frame{
+            border: 1px solid lawngreen;
+        } */
         .peper-receipt {
             margin: 10px;
             flex-direction: column;
@@ -173,11 +269,11 @@
             display: block;
         }
 
-        .receipt {
+        .radio-frame {
             margin: 10px;
         }
 
-        .receipt-btn {
+        .radio-btn {
             width: 20px;
             height: 20px;
             appearance: none;
@@ -187,7 +283,7 @@
             cursor: pointer;
         }
 
-        .receipt-btn:before {
+        .radio-btn:before {
             content: '';
             width: 20px;
             height: 20px;
@@ -198,7 +294,7 @@
 
         }
 
-        .receipt-btn:checked:before {
+        .radio-btn:checked:before {
             content: '';
             width: 20px;
             height: 20px;
@@ -208,7 +304,7 @@
             vertical-align: middle;
         }
 
-        .receipt-btn:checked:after {
+        .radio-btn:checked:after {
             content: '';
             width: 12px;
             height: 12px;
@@ -219,7 +315,7 @@
             position: absolute;
             top: 5px;
             left: 5px;
-            transition: opacity: ;;
+            /* transition: opacity: ;; */
         }
 
         .info .info-input {
@@ -232,10 +328,10 @@
         }
 
         .peper-receipt .info {
-            width: 600px;
             align-items: center;
             justify-content: start;
             margin: 20px 30px;
+            /* border: 1px solid royalblue; */
         }
 
         .cloud-receipt {
@@ -247,9 +343,9 @@
         }
 
         .cloud-receipt .info {
-            width: 600px;
             align-items: center;
             justify-content: start;
+            margin: 20px 30px;
         }
 
         .donate-receipt {
@@ -265,65 +361,109 @@
         }
 
         .remark-textarea {
-            margin: 30px 50px;
-            width: 600px;
+            margin: 30px;
+            width: 90%;
             height: 130px;
             border: 1px solid #F2DE79;
             outline: none;
         }
 
-        .prev-next-btn {
-            width: 300px;
-            justify-content: space-between;
-            margin: 0 auto;
-        }
-
         .pay-btn {
-            width: 200px;
+            width: 140px;
             height: 40px;
-            border: none;
-            background-color: #FF9685;
-            color: #ffffff;
-            outline: none;
-            cursor: pointer;
-            margin: 0 20px;
+            margin: 30px 20px;
         }
 
         .pay-btn.gopay:hover {
             background-color: #0388A6;
-
         }
 
         .pay-btn.prev {
             background-color: #0388A6;
-
         }
 
         .pay-btn.prev:hover {
             background-color: #FF9685;
         }
+        @media screen and (max-width: 1200px) {
+            
+        }
 
+        @media screen and (max-width: 992px) {
+            .shipping-form-frame{
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .shipping-form-frame ul {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* margin: 20px 30px; */
+        }
+
+        .shipping-form-frame ul input {
+            width: 100%;
+            height: 45px;
+            border: 1px solid #F2DE79;
+            border-radius: 2px;
+            outline: none;
+        }
+
+        .shipping-form-frame ul li {
+            width: 90%;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin: 5px 0;
+
+        }
+        .shipping-form-frame ul li p{
+            margin-bottom: 10px;
+        }
+        }
+
+        @media screen and (max-width: 576px) {
+        
+        }
+
+        /* ---------------return------------ */
         .return-detail {
-            width: 800px;
+            /* width: 800px; */
             background-color: #ffffff;
             border-radius: 15px;
             margin-top: 30px;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            /* order: 1; */
+
         }
 
         .return-detail-frame {
-            width: 750px;
+            width: 90%;
             margin: 30px;
         }
+        @media screen and (max-width: 1200px) {
+            
+        }
+
+        @media screen and (max-width: 992px) {
+            /* .return-detail{
+                order: 2;
+            } */
+        }
+
+        @media screen and (max-width: 576px) {
+        
+        }
+
 
         /* --------------right fix part------------- */
         /* --------------order-list------------- */
 
 
         .order-list {
-            width: 350px;
             background-color: #ffffff;
             border-radius: 15px;
             /* border: 1px solid rgb(212, 52, 132); */
@@ -333,27 +473,27 @@
             position: sticky;
             top: 120px;
         }
-        .order-list h3{
+
+        .order-list h3 {
             color: #03588C;
 
         }
 
         .order-list-frame {
-            width: 300px;
+            width: 85%;
             /* border: 1px solid rgb(212, 52, 132); */
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: space-between;
             margin: 30px 0px;
         }
 
         .list-scroll {
-            width: 300px;
-            height: 40vh;
+            width: 100%;
+            height: 35vh;
             overflow-x: hidden;
             overflow-y: scroll;
         }
-        .list-scroll h4{
+
+        .list-scroll h4 {
             color: #707070;
         }
 
@@ -379,36 +519,37 @@
             border-radius: 20px;
         }
 
-        .box-info {
+        .box-choose {
             align-items: center;
         }
 
-        .box-info .box-img {
+        .box-choose .box-img {
             width: 150px;
         }
 
-        .box-detail {
-            width: 300px;
+        .box-type-detail {
+            /* width: 300px; */
             height: 120px;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .box-product-orderlist {
-            width: 280px;
+        .socks-detail {
             flex-direction: column;
-            justify-content: center;
-
+            /* border: 1px solid teal; */
+           
         }
 
-        .product-orderlist {
-            width: 300px;
-            height: 200px;
-            flex-direction: column;
-            justify-content: center;
+        .eachsock-list {
+            width: 97%;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
         }
+
         .img-product {
-            width: 100px;
+            width: 90px;
+            margin-left: 7px;
         }
 
         .img-product img {
@@ -417,48 +558,52 @@
             object-fit: fill;
         }
 
-        .box-socks {
-            width: 280px;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .socks {
-            width: 280px;
-            align-items: center;
-            justify-content: space-between;
-        }
-
         .socks-nameNprice {
-            width: 180px;
+            width: 65%;
             align-items: center;
             justify-content: space-between;
         }
+        @media screen and (max-width: 1200px) {
+            
+        }
 
+        @media screen and (max-width: 992px) {
+            /* .order-list{
+                order: 1;
+            } */
+        }
+
+        @media screen and (max-width: 576px) {
+        
+        }
 
         /* --------------total-price------------- */
 
         .total-price {
-            width: 300px;
+            width: 85%;
             flex-direction: column;
             align-items: flex-start;
             justify-content: space-between;
             margin-bottom: 30px;
+            /* order: ; */
+
         }
-        .total-price h3{
+
+        .total-price h3 {
             color: #03588C;
 
         }
+
         .total-price ul {
-            width: 300px;
+            width: 100%;
             justify-content: space-between;
             margin-top: 20px;
+            
         }
 
         .total-price ul li {
             height: 35px;
             justify-content: space-between;
-            margin: 0 20px;
         }
 
         .line {
@@ -466,6 +611,10 @@
             height: 1px;
             border-top: 2px solid #E2E2E2;
             margin: 10px auto;
+        }
+
+        footer {
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -517,51 +666,51 @@
 
         <div class="wrapper flex" action="">
             <div class="block-left">
-                <ul class="buy-process flex">
-                    <li class="process flex">
-                        <h3>01</h3>
-                        <h6>確認訂單<br>及運送方式</h6>
-                    </li>
-                    <li class="process here flex">
-                        <h3>02</h3>
-                        <h6>填寫<br>訂購資料</h6>
-                    </li>
-                    <li class="process flex">
-                        <h3>03</h3>
-                        <h6>付款</h6>
-                    </li>
-                    <li class="process flex">
-                        <h3>04</h3>
-                        <h6>訂單完成</h6>
-                    </li>
-                </ul>
+                <div class="buy-process flex">
+                    <ul class="buy-process-frame flex">
+                        <li class="each-process first flex">
+                            <h3></h3>01</h3>
+                            <h6>確認訂單<br>及運送方式</h6>
+                        </li>
+                        <li class="each-process here flex">
+                            <h3>02</h3>
+                            <h6>填寫<br>訂購資料</h6>
+                        </li>
+                        <li class="each-process flex">
+                            <h3>03</h3>
+                            <h6>付款</h6>
+                        </li>
+                        <li class="each-process flex">
+                            <h3>04</h3>
+                            <h6>訂單完成</h6>
+                        </li>
+                    </ul>
+                </div>
                 <div class="shipping-form flex">
                     <div class="shipping-form-frame">
                         <h3>訂購資料填寫</h3>
-                        <div class="order-ppl-info flex">
-
-                            <div class="info flex">
+                        <ul class="flex">
+                            <li class="flex">
                                 <p>訂購人姓名</p>
                                 <input type="text">
-                            </div>
-                            <div class="info flex">
+                            </li>
+                            <li class="flex">
                                 <p>電話</p>
                                 <input type="text">
-                            </div>
-                            <div class="info flex">
+                            </li>
+                            <li class="flex">
                                 <p>E-mail</p>
                                 <input type="text">
-                            </div>
-                            <div class="info flex">
+                            </li>
+                            <li class="flex">
                                 <p>郵遞區號</p>
                                 <input type="text">
-                            </div>
-                            <div class="info flex">
+                            </li>
+                            <li class="flex">
                                 <p>地址</p>
                                 <input type="text">
-                            </div>
-
-                        </div>
+                            </li>
+                        </ul>
                         <div class="line"></div>
                         <div class="pickup-ppl-title flex">
                             <h3>收件人資料填寫</h3>
@@ -570,30 +719,29 @@
                                 <h5>收件人同訂購人</h5>
                             </div>
                         </div>
-                        <div class="pickup-ppl-info flex">
-                            
-                            <div class="info flex">
+                        <ul class="flex">
+
+                            <li class="flex">
                                 <p>收件人姓名</p>
                                 <input type="text">
-                            </div>
-                            <div class="info flex">
+                            </li>
+                            <li class="flex">
                                 <p>電話</p>
                                 <input type="text">
-                            </div>
-                            <div class="info flex">
+                            </li>
+                            <li class="flex">
                                 <p>E-mail</p>
                                 <input type="text">
-                            </div>
-                            <div class="info flex">
+                            </li>
+                            <li class="flex">
                                 <p>郵遞區號</p>
                                 <input type="text">
-                            </div>
-                            <div class="info flex">
+                            </li>
+                            <li class="flex">
                                 <p>地址</p>
                                 <input type="text">
-                            </div>
-
-                        </div>
+                            </li>
+                        </ul>
                         <div class="line"></div>
                         <div class="pay-choose">
                             <h3>付款方式選擇</h3>
@@ -604,21 +752,20 @@
                         </div>
                         <div class="receipt-choose">
                             <h3>發票選擇</h3>
-                            <div>
+                            <div class="receipt-choose-frame">
                                 <button class="button active" href="#" id="paper">紙本發票</button>
                                 <button class="button" href="#" id="elec">電子發票</button>
                                 <button class="button " href="#" id="icloud">雲端載具</button>
                                 <button class="button" href="#" id="donate">發票捐贈</button>
                             </div>
                             <div class="peper-receipt flex show">
-                                <div class="receipt flex">
-                                    <input class="receipt-btn " name="receipt-btn" type="radio"
-                                        checked="checked"></input>
-                                    <div class="">二聯式發票</div>
+                                <div class="radio-frame flex">
+                                    <input class="radio-btn " name="receipt-radio-btn" type="radio" checked></input>
+                                    <p>二聯式發票</p>
                                 </div>
-                                <div class="receipt flex">
-                                    <input class="receipt-btn" name="receipt-btn" type="radio"></input>
-                                    <div class="">三聯式發票</div>
+                                <div class="radio-frame flex">
+                                    <input class="radio-btn" name="receipt-radio-btn" type="radio"></input>
+                                    <p>三聯式發票</p>
                                 </div>
                                 <div class="info flex">
                                     <p>統一編號號碼</p>
@@ -636,38 +783,41 @@
                                 </div>
                             </div>
                             <div class="donate-receipt flex">
-                                <div class="receipt flex">
-                                    <input class="receipt-btn " name="receipt-btn" type="radio"
-                                        checked="checked"></input>
-                                    <div class="">捐贈至心路基金會</div>
+                                <div class="radio-frame flex">
+                                    <input class="radio-btn " name="receipt-radio-btn" type="radio"></input>
+                                    <p class="">捐贈至心路基金會</p>
                                 </div>
                             </div>
                         </div>
                         <div class="line"></div>
                         <div class="order-remark">
                             <h3>訂單備註</h3>
-                            <textarea class="remark-textarea" name="" id="" cols="30" rows="10"></textarea>
+                            <textarea class="remark-textarea" name="" id="" cols="30" rows="10"
+                                placeholder="禮盒訂單細節或收件時間須備註的都可以跟我們說哦！（限200字以內）"></textarea>
                         </div>
-                        <div class="prev-next-btn flex">
-                            <button class="pay-btn prev">回上一頁</button>
-                            <button class="pay-btn gopay">前往結帳</button>
 
-                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <button class="pay-btn btn-blue prev">回上一頁</button>
+                        <button class="pay-btn btn-coral gopay">前往結帳</button>
+
                     </div>
                 </div>
                 <div class="return-detail flex">
-                    <div class="return-detail-frame">
+                    <ul class="return-detail-frame">
                         <h3>退/換貨與退款資訊</h3>
                         <p>退/換貨與退款
                             <br>
                             ・襪子屬個人貼身用品，如拆封襪子吊牌，將不適用七天鑑賞期。
                             <br>
-                            ・如需退/換貨或退款，請務必保留完整包裝，並在收到商品後七天內mail至watz@watzservice.com。
+                            ・如需退/換貨或退款，請務必保留完整包裝，並在收到商品後七天內mail至
+                            &nbsp;&nbsp;watz@watzservice.com。
                             <br>
                             ・可退/換貨之狀況：商品內容或數量有誤、商品瑕疵（需提供清晰照片）。
                             <br>
                             ・不可退/換貨之狀況：尺寸不合、商品與想像不符等。 </p>
-                    </div>
+                    </ul>
                 </div>
             </div>
             <div class="block-right ">
@@ -675,45 +825,46 @@
                     <div class="order-list-frame flex">
                         <h3>訂單資訊</h3>
                         <div class="list-scroll">
-                            <div class="box-detail">
-                                <div class="box-info flex">
+                            <div class="box-choose-ordered">
+                                <h4>您選購的禮盒</h4>
+                                <div class="box-choose flex">
                                     <img class="box-img" src="images/watzbox1-2.png" alt="">
-                                    <div class="box-detail flex">
+                                    <div class="box-type-detail flex">
                                         <h4>芒果派對</h4>
-                                        <div class="box-amount-detail">
-                                            <h6 class="box-type">包裝禮盒</h6>
-                                            <h6 class="box-socks-amount">3入裝</h6>
+                                        <div>
+                                            <h6>包裝禮盒</h6>
+                                            <h6>3入裝</h6>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="box-product-orderlist flex">
+                                <div class="socks-detail flex">
                                     <h4>禮盒內容</h4>
-                                    <div class="box-socks flex">
+                                    <div class="eachsock-list flex">
                                         <div class="img-product">
                                             <img src="/images/product/yellowline-01.jpg" alt="">
                                         </div>
                                         <div class="socks-nameNprice flex">
                                             <h5 class="socks-title">偶速襪子</h5>
-                                            <h5 class="socks-price">NT $180</h5>
+                                            <h5>X1</h5>
+                                            <h5 class="socks-price">NT$180</h5>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="line"></div>
-                                <div class="product-orderlist flex">
-                                    <h4>單購襪子</h4>
-                                    <div class="socks flex">
-                                        <div class="img-product">
-                                            <img src="/images/product/yellowline-01.jpg" alt="">
-                                        </div>
-                                        <div class="socks-nameNprice flex">
-                                            <h5 class="socks-title">偶速襪子</h5>
-                                            <h5 class="socks-price">NT $180</h5>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
-
+                            <div class="line"></div>
+                            <div class="socks-detail flex">
+                                <h4>單購襪子</h4>
+                                <div class="eachsock-list flex">
+                                    <div class="img-product">
+                                        <img src="/images/product/yellowline-01.jpg" alt="">
+                                    </div>
+                                    <div class="socks-nameNprice flex">
+                                        <h5 class="socks-title">偶速襪子</h5>
+                                        <h5>X1</h5>
+                                        <h5 class="socks-price">NT $180</h5>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="total-price flex">
@@ -793,7 +944,7 @@
         // })
 
         let result = "";
-        $('input:checkbox:checked[name="receipt-btn"]').val();
+        $('input:checkbox:checked[name="receipt-radio-btn"]').val();
     </script>
 
 </body>
