@@ -230,6 +230,7 @@ a.icon-wrapper {
 
 .nav.hide-nav .nav-list{
     width: 0;
+    overflow: hidden;
 }
 
 .nav-logo {
