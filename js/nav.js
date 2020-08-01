@@ -9,10 +9,6 @@ $(window).scroll(function () {
 });
 // menu //
 
-$(".menu").click(function () {
-    $(".menu").toggleClass('current');
-})
-
 $(".nav-list .dropdown>a").hover(function(){
     $(this).closest(".dropdown").addClass('show');
 })
@@ -20,8 +16,16 @@ $(".nav-list .dropdown").mouseleave(function(){
     $(this).closest(".dropdown").removeClass('show');
 })
 
+$("#menuClickArea").click(function () {
+    $(this).closest(".menu").toggleClass('current');
+})
+
+$(".menu").mouseleave(function(){
+    $(this).removeClass('current');
+    $(this).find(".dropdown").removeClass('show');
+})
+
 $(".menu-list .dropdown>a").click(function(){
-    console.log("abc")
     $(this).closest(".dropdown").toggleClass('show');
 })
 

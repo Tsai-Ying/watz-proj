@@ -345,8 +345,13 @@ a.icon-wrapper {
     justify-content: center;
     top: 0;
 }
-
-.menu .box-bar {
+.menu .click-area{
+    width: 54px;
+    height: 54px;
+    /* background-color: coral; */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
     z-index: 2;
 }
 
@@ -359,11 +364,19 @@ a.icon-wrapper {
     cursor: pointer;
 }
 
-
-.menu.current .box-bar {
+.menu.current .click-area{
     position: absolute;
     top: 20px;
     right: calc(20px - 3vw);
+    width: 70px;
+    height: 70px;
+}
+
+
+.menu.current .box-bar {
+    /* position: absolute;
+    top: 20px;
+    right: calc(20px - 3vw); */
 }
 
 .current .bar1 {
