@@ -28,44 +28,46 @@
         }
 
         .bg-orderpage {
-            position: relative;
+
             width: 1200px;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
         }
 
         .order-title {
             flex-direction: column;
         }
 
+        .order h4 {
+            display: none;
+        }
+
         .title {
             width: 937px;
-            justify-content: space-around;
+            justify-content: flex-start;
             align-items: center;
             margin-bottom: 20px;
         }
-
+        .title h4{
+            margin-right: 50px;
+        }
         .box2 {
             width: 133px;
         }
 
         .order {
-            justify-content: space-around;
+            justify-content: flex-start;
             align-items: center;
             background: #ffffff;
             width: 937px;
             height: 65px;
             margin-bottom: 10px;
         }
-
-        .absolute {
-            position: absolute;
-            left: 0;
-
+        .order-block{
+            width: 50vw;
         }
-        .absolute2{
-            position: absolute;
-            right: 0;
+        .order-block h5{
+            margin-right: 50px;
         }
         .selector {
             width: 120px;
@@ -110,13 +112,91 @@
         .btn-blue.gray {
             width: 130px;
             background: #707070;
+            margin-left: 20px;
         }
-
+        .btn{
+            width: 600px;
+            justify-content: space-evenly;
+        }
         ul h4,
         ul h5 {
             display: inline-block;
             width: 100px;
             text-align: center;
+        }
+
+        @media screen and (max-width: 992px) {
+            .body {
+                background-image: url(images/BG-mobile2.svg);
+            }
+
+            .wrapper {
+                height: 155vh;
+                width: 100%;
+            }
+
+            .bg-orderpage {
+                flex-direction: column;
+            }
+
+            .title {
+                display: none;
+            }
+            .order-block{
+                width: 280px;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+            .between{
+                justify-content: flex-start;
+            }
+            .order h4 {
+                display: block;
+                align-items: flex-start;
+            }
+
+            .order {
+                flex-direction: column;
+                width: 325px;
+                height: 210px;
+                border-radius: 15px;
+                justify-content: space-evenly;
+                margin-bottom: 30px;
+            }
+            .btn{
+                width: 280px;
+                justify-content: space-between;
+            }
+            .btn-coral {
+                width: 130px;
+                height: 40px;
+            }
+            
+            .btn-blue.gray {
+                width: 130px;
+                height: 40px;
+
+            }
+
+            .selector {
+                width: 94vw;
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 20px;
+                margin-right: 0;
+            }
+
+            .box {
+                width: 30vw;
+                height: 10vw;
+                line-height: 30px;
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            .selector a {
+                white-space: nowrap;
+            }
         }
     </style>
 </head>
@@ -167,7 +247,7 @@
         </nav>
         <div class="wrapper flex">
             <div class="bg-orderpage flex">
-                <div class="absolute">
+                <div class="flex">
                     <div class="selector flex">
                         <div class="box"><a href="">會員資料</a></div>
                         <div class="box"><a href="">訂單紀錄</a></div>
@@ -175,67 +255,162 @@
                         <div class="box"><a href="">隱私權政策</a></div>
                     </div>
                 </div>
-                <div class="absolute2">
-                    <div class="flex">
-                        <ul class="order-title flex">
-                            <li class="title flex">
-                                <h4>訂單編號</h4>
-                                <h4>訂購時間</h4>
-                                <h4>訂購金額</h4>
-                                <h4>出貨狀態</h4>
-                                <div class="box2"></div>
-                                <div class="box2"></div>
-                            </li>
-                            <li class="order flex">
-                                <h5>20200730</h5>
-                                <h5>20200730</h5>
-                                <h5>2,200</h5>
-                                <h5>待出貨</h5>
+                <div class="flex">
+                    <ul class="order-title flex">
+                        <li class="title flex">
+                            <h4>訂單編號</h4>
+                            <h4>訂購時間</h4>
+                            <h4>訂購金額</h4>
+                            <h4>出貨狀態</h4>
+                            <div class="box2"></div>
+                            <div class="box2"></div>
+                        </li>
+
+                        <li class="order flex">
+                            <div class="order-block flex">
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂單編號</h4></div>
+                                    <div class=" flex"><h5>20200730</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂購時間</h4></div>
+                                    <div class="flex"><h5>2020/07/30</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂購金額</h4></div>
+                                    <div class="flex"><h5>2,200</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">出貨狀態</h4></div>
+                                    <div class="flex"><h5>待出貨</h5></div>
+                                </div>
+                            </div>
+                            <div class="btn flex">
                                 <button class="btn-coral">詳細訂單</button>
                                 <button class="btn-blue gray">退貨申請</button>
-                            </li>
-                            <li class="order flex">
-                                <h5>20200730</h5>
-                                <h5>20200730</h5>
-                                <h5>2,200</h5>
-                                <h5>待出貨</h5>
+                            </div>
+                        </li>
+                        <li class="order flex">
+                            <div class="order-block flex">
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂單編號</h4></div>
+                                    <div class="flex"><h5>20200730</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂購時間</h4></div>
+                                    <div class="flex"><h5>2020/07/30</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂購金額</h4></div>
+                                    <div class="flex"><h5>2,200</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">出貨狀態</h4></div>
+                                    <div class="flex"><h5>待出貨</h5></div>
+                                </div>
+                            </div>
+                            <div class="btn flex">
                                 <button class="btn-coral">詳細訂單</button>
                                 <button class="btn-blue gray">退貨申請</button>
-                            </li>
-                            <li class="order flex">
-                                <h5>20200730</h5>
-                                <h5>20200730</h5>
-                                <h5>2,200</h5>
-                                <h5>待出貨</h5>
+                            </div>
+                        </li>
+                        <li class="order flex">
+                            <div class="order-block flex">
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂單編號</h4></div>
+                                    <div class="flex"><h5>20200730</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂購時間</h4></div>
+                                    <div class="flex"><h5>2020/07/30</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂購金額</h4></div>
+                                    <div class="flex"><h5>2,200</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">出貨狀態</h4></div>
+                                    <div class="flex"><h5>待出貨</h5></div>
+                                </div>
+                            </div>
+                            <div class="btn flex">
                                 <button class="btn-coral">詳細訂單</button>
                                 <button class="btn-blue gray">退貨申請</button>
-                            </li>
-                            <li class="order flex">
-                                <h5>20200730</h5>
-                                <h5>20200730</h5>
-                                <h5>2,200</h5>
-                                <h5>待出貨</h5>
+                            </div>
+                        </li>
+                        <li class="order flex">
+                            <div class="order-block flex">
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂單編號</h4></div>
+                                    <div class="flex"><h5>20200730</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂購時間</h4></div>
+                                    <div class="flex"><h5>2020/07/30</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂購金額</h4></div>
+                                    <div class="flex"><h5>2,200</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">出貨狀態</h4></div>
+                                    <div class="flex"><h5>待出貨</h5></div>
+                                </div>
+                            </div>
+                            <div class="btn flex">
                                 <button class="btn-coral">詳細訂單</button>
                                 <button class="btn-blue gray">退貨申請</button>
-                            </li>
-                            <li class="order flex">
-                                <h5>20200730</h5>
-                                <h5>20200730</h5>
-                                <h5>2,200</h5>
-                                <h5>待出貨</h5>
+                            </div>
+                        </li>
+                        <li class="order flex">
+                            <div class="order-block flex">
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂單編號</h4></div>
+                                    <div class="flex"><h5>20200730</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂購時間</h4></div>
+                                    <div class="flex"><h5>2020/07/30</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂購金額</h4></div>
+                                    <div class="flex"><h5>2,200</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">出貨狀態</h4></div>
+                                    <div class="flex"><h5>待出貨</h5></div>
+                                </div>
+                            </div>
+                            <div class="btn flex">
                                 <button class="btn-coral">詳細訂單</button>
                                 <button class="btn-blue gray">退貨申請</button>
-                            </li>
-                            <li class="order flex">
-                                <h5>20200730</h5>
-                                <h5>20200730</h5>
-                                <h5>2,200</h5>
-                                <h5>待出貨</h5>
+                            </div>
+                        </li>
+                        <li class="order flex">
+                            <div class="order-block flex">
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂單編號</h4></div>
+                                    <div class="flex"><h5>20200730</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂購時間</h4></div>
+                                    <div class="flex"><h5>2020/07/30</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂購金額</h4></div>
+                                    <div class="flex"><h5>2,200</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">出貨狀態</h4></div>
+                                    <div class="flex"><h5>待出貨</h5></div>
+                                </div>
+                            </div>
+                            <div class="btn flex">
                                 <button class="btn-coral">詳細訂單</button>
                                 <button class="btn-blue gray">退貨申請</button>
-                            </li>
-                        </ul>
-                    </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
