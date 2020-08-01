@@ -31,13 +31,11 @@
         .block-left {
             width: 67%;
             /* border: 1px solid rgb(100, 248, 63); */
-
         }
 
         .block-right {
             width: 30%;
             /* border: 1px solid rgb(34, 220, 245); */
-
         }
 
         .block-fixed {
@@ -56,29 +54,25 @@
 
         @media screen and (max-width: 992px) {
             .wrapper {
-                width: 90vw;
-                display: flex;
-                flex-direction: column;
+               flex-direction: column;
                 justify-content: flex-start;
             }
-
             .container {
                 overflow: hidden;
             }
-
             .block-left {
                 width: 100%;
             }
-
             .block-right {
                 width: 100%;
                 margin-top: 30px;
             }
-
         }
-
-        @media screen and (max-width: 576px) {}
-
+        @media screen and (max-width: 576px) {
+            .wrapper {
+                margin-top: 80px;
+            }
+        }
         /* ------------------process------------------ */
 
         .buy-process {
@@ -88,7 +82,6 @@
             flex-direction: row;
             justify-content: space-evenly;
             align-items: center;
-
         }
 
         .buy-process-frame {
@@ -104,18 +97,18 @@
             border-radius: 2px;
             margin: 20px 0;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
         }
 
         .each-process h3 {
-            margin: 10px;
+            margin: 10px 0;
         }
 
         .each-process h6 {
-            margin-right: 10px;
+            margin-left: 10px;
         }
 
-        .here {
+        .process.here {
             background-color: #F2DE79;
         }
 
@@ -123,29 +116,17 @@
             .each-process {
                 width: 120px;
             }
-
-            .each-process h3 {
-                margin: 8px;
-            }
-
-            .each-process h6 {
-                margin-right: 5px;
-            }
         }
 
         @media screen and (max-width: 992px) {
             .each-process {
                 width: 22%;
-                /* height: 55px; */
-
             }
-
             .each-process h3 {
                 margin: 10px;
             }
-
             .each-process h6 {
-                margin-right: 10px;
+                margin: 0 5px;
             }
         }
 
@@ -157,18 +138,17 @@
                 align-items: center;
                 justify-content: center;
             }
-
             .each-process h3 {
                 margin: 0px;
             }
-
+            .each-process.first h6{
+                margin-right: 0;
+            }
             .each-process h6 {
-                margin-right: 0px;
+                /* margin-right: 0px; */
                 text-align: center;
             }
         }
-
-
         /* -----------choose box------------- */
 
         .box-watzbox {
@@ -663,8 +643,8 @@
             <div class="block-left">
                 <div class="buy-process flex">
                     <ul class="buy-process-frame flex">
-                        <li class="each-process here flex">
-                            <h3>01</h3>
+                        <li class="each-process first here flex">
+                            <h3></h3>01</h3>
                             <h6>確認訂單<br>及運送方式</h6>
                         </li>
                         <li class="each-process flex">
