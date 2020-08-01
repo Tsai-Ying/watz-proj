@@ -372,13 +372,6 @@ a.icon-wrapper {
     height: 70px;
 }
 
-
-.menu.current .box-bar {
-    /* position: absolute;
-    top: 20px;
-    right: calc(20px - 3vw); */
-}
-
 .current .bar1 {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -456,10 +449,6 @@ a.icon-wrapper {
 }
 .menu-list li:hover a{
     color: #ffffff;
-}
-
-.menu-list .dropdown{
-    /* height: 0; */
 }
 
 .menu-list .dropdown-menu{
