@@ -60,6 +60,12 @@ $(window).scroll(function () {
     }
 })
 
+// footer
+
+if ($(window).width() < 768) {
+    $(".bg-footer").attr("src","images/footer-bg-mobile.svg")
+}
+
 //-------------- SVG 變色 -------------//
 jQuery('img.svg').each(function () {
     var $img = jQuery(this);
