@@ -172,12 +172,12 @@
     }
 
     .clean-all {
-        bottom: 5px;
+        bottom: 100px;
         right: 290px;
     }
 
     .step4 {
-        bottom: 5px;
+        bottom: 100px;
         right: 30px;
     }
 
@@ -667,10 +667,12 @@
         }
 
         .clean-all {
+            bottom: 120px;
             right: 210px;
         }
 
         .step4 {
+            bottom: 120px;
             right: 0;
         }
 
@@ -737,28 +739,45 @@
         .box-right {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
 
         .socks-color,
         .pattern-with-shape,
         .socks-color#ul3 {
+            width: 80%;
+            height: 15vh;
             display: flex;
             flex-direction: column;
-            width: 100%;
             justify-content: center;
             align-items: center;
+        }
+
+        .socks-color h3,
+        .pattern-with-shape h3,
+        .socks-color#ul3 h3 {
+            margin: 0;
+            width: 100%;
         }
 
         .img-pattern-empty, .shape {
             display: none;
         }
 
+        .img-pattern {
+            height: 10vh;
+        }
+
         .tutorial {
             position: absolute;
-            z-index: 3;
+            z-index: 2;
         }
+
+        .btn-box {
+            height: 10vh;
+        }
+
 
 
 
