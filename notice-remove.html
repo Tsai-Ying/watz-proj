@@ -42,11 +42,31 @@
         }
         
         .notice-top {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+            align-items: center;
         }
         
         .notice-top img {
             height: 40px;
+        }
+        
+        .notice-top h3 {
+            margin-left: 8px;
+            white-space: nowrap;
+            color: white;
+        }
+        
+        .notice-btn {
+            width: 80px;
+            height: 40px;
+            background: #F2DE79;
+            border: 0;
+            border-radius: 2px;
+            color: #404040;
+            outline: none;
+            cursor: pointer;
+            margin: 0 5px;
         }
         
         .notice-bottom h3 {
@@ -56,6 +76,7 @@
         
         .notice.active {
             visibility: visible;
+            z-index: 30;
         }
         
         .notice.active .notice-block {
@@ -67,13 +88,15 @@
 <body>
     <!-- jumpout notice -->
     <div class="notice">
-        <!-- <div class="notice-bg"></div> -->
+        <div class="notice-bg"></div>
         <div class="notice-block flex">
-            <div class="notice-top">
-                <img src="images/icon-success.svg " alt=" ">
+            <div class="notice-top flex">
+                <img src="images/icon-sadtrashcan.svg " alt=" ">
+                <h3>確定要把我丟掉?</h3>
             </div>
             <div class="notice-bottom">
-                <h3>加入購物車</h3>
+                <button class="notice-btn">丟</button>
+                <button class="notice-btn">不丟</button>
             </div>
         </div>
     </div>
@@ -86,9 +109,9 @@
 <script>
     function notice() {
         $(".notice").addClass("active");
-        setTimeout(function() {
-            $(".notice").removeClass("active");
-        }, 800);
+        // setTimeout(function() {
+        //     $(".notice").removeClass("active");
+        // }, 800);
     }
 </script>
 
