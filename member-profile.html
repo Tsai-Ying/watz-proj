@@ -18,7 +18,7 @@
         }
 
         .wrapper {
-            height: 100vh;
+            /* height: 100vh; */
             align-items: center;
             justify-content: center;
         }
@@ -36,7 +36,7 @@
             margin-bottom: 20px;
         }
 
-        .membercard-bg {
+        .membercard-img {
             background-image: url(images/user_card_before_1.svg);
             background-repeat: no-repeat;
             background-size: contain;
@@ -146,10 +146,11 @@
         }
 
         @media screen and (max-width: 992px) {
-            .body {
+            body {
                 background-image: url(images/BG-mobile2.svg);
                 background-repeat: no-repeat;
                 background-size: cover;
+                background-position: center;
             }
 
             .wrapper {
@@ -162,7 +163,7 @@
                 align-items: center;
             }
 
-            .membercard-bg {
+            .membercard-img {
                 background-image: url(images/user_card_mobile_before.svg);
                 width: 94vw;
                 height: 100vw;
@@ -295,7 +296,7 @@
             </div>
             <div class="bg-membercard flex">
                 <div class="membercard flex">
-                    <img class="membercard-bg" src="" alt="">
+                    <img class="membercard-img" src="" alt="">
                     <div class="member-info flex">
                         <div class="bg-photo flex">
                             <div class="member-photo flex">
