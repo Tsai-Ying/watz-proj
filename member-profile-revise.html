@@ -18,7 +18,7 @@
         }
 
         .wrapper {
-            height: 100vh;
+            /* height: 100vh; */
             align-items: center;
             justify-content: center;
         }
@@ -33,31 +33,23 @@
         .membercard {
             width: 680px;
             height: 540px;
-            position: relative;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 20px;
-            background-image: url(images/user_card_after.svg);
-            background-repeat: no-repeat;
-            background-size: cover;
+
         }
 
-        @media screen and (max-width: 992px) {
-            body {
-                background-image: url(images/BG-mobile2.svg);
-            }
-            .wrapper{
-                height: 150vh;
-                width: 0;
-                flex-direction: column;
-            }
-            .bg-membercard{
-                align-items: center;
-            }
-            .membercard{
-                background-image: url(images/user_card_mobile_after.svg);
-                width: 80vw;
-                height: 168vw;
-            }
-            
+        .membercard-img {
+            background-image: url(images/user_card_after.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 680px;
+            height: 540px;
+            /* position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%; */
         }
 
         .member-info {
@@ -66,11 +58,11 @@
         }
 
         .bg-photo {
-            width: 190px;
-            height: 350px;
+            width: 250px;
+            height: 250px;
             z-index: 2;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
         }
 
         .member-photo {
@@ -80,37 +72,21 @@
             background: darkcyan;
             position: absolute;
             overflow: hidden;
-
         }
 
         .member-photo img {
             width: 100%;
             height: 100%;
         }
-        @media screen and (max-width: 992px){
-            .bg-photo {
-                width: 100vw;
-                /* height: 45vw; */
-            }
 
-            .member-photo {
-                width: 30vw;
-                height: 30vw;
-            }
-
-            .member-info {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
         .bg-form {
             width: 400px;
-            height: 350px;
+            height: 420px;
             z-index: 1;
             flex-direction: column;
             justify-content: space-between;
-            align-items: center;
-            margin-top: 13px;
+            /* align-items: center; */
+            /* margin-top: 13px; */
         }
 
         .membercard ul li {
@@ -147,18 +123,10 @@
         .form-item {
             width: 380px;
             height: 56px;
-            border-radius: 26px;
-            margin-left: 10px;
+            /* border-radius: 26px; */
+            /* margin-left: 10px; */
         }
-        @media screen and (max-width: 992px){
-            .bg-form {
-                width: 80vw;
-                height: 80vw;
-                border: 1px solid cadetblue;
-                margin-top: 0;
-            }
-            
-        }
+
 
         .selector {
             width: 120px;
@@ -171,7 +139,6 @@
             width: 120px;
             height: 70px;
             justify-content: flex-start;
-
         }
 
         .selector a {
@@ -179,39 +146,107 @@
             margin-bottom: 10px;
             border-bottom: 4px solid transparent;
             transition: .2s;
-
         }
 
         .selector a:hover {
             border-bottom: 4px solid #FF9685;
         }
-        @media screen and (max-width: 992px){
+
+        .btn-blue {
+            width: 200px;
+            margin-right: 30px;
+        }
+
+        .adress {
+            white-space: nowrap;
+        }
+
+        @media screen and (max-width: 992px) {
+            .body {
+                background-image: url(images/BG-mobile2.svg);
+            }
+
+            .wrapper {
+                margin-top: 110px;
+                width: 100%;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+
+            .bg-membercard {
+                position: relative;
+                align-items: center;
+            }
+
+            .membercard {
+                width: 80vw;
+                height: 168vw;
+            }
+
+            .membercard-img {
+                background-image: url(images/user_card_mobile_after.svg);
+                width: 80vw;
+                height: 168vw;
+            }
+
+            .bg-photo {
+                width: 80vw;
+                height: 45vw;
+                justify-content: center;
+                align-items: flex-start;
+            }
+
+            .member-photo {
+                width: 30vw;
+                height: 30vw;
+            }
+
+            .member-info {
+                flex-direction: column;
+                margin-top: 0;
+                /* align-items: center; */
+            }
+
+            .bg-form {
+                width: 80vw;
+                height: 80vw;
+                margin-top: 0;
+                align-items: center;
+            }
+
+            .form-item {
+                width: 67vw;
+            }
+
+            .form-name {
+                width: 50vw;
+                height: 6vw;
+            }
+
             .selector {
-                width: 60vw;
+                width: 94vw;
                 flex-direction: row;
                 justify-content: center;
+                margin-top: 20px;
+                margin-right: 0;
             }
 
             .box {
-                width: 20vw;
+                width: 30vw;
+                height: 10vw;
+                line-height: 30px;
+                text-align: center;
+                margin-top: 15px;
             }
 
             .selector a {
                 white-space: nowrap;
             }
-        }
-        .btn-blue {
-            width: 200px;
-            margin-right: 30px;
-        }
-        @media screen and (max-width: 992px){
-            .btn-blue{
-                width: 250px;
+
+            .btn-blue {
+                width: 170px;
                 margin: 0;
             }
-        }
-        .adress {
-            white-space: nowrap;
         }
     </style>
 </head>
@@ -269,6 +304,7 @@
             </div>
             <div class="bg-membercard flex">
                 <div class="membercard flex">
+                    <div class="membercard-img" />
                     <div class="member-info flex">
                         <div class="bg-photo flex">
                             <div class="member-photo flex">
