@@ -37,7 +37,7 @@
         .block-right {
             width: 30%;
             /* border: 1px solid rgb(34, 220, 245); */
-
+        
         }
 
         .block-fixed {
@@ -49,12 +49,9 @@
         }
 
         @media screen and (max-width: 1200px) {
-
             .wrapper {
                 width: 90vw;
-
             }
-
         }
 
         @media screen and (max-width: 992px) {
@@ -63,20 +60,16 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
+            }
 
+            .container {
+                overflow: hidden;
             }
 
             .block-left {
                 width: 100%;
             }
-
-            .block-fixed {
-                width: 100%;
-                right: 0;
-                /* position: static; */
-
-            }
-
+            
             .block-right {
                 width: 100%;
                 margin-top: 30px;
@@ -97,7 +90,6 @@
             align-items: center;
 
         }
-
         .buy-process-frame {
             width: 90%;
             justify-content: space-between;
@@ -113,7 +105,6 @@
             align-items: center;
             justify-content: flex-start;
         }
-
         .process h3 {
             margin: 10px;
         }
@@ -125,7 +116,6 @@
         .here {
             background-color: #F2DE79;
         }
-
         @media screen and (max-width: 1200px) {
             .process {
                 width: 120px;
@@ -142,18 +132,18 @@
 
         @media screen and (max-width: 992px) {
             .process {
-            width: 22%;
-            /* height: 55px; */
-           
-        }
+                width: 22%;
+                /* height: 55px; */
 
-        .process h3 {
-            margin: 10px;
-        }
+            }
 
-        .process h6 {
-            margin-right: 10px;
-        }
+            .process h3 {
+                margin: 10px;
+            }
+
+            .process h6 {
+                margin-right: 10px;
+            }
         }
 
         @media screen and (max-width: 576px) {
@@ -174,6 +164,7 @@
                 text-align: center;
             }
         }
+
 
         /* -----------choose box------------- */
 
@@ -203,7 +194,7 @@
         }
 
         .watzbox-choose {
-            /* width: 90%; */
+            /* width: 700px; */
             align-items: center;
             justify-content: space-evenly;
         }
@@ -254,19 +245,16 @@
         .step3.show {
             opacity: 1;
         }
-
         @media screen and (max-width: 1200px) {
             .img-watzbox img {
                 width: 180px;
             }
-
         }
 
         @media screen and (max-width: 992px) {
             .img-watzbox img {
                 width: 160px;
             }
-
         }
 
         @media screen and (max-width: 576px) {
@@ -278,7 +266,6 @@
                 margin: 10px;
             }
         }
-
         /* -------------order list-------------- */
 
         .box-product {
@@ -393,7 +380,6 @@
             background: url(images/remove.svg);
             cursor: pointer;
         }
-
         @media screen and (max-width: 1200px) {
             .img-socks {
                 width: 90px;
@@ -406,32 +392,32 @@
 
         @media screen and (max-width: 992px) {
             .product-detail {
-            
-            height: 100px;
-            
-        }
+
+                height: 100px;
+
+            }
         }
 
         @media screen and (max-width: 576px) {
             .img-socks {
                 width: 70px;
             }
+
             .product-detail {
-            width: 70%;
-            height: 90px;
-            
-        }
+                width: 70%;
+                height: 90px;
+
+            }
         }
 
         /* --------------right fix part------------- */
         /* --------------box-shipping------------- */
         .box-shipping {
-            /* width: 100%; */
+            /* width: 350px; */
             background-color: #ffffff;
             border-radius: 15px;
             flex-direction: column;
             align-items: center;
-            /* justify-content: center; */
             margin-bottom: 30px;
 
         }
@@ -441,8 +427,6 @@
             margin: 20px 0px;
             flex-direction: column;
             align-items: flex-start;
-            /* justify-content: center; */
-            /* border: 1px solid red; */
         }
 
         .box-shipping h3 {
@@ -457,30 +441,27 @@
 
         .shipping-btn {
             width: 100%;
-            /* align-items: center; */
         }
 
         .conv-store {
             width: 100px;
         }
-
         @media screen and (max-width: 1200px) {
-            
-
             .box-shipping-frame {
                 width: 90%;
             }
-
         }
-        @media screen and (max-width: 992px){
-            .box-shipping{
+
+        @media screen and (max-width: 992px) {
+            .box-shipping {
                 margin: 0;
                 border-radius: 15px 15px 0 0;
+                margin-bottom: 0px;
+
             }
         }
-        @media screen and (max-width: 567px){
 
-        }
+        @media screen and (max-width: 567px) {}
 
         /* --------------total-price------------- */
         .total-price {
@@ -494,7 +475,6 @@
             width: 90%;
             flex-direction: column;
             align-items: center;
-            /* justify-content: space-between; */
         }
 
         .total-price h3 {
@@ -508,6 +488,7 @@
             width: 90%;
             align-items: center;
             justify-content: center;
+
         }
 
         .coupon input {
@@ -538,8 +519,9 @@
             margin: 30px 0;
             /* border: 1px solid blue; */
             flex-direction: column;
-            
+
         }
+
         .total-price ul li {
             width: 100%;
             height: 35px;
@@ -571,19 +553,23 @@
         footer {
             margin-top: 50px;
         }
-
         @media screen and (max-width: 1200px) {
             .coupon input {
                 width: 100%;
             }
-
-            
         }
 
         @media screen and (max-width: 992px) {
-            .total-price{
+            .total-price {
                 border-radius: 0 0 15px 15px;
+                
             }
+            .total-price h3 {
+            
+            margin: 10px 0px 20px 30px;
+            
+
+        }
         }
 
         @media screen and (max-width: 576px) {}
@@ -638,25 +624,25 @@
         <div class="wrapper flex" action="">
             <div class="block-left">
                 <div class="buy-process flex">
-                    <ul class="buy-process-frame flex">
-                        <li class="process here flex">
-                            <h3>01</h3>
-                            <h6>確認訂單<br>及運送方式</h6>
-                        </li>
-                        <li class="process flex">
-                            <h3>02</h3>
-                            <h6>填寫<br>訂購資料</h6>
-                        </li>
-                        <li class="process flex">
-                            <h3>03</h3>
-                            <h6>付款</h6>
-                        </li>
-                        <li class="process flex">
-                            <h3>04</h3>
-                            <h6>訂單完成</h6>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="buy-process-frame flex">
+                    <li class="process here flex">
+                        <h3>01</h3>
+                        <h6>確認訂單<br>及運送方式</h6>
+                    </li>
+                    <li class="process flex">
+                        <h3>02</h3>
+                        <h6>填寫<br>訂購資料</h6>
+                    </li>
+                    <li class="process flex">
+                        <h3>03</h3>
+                        <h6>付款</h6>
+                    </li>
+                    <li class="process flex">
+                        <h3>04</h3>
+                        <h6>訂單完成</h6>
+                    </li>
+                </ul>
+            </div>
                 <div class="box-watzbox flex">
                     <div class="box-watzbox-frame">
                         <div class="flex">
@@ -666,11 +652,11 @@
                         <h4>Step1 想要什麼包裝呢?</h4>
                         <ul class="watzbox-choose flex" id="">
                             <li class="img-watzbox choose">
-                                <img src="images/watzbox1-2.png" alt="">
+                                <img src="images/watzbox1-1.png" alt="">
 
                             </li>
-                            <li class="img-watzbox 02"><img src="images/watzbox2-2.png" alt=""></li>
-                            <li class="img-watzbox 03"><img src="images/watzbox3-2.png" alt=""></li>
+                            <li class="img-watzbox 02"><img src="images/watzbox2-1.png" alt=""></li>
+                            <li class="img-watzbox 03"><img src="images/watzbox3-1.png" alt=""></li>
                         </ul>
                         <h4>Step2 想放幾雙襪子呢?</h4>
                         <div class="pair-choose">
@@ -739,7 +725,6 @@
 
                         </div>
                     </div>
-
                 </div>
             </div>
             <div class="block-right ">
