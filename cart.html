@@ -25,24 +25,23 @@
             width: 1200px;
             justify-content: space-between;
             margin-top: 120px;
-            border: 1px solid gold;
+            /* border: 1px solid gold; */
         }
 
         .block-left {
-            width: 800px;
-            border: 1px solid rgb(100, 248, 63);
+            width: 67%;
+            /* border: 1px solid rgb(100, 248, 63); */
 
         }
 
         .block-right {
-            width: 350px;
-            border: 1px solid rgb(34, 220, 245);
-        
+            width: 30%;
+            /* border: 1px solid rgb(34, 220, 245); */
+
         }
 
         .block-fixed {
-            width: 350px;
-            position: fixed;
+            width: 100%;
             right: calc(50vw - 600px);
             flex-direction: column;
             position: sticky;
@@ -50,16 +49,47 @@
         }
 
         @media screen and (max-width: 1200px) {
+
             .wrapper {
                 width: 90vw;
-                
+
             }
+
         }
+
+        @media screen and (max-width: 992px) {
+            .wrapper {
+                width: 90vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+
+            }
+
+            .block-left {
+                width: 100%;
+            }
+
+            .block-fixed {
+                width: 100%;
+                right: 0;
+                /* position: static; */
+
+            }
+
+            .block-right {
+                width: 100%;
+                margin-top: 30px;
+            }
+
+        }
+
+        @media screen and (max-width: 576px) {}
 
         /* ------------------process------------------ */
 
         .buy-process {
-            width: 800px;
+            width: 100%;
             background-color: #ffffff;
             border-radius: 15px;
             flex-direction: row;
@@ -68,29 +98,87 @@
 
         }
 
+        .buy-process-frame {
+            width: 90%;
+            justify-content: space-between;
+            /* border: 1px solid palevioletred; */
+        }
+
         .process {
-            width: 150px;
-            height: 55px;
+            width: 130px;
+            /* height: 55px; */
             background-color: #F8F4EB;
             border-radius: 2px;
-            margin: 20px;
+            margin: 20px 0;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: flex-start;
+        }
+
+        .process h3 {
+            margin: 10px;
+        }
+
+        .process h6 {
+            margin-right: 10px;
         }
 
         .here {
             background-color: #F2DE79;
         }
+
         @media screen and (max-width: 1200px) {
-            .buy-process {
-                
+            .process {
+                width: 120px;
+            }
+
+            .process h3 {
+                margin: 8px;
+            }
+
+            .process h6 {
+                margin-right: 5px;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .process {
+            width: 22%;
+            /* height: 55px; */
+           
+        }
+
+        .process h3 {
+            margin: 10px;
+        }
+
+        .process h6 {
+            margin-right: 10px;
+        }
+        }
+
+        @media screen and (max-width: 576px) {
+            .process {
+                width: 22%;
+                height: 70px;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .process h3 {
+                margin: 0px;
+            }
+
+            .process h6 {
+                margin-right: 0px;
+                text-align: center;
             }
         }
 
         /* -----------choose box------------- */
 
         .box-watzbox {
-            width: 800px;
+            /* width: 800px; */
             background-color: #ffffff;
             border-radius: 15px;
             margin-top: 30px;
@@ -100,8 +188,9 @@
         }
 
         .box-watzbox-frame {
-            width: 700px;
+            width: 90%;
             margin: 40px 0;
+            /* border: 1px solid pink; */
         }
 
         .box-watzbox h3 {
@@ -114,7 +203,7 @@
         }
 
         .watzbox-choose {
-            width: 700px;
+            /* width: 90%; */
             align-items: center;
             justify-content: space-evenly;
         }
@@ -165,17 +254,35 @@
         .step3.show {
             opacity: 1;
         }
+
         @media screen and (max-width: 1200px) {
-            .box-watzbox {
-              
-                
+            .img-watzbox img {
+                width: 180px;
             }
-            
+
         }
+
+        @media screen and (max-width: 992px) {
+            .img-watzbox img {
+                width: 160px;
+            }
+
+        }
+
+        @media screen and (max-width: 576px) {
+            .img-watzbox img {
+                width: 100px;
+            }
+
+            .button {
+                margin: 10px;
+            }
+        }
+
         /* -------------order list-------------- */
 
         .box-product {
-            width: 800px;
+            /* width: 800px; */
             background-color: #ffffff;
             border-radius: 15px;
             margin-top: 30px;
@@ -184,62 +291,73 @@
         }
 
         .box-product-frame {
-            width: 740px;
-            margin: 40px 0;
-            /* border: 2px solid #E2E2E2; */
+            width: 90%;
+            margin: 30px 0;
+            /* border: 2px solid #be5656; */
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+
 
         }
 
         .eachsock-list {
-            width: 800px;
+            width: 100%;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: space-between;
+            border-bottom: 2px solid #E2E2E2;
+            /* border: 1px solid orange; */
+            margin: 20px 0;
         }
 
         .add-box {
-            width: 30px;
-            height: 30px;
-            text-align: center;
+            width: 25px;
+            height: 25px;
             color: #F2DE79;
-            font-weight: 600;
+            font-weight: 900;
             border: 2px solid #F2DE79;
             cursor: pointer;
+            /* flex-direction: column; */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
 
         }
 
         .box-product .line {
-            width: 680px;
+            width: 90%;
             border-top: 2px solid #E2E2E2;
         }
 
         .img-socks {
             width: 110px;
-            height: 130px;
         }
 
         .img-socks img {
             width: 100%;
             height: 100%;
-            object-fit: fill;
+            object-fit: cover;
 
         }
 
         .product-detail {
-            width: 500px;
+            width: 75%;
             height: 130px;
             justify-content: space-between;
+            /* border: 1px solid green; */
         }
 
         .sock-name {
-            width: 120px;
+            width: 30%;
+            flex-grow: 1;
             flex-direction: column;
             justify-content: space-between;
         }
 
         .socks-amount-choose {
-            width: 400px;
+            width: 70%;
             align-items: flex-end;
-            justify-content: space-around;
+            justify-content: space-evenly;
         }
 
         .quantity-choose {
@@ -275,31 +393,56 @@
             background: url(images/remove.svg);
             cursor: pointer;
         }
+
         @media screen and (max-width: 1200px) {
-            .box-product {
-        
-                
+            .img-socks {
+                width: 90px;
             }
+
+            .quantity-choose {
+                width: 80px;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .product-detail {
             
+            height: 100px;
+            
+        }
+        }
+
+        @media screen and (max-width: 576px) {
+            .img-socks {
+                width: 70px;
+            }
+            .product-detail {
+            width: 70%;
+            height: 90px;
+            
+        }
         }
 
         /* --------------right fix part------------- */
         /* --------------box-shipping------------- */
         .box-shipping {
-            width: 350px;
+            /* width: 100%; */
             background-color: #ffffff;
             border-radius: 15px;
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: space-between;
+            align-items: center;
+            /* justify-content: center; */
             margin-bottom: 30px;
 
         }
 
         .box-shipping-frame {
-            width: 300px;
-            margin: 20px 30px;
+            width: 80%;
+            margin: 20px 0px;
             flex-direction: column;
+            align-items: flex-start;
+            /* justify-content: center; */
+            /* border: 1px solid red; */
         }
 
         .box-shipping h3 {
@@ -313,38 +456,45 @@
         }
 
         .shipping-btn {
-            align-items: center;
+            width: 100%;
+            /* align-items: center; */
         }
 
         .conv-store {
             width: 100px;
         }
+
         @media screen and (max-width: 1200px) {
-            .box-shipping {
-                width: 25vw;
-                
-            }
             
+
+            .box-shipping-frame {
+                width: 90%;
+            }
+
+        }
+        @media screen and (max-width: 992px){
+            .box-shipping{
+                margin: 0;
+                border-radius: 15px 15px 0 0;
+            }
+        }
+        @media screen and (max-width: 567px){
+
         }
 
         /* --------------total-price------------- */
         .total-price {
-            width: 350px;
-            width: 350px;
             background-color: #ffffff;
             border-radius: 15px;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
         }
 
         .total-price-frame {
-            width: 300px;
-            background-color: #ffffff;
-            border-radius: 15px;
+            width: 90%;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            /* justify-content: space-between; */
         }
 
         .total-price h3 {
@@ -355,13 +505,13 @@
         }
 
         .coupon {
+            width: 90%;
             align-items: center;
             justify-content: center;
-
         }
 
         .coupon input {
-            width: 200px;
+            width: 75%;
             height: 40px;
             border: 1px solid #F2DE79;
             border-radius: 2px 0 0 2px;
@@ -383,16 +533,18 @@
 
         }
 
-        .total-price ul {
-            width: 300px;
-            margin: 30px;
-            justify-content: space-between;
-
+        .total-price-detail {
+            width: 90%;
+            margin: 30px 0;
+            /* border: 1px solid blue; */
+            flex-direction: column;
+            
         }
-
         .total-price ul li {
+            width: 100%;
             height: 35px;
             justify-content: space-between;
+            /* border: 1px solid yellowgreen; */
         }
 
         .line {
@@ -402,7 +554,7 @@
         }
 
         .btn-pay {
-            width: 250px;
+            width: 180px;
             height: 40px;
             border: none;
             background-color: #FF9685;
@@ -419,6 +571,22 @@
         footer {
             margin-top: 50px;
         }
+
+        @media screen and (max-width: 1200px) {
+            .coupon input {
+                width: 100%;
+            }
+
+            
+        }
+
+        @media screen and (max-width: 992px) {
+            .total-price{
+                border-radius: 0 0 15px 15px;
+            }
+        }
+
+        @media screen and (max-width: 576px) {}
     </style>
 </head>
 
@@ -469,24 +637,26 @@
 
         <div class="wrapper flex" action="">
             <div class="block-left">
-                <ul class="buy-process flex">
-                    <li class="process here flex">
-                        <h3>01</h3>
-                        <h6>確認訂單<br>及運送方式</h6>
-                    </li>
-                    <li class="process flex">
-                        <h3>02</h3>
-                        <h6>填寫<br>訂購資料</h6>
-                    </li>
-                    <li class="process flex">
-                        <h3>03</h3>
-                        <h6>付款</h6>
-                    </li>
-                    <li class="process flex">
-                        <h3>04</h3>
-                        <h6>訂單完成</h6>
-                    </li>
-                </ul>
+                <div class="buy-process flex">
+                    <ul class="buy-process-frame flex">
+                        <li class="process here flex">
+                            <h3>01</h3>
+                            <h6>確認訂單<br>及運送方式</h6>
+                        </li>
+                        <li class="process flex">
+                            <h3>02</h3>
+                            <h6>填寫<br>訂購資料</h6>
+                        </li>
+                        <li class="process flex">
+                            <h3>03</h3>
+                            <h6>付款</h6>
+                        </li>
+                        <li class="process flex">
+                            <h3>04</h3>
+                            <h6>訂單完成</h6>
+                        </li>
+                    </ul>
+                </div>
                 <div class="box-watzbox flex">
                     <div class="box-watzbox-frame">
                         <div class="flex">
@@ -515,9 +685,9 @@
                     </div>
                 </div>
                 <div class="box-product flex">
-                    <div class="box-product-frame">
+                    <div class="box-product-frame flex">
                         <div class="eachsock-list flex ">
-                            <div class="add-box">
+                            <div class="add-box flex">
                                 <span>+</span>
                             </div>
                             <div class="img-socks"><img src="/images/product/yellowline-01.jpg" alt=""></div>
@@ -536,18 +706,40 @@
                                         <input class="quantity-input" type="text" value="1" />
                                         <span class="plus">+</span>
                                     </div>
-                                    <div class="price">
-                                        <h4>NT $180</h4>
+                                    <h4>NT $180</h4>
+                                    <span class="remove">X</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="eachsock-list flex ">
+                            <div class="add-box flex">
+                                <span>+</span>
+                            </div>
+                            <div class="img-socks"><img src="/images/product/yellowline-01.jpg" alt=""></div>
+                            <div class="product-detail flex">
+                                <div class="sock-name flex">
+                                    <h4>偶素襪子</h4>
+                                    <div>
+                                        <h6>中長襪</h6>
+                                        <h6>22-25cm</h6>
+                                        <h6>材質:100%純棉</h6>
                                     </div>
-                                    <div class="remove">
-                                        <span>X</span>
+                                </div>
+                                <div class="socks-amount-choose flex">
+                                    <div class="quantity-choose flex">
+                                        <span class="minus">-</span>
+                                        <input class="quantity-input" type="text" value="1" />
+                                        <span class="plus">+</span>
                                     </div>
+                                    <h4>NT $180</h4>
+                                    <span class="remove">X</span>
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                    <div class="line"></div>
+
                 </div>
             </div>
             <div class="block-right ">
