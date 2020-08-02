@@ -26,8 +26,7 @@
             position: relative;
             height: 180vh;
             align-items: center;
-            /* border: 1px solid gold; */
-            /* justify-content: center; */
+            justify-content: center;
         }
 
         .bg-orderpage {
@@ -163,6 +162,60 @@
             flex-direction: column;
             align-items: flex-end;
         }
+        @media screen and (max-width: 992px){
+            body{
+                background-image: url(images/BG-mobile2.svg);
+                background-position: center;
+            }
+            .wrapper{
+                width: 80vh;
+                height: 160vh;
+                justify-content: center;
+            }
+            .bg-orderpage{
+                flex-direction: column;
+                align-items: center;
+                
+            }
+            .selector {
+                width: 94vw;
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 20px;
+                margin-right: 0;
+            }
+
+            .box {
+                width: 30vw;
+                height: 10vw;
+                line-height: 30px;
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            .selector a {
+                white-space: nowrap;
+            }
+            .bg-order-content{
+                width: 80vw;
+                height: 140vw;
+            }
+            .order-info1{
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .order-num{
+                justify-content: flex-start;
+            }
+            .margin{
+                margin-left: 30px;
+            }
+            .product-info h5{
+                display: inline-block;
+            width: 100px;
+            text-align: center;
+            }
+        }
     </style>
 </head>
 
@@ -227,21 +280,21 @@
                             <div class="order-info1 flex">
                                 <div class="order-num flex">
                                     <p>訂購編號</p>
-                                    <p>20200730</p>
+                                    <p class="margin">20200730</p>
                                 </div>
                                 <div class="order-num flex">
                                     <p>訂購時間</p>
-                                    <p>2020/07/30</p>
+                                    <p class="margin">2020/07/30</p>
                                 </div>
                             </div>
                             <div class="order-info1 flex">
                                 <div class="order-num flex">
                                     <p>出貨狀態</p>
-                                    <p>待出貨</p>
+                                    <p class="margin">待出貨</p>
                                 </div>
                                 <div class="order-num flex">
                                     <p>貨運單號</p>
-                                    <a href="">123456789</a>
+                                    <a class="margin" href="">123456789</a>
                                 </div>
                             </div>
                         </div>

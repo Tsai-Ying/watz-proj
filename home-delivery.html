@@ -31,11 +31,13 @@
         .block-left {
             width: 67%;
             /* border: 1px solid rgb(100, 248, 63); */
+            position: relative;
         }
 
         .block-right {
             width: 30%;
             /* border: 1px solid rgb(34, 220, 245); */
+
         }
 
         .block-fixed {
@@ -49,6 +51,7 @@
         @media screen and (max-width: 1200px) {
             .wrapper {
                 width: 90vw;
+                
             }
         }
 
@@ -56,6 +59,7 @@
             .wrapper {
                 flex-direction: column;
                 justify-content: flex-start;
+                
             }
 
             .container {
@@ -172,7 +176,7 @@
             align-items: center;
             justify-content: center;
             /* order: 0; */
-            
+
         }
 
         .shipping-form h3 {
@@ -182,7 +186,7 @@
         .shipping-form-frame {
             width: 90%;
             margin: 30px 0 0 0;
-            border: 1px solid plum;
+            /* border: 1px solid plum; */
         }
 
         .shipping-form-frame ul {
@@ -256,9 +260,6 @@
             margin-top: 10px;
         }
 
-        /* .receipt-choose-frame{
-            border: 1px solid lawngreen;
-        } */
         .peper-receipt {
             margin: 10px;
             flex-direction: column;
@@ -373,6 +374,11 @@
             height: 40px;
             margin: 30px 20px;
         }
+        .pay-showin922{
+            display: none;
+            justify-content: center;
+            /* border: 1px solid indianred; */
+        }
 
         .pay-btn.gopay:hover {
             background-color: #0388A6;
@@ -385,46 +391,60 @@
         .pay-btn.prev:hover {
             background-color: #FF9685;
         }
+
         @media screen and (max-width: 1200px) {
             
         }
 
         @media screen and (max-width: 992px) {
-            .shipping-form-frame{
+            .shipping-form-frame {
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
             }
+
             .shipping-form-frame ul {
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            /* margin: 20px 30px; */
-        }
+                justify-content: center;
+            }
 
-        .shipping-form-frame ul input {
-            width: 100%;
-            height: 45px;
-            border: 1px solid #F2DE79;
-            border-radius: 2px;
-            outline: none;
-        }
+            .shipping-form-frame ul input {
+                width: 100%;
+                height: 45px;
+            }
 
-        .shipping-form-frame ul li {
-            width: 90%;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin: 5px 0;
+            .shipping-form-frame ul li {
+                width: 90%;
+                flex-direction: column;
+                align-items: flex-start;
+                margin: 5px 0;
 
-        }
-        .shipping-form-frame ul li p{
-            margin-bottom: 10px;
-        }
+            }
+
+            .shipping-form-frame ul li p {
+                margin-bottom: 10px;
+            }
+            .shipping-form .pay-btn{
+                display: none;
+            }
+            .pay-showin922{
+                display: flex;
+            }
+            
         }
 
         @media screen and (max-width: 576px) {
-        
+            .receipt-choose-frame{
+                flex-direction: column;
+            }
+            .peper-receipt{
+                margin: 10px 0;
+            }
+            .radio-frame {
+            margin: 10px 0;
+        }
+            .peper-receipt .info{
+                margin: 10px 15px;
+            }
         }
 
         /* ---------------return------------ */
@@ -444,24 +464,20 @@
             width: 90%;
             margin: 30px;
         }
+
         @media screen and (max-width: 1200px) {
             
         }
 
         @media screen and (max-width: 992px) {
-            /* .return-detail{
-                order: 2;
-            } */
+            
         }
 
-        @media screen and (max-width: 576px) {
-        
-        }
+        @media screen and (max-width: 576px) {}
 
 
         /* --------------right fix part------------- */
         /* --------------order-list------------- */
-
 
         .order-list {
             background-color: #ffffff;
@@ -474,16 +490,49 @@
             top: 120px;
         }
 
-        .order-list h3 {
-            color: #03588C;
+        .order-list.showin922 {
+            background-color: #ffffff;
+            border-radius: 15px;
+            /* border: 1px solid rgb(212, 52, 132); */
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: sticky;
+            margin: 30px 0;
+            transition: 1s;
+            display: none;
 
         }
 
+        .order-list.showin922.open {
+            height: 600px;
+        }
+
+        .order-list h3 {
+            color: #03588C;
+        }
+
         .order-list-frame {
-            width: 85%;
+            width: 90%;
             /* border: 1px solid rgb(212, 52, 132); */
             flex-direction: column;
             margin: 30px 0px;
+        }
+
+        .order-list-title {
+            width: 98%;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .order-list-title h3 {
+            margin-bottom: 5px;
+        }
+
+        .seemore {
+            color: #FF9685;
+            text-decoration: underline;
+            cursor: pointer;
         }
 
         .list-scroll {
@@ -491,6 +540,17 @@
             height: 35vh;
             overflow-x: hidden;
             overflow-y: scroll;
+        }
+
+        .list-scroll.showin922 {
+            width: 100%;
+            height: 25vh;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        .list-scroll.showin922.open {
+            height: 35vh;
         }
 
         .list-scroll h4 {
@@ -537,7 +597,7 @@
         .socks-detail {
             flex-direction: column;
             /* border: 1px solid teal; */
-           
+
         }
 
         .eachsock-list {
@@ -563,22 +623,23 @@
             align-items: center;
             justify-content: space-between;
         }
-        @media screen and (max-width: 1200px) {
-            
-        }
+
+        @media screen and (max-width: 1200px) {}
 
         @media screen and (max-width: 992px) {
-            /* .order-list{
-                order: 1;
-            } */
+            .order-list {
+                display: none;
+            }
+
+            .order-list.showin922 {
+                display: flex;
+            }
+
         }
 
-        @media screen and (max-width: 576px) {
-        
-        }
+        @media screen and (max-width: 576px) {}
 
         /* --------------total-price------------- */
-
         .total-price {
             width: 85%;
             flex-direction: column;
@@ -589,16 +650,54 @@
 
         }
 
+        .total-price.showin922 {
+            width: 100%;
+            height: 25vh;
+            background-color: #ffffff;
+            border-radius: 0 0 15px 15px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            /* border: 1px solid yellowgreen; */
+            transform: translateY(-120%);
+            transition: .5s;
+            display: none;
+        }
+
+        .total-price.showin922 ul {
+            width: 75%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            margin-bottom: 30px;
+            /* border: 1px solid yellow; */
+        }
+
         .total-price h3 {
+            color: #707070;
+
+        }
+        .total-price.open h3 {
             color: #03588C;
 
+        }
+        .total-price.showin922 h3 {
+            margin: 20px 0;
         }
 
         .total-price ul {
             width: 100%;
             justify-content: space-between;
             margin-top: 20px;
-            
+
+        }
+
+        .total-price.showin922 ul {
+            width: 90%;
+            justify-content: space-between;
+
+
         }
 
         .total-price ul li {
@@ -615,6 +714,18 @@
 
         footer {
             margin-top: 50px;
+        }
+
+        @media screen and (max-width: 1200px) {}
+
+        @media screen and (max-width: 992px) {
+            .total-price {
+                display: none;
+            }
+
+            .total-price.showin922 {
+                display: flex;
+            }
         }
     </style>
 </head>
@@ -686,6 +797,79 @@
                         </li>
                     </ul>
                 </div>
+                <div class="order-list showin922 flex">
+                    <div class="order-list-frame showin922 flex">
+                        <div class="order-list-title flex">
+                            <h3>訂單資訊</h3>
+                            <h4 class="seemore">查看訂單內容</h4>
+                        </div>
+                        <div class="list-scroll showin922">
+                            <div class="box-choose-ordered">
+                                <h4>您選購的禮盒</h4>
+                                <div class="box-choose flex">
+                                    <img class="box-img" src="images/watzbox1-2.png" alt="">
+                                    <div class="box-type-detail flex">
+                                        <h4>芒果派對</h4>
+                                        <div>
+                                            <h6>包裝禮盒</h6>
+                                            <h6>3入裝</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="socks-detail flex">
+                                    <h4>禮盒內容</h4>
+                                    <div class="eachsock-list flex">
+                                        <div class="img-product">
+                                            <img src="/images/product/yellowline-01.jpg" alt="">
+                                        </div>
+                                        <div class="socks-nameNprice flex">
+                                            <h5 class="socks-title">偶速襪子</h5>
+                                            <h5>X1</h5>
+                                            <h5 class="socks-price">NT$180</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="socks-detail flex">
+                                <h4>單購襪子</h4>
+                                <div class="eachsock-list flex">
+                                    <div class="img-product">
+                                        <img src="/images/product/yellowline-01.jpg" alt="">
+                                    </div>
+                                    <div class="socks-nameNprice flex">
+                                        <h5 class="socks-title">偶速襪子</h5>
+                                        <h5>X1</h5>
+                                        <h5 class="socks-price">NT $180</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="total-price showin922 flex">
+                        <ul class="">
+                            <h3>訂購金額</h3>
+                            <li class="flex">
+                                <p>商品總計</p>
+                                <p>900</p>
+                            </li>
+                            <li class="flex">
+                                <p>運費</p>
+                                <p>60</p>
+                            </li>
+                            <li class="flex">
+                                <p>折扣</p>
+                                <p>-20</p>
+                            </li>
+                            <div class="line"></div>
+                            <li class="flex">
+                                <h4>結帳金額</h4>
+                                <h4>940 元</h4>
+                            </li>
+                        </ul>
+                </div>
                 <div class="shipping-form flex">
                     <div class="shipping-form-frame">
                         <h3>訂購資料填寫</h3>
@@ -752,11 +936,13 @@
                         </div>
                         <div class="receipt-choose">
                             <h3>發票選擇</h3>
-                            <div class="receipt-choose-frame">
+                            <div class="receipt-choose-frame flex">
+                                <div>
                                 <button class="button active" href="#" id="paper">紙本發票</button>
-                                <button class="button" href="#" id="elec">電子發票</button>
+                                <button class="button" href="#" id="elec">電子發票</button></div>
+                                <div>
                                 <button class="button " href="#" id="icloud">雲端載具</button>
-                                <button class="button" href="#" id="donate">發票捐贈</button>
+                                <button class="button" href="#" id="donate">發票捐贈</button></div>
                             </div>
                             <div class="peper-receipt flex show">
                                 <div class="radio-frame flex">
@@ -818,6 +1004,11 @@
                             <br>
                             ・不可退/換貨之狀況：尺寸不合、商品與想像不符等。 </p>
                     </ul>
+                </div>
+                <div class="pay-showin922 flex">
+                    <button class="pay-btn  btn-blue prev">回上一頁</button>
+                    <button class="pay-btn  btn-coral gopay">前往結帳</button>
+
                 </div>
             </div>
             <div class="block-right ">
@@ -890,7 +1081,6 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
 
         </div>
@@ -945,6 +1135,12 @@
 
         let result = "";
         $('input:checkbox:checked[name="receipt-radio-btn"]').val();
+
+        $(".seemore").click(function () {
+            $(".total-price").toggleClass("open");
+            $(".list-scroll").toggleClass("open");
+            $(".order-list").toggleClass("open");
+        });
     </script>
 
 </body>
