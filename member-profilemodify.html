@@ -15,6 +15,7 @@
             background-image: url(images/BG2.svg);
             background-repeat: no-repeat;
             background-size: cover;
+            /* background-position: center; */
         }
 
         .wrapper {
@@ -45,11 +46,7 @@
             background-size: contain;
             width: 680px;
             height: 540px;
-            /* position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%; */
+
         }
 
         .member-info {
@@ -157,13 +154,18 @@
             margin-right: 30px;
         }
 
+        .btn-blue:hover {
+            background: #FF9685;
+        }
+
         .adress {
             white-space: nowrap;
         }
 
         @media screen and (max-width: 992px) {
-            .body {
+            body {
                 background-image: url(images/BG-mobile2.svg);
+                background-position: center;
             }
 
             .wrapper {
@@ -176,24 +178,25 @@
             .bg-membercard {
                 position: relative;
                 align-items: center;
+
             }
 
             .membercard {
                 width: 80vw;
-                height: 168vw;
+                height: 130vw;
             }
 
             .membercard-img {
                 background-image: url(images/user_card_mobile_after.svg);
-                width: 80vw;
-                height: 168vw;
+                width: 60vw;
+                height: 130vw;
             }
 
             .bg-photo {
-                width: 80vw;
-                height: 45vw;
+                width: 60vw;
+                height: 55vw;
                 justify-content: center;
-                align-items: flex-start;
+                /* align-items: flex-start; */
             }
 
             .member-photo {
@@ -208,18 +211,18 @@
             }
 
             .bg-form {
-                width: 80vw;
-                height: 80vw;
+                width: 60vw;
+                height: 60vw;
                 margin-top: 0;
                 align-items: center;
             }
 
             .form-item {
-                width: 67vw;
+                width: 50vw;
             }
 
             .form-name {
-                width: 50vw;
+                width: 35vw;
                 height: 6vw;
             }
 
@@ -259,26 +262,46 @@
                 <a class="img-logo-text" href=""><img src="images/logo-text.svg" alt=""></a>
             </div>
             <ul class="nav-list flex transition">
-                <li><a href="">PROJECT</a></li>
+                <li class="dropdown">
+                    <a>PROJECT</a>
+                    <div class="dropdown-menu flex transition">
+                        <div class="dropdown-bg flex transition">
+                            <a class="" href="">芒果派對</a>
+                            <a class="" href="">群魔亂舞</a>
+                            <a class="" href="">灰姑娘的<br>水晶襪</a>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="">SHOP</a></li>
                 <li><a href="">DIY</a></li>
                 <li><a href="">WATZ</a></li>
                 <li><a href="">CONTACT</a></li>
             </ul>
             <div class="nav-icon flex transition">
-                <a class="icon-wrapper" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
-                <a class="icon-wrapper" href=""><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
+                <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
+                <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
                 <div class="menu flex">
-                    <div class="box-bar transition">
-                        <div class="bar bar1 transition"></div>
-                        <div class="bar bar2 transition"></div>
-                        <div class="bar bar3 transition"></div>
+                    <div class="click-area flex transition" id="menuClickArea">
+                        <div class="box-bar transition">
+                            <div class="bar bar1 transition"></div>
+                            <div class="bar bar2 transition"></div>
+                            <div class="bar bar3 transition"></div>
+                        </div>
                     </div>
                     <div class="menu-bg transition">
                         <div class="menu-content transition flex">
                             <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
                             <ul class="menu-list">
-                                <li><a href="">PROJECT</a></li>
+                                <li class="dropdown">
+                                    <a>PROJECT</a>
+                                    <div class="dropdown-menu flex transition">
+                                        <div class="dropdown-bg flex transition">
+                                            <a class="" href="">芒果派對</a>
+                                            <a class="" href="">群魔亂舞</a>
+                                            <a class="" href="">灰姑娘的水晶襪</a>
+                                        </div>
+                                    </div>
+                                </li>
                                 <li><a href="">SHOP</a></li>
                                 <li><a href="">DIY</a></li>
                                 <li><a href="">WATZ</a></li>
@@ -296,69 +319,78 @@
             </div>
         </nav>
         <div class="wrapper flex">
-            <div class="selector flex">
-                <div class="box"><a href="">會員資料</a></div>
-                <div class="box"><a href="">訂單紀錄</a></div>
-                <div class="box"><a href="">會員條款</a></div>
-                <div class="box"><a href="">隱私權政策</a></div>
-            </div>
-            <div class="bg-membercard flex">
-                <div class="membercard flex">
-                    <div class="membercard-img" />
-                    <div class="member-info flex">
-                        <div class="bg-photo flex">
-                            <div class="member-photo flex">
-                                <img src="images/product/red square-01.jpg" alt="">
+                <div class="selector flex">
+                    <div class="box"><a href="">會員資料</a></div>
+                    <div class="box"><a href="">訂單紀錄</a></div>
+                    <div class="box"><a href="">會員條款</a></div>
+                    <div class="box"><a href="">隱私權政策</a></div>
+                </div>
+                <div class="bg-membercard flex">
+                    <div class="membercard flex">
+                        <div class="membercard-img" />
+                        <div class="member-info flex">
+                            <div class="bg-photo flex">
+                                <div class="member-photo flex">
+                                    <img src="images/product/red square-01.jpg" alt="">
+                                </div>
                             </div>
+                            <ul class="bg-form flex">
+                                <li class="form-item flex">
+                                    <h5 class="flex">姓名</h5>
+                                    <input class="form-name flex" type="text">
+                                </li>
+                                <li class="form-item flex">
+                                    <h5 class="flex">電話</h5>
+                                    <input class="form-name" type="text">
+                                </li>
+                                <li class="form-item flex">
+                                    <h5 class="flex">信箱</h5>
+                                    <input class="form-name" type="text">
+                                </li>
+                                <li class="form-item flex">
+                                    <h5 class="adress flex">地址</h5>
+                                    <input class="form-name" type="text">
+                                </li>
+                                <li class="form-item flex">
+                                    <h5 class="flex">密碼</h5>
+                                    <input class="form-name" type="text">
+                                </li>
+                                <li class="form-item flex">
+                                    <h5 class="flex">新密碼</h5>
+                                    <input class="form-name" type="text">
+                                </li>
+                                <li class="form-item flex">
+                                    <h5 class="flex">舊密碼</h5>
+                                    <input class="form-name" type="text">
+                                </li>
+                                <li class="form-item flex">
+                                    <h5 class="flex">再次確認密碼</h5>
+                                    <input class="form-name" type="text">
+                                </li>
+                            </ul>
                         </div>
-                        <ul class="bg-form flex">
-                            <li class="form-item flex">
-                                <h5 class="flex">姓名</h5>
-                                <input class="form-name flex" type="text">
-                            </li>
-                            <li class="form-item flex">
-                                <h5 class="flex">電話</h5>
-                                <input class="form-name" type="text">
-                            </li>
-                            <li class="form-item flex">
-                                <h5 class="flex">信箱</h5>
-                                <input class="form-name" type="text">
-                            </li>
-                            <li class="form-item flex">
-                                <h5 class="adress flex">地址</h5>
-                                <input class="form-name" type="text">
-                            </li>
-                            <li class="form-item flex">
-                                <h5 class="flex">密碼</h5>
-                                <input class="form-name" type="text">
-                            </li>
-                            <li class="form-item flex">
-                                <h5 class="flex">新密碼</h5>
-                                <input class="form-name" type="text">
-                            </li>
-                            <li class="form-item flex">
-                                <h5 class="flex">舊密碼</h5>
-                                <input class="form-name" type="text">
-                            </li>
-                            <li class="form-item flex">
-                                <h5 class="flex">再次確認密碼</h5>
-                                <input class="form-name" type="text">
-                            </li>
-                        </ul>
                     </div>
                 </div>
-                <div class="flex"><button class="btn-blue">修改會員資料</button></div>
-            </div>
-
+                <div><button class="btn-blue">修改會員資料</button></div>
         </div>
-    </div>
-    <div class="btn-top flex transition" id="goTop">
-        <img src="images/arrow-top.svg" alt="">
-        <h3>TOP</h3>
-        <div class="bg-btn-top transition"></div>
+        <div class="btn-top flex transition" id="goTop">
+            <img src="images/arrow-top.svg" alt="">
+            <h3>TOP</h3>
+            <div class="bg-btn-top transition"></div>
+        </div>
+        
+        <div class="mobile-show fixedlist">
+            <div class="fixedlist-icon flex">
+                <a class="icon-wrapper" href=""><img src="images/icon-faq.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-sock.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-member.svg" alt=""></a>
+                <a class="icon-wrapper" href="cart.html"><img src="images/icon-cart.svg" alt=""></a>
+            </div>
+        </div>
+        
     </div>
     <footer class="flex">
-        <div class="flex">
+        <div class="footer-icon flex">
             <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
             <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
             <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>

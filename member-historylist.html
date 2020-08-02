@@ -98,21 +98,19 @@
         .btn-coral {
             width: 130px;
             height: 45px;
-            background: #FF9685;
-            border: 0;
-            border-radius: 2px;
-            color: white;
-            font-family: 'Noto Sans TC', sans-serif;
-            letter-spacing: 2px;
-            outline: none;
-            cursor: pointer;
-            transition: .4s;
+            
         }
-
+        .btn-coral:hover{
+            background: #F2DE79;
+            color: #707070;
+        }
         .btn-blue.gray {
             width: 130px;
             background: #707070;
             margin-left: 20px;
+        }
+        .btn-blue.gray:hover{
+            background: #03588C;
         }
         .btn{
             width: 600px;
@@ -126,12 +124,13 @@
         }
 
         @media screen and (max-width: 992px) {
-            .body {
+            body {
                 background-image: url(images/BG-mobile2.svg);
+                background-position: center;
             }
 
             .wrapper {
-                height: 155vh;
+                height: 170vh;
                 width: 100%;
             }
 
@@ -197,6 +196,9 @@
             .selector a {
                 white-space: nowrap;
             }
+            ul h4,ul h5{
+                text-align: unset;
+            }
         }
     </style>
 </head>
@@ -209,26 +211,46 @@
                 <a class="img-logo-text" href=""><img src="images/logo-text.svg" alt=""></a>
             </div>
             <ul class="nav-list flex transition">
-                <li><a href="">PROJECT</a></li>
+                <li class="dropdown">
+                    <a>PROJECT</a>
+                    <div class="dropdown-menu flex transition">
+                        <div class="dropdown-bg flex transition">
+                            <a class="" href="">芒果派對</a>
+                            <a class="" href="">群魔亂舞</a>
+                            <a class="" href="">灰姑娘的<br>水晶襪</a>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="">SHOP</a></li>
                 <li><a href="">DIY</a></li>
                 <li><a href="">WATZ</a></li>
                 <li><a href="">CONTACT</a></li>
             </ul>
             <div class="nav-icon flex transition">
-                <a class="icon-wrapper" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
-                <a class="icon-wrapper" href=""><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
+                <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
+                <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
                 <div class="menu flex">
-                    <div class="box-bar transition">
-                        <div class="bar bar1 transition"></div>
-                        <div class="bar bar2 transition"></div>
-                        <div class="bar bar3 transition"></div>
+                    <div class="click-area flex transition" id="menuClickArea">
+                        <div class="box-bar transition">
+                            <div class="bar bar1 transition"></div>
+                            <div class="bar bar2 transition"></div>
+                            <div class="bar bar3 transition"></div>
+                        </div>
                     </div>
                     <div class="menu-bg transition">
                         <div class="menu-content transition flex">
                             <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
                             <ul class="menu-list">
-                                <li><a href="">PROJECT</a></li>
+                                <li class="dropdown">
+                                    <a>PROJECT</a>
+                                    <div class="dropdown-menu flex transition">
+                                        <div class="dropdown-bg flex transition">
+                                            <a class="" href="">芒果派對</a>
+                                            <a class="" href="">群魔亂舞</a>
+                                            <a class="" href="">灰姑娘的水晶襪</a>
+                                        </div>
+                                    </div>
+                                </li>
                                 <li><a href="">SHOP</a></li>
                                 <li><a href="">DIY</a></li>
                                 <li><a href="">WATZ</a></li>
@@ -419,17 +441,26 @@
             <h3>TOP</h3>
             <div class="bg-btn-top transition"></div>
         </div>
-    </div>
-    <footer class="flex">
-        <div class="flex">
-            <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
-            <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
-            <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
-            <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
+        <footer class="flex">
+            <div class="footer-icon flex">
+                <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
+            </div>
+            <h6>Copyright© WATZ Company All rights Reserved.</h6>
+            <img class="bg-footer flex" src="images/footer.svg" alt="">
+        </footer>
+        <div class="mobile-show fixedlist">
+            <div class="fixedlist-icon flex">
+                <a class="icon-wrapper" href=""><img src="images/icon-faq.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-sock.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-member.svg" alt=""></a>
+                <a class="icon-wrapper" href="cart.html"><img src="images/icon-cart.svg" alt=""></a>
+            </div>
         </div>
-        <h6>Copyright© WATZ Company All rights Reserved.</h6>
-        <img class="bg-footer flex" src="images/footer.svg" alt="">
-    </footer>
+    </div>
+    
 
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"

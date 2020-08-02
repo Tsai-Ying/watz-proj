@@ -16,6 +16,7 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+
         .wrapper {
             justify-content: center;
             align-items: center;
@@ -31,9 +32,13 @@
             height: 545px;
             position: absolute;
         }
-
+        .bsignup{
+            width: 400px;
+            height: 545px;
+            position: absolute;
+        }
         .member-bblock li {
-            width: 465px;
+            width: 400px;
             height: 545px;
             position: absolute;
         }
@@ -44,10 +49,11 @@
             border-radius: 15px;
             width: 70px;
             height: 140px;
-            right: 0;
+            right: -65px;
             top: 50%;
             transform: translate(0, -50%);
-            z-index: -1;
+            /* z-index: -1; */
+            cursor: pointer;
         }
 
         .tag h5 {
@@ -58,17 +64,22 @@
             right: 15%;
             top: 50%;
             transform: translate(-12%, -50%);
+            cursor: pointer;
+
         }
 
         .tag-signup {
-            right: 0;
             top: 90%;
             transform: translate(0, -90%);
             background: #0388A6;
+            cursor: pointer;
+
         }
 
         .tag-signup h5 {
             color: #ffffff;
+            cursor: pointer;
+
         }
 
         .member-login {
@@ -79,6 +90,7 @@
             align-items: center;
             flex-direction: column;
             position: relative;
+
         }
 
         .member-login.signup {
@@ -86,46 +98,52 @@
             position: absolute;
         }
 
-        @media screen and (max-width: 576px) {
+        @media screen and (max-width: 992px) {
             body {
                 background-image: url(images/BG-mobile2.svg);
                 background-repeat: no-repeat;
                 background-size: cover;
+                background-position: center;
             }
-            .wrapper{
-                width: 0;
+
+            .wrapper {
+                width: 100%;
             }
+
             .member-bblock {
-                width: 290px;
-                height: 341px;
-
-
+                width: 85vw;
+                height:103vw;
             }
-
+            .bsignup{
+                position: absolute;
+                width: 80vw;
+                height: 103vw;
+            }
             .member-bblock li {
-                width: 290px;
-                height: 341px;
+                width: 80vw;
+                height: 103vw;
 
             }
 
             .member-login {
-                width: 263px;
-                height: 341px;
+                width: 80vw;
+                height: 103vw;
                 flex-direction: column;
-                justify-content: flex-start;
+                justify-content: space-evenly;
                 align-items: center;
             }
 
             .tag {
-                width: 53px;
-                height: 87px;
+                width: 20vw;
+                height: 25vw;
                 border-radius: 10px;
+                right:-5vw;
             }
 
             .tag h5 {
                 font-size: 12px;
-                right: 10%;
-                top: 31%;
+                right: 8%;
+                top: 40%;
                 transform: translate(-10%, -23%);
             }
         }
@@ -146,7 +164,7 @@
             color: #ffffff;
         }
 
-        @media screen and (max-width: 576px) {
+        @media screen and (max-width: 992px) {
             .member-login h2 {
                 font-size: 32px;
                 /* padding: 40px; */
@@ -156,6 +174,11 @@
         }
 
         /* ---------------------------------text---------------------------------------- */
+        .bg-inputwrapper {
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
         .input-wrapper {
             background: #ffffff;
             width: 292px;
@@ -179,22 +202,28 @@
             height: 45px;
         }
 
-        @media screen and (max-width: 576px) {
+        @media screen and (max-width: 992px) {
             .member-input {
-                width: 182px;
-                height: 28px;
-                font-size: 12px;
+                width: 70vw;
+                height: 8vw;
+                font-size: 16px;
+            }
+
+            .bg-inputwrapper {
+                flex-direction: column;
+                justify-content: space-evenly;
+                height: 32vw;
             }
 
             .input-wrapper {
-                width: 182px;
-                height: 28px;
+                width: 60vw;
+                height: 9vw;
                 margin-bottom: 15px;
             }
 
             .input-wrapper img {
-                width: 12px;
-                height: 16px;
+                width: 3vw;
+                height: 4vw;
                 margin: 6px 12px;
                 /* margin: 6px 12px 6px 7px; */
             }
@@ -259,7 +288,7 @@
             height: 45px;
         }
 
-        @media screen and (max-width: 576px) {
+        @media screen and (max-width: 992px) {
             .remember {
                 width: 182px;
                 margin: 0;
@@ -269,17 +298,13 @@
                 width: 150px;
             }
 
-            .member-checkbox {
-                margin: 0px 5px 0px 0px;
-            }
-
             .member-forget a {
                 letter-spacing: 1px;
             }
 
             .agree {
-                width: 200px;
-                height: 20px;
+                width: 70vw;
+                height: 8vw;
             }
         }
 
@@ -311,11 +336,9 @@
             z-index: 10;
         }
 
-        footer {
-            bottom: 0;
-        }
+        
 
-        @media screen and (max-width: 576px) {
+        @media screen and (max-width: 992px) {
             .btn-login {
                 width: 150px;
                 height: 40px;
@@ -335,40 +358,58 @@
 
 <body>
     <div class="container flex">
-        <nav class="nav flex">
+        <nav class="nav flex transition">
             <div class="nav-logo flex">
                 <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
                 <a class="img-logo-text" href=""><img src="images/logo-text.svg" alt=""></a>
             </div>
-            <ul class="nav-list flex">
-                <li><a href="">PROJECT</a>
-                    <div class="line"></div>
+            <ul class="nav-list flex transition">
+                <li class="dropdown">
+                    <a>PROJECT</a>
+                    <div class="dropdown-menu flex transition">
+                        <div class="dropdown-bg flex transition">
+                            <a class="" href="">芒果派對</a>
+                            <a class="" href="">群魔亂舞</a>
+                            <a class="" href="">灰姑娘的<br>水晶襪</a>
+                        </div>
+                    </div>
                 </li>
                 <li><a href="">SHOP</a></li>
                 <li><a href="">DIY</a></li>
                 <li><a href="">WATZ</a></li>
                 <li><a href="">CONTACT</a></li>
             </ul>
-            <div class="nav-icon flex">
-                <a class="icon-wrapper" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
-                <a class="icon-wrapper" href=""><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
-                <div class="menu flex transition">
-                    <div class="box-bar">
-                        <div class="bar bar1 transition"></div>
-                        <div class="bar bar2 transition"></div>
-                        <div class="bar bar3 transition"></div>
+            <div class="nav-icon flex transition">
+                <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
+                <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
+                <div class="menu flex">
+                    <div class="click-area flex transition" id="menuClickArea">
+                        <div class="box-bar transition">
+                            <div class="bar bar1 transition"></div>
+                            <div class="bar bar2 transition"></div>
+                            <div class="bar bar3 transition"></div>
+                        </div>
                     </div>
                     <div class="menu-bg transition">
                         <div class="menu-content transition flex">
                             <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
                             <ul class="menu-list">
-                                <li><a href="">Project</a></li>
-                                <li><a href="">Shop</a></li>
+                                <li class="dropdown">
+                                    <a>PROJECT</a>
+                                    <div class="dropdown-menu flex transition">
+                                        <div class="dropdown-bg flex transition">
+                                            <a class="" href="">芒果派對</a>
+                                            <a class="" href="">群魔亂舞</a>
+                                            <a class="" href="">灰姑娘的水晶襪</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href="">SHOP</a></li>
                                 <li><a href="">DIY</a></li>
                                 <li><a href="">WATZ</a></li>
-                                <li><a href="">Contact</a></li>
+                                <li><a href="">CONTACT</a></li>
                             </ul>
-                            <div class="menu-icon flex">
+                            <div class="flex">
                                 <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
                                 <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
                                 <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
@@ -381,80 +422,95 @@
         </nav>
         <div class="wrapper flex">
             <ul class="member-bblock">
-                <li class="box-signup">
+                <div class="bsignup">
+                    <li class="box-signup">
+                        <form class="member-login flex signup">
+                            <h2>JOIN US</h2>
+                            <div class="bg-inputwrapper flex">
+                                <div class="input-wrapper flex">
+                                    <img src="images/icon-account.svg" alt="">
+                                    <input class="member-input" type="text" placeholder="Email">
+                                </div>
+                                <div class="input-wrapper flex">
+                                    <img src="images/icon-password.svg" alt="">
+                                    <input class="member-input" type="text" placeholder="Password">
+                                </div>
+                                <div class="input-wrapper flex">
+                                    <img src="images/icon-confirmPassword.svg" alt="">
+                                    <input class="member-input" type="text" placeholder="Confirm Password">
+                                </div>
+                            </div>
+                            <div class="agree flex">
+                                <input class="member-checkbox" type="checkbox" name="" id="">
+                                <h6>同意</h6><a href="">會員條款</a>
+                                <h6>與</h6><a href="">隱私權政策</a>
+                            </div>
+                            <button class="btn-login">註冊會員</button>
+                        </form>
+                    </li>
                     <div class="tag tag-signup">
                         <h5>註冊帳號</h5>
                     </div>
-                    <form class="member-login flex signup">
-                        <h2>JOIN US</h2>
-                        <div class="input-wrapper flex">
-                            <img src="images/icon-account.svg" alt="">
-                            <input class="member-input" type="text" placeholder="Email">
-                        </div>
-                        <div class="input-wrapper flex">
-                            <img src="images/icon-password.svg" alt="">
-                            <input class="member-input" type="text" placeholder="Password">
-                        </div>
-                        <div class="input-wrapper flex">
-                            <img src="images/icon-confirmPassword.svg" alt="">
-                            <input class="member-input" type="text" placeholder="Confirm Password">
-                        </div>
-                        <div class="agree flex">
-                            <input class="member-checkbox" type="checkbox" name="" id="">
-                            <h6>同意</h6><a href="">會員條款</a>
-                            <h6>與</h6><a href="">隱私權政策</a>
-                        </div>
-                        <button class="btn-login">註冊會員</button>
-                    </form>
-                </li>
+                </div>
                 <!------------------------signup------------------------------------------>
-                <li class="box-login">
+                <div class="bsignup blogin">
+                    <li class="box-login">
+                        <form class="member-login flex">
+                            <h2>LOG IN</h2>
+                            <div class="input-wrapper flex">
+                                <img src="images/icon-account.svg" alt="">
+                                <input class="member-input" type="text" placeholder="Email">
+                            </div>
+                            <div class="input-wrapper flex">
+                                <img src="images/icon-password.svg" alt="">
+                                <input class="member-input" type="text" placeholder="Password">
+                            </div>
+                            <div class="remember flex">
+                                <div class="member-remember flex">
+                                    <input class="member-checkbox flex" type="checkbox" name="" id="">
+                                    <h6 class="flex">Remember me</h6>
+                                </div>
+                                <div class="member-forget">
+                                    <a href="">忘記密碼</a>
+                                </div>
+                            </div>
+                            <button class="btn-login">登入帳號</button>
+                            <h5>還不是會員?點這邊
+                                <a href="">加入會員!</a>
+                            </h5>
+                        </form>
+                    </li>
                     <div class="tag tag-login">
                         <h5>登入會員</h5>
                     </div>
-                    <form class="member-login flex">
-                        <h2>LOG IN</h2>
-                        <div class="input-wrapper flex">
-                            <img src="images/icon-account.svg" alt="">
-                            <input class="member-input" type="text" placeholder="Email">
-                        </div>
-                        <div class="input-wrapper flex">
-                            <img src="images/icon-password.svg" alt="">
-                            <input class="member-input" type="text" placeholder="Password">
-                        </div>
-                        <div class="remember flex">
-                            <div class="member-remember flex">
-                                <input class="member-checkbox flex" type="checkbox" name="" id="">
-                                <h6 class="flex">Remember me</h6>
-                            </div>
-                            <div class="member-forget">
-                                <a href="">忘記密碼</a>
-                            </div>
-                        </div>
-                        <button class="btn-login">登入帳號</button>
-                        <h5>還不是會員?點這邊
-                            <a href="">加入會員!</a>
-                        </h5>
-                    </form>
-                </li>
+                </div>
             </ul>
-            <div class="btn-top flex transition" id="goTop">
-                <img src="images/arrow-top.svg" alt="">
-                <h3>TOP</h3>
-                <div class="bg-btn-top transition"></div>
+            
+        </div>
+        <div class="btn-top flex transition" id="goTop">
+            <img src="images/arrow-top.svg" alt="">
+            <h3>TOP</h3>
+            <div class="bg-btn-top transition"></div>
+        </div>
+        <footer class="flex">
+            <div class="footer-icon flex">
+                <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
+            </div>
+            <h6>Copyright© WATZ Company All rights Reserved.</h6>
+            <img class="bg-footer flex" src="images/footer.svg" alt="">
+        </footer>
+        <div class="mobile-show fixedlist">
+            <div class="fixedlist-icon flex">
+                <a class="icon-wrapper" href=""><img src="images/icon-faq.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-sock.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-member.svg" alt=""></a>
+                <a class="icon-wrapper" href="cart.html"><img src="images/icon-cart.svg" alt=""></a>
             </div>
         </div>
     </div>
-    <footer class="flex">
-        <div class="flex">
-            <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
-            <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
-            <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
-            <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
-        </div>
-        <h6>Copyright© WATZ Company All rights Reserved.</h6>
-        <img class="bg-footer flex" src="images/footer.svg" alt="">
-    </footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>

@@ -13,8 +13,7 @@
 <style>
     .container {
         width: 100%;
-        /* min-height: 100vh; */
-        height: 100vh;
+        min-height: 100vh;
         position: relative;
         background-size: cover;
         background-image: url(images/BG2.svg);
@@ -84,10 +83,15 @@
     @media screen and (max-width: 1200px) {
         .wrapper {
             width: 100vw;
+            height: 100vh;
+            margin-bottom: 20vh;
         }
     }
 
     @media screen and (max-width: 992px) {
+        .wrapper {
+            margin-bottom: 25vh;
+        }
         .block {
             width: 50vw;
             height: 50vw;
@@ -115,6 +119,10 @@
             background-size: cover;
             background-image: url(images/BG-mobile2.svg);
             background-repeat: repeat-y;
+        }
+
+        .wrapper {
+            margin-bottom: 15vh;
         }
 
         .block {
