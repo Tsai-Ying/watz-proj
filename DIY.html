@@ -22,6 +22,9 @@
 
     .wrapper {
         width: 1200px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: space-between;
     }
 
     .btn-top {
@@ -181,6 +184,10 @@
         right: 30px;
     }
 
+    .step4-1 {
+        display: none;
+    }
+
     .step3 {
         bottom: 240px;
         right: 510px;
@@ -299,9 +306,9 @@
 
     .sockscolor-dots {
         width: 420px;
-        height: 153px;
+        height: 140px;
         padding: 15px 0 0 30px;
-        flex-wrap: wrap;
+        flex-direction: column;
         justify-content: space-between;
         position: relative;
         cursor: pointer;
@@ -309,11 +316,11 @@
 
     .sockscolor-dots img {
         width: 50px;
-        margin-right: 20px;
+        margin-right: 21px;
         opacity: 0;
     }
 
-    .sockscolor-dots>li:hover img {
+    .sockscolor-dots li div:hover img {
         opacity: 1;
     }
 
@@ -563,6 +570,7 @@
         .shape-color {
             width: 400px;
             height: 180px;
+            padding-top: 10px;
         }
 
         .shape-color h3 {
@@ -571,6 +579,7 @@
 
         .sockscolor-dots {
             width: 350px;
+            height: 120px;
             padding: 0 5px 0 15px;
         }
 
@@ -579,11 +588,12 @@
         }
 
         .sockscolor-dots li {
+            justify-content: space-between;
             margin: 0 5px;
         }
 
         .sockscolor-dots li img {
-            margin: 0 6px -1px 5px;
+            margin: 0 6px -1px 4px;
             width: 45px;
             /* opacity: 1; */
         }
@@ -628,7 +638,8 @@
         }
 
         .sockscolor-dots#ul2 {
-            justify-content: center;
+            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
             padding: 0;
             margin: 25px 0 0 50px;
@@ -692,6 +703,7 @@
             width: 100vw;
             height: 100vh;
             margin: 0;
+            align-items: center;
         }
 
         .block-top,
@@ -701,6 +713,8 @@
 
         .block-bottom {
             width: 90vw;
+            margin: 0;
+            padding: 0;
         }
 
         .flexbox {
@@ -719,7 +733,7 @@
         .box-right {
             background: white;
             width: 90vw;
-            height: 57vh;
+            height: 50vh;
         }
 
         .diy-area {
@@ -737,6 +751,7 @@
         }
 
         .box-right {
+            width: 90vw;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -747,26 +762,50 @@
         .pattern-with-shape,
         .socks-color#ul3 {
             width: 80%;
-            height: 15vh;
+            height: 14vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            margin: 0;
         }
 
         .socks-color h3,
         .pattern-with-shape h3,
         .socks-color#ul3 h3 {
-            margin: 0;
+            margin: 1vh 0 1vh 0;
             width: 100%;
         }
 
-        .img-pattern-empty, .shape {
+        .sockscolor-dots {
+            width: 100%;
+            height: 12vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .pattern-with-shape {
+            width: 80%;
+            height: 10vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .img-pattern-empty,
+        .shape {
             display: none;
         }
 
         .img-pattern {
-            height: 10vh;
+            width: 100%;
+            height: fit-content;
+            padding: 0;
+        }
+
+        .pattern h3 {
+            margin: 0;
         }
 
         .tutorial {
@@ -775,94 +814,212 @@
         }
 
         .btn-box {
-            height: 10vh;
+            width: 80%;
+            height: 8vh;
         }
 
+        .btn-box button {
+            width: 90%;
+            height: 45px;
+        }
 
+        .btn-left,
+        .btn-right {
+            height: fit-content;
+        }
 
+        .sockscolor-dots li img {
+            margin: 0 6px 0 4px;
+        }
 
+        .tutorial#tutor2 {
+            padding: 0;
+        }
 
+        .step4,
+        .dash-side,
+        .step3 {
+            display: none;
+        }
 
+        .dash-box {
+            margin-top: calc(30vh + 2vw);
+            width: 90vw;
+            height: 50vh;
+            /* border: 1px solid red; */
+        }
 
+        .dash1 {
+            width: 100%;
+            height: 14.5vh;
+            top: 0;
+            right: 0;
+        }
+
+        .dash2 {
+            width: 100%;
+            height: 26.5vh;
+            top: 15vh;
+        }
+
+        .step2 {
+            top: 15.5vh;
+        }
+
+        .dash-left,
+        .dash-right {
+            width: 49.7%;
+            height: 7.8vh;
+        }
+
+        .dash-left {
+            left: 0;
+        }
+
+        .clean-all {
+            bottom: 4.5vh;
+            left: 20%;
+        }
+
+        .step4-1 {
+            display: block;
+            bottom: 4.5vh;
+            right: 15%;
+        }
 
     }
 
     @media screen and (max-width: 576px) {
-
         .container {
             background-size: cover;
             background-image: url(images/BG-mobile2.svg);
             background-repeat: repeat-y;
         }
+
+        .diy-area {
+            padding-top: 2vh;
+        }
+
+        .diy-area img {
+            width: 40vw;
+        }
+
+        .box-right {
+            justify-content: space-evenly;
+        }
+
+        .color {
+            margin: -46px 0 0 8px;
+            width: 25px;
+            height: 25px;
+        }
+
+        .sockscolor-dots li img {
+            width: 30px;
+            height: 30px;
+            margin: 0 6px 12px 6px
+        }
+
+        .img-pattern img {
+            width: 30px;
+        }
+
+        .btn-box {
+            height: 5vh;
+        }
+
+        .btn-box button {
+            height: 30px;
+        }
+
+        .step1,
+        .step2,
+        .step4-1,
+        .clean-all {
+            font-size: .8rem;
+            white-space: nowrap;
+        }
+
+        .clean-all {
+            bottom: 5vh;
+            left: 17%;
+        }
+
+        .step4-1 {
+            display: block;
+            bottom: 5vh;
+            right: 10%;
+        }
+
     }
 </style>
 
 <body>
     <div class="container flex">
         <!-- nav -->
-    <nav class="nav flex transition">
-        <div class="nav-logo flex">
-            <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
-            <a class="img-logo-text" href=""><img src="images/logo-text.svg" alt=""></a>
-        </div>
-        <ul class="nav-list flex transition">
-            <li class="dropdown">
-                <a>PROJECT</a>
-                <div class="dropdown-menu flex transition">
-                    <div class="dropdown-bg flex transition">
-                        <a class="" href="">芒果派對</a>
-                        <a class="" href="">群魔亂舞</a>
-                        <a class="" href="">灰姑娘的<br>水晶襪</a>
+        <nav class="nav flex transition">
+            <div class="nav-logo flex">
+                <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
+                <a class="img-logo-text" href=""><img src="images/logo-text.svg" alt=""></a>
+            </div>
+            <ul class="nav-list flex transition">
+                <li class="dropdown">
+                    <a>PROJECT</a>
+                    <div class="dropdown-menu flex transition">
+                        <div class="dropdown-bg flex transition">
+                            <a class="" href="">芒果派對</a>
+                            <a class="" href="">群魔亂舞</a>
+                            <a class="" href="">灰姑娘的<br>水晶襪</a>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li><a href="">SHOP</a></li>
-            <li><a href="">DIY</a></li>
-            <li><a href="">WATZ</a></li>
-            <li><a href="">CONTACT</a></li>
-        </ul>
-        <div class="nav-icon flex transition">
-            <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
-            <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
-            <div class="menu flex">
-                <div class="click-area flex transition" id="menuClickArea">
-                    <div class="box-bar transition">
-                        <div class="bar bar1 transition"></div>
-                        <div class="bar bar2 transition"></div>
-                        <div class="bar bar3 transition"></div>
+                </li>
+                <li><a href="">SHOP</a></li>
+                <li><a href="">DIY</a></li>
+                <li><a href="">WATZ</a></li>
+                <li><a href="">CONTACT</a></li>
+            </ul>
+            <div class="nav-icon flex transition">
+                <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
+                <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
+                <div class="menu flex">
+                    <div class="click-area flex transition" id="menuClickArea">
+                        <div class="box-bar transition">
+                            <div class="bar bar1 transition"></div>
+                            <div class="bar bar2 transition"></div>
+                            <div class="bar bar3 transition"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="menu-bg transition">
-                    <div class="menu-content transition flex">
-                        <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
-                        <ul class="menu-list">
-                            <li class="dropdown">
-                                <a>PROJECT</a>
-                                <div class="dropdown-menu flex transition">
-                                    <div class="dropdown-bg flex transition">
-                                        <a class="" href="">芒果派對</a>
-                                        <a class="" href="">群魔亂舞</a>
-                                        <a class="" href="">灰姑娘的水晶襪</a>
+                    <div class="menu-bg transition">
+                        <div class="menu-content transition flex">
+                            <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
+                            <ul class="menu-list">
+                                <li class="dropdown">
+                                    <a>PROJECT</a>
+                                    <div class="dropdown-menu flex transition">
+                                        <div class="dropdown-bg flex transition">
+                                            <a class="" href="">芒果派對</a>
+                                            <a class="" href="">群魔亂舞</a>
+                                            <a class="" href="">灰姑娘的水晶襪</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li><a href="">SHOP</a></li>
-                            <li><a href="">DIY</a></li>
-                            <li><a href="">WATZ</a></li>
-                            <li><a href="">CONTACT</a></li>
-                        </ul>
-                        <div class="flex">
-                            <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
-                            <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
-                            <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
-                            <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
+                                </li>
+                                <li><a href="">SHOP</a></li>
+                                <li><a href="">DIY</a></li>
+                                <li><a href="">WATZ</a></li>
+                                <li><a href="">CONTACT</a></li>
+                            </ul>
+                            <div class="flex">
+                                <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
+                                <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
+                                <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
+                                <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <!-- nav -->
+        </nav>
+        <!-- nav -->
         <!-- btn-top -->
         <div class="btn-top flex transition" id="goTop">
             <img src="images/arrow-top.svg" alt="">
@@ -870,7 +1027,7 @@
             <div class="bg-btn-top transition"></div>
         </div>
         <!-- btn-top -->
-        <div class="wrapper">
+        <div class="wrapper flex">
             <div class="block-top flex mobile-none">
                 <h1 class="transition">Create your own WATZ !</h1>
                 <div class="flex transition">
@@ -901,7 +1058,8 @@
                     <div class="dash2"></div>
                     <h3 class="clean-all">清除樣式</h3>
                     <div class="dash-left"></div>
-                    <h3 class="step4">Step4. 完成啦!</h3>
+                    <h3 class="step4 mobile-none">Step4. 完成啦!</h3>
+                    <h3 class="step4-1">Step3. 完成啦!</h3>
                     <div class="dash-right"></div>
                     <h3 class="step3">Step3. 點選此處選擇圖樣顏色</h3>
                     <div class="dash-side"></div>
@@ -914,50 +1072,63 @@
                         <div class="socks-color flex">
                             <h3>Socks Color</h3>
                             <ul class="sockscolor-dots flex">
-                                <li>
-                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a1"></div>
+                                <li class="flex">
+                                    <div>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a1">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a2">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a3">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a4">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a5">
+                                        </div>
+                                    </div>
                                 </li>
-                                <li>
-                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a2"></div>
-                                </li>
-                                <li>
-                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a3"></div>
-                                </li>
-                                <li>
-                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a4"></div>
-                                </li>
-                                <li>
-                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a5"></div>
-                                </li>
-                                <li>
-                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a6"></div>
-                                </li>
-                                <li>
-                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a7"></div>
-                                </li>
-                                <li>
-                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a8"></div>
-                                </li>
-                                <li>
-                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a9"></div>
-                                </li>
-                                <li>
-                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a10"></div>
+                                <li class="flex">
+                                    <div>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a6">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a7">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a8">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a9">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                        <div class="color" id="a10">
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
                         <div class="pattern-with-shape">
-
                             <div class="pattern">
                                 <h3>Pattern</h3>
                                 <div class=" img-pattern flex">
@@ -965,7 +1136,8 @@
                                     <div class="img-pattern-stripe"><img src="images/pattern-stripe.svg" alt=""></div>
                                     <div class="img-pattern-dotted"><img src="images/pattern-dotted.svg" alt=""></div>
                                     <div class="img-pattern-empty mobile-none"><img src="images/pattern-white.svg"
-                                            alt=""></div>
+                                            alt="">
+                                    </div>
                                 </div>
                             </div>
                             <div class="shape mobile-none">
@@ -983,51 +1155,65 @@
                                     <div><img src="images/shape-pizza.svg" alt=""></div>
                                 </div>
                             </div>
-                            <div class="socks-color flex mobile-show" id="ul3">
-                                <h3>Shape Color</h3>
-                                <ul class="sockscolor-dots flex">
-                                    <li>
+                        </div>
+                        <div class="socks-color flex mobile-show" id="ul3">
+                            <h3>Shape Color</h3>
+                            <ul class="sockscolor-dots flex">
+                                <li class="flex">
+                                    <div>
                                         <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a1"></div>
-                                    </li>
-                                    <li>
+                                        <div class="color" id="a1">
+                                        </div>
+                                    </div>
+                                    <div>
                                         <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a2"></div>
-                                    </li>
-                                    <li>
+                                        <div class="color" id="a2">
+                                        </div>
+                                    </div>
+                                    <div>
                                         <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a3"></div>
-                                    </li>
-                                    <li>
+                                        <div class="color" id="a3">
+                                        </div>
+                                    </div>
+                                    <div>
                                         <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a4"></div>
-                                    </li>
-                                    <li>
+                                        <div class="color" id="a4">
+                                        </div>
+                                    </div>
+                                    <div>
                                         <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a5"></div>
-                                    </li>
-                                    <li>
+                                        <div class="color" id="a5">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div>
                                         <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a6"></div>
-                                    </li>
-                                    <li>
+                                        <div class="color" id="a6">
+                                        </div>
+                                    </div>
+                                    <div>
                                         <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a7"></div>
-                                    </li>
-                                    <li>
+                                        <div class="color" id="a7">
+                                        </div>
+                                    </div>
+                                    <div>
                                         <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a8"></div>
-                                    </li>
-                                    <li>
+                                        <div class="color" id="a8">
+                                        </div>
+                                    </div>
+                                    <div>
                                         <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a9"></div>
-                                    </li>
-                                    <li>
+                                        <div class="color" id="a9">
+                                        </div>
+                                    </div>
+                                    <div>
                                         <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                        <div class="color" id="a10"></div>
-                                    </li>
-                                </ul>
-                            </div>
+                                        <div class="color" id="a10">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                         <div class="btn-box flex">
                             <div class="btn-left flex">
@@ -1042,45 +1228,59 @@
                     <div class="shape-color flex ">
                         <h3 class="color-active">COLOR</h3>
                         <ul class="sockscolor-dots flex" id="ul2">
-                            <li>
-                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b1"></div>
+                            <li class="flex">
+                                <div>
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                    <div class="color" id="a1">
+                                    </div>
+                                </div>
+                                <div>
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                    <div class="color" id="a2">
+                                    </div>
+                                </div>
+                                <div>
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                    <div class="color" id="a3">
+                                    </div>
+                                </div>
+                                <div>
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                    <div class="color" id="a4">
+                                    </div>
+                                </div>
+                                <div>
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                    <div class="color" id="a5">
+                                    </div>
+                                </div>
                             </li>
-                            <li>
-                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b2"></div>
-                            </li>
-                            <li>
-                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b3"></div>
-                            </li>
-                            <li>
-                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b4"></div>
-                            </li>
-                            <li>
-                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b5"></div>
-                            </li>
-                            <li>
-                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b6"></div>
-                            </li>
-                            <li>
-                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b7"></div>
-                            </li>
-                            <li>
-                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b8"></div>
-                            </li>
-                            <li>
-                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b9"></div>
-                            </li>
-                            <li>
-                                <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b10"></div>
+                            <li class="flex">
+                                <div>
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                    <div class="color" id="a6">
+                                    </div>
+                                </div>
+                                <div>
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                    <div class="color" id="a7">
+                                    </div>
+                                </div>
+                                <div>
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                    <div class="color" id="a8">
+                                    </div>
+                                </div>
+                                <div>
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                    <div class="color" id="a9">
+                                    </div>
+                                </div>
+                                <div>
+                                    <img class=" img-select-circle" src="images/select circle.svg" alt="">
+                                    <div class="color" id="a10">
+                                    </div>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -1131,6 +1331,7 @@
         $(".dash-box").css({
             "display": "block"
         })
+        $(".shape-color").addClass("transition")
         $(".shape-color").addClass("move-left")
     })
 
@@ -1156,6 +1357,7 @@
         $(".dash-box").css({
             "display": "block"
         })
+        $(".shape-color").addClass("transition")
         $(".shape-color").addClass("move-left")
     })
 
