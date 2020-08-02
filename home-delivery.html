@@ -37,7 +37,7 @@
         .block-right {
             width: 30%;
             /* border: 1px solid rgb(34, 220, 245); */
-            
+
         }
 
         .block-fixed {
@@ -184,7 +184,7 @@
         .shipping-form-frame {
             width: 90%;
             margin: 30px 0 0 0;
-            border: 1px solid plum;
+            /* border: 1px solid plum; */
         }
 
         .shipping-form-frame ul {
@@ -460,6 +460,16 @@
         /* --------------right fix part------------- */
         /* --------------order-list------------- */
 
+        .order-list {
+            background-color: #ffffff;
+            border-radius: 15px;
+            /* border: 1px solid rgb(212, 52, 132); */
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: sticky;
+            top: 120px;
+        }
 
         .order-list.showin922 {
             background-color: #ffffff;
@@ -469,35 +479,59 @@
             align-items: center;
             justify-content: flex-start;
             position: sticky;
-            margin-top: 30px;
+            margin: 30px 0;
             transition: 1s;
             display: none;
 
         }
-        .order-list.open{
-            height: 650px;
+
+        .order-list.showin922.open {
+            height: 600px;
         }
 
         .order-list h3 {
             color: #03588C;
-            /* margin-bottom: 2px; */
-
         }
 
-        .order-list-frame.showin922 {
-            width: 85%;
+        .order-list-frame {
+            width: 90%;
             /* border: 1px solid rgb(212, 52, 132); */
             flex-direction: column;
             margin: 30px 0px;
         }
 
+        .order-list-title {
+            width: 98%;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .order-list-title h3 {
+
+            margin-bottom: 0px;
+        }
+
+        .seemore {
+            color: #FF9685;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
         .list-scroll {
+            width: 100%;
+            height: 35vh;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        .list-scroll.showin922 {
             width: 100%;
             height: 25vh;
             overflow-x: hidden;
             overflow-y: scroll;
         }
-        .list-scroll.open{
+
+        .list-scroll.showin922.open {
             height: 35vh;
         }
 
@@ -575,7 +609,11 @@
         @media screen and (max-width: 1200px) {}
 
         @media screen and (max-width: 992px) {
-            .order-list.showin922{
+            .order-list {
+                display: none;
+            }
+
+            .order-list.showin922 {
                 display: flex;
             }
         }
@@ -583,52 +621,63 @@
         @media screen and (max-width: 576px) {}
 
         /* --------------total-price------------- */
-
         .total-price {
+            width: 85%;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            /* order: ; */
+
+        }
+
+        .total-price.showin922 {
             width: 100%;
-            height: 265px;
+            height: 235px;
             background-color: #ffffff;
             border-radius: 0 0 15px 15px;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             position: absolute;
             /* border: 1px solid yellowgreen; */
-            transform: translateY(-100%);
+            transform: translateY(-120%);
             transition: .5s;
             display: none;
         }
-        .total-price.open{
-            /* transform: translateY(-100%); */
-        }
-        .total-price-frame{
-            width: 90%;
+
+        .total-price.showin922 ul {
+            width: 75%;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: start;
             margin-bottom: 30px;
+            /* border: 1px solid yellow; */
         }
-        .order-list-title {
-            width: 98%;
-            align-items: flex-end;
-            justify-content: space-between;
-        }
-        .seemore {
-            color: #FF9685;
-            text-decoration: underline;
-            cursor: pointer;
-
-        }
-
 
         .total-price h3 {
-            /* color: #03588C; */
+            color: #707070;
+
+        }
+        .total-price.open h3 {
+            color: #03588C;
+
+        }
+        .total-price.showin922 h3 {
             margin: 20px 0;
         }
 
         .total-price ul {
+            width: 100%;
+            justify-content: space-between;
+            margin-top: 20px;
+
+        }
+
+        .total-price.showin922 ul {
             width: 90%;
             justify-content: space-between;
-            
+
 
         }
 
@@ -647,8 +696,15 @@
         footer {
             margin-top: 50px;
         }
+
+        @media screen and (max-width: 1200px) {}
+
         @media screen and (max-width: 992px) {
-            .total-price{
+            .total-price {
+                display: none;
+            }
+
+            .total-price.showin922 {
                 display: flex;
             }
         }
@@ -725,10 +781,10 @@
                 <div class="order-list showin922 flex">
                     <div class="order-list-frame showin922 flex">
                         <div class="order-list-title flex">
-                        <h3>訂單資訊</h3>
-                        <h4 class="seemore">查看訂單內容</h4>
-                    </div>
-                        <div class="list-scroll">
+                            <h3>訂單資訊</h3>
+                            <h4 class="seemore">查看訂單內容</h4>
+                        </div>
+                        <div class="list-scroll showin922">
                             <div class="box-choose-ordered">
                                 <h4>您選購的禮盒</h4>
                                 <div class="box-choose flex">
@@ -773,11 +829,9 @@
                     </div>
 
                 </div>
-                <div class="total-price 992show flex">
-                    <div class="total-price-frame flex">
-                       
-                        <ul>
-                             <h3>訂購金額</h3>
+                <div class="total-price showin922 flex">
+                        <ul class="">
+                            <h3>訂購金額</h3>
                             <li class="flex">
                                 <p>商品總計</p>
                                 <p>900</p>
@@ -796,7 +850,6 @@
                                 <h4>940 元</h4>
                             </li>
                         </ul>
-                    </div>
                 </div>
                 <div class="shipping-form flex">
                     <div class="shipping-form-frame">
@@ -1058,9 +1111,9 @@
         $('input:checkbox:checked[name="receipt-radio-btn"]').val();
 
         $(".seemore").click(function () {
-        $(".total-price").toggleClass("open");
-        $(".list-scroll").toggleClass("open");
-        $(".order-list").toggleClass("open");
+            $(".total-price").toggleClass("open");
+            $(".list-scroll").toggleClass("open");
+            $(".order-list").toggleClass("open");
         });
     </script>
 
