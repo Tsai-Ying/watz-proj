@@ -51,6 +51,7 @@
         @media screen and (max-width: 1200px) {
             .wrapper {
                 width: 90vw;
+                
             }
         }
 
@@ -58,6 +59,7 @@
             .wrapper {
                 flex-direction: column;
                 justify-content: flex-start;
+                
             }
 
             .container {
@@ -258,9 +260,6 @@
             margin-top: 10px;
         }
 
-        /* .receipt-choose-frame{
-            border: 1px solid lawngreen;
-        } */
         .peper-receipt {
             margin: 10px;
             flex-direction: column;
@@ -375,6 +374,11 @@
             height: 40px;
             margin: 30px 20px;
         }
+        .pay-showin922{
+            display: none;
+            justify-content: center;
+            /* border: 1px solid indianred; */
+        }
 
         .pay-btn.gopay:hover {
             background-color: #0388A6;
@@ -388,7 +392,9 @@
             background-color: #FF9685;
         }
 
-        @media screen and (max-width: 1200px) {}
+        @media screen and (max-width: 1200px) {
+            
+        }
 
         @media screen and (max-width: 992px) {
             .shipping-form-frame {
@@ -398,25 +404,18 @@
             }
 
             .shipping-form-frame ul {
-                flex-direction: column;
-                align-items: center;
                 justify-content: center;
-                /* margin: 20px 30px; */
             }
 
             .shipping-form-frame ul input {
                 width: 100%;
                 height: 45px;
-                border: 1px solid #F2DE79;
-                border-radius: 2px;
-                outline: none;
             }
 
             .shipping-form-frame ul li {
                 width: 90%;
                 flex-direction: column;
                 align-items: flex-start;
-                justify-content: space-between;
                 margin: 5px 0;
 
             }
@@ -424,9 +423,29 @@
             .shipping-form-frame ul li p {
                 margin-bottom: 10px;
             }
+            .shipping-form .pay-btn{
+                display: none;
+            }
+            .pay-showin922{
+                display: flex;
+            }
+            
         }
 
-        @media screen and (max-width: 576px) {}
+        @media screen and (max-width: 576px) {
+            .receipt-choose-frame{
+                flex-direction: column;
+            }
+            .peper-receipt{
+                margin: 10px 0;
+            }
+            .radio-frame {
+            margin: 10px 0;
+        }
+            .peper-receipt .info{
+                margin: 10px 15px;
+            }
+        }
 
         /* ---------------return------------ */
         .return-detail {
@@ -446,12 +465,12 @@
             margin: 30px;
         }
 
-        @media screen and (max-width: 1200px) {}
+        @media screen and (max-width: 1200px) {
+            
+        }
 
         @media screen and (max-width: 992px) {
-            /* .return-detail{
-                order: 2;
-            } */
+            
         }
 
         @media screen and (max-width: 576px) {}
@@ -507,8 +526,7 @@
         }
 
         .order-list-title h3 {
-
-            margin-bottom: 0px;
+            margin-bottom: 5px;
         }
 
         .seemore {
@@ -616,6 +634,7 @@
             .order-list.showin922 {
                 display: flex;
             }
+
         }
 
         @media screen and (max-width: 576px) {}
@@ -633,7 +652,7 @@
 
         .total-price.showin922 {
             width: 100%;
-            height: 235px;
+            height: 25vh;
             background-color: #ffffff;
             border-radius: 0 0 15px 15px;
             flex-direction: column;
@@ -917,11 +936,13 @@
                         </div>
                         <div class="receipt-choose">
                             <h3>發票選擇</h3>
-                            <div class="receipt-choose-frame">
+                            <div class="receipt-choose-frame flex">
+                                <div>
                                 <button class="button active" href="#" id="paper">紙本發票</button>
-                                <button class="button" href="#" id="elec">電子發票</button>
+                                <button class="button" href="#" id="elec">電子發票</button></div>
+                                <div>
                                 <button class="button " href="#" id="icloud">雲端載具</button>
-                                <button class="button" href="#" id="donate">發票捐贈</button>
+                                <button class="button" href="#" id="donate">發票捐贈</button></div>
                             </div>
                             <div class="peper-receipt flex show">
                                 <div class="radio-frame flex">
@@ -983,6 +1004,11 @@
                             <br>
                             ・不可退/換貨之狀況：尺寸不合、商品與想像不符等。 </p>
                     </ul>
+                </div>
+                <div class="pay-showin922 flex">
+                    <button class="pay-btn  btn-blue prev">回上一頁</button>
+                    <button class="pay-btn  btn-coral gopay">前往結帳</button>
+
                 </div>
             </div>
             <div class="block-right ">
