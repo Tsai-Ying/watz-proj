@@ -492,20 +492,21 @@
 
         .order-list.showin922 {
             background-color: #ffffff;
-            border-radius: 15px;
+            border-radius: 15px 15px 0 0;
             /* border: 1px solid rgb(212, 52, 132); */
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             position: sticky;
-            margin: 30px 0;
+            margin: 0;
             transition: 1s;
             display: none;
+            margin-top: 30px;
 
         }
 
         .order-list.showin922.open {
-            height: 600px;
+            /* height: 600px; */
         }
 
         .order-list h3 {
@@ -547,10 +548,6 @@
             height: 25vh;
             overflow-x: hidden;
             overflow-y: scroll;
-        }
-
-        .list-scroll.showin922.open {
-            height: 35vh;
         }
 
         .list-scroll h4 {
@@ -652,34 +649,35 @@
 
         .total-price.showin922 {
             width: 100%;
-            height: 25vh;
             background-color: #ffffff;
             border-radius: 0 0 15px 15px;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            position: absolute;
+            justify-content: flex-start;
             /* border: 1px solid yellowgreen; */
-            transform: translateY(-120%);
             transition: .5s;
             display: none;
+            margin: 0;
         }
 
         .total-price.showin922 ul {
             width: 85%;
-            flex-direction: column;
-            margin-bottom: 30px;
+            height: 100%;
+            /* flex-direction: column; */
+            /* margin-bottom: 10px; */
             /* border: 1px solid yellow; */
             
         }
-
+        .total-price.showin922 ul{
+            margin-top: 0;
+        }
         .total-price h3 {
             color: #03588C;
 
         }
-        .total-price.showin922 h3 {
+        /* .total-price.showin922 h3 {
             margin: 20px 0;
-        }
+        } */
 
         .total-price ul {
             width: 100%;
@@ -790,7 +788,7 @@
                             <h3>訂單資訊</h3>
                             <h4 class="seemore">查看訂單內容</h4>
                         </div>
-                        <div class="list-scroll showin922">
+                        <div class="list-scroll showin922" id="hide">
                             <div class="box-choose-ordered">
                                 <h4>您選購的禮盒</h4>
                                 <div class="box-choose flex">
@@ -835,7 +833,7 @@
                     </div>
 
                 </div>
-                <div class="total-price flex">
+                <div class="total-price showin922 flex">
                         <ul class="">
                             <h3>訂購金額</h3>
                             <li class="flex">
@@ -1094,12 +1092,13 @@
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="js/nav.js"></script>
     <script>
+        ///黃色按鈕////
         $(".button").click(function () {
             $(this).addClass('active')
                 .siblings().removeClass('active');
         });
 
-
+        ///收據按鈕選擇顯示不同選單////
         $("#paper").click(function () {
             $(".peper-receipt").addClass('show')
                 .siblings().removeClass('show');
@@ -1116,17 +1115,17 @@
             $(".donate-receipt").addClass('show')
                 .siblings().removeClass('show');
         });
-        //    let btnIndex=$(this).index();
-        //     console.log(btnIndex)
-        // })
 
-        let result = "";
-        $('input:checkbox:checked[name="receipt-radio-btn"]').val();
+        
+        // let result = "";
+        // $('input:checkbox:checked[name="receipt-radio-btn"]').val();
 
-        $(".seemore").click(function () {
-            $(".total-price").toggleClass("open");
-            $(".list-scroll").toggleClass("open");
-            $(".order-list").toggleClass("open");
+        ///922顯示訂單資訊裡的查看訂單內容顯示＆隱藏///
+        $(document).ready(function () {
+            $("#hide").hide();
+            $(".seemore").click(function () {
+                $("#hide").slideToggle()
+            });
         });
     </script>
 
