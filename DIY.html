@@ -1322,6 +1322,7 @@
         $("html").animate({
             scrollTop: nextPosition
         })
+        $(".modal").fadeIn(500);
         $(".modal").css({
             "display": "block"
         })
@@ -1346,11 +1347,13 @@
     })
 
     // 打開使用說明
-    $(".tutorial").click(function () {
+        $(".tutorial").click(function () {
         console.log("click")
+        $(".modal").fadeIn(500);
         $(".modal").css({
             "display": "block"
         })
+        
         $(".tutorial#tutor2").css({
             "display": "block"
         })
@@ -1360,11 +1363,13 @@
         $(".shape-color").addClass("transition")
         $(".shape-color").addClass("move-left")
     })
+    
 
     $(".tutorial#tutor2").click(function () {
         $(".modal").css({
             "display": "none"
         })
+        $(".modal").fadeOut(500);
         $(".tutorial#tutor2").css({
             "display": "none"
         })
@@ -1372,6 +1377,7 @@
             "display": "none"
         })
         $(".shape-color").removeClass("move-left")
+    
     })
 </script>
 
