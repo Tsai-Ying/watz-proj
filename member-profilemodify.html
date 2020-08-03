@@ -19,7 +19,7 @@
         }
 
         .wrapper {
-            /* height: 100vh; */
+            height: 100vh;
             align-items: center;
             justify-content: center;
         }
@@ -82,12 +82,13 @@
             z-index: 1;
             flex-direction: column;
             justify-content: space-between;
-            /* align-items: center; */
+            align-items: flex-end;
             /* margin-top: 13px; */
         }
 
         .membercard ul li {
             align-items: center;
+            justify-content: flex-end;
         }
 
         .membercard ul li h5 {
@@ -183,20 +184,18 @@
 
             .membercard {
                 width: 80vw;
-                height: 130vw;
+                height: 110vw;
+                align-items: flex-start;
             }
-
-            .membercard-img {
-                background-image: url(images/user_card_mobile_after.svg);
-                width: 60vw;
-                height: 130vw;
+            .membercard-img{
+                background-image: none;
             }
 
             .bg-photo {
                 width: 60vw;
-                height: 55vw;
+                height: 45vw;
                 justify-content: center;
-                /* align-items: flex-start; */
+                align-items: center;
             }
 
             .member-photo {
@@ -207,27 +206,25 @@
             .member-info {
                 flex-direction: column;
                 margin-top: 0;
-                /* align-items: center; */
-            }
-
-            .bg-form {
-                width: 60vw;
-                height: 60vw;
-                margin-top: 0;
                 align-items: center;
             }
 
+            .bg-form {
+                width: 100%;
+                height: 60vw;
+                margin-top: 0;
+                align-items: flex-start;
+            }
+
             .form-item {
-                width: 50vw;
+                width: 60vw;
             }
 
             .form-name {
                 width: 36vw;
                 height: 6vw;
             }
-            .confirm{
-                margin-right: 0;
-            }
+
             .selector {
                 width: 94vw;
                 flex-direction: row;
@@ -366,7 +363,7 @@
                                     <input class="form-name" type="text">
                                 </li>
                                 <li class="form-item flex">
-                                    <h5 class="confirm flex">再次確認密碼</h5>
+                                    <h5 class="flex">再次確認密碼</h5>
                                     <input class="form-name" type="text">
                                 </li>
                             </ul>
