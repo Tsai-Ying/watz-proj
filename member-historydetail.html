@@ -64,9 +64,11 @@
             width: 170px;
             margin-left: 30px;
         }
-        .btn-blue:hover{
+
+        .btn-blue:hover {
             background: #FF9685;
         }
+
         .bg-detail {
             flex-direction: column;
         }
@@ -80,11 +82,13 @@
             flex-direction: column;
             align-items: center;
         }
-        p{
+
+        p {
             display: inline-block;
             /* width: 100px; */
             text-align: center;
         }
+
         .block1 {
             flex-direction: column;
             margin: 70px 0;
@@ -102,6 +106,7 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .title {
             width: 720px;
             height: 50px;
@@ -159,30 +164,36 @@
             background: #707070;
             width: 170px;
             align-items: flex-end;
-           
+
         }
-        .btn-blue.gray:hover{
+
+        .btn-blue.gray:hover {
             background: #03588C;
         }
-        .block3{
+
+        .block3 {
             flex-direction: column;
             align-items: flex-end;
         }
-        @media screen and (max-width: 992px){
-            body{
+
+        @media screen and (max-width: 992px) {
+            body {
                 background-image: url(images/BG-mobile2.svg);
                 background-position: center;
             }
-            .wrapper{
+
+            .wrapper {
                 width: 80vh;
-                height: 200h;
+                height: 140vh;
                 justify-content: center;
             }
-            .bg-orderpage{
+
+            .bg-orderpage {
                 flex-direction: column;
                 align-items: center;
-                
+
             }
+
             .selector {
                 width: 94vw;
                 flex-direction: row;
@@ -202,24 +213,80 @@
             .selector a {
                 white-space: nowrap;
             }
-            .bg-order-content{
+
+            .bg-detail {
                 width: 80vw;
-                height: 140vw;
+                height: 100%;
             }
-            .order-info1{
+
+            .bg-order-content {
+                width: 80vw;
+                height: 100%;
+            }
+
+            .block1 {
+                width: 66vw;
+                margin: 50px;
+            }
+
+            .order-info1 {
                 flex-direction: column;
                 align-items: flex-start;
+                width: 70vw;
             }
-            .order-num{
+
+            .order-num {
                 justify-content: flex-start;
             }
-            .margin{
+
+            .margin {
                 margin-left: 30px;
             }
-            .product-info h5{
+
+            .block2 {
+                width: 80vw;
+            }
+
+            .product-info {
+                width: 80vw;
+                align-items: center;
+            }
+
+            .product-info h5 {
                 display: inline-block;
-            width: 100px;
-            text-align: center;
+                width: 100px;
+                text-align: center;
+            }
+
+            .title {
+                width: 70vw;
+            }
+
+            .bg-bill {
+                width: 73vw;
+            }
+
+            .block3 {
+                width: 80vw;
+                align-items: center;
+            }
+
+            .bg-address {
+                width: 80vw;
+            }
+
+            .address-title {
+                width: 21vw;
+                justify-content: center;
+            }
+
+            .btn-blue.gray {
+                width: 18vw;
+            }
+            .button-box{
+                width: 70vw;
+                justify-content: flex-end;
+                margin-bottom: 20px;
             }
         }
     </style>
@@ -354,30 +421,32 @@
                         </div>
                         <!------------------------------------------------------------------------------>
                         <div class="block3 flex">
-                        <div class="bg-address flex">
-                            <div class="address-title flex">
-                                <h4 class="flex">收件資訊</h4>
+                            <div class="bg-address flex">
+                                <div class="address-title flex">
+                                    <h4 class="flex">收件資訊</h4>
+                                </div>
+                                <div class="address-info flex">
+                                    <h5>姓名:王小明</h5>
+                                    <h5>電話:0912345678</h5>
+                                    <h5>地址:106台北市大安區復興南路一段390號2樓</h5>
+                                </div>
                             </div>
-                            <div class="address-info flex">
-                                <h5>姓名:王小明</h5>
-                                <h5>電話:0912345678</h5>
-                                <h5>地址:106台北市大安區復興南路一段390號2樓</h5>
+                            <div class="bg-address flex">
+                                <div class="address-title flex">
+                                    <h4 class="flex">付款資訊</h4>
+                                </div>
+                                <div class="address-info flex">
+                                    <h5>付款方式:信用卡</h5>
+                                    <h5>卡號:xxxx-xxxx-xxxx-5055</h5>
+                                </div>
+                            </div>
+                            <div class="button-box flex">
+                                <button class="btn-blue gray">退貨申請</button>
                             </div>
                         </div>
-                        <div class="bg-address flex">
-                            <div class="address-title flex">
-                                <h4 class="flex">付款資訊</h4>
-                            </div>
-                            <div class="address-info flex">
-                                <h5>付款方式:信用卡</h5>
-                                <h5>卡號:xxxx-xxxx-xxxx-5055</h5>
-                            </div>
-                        </div>
-                        <button class="btn-blue gray">退貨申請</button>
-                    </div>
                     </div>
                 </div>
-               
+
             </div>
             <div class="btn-top flex transition" id="goTop">
                 <img src="images/arrow-top.svg" alt="">
