@@ -182,51 +182,16 @@
             color: #03588C;
             margin: 0 5px;
         }
-        .open-btn{
-            width: 30px;
-            height: 30px;
-            /* position: relative; */
-            border: 1px solid red;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
+        .box-watzbox-title img{
+            width: 40px;
+            transform: rotate(180deg);
+            margin-right: 20px;
+            transition: .5s;
         }
-        /* .bar {
-            width: 30px;
-            height: 6px;
-            background: rgb(23, 94, 112);
-            margin: 6px 0;
-            border-radius: 2px;
+        .box-watzbox-title img.close{
+            transform: rotate(0deg);
         }
         
-
-        .bar1 {
-            -webkit-transform: rotate(-45deg) translate(-9px, 7px);
-            transform: rotate(-45deg) translate(-9px, 7px);
-            opacity: 0;
-        }
-
-        .bar2 {
-            width: 25px;
-            opacity: 1;
-        }
-
-        .bar3 {
-            -webkit-transform: rotate(45deg) translate(-9px, -7px);
-            transform: rotate(45deg) translate(-9px, -7px);
-            opacity: 0;
-
-        }
-        .close.bar1{
-            opacity: 1;
-        }
-        .close.bar2{
-            opacity: 0;
-        }
-        .close.bar3{
-            opacity: 1;
-        } */
-
         .box-watzbox h4 {
             color: #707070;
             margin-top: 20px;
@@ -242,7 +207,10 @@
             opacity: .3;
         }
 
-        .img-watzbox.choose img {
+        .img-watzbox.active img {
+            opacity: 1;
+        }
+        .img-watzbox:hover img {
             opacity: 1;
         }
 
@@ -287,10 +255,6 @@
         .step3 h5 {
             color: #FF9685;
             display: none;
-        }
-
-        .step3.show {
-            opacity: 1;
         }
 
         @media screen and (max-width: 1200px) {
@@ -710,13 +674,8 @@
                 </div>
                 <div class="box-watzbox flex">
                     <div class="box-watzbox-frame">
-                        <div class="box-watzbox-title flex">
-                            <!-- <div class="open-btn flex"> -->
-                                <!-- <div class="bar bar1 transition"></div>
-                                <div class="bar bar2 transition"></div>
-                                <div class="bar bar3 transition"></div> -->
-                                <img src="images/arrow-top.svg" alt="">
-                            <!-- </div> -->
+                        <div class="box-watzbox-title flex">                            
+                                <img id="open-btn" src="images/arrow-top.svg" alt="">                          
                             <h3>客製你的WATZ box</h3>
                         </div>
                         <div class="hide-choose-box">
@@ -896,20 +855,15 @@
                 .siblings().removeClass('active');
         });
 
-        // $("#pair-choose3").click(function(){
-        //     $("#step3").addClass('show');
-        // });
-
-        // watzbox //
         $('.img-watzbox').click(function () {
             $(this).toggleClass('active')
                 .siblings().removeClass('active');
         });
         $(document).ready(function () {
             $(".hide-choose-box").hide();
-            $(".open-btn").click(function () {
+            $(".box-watzbox-title").click(function () {
                 $(".hide-choose-box").slideToggle()
-                $('.bar').toggleClass('close');
+                $('#open-btn').toggleClass('close');
             });
         });
     </script>
