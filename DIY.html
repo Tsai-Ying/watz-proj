@@ -237,6 +237,10 @@
         margin-left: 150px;
     }
 
+    .cls-1 {
+        fill: red;
+    }
+
     .box-right {
         width: 450px;
         height: 800px;
@@ -1106,7 +1110,8 @@
                 </div>
                 <div class="flexbox flex transition">
                     <div class="box-left transition">
-                        <div class="diy-area transition"><img src="images/pattern-empty.svg" alt=""></div>
+                        <div><img class="diy-area transition" src="images/pattern-white.svg" alt="">
+                        </div>
                     </div>
                     <div class="box-right ">
                         <div class="socks-color flex">
@@ -1175,8 +1180,8 @@
                                     <div class="img-pattern-watz"><img src="images/pattern-watz.svg" alt=""></div>
                                     <div class="img-pattern-stripe"><img src="images/pattern-stripe.svg" alt=""></div>
                                     <div class="img-pattern-dotted"><img src="images/pattern-dotted.svg" alt=""></div>
-                                    <div class="img-pattern-empty mobile-none"><img src="images/pattern-white.svg"
-                                            alt="">
+                                    <div class="img-pattern-white mobile-none">
+                                        <img src="images/pattern-white.svg" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -1271,39 +1276,39 @@
                             <li class="flex">
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a1">
+                                    <div class="color" id="b1">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a2">
+                                    <div class="color" id="b2">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a3">
+                                    <div class="color" id="b3">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a4">
+                                    <div class="color" id="b4">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a5">
+                                    <div class="color" id="b5">
                                     </div>
                                 </div>
                             </li>
                             <li class="flex">
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a6">
+                                    <div class="color" id="b6">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a7">
+                                    <div class="color" id="b7">
                                     </div>
                                 </div>
                                 <div>
@@ -1313,12 +1318,12 @@
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a9">
+                                    <div class="color" id="b9">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a10">
+                                    <div class="color" id="b10">
                                     </div>
                                 </div>
                             </li>
@@ -1424,6 +1429,23 @@
         // console.log(e.screenX)
         $(".spot").css("clip-path", `circle(140px at ${e.pageX}px ${e.pageY - 30}px`)
     })
+
+    //DIY change Pattern
+    $(".img-pattern-watz").click(function(){
+        $(".diy-area").attr("src", "images/pattern-watz.svg" )
+    })
+    $(".img-pattern-stripe").click(function(){
+        $(".diy-area").attr("src", "images/pattern-stripe.svg" )
+    })
+    $(".img-pattern-dotted").click(function(){
+        $(".diy-area").attr("src", "images/pattern-dotted.svg" )
+    })
+    $(".img-pattern-white").click(function(){
+        $(".diy-area").attr("src", "images/pattern-white.svg" )
+    })
+
+    //DIY chane socks color
+
 </script>
 
 </html>
