@@ -50,7 +50,7 @@
             width: 1000px;
             height: 500px;
             justify-content: space-evenly;
-            /* border: 1px solid royalblue; */
+            border: 1px solid royalblue;
             /* -webkit-transition: all 0.5s ease-in-out; */
         }
 
@@ -60,7 +60,7 @@
             display: none;
             flex-direction: column;
             justify-content: flex-start;
-            /* border: 1px solid slateblue; */
+
             position: relative;
             margin-bottom: 30px;
             overflow: hidden;
@@ -75,6 +75,7 @@
             bottom: 0;
             transform: translateX(50px);
             z-index: 0;
+            border: 1px solid rgb(90, 205, 109);
         }
 
         .block-left {
@@ -96,14 +97,10 @@
 
         .pay-frame.open .open-btn p {
             display: none;
-
-
         }
 
         .pay-frame.open .open-btn img {
             display: block;
-
-
         }
 
         @media screen and (max-width: 1200px) {
@@ -121,35 +118,46 @@
 
         @media screen and (max-width: 922px) {
             .wrapper {
+                height: 100%;
                 flex-direction: column;
                 align-items: center;
                 justify-content: flex-start;
             }
 
-            .top-block {
-                display: flex;
+            .pay-frame {
+                height: 100%;
+                flex-direction: column-reverse;
+                align-items: center;
+                justify-content: space-between;
             }
 
             .block-right {
-                display: none;
+                position: relative;
+                height: 100%;
+                flex-direction: column;
+                justify-content: flex-start;
+                -webkit-transition: all 0.5s ease-in-out;
+                top: 0;
+                transform: translateX(0px);
+                margin-bottom: 30px;
             }
 
             .block-left {
-                border-bottom: 50px;
                 height: 580px;
             }
 
             .pay-frame {
                 height: 100%;
-                margin-bottom: 40px;
+                margin-bottom: 30px;
+            }
+
+            .open-btn {
+                display: none;
             }
 
         }
 
         @media screen and (max-width: 576px) {
-            .top-block {
-                width: 80vw;
-            }
 
             .block-right {
                 width: 80vw;
@@ -252,6 +260,7 @@
             margin-right: 10px;
             text-align: center;
         }
+
         @media screen and (max-width: 576px) {
             .credit-card {
                 /* width: 60%; */
@@ -382,6 +391,20 @@
             .credit-info-frame.showin922 {
                 display: flex;
             }
+
+            .top-block .total-price {
+                width: 100%;
+                height: 200px;
+                background-color: #ffffff;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                /* margin-bottom: 30px; */
+                /* z-index: 5; */
+                position: absolute;
+                transform: translateY(30%);
+
+            }
         }
 
         @media screen and (max-width: 576px) {
@@ -495,6 +518,22 @@
             margin-bottom: 10px;
         }
 
+        @media screen and (max-width: 922px) {
+            .hide{
+                position: unset;
+                z-index: 0;
+            }
+            .ordered-list{
+                align-items: center;
+                /* justify-content: flex-start; */
+            }
+            .total-price{
+                z-index: 0;
+            }
+
+        }
+
+
 
         /* ---------------hide scroll---------- */
         .hide {
@@ -599,7 +638,14 @@
             z-index: 1;
             height: 350px;
         }
+        @media screen and (max-width: 922px) {
+            .hide{
+                position: unset;
+                z-index: 0;
+            }
+         
 
+        }
 
         /* ------------------btn------------------- */
         .prev-next-btn {
@@ -759,71 +805,6 @@
             <div class="pay-title">
                 <h3>填寫信用卡資訊</h3>
             </div>
-            <div class="top-block order-list showin922">
-                <div class="order-list-frame flex">
-                    <div class="order-list-title flex">
-                        <h3>訂單資訊</h3>
-                        <h4 class="seemore">查看訂單內容</h4>
-                    </div>
-                    <div class="list-scroll">
-                        <div class="box-detail">
-                            <div class="box-info flex">
-                                <div class="box-detail flex">
-                                    <h4>芒果派對</h4>
-                                    <div class="box-amount-detail">
-                                        <h6 class="box-type">包裝禮盒</h6>
-                                        <h6 class="box-socks-amount">3入裝</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box-product-orderlist flex">
-                                <h4>禮盒內容</h4>
-                                <div class="box-socks flex">
-                                    <div class="socks-nameNprice flex">
-                                        <h5 class="socks-title">偶速襪子</h5>
-                                        <h5>X1</h5>
-                                        <h5 class="socks-price">NT $180</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-orderlist flex">
-                                <h4>單購襪子</h4>
-                                <div class="socks flex">
-                                    <div class="socks-nameNprice flex">
-                                        <h5 class="socks-title">偶速襪子</h5>
-                                        <h5>數量：1</h5>
-                                        <h5 class="socks-price">NT $180</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-                <div class="total-price flex">
-                    <ul class="">
-                        <h3>訂購金額</h3>
-                        <li class="flex">
-                            <p>商品總計</p>
-                            <p>900</p>
-                        </li>
-                        <li class="flex">
-                            <p>運費</p>
-                            <p>60</p>
-                        </li>
-                        <li class="flex">
-                            <p>折扣</p>
-                            <p>-20</p>
-                        </li>
-                        <div class="line"></div>
-                        <li class="flex">
-                            <h4>結帳金額</h4>
-                            <h4>940 元</h4>
-                        </li>
-                    </ul>
-                </div>
-            </div>
             <div class="pay-frame flex">
                 <div class="block-left  flex">
                     <div class="credit-card flex">
@@ -953,40 +934,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="block-right flex">
+                <div class="block-right flex">                    
                     <div class="ordered-list flex">
-                        <div class="total-price flex">
-                            <div class="total-price-frame flex">
-                                <div class="total-price-detail flex">
-                                    <ul>
-                                        <li class="flex">
-                                            <p>商品總計</p>
-                                            <p>900</p>
-                                        </li>
-                                        <li class="flex">
-                                            <p>運費</p>
-                                            <p>60</p>
-                                        </li>
-                                        <li class="flex">
-                                            <p>折扣</p>
-                                            <p>-20</p>
-                                        </li>
-                                        <div class="line"></div>
-                                        <li class="flex">
-                                            <h4>結帳金額</h4>
-                                            <h4>940 元</h4>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="open-btn flex">
-                            <img src="images/pay-close.svg" alt="">
-                            <p>訂單資訊</p>
-                        </div>
                         <div class="hide flex">
                             <div class="total-price-title flex">
                                 <h3>結帳金額</h3>
@@ -1030,6 +979,39 @@
 
                             </div>
                         </div>
+                        <div class="total-price flex">
+                            <div class="total-price-frame flex">
+                                <div class="total-price-detail flex">
+                                    <ul>
+                                        <li class="flex">
+                                            <p>商品總計</p>
+                                            <p>900</p>
+                                        </li>
+                                        <li class="flex">
+                                            <p>運費</p>
+                                            <p>60</p>
+                                        </li>
+                                        <li class="flex">
+                                            <p>折扣</p>
+                                            <p>-20</p>
+                                        </li>
+                                        <div class="line"></div>
+                                        <li class="flex">
+                                            <h4>結帳金額</h4>
+                                            <h4>940 元</h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="open-btn flex">
+                            <img src="images/pay-close.svg" alt="">
+                            <p>訂單資訊</p>
+                        </div>
+                        
                     </div>
 
                 </div>
