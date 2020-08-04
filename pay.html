@@ -50,7 +50,7 @@
             width: 1000px;
             height: 500px;
             justify-content: space-evenly;
-            border: 1px solid royalblue;
+            /* border: 1px solid royalblue; */
             /* -webkit-transition: all 0.5s ease-in-out; */
         }
 
@@ -75,7 +75,7 @@
             bottom: 0;
             transform: translateX(50px);
             z-index: 0;
-            border: 1px solid rgb(90, 205, 109);
+            /* border: 1px solid rgb(90, 205, 109); */
         }
 
         .block-left {
@@ -139,7 +139,7 @@
                 -webkit-transition: all 0.5s ease-in-out;
                 top: 0;
                 transform: translateX(0px);
-                margin-bottom: 30px;
+                margin: 30px 0;
             }
 
             .block-left {
@@ -232,9 +232,12 @@
         .info-number {
             width: 50px;
             height: 20px;
-            border-bottom: 2px solid #FF9685;
+            border-bottom: 2px solid #707070;
             margin-right: 20px;
             text-align: center;
+        }
+        .info-number.showpink{
+            border-bottom: 2px solid #FF9685;
         }
 
         .credit-bottom {
@@ -434,7 +437,7 @@
 
         .total-price {
             width: 400px;
-            height: 170px;
+            /* height: 170px; */
             /* height: 500px; */
             background-color: #ffffff;
             border-radius: 0 0 15px 15px;
@@ -519,15 +522,16 @@
         }
 
         @media screen and (max-width: 922px) {
-            .hide{
-                position: unset;
-                z-index: 0;
-            }
-            .ordered-list{
+
+            .ordered-list {
+                height: 100%;
+                flex-direction: column;
                 align-items: center;
+                transform: none;
                 /* justify-content: flex-start; */
             }
-            .total-price{
+
+            .total-price {
                 z-index: 0;
             }
 
@@ -550,6 +554,7 @@
             top: 260px;
             left: 0;
             transition: 1s ease-in-out;
+            /* border: 1px solid sienna; */
 
         }
 
@@ -595,21 +600,23 @@
         .box-detail {
             width: 200px;
             height: 60px;
+            border: 1px solid teal;
+            flex-direction: column;
             justify-content: space-between;
         }
 
         .box-product-orderlist {
             width: 280px;
             flex-direction: column;
-            justify-content: center;
-
+            justify-content: flex-start;
+            margin-bottom: 30px;
         }
 
         .product-orderlist {
             width: 280px;
             height: 200px;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         .box-socks {
@@ -624,6 +631,7 @@
             align-items: center;
             justify-content: space-between;
             border-bottom: 2px solid #E2E2E2;
+            border: 1px solid orange;
         }
 
         .socks-nameNprice {
@@ -638,12 +646,18 @@
             z-index: 1;
             height: 350px;
         }
+
         @media screen and (max-width: 922px) {
-            .hide{
+            .hide {
+                border-radius: 15px 15px 0px 0;
+                height: 50px;
                 position: unset;
                 z-index: 0;
             }
-         
+
+            .hide.open {
+                height: 250px;
+            }
 
         }
 
@@ -824,7 +838,7 @@
                             </div>
                             <div class="credit-mid flex">
                                 <h6>Card Number</h6>
-                                <div class="flex">
+                                <div class="flex" id="topcard-mid-info">
                                     <div class="info-number">
                                         <h5></h5>
                                     </div>
@@ -843,7 +857,7 @@
 
                                 <div class="credit-month">
                                     <h6>Expiration</h6>
-                                    <div class="flex">
+                                    <div class="flex" id="topcard-mon-info">
                                         <div class="info-number">
                                             <h5></h5>
                                         </div>
@@ -854,7 +868,7 @@
                                         <img src="images/credit-down.svg" alt="">
                                     </div>
                                 </div>
-                                <div class="credit-ccv">
+                                <div class="credit-ccv" id="topcard-ccv-info">
                                     <h6>CCV</h6>
                                     <div class="info-number">
                                         <h5></h5>
@@ -928,13 +942,14 @@
                                     <p>/</p>
                                     <input type="text">
                                 </li>
-                                <li><input type="text"></li>
+                                <li class="ccv-input"
+                                ><input type="text"></li>
 
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="block-right flex">                    
+                <div class="block-right flex">
                     <div class="ordered-list flex">
                         <div class="hide flex">
                             <div class="total-price-title flex">
@@ -1011,7 +1026,7 @@
                             <img src="images/pay-close.svg" alt="">
                             <p>訂單資訊</p>
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -1044,11 +1059,34 @@
 
     $(".open-btn").click(function () {
         $(".pay-frame").toggleClass("open");
+        $(".hide").removeClass("open");
     });
     $(".seemore").click(function () {
-        $(".hide").toggleClass("open");
+        if (jQuery(window).width() < 992) {
+            $(document).ready(function () {
+                $(".list-scroll").hide();
+                $(".seemore").click(function () {
+                    $(".list-scroll").slideToggle()
+                    $('#open-btn').toggleClass('close');
+                });
+            });
+        } else {
+            $(".hide").toggleClass("open");
+        }
     });
 
+    $(".credit-number-input").click(function(){
+        $( "#topcard-mid-info" ).children(
+            '.info-number'
+        ).css( "border-bottom", "2px solid #FF9685" );
+        
+    });
+    $(".month-input").click(function(){
+        $( "#topcard-mon-info" ).children('.info-number').css( "border-bottom", "2px solid #FF9685" );
+    });
+    $(".ccv-input").click(function(){
+        $( "#topcard-ccv-info" ).children().css( "border-bottom", "2px solid #FF9685" );
+    });
 
 
 
