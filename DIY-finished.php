@@ -60,7 +60,7 @@ $pageName = 'DIY-finished';
 
     .btn-coral:hover, .btn-blue:hover {
     background: #0388A6;
-
+    }
 
     .btn button {
         width: 230px;
