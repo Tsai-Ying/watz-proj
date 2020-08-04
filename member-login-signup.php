@@ -199,7 +199,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         border: transparent;
         outline: none;
         width: 292px;
-        height: 45px;
+        height: 43px;
     }
 
     @media screen and (max-width: 992px) {
@@ -365,28 +365,29 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         <ul class="member-bblock">
             <div class="bsignup" id="tab1">
                 <li class="box-signup" id="box-signup">
-                    <form class="member-login flex signup">
+
+                    <form class="member-login flex signup" name="form1" method="post" onsubmit="return formCheck()" novalidate>
                         <h2>JOIN US</h2>
                         <div class="bg-inputwrapper flex">
                             <div class="input-wrapper flex">
                                 <img src="images/icon-account.svg" alt="">
-                                <input class="member-input" type="text" placeholder="Email">
+                                <input class="member-input" type="email" id="signupEmail" name="email" placeholder="Email" required>
                             </div>
                             <div class="input-wrapper flex">
                                 <img src="images/icon-password.svg" alt="">
-                                <input class="member-input" type="text" placeholder="Password">
+                                <input class="member-input" type="password" placeholder="Password" id="signupPassword" name="password" required>
                             </div>
                             <div class="input-wrapper flex">
                                 <img src="images/icon-confirmPassword.svg" alt="">
-                                <input class="member-input" type="text" placeholder="Confirm Password">
+                                <input class="member-input" type="password" placeholder="Confirm Password" id="confirmPassword" name="password">
                             </div>
                         </div>
                         <div class="agree flex">
-                            <input class="member-checkbox" type="checkbox" name="" id="">
+                            <input class="member-checkbox" type="checkbox" name="signupCheckBox" id="signupCheckBox" required>
                             <h6>同意</h6><a href="">會員條款</a>
                             <h6>與</h6><a href="">隱私權政策</a>
                         </div>
-                        <button class="btn-blue btn-login">註冊會員</button>
+                        <button type="submit" class="btn-blue btn-login">註冊會員</button>
                     </form>
                 </li>
                 <div class="tag tag-signup" id="tag-signup">
@@ -397,26 +398,26 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
             <!------------------------signup------------------------------------------>
             <div class="bsignup blogin" id="tab2">
                 <li class="box-login" id="box-login">
-                    <form class="member-login flex">
+                    <form class="member-login flex" name="form2" method="post" onsubmit="return formCheck2()" novalidate>
                         <h2>LOG IN</h2>
                         <div class="input-wrapper flex">
                             <img src="images/icon-account.svg" alt="">
-                            <input class="member-input" type="text" placeholder="Email">
+                            <input class="member-input" type="email" id="loginEmail" name="email" placeholder="Email" required>
                         </div>
                         <div class="input-wrapper flex">
                             <img src="images/icon-password.svg" alt="">
-                            <input class="member-input" type="text" placeholder="Password">
+                            <input class="member-input" type="password" placeholder="Password" id="loginPassword" name="password" required>
                         </div>
                         <div class="remember flex">
                             <div class="member-remember flex">
-                                <input class="member-checkbox flex" type="checkbox" name="" id="">
+                                <input class="member-checkbox flex" type="checkbox" name="loginCheckBox" id="loginCheckBox">
                                 <h6 class="flex">Remember me</h6>
                             </div>
                             <div class="member-forget">
                                 <a href="">忘記密碼</a>
                             </div>
                         </div>
-                        <button class="btn-blue btn-login">登入帳號</button>
+                        <button type="submit" class="btn-blue btn-login">登入帳號</button>
                         <h5>還不是會員?點這邊
                             <a href="">加入會員!</a>
                         </h5>
@@ -443,6 +444,131 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
     $('#tag-signup').click(function() {
         $('#box-login').removeAttr('style');
     })
+</script>
+
+<!-- 註冊signup -->
+<script>
+    const signupEmail = $('#signupEmail'),
+        signupPassword = $('#signupPassword'),
+        confirmPassword = $('#confirmPassword');
+    // info_bar = $('#info-bar');
+    const loginEmail = $('#loginEmail'),
+        loginPassword = $('#loginPassword');
+
+    const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+
+    function formCheck() {
+        signupEmail.text('');
+
+        loginEmail.text('');
+        loginPassword.text('');
+        // TODO: 檢查欄位
+        let isPass = true;
+
+        // console.log(isPassA)
+
+        // if (!email_re.test(signupEmail.val())) {
+        //     isPass = false;
+        //     signupEmail.css('border-color', 'red');
+        //     signupEmail.next().text('請填寫正確的 email 格式');
+        // }
+
+        if (isPass) {
+            $.post('signup-api.php', $(document.form1).serialize(),
+                function(data) {
+                    console.log(data);
+                    if (data.success) {
+                        // info_bar.removeClass('alert-danger').addClass('alert-success').html('註冊成功');
+                        console.log("success");
+
+                        setTimeout(function() {
+                            location.href = 'product.php';
+                        }, 2000)
+                    } else {
+                        // info_bar.removeClass('alert-success').addClass('alert-danger').html(data.error || '註冊失敗');
+
+                        console.log("fail");
+
+                    }
+                    // info_bar.slideDown();
+                    console.log("123");
+                    // setTimeout(function() {
+                    //     info_bar.slideUp()
+                    // }, 3000)
+                }, 'json');
+
+
+        }
+
+        if (isPass) {
+            $.post('login-api.php', $(document.form2).serialize(), function(data) {
+                console.log(data);
+                if (data.success) {
+                    // info_bar.removeClass('alert-danger').addClass('alert-success').html('登入成功');
+                    setTimeout(function() {
+                        location.href = 'product-list.php';
+                    }, 1000)
+                } else {
+                    // info_bar.removeClass('alert-success').addClass('alert-danger').html('帳號或密碼輸入錯誤');
+                }
+                // info_bar.slideDown();
+
+                // setTimeout(function () {
+                //     info_bar.slideUp()
+                // }, 2000)
+            }, 'json');
+        }
+
+        return false;
+    }
+</script>
+
+<!-- 登入 login -->
+<script>
+    const loginEmail = $('#loginEmail'),
+        loginPassword = $('#loginPassword')
+
+    function formCheck2() {
+        loginEmail.text('');
+        loginPassword.text('');
+
+
+        // TODO: 檢查欄位
+        let isPass = true;
+
+        // if(! email_re.test(email.val())){
+        //     isPass = false;
+        //     loginEmail.css('border-color', 'red');
+        //     // email.next().text('請填寫正確的 email 格式');
+        // }
+
+        if (loginPassword.val().length < 6) {
+            isPass = false;
+            loginPassword.css('border-color', 'red');
+            // password.next().text('密碼長度太短');
+        }
+
+        if (isPass) {
+            $.post('login-api.php', $(document.form2).serialize(), function(data) {
+                console.log(data);
+                if (data.success) {
+                    // info_bar.removeClass('alert-danger').addClass('alert-success').html('登入成功');
+                    setTimeout(function() {
+                        location.href = 'product-list.php';
+                    }, 1000)
+                } else {
+                    // info_bar.removeClass('alert-success').addClass('alert-danger').html('帳號或密碼輸入錯誤');
+                }
+                // info_bar.slideDown();
+
+                // setTimeout(function () {
+                //     info_bar.slideUp()
+                // }, 2000)
+            }, 'json');
+        }
+
+        return false;
+    }
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
