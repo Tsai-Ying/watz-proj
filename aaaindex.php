@@ -1,569 +1,655 @@
 <?php require __DIR__ . '/__connect_db.php';
-$pageName = 'aboutWATZ';
+$pageName = 'aboutWATZ';  // 這裡放你的pagename
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+
 <style>
-        .container {
-            background: url(images/about-rain.svg) repeat-y;
-            background-size: 300px;
+    /* -------------區塊一------------- */
+        
+    .block1 {
+            width: 100vw;
+            height: 100vh;
+            background: url(images/BG1.svg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            justify-content: center;
             align-items: center;
         }
         
-        .block1 {
-            height: 600vh;
-            width: 100vw;
-            position: relative;
-        }
-        
-        .block1-fixed {
+        .block1-flexcontrol {
+            width: 600px;
+            flex-wrap: wrap;
             justify-content: center;
-            width: 100%;
+            align-items: center;
+        }
+        .box-kvTop{
+            width: 600px;
         }
         
-        .position-sticky {
-            position: sticky;
-            top: 140px;
+        .box-kvTop img {
+            width: 200px;
+        }
+        
+        .box-kvBottom img {
+            height: 130px;
+            padding: 10px;
         }
         
         @media screen and (max-width: 992px) {
-            .container {
-                background-image: unset;
-            }
             .block1 {
-                margin-top: 0;
-                padding-bottom: 70px;
+                background: url(images/BG-mobile1.svg) center center no-repeat;
+                background-size: cover;
             }
-            .block1-fixed {
-                flex-direction: column-reverse;
+            .block1-flexcontrol {
+                width: 80vw;
+                
             }
-            .position-sticky {
-                top: 70px;
+            .box-kvTop{
+                width: auto;
+            }
+            .box-kvTop img {
+                width: 26vw;
+                margin: 20px 0;
+            }
+            .box-kvBottom {
+                margin-left: 3vw;
+                width: 70vw;
+                justify-content: space-evenly;
+            }
+            .box-wa {
+                order: -1;
+            }
+            .box-kvBottom img {
+                height: 22vw;
             }
         }
+        /* -------------區塊二------------- */
         
-        .block-left {
-            height: 90%;
-            width: 55vw;
-            align-items: flex-end;
-            flex-direction: column;
-        }
-        
-        .block-left li {
-            position: relative;
-            width: 45vw;
-            height: 20%;
-            margin: 5px 0;
-        }
-        
-        .block-left .box-process {
-            align-items: center;
-        }
-        
-        .block-left .process2 {
-            margin-left: 20%;
-        }
-        
-        .block-left .process3 {
-            margin-left: 8%;
-        }
-        
-        .block-left .process4 {
-            margin-left: 30%;
-        }
-        
-        .block-left .process5 {
-            margin-left: 4%;
-        }
-        
-        .block-left li .box-process-photo {
-            width: 14vh;
-            height: 14vh;
-            position: relative;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .process-article {
-            padding-left: 10px;
-            max-width: 350px;
-        }
-        
-        .process-article h3 {
-            color: #E1DDDD;
-            margin-bottom: 2px;
-        }
-        
-        .process-article h4 {
-            font-weight: 400;
-            color: #E1DDDD;
-        }
-        
-        .box-process-photo .img-about-select {
-            width: calc(12vh + 20px);
-            position: absolute;
-            opacity: 0;
-        }
-        
-        .box-process.active .img-about-select {
-            opacity: 1;
-            transform: rotate(60deg);
-        }
-        
-        .box-process.active .img-process {
-            opacity: 1;
-        }
-        
-        .box-process.active h3 {
-            color: #404040;
-        }
-        
-        .box-process.active h4 {
-            color: #404040;
-        }
-        
-        .img-process {
-            width: 12vh;
-            height: 12vh;
-            border-radius: 50%;
+        .block2 {
+            width: 100vw;
+            height: 54vw;
             overflow: hidden;
-            opacity: .2;
+            /* position: relative; */
         }
         
-        .img-process img {
+        .block2 img {
+            width: 100vw;
+            height: 54vw;
+            object-fit: cover;
+        }
+        
+        .slick-dots {
+            height: 20px;
             width: 100%;
+            bottom: 10px;
+            position: absolute;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .slick-dots li {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 1px solid #fff;
+            margin: 0 5px;
+        }
+        
+        .slick-dots li button:before {
+            font-family: 'slick';
+            font-size: 17px;
+            line-height: 15px;
+            position: absolute;
+            top: 0;
+            left: -2px;
+            width: 15px;
+            height: 15px;
+            content: •;
+            text-align: center;
+            opacity: .25;
+            color: white;
+        }
+        
+        .slick-dots li.slick-active button:before {
+            opacity: 1;
+            color: white;
+        }
+        
+        .slick-dotted.slick-slider {
+            margin-bottom: 0;
+        }
+        
+        @media screen and (max-width: 992px) {
+            .block2 {
+                height: 100vh;
+                overflow: hidden;
+                /* position: relative; */
+            }
+            .block2 img {
+                height: 100vh;
+                object-fit: cover;
+            }
+            .slick-dots {
+                height: 20px;
+                width: 100%;
+                bottom: 10px;
+                position: absolute;
+                left: 0;
+                justify-content: center;
+                align-items: center;
+            }
+            .slick-dots li {
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                border: 1px solid #fff;
+                margin: 0 5px;
+            }
+            .slick-dots li button:before {
+                font-family: 'slick';
+                font-size: 17px;
+                line-height: 15px;
+                position: absolute;
+                top: 0;
+                left: -2px;
+                width: 15px;
+                height: 15px;
+                content: •;
+                text-align: center;
+                opacity: .25;
+                color: white;
+            }
+        }
+        /* -------------區塊三------------- */
+        
+        .block3 {
+            width: 100vw;
+            height: 100vh;
+            background: url(images/BG2.svg);
+            background-size: cover;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .img-boxtitle-img {
+            height: 145px;
+            width: 385px;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .img-boxtitle-img img {
+            height: 120px;
+            top: 0;
+            position: absolute;
+        }
+        
+        .img-boxtitle-img h1 {
+            font-family: 'Fredoka One', cursive;
+            color: #fff;
+            z-index: 1;
+        }
+        
+        .block3 .giftbox {
+            width: 900px;
+            justify-content: space-between;
+            margin-top: 10vh;
+        }
+        
+        .block3 .giftbox .gift {
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+        }
+        
+        .block3 .gift h3 {
+            color: #0388A6;
+            margin-top: 30px;
+            white-space: nowrap;
+        }
+        
+        .block3 .giftbox img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
         
         @media screen and (max-width: 992px) {
-            .block-left {
-                flex-direction: row;
-                flex-wrap: wrap;
-                width: 100vw;
-                justify-content: space-between;
-                padding: 0 5vw;
+            .block3 .giftbox {
+                width: 70vw;
+                margin-top: 3vh;
             }
-            .block-left .box-process {
-                margin-left: 0;
-            }
-            .block-left .process-article {
-                width: 40vw;
-            }
-            .block-left li h4 {
-                font-size: 1rem;
-                width: 100%;
+            .block3 .giftbox .gift {
+                width: 20vw;
             }
         }
         
         @media screen and (max-width: 576px) {
-            .block1 {
-                align-items: center;
-                justify-content: center;
+            .img-boxtitle-img {
+                width: 50vw;
             }
-            .block-left {
-                width: 90vw;
-                min-height: 80vh;
-                align-self: center;
-            }
-            .block-left li {
+            .img-boxtitle-img img {
                 width: 100%;
+                height: 100%;
+                top: 0;
+                position: absolute;
             }
-            .block-left li h4 {
-                font-size: .9rem;
+            .img-boxtitle-img h1 {
+                font-size: 1.4rem;
             }
-            .block-left .process-article {
-                width: 70vw;
+            .block3 .giftbox {
+                justify-content: center;
+                align-items: center;
+                width: 80vw;
+                height: 40vh;
+                margin-top: 0;
+                /* overflow: hidden; */
             }
-            .box-process.active .img-about-select {
-                display: none;
+            .block3 .giftbox img {
+                width: 65vw;
+                object-fit: contain;
+                margin: 0 auto;
             }
-            .img-process {
-                border-radius: 2px;
+            .block3 .giftbox h3 {
+                text-align: center;
             }
-            .process-article {
-                flex-direction: column;
+            .slick-prev:before {
+                left: 0;
+                top: 50%;
+                z-index: 1;
+                color: #03588C;
+                opacity: 1;
+            }
+            .slick-next:before {
+                z-index: 1;
+                color: #03588C;
+                opacity: 1;
             }
         }
-        /* block-right */
+        /* -------------區塊四 plugin-------------*/
         
-        .block-right {
-            width: 45vw;
-            align-items: flex-start;
-            flex-direction: column;
-        }
-        
-        .block-right .box-logo {
-            height: 110px;
-            margin-bottom: 30px;
-            align-self: center;
-        }
-        
-        .box-logo img {
-            height: 100%;
-            margin: 0 10px;
-        }
-        
-        .box-logo .img-logo-a {
-            --animate-delay: .5s;
-        }
-        
-        .box-logo .img-logo-t {
-            --animate-delay: 1s;
-        }
-        
-        .box-logo .img-logo-z {
-            --animate-delay: 1.5s;
-        }
-        
-        .block-right ul {
-            flex-direction: column;
-        }
-        
-        .block-right li {
-            width: 45vw;
+        .block4 {
+            height: 100vh;
+            background-color: #fff;
             align-items: center;
-            height: 12vh;
+            overflow: hidden;
+            flex-direction: column;
         }
         
-        .block-right .line,
-        .block2 .line {
-            background: #E1DDDD;
-            height: .5px;
-            transform: rotate(-60deg);
+        .slider-product {
+            height: 20vw;
+            width: 100vw;
+            background: #fff;
+            margin-top: 15vh;
+            z-index: 1;
         }
         
-        .line.line1 {
-            width: 80px;
+        .slider-product img {
+            width: 16.6vw;
+            height: 20vw;
+            object-fit: cover;
+            border-left: 5px solid #fff;
         }
         
-        .line.line2 {
-            width: 60px;
-            margin-left: 40%;
+        .block4-bg {
+            justify-content: center;
+            position: relative;
+            width: 100vw;
         }
         
-        .line.line3 {
-            width: 40px;
-            margin-left: 10%;
+        .block4-bg .img-BG-dotted1 {
+            width: 500px;
+            position: absolute;
+            left: 0;
+            transform: translate(-50%, -60%);
         }
         
-        .line.line4 {
-            width: 100px;
-            margin-left: 50%;
+        .block4-bg .img-BG-dotted2 {
+            position: absolute;
+            width: 300px;
+            right: 0;
+            transform: translate(5%, -60%);
         }
         
-        .line.line5 {
-            width: 50px;
-            margin-left: 20%;
-        }
-        
-        .block-right h3 {
-            color: #E1DDDD;
-        }
-        
-        .block-right li.active .line {
-            background: #404040;
-            width: 120px;
-        }
-        
-        .block-right li.active h3 {
-            color: #404040;
+        .block4-bg span {
+            font-size: 135px;
+            font-family: 'Fredoka One', cursive;
+            color: #0388A6;
+            opacity: .2;
+            transform: translateY(-38%);
+            white-space: nowrap;
         }
         
         @media screen and (max-width: 1200px) {
-            .box-logo img {
-                height: 80%;
+            .slider-product {
+                height: 25vw;
             }
-        }
-        
-        @media screen and (max-width: 996px) {
-            .block-right {
-                width: 100vw;
-                padding: 0 5vw;
+            .slider-product img {
+                width: 20vw;
+                height: 25vw;
             }
-            .block-right .box-logo {
-                align-self: flex-end;
-                margin: 0;
-            }
-            .block-right ul {
-                width: 100vw;
-                flex-direction: row;
-                margin: 0;
-            }
-            .block-right li {
-                width: 18vw;
-            }
-            .block-right li .line {
-                width: 40px;
-                margin-left: 0;
-            }
-            .block-right li.active .line {
-                background: #404040;
-                width: 60px;
-            }
-        }
-        
-        .picture {
-            background: url(images/product/cheetahfriends-03.png) right no-repeat;
-            height: 200px;
-            width: 60vw;
-            background-attachment: fixed;
-            background-size: contain;
-            align-self: flex-end;
-            margin: 5vh 5vw 5vh 0;
         }
         
         @media screen and (max-width: 992px) {
-            .picture {
-                height: 150px;
-                width: 80vw;
-                align-self: center;
-                margin: 5vh 0;
-                background-size: contain;
+            .slider-product {
+                height: 39vw;
             }
-        }
-        /* block2 */
-        
-        .block2 {
-            width: 50vw;
-            min-height: calc(100vh - 160px);
-            flex-direction: column;
-            justify-content: center;
-            margin: 10vh 0;
-            opacity: 0;
-        }
-        
-        .block2 .line-aboutWATZ {
-            background: #404040;
-            width: 200px;
-        }
-        
-        .article {
-            margin-left: 10vw;
-        }
-        
-        .block2 h3 {
-            color: #0388A6;
-            margin: 30px 0;
-            line-height: 50px;
-        }
-        
-        .block2 h4 {
-            font-weight: 500;
-            line-height: 35px;
-        }
-        
-        @media screen and (max-width: 992px) {
-            .block2 {
-                width: 70vw;
-                /* align-items: center; */
-            }
-            .block2 .line-aboutWATZ {
-                width: 100px;
-            }
-            .article {
-                margin-left: 5vw;
+            .slider-product img {
+                width: 33vw;
+                height: 39vw;
             }
         }
         
         @media screen and (max-width: 576px) {
-            .block2 {
-                width: 90vw;
-                margin: 40px 0 0 0;
-                min-height: calc(100vh - 200px);
+            .slider-product {
+                margin-top: 80px;
+                width: 100vw;
+                height: 120vw;
             }
-            .article {
-                margin: 0 5vw;
+            .slider-product img {
+                width: 100vw;
+                height: 120vw;
+                border: 0;
             }
-            .block2 h3 {
-                line-height: 25px;
+            .block4-bg {
+                position: relative;
+                width: 100vw;
             }
-            .block2 h4 {
-                line-height: 20px;
+            .block4-bg .img-BG-dotted1 {
+                width: 250px;
+                position: absolute;
+                left: 0;
+                transform: translate(-50%, -65%);
+            }
+            .block4-bg .img-BG-dotted2 {
+                position: absolute;
+                width: 150px;
+                right: 0;
+                transform: translate(5%, -65%);
+            }
+            .block4-bg span {
+                font-size: 40px;
+                transform: translateY(0);
             }
         }
-    </style>
+        
+        footer {
+            position: absolute;
+            bottom: 0;
+        }
+</style>
+
 <div class="container flex">
+
     <?php include __DIR__ . '/__navbar.php' ?>
     <?php include __DIR__ . '/__html_btn-top.php' ?>
-    <div class="block1">
-        <div class="block1-fixed flex position-sticky">
-            <ul class="block-left flex animate__animated animate__slideInLeft animate__delay-2s">
-                <li class="">
-                    <div class="process1 box-process flex active" id="process1">
-                        <div class="box-process-photo flex">
-                            <img class="img-about-select transition" src="images/about-select.svg" alt="">
-                            <div class="img-process transition">
-                                <img src="images/process1.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="process-article flex">
-                            <h3 class="mobile-show transition">台灣製造</h3>
-                            <h4 class="transition">『社頭』一直以來是台灣最強揚名世界的棉襪產地，WATZ生產於在地經營60年老字號工廠。</h4>
-                        </div>
+
+    <!---區塊一：主視覺---->
+    <div class="block1 flex">
+            <div class="block1-flexcontrol flex">
+                <div class="box-kvTop flex">
+                    <div class="">
+                        <img id="kvSocks1" src="/images/product/index-clear-01.png" alt="">
                     </div>
-                </li>
-                <li class="">
-                    <div class="process2 box-process flex" id="process2">
-                        <div class="box-process-photo flex">
-                            <img class="img-about-select transition" src="images/about-select.svg" alt="">
-                            <div class="img-process transition">
-                                <img src="images/process2.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="process-article flex">
-                            <h3 class="web-none transition">織法</h3>
-                            <h4 class="transition">精細裁縫，不會產生足部的壓迫感，均勻的彈力編織，防滑且不易鬆脫。</h4>
-                        </div>
+                    <div class="">
+                        <img id="kvSocks2" src="/images/product/index-clear-02.png" alt="">
                     </div>
-                </li>
-                <li class="">
-                    <div class="process3 box-process flex" id="process3">
-                        <div class="box-process-photo flex">
-                            <img class="img-about-select transition" src="images/about-select.svg" alt="">
-                            <div class="img-process transition">
-                                <img src="images/process3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="process-article flex">
-                            <h3 class="web-none transition">無毒</h3>
-                            <h4 class="transition">經過檢驗的紗線，不含偶氮染料，水洗不退色，歐盟OEKO-TEX無毒認證。</h4>
-                        </div>
+                    <div class="">
+                        <img id="kvSocks3" src="/images/product/index-clear-03.png" alt="">
                     </div>
-                </li>
-                <li class="">
-                    <div class="process4 box-process flex" id="process4">
-                        <div class="box-process-photo flex">
-                            <img class="img-about-select transition" src="images/about-select.svg" alt="">
-                            <div class="img-process transition">
-                                <img src="images/process4.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="process-article flex">
-                            <h3 class="web-none transition">質感</h3>
-                            <h4 class="transition">堅持使用有口碑的台灣機台製作，製作襪子的過程中，提升襪子品質。</h4>
-                        </div>
-                    </div>
-                </li>
-                <li class="">
-                    <div class="process5 box-process flex" id="process5">
-                        <div class="box-process-photo flex">
-                            <img class="img-about-select transition" src="images/about-select.svg" alt="">
-                            <div class="img-process transition">
-                                <img src="images/process5.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="process-article flex">
-                            <h3 class="web-none transition">環保</h3>
-                            <h4 class="transition">所有產品皆使用天然及可回收材質，不過度包裝。</h4>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <div class="block-right flex mobile-none">
-                <div class="box-logo flex">
-                    <img class="animate__animated animate__bounceIn img-logo-w" src="images/logo-w.svg" alt="">
-                    <img class="animate__animated animate__bounceIn animate__delay-1s img-logo-a" src="images/logo-a.svg" alt="">
-                    <img class="animate__animated animate__bounceIn animate__delay-1s img-logo-t" src="images/logo-t.svg" alt="">
-                    <img class="animate__animated animate__bounceIn animate__delay-1s img-logo-z" src="images/logo-z.svg" alt="">
                 </div>
-                <ul class="animate__animated animate__slideInRight animate__delay-2s flex">
-                    <li class="flex active" id="processText1">
-                        <div class="line line1 transition"></div>
-                        <h3 class="transition">台灣製造</h3>
-                    </li>
-                    <li class="flex" id="processText2">
-                        <div class="line line2 transition"></div>
-                        <h3 class="transition">織法</h3>
-                    </li>
-                    <li class="flex" id="processText3">
-                        <div class="line line3 transition"></div>
-                        <h3 class="transition">無毒</h3>
-                    </li>
-                    <li class="flex" id="processText4">
-                        <div class="line line4 transition"></div>
-                        <h3 class="transition">質感</h3>
-                    </li>
-                    <li class="flex" id="processText5">
-                        <div class="line line5 transition"></div>
-                        <h3 class="transition">環保</h3>
-                    </li>
-                </ul>
+                <div class="box-kvBottom box-wa flex">
+                    <div class="img-logo-w">
+                        <img src="images/logo-w.svg" alt="">
+                    </div>
+                    <div class="img-logo-a">
+                        <img src="images/logo-a.svg" alt="">
+                    </div>
+                </div>
+                <div class="box-kvBottom box-tz flex">
+                    <div class="img-logo-t">
+                        <img src="images/logo-t.svg" alt="">
+                    </div>
+                    <div class="img-logo-z">
+                        <img src="images/logo-z.svg" alt="">
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="picture mobile-none" id="picture"></div>
-    <div class="block2 flex" id="block2">
-        <div class="title flex">
-            <div class="line line-aboutWATZ"></div>
-            <h2>關於WATZ</h2>
+        <!---區塊二：slider---->
+
+        <div class="block2">
+            <div>
+                <a href=""><img src="images/index-slider1.png" alt=""></a>
+            </div>
+            <div>
+                <a href=""><img src="images/index-slider2.png" alt=""></a>
+            </div>
+            <div>
+                <a href=""><img src="images/index-slider3.png" alt=""></a>
+            </div>
         </div>
-        <article class="article">
-            <h3>不管你擁有的是什麼樣的宇宙觀，<br> 對生活上的小細節用心，
-                <br> 就能把以自己為中心的世界活得更寬闊。
-                <br>
-            </h3>
-            <h4>WATZ創立於2019年，<br> 一群逛襪子會逛到少女心噴發的女子們。
-                <br><br> 走在街道上，什麼樣的單品最容易讓人眼睛為之一亮？
+        <!---區塊三：禮盒---->
+        <div class="block3 flex">
+            <div class="img-boxtitle-img flex">
+                <h1>WATZ BOX</h1>
+                <img class="transition" src="images/title-bgc.svg" alt="">
+            </div>
+            <div class="giftbox flex">
+                <div class="gift flex transition">
+                    <a href="">
+                        <img id="watzbox1" src="images/watzbox1-1.png" alt="">
+                    </a>
+                    <h3>芒果派對</h3>
+                </div>
+                <div class="gift flex transition">
+                    <a href="">
+                        <img id="watzbox2" src="images/watzbox2-1.png" alt="">
+                    </a>
+                    <h3>群魔亂舞</h3>
+                </div>
+                <div class="gift flex transition">
+                    <a href="">
+                        <img id="watzbox3" src="images/watzbox3-1.png" alt="">
+                    </a>
+                    <h3>灰姑娘的水晶襪</h3>
+                </div>
+            </div>
+        </div>
+        <!---區塊四：plugin---->
+        <div class="block4 flex">
+            <div class="slider-product">
+                <div>
+                    <a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a>
+                </div>
+                <div>
+                    <a href=""><img src="images/product/banana-02.jpeg" alt=""></a>
+                </div>
+                <div>
+                    <a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a>
+                </div>
+                <div>
+                    <a href=""><img src="images/product/banana-02.jpeg" alt=""></a>
+                </div>
+                <div>
+                    <a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a>
+                </div>
+                <div>
+                    <a href=""><img src="images/product/banana-02.jpeg" alt=""></a>
+                </div>
+                <div>
+                    <a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a>
+                </div>
+                <div>
+                    <a href=""><img src="images/product/banana-02.jpeg" alt=""></a>
+                </div>
+                <div>
+                    <a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a>
+                </div>
+            </div>
+            <div class="block4-bg flex">
+                <img class="img-BG-dotted1" src="images/BG-dotted1.svg" alt="">
+                <span>SOCKS GALLERY</span>
+                <img class="img-BG-dotted2" src="images/BG-dotted2.svg" alt="">
+            </div>
+        </div>
 
-                <br> 「我想．．．是襪子吧？」我說。
-                <br><br> 身處在快時尚的年代，形形色色的人們幾乎都穿上了襪子，然而，它卻往往都被單調地打發。襪子是穿搭中最為人所忽略的單品。所以我想著，穿上一雙精心搭配的襪子吧！於此同時，所有的穿搭才能真正被賦予生命。
-
-                <br><br> 在這五花八門的人群中，WATZ邀請你穿出自己的細膩之處，活出專屬於你的小宇宙。
-            </h4>
-        </article>
-    </div>
     <?php include __DIR__ . '/__html_footer.php' ?>
 </div>
 <?php include __DIR__ . '/__scripts.php' ?>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
-    if ($(window).width() < 576) {
-        $("ul.block-left").removeClass("animate__animated");
+    //kv Socks-Changing Animatie
+
+    function sockChange(n) {
+        changeSocks1(n);
+        setInterval(function() {
+            if (n > 3) n = 1;
+            changeSocks1(n);
+            n++;
+        }, 1500);
     }
-    $(window).scroll(function() {
-        let scrollTop = $(this).scrollTop();
-        let picture = $("#picture").offset().top;
-        if (scrollTop < vh) {
-            $("#process1").addClass("active");
-            $("#processText1").addClass("active");
-        } else {
-            $("#process1").removeClass("active");
-            $("#processText1").removeClass("active");
-        }
 
-        if (scrollTop > vh && scrollTop < 2 * vh) {
-            $("#process2").addClass("active");
-            $("#processText2").addClass("active");
-        } else {
-            $("#process2").removeClass("active");
-            $("#processText2").removeClass("active");
-        }
+    function changeSocks1(n) {
+        $("#kvSocks1").attr("src", "images/product/index-clear-0" + n + ".png");
 
-        if (scrollTop > 2 * vh && scrollTop < 3 * vh) {
-            $("#process3").addClass("active");
-            $("#processText3").addClass("active");
-        } else {
-            $("#process3").removeClass("active");
-            $("#processText3").removeClass("active");
-        }
+        setTimeout(function() {
+            changeSocks2(n);
+        }, 500);
 
-        if (scrollTop > 3 * vh && scrollTop < 4 * vh) {
-            $("#process4").addClass("active");
-            $("#processText4").addClass("active");
-        } else {
-            $("#process4").removeClass("active");
-            $("#processText4").removeClass("active");
-        }
+    }
 
-        if (scrollTop > 4 * vh && scrollTop < 5 * vh) {
-            $("#process5").addClass("active");
-            $("#processText5").addClass("active");
-        } else {
-            $("#process5").removeClass("active");
-            $("#processText5").removeClass("active");
-        }
-        if (scrollTop > picture - 200) {
-            $("#block2").css("opacity", "1").addClass("animate__animated animate__fadeIn");
-        }
+    function changeSocks2(n, cb) {
+        n = n + 3;
+        $("#kvSocks2").attr("src", "images/product/index-clear-0" + n + ".png")
+
+        setTimeout(function() {
+            changeSocks3(n)
+        }, 500);
+    }
+
+    function changeSocks3(n) {
+        n = n + 3;
+        $("#kvSocks3").attr("src", "images/product/index-clear-0" + n + ".png")
+    }
+
+    sockChange(1);
+
+
+    // watz-box
+
+    $("#watzbox1").hover(function() {
+        $(this).attr("src", "images/watzbox1-2.png");
+    }, function() {
+        $(this).attr("src", "images/watzbox1-1.png");
     })
+
+    $("#watzbox2").hover(function() {
+        $(this).attr("src", "images/watzbox2-2.png");
+    }, function() {
+        $(this).attr("src", "images/watzbox2-1.png");
+    })
+
+    $("#watzbox3").hover(function() {
+        $(this).attr("src", "images/watzbox3-2.png");
+    }, function() {
+        $(this).attr("src", "images/watzbox3-1.png");
+    })
+
+    //slick
+
+    $(document).ready(function() {
+
+        $('.block2').slick({
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear',
+            dots: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: false,
+            pauseOnHover: false
+        });
+    });
+
+    $(document).ready(function() {
+
+        if ($(window).width() < 576) {
+
+            $('.giftbox').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: false,
+                // autoplaySpeed: 2000,
+                cssEase: 'linear',
+                arrows: true,
+                speed: 800
+            });
+        }
+    });
+
+
+    $(document).ready(function() {
+
+        if ($(window).width() < 1200 && $(window).width() > 992) {
+
+            $('.slider-product').slick({
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 0,
+                cssEase: 'linear',
+                arrows: false,
+                speed: 3000
+            });
+        }
+
+        if ($(window).width() < 992 && $(window).width() > 576) {
+
+            $('.slider-product').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 0,
+                cssEase: 'linear',
+                arrows: false,
+                speed: 3000
+            });
+        }
+
+        if ($(window).width() < 576) {
+
+            $('.slider-product').slick({
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: false,
+                pauseOnHover: false
+            });
+        }
+
+        $('.slider-product').slick({
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 0,
+            cssEase: 'linear',
+            arrows: false,
+            speed: 3000
+        });
+    });
 </script>
+
 <?php require __DIR__ . '/__html_foot.php' ?>
