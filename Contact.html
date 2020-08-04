@@ -42,8 +42,10 @@
             padding: 5px;
             border-bottom: 4px solid #FF9685;
         }
-
-        .pad-show {
+        .faq-wrapper{
+            width: 70vh;
+        }
+        .mob-show {
             display: none;
         }
 
@@ -67,14 +69,22 @@
             .b-bt-blue h3 {
                 font-size: 16px;
             }
-
-            .mob-show {
+        }
+        @media screen and (max-width:576px) {
+            .faq-wrapper{
+                width: 90vw;
+                justify-content: space-around;
+            }
+            .mob-show{
                 display: unset;
             }
-            .faq-wrapper{
-                width: 70vw;
+            .b-bt-blue h3{
+                font-weight: 500;
             }
-
+            .button.active{
+                background-color:#F2DE79;
+            }
+            
         }
 
         /* -----FAQ-questions項目----- */
@@ -107,7 +117,7 @@
                 font-size: 16px;
             }
 
-            .qa-item:active {
+            .qa-item.active {
                 border-bottom: 4px solid #FF9685;
             }
         }
@@ -167,7 +177,7 @@
             }
             .qa-title-wrapper {
                 width: 75vw;
-                border: 1px solid red;
+
             }
         }
         @media screen and (max-width:576px) {
@@ -482,10 +492,10 @@
         </nav>
         <div class="block-wrapper flex">
             <div class="faq-wrapper flex">
-                <div class="b-bt-blue">
+                <div class="b-bt-blue button">
                     <h3>常見問題集</h3>
                 </div>
-                <div class="b-bt-blue pad-show">
+                <div class="b-bt-blue button mob-show">
                     <h3>聯絡我們</h3>
                 </div>
             </div>
@@ -519,7 +529,7 @@
                 <ul>
                     <li class="flex">
                         <div id="click" class="quest jq-quest flex">
-                            <h5>如何成為會員？</h5><img id="arrow" src="images/arrow-top.svg" alt="">
+                            <h5>如何成為會員？</h5><img id="arrow" src="images/arrow-down.svg" alt="">
                         </div>
                         <div id="add" class="ans jq-ans">
                             <h6>首次購買請先以個人Email註冊帳號，確認後即寄出驗證信，驗證無誤後即享有一張9折優惠券！</h6>
@@ -527,7 +537,7 @@
                     </li>
                     <li class="flex">
                         <div class="quest jq-quest flex">
-                            <h5>未加入會員可以購物嗎？</h5><img src="images/arrow-top.svg" alt="">
+                            <h5>未加入會員可以購物嗎？</h5><img src="images/arrow-down.svg" alt="">
                         </div>
                         <div class="ans jq-ans">
                             <h6>可以！但結帳前請先註冊會員。若商品加入購物車但未完成結帳前，並無保留商品庫存功能。</h6>
@@ -535,7 +545,7 @@
                     </li>
                     <li class="line-none flex">
                         <div class="quest jq-quest flex">
-                            <h5>忘記密碼怎麼辦？</h5><img src="images/arrow-top.svg" alt="">
+                            <h5>忘記密碼怎麼辦？</h5><img src="images/arrow-down.svg" alt="">
                         </div>
                         <div class="ans jq-ans">
                             <h6>若您忘記密碼，請至 「會員登入」點選「忘記密碼」， 輸入會員帳號及驗證碼，系統即會自動將重製的新密碼寄至您Email信箱提供您登入使用。</h6>
@@ -551,7 +561,7 @@
                 <ul>
                     <li class="flex">
                         <div class="quest jq-quest flex">
-                            <h5>如何確認訂單有沒有成立呢？</h5><img src="images/arrow-top.svg" alt="">
+                            <h5>如何確認訂單有沒有成立呢？</h5><img src="images/arrow-down.svg" alt="">
                         </div>
                         <div class="ans jq-ans">
                             <h6>訂單成立後系統會送通知信件至您留下的會員信箱，也可於官網－會員登入－訂單查詢內查看喔！
@@ -560,7 +570,7 @@
                     </li>
                     <li class="flex">
                         <div class="quest jq-quest flex">
-                            <h5>折價卷使用說明</h5><img src="images/arrow-top.svg" alt="">
+                            <h5>折價卷使用說明</h5><img src="images/arrow-down.svg" alt="">
                         </div>
                         <div class="ans jq-ans">
                             <h6>每筆訂單限抵用一張折價券，若您同時擁有2張以上折價券，可於結帳時擇一使用。</h6>
@@ -568,7 +578,7 @@
                     </li>
                     <li class="flex">
                         <div class="quest jq-quest flex">
-                            <h5>包裹何時會出貨呢？</h5><img src="images/arrow-top.svg" alt="">
+                            <h5>包裹何時會出貨呢？</h5><img src="images/arrow-down.svg" alt="">
                         </div>
                         <div class="ans jq-ans">
                             <h6>每天14:00前的訂單會安排當天出貨，宅配大約1-2天送到(週日不配送)超商大概2-3天？</h6>
@@ -576,7 +586,7 @@
                     </li>
                     <li class="flex">
                         <div class="quest jq-quest flex">
-                            <h5>信用卡交易失敗怎麼辦？</h5><img src="images/arrow-top.svg" alt="">
+                            <h5>信用卡交易失敗怎麼辦？</h5><img src="images/arrow-down.svg" alt="">
                         </div>
                         <div class="ans jq-ans">
                             <h6>訂單因交易失敗導致訂單未成立成功，交易失敗的訂單無法再恢復訂單狀態重新付款。若您還需要此訂單內商品，請您重新訂購。
@@ -585,7 +595,7 @@
                     </li>
                     <li class="line-none flex">
                         <div class="quest jq-quest flex">
-                            <h5>要怎麼DIY自己的襪子？多久會收到呢？</h5><img src="images/arrow-top.svg" alt="">
+                            <h5>要怎麼DIY自己的襪子？多久會收到呢？</h5><img src="images/arrow-down.svg" alt="">
                         </div>
                         <div class="ans jq-ans">
                             <h6>WATZ提供三種樣版、一種自製襪供您挑選一雙屬於自己獨一無二的襪子。樣板包括：WATZ
@@ -605,7 +615,7 @@
                     <li>
                         <div class="quest jq-quest flex">
                             <h5>商品可以換貨嗎？</h5>
-                            <img src="images/arrow-top.svg" alt="">
+                            <img src="images/arrow-down.svg" alt="">
                         </div>
                         <div class="ans jq-ans">
                             <h6>我們提供收到包裹後七天鑑賞期內一次退貨服務，沒有換貨服務喔！</h6>
@@ -614,7 +624,7 @@
                     <li>
                         <div class="quest jq-quest flex">
                             <h5>如何申請退貨？ </h5>
-                            <img src="images/arrow-top.svg" alt="">
+                            <img src="images/arrow-down.svg" alt="">
                         </div>
                         <div class="ans jq-ans">
                             <h6>收到包裹後隔天於官網會員登入－訂單查詢－該筆訂單會顯示【我要退貨】選項。可【部分】勾選不合適商品或【整筆】退貨辦理得到超商退貨代碼。退貨時請留意組合優惠商品或是原訂單免運門檻資格。
@@ -624,7 +634,7 @@
                     <li>
                         <div class="quest jq-quest flex">
                             <h5>退貨需要運費嗎？</h5>
-                            <img src="images/arrow-top.svg" alt="">
+                            <img src="images/arrow-down.svg" alt="">
                         </div>
                         <div class="ans jq-ans">
                             <h6>七天鑑賞期內WATZ免費提供一次退貨服務。使用退貨申辦提供之退貨代碼辦理無須付費。</h6>
@@ -633,7 +643,7 @@
                     <li>
                         <div class="quest jq-quest flex">
                             <h5>退貨款項何時會歸還呢？</h5>
-                            <img src="images/arrow-top.svg" alt="">
+                            <img src="images/arrow-down.svg" alt="">
                         </div>
                         <div class="ans jq-ans">
                             <h6>退貨包裹至超商辦理寄出後約7-10個工作天會退回WATZ，待收到後將盡快完成退款作業並以MAIL通知。
@@ -643,7 +653,7 @@
                     <li class="line-none flex">
                         <div class="quest jq-quest flex">
                             <h5>退貨金額如何退回？</h5>
-                            <img src="images/arrow-top.svg" alt="">
+                            <img src="images/arrow-down.svg" alt="">
                         </div>
                         <div class="ans jq-ans">
                             <h6>信用卡付款→直接線上申請退刷金額，因信用卡結帳日不同的關係，若當期信用卡帳單未查看到，請您留意下期信用卡帳單喔！
@@ -662,7 +672,7 @@
                     <li class="line-none flex">
                         <div class="quest jq-quest flex">
                             <h5>若收到異常商品怎麼辦？</h5>
-                            <img src="images/arrow-top.svg" alt="">
+                            <img src="images/arrow-down.svg" alt="">
                         </div>
                         <div class="ans jq-ans">
                             <h6>若商品有異常疑慮，
@@ -673,7 +683,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="b-bt-blue">
+            <div class="b-bt-blue contact">
                 <h3>聯絡我們</h3>
             </div>
             <form class="block-bottom flex" action="">
@@ -757,7 +767,25 @@
         })
     });
     if (jQuery(window).width() < 576) {
+        $(document).ready(function(){
+            $(".block2").hide();
+            $(".block3").hide();
+            $(".block4").hide();
+            $(".block-bottom").hide();
+            $(".contact").hide();
+            $(".qa-item-A").addClass("active")
+            //怎麼讓常見問題載入時active
+            $(".button").click(function(){
+                $(this).toggleClass('active')
+                .siblings().removeClass('active');
+            })
+            //怎麼讓其他ＱA的Ａ收起來
+            $(".jq-quest").click(function(){
+                $(this).siblings(".jq-ans").slideToggle()
+                .parents("li")
 
+            })
+        })
 }
 </script>
 
