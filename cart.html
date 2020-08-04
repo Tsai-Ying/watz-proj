@@ -54,25 +54,30 @@
 
         @media screen and (max-width: 992px) {
             .wrapper {
-               flex-direction: column;
+                flex-direction: column;
                 justify-content: flex-start;
             }
+
             .container {
                 overflow: hidden;
             }
+
             .block-left {
                 width: 100%;
             }
+
             .block-right {
                 width: 100%;
                 margin-top: 30px;
             }
         }
+
         @media screen and (max-width: 576px) {
             .wrapper {
                 margin-top: 80px;
             }
         }
+
         /* ------------------process------------------ */
 
         .buy-process {
@@ -122,9 +127,11 @@
             .each-process {
                 width: 22%;
             }
+
             .each-process h3 {
                 margin: 10px;
             }
+
             .each-process h6 {
                 margin: 0 5px;
             }
@@ -138,17 +145,21 @@
                 align-items: center;
                 justify-content: center;
             }
+
             .each-process h3 {
                 margin: 0px;
             }
-            .each-process.first h6{
+
+            .each-process.first h6 {
                 margin-right: 0;
             }
+
             .each-process h6 {
                 /* margin-right: 0px; */
                 text-align: center;
             }
         }
+
         /* -----------choose box------------- */
 
         .box-watzbox {
@@ -171,7 +182,16 @@
             color: #03588C;
             margin: 0 5px;
         }
-
+        .box-watzbox-title img{
+            width: 40px;
+            transform: rotate(180deg);
+            margin-right: 20px;
+            transition: .5s;
+        }
+        .box-watzbox-title img.close{
+            transform: rotate(0deg);
+        }
+        
         .box-watzbox h4 {
             color: #707070;
             margin-top: 20px;
@@ -187,7 +207,10 @@
             opacity: .3;
         }
 
-        .img-watzbox.choose img {
+        .img-watzbox.active img {
+            opacity: 1;
+        }
+        .img-watzbox:hover img {
             opacity: 1;
         }
 
@@ -208,6 +231,7 @@
             border-radius: 2px;
             background-color: #F2DE79;
         }
+
         .button:hover {
             background-color: #f2de79a6;
         }
@@ -233,10 +257,6 @@
             display: none;
         }
 
-        .step3.show {
-            opacity: 1;
-        }
-
         @media screen and (max-width: 1200px) {
             .img-watzbox img {
                 width: 180px;
@@ -253,19 +273,24 @@
             .img-watzbox img {
                 width: 100px;
             }
+
             .button {
                 margin: 10px;
             }
+
             .step3 img {
                 width: 40px;
             }
-            .step3 h4{
+
+            .step3 h4 {
                 display: none;
             }
-            .step3 h5{
+
+            .step3 h5 {
                 display: block;
             }
         }
+
         /* -------------order list-------------- */
 
         .box-product {
@@ -304,6 +329,7 @@
             align-items: center;
             justify-content: center;
         }
+
         .add-box p {
             font-weight: 900;
             font-size: 1.2rem;
@@ -386,6 +412,7 @@
             .img-socks {
                 width: 90px;
             }
+
             .quantity-choose {
                 width: 80px;
             }
@@ -401,23 +428,28 @@
             .img-socks {
                 width: 70px;
             }
+
             .sock-name {
                 width: 60%;
             }
+
             .product-detail {
                 width: 60%;
                 height: 125px;
                 flex-direction: column;
             }
+
             .socks-amount-choose {
                 width: 95%;
                 margin: 10px 0;
                 justify-content: space-between;
             }
+
             .quantity-choose {
                 width: 70px;
             }
         }
+
         /* --------------right fix part------------- */
         /* --------------box-shipping------------- */
         .shipping-shoose {
@@ -466,6 +498,7 @@
                 margin-bottom: 0px;
             }
         }
+
         /* --------------total-price------------- */
         .total-price {
             background-color: #ffffff;
@@ -562,6 +595,7 @@
             .total-price {
                 border-radius: 0 0 15px 15px;
             }
+
             .total-price h3 {
                 margin: 10px 0px 20px 30px;
             }
@@ -640,34 +674,35 @@
                 </div>
                 <div class="box-watzbox flex">
                     <div class="box-watzbox-frame">
-                        <div class="box-watzbox-title flex">
-                              <span>
-                                <h3>-</h3>
-                              </span>
+                        <div class="box-watzbox-title flex">                            
+                                <img id="open-btn" src="images/arrow-top.svg" alt="">                          
                             <h3>客製你的WATZ box</h3>
                         </div>
-                        <h4>Step1 想要什麼包裝呢?</h4>
-                        <ul class="watzbox-choose flex" id="">
-                            <li class="img-watzbox">
-                                <img class="transition" src="images/watzbox1-1.png" alt="">
-                            </li>
-                            <li class="img-watzbox">
-                                <img class="transition" src="images/watzbox2-1.png" alt="">
-                            </li>
-                            <li class="img-watzbox">
-                                <img class="transition" src="images/watzbox3-1.png" alt="">
-                            </li>
-                        </ul>
-                        <h4>Step2 想放幾雙襪子呢?</h4>
-                        <div class="pair-choose">
-                            <button id="pair-choose3" class="button" type="button" href="#jdhfkj">3雙</button>
-                            <button id="pair-choose6" class="button" href="#">6雙</button>
-                            <button id="pair-choose8" class="button" href="#">8雙</button>
-                        </div>
-                        <div class="step3 flex" id="step3">
-                            <img src="images/dotted-line.svg" alt="">
-                            <h4>Step3 請勾選3雙襪子到您的包裝盒裡</h4>
-                            <h5>Step3 請勾選3雙襪子到<br>您的包裝盒裡</h5>
+                        <div class="hide-choose-box">
+                            <h4>Step1 想要什麼包裝呢?</h4>
+                            <ul class="watzbox-choose flex" id="">
+
+                                <li class="img-watzbox">
+                                    <img class="transition" src="images/watzbox1-1.png" alt="">
+                                </li>
+                                <li class="img-watzbox">
+                                    <img class="transition" src="images/watzbox2-1.png" alt="">
+                                </li>
+                                <li class="img-watzbox">
+                                    <img class="transition" src="images/watzbox3-1.png" alt="">
+                                </li>
+                            </ul>
+                            <h4>Step2 想放幾雙襪子呢?</h4>
+                            <div class="pair-choose">
+                                <button id="pair-choose3" class="button" type="button" href="#jdhfkj">3雙</button>
+                                <button id="pair-choose6" class="button" href="#">6雙</button>
+                                <button id="pair-choose8" class="button" href="#">8雙</button>
+                            </div>
+                            <div class="step3 flex" id="step3">
+                                <img src="images/dotted-line.svg" alt="">
+                                <h4>Step3 請勾選3雙襪子到您的包裝盒裡</h4>
+                                <h5>Step3 請勾選3雙襪子到<br>您的包裝盒裡</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -794,11 +829,12 @@
         <img class="bg-footer flex" src="images/footer.svg" alt="">
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="js/nav.js"></script>
     <script>
-        $(document).ready(function() {
-            $('.minus').click(function() {
+        $(document).ready(function () {
+            $('.minus').click(function () {
                 var $input = $(this).parent().find('input');
                 var count = parseInt($input.val()) - 1;
                 count = count < 1 ? 1 : count;
@@ -806,7 +842,7 @@
                 $input.change();
                 return false;
             });
-            $('.plus').click(function() {
+            $('.plus').click(function () {
                 var $input = $(this).parent().find('input');
                 $input.val(parseInt($input.val()) + 1);
                 $input.change();
@@ -814,20 +850,22 @@
             });
         });
 
-        $(".button").click(function() {
+        $(".button").click(function () {
             $(this).toggleClass('active')
                 .siblings().removeClass('active');
         });
 
-        // $("#pair-choose3").click(function(){
-        //     $("#step3").addClass('show');
-        // });
-
-// watzbox //
-        $('.img-watzbox').click(function() {
+        $('.img-watzbox').click(function () {
             $(this).toggleClass('active')
                 .siblings().removeClass('active');
-        })
+        });
+        $(document).ready(function () {
+            $(".hide-choose-box").hide();
+            $(".box-watzbox-title").click(function () {
+                $(".hide-choose-box").slideToggle()
+                $('#open-btn').toggleClass('close');
+            });
+        });
     </script>
 </body>
 
