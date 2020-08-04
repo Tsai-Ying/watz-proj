@@ -333,7 +333,7 @@
         }
 
         .box-signup {
-            /* z-index: 10; */
+            z-index: 10;
         }
 
         
@@ -423,7 +423,7 @@
         <div class="wrapper flex">
             <ul class="member-bblock">
                 <div class="bsignup" id="tab1">
-                    <li class="box-signup">
+                    <li class="box-signup" id="box-signup">
                         <form class="member-login flex signup">
                             <h2>JOIN US</h2>
                             <div class="bg-inputwrapper flex">
@@ -448,14 +448,14 @@
                             <button class="btn-blue btn-login">註冊會員</button>
                         </form>
                     </li>
-                    
+                    <div class="tag tag-signup" id="tag-signup">
+                        <h5>註冊帳號</h5>
+                    </div>
                 </div>
-                <div class="tag tag-signup" id="taptosignup">
-                    <h5>註冊帳號</h5>
-                </div>
+                
                 <!------------------------signup------------------------------------------>
                 <div class="bsignup blogin" id="tab2">
-                    <li class="box-login">
+                    <li class="box-login" id="box-login">
                         <form class="member-login flex">
                             <h2>LOG IN</h2>
                             <div class="input-wrapper flex">
@@ -481,11 +481,11 @@
                             </h5>
                         </form>
                     </li>
-                    
+                    <div class="tag tag-login" id="tag-login">
+                        <h5>登入會員</h5>
+                    </div>
                 </div>
-                <div class="tag tag-login" id="taptologin">
-                    <h5>登入會員</h5>
-                </div>
+                
             </ul>
             
         </div>
@@ -518,11 +518,12 @@
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="js/nav.js"></script>
 <script>
-    $("#taptologin").click(function(){
-        $("#tab2").css("z-index","1")
-    });
-    $("#taptosignup").click(function(){
-        $("#tab1").css("z-index","2")
-    })
+   $('#tag-login').click(function(){
+    $('#box-login').css( "z-index", "11" );
+ })
+
+ $('#tag-signup').click(function(){
+    $('#box-login').removeAttr( 'style' );
+ })
 </script>
 </html>
