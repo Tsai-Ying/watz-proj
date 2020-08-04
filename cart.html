@@ -205,6 +205,7 @@
         .img-watzbox img {
             width: 200px;
             opacity: .3;
+            cursor: pointer;
         }
 
         .img-watzbox.active img {
@@ -242,6 +243,7 @@
             align-items: center;
             position: absolute;
             bottom: -90px;
+            display: none;
         }
 
         .step3 img {
@@ -255,6 +257,9 @@
         .step3 h5 {
             color: #FF9685;
             display: none;
+        }
+        .step3.show{
+            display: flex;
         }
 
         @media screen and (max-width: 1200px) {
@@ -328,6 +333,10 @@
             /* flex-direction: column; */
             align-items: center;
             justify-content: center;
+            opacity: 0;
+        }
+        .add-box.show{
+            opacity: 1;
         }
 
         .add-box p {
@@ -694,9 +703,9 @@
                             </ul>
                             <h4>Step2 想放幾雙襪子呢?</h4>
                             <div class="pair-choose">
-                                <button id="pair-choose3" class="button" type="button" href="#jdhfkj">3雙</button>
-                                <button id="pair-choose6" class="button" href="#">6雙</button>
-                                <button id="pair-choose8" class="button" href="#">8雙</button>
+                                <button id="pair-choose3" class="button pair-btn" type="button" href="#jdhfkj">3雙</button>
+                                <button id="pair-choose6" class="button pair-btn" href="#">6雙</button>
+                                <button id="pair-choose8" class="button pair-btn" href="#">8雙</button>
                             </div>
                             <div class="step3 flex" id="step3">
                                 <img src="images/dotted-line.svg" alt="">
@@ -864,8 +873,13 @@
             $(".box-watzbox-title").click(function () {
                 $(".hide-choose-box").slideToggle()
                 $('#open-btn').toggleClass('close');
+                $('.step3').removeClass('show');
             });
         });
+        $('.pair-btn').click(function(){
+            $('.step3').toggleClass('show');
+            $('.add-box').toggleClass('show');
+        })
     </script>
 </body>
 
