@@ -182,16 +182,18 @@
             color: #03588C;
             margin: 0 5px;
         }
-        .box-watzbox-title img{
+
+        .box-watzbox-title img {
             width: 40px;
             transform: rotate(180deg);
             margin-right: 20px;
             transition: .5s;
         }
-        .box-watzbox-title img.close{
+
+        .box-watzbox-title img.close {
             transform: rotate(0deg);
         }
-        
+
         .box-watzbox h4 {
             color: #707070;
             margin-top: 20px;
@@ -211,6 +213,7 @@
         .img-watzbox.active img {
             opacity: 1;
         }
+
         .img-watzbox:hover img {
             opacity: 1;
         }
@@ -258,7 +261,8 @@
             color: #FF9685;
             display: none;
         }
-        .step3.show{
+
+        .step3.show {
             display: flex;
         }
 
@@ -325,6 +329,18 @@
             margin: 20px 0;
         }
 
+        .boxChooseDetail {
+            display: none;
+        }
+
+        .boxChooseDetail.addInBox {
+            display: flex;
+        }
+        .add-box-frame{
+            width: 25px;
+            height: 25px;
+        }
+
         .add-box {
             width: 25px;
             height: 25px;
@@ -333,13 +349,37 @@
             /* flex-direction: column; */
             align-items: center;
             justify-content: center;
-            opacity: 0;
+            display: none;
         }
-        .add-box.show{
-            opacity: 1;
+
+        .add-box.show {
+            display: flex;
         }
 
         .add-box p {
+            font-weight: 900;
+            font-size: 1.2rem;
+            line-height: 21px;
+            letter-spacing: 0;
+            color: #F2DE79;
+            cursor: pointer;
+        }
+
+        .remove-box {
+            width: 25px;
+            height: 25px;
+            border: 2px solid #F2DE79;
+            cursor: pointer;
+            /* flex-direction: column; */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .remove-box.show {
+            opacity: 1;
+        }
+
+        .remove-box p {
             font-weight: 900;
             font-size: 1.2rem;
             line-height: 21px;
@@ -355,6 +395,7 @@
 
         .img-socks {
             width: 110px;
+            margin-bottom: 5px;
         }
 
         .img-socks img {
@@ -683,8 +724,8 @@
                 </div>
                 <div class="box-watzbox flex">
                     <div class="box-watzbox-frame">
-                        <div class="box-watzbox-title flex">                            
-                                <img id="open-btn" src="images/arrow-top.svg" alt="">                          
+                        <div class="box-watzbox-title flex">
+                            <img id="open-btn" src="images/arrow-top.svg" alt="">
                             <h3>客製你的WATZ box</h3>
                         </div>
                         <div class="hide-choose-box">
@@ -703,9 +744,35 @@
                             </ul>
                             <h4>Step2 想放幾雙襪子呢?</h4>
                             <div class="pair-choose">
-                                <button id="pair-choose3" class="button pair-btn" type="button" href="#jdhfkj">3雙</button>
+                                <button id="pair-choose3" class="button pair-btn" type="button"
+                                    href="#jdhfkj">3雙</button>
                                 <button id="pair-choose6" class="button pair-btn" href="#">6雙</button>
                                 <button id="pair-choose8" class="button pair-btn" href="#">8雙</button>
+                            </div>
+                            <div class="eachsock-list boxChooseDetail flex " id="boxChooseDetail">
+                                <div class="remove-box removeBox flex">
+                                    <p>-</p>
+                                </div>
+                                <div class="img-socks"><img src="/images/product/yellowline-01.jpg" alt=""></div>
+                                <div class="product-detail flex">
+                                    <div class="sock-name flex">
+                                        <h4>偶素襪子</h4>
+                                        <div>
+                                            <h6>中長襪</h6>
+                                            <h6>22-25cm</h6>
+                                            <h6>材質:100%純棉</h6>
+                                        </div>
+                                    </div>
+                                    <div class="socks-amount-choose flex">
+                                        <div class="quantity-choose flex">
+                                            <span class="minus">-</span>
+                                            <input class="quantity-input" type="text" value="1" />
+                                            <span class="plus">-</span>
+                                        </div>
+                                        <h4>NT $180</h4>
+                                        <span class="remove"></span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="step3 flex" id="step3">
                                 <img src="images/dotted-line.svg" alt="">
@@ -717,36 +784,12 @@
                 </div>
                 <div class="box-product flex">
                     <div class="box-product-frame flex">
-                        <div class="eachsock-list flex ">
-                            <div class="add-box flex">
+                        <div class="eachsock-list eachSocksList flex ">
+                            <div class="add-box-frame">
+                            <div class="add-box addBox flex">
                                 <p>+</p>
                             </div>
-                            <div class="img-socks"><img src="/images/product/yellowline-01.jpg" alt=""></div>
-                            <div class="product-detail flex">
-                                <div class="sock-name flex">
-                                    <h4>偶素襪子</h4>
-                                    <div>
-                                        <h6>中長襪</h6>
-                                        <h6>22-25cm</h6>
-                                        <h6>材質:100%純棉</h6>
-                                    </div>
-                                </div>
-                                <div class="socks-amount-choose flex">
-                                    <div class="quantity-choose flex">
-                                        <span class="minus">-</span>
-                                        <input class="quantity-input" type="text" value="1" />
-                                        <span class="plus">+</span>
-                                    </div>
-                                    <h4>NT $180</h4>
-                                    <span class="remove"></span>
-                                </div>
-                            </div>
-
                         </div>
-                        <div class="eachsock-list flex ">
-                            <div class="add-box flex">
-                                <p>+</p>
-                            </div>
                             <div class="img-socks"><img src="/images/product/yellowline-01.jpg" alt=""></div>
                             <div class="product-detail flex">
                                 <div class="sock-name flex">
@@ -874,12 +917,43 @@
                 $(".hide-choose-box").slideToggle()
                 $('#open-btn').toggleClass('close');
                 $('.step3').removeClass('show');
+                $('.add-box').removeClass('show');
             });
         });
-        $('.pair-btn').click(function(){
-            $('.step3').toggleClass('show');
-            $('.add-box').toggleClass('show');
+
+
+
+
+        $('.pair-btn').click(function () {
+            $('.step3').addClass('show');
+            $('.add-box').addClass('show');
+        });
+
+        // $(document).ready(function () {
+        //     $('.addBox').hide();
+        //     if (jQuery('.pair-btn').click) {
+        //         //do-some-stuff
+        //         $('.step3').toggleClass('show');
+        //         $('.add-box').toggleClass('show');
+        //     } else {
+        //         //run function2
+        //         $('.addBox').hide();
+        //     }
+        // });
+
+
+
+        $('.addBox').click(function () {
+            $('.boxChooseDetail').addClass('addInBox');
+            $(".eachSocksList").css("display", "none");
+            // $(".eachSocksList").children().css("border-bottom","none");
+            
+        });
+        $('.removeBox').click(function () {
+            $('.boxChooseDetail').removeClass('addInBox');
+            $(".eachSocksList").css("display", "flex");
         })
+
     </script>
 </body>
 
