@@ -20,7 +20,6 @@ if(!empty($row)){
 }
 $stmt->closeCursor();
 
-// $hash = md5($email. rand());
 
 $sql = "INSERT INTO `members`(`email`, `password`, `create_at`) VALUES (?, SHA1(?), NOW())";
 
