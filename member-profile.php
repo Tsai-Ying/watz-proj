@@ -78,6 +78,7 @@ $pageName = 'member-profile';  // 這裡放你的pagename
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            margin-top: 30px;
         }
 
         .bg-name .membercard ul li {
@@ -269,19 +270,20 @@ $pageName = 'member-profile';  // 這裡放你的pagename
                         </div>
                         <ul class="bg-form flex">
                             <li class="form-name flex">
-                                <h5 class="name-content">王小明</h5>
+                                <h5>姓名</h5>
+                                <h5 class="name-content"><?=($_SESSION['member']['name']) ?></h5>
                             </li>
                             <li class="form-item flex">
                                 <h5>電話</h5>
-                                <h5>0912345678</h5>
+                                <h5><?=($_SESSION['member']['mobile']) ?></h5>
                             </li>
                             <li class="form-item flex">
                                 <h5>信箱</h5>
-                                <h5>text@text.com</h5>
+                                <h5><?=($_SESSION['member']['email']) ?></h5>
                             </li>
                             <li class="form-item flex">
                                 <h5 class="adress">地址</h5>
-                                <h5>106台北市大安區復興南路一段390號2樓</h5>
+                                <h5><?=($_SESSION['member']['address']) ?></h5>
                             </li>
                             <li class="form-item flex">
                                 <h5>密碼</h5>
@@ -290,15 +292,12 @@ $pageName = 'member-profile';  // 這裡放你的pagename
                         </ul>
                     </div>
                 </div>
-                <div class="bg-btn flex"></div><button class="btn-blue">修改會員資料</button></div>
+                <div class="bg-btn flex"></div>
+                <button class="btn-blue"  onclick="javascript:location.href='<?= WEB_ROOT ?>/member-profilemodify.php'">修改會員資料</button>
+            </div>
             </div>
         </div>
     <?php include __DIR__ . '/__html_footer.php' ?>
 </div>
 <?php include __DIR__ . '/__scripts.php' ?>
-
-<script>
-    // 這邊放你自己寫的JS
-</script>
-
 <?php require __DIR__ . '/__html_foot.php' ?>

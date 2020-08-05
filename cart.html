@@ -745,10 +745,10 @@
                             </ul>
                             <h4>Step2 想放幾雙襪子呢?</h4>
                             <div class="pair-choose">
-                                <button id="pair-choose3" class="button pair-btn" type="button"
+                                <button data-val="3" class="button pairBtns" type="button"
                                     href="#jdhfkj">3雙</button>
-                                <button id="pair-choose6" class="button pair-btn" href="#">6雙</button>
-                                <button id="pair-choose8" class="button pair-btn" href="#">8雙</button>
+                                <button data-val="6" class="button pairBtns" href="#">6雙</button>
+                                <button data-val="8" class="button pairBtns" href="#">8雙</button>
                             </div>
                             <div class="eachsock-list boxChooseDetail flex " id="boxChooseDetail">
                                 <div class="remove-box removeBox flex">
@@ -822,8 +822,8 @@
                         <div class="shipping-shoose-frame flex">
                             <h3>寄送方式</h3>
                             <div class="shipping-btn flex">
-                                <button class="button" href="#">宅配</button>
-                                <button class="button conv-store" href="#">超商取貨</button>
+                                <button class="button ShipBtn" href="#">宅配</button>
+                                <button class="button conv-store ShipBtn" href="#">超商取貨</button>
                             </div>
                             <p>只差60元即享1000元免運！</p>
                         </div>
@@ -903,7 +903,7 @@
             });
         });
 
-        $(".button").click(function () {
+        $(".ShipBtn").click(function () {
             $(this).toggleClass('active')
                 .siblings().removeClass('active');
         });
@@ -923,11 +923,26 @@
         });
 
 
+        //襪子選擇而退出選項//
+        const pairBtns = $('.pairBtns');
 
+        pairBtns.click(function () {
+            const me = this;
+            pairBtns.each(function(){
+                if(this!==me){
+                    $(this).removeClass('active');
+                }
+            });
+            $(this).toggleClass('active');
+            
+            if($(this).hasClass('active')){
+                $('.step3').addClass('show');
+                $('.add-box').addClass('show');
+            } else {
+                $('.step3').removeClass('show');
+                $('.add-box').removeClass('show');
+            }
 
-        $('.pair-btn').click(function () {
-            $('.step3').toggleClass('show');
-            $('.add-box').toggleClass('show');
         });
 
 
