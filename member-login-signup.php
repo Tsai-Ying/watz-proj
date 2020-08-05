@@ -547,8 +547,11 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                 function(data) {
                     console.log(data);
                     if (data.success) {
-
-                        console.log("success");
+                        $('.notice h3').text('註冊成功');
+                        notice();
+                        setTimeout(function() {
+                            history.go(-1);
+                        }, 1000)
 
                     } else {
 
@@ -583,6 +586,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                 console.log(data);
 
                 if (data.success) {
+                    $('.notice h3').text('登入成功');
                     notice();
                     setTimeout(function() {
                         location.href = 'member-profile.php';
@@ -604,9 +608,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 
     function notice() {
         $(".notice").addClass("active");
-        // setTimeout(function() {
-        //     $(".notice").removeClass("active");
-        // }, 800);
     }
 </script>
 
