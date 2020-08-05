@@ -360,7 +360,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
             <div class="bsignup" id="tab1">
                 <li class="box-signup" id="box-signup">
 
-                    <form class="member-login flex signup" name="form1" method="post" onclick="return formCheck()" novalidate>
+                    <form class="member-login flex signup" name="form1" method="post" novalidate>
                         <h2>JOIN US</h2>
                         <div class="bg-inputwrapper flex">
                             <div class="input-wrapper flex">
@@ -381,7 +381,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                             <h6>同意</h6><a href="">會員條款</a>
                             <h6>與</h6><a href="">隱私權政策</a>
                         </div>
-                        <button type="submit" class="btn-blue btn-login">註冊會員</button>
+                        <button type="submit" class="btn-blue btn-login" onclick="return formCheck()">註冊會員</button>
                     </form>
                 </li>
                 <div class="tag tag-signup" id="tag-signup">
@@ -392,7 +392,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
             <!------------------------signup------------------------------------------>
             <div class="bsignup blogin" id="tab2">
                 <li class="box-login" id="box-login">
-                    <form class="member-login flex" name="form2" method="post" onclick="return formCheck2()" novalidate>
+                    <form class="member-login flex" name="form2" method="post" novalidate>
                         <h2>LOG IN</h2>
                         <div class="input-wrapper flex">
                             <img src="images/icon-account.svg" alt="">
@@ -411,7 +411,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                                 <a href="">忘記密碼</a>
                             </div>
                         </div>
-                        <button type="submit" class="btn-blue btn-login">登入帳號</button>
+                        <button type="submit" class="btn-blue btn-login" onclick="return formCheck2()">登入帳號</button>
                         <h5>還不是會員?點這邊
                             <a href="">加入會員!</a>
                         </h5>
@@ -455,17 +455,10 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
     const signupEmail = $('#signupEmail'),
         signupPassword = $('#signupPassword'),
         confirmPassword = $('#confirmPassword');
-    // info_bar = $('#info-bar');
-    const loginEmail = $('#loginEmail'),
-        loginPassword = $('#loginPassword');
 
-    const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
     function formCheck() {
         signupEmail.text('');
-
-        loginEmail.text('');
-        loginPassword.text('');
         // TODO: 檢查欄位
         let isPass = true;
 
@@ -525,10 +518,9 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 
         return false;
     }
-</script>
 
-<!-- 登入 login -->
-<script>
+// 登入 login
+
     const loginEmail = $('#loginEmail'),
         loginPassword = $('#loginPassword')
 
