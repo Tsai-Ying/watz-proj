@@ -26,6 +26,7 @@
         position: absolute;
         z-index: 0;
         /* clip-path: circle(140px at center); */
+        display: none;
     }
 
     .diy-pattern div {
@@ -1411,9 +1412,9 @@
 
 
     $(".tutorial#tutor2").click(function () {
-        $(".modal").css({
-            "display": "none"
-        })
+        // $(".modal").css({
+        //     "display": "none"
+        // })
         $(".modal").fadeOut(500);
         $(".tutorial#tutor2").css({
             "display": "none"
@@ -1427,6 +1428,7 @@
     // mousemove
     $(window).mousemove(function (e) {
         // console.log(e.screenX)
+        $(".spot").css("display", "flex")
         $(".spot").css("clip-path", `circle(140px at ${e.pageX}px ${e.pageY - 30}px`)
     })
 
@@ -1444,7 +1446,7 @@
         $(".diy-area").attr("src", "images/pattern-white.svg" )
     })
 
-    //DIY chane socks color
+    //DIY change socks color
 
 </script>
 

@@ -17,7 +17,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
         height: 100vh;
         position: absolute;
         z-index: 0;
-        /* clip-path: circle(140px at center); */
+        display: none;
     }
 
     .diy-pattern div {
@@ -1313,9 +1313,6 @@ $pageName = 'DIY';  // 這裡放你的pagename
 
 
     $(".tutorial#tutor2").click(function () {
-        $(".modal").css({
-            "display": "none"
-        })
         $(".modal").fadeOut(500);
         $(".tutorial#tutor2").css({
             "display": "none"
@@ -1329,6 +1326,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
     // mousemove
     $(window).mousemove(function (e) {
         // console.log(e.screenX)
+        $(".spot").css("display", "flex")
         $(".spot").css("clip-path", `circle(140px at ${e.pageX}px ${e.pageY - 30}px`)
     })
 
