@@ -187,6 +187,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         justify-content: flex-start;
         align-items: center;
         margin-bottom: 20px;
+        border: 2px solid transparent;
     }
 
     .member-login img {
@@ -436,7 +437,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                     <form class="member-login flex signup" name="form1" method="post" novalidate>
                         <h2>JOIN US</h2>
                         <div class="bg-inputwrapper flex">
-                            <div class="input-wrapper flex">
+                            <div class="input-wrapper flex" id="signupEmailWrapper">
                                 <img src="images/icon-account.svg" alt="">
                                 <input class="member-input" type="email" id="signupEmail" name="email" placeholder="Email" required>
                             </div>
@@ -521,24 +522,25 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         signupPassword = $('#signupPassword'),
         confirmPassword = $('#confirmPassword');
 
+    const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
     function formCheck() {
         signupEmail.text('');
         // TODO: 檢查欄位
         let isPass = true;
 
-        if(! email_re.test(loginEmail.val())){
-            isPass = false;
-            console.log('請填寫正確的 email')
-            // $('#loginEmailWrapper').css('border', '1px solid red');
-            // email.next().text('請填寫正確的 email 格式');
-        }
+        // if (!email_re.test(loginEmail.val())) {
+        //     isPass = false;
+        //     console.log('請填寫正確的 email')
+        //     $('#loginEmailWrapper').css('border', '2px solid red');
+        //     // email.next().text('請填寫正確的 email 格式');
+        // }
 
-        if (loginPassword.val().length < 6) {
-            isPass = false;
-            loginPassword.css('border-color', 'red');
-            // password.next().text('密碼長度太短');
-        }
+        // if (signupPassword.val().length < 6) {
+        //     isPass = false;
+        //     signupPassword.css('border-color', 'red');
+        //     // password.next().text('密碼長度太短');
+        // }
 
         if (isPass) {
             $.post('signup-api.php', $(document.form1).serialize(),
@@ -567,8 +569,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 
     const loginEmail = $('#loginEmail'),
         loginPassword = $('#loginPassword');
-
-    const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
     function formCheck2() {
         loginEmail.text('');
