@@ -29,11 +29,16 @@ $stmt->execute([
     $mobile, //因為上面已經定義變數
     $_POST['address'],
     $_POST['id'],
-
+    $_POST['oldpassword'],
+    $_POST['newpassword'],
+    $_POST['confirmpassword']
+    
 ]);
 
 if($stmt->rowCount()){
     $output['success'] = true;
+    $_SESSION['member']['password']=$row;
+
 }
 
 echo json_encode($output,JSON_UNESCAPED_UNICODE);

@@ -262,7 +262,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             <div class="box"><a href="">會員條款</a></div>
             <div class="box"><a href="">隱私權政策</a></div>
         </div>
-        <form class="">
+        <form class="" name="form1" method="post" novalidate>
         <div class="bg-membercard flex">
             <div class="membercard flex">
                 <div class="membercard-img" />
@@ -339,7 +339,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         //     mobile.next().text('請填寫正確的 手機 格式');
         // }
         if (isPass) {
-            $.post('member-profile-api.php', $(document.form1).serialize(), function(data) {
+            $.post('member-profilemodify-api.php', $(document.form1).serialize(), function(data) {
                 console.log(data);
 
                 if (data.success) {
