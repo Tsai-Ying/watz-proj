@@ -324,10 +324,12 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
             color: #0388A6;
         }
 
-        .box-signup {
-            z-index: 10;
+        .box-login {
+            display: none;
         }
-
+        .tag-login{
+            z-index: -1;
+        }
         
 
         @media screen and (max-width: 992px) {
@@ -429,11 +431,16 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 
 <script>
     $('#tag-login').click(function() {
-        $('#box-login').css("z-index", "11");
+        $('#box-login').css("display", "block");
+        $('#box-signup').css("display", "none");
+
     })
 
     $('#tag-signup').click(function() {
-        $('#box-login').removeAttr('style');
+        $('#box-signup').css("display","block")
+        $('#box-login').css("display","none")
+
+        // $('#box-login').removeAttr('style');
     })
 </script>
 
