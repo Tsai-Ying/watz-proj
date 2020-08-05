@@ -324,7 +324,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
             color: #0388A6;
         }
 
-        .box-login {
+        .box-signup {
             display: none;
         }
         .tag-login{
@@ -431,16 +431,21 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 <?php include __DIR__ . '/__scripts.php' ?>
 
 <script>
+    // $('#tab2').css("z-index","0");
+    // $('#tab1').css("z-index","-1")
+
     $('#tag-login').click(function() {
         $('#box-login').css("display", "block");
         $('#box-signup').css("display", "none");
+        $('#tab1').css("z-index","-1");
+
 
     })
 
     $('#tag-signup').click(function() {
         $('#box-signup').css("display","block")
         $('#box-login').css("display","none")
-        $('#box-signup').css("z-index","1")
+        $('#tab1').css("z-index","1")
         // $('#box-login').removeAttr('style');
     })
 </script>
