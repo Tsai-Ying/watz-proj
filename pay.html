@@ -236,7 +236,8 @@
             margin-right: 20px;
             text-align: center;
         }
-        .info-number.showpink{
+
+        .info-number.showpink {
             border-bottom: 2px solid #FF9685;
         }
 
@@ -600,7 +601,7 @@
         .box-detail {
             width: 200px;
             height: 60px;
-            border: 1px solid teal;
+            /* border: 1px solid teal; */
             flex-direction: column;
             justify-content: space-between;
         }
@@ -631,7 +632,7 @@
             align-items: center;
             justify-content: space-between;
             border-bottom: 2px solid #E2E2E2;
-            border: 1px solid orange;
+            /* border: 1px solid orange; */
         }
 
         .socks-nameNprice {
@@ -829,7 +830,7 @@
                             <div class="credit-top flex">
                                 <div class="name-frame">
                                     <h6>Name</h6>
-                                    <h5>MEI SHAO NU</h5>
+                                    <h5 class="nameInputShow"></h5>
                                 </div>
                                 <div class="credit-top-img flex">
                                     <img class="img-chip" src="images/chip.svg" alt="">
@@ -889,12 +890,12 @@
                                 <li>
                                     <h5>信用卡卡號</h5>
                                     <h6>Card Number</h6>
-                                    <input type="text">
+                                    <input class="cardNumberInput" type="text">
                                 </li>
                                 <li class="">
                                     <h5>有效期限</h5>
                                     <h5>Expiration</h5>
-                                    <div class="month-input flex">
+                                    <div class="month-input cardMonthsInput flex">
                                         <input type="text">
                                         <input type="text">
                                     </div>
@@ -902,7 +903,7 @@
                                 <li>
                                     <h5>安全碼</h5>
                                     <h5>CCV</h5>
-                                    <input type="text">
+                                    <input class="cardCcvInput" type="text">
                                 </li>
                             </ul>
                         </div>
@@ -929,21 +930,20 @@
                             </ul>
                             <ul class="info-input flex">
                                 <div class="name-input">
-                                    <input type="text">
+                                    <input class="nameInput" type="text">
                                 </div>
-                                <li class="credit-number-input flex">
+                                <li class="credit-number-input cardNumberInput flex">
                                     <input type="text">
                                     <input type="text">
                                     <input type="text">
                                     <input type="text">
                                 </li>
-                                <li class="month-input flex">
+                                <li class="month-input cardMonthsInput flex">
                                     <input type="text">
                                     <p>/</p>
                                     <input type="text">
                                 </li>
-                                <li class="ccv-input"
-                                ><input type="text"></li>
+                                <li class="ccv-input cardCcvInput"><input type="text"></li>
 
                             </ul>
                         </div>
@@ -954,12 +954,11 @@
                         <div class="hide flex">
                             <div class="total-price-title flex">
                                 <h3>結帳金額</h3>
-                                <h4 class="seemore">查看訂單內容</h4>
+                                <h4 class="seemore seeMore">查看訂單內容</h4>
                             </div>
-                            <div class="list-scroll">
+                            <div class="list-scroll listScroll">
                                 <div class="box-detail">
                                     <div class="box-info flex">
-                                        <!-- <img class="box-img" src="images/watzbox1-2.png" alt=""> -->
                                         <div class="box-detail flex">
                                             <h4>芒果派對</h4>
                                             <div class="box-amount-detail">
@@ -978,7 +977,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div class="line"></div> -->
                                     <div class="product-orderlist flex">
                                         <h4>單購襪子</h4>
                                         <div class="socks flex">
@@ -1018,17 +1016,12 @@
                                     </ul>
                                 </div>
                             </div>
-
                         </div>
-
-
-                        <div class="open-btn flex">
+                        <div class="open-btn openBtn flex" id="">
                             <img src="images/pay-close.svg" alt="">
                             <p>訂單資訊</p>
                         </div>
-
                     </div>
-
                 </div>
             </div>
             <div class="prev-next-btn flex">
@@ -1061,33 +1054,58 @@
         $(".pay-frame").toggleClass("open");
         $(".hide").removeClass("open");
     });
-    $(".seemore").click(function () {
-        if (jQuery(window).width() < 992) {
-            $(document).ready(function () {
-                $(".list-scroll").hide();
-                $(".seemore").click(function () {
-                    $(".list-scroll").slideToggle()
-                    $('#open-btn').toggleClass('close');
-                });
-            });
-        } else {
-            $(".hide").toggleClass("open");
-        }
+
+    $('.seeMore').click(function () {
+        $(".hide").toggleClass("open");
+
     });
 
-    $(".credit-number-input").click(function(){
-        $( "#topcard-mid-info" ).children(
-            '.info-number'
-        ).css( "border-bottom", "2px solid #FF9685" );
-        
+
+    // $(".seeMore").click(function () {
+    //     if ($(window).width() < 992) {
+    //         // $(document).ready(function () {
+    //         $(".listScroll").hide();
+    //         $(".seeMore").click(function () {
+    //             $(".listScroll").slideToggle()
+    //             $('#open-btn').toggleClass('close');
+    //         });
+    //         // });
+    //     } else {
+    //         $(".hide").toggleClass("open");
+    //     }
+    // });
+
+    $(".cardNumberInput").click(function () {
+        $("#topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
+        $("#topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
+
     });
-    $(".month-input").click(function(){
-        $( "#topcard-mon-info" ).children('.info-number').css( "border-bottom", "2px solid #FF9685" );
+    $(".cardMonthsInput").click(function () {
+        $("#topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $("#topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
+        $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
     });
-    $(".ccv-input").click(function(){
-        $( "#topcard-ccv-info" ).children().css( "border-bottom", "2px solid #FF9685" );
+    $(".cardCcvInput").click(function () {
+        $("#topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $("#topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
     });
 
+    // $(".nameInput").keyup(function () {
+    //     var text = $(this).val();
+    //     text = processText(text);
+    //     $(".nameInputShow").val(text);
+    // });
+
+    $(".nameInput").keyup(function () {
+        let val = $(this).val();
+        // val = processText(val);
+        // val = val.replace(/[^\w]+/g, "");
+        // document.getElementById('myText').value = ;
+        console.log(val);
+        $(".nameInputShow").append(val);
+    });
 
 
 </script>
