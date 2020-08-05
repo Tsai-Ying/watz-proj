@@ -744,17 +744,14 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             <div class="box-product flex">
                 <ul class="box-product-frame flex">
                     <?php foreach ($_SESSION['cart'] as $i) : ?>
-                        <li class="eachsock-list eachSocksList flex " 
-                            data-sid="<?= $i['sid'] ?>" 
-                            data-price="<?= $i['price'] ?>" 
-                            data-quantity="<?= $i['quantity'] ?>">
+                        <li class="eachsock-list eachSocksList flex p-item" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
 
                             <div class="add-box-frame">
                                 <div class="add-box addBox flex">
                                     <p>+</p>
                                 </div>
                             </div>
-                            <div class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>.jpg" alt=""></div>
+                            <div class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-01.jpg" alt=""></div>
                             <div class="product-detail flex">
                                 <div class="sock-name flex">
                                     <h4><?= $i['product_name'] ?></h4>
@@ -767,10 +764,10 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                 <div class="socks-amount-choose flex">
                                     <div class="quantity-choose flex">
                                         <span class="minus">-</span>
-                                        <input class="quantity-input" type="text" value="1" />
+                                        <input class="quantity-input qty" type="text" value="1" />
                                         <span class="plus">+</span>
                                     </div>
-                                    <h4>NT $180</h4>
+                                    <h4 class="sub-total"></h4>
                                     <span class="remove"></span>
                                 </div>
                             </div>
@@ -803,7 +800,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                             <ul>
                                 <li class="flex">
                                     <p>商品總計</p>
-                                    <p>900</p>
+                                    <p id="productPrice"></p>
                                 </li>
                                 <li class="flex">
                                     <p>運費</p>
@@ -816,13 +813,13 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                 <div class="line"></div>
                                 <li class="flex">
                                     <h4>結帳金額</h4>
-                                    <h4>940 元</h4>
+                                    <h4 id="totalPrice"></h4>
                                 </li>
                             </ul>
                         </div>
-                        <?php if(isset($_SESSION['member'])): ?>
+                        <?php if (isset($_SESSION['member'])) : ?>
                             <button class="btn-pay">前往結帳</button>
-                        <?php else: ?>
+                        <?php else : ?>
                             <button class="btn-pay">前往結帳</button>
                         <?php endif; ?>
 
@@ -863,6 +860,8 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         $(this).toggleClass('active')
             .siblings().removeClass('active');
     });
+
+
     $(document).ready(function() {
         $(".hide-choose-box").hide();
         $(".box-watzbox-title").click(function() {
@@ -897,30 +896,98 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     });
 
 
-    // $(document).ready(function () {
-    //     // $('.addBox').hide();
-    //     if ($('.pair-btn').addClass('active')) {
-    //         //do-some-stuff
-    //         $('.step3').addClass('show');
-    //         $('.add-box').addClass('show');
-    //     } else {
-    //         //run function2
-    //         // $('.addBox').hide();
-    //     }
-    // });
-
-
-
     $('.addBox').click(function() {
         $('.boxChooseDetail').addClass('addInBox');
         $(".eachSocksList").css("display", "none");
-        // $(".eachSocksList").children().css("border-bottom","none");
-
     });
     $('.removeBox').click(function() {
         $('.boxChooseDetail').removeClass('addInBox');
         $(".eachSocksList").css("display", "flex");
     })
+
+
+
+// php
+    const dallorCommas = function(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    };
+
+    function prepareCartTable() {
+        $p_items = $('.p-item');
+        let total = 0;
+
+        if (!$p_items.length && $('#totalPrice').length) {
+            // location.href = 'product-list.php';
+            location.reload();
+            return;
+        }
+        $p_items.each(function() {
+            const sid = $(this).attr('data-sid');
+            const price = $(this).attr('data-price');
+            const quantity = $(this).attr('data-quantity');
+
+            $(this).find('.price').text('NT $' + dallorCommas(price));
+            $(this).find('.qty').val(quantity);
+            $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
+            total += quantity * price;
+            $('#productPrice').text('NT $' + dallorCommas(total));
+            $('#totalPrice').text('NT $' + dallorCommas(total-60-20));
+
+        })
+    }
+
+    prepareCartTable();
+
+    const qty_sel = $('.qty');
+    qty_sel.on('change', function() {
+        const p_item = $(this).closest('.p-item');
+        const sid = p_item.attr('data-sid');
+        // alert(sid +', '+ $(this).val() )
+        const sendObj = {
+            action: 'add',
+            sid: sid,
+            quantity: $(this).val()
+        }
+        $.get('cart-handle.php', sendObj, function(data) {
+            setCartCount(data); // navbar
+            p_item.attr('data-quantity', sendObj.quantity);
+            prepareCartTable();
+        }, 'json');
+    });
+
+    $('.remove-item').on('click', function() {
+        const p_item = $(this).closest('.p-item');
+        const sid = p_item.attr('data-sid');
+        $.get('cart-handle.php', {
+            action: 'remove',
+            sid: sid
+        }, function(data) {
+            setCartCount(data); // navbar
+            p_item.remove();
+            prepareCartTable();
+        }, 'json');
+
+    });
+
+    const cart_count = $('.cart-count');  // span tag
+    const cart_short_list = $('.cart-short-list');
+
+    $.get('handle-cart.php', function (data) {
+        setCartCount(data);
+    }, 'json');
+
+    function setCartCount(data) {
+        let count = 0;
+        if (data && data.cart && data.cart.length) {
+            for (let i in data.cart) {
+                let item = data.cart[i];
+                count += item.quantity;
+                cart_short_list.append(`<a class="dropdown-item"
+                href="#">${item.bookname} ${item.quantity}</a>`)
+            }
+            cart_count.text(count);
+        }
+    }
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>

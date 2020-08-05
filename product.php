@@ -1,5 +1,41 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = '';  // 這裡放你的pagename
+
+
+$qs = [];
+$perPage = 12;
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$cate_id = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
+// $search = isset($_GET['search']) ? $_GET['search'] : '';
+
+$where = "WHERE 1";
+// if ($cate_id) {
+//     $where .= " AND `category_sid`=$cate_id ";
+//     $qs['cate'] = $cate_id;
+// }
+
+$rows = [];
+$totalPages = 0;
+$t_sql = "SELECT COUNT(1) FROM `product` $where";
+$totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+
+if ($totalRows > 0) {
+    $totalPages = ceil($totalRows / $perPage);
+    if ($page < 1) {
+        header('Location: product-list.php');
+        exit;
+    }
+    if ($page > $totalPages) {
+        header('Location: product-list.php?page=' . $totalPages);
+        exit;
+    }
+    $sql = sprintf("SELECT * FROM `product` %s LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
+    $rows = $pdo->query($sql)->fetchAll();
+}
+
+// $c_sql = "SELECT * FROM `categories` ";
+
+// $cates = $pdo->query($c_sql)->fetchAll();
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
@@ -10,9 +46,7 @@ $pageName = '';  // 這裡放你的pagename
 
 <style>
     /* -------------- */
-    <?php include __DIR__ . '/product-helpcss.php' ?>
-    
-    body {
+    <?php include __DIR__ . '/product-helpcss.php' ?>body {
         background-size: cover;
         background-image: url("images/BG3.svg");
         background-repeat: repeat-y;
@@ -719,7 +753,6 @@ $pageName = '';  // 這裡放你的pagename
 </style>
 
 <div class="container flex">
-    <!-- 如果container有其它class要自己加上 -->
 
     <?php include __DIR__ . '/__navbar.php' ?>
 
@@ -1161,16 +1194,20 @@ $pageName = '';  // 這裡放你的pagename
                     </div>
                     <ul class="product-box
                         flex">
-                        <li class="single-product-box flex">
-                            <div class="product-top-img flex">
-                                <img src="images/product/darkpink-01.jpg" alt="">
-                            </div>
-                            <div class="product-text flex">
-                                <h5>01 偶素襪子 180元</h5>
-                                <img src="images/color1.svg" alt="">
-                            </div>
-                        </li>
-                        <li class="single-product-box flex">
+                        <?php foreach ($rows as $r) : ?>
+
+                            <li class="single-product-box flex">
+                                <div class="product-top-img flex">
+                                    <img src='images/product/<?= $r['img_ID'] ?>-1.jpg?' alt="">
+                                </div>
+                                <div class="product-text flex">
+                                    <h5>01 偶素襪子 180元</h5>
+                                    <img src="images/color1.svg" alt="">
+                                </div>
+                            </li>
+                        <?php endforeach; ?>
+
+                        <!-- <li class="single-product-box flex">
                             <div class="product-top-img flex">
                                 <img src="images/product/darkyellow-01.jpeg" alt="">
                             </div>
@@ -1197,7 +1234,7 @@ $pageName = '';  // 這裡放你的pagename
                                 <h5>01 偶素襪子 180元</h5>
                                 <img src="images/color1.svg" alt="">
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
 
@@ -1329,7 +1366,7 @@ $pageName = '';  // 這裡放你的pagename
     // ------------ 幫我搭 ---------------
 
     $(document).ready(function() {
-        // $('.help-bg').hide();
+        $('.help-bg').hide();
         $('#product-help-btn').click(function() {
             $('.help-bg').slideDown(800);
             return false;
