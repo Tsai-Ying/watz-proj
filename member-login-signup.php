@@ -440,7 +440,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
     $('#tag-signup').click(function() {
         $('#box-signup').css("display","block")
         $('#box-login').css("display","none")
-
+        $('#box-signup').css("z-index","1")
         // $('#box-login').removeAttr('style');
     })
 </script>
