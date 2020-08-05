@@ -6,7 +6,7 @@ $pageName = 'member-profile';  // 這裡放你的pagename
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
 
 <style>
-     body {
+        body {
             width: 100vw;
             background-image: url(images/BG2.svg);
             background-repeat: no-repeat;
@@ -122,6 +122,7 @@ $pageName = 'member-profile';  // 這裡放你的pagename
         }
 
         .selector a {
+            padding: 10px;
             margin-bottom: 10px;
             border-bottom: 4px solid transparent;
             transition: .2s;
@@ -242,7 +243,7 @@ $pageName = 'member-profile';  // 這裡放你的pagename
                 margin: 0;
             }
         }
-</style>
+    </style>
 
 <div class="container flex">
     <!-- 如果container有其它class要自己加上 -->

@@ -170,6 +170,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                 width: 100%;
                 flex-direction: column;
                 justify-content: flex-start;
+                height: 100%;
             }
 
             .bg-membercard {
@@ -247,7 +248,6 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             }
         }
     </style>
-
 <div class="container flex">
     <!-- 如果container有其它class要自己加上 -->
 

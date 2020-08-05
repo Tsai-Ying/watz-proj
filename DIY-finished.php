@@ -2,6 +2,7 @@
 $pageName = 'DIY-finished';
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
+<link rel="shortcut icon" href="images/favicon.svg">
 <style>
     .container {
         width: 100%;
