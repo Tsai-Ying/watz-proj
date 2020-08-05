@@ -356,74 +356,75 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
     <?php include __DIR__ . '/__html_btn-top.php' ?>
 
     <div class="wrapper flex">
-            <ul class="member-bblock">
-                <div class="bsignup" id="tab1">
-                    <li class="box-signup" id="box-signup">
-                        <form class="member-login flex signup">
-                            <h2>JOIN US</h2>
-                            <div class="bg-inputwrapper flex">
-                                <div class="input-wrapper flex">
-                                    <img src="images/icon-account.svg" alt="">
-                                    <input class="member-input" type="text" placeholder="Email">
-                                </div>
-                                <div class="input-wrapper flex">
-                                    <img src="images/icon-password.svg" alt="">
-                                    <input class="member-input" type="text" placeholder="Password">
-                                </div>
-                                <div class="input-wrapper flex">
-                                    <img src="images/icon-confirmPassword.svg" alt="">
-                                    <input class="member-input" type="text" placeholder="Confirm Password">
-                                </div>
-                            </div>
-                            <div class="agree flex">
-                                <input class="member-checkbox" type="checkbox" name="" id="">
-                                <h6>同意</h6><a href="">會員條款</a>
-                                <h6>與</h6><a href="">隱私權政策</a>
-                            </div>
-                            <button class="btn-blue">註冊會員</button>
-                        </form>
-                    </li>
-                    <div class="tag tag-signup" id="tag-signup">
-                        <h5>註冊帳號</h5>
-                    </div>
-                </div>
-                
-                <!------------------------signup------------------------------------------>
-                <div class="bsignup blogin" id="tab2">
-                    <li class="box-login" id="box-login">
-                        <form class="member-login flex">
-                            <h2>LOG IN</h2>
+        <ul class="member-bblock">
+            <div class="bsignup" id="tab1">
+                <li class="box-signup" id="box-signup">
+
+                    <form class="member-login flex signup" name="form1" method="post" onclick="return formCheck()" novalidate>
+                        <h2>JOIN US</h2>
+                        <div class="bg-inputwrapper flex">
                             <div class="input-wrapper flex">
                                 <img src="images/icon-account.svg" alt="">
-                                <input class="member-input" type="text" placeholder="Email">
+                                <input class="member-input" type="email" id="signupEmail" name="email" placeholder="Email" required>
                             </div>
                             <div class="input-wrapper flex">
                                 <img src="images/icon-password.svg" alt="">
-                                <input class="member-input" type="text" placeholder="Password">
+                                <input class="member-input" type="password" placeholder="Password" id="signupPassword" name="password" required>
                             </div>
-                            <div class="remember flex">
-                                <div class="member-remember flex">
-                                    <input class="member-checkbox flex" type="checkbox" name="" id="">
-                                    <h6 class="flex">Remember me</h6>
-                                </div>
-                                <div class="member-forget">
-                                    <a href="">忘記密碼</a>
-                                </div>
+                            <div class="input-wrapper flex">
+                                <img src="images/icon-confirmPassword.svg" alt="">
+                                <input class="member-input" type="password" placeholder="Confirm Password" id="confirmPassword" name="password">
                             </div>
-                            <button class="btn-blue">登入帳號</button>
-                            <h5>還不是會員?點這邊
-                                <a href="">加入會員!</a>
-                            </h5>
-                        </form>
-                    </li>
-                    <div class="tag tag-login" id="tag-login">
-                        <h5>登入會員</h5>
-                    </div>
+                        </div>
+                        <div class="agree flex">
+                            <input class="member-checkbox" type="checkbox" name="signupCheckBox" id="signupCheckBox" required>
+                            <h6>同意</h6><a href="">會員條款</a>
+                            <h6>與</h6><a href="">隱私權政策</a>
+                        </div>
+                        <button type="submit" class="btn-blue btn-login">註冊會員</button>
+                    </form>
+                </li>
+                <div class="tag tag-signup" id="tag-signup">
+                    <h5>註冊帳號</h5>
                 </div>
-                
-            </ul>
-            
-        </div>
+            </div>
+
+            <!------------------------signup------------------------------------------>
+            <div class="bsignup blogin" id="tab2">
+                <li class="box-login" id="box-login">
+                    <form class="member-login flex" name="form2" method="post" onclick="return formCheck2()" novalidate>
+                        <h2>LOG IN</h2>
+                        <div class="input-wrapper flex">
+                            <img src="images/icon-account.svg" alt="">
+                            <input class="member-input" type="email" id="loginEmail" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="input-wrapper flex">
+                            <img src="images/icon-password.svg" alt="">
+                            <input class="member-input" type="password" placeholder="Password" id="loginPassword" name="password" required>
+                        </div>
+                        <div class="remember flex">
+                            <div class="member-remember flex">
+                                <input class="member-checkbox flex" type="checkbox" name="loginCheckBox" id="loginCheckBox">
+                                <h6 class="flex">Remember me</h6>
+                            </div>
+                            <div class="member-forget">
+                                <a href="">忘記密碼</a>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-blue btn-login">登入帳號</button>
+                        <h5>還不是會員?點這邊
+                            <a href="">加入會員!</a>
+                        </h5>
+                    </form>
+                </li>
+                <div class="tag tag-login" id="tag-login">
+                    <h5>登入會員</h5>
+                </div>
+            </div>
+
+        </ul>
+
+    </div>
 
     <?php include __DIR__ . '/__html_footer.php' ?>
 </div>
