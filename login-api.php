@@ -24,7 +24,7 @@ $stmt->execute([
 ]);
 $row= $stmt->fetch();
 
-if(! empty($row) ){
+if( !empty($row) ){
     $output['success'] = true;
     unset($row['password']);
     $_SESSION['member']=$row;

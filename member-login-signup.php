@@ -359,7 +359,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         <ul class="member-bblock">
             <div class="bsignup" id="tab1">
                 <li class="box-signup" id="box-signup">
-
                     <form class="member-login flex signup" name="form1" method="post" novalidate>
                         <h2>JOIN US</h2>
                         <div class="bg-inputwrapper flex">
@@ -373,7 +372,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                             </div>
                             <div class="input-wrapper flex">
                                 <img src="images/icon-confirmPassword.svg" alt="">
-                                <input class="member-input" type="password" placeholder="Confirm Password" id="confirmPassword" name="password">
+                                <input class="member-input" type="password" placeholder="Confirm Password" id="confirmPassword" name="confirmPassword">
                             </div>
                         </div>
                         <div class="agree flex">
@@ -412,9 +411,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                             </div>
                         </div>
                         <button type="submit" class="btn-blue btn-login" onclick="return formCheck2()">登入帳號</button>
-                        <h5>還不是會員?點這邊
-                            <a href="">加入會員!</a>
-                        </h5>
+                        <h5>還不是會員?點這邊<a href="">加入會員!</a></h5>
                     </form>
                 </li>
                 <div class="tag tag-login" id="tag-login">
@@ -431,8 +428,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 <?php include __DIR__ . '/__scripts.php' ?>
 
 <script>
-    // $('#tab2').css("z-index","0");
-    // $('#tab1').css("z-index","-1")
 
     $('#tag-login').click(function() {
         $('#box-login').css("display", "block");
@@ -448,10 +443,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         $('#tab1').css("z-index","1")
         // $('#box-login').removeAttr('style');
     })
-</script>
 
-<!-- 註冊signup -->
-<script>
     const signupEmail = $('#signupEmail'),
         signupPassword = $('#signupPassword'),
         confirmPassword = $('#confirmPassword');
@@ -462,58 +454,25 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         // TODO: 檢查欄位
         let isPass = true;
 
-        // console.log(isPassA)
-
-        // if (!email_re.test(signupEmail.val())) {
-        //     isPass = false;
-        //     signupEmail.css('border-color', 'red');
-        //     signupEmail.next().text('請填寫正確的 email 格式');
-        // }
 
         if (isPass) {
             $.post('signup-api.php', $(document.form1).serialize(),
                 function(data) {
                     console.log(data);
                     if (data.success) {
-                        // info_bar.removeClass('alert-danger').addClass('alert-success').html('註冊成功');
+                        
                         console.log("success");
 
-                        setTimeout(function() {
-                            location.href = 'product.php';
-                        }, 2000)
                     } else {
-                        // info_bar.removeClass('alert-success').addClass('alert-danger').html(data.error || '註冊失敗');
-
+                        
                         console.log("fail");
 
                     }
-                    // info_bar.slideDown();
+                    
                     console.log("123");
-                    // setTimeout(function() {
-                    //     info_bar.slideUp()
-                    // }, 3000)
                 }, 'json');
 
 
-        }
-
-        if (isPass) {
-            $.post('login-api.php', $(document.form2).serialize(), function(data) {
-                console.log(data);
-                if (data.success) {
-                    // info_bar.removeClass('alert-danger').addClass('alert-success').html('登入成功');
-                    setTimeout(function() {
-                        location.href = 'product-list.php';
-                    }, 1000)
-                } else {
-                    // info_bar.removeClass('alert-success').addClass('alert-danger').html('帳號或密碼輸入錯誤');
-                }
-                // info_bar.slideDown();
-
-                // setTimeout(function () {
-                //     info_bar.slideUp()
-                // }, 2000)
-            }, 'json');
         }
 
         return false;
@@ -522,7 +481,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 // 登入 login
 
     const loginEmail = $('#loginEmail'),
-        loginPassword = $('#loginPassword')
+        loginPassword = $('#loginPassword');
 
     function formCheck2() {
         loginEmail.text('');
@@ -547,12 +506,14 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         if (isPass) {
             $.post('login-api.php', $(document.form2).serialize(), function(data) {
                 console.log(data);
+
                 if (data.success) {
                     // info_bar.removeClass('alert-danger').addClass('alert-success').html('登入成功');
                     setTimeout(function() {
-                        location.href = 'product-list.php';
+                        location.href = 'member-profile.php';
                     }, 1000)
                 } else {
+                    // console.log('fail')
                     // info_bar.removeClass('alert-success').addClass('alert-danger').html('帳號或密碼輸入錯誤');
                 }
                 // info_bar.slideDown();
