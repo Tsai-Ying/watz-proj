@@ -265,7 +265,7 @@ $pageName = 'member-profile';  // 這裡放你的pagename
                     <div class="member-info flex">
                         <div class="bg-photo flex">
                             <div class="member-photo flex">
-                                <img src="images/product/red square-01.jpg" alt="">
+                                <img src="images/red square-01.jpg" alt="">
                             </div>
                         </div>
                         <ul class="bg-form flex">
