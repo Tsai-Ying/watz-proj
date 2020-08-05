@@ -42,9 +42,11 @@
             padding: 5px;
             border-bottom: 4px solid #FF9685;
         }
-        .faq-wrapper{
+
+        .faq-wrapper {
             width: 70vh;
         }
+
         .mob-show {
             display: none;
         }
@@ -70,21 +72,28 @@
                 font-size: 16px;
             }
         }
+
         @media screen and (max-width:576px) {
-            .faq-wrapper{
-                width: 90vw;
-                justify-content: space-around;
+            .block-wrapper{
+                margin-top: 100px;
             }
-            .mob-show{
+            .faq-wrapper {
+                width: 70vw;
+                justify-content: space-evenly;
+            }
+
+            .mob-show {
                 display: unset;
             }
-            .b-bt-blue h3{
+
+            .b-bt-blue h3 {
                 font-weight: 500;
             }
-            .button.active{
-                background-color:#F2DE79;
+
+            .button.active {
+                background-color: #F2DE79;
             }
-            
+
         }
 
         /* -----FAQ-questions項目----- */
@@ -103,8 +112,8 @@
 
         @media screen and (max-width: 992px) {
             .qa-title-list {
-                width: 70vh;
-                justify-content: space-between;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
             }
 
             .qa-item {
@@ -124,8 +133,9 @@
 
         @media screen and (max-width:768px) {
             .qa-title-list {
-                width: 70vh;
-                justify-content: space-between;
+                width: 70vw;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
             }
         }
 
@@ -163,7 +173,7 @@
                 margin-bottom: 0px;
             }
 
-            
+
         }
 
         @media screen and (max-width: 768px) {
@@ -175,15 +185,18 @@
                 width: 90vw;
                 align-items: center;
             }
+
             .qa-title-wrapper {
                 width: 75vw;
 
             }
         }
+
         @media screen and (max-width:576px) {
-            .block{
-                border-radius:15px;
+            .block {
+                border-radius: 15px;
             }
+
             .mob-none {
                 display: none;
             }
@@ -319,6 +332,7 @@
                 width: 90vw;
             }
         }
+
         @media screen and (max-width:576px) {
             .block-bottom {
                 border-radius: 15px;
@@ -492,10 +506,10 @@
         </nav>
         <div class="block-wrapper flex">
             <div class="faq-wrapper flex">
-                <div class="b-bt-blue button">
+                <div class="b-bt-blue button mob-faq ">
                     <h3>常見問題集</h3>
                 </div>
-                <div class="b-bt-blue button mob-show">
+                <div class="b-bt-blue button mob-contact mob-show">
                     <h3>聯絡我們</h3>
                 </div>
             </div>
@@ -741,52 +755,95 @@
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="js/nav.js"></script>
 <script>
-    $(document).ready(function () {
-        $(".jq-ans").hide();
-        $(".jq-quest").click(function () {
-            $(this).siblings(".jq-ans").slideToggle()
-            $(this).find('img').toggleClass('close');
-        })
-    });
-    $(".qa-item-B").click(function () {
-        let target = $(".block2").offset().top;
-        $("html").animate({
-            scrollTop: target
-        })
-    });
-    $(".qa-item-C").click(function () {
-        let target = $(".block3").offset().top;
-        $("html").animate({
-            scrollTop: target
-        })
-    });
-    $(".qa-item-D").click(function () {
-        let target = $(".block4").offset().top;
-        $("html").animate({
-            scrollTop: target
-        })
-    });
-    if (jQuery(window).width() < 576) {
-        $(document).ready(function(){
-            $(".block2").hide();
-            $(".block3").hide();
-            $(".block4").hide();
+    if (jQuery(window).width() > 576) {
+        $(document).ready(function () {
+            $(".jq-ans").hide();
+            $(".jq-quest").click(function () {
+                $(this).siblings(".jq-ans").slideToggle()
+                $(this).find('img').toggleClass('close');
+            })
+        });
+        $(".qa-item-A").click(function () {
+            let target = $(".block1").offset().top;
+            $("html").animate({
+                scrollTop: target
+            })
+        });
+        $(".qa-item-B").click(function () {
+            let target = $(".block2").offset().top;
+            $("html").animate({
+                scrollTop: target
+            })
+        });
+        $(".qa-item-C").click(function () {
+            let target = $(".block3").offset().top;
+            $("html").animate({
+                scrollTop: target
+            })
+        });
+        $(".qa-item-D").click(function () {
+            let target = $(".block4").offset().top;
+            $("html").animate({
+                scrollTop: target
+            })
+        });
+    } else {
+        $(document).ready(function () {
+            $(".block1").show()
+            .siblings(".block").hide();
+            // $(".block2").hide();
+            // $(".block3").hide();
+            // $(".block4").hide();
             $(".block-bottom").hide();
             $(".contact").hide();
-            $(".qa-item-A").addClass("active")
-            //怎麼讓常見問題載入時active
-            $(".button").click(function(){
-                $(this).toggleClass('active')
-                .siblings().removeClass('active');
-            })
-            //怎麼讓其他ＱA的Ａ收起來
-            $(".jq-quest").click(function(){
-                $(this).siblings(".jq-ans").slideToggle()
-                .parents("li")
+            $(".jq-ans").hide();
+            $(".jq-quest").click(function () {
+                var me = this; // title bar
+                $jq_ans = $(this).closest('ul').find(".jq-ans");
+                $jq_ans.each(function () {
+                    if (me !== $(this).prev()[0])
+                        if ($(this).css('display') != 'none') {
+                            $(this).slideUp();
+                            $(this).prev().find('img').toggleClass('close');
+                        }
+                });
 
+                $(this).siblings(".jq-ans").slideToggle()
+                $(this).find('img').toggleClass('close');
             })
-        })
-}
+
+        });
+
+        $(".qa-item-A").click(function () {
+            $(".block1").show()
+            .siblings(".block").hide();  
+        });
+        $(".qa-item-B").click(function () {
+            $(".block2").show()
+            .siblings(".block").hide();
+        });
+        $(".qa-item-C").click(function () {
+            $(".block3").show()
+            .siblings(".block").hide();
+        });
+        $(".qa-item-D").click(function () {
+            $(".block4").show()
+            .siblings(".block").hide();
+        });
+        $(".mob-contact").click(function(){
+            $(".block").hide()
+            $(".contact").hide()
+            $(".qa-title-list").hide()
+            $(".block-bottom").show()
+        });
+        $(".mob-faq").click(function(){
+            $(".qa-title-list").show()
+            $(".block1").show()
+            .siblings(".block").hide();
+            $(".contact").hide()
+            $(".block-bottom").hide()
+        });
+    }
 </script>
 
 </html>
