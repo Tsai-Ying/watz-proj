@@ -50,6 +50,7 @@
             width: 1000px;
             height: 500px;
             justify-content: space-evenly;
+            margin-bottom: 30px;
             /* border: 1px solid royalblue; */
             /* -webkit-transition: all 0.5s ease-in-out; */
         }
@@ -205,7 +206,14 @@
             height: 40px;
             align-items: flex-start;
             justify-content: space-between;
+            /* border: 1px solid rgb(87, 71, 73); */
+        }
+        .name-frame h5{
+            width: 140px;
+            height: 20px;
             /* border: 1px solid pink; */
+            overflow: initial;
+
         }
 
         .credit-top-img {
@@ -615,7 +623,7 @@
 
         .product-orderlist {
             width: 280px;
-            height: 200px;
+            /* height: 200px; */
             flex-direction: column;
             justify-content: flex-start;
         }
@@ -666,7 +674,6 @@
         .prev-next-btn {
             width: 300px;
             justify-content: space-between;
-            margin: 0 auto;
         }
 
         .pay-btn {
@@ -840,17 +847,17 @@
                             <div class="credit-mid flex">
                                 <h6>Card Number</h6>
                                 <div class="flex" id="topcard-mid-info">
-                                    <div class="info-number">
-                                        <h5></h5>
+                                    <div class="info-number" >
+                                        <h5 class="cardNumberShow cardNumberShow1" maxlength="4"></h5>
                                     </div>
                                     <div class="info-number">
-                                        <h5></h5>
+                                        <h5 class="cardNumberShow cardNumberShow2" maxlength="4"></h5>
                                     </div>
                                     <div class="info-number">
-                                        <h5></h5>
+                                        <h5 class="cardNumberShow cardNumberShow3" maxlength="4"></h5>
                                     </div>
                                     <div class="info-number">
-                                        <h5></h5>
+                                        <h5 class="cardNumberShow cardNumberShow4" maxlength="4"></h5>
                                     </div>
                                 </div>
                             </div>
@@ -860,11 +867,11 @@
                                     <h6>Expiration</h6>
                                     <div class="flex" id="topcard-mon-info">
                                         <div class="info-number">
-                                            <h5></h5>
+                                            <h5 class="cardMonthsShow"></h5>
                                         </div>
                                         <img src="images/credit-down.svg" alt="">
                                         <div class="info-number">
-                                            <h5></h5>
+                                            <h5 class="cardYearsShow"></h5>
                                         </div>
                                         <img src="images/credit-down.svg" alt="">
                                     </div>
@@ -872,7 +879,7 @@
                                 <div class="credit-ccv" id="topcard-ccv-info">
                                     <h6>CCV</h6>
                                     <div class="info-number">
-                                        <h5></h5>
+                                        <h5 class="cardCcvShow"></h5>
                                     </div>
                                 </div>
 
@@ -885,19 +892,22 @@
                                 <li>
                                     <h5>信用卡姓名</h5>
                                     <h5>Name</h5>
-                                    <input type="text">
+                                    <input class="cardNameInput" type="text">
                                 </li>
                                 <li>
                                     <h5>信用卡卡號</h5>
                                     <h6>Card Number</h6>
-                                    <input class="cardNumberInput" type="text">
+                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="1">
+                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="2">
+                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="3">
+                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="4">
                                 </li>
                                 <li class="">
                                     <h5>有效期限</h5>
                                     <h5>Expiration</h5>
-                                    <div class="month-input cardMonthsInput flex">
-                                        <input type="text">
-                                        <input type="text">
+                                    <div class="month-input monthInput  flex">
+                                        <input class="cardMonthsInput" type="text">
+                                        <input class="cardMonthsInput" type="text">
                                     </div>
                                 </li>
                                 <li>
@@ -930,20 +940,21 @@
                             </ul>
                             <ul class="info-input flex">
                                 <div class="name-input">
-                                    <input class="nameInput" type="text">
+                                    <input class="cardNameInput" type="text">
                                 </div>
-                                <li class="credit-number-input cardNumberInput flex">
-                                    <input type="text">
-                                    <input type="text">
-                                    <input type="text">
-                                    <input type="text">
+                                <li class="credit-number-input creditNumberInput flex">
+                                    <input class="cardNumberInput" type="text" maxlength="4"  data-val="1">
+                                    <input class="cardNumberInput" type="text" maxlength="4"  data-val="2">
+                                    <input class="cardNumberInput" type="text" maxlength="4"  data-val="3">
+                                    <input class="cardNumberInput" type="text" maxlength="4"  data-val="4">
                                 </li>
-                                <li class="month-input cardMonthsInput flex">
-                                    <input type="text">
+                                <li class="month-input monthInput  flex">
+                                    <input class="cardmonthsInput cardMonthsInput" type="text" maxlength="2">
                                     <p>/</p>
-                                    <input type="text">
+                                    <input class="cardYearsInput" type="text" maxlength="2">
                                 </li>
-                                <li class="ccv-input cardCcvInput"><input type="text"></li>
+                                <li class="ccv-input">
+                                    <input class="cardCcvInput" type="text" maxlength="3"></li>
 
                             </ul>
                         </div>
@@ -1060,6 +1071,14 @@
 
     });
 
+    $(window).resize(function () {
+        if ($(window).width() < 922) {
+            // alert('Less than 960');
+            $(".pay-frame").removeClass("open");
+            $(".hide").removeClass("open");
+
+        }
+    });
 
     // $(".seeMore").click(function () {
     //     if ($(window).width() < 992) {
@@ -1075,13 +1094,22 @@
     //     }
     // });
 
+    //輸入欄底線變色//
+    $(".cardNameInput").click(function () {
+        $("#topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $("#topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
+
+    });
+
     $(".cardNumberInput").click(function () {
         $("#topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
         $("#topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
         $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
 
     });
-    $(".cardMonthsInput").click(function () {
+
+    $(".monthInput").click(function () {
         $("#topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
         $("#topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
         $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
@@ -1092,20 +1120,48 @@
         $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
     });
 
-    // $(".nameInput").keyup(function () {
-    //     var text = $(this).val();
-    //     text = processText(text);
-    //     $(".nameInputShow").val(text);
-    // });
-
-    $(".nameInput").keyup(function () {
+    //信用卡輸入同步///
+    $(".cardNameInput").keyup(function () {
         let val = $(this).val();
-        // val = processText(val);
-        // val = val.replace(/[^\w]+/g, "");
-        // document.getElementById('myText').value = ;
         console.log(val);
-        $(".nameInputShow").append(val);
+        $(".nameInputShow").html(val);
     });
+
+    $(".cardNumberInput").keyup(function () {
+
+        let val = $(this).val();
+        let dataVal = $(this).attr('data-val');
+        console.log('dataVal:', dataVal);
+        console.log('val:', val);
+        $(".cardNumberShow"+dataVal).html(val);
+    });
+
+    $(".cardMonthsInput").keyup(function () {
+        let val = $(this).val();
+        console.log(val);
+        $(".cardMonthsShow").html(val);
+    });
+    $(".cardYearsInput").keyup(function () {
+        let val = $(this).val();
+        console.log(val);
+        $(".cardMonthsShow").html(val);
+    });
+    $(".cardCcvInput").keyup(function () {
+        let val = $(this).val();
+        console.log(val);
+        $(".cardCcvShow").html(val);
+    });
+
+    $(".cardNumberInput").keyup(function(){
+            let maxLength=$(this).attr("maxlength")
+            let currentLength=$(this).val().length
+            console.log(maxLength+", "+currentLength)
+            if(maxLength==currentLength){
+                // $(this).parent().next().find(":input").focus()
+                $(this).next(":input").focus()
+                console.log("hi")
+            }
+        })
 
 
 </script>
