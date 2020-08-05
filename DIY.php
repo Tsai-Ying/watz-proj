@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIY</title>
-    <link rel="stylesheet" href="css/nav.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
-        rel="stylesheet">
-</head>
+<?php require __DIR__ . '/__connect_db.php';
+$pageName = 'DIY';  // 這裡放你的pagename
+?>
+<?php include __DIR__ . '/__html_head.php' ?>
 <style>
     .container {
         width: 100%;
@@ -987,79 +979,11 @@
     }
 </style>
 
-<body>
-    <div class="container flex">
-        <!-- nav -->
-        <nav class="nav flex transition">
-            <div class="nav-logo flex">
-                <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
-                <a class="img-logo-text" href=""><img src="images/logo-text.svg" alt=""></a>
-            </div>
-            <ul class="nav-list flex transition">
-                <li class="dropdown">
-                    <a>PROJECT</a>
-                    <div class="dropdown-menu flex transition">
-                        <div class="dropdown-bg flex transition">
-                            <a class="" href="">芒果派對</a>
-                            <a class="" href="">群魔亂舞</a>
-                            <a class="" href="">灰姑娘的<br>水晶襪</a>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="">SHOP</a></li>
-                <li><a href="">DIY</a></li>
-                <li><a href="">WATZ</a></li>
-                <li><a href="">CONTACT</a></li>
-            </ul>
-            <div class="nav-icon flex transition">
-                <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
-                <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
-                <div class="menu flex">
-                    <div class="click-area flex transition" id="menuClickArea">
-                        <div class="box-bar transition">
-                            <div class="bar bar1 transition"></div>
-                            <div class="bar bar2 transition"></div>
-                            <div class="bar bar3 transition"></div>
-                        </div>
-                    </div>
-                    <div class="menu-bg transition">
-                        <div class="menu-content transition flex">
-                            <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
-                            <ul class="menu-list">
-                                <li class="dropdown">
-                                    <a>PROJECT</a>
-                                    <div class="dropdown-menu flex transition">
-                                        <div class="dropdown-bg flex transition">
-                                            <a class="" href="">芒果派對</a>
-                                            <a class="" href="">群魔亂舞</a>
-                                            <a class="" href="">灰姑娘的水晶襪</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li><a href="">SHOP</a></li>
-                                <li><a href="">DIY</a></li>
-                                <li><a href="">WATZ</a></li>
-                                <li><a href="">CONTACT</a></li>
-                            </ul>
-                            <div class="flex">
-                                <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
-                                <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
-                                <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
-                                <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <!-- nav -->
-        <!-- btn-top -->
-        <div class="btn-top flex transition" id="goTop">
-            <img src="images/arrow-top.svg" alt="">
-            <h3>TOP</h3>
-            <div class="bg-btn-top transition"></div>
-        </div>
-        <!-- btn-top -->
+
+<div class="container flex">
+    <?php include __DIR__ . '/__navbar.php' ?>
+    <?php include __DIR__ . '/__html_btn-top.php' ?>
+
         <div class="diy-pattern flex spot mobile-none">
             <div class="pattern-bg1">
                 <img src="images/socks-bg1.svg" alt="">
@@ -1333,32 +1257,10 @@
             </div>
         </div>
         <div class="modal"></div>
-        <!-- footer -->
-        <footer class="flex">
-            <div class="footer-icon flex">
-                <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
-                <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
-                <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
-                <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
-            </div>
-            <h6>Copyright© WATZ Company All rights Reserved.</h6>
-            <img class="bg-footer flex" src="images/footer.svg" alt="">
-        </footer>
-        <!-- footer -->
-        <!-- mobile show list -->
-        <div class="mobile-show fixedlist">
-            <div class="fixedlist-icon flex">
-                <a class="icon-wrapper" href=""><img src="images/icon-faq.svg" alt=""></a>
-                <a class="icon-wrapper" href=""><img src="images/icon-sock.svg" alt=""></a>
-                <a class="icon-wrapper" href=""><img src="images/icon-member.svg" alt=""></a>
-                <a class="icon-wrapper" href="cart.html"><img src="images/icon-cart.svg" alt=""></a>
-            </div>
-        </div>
-        <!-- mobile show list -->
-</body>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script src="js/nav.js"></script>
+        <?php include __DIR__ . '/__html_footer.php' ?>
+</div>
+<?php include __DIR__ . '/__scripts.php' ?>        
+
 <script>
     // anchor point
     $(".go-next").click(function () {
@@ -1444,8 +1346,8 @@
         $(".diy-area").attr("src", "images/pattern-white.svg" )
     })
 
-    //DIY chane socks color
+    //DIY change socks color
 
 </script>
 
-</html>
+<?php require __DIR__ . '/__html_foot.php' ?>
