@@ -208,7 +208,8 @@
             justify-content: space-between;
             /* border: 1px solid rgb(87, 71, 73); */
         }
-        .name-frame h5{
+
+        .name-frame h5 {
             width: 140px;
             height: 20px;
             /* border: 1px solid pink; */
@@ -332,6 +333,7 @@
             border: none;
             border-radius: 6px;
             outline: none;
+            text-align: center;
         }
 
         .name-input input {
@@ -342,6 +344,11 @@
 
         .month-input input {
             align-items: center;
+            margin-right: 10px;
+
+        }
+        .year-input{
+            margin-left: 10px;
 
         }
 
@@ -384,6 +391,12 @@
             border-radius: 2px;
             outline: none;
             margin-top: 5px;
+            text-align: center;
+        }
+
+        .card-num-922 {
+            align-items: center;
+            background-color: #ffffff;
         }
 
         .credit-info-frame.showin922 .month-input {
@@ -847,7 +860,7 @@
                             <div class="credit-mid flex">
                                 <h6>Card Number</h6>
                                 <div class="flex" id="topcard-mid-info">
-                                    <div class="info-number" >
+                                    <div class="info-number">
                                         <h5 class="cardNumberShow cardNumberShow1" maxlength="4"></h5>
                                     </div>
                                     <div class="info-number">
@@ -886,7 +899,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="credit-input-form showin922 flex">
+                    <form class="credit-input-form showin922 flex">
                         <div class="credit-info-frame showin922 flex">
                             <ul class="flex">
                                 <li>
@@ -897,23 +910,25 @@
                                 <li>
                                     <h5>信用卡卡號</h5>
                                     <h6>Card Number</h6>
-                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="1">
-                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="2">
-                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="3">
-                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="4">
+                                    <div class="card-num-922 flex">
+                                        <input class="cardNumberInput" type="text" maxlength="4" data-val="1">-
+                                        <input class="cardNumberInput" type="text" maxlength="4" data-val="2">-
+                                        <input class="cardNumberInput" type="text" maxlength="4" data-val="3">-
+                                        <input class="cardNumberInput" type="text" maxlength="4" data-val="4">
+                                    </div>
                                 </li>
                                 <li class="">
                                     <h5>有效期限</h5>
                                     <h5>Expiration</h5>
                                     <div class="month-input monthInput  flex">
-                                        <input class="cardMonthsInput" type="text">
-                                        <input class="cardMonthsInput" type="text">
+                                        <input class="cardMonthsInput" type="text" maxlength="2">
+                                        <input class="cardYearsInput" type="text" maxlength="2">
                                     </div>
                                 </li>
                                 <li>
                                     <h5>安全碼</h5>
                                     <h5>CCV</h5>
-                                    <input class="cardCcvInput" type="text">
+                                    <input class="cardCcvInput" type="text" maxlength="3">
                                 </li>
                             </ul>
                         </div>
@@ -943,22 +958,22 @@
                                     <input class="cardNameInput" type="text">
                                 </div>
                                 <li class="credit-number-input creditNumberInput flex">
-                                    <input class="cardNumberInput" type="text" maxlength="4"  data-val="1">
-                                    <input class="cardNumberInput" type="text" maxlength="4"  data-val="2">
-                                    <input class="cardNumberInput" type="text" maxlength="4"  data-val="3">
-                                    <input class="cardNumberInput" type="text" maxlength="4"  data-val="4">
+                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="1">
+                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="2">
+                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="3">
+                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="4">
                                 </li>
-                                <li class="month-input monthInput  flex">
+                                <li class="month-input monthYearInput  flex">
                                     <input class="cardmonthsInput cardMonthsInput" type="text" maxlength="2">
-                                    <p>/</p>
-                                    <input class="cardYearsInput" type="text" maxlength="2">
+                                    /
+                                    <input class="year-input cardYearsInput" type="text" maxlength="2">
                                 </li>
                                 <li class="ccv-input">
                                     <input class="cardCcvInput" type="text" maxlength="3"></li>
 
                             </ul>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="block-right flex">
                     <div class="ordered-list flex">
@@ -1133,7 +1148,7 @@
         let dataVal = $(this).attr('data-val');
         console.log('dataVal:', dataVal);
         console.log('val:', val);
-        $(".cardNumberShow"+dataVal).html(val);
+        $(".cardNumberShow" + dataVal).html(val);
     });
 
     $(".cardMonthsInput").keyup(function () {
@@ -1144,7 +1159,7 @@
     $(".cardYearsInput").keyup(function () {
         let val = $(this).val();
         console.log(val);
-        $(".cardMonthsShow").html(val);
+        $(".cardYearsShow").html(val);
     });
     $(".cardCcvInput").keyup(function () {
         let val = $(this).val();
@@ -1152,16 +1167,25 @@
         $(".cardCcvShow").html(val);
     });
 
-    $(".cardNumberInput").keyup(function(){
-            let maxLength=$(this).attr("maxlength")
-            let currentLength=$(this).val().length
-            console.log(maxLength+", "+currentLength)
-            if(maxLength==currentLength){
-                // $(this).parent().next().find(":input").focus()
-                $(this).next(":input").focus()
-                console.log("hi")
-            }
-        })
+    $(".cardNumberInput").keyup(function () {
+        let maxLength = $(this).attr("maxlength")
+        let currentLength = $(this).val().length
+        console.log(maxLength + ", " + currentLength)
+        if (maxLength == currentLength) {
+            // $(this).parent().next().find(":input").focus()
+            $(this).next(":input").focus();
+        }
+    });
+
+    $(".cardMonthsInput").keyup(function () {
+        let maxLength = $(this).attr("maxlength")
+        let currentLength = $(this).val().length
+        console.log(maxLength + ", " + currentLength)
+        if (maxLength == currentLength) {
+            // $(this).parent().next().find(":input").focus()
+            $(this).next(":input").focus();
+        }
+    });
 
 
 </script>
