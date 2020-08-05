@@ -1,5 +1,34 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = 'product-detail';  // 這裡放你的pagename
+
+$qs = [];
+$perPage = 12;
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$cate_id = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
+
+
+$where = "WHERE 1";
+
+
+$rows = [];
+$totalPages = 0;
+$t_sql = "SELECT COUNT(1) FROM `product` $where";
+$totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+
+if ($totalRows > 0) {
+    $totalPages = ceil($totalRows / $perPage);
+    if ($page < 1) {
+        header('Location: product-list.php');
+        exit;
+    }
+    if ($page > $totalPages) {
+        header('Location: product-list.php?page=' . $totalPages);
+        exit;
+    }
+    $sql = sprintf("SELECT * FROM `product` %s LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
+    $rows = $pdo->query($sql)->fetchAll();
+}
+
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 

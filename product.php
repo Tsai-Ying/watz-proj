@@ -1201,7 +1201,7 @@ if ($totalRows > 0) {
                                     <img src='images/product/<?= $r['img_ID'] ?>-1.jpg?' alt="">
                                 </div>
                                 <div class="product-text flex">
-                                    <h5>01 偶素襪子 180元</h5>
+                                    <h5><?= $r['product_name'] ?></h5>
                                     <img src="images/color1.svg" alt="">
                                 </div>
                             </li>
