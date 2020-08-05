@@ -15,7 +15,7 @@ if(empty($_POST['email']) or empty($_POST['password'])){
 }
 // TODO: 檢查欄位
 
-$sql = "SELECT `id`, `email`, `name` FROM members WHERE email=? AND password=SHA1(?)";
+$sql = "SELECT `id`, `email`, `name`, `mobile`, `address` FROM members WHERE email=? AND password=SHA1(?)";
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute([
