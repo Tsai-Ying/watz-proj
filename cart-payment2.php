@@ -874,19 +874,19 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                         <div class="pay-choose">
                             <h3>付款方式選擇</h3>
                             <div>
-                                <button class="button active" href="#">信用卡</button>
-                                <button class="button" href="#">到貨付款</button>
+                                <button class="button payBtn active" href="#">信用卡</button>
+                                <button class="button payBtn" href="#">到貨付款</button>
                             </div>
                         </div>
                         <div class="receipt-choose">
                             <h3>發票選擇</h3>
                             <div class="receipt-choose-frame flex">
                                 <div>
-                                <button class="button active" href="#" id="paper">紙本發票</button>
-                                <button class="button" href="#" id="elec">電子發票</button></div>
+                                <button class="button receiptBtn active" href="#" id="paper" data-val="1">紙本發票</button>
+                                <button class="button receiptBtn" href="#" id="elec" data-val="1">電子發票</button></div>
                                 <div>
-                                <button class="button " href="#" id="icloud">雲端載具</button>
-                                <button class="button" href="#" id="donate">發票捐贈</button></div>
+                                <button class="button receiptBtn" href="#" id="icloud" data-val="1">雲端載具</button>
+                                <button class="button receiptBtn" href="#" id="donate" data-val="1">發票捐贈</button></div>
                             </div>
                             <div class="peper-receipt flex show">
                                 <div class="radio-frame flex">
@@ -1028,14 +1028,13 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             </div>
 
         </div>
-</div>
 <?php include __DIR__ . '/__html_footer.php' ?>
 
 <?php include __DIR__ . '/__scripts.php' ?>
 
 <script>
-        ///黃色按鈕////
-        $(".button").click(function () {
+        ///選擇shipping按鈕////
+        $(".payBtn").click(function () {
             $(this).addClass('active')
                 .siblings().removeClass('active');
         });
@@ -1068,6 +1067,19 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             $(".seemore").click(function () {
                 $("#hide").slideToggle()
             });
+        });
+
+        //收據四選一btn//
+        const pairBtns = $('.receiptBtn');
+
+        pairBtns.click(function () {
+            const me = this;
+            pairBtns.each(function(){
+                if(this!==me){
+                    $(this).removeClass('active');
+                }
+            });
+            $(this).toggleClass('active');
         });
     </script>
 
