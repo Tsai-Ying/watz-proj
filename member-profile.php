@@ -265,25 +265,25 @@ $pageName = 'member-profile';  // 這裡放你的pagename
                     <div class="member-info flex">
                         <div class="bg-photo flex">
                             <div class="member-photo flex">
-                                <img src="images/product/red square-01.jpg" alt="">
+                                <img src="images/red square-01.jpg" alt="">
                             </div>
                         </div>
                         <ul class="bg-form flex">
                             <li class="form-name flex">
                                 <h5>姓名</h5>
-                                <h5 class="name-content"><?=($_SESSION['member']['name']) ?></h5>
+                                <h5 class="name-content"><?= htmlentities($_SESSION['member']['name']) ?></h5>
                             </li>
                             <li class="form-item flex">
                                 <h5>電話</h5>
-                                <h5><?=($_SESSION['member']['mobile']) ?></h5>
+                                <h5><?= htmlentities($_SESSION['member']['mobile']) ?></h5>
                             </li>
                             <li class="form-item flex">
                                 <h5>信箱</h5>
-                                <h5><?=($_SESSION['member']['email']) ?></h5>
+                                <h5><?= htmlentities($_SESSION['member']['email']) ?></h5>
                             </li>
                             <li class="form-item flex">
                                 <h5 class="adress">地址</h5>
-                                <h5><?=($_SESSION['member']['address']) ?></h5>
+                                <h5><?= htmlentities($_SESSION['member']['address']) ?></h5>
                             </li>
                             <li class="form-item flex">
                                 <h5>密碼</h5>
