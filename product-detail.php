@@ -4,6 +4,7 @@ $pageName = 'product-detail';  // 這裡放你的pagename
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 $t_sql = "SELECT * FROM `product` WHERE `sid`= $sid";
 $row = $pdo->query($t_sql)->fetch();
+$b_sql = "SELECT"
 
 
 ?>
@@ -110,7 +111,6 @@ $row = $pdo->query($t_sql)->fetch();
         border: 1px solid transparent;
         border-radius: 2px;
         outline: none;
-
     }
 
     .block-fixed>button {
@@ -184,6 +184,7 @@ $row = $pdo->query($t_sql)->fetch();
     .box-photo-left {
         flex-direction: column;
         justify-content: space-evenly;
+        margin-right: 10px;
     }
 
     .box-photo-left div {
@@ -191,6 +192,7 @@ $row = $pdo->query($t_sql)->fetch();
         height: 120px;
         background: white;
         margin-bottom: 10px;
+        cursor: pointer;
     }
 
     .box-photo-left div img {
@@ -199,11 +201,12 @@ $row = $pdo->query($t_sql)->fetch();
         object-fit: cover;
     }
 
-    .box-photo-right {
+    .box-photo-right div {
         width: 500px;
         height: 600px;
         background: white;
         margin-left: 10px;
+        cursor: pointer;
     }
 
     .box-photo-right div img {
@@ -337,9 +340,15 @@ $row = $pdo->query($t_sql)->fetch();
             height: 100px;
         }
 
-        .box-photo-right {
+        .box-photo-right div {
             width: 400px;
             height: 480px;
+        }
+
+        .box-photo-left img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
         }
 
         .box-photo-right img {
@@ -351,6 +360,12 @@ $row = $pdo->query($t_sql)->fetch();
         .box-bigphoto>div {
             width: 480px;
             height: 320px;
+        }
+
+        .box-bigphoto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .box-suggest>ul>li {
@@ -465,9 +480,15 @@ $row = $pdo->query($t_sql)->fetch();
             width: 100%;
         }
 
-        .box-bigphoto>div {
+        .box-bigphoto div {
             width: 72vw;
             height: 48vw;
+        }
+
+        .box-bigphoto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .block-left-bottom {
@@ -515,6 +536,8 @@ $row = $pdo->query($t_sql)->fetch();
         }
 
         .box-photo-right {
+            width: 70vw;
+            height: 84vw;
             background: rgb(212, 212, 212);
             position: relative;
         }
@@ -523,6 +546,7 @@ $row = $pdo->query($t_sql)->fetch();
             width: 70vw;
             height: 84vw;
             position: absolute;
+            margin: 0;
         }
 
         .box-photo-right img{
@@ -621,13 +645,13 @@ $row = $pdo->query($t_sql)->fetch();
                     </div>
                     <div class="box-photo flex transition mobile-none">
                         <div class="box-photo-left flex transition">
-                            <div><img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt=""></div>
-                            <div><img src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt=""></div>
-                            <div><img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt=""></div>
-                            <div><img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt=""></div>
+                            <div><img class="imgID-1" src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt=""></div>
+                            <div><img class="imgID-2" src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt=""></div>
+                            <div><img class="imgID-3" src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt=""></div>
+                            <div><img class="imgID-4" src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt=""></div>
                         </div>
                         <div class="box-photo-right transition">
-                            <img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
+                            <img class="photo-change" src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
                         </div>
                     </div>
                     <div class="box-photo flex transition slider-box flex">
@@ -834,7 +858,23 @@ $row = $pdo->query($t_sql)->fetch();
         });
     });
 
-
+    // block-left 點擊改變照片功能
+    $(".imgID-1").click(function(){
+        let imgSrc = $(this).attr("src");
+        $(".photo-change").attr("src", imgSrc);
+    })
+    $(".imgID-2").click(function(){
+        let imgSrc = $(this).attr("src");
+        $(".photo-change").attr("src", imgSrc);
+    })
+    $(".imgID-3").click(function(){
+        let imgSrc = $(this).attr("src");
+        $(".photo-change").attr("src", imgSrc);
+    })
+    $(".imgID-4").click(function(){
+        let imgSrc = $(this).attr("src");
+        $(".photo-change").attr("src", imgSrc);
+    })
 
 </script>
 
