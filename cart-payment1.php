@@ -744,21 +744,19 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             <div class="box-product flex">
                 <ul class="box-product-frame flex">
                     <?php foreach ($_SESSION['cart'] as $i) : ?>
-                        <li class="eachsock-list eachSocksList flex p-item" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
+                        <li class="eachsock-list eachSocksList flex p_item" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
 
                             <div class="add-box-frame">
                                 <div class="add-box addBox flex">
                                     <p>+</p>
                                 </div>
                             </div>
-                            <div class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-01.jpg" alt=""></div>
+                            <div class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt=""></div>
                             <div class="product-detail flex">
                                 <div class="sock-name flex">
                                     <h4><?= $i['product_name'] ?></h4>
                                     <div>
-                                        <h6>中長襪</h6>
-                                        <h6>22-25cm</h6>
-                                        <h6>材質:100%純棉</h6>
+                                        <h6><?= $i['detail'] ?></h6>
                                     </div>
                                 </div>
                                 <div class="socks-amount-choose flex">
@@ -768,7 +766,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                         <span class="plus">+</span>
                                     </div>
                                     <h4 class="sub-total"></h4>
-                                    <span class="remove"></span>
+                                    <span class="remove remove-item"></span>
                                 </div>
                             </div>
                         </li>
@@ -913,7 +911,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     };
 
     function prepareCartTable() {
-        $p_items = $('.p-item');
+        $p_items = $('.p_item');
         let total = 0;
 
         if (!$p_items.length && $('#totalPrice').length) {
@@ -940,7 +938,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
     const qty_sel = $('.qty');
     qty_sel.on('change', function() {
-        const p_item = $(this).closest('.p-item');
+        const p_item = $(this).closest('.p_item');
         const sid = p_item.attr('data-sid');
         // alert(sid +', '+ $(this).val() )
         const sendObj = {
@@ -956,12 +954,13 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     });
 
     $('.remove-item').on('click', function() {
-        const p_item = $(this).closest('.p-item');
+        const p_item = $('.p_item');
         const sid = p_item.attr('data-sid');
-        $.get('cart-handle.php', {
+        const sendObj = {
             action: 'remove',
             sid: sid
-        }, function(data) {
+        }
+        $.get('cart-handle.php', sendObj, function(data) {
             setCartCount(data); // navbar
             p_item.remove();
             prepareCartTable();
@@ -972,7 +971,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     const cart_count = $('.cart-count');  // span tag
     const cart_short_list = $('.cart-short-list');
 
-    $.get('handle-cart.php', function (data) {
+    $.get('cart-handle.php', function (data) {
         setCartCount(data);
     }, 'json');
 

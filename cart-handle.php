@@ -29,7 +29,7 @@ switch ($action) {
             $index = array_search($sid, array_column($_SESSION['cart'], 'sid'));
             if ($index === false) {
                 // 原本沒有此項目
-                $sql = "SELECT `sid`, `product_name`, `img_ID`, `price` FROM `product` WHERE `sid`=$sid";
+                $sql = "SELECT `sid`, `product_name`, `img_ID`, `price`,`detail` FROM `product` WHERE `sid`=$sid";
                 $row = $pdo->query($sql)->fetch();
                 if (empty($row)) {
                     // 找不到那項商品
