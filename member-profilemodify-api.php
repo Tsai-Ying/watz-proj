@@ -20,7 +20,8 @@ $mobile = implode('', explode('-', $mobile));
 $sql = "UPDATE `members` SET
             `name`=?,
             `mobile`=?,
-            `address`=?
+            `address`=?,
+            `password`=?,
             WHERE`id`=?";
 
 $stmt = $pdo->prepare($sql);
@@ -29,9 +30,7 @@ $stmt->execute([
     $mobile, //因為上面已經定義變數
     $_POST['address'],
     $_POST['id'],
-    $_POST['oldpassword'],
     $_POST['newpassword'],
-    $_POST['confirmpassword']
     
 ]);
 
