@@ -13,7 +13,7 @@ if (!isset($_SESSION['cart'])) {
 
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
-$quantity = isset($_GET['quantity']) ? intval($_GET['quantity']) : 0;
+$qty = isset($_GET['qty']) ? intval($_GET['qty']) : 0;
 $output = [
     'action' => $action,
     'code' => 0
@@ -22,26 +22,26 @@ $output = [
 
 switch ($action) {
     case 'add':
-        if(empty($sid) or $quantity<=0 ){
+        if(empty($sid) or $qty<=0 ){
             // 不做任何事
             $output['code'] = 400;
         } else {
             $index = array_search($sid, array_column($_SESSION['cart'], 'sid'));
             if ($index === false) {
                 // 原本沒有此項目
-                $sql = "SELECT `sid`, `bookname`, `book_id`, `price` FROM `products` WHERE `sid`=$sid";
+                $sql = "SELECT `sid`, `product_name`, `img_ID`, `price` FROM `product` WHERE `sid`=$sid";
                 $row = $pdo->query($sql)->fetch();
                 if (empty($row)) {
                     // 找不到那項商品
                     $output['code'] = 240;
                 } else {
-                    $row['quantity'] = $quantity;
+                    $row['qty'] = $qty;
                     $_SESSION['cart'][] = $row;
                     $output['code'] = 260;
                 }
             } else {
                 // 已經有該項目
-                $_SESSION['cart'][$index]['quantity'] = $quantity;
+                $_SESSION['cart'][$index]['qty'] = $qty;
                 $output['code'] = 210;
             }
         }

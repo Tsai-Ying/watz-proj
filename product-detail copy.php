@@ -580,150 +580,45 @@ $row = $pdo->query($t_sql)->fetch();
     <?php include __DIR__ . '/__navbar.php' ?>
     <?php include __DIR__ . '/__html_btn-top.php' ?>
 
-        <div class="wrapper flex transition">
-            <div class="block-left transition">
-                <div class="block-left-top flex transition">
-                    <div class="bread-crumb transition">
-                        <a href="">商品</a>
-                        <span> > </span>
-                        <a href="">素色經典</a>
-                    </div>
-                    <div class="box-photo flex transition mobile-none">
-                        <div class="box-photo-left flex transition">
-                            <div><img src="" alt=""></div>
-                            <div><img src="" alt=""></div>
-                            <div><img src="" alt=""></div>
-                            <div><img src="" alt=""></div>
-                        </div>
-                        <div class="box-photo-right transition">
-                            <img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="box-photo flex transition slider-box flex">
-                        <div class="box-photo-left flex transition mobile-none">
-                            <div><img src="" alt=""></div>
-                            <div><img src="" alt=""></div>
-                            <div><img src="" alt=""></div>
-                            <div><img src="" alt=""></div>
-                        </div>
-                        <div class="box-photo-right transition">
-                            <img src="" alt="">
-                        </div>
-                        <div class="arrow-left flex">
-                            <img src="images/arrow-left-thiner.svg" alt="">
-                        </div>
-                        <div class="arrow-right flex">
-                            <img src="images/arrow-right-thiner.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="block-fixed flex mobile-visible mobile-none">
-                        <h3><?= $row['product_name'] ?></h3>
-                        <p>後腳跟設計可配合兒童成長而長期穿著。具有可抑制汗味的效果。使用對環境溫和的有機棉所製成。</p>
-                        <p>中長襪<br>
-                            22-25cm<br>
-                            材質:100%純棉</p>
-                        <ul class="flex">
-                            <li class="active">
-                                <div class="socks-pattern flex">
-                                    <img class="img-select-circle transition active" src="images/select circle.svg"
-                                        alt="">
-                                    <div class=""><img src="" alt=""></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="socks-pattern flex">
-                                    <img class="img-select-circle transition" src="images/select circle.svg" alt="">
-                                    <div class=""><img src="" alt=""></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="socks-pattern flex">
-                                    <img class="img-select-circle transition" src="images/select circle.svg" alt="">
-                                    <div class=""><img src="" alt=""></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="socks-pattern flex">
-                                    <img class="img-select-circle transition" src="images/select circle.svg" alt="">
-                                    <div class=""><img src="" alt=""></div>
-                                </div>
-                            </li>
-                        </ul>
-                        <h3 class="price">售價 120元</h3>
-                        <div class="buy flex">
-                            <div class="quantity-choose flex">
-                                <span class="minus">-</span>
-                                <input class="quantity-input" type="text" value="1" />
-                                <span class="plus">+</span>
-                            </div>
-                            <button class="transition btn-coral">加入購物車</button>
-                        </div>
-                    </div>
-                    <div class="box-text">
-                        <ul>
-                            <li>
-                                <p>・手洗／最高水溫不超過30℃</p>
-                            </li>
-                            <li>
-                                <p>・不可以用機器烘乾</p>
-                            </li>
-                            <li>
-                                <p>・棉襪穿起來長度有±2cm彈性，可用腳底長度及穿著舒適感來做選擇</p>
-                            </li>
-                            <li>
-                                <p>＊由於雙針筒織法，可能會有1至2公分的線頭，為正常現象</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="box-promise flex">
-                        <div class="title-promise flex">
-                            <h5>WATZ與你的五個約定</h5>
-                            <img src="images/title-bgc.svg" alt="">
-                        </div>
-                        <ul class="flex">
-                            <li>
-                                <img src="images/promise1.svg" alt="">
-                                <h5>台灣製造</h5>
-                            </li>
-                            <li>
-                                <img src="images/promise2.svg" alt="">
-                                <h5>舒適透氣</h5>
-                            </li>
-                            <li>
-                                <img src="images/promise3.svg" alt="">
-                                <h5>蓬鬆柔軟</h5>
-                            </li>
-                            <li>
-                                <img src="images/promise4.svg" alt="">
-                                <h5>耐洗耐穿</h5>
-                            </li>
-                            <li>
-                                <img src="images/promise5.svg" alt="">
-                                <h5>無害環境</h5>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="box-bigphoto">
+    <div class="wrapper flex transition">
+        <div class="block-left transition">
+            <div class="block-left-top flex transition">
+                <div class="bread-crumb transition">
+                    <a href="">商品</a>
+                    <span> > </span>
+                    <a href="">素色經典</a>
+                </div>
+                <div class="box-photo flex transition mobile-none">
+                    <div class="box-photo-left flex transition">
                         <div><img src="" alt=""></div>
                         <div><img src="" alt=""></div>
                         <div><img src="" alt=""></div>
+                        <div><img src="" alt=""></div>
+                    </div>
+                    <div class="box-photo-right transition">
+                        <img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
                     </div>
                 </div>
-                <div class="block-left-bottom">
-                    <div class="box-suggest">
-                        <h5>你可能會喜歡:</h5>
-                        <ul class="flex">
-                            <li><img src="" alt=""></li>
-                            <li><img src="" alt=""></li>
-                            <li><img src="" alt=""></li>
-                        </ul>
+                <div class="box-photo flex transition slider-box flex">
+                    <div class="box-photo-left flex transition mobile-none">
+                        <div><img src="" alt=""></div>
+                        <div><img src="" alt=""></div>
+                        <div><img src="" alt=""></div>
+                        <div><img src="" alt=""></div>
+                    </div>
+                    <div class="box-photo-right transition">
+                        <img src="" alt="">
+                    </div>
+                    <div class="arrow-left flex">
+                        <img src="images/arrow-left-thiner.svg" alt="">
+                    </div>
+                    <div class="arrow-right flex">
+                        <img src="images/arrow-right-thiner.svg" alt="">
                     </div>
                 </div>
-            </div>
-            <div class="block-right">
-                <div class="block-fixed flex position-sticky">
+                <div class="block-fixed flex mobile-visible mobile-none">
                     <h3><?= $row['product_name'] ?></h3>
-                    <p><?= $row['introduction'] ?></p>
+                    <p>後腳跟設計可配合兒童成長而長期穿著。具有可抑制汗味的效果。使用對環境溫和的有機棉所製成。</p>
                     <p>中長襪<br>
                         22-25cm<br>
                         材質:100%純棉</p>
@@ -754,33 +649,136 @@ $row = $pdo->query($t_sql)->fetch();
                         </li>
                     </ul>
                     <h3 class="price">售價 120元</h3>
-                    <div class="quantity-choose flex">
-                        <span class="minus">-</span>
-                        <input class="quantity-input" type="text" value="1" />
-                        <span class="plus">+</span>
+                    <div class="buy flex">
+                        <div class="quantity-choose flex">
+                            <span class="minus">-</span>
+                            <input class="quantity-input" type="text" value="1" />
+                            <span class="plus">+</span>
+                        </div>
+                        <button class="transition btn-coral buy_btn">加入購物車</button>
                     </div>
-                    <button class="transition">加入購物車</button>
+                </div>
+                <div class="box-text">
+                    <ul>
+                        <li>
+                            <p>・手洗／最高水溫不超過30℃</p>
+                        </li>
+                        <li>
+                            <p>・不可以用機器烘乾</p>
+                        </li>
+                        <li>
+                            <p>・棉襪穿起來長度有±2cm彈性，可用腳底長度及穿著舒適感來做選擇</p>
+                        </li>
+                        <li>
+                            <p>＊由於雙針筒織法，可能會有1至2公分的線頭，為正常現象</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-promise flex">
+                    <div class="title-promise flex">
+                        <h5>WATZ與你的五個約定</h5>
+                        <img src="images/title-bgc.svg" alt="">
+                    </div>
+                    <ul class="flex">
+                        <li>
+                            <img src="images/promise1.svg" alt="">
+                            <h5>台灣製造</h5>
+                        </li>
+                        <li>
+                            <img src="images/promise2.svg" alt="">
+                            <h5>舒適透氣</h5>
+                        </li>
+                        <li>
+                            <img src="images/promise3.svg" alt="">
+                            <h5>蓬鬆柔軟</h5>
+                        </li>
+                        <li>
+                            <img src="images/promise4.svg" alt="">
+                            <h5>耐洗耐穿</h5>
+                        </li>
+                        <li>
+                            <img src="images/promise5.svg" alt="">
+                            <h5>無害環境</h5>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-bigphoto">
+                    <div><img src="" alt=""></div>
+                    <div><img src="" alt=""></div>
+                    <div><img src="" alt=""></div>
+                </div>
+            </div>
+            <div class="block-left-bottom">
+                <div class="box-suggest">
+                    <h5>你可能會喜歡:</h5>
+                    <ul class="flex">
+                        <li><img src="" alt=""></li>
+                        <li><img src="" alt=""></li>
+                        <li><img src="" alt=""></li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <?php include __DIR__ . '/__html_footer.php' ?>
+        <div class="block-right">
+            <div class="block-fixed flex position-sticky">
+                <h3 class="p_item" data-sid="<?= $sid ?>"><?= $row['product_name'] ?></h3>
+                <p><?= $row['introduction'] ?></p>
+                <p>中長襪<br>
+                    22-25cm<br>
+                    材質:100%純棉</p>
+                <ul class="flex">
+                    <li class="active">
+                        <div class="socks-pattern flex">
+                            <img class="img-select-circle transition active" src="images/select circle.svg" alt="">
+                            <div class=""><img src="" alt=""></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="socks-pattern flex">
+                            <img class="img-select-circle transition" src="images/select circle.svg" alt="">
+                            <div class=""><img src="" alt=""></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="socks-pattern flex">
+                            <img class="img-select-circle transition" src="images/select circle.svg" alt="">
+                            <div class=""><img src="" alt=""></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="socks-pattern flex">
+                            <img class="img-select-circle transition" src="images/select circle.svg" alt="">
+                            <div class=""><img src="" alt=""></div>
+                        </div>
+                    </li>
+                </ul>
+                <h3 class="price">售價 120元</h3>
+                <div class="quantity-choose flex">
+                    <span class="minus">-</span>
+                    <input class="quantity-input qty" type="number" value="1" />
+                    <span class="plus">+</span>
+                </div>
+                <button class="transition buy_btn">加入購物車</button>
+            </div>
+        </div>
+    </div>
+    <?php include __DIR__ . '/__html_footer.php' ?>
 </div>
-<?php include __DIR__ . '/__scripts.php' ?>        
+<?php include __DIR__ . '/__scripts.php' ?>
 
 <script>
-
     // 同款樣式hover
-    $("img.img-select-circle").hover(function (event) {
+    $("img.img-select-circle").hover(function(event) {
         $(".img-select-circle").removeClass("active")
     })
 
-    $("img.img-select-circle").mouseleave(function (event) {
+    $("img.img-select-circle").mouseleave(function(event) {
         $(".img-select-circle").eq(0).addClass("active")
     })
 
     // 數量加減功能
-    $(document).ready(function () {
-        $('.minus').click(function () {
+    $(document).ready(function() {
+        $('.minus').click(function() {
             var $input = $(this).parent().find('input');
             var count = parseInt($input.val()) - 1;
             count = count < 1 ? 1 : count;
@@ -788,7 +786,7 @@ $row = $pdo->query($t_sql)->fetch();
             $input.change();
             return false;
         });
-        $('.plus').click(function () {
+        $('.plus').click(function() {
             var $input = $(this).parent().find('input');
             $input.val(parseInt($input.val()) + 1);
             $input.change();
@@ -796,6 +794,28 @@ $row = $pdo->query($t_sql)->fetch();
         });
     });
 
+
+
+    // php
+
+    const buy_btn = $('.buy_btn');
+
+    buy_btn.click(function() {
+        const p_item = $('.p_item');
+        const sid = p_item.attr('data-sid');
+        const qty = $('.qty').val();
+        const sendObj = {
+            action: 'add',
+            sid,
+            qty
+        }
+        $.get('cart-handle.php', sendObj, function(data) {
+            console.log(data);
+            setCartCount(data);
+        }, 'json');
+
+        // alert(sid +','+qty)
+    });
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
