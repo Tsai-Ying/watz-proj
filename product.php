@@ -22,16 +22,18 @@ $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 if ($totalRows > 0) {
     $totalPages = ceil($totalRows / $perPage);
     if ($page < 1) {
-        header('Location: product-list.php');
+        header('Location: product.php');
         exit;
     }
     if ($page > $totalPages) {
-        header('Location: product-list.php?page=' . $totalPages);
+        header('Location: product.php?page=' . $totalPages);
         exit;
     }
     $sql = sprintf("SELECT * FROM `product` %s LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
     $rows = $pdo->query($sql)->fetchAll();
 }
+$stmt = null;
+$stmt = $pdo->query($sql);
 
 // $c_sql = "SELECT * FROM `categories` ";
 
@@ -1238,42 +1240,55 @@ if ($totalRows > 0) {
                     </ul>
                 </div>
 
-                <ul class="pagination flex">
-                    <li class="page-btn flex page-item <?= $page==1 ? 'disabled' : '' ?>">
-                    <a class="href=?page=<?= $page-1 ?>">
-                    PREV
-                    <i></i></a>  
-                    </li>
-
-                    <?php for($i=$page-2; $i<=$page+2; $i++):
-                          if($i<1) continue;
-                        if($i>$totalPages) continue;
-                            ?>
-                            <li class="page-item page-btn  <?= $page==$i ? 'active' : '' ?>">
-                                <a class="page-current" href="?page=<?= $i ?>"><?= $i ?></a>
+                <div class="flex">
+                    <?php if (!empty($stmt)) : ?>
+                        <ul class="pagination flex">
+                            <li class="page-btn page-item <?= $page == 1 ? 'disabled' : '' ?>">
+                                <a class="page-link" href="?page=<?= $page - 1 ?>">
+                                    PREV
+                                </a>
                             </li>
-                        <?php endfor; ?>
-                        <li class="page-item page-btn <?= $page==$totalPages ? 'disabled' : '' ?>">
-                            <a class="page-link" href="?page=<?= $page+1 ?>">
-                            NEXT
-                                <i class=""></i>
-                            </a>
-                        </li>
-                    </ul>
+                            <?php
+                            for ($i = $page - 2; $i <= $page + 2; $i++) :
+                                if ($i < 1) continue;
+                                if ($i > 9) break ?>
+                                <li class="page-item page-btn  <?= $page == $i ? 'active' : '' ?>">
+                                    <a class="page-current" href="?page=<?= $i ?>"><?= $i ?></a>
+                                </li>
+                            <?php endfor; ?>
+                            <li class=" page-btn page-item <?= $page == $totalPages ? 'disabled' : '' ?>">
+                                <a class="page-link" href="?page=<?= $page + 1 ?>">
+                                    NEXT
+                                </a>
+                            </li>
+                        </ul>
+                    <?php else : ?>
+                        <ul class="pagination flex">
+                            <li class="page-btn page-item <?= $page == 1 ? 'disabled' : '' ?>">
+                                <a class="page-link" href="?page=<?= $page - 1 ?>">
+                                    PREV
+                                </a>
+                            </li>
+                            <?php
+                            for ($i = $page - 2; $i <= $page + 2; $i++) :
+                                if ($i < 1) continue;
+                                if ($i > 9) break ?>
+                                <li class="page-item page-btn  <?= $page == $i ? 'active' : '' ?>">
+                                    <a class="page-current" href="?page=<?= $i ?>"><?= $i ?></a>
+                                </li>
+                            <?php endfor; ?>
+                            <li class=" page-btn page-item <?= $page == $totalPages ? 'disabled' : '' ?>">
+                                <a class="page-link" href="?page=<?= $page + 1 ?>">
+                                    NEXT
+                                </a>
+                            </li>
+                        </ul>
+                    <?php endif; ?>
+                </div>
 
 
-                    <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <?php for($i=1; $i<=$totalPages; $i++):
-                            $qs['page'] = $i;
-                            ?>
-                        <li class="page-item <?= $page==$i ? 'active' : '' ?>">
-                            <a class="page-link" href="?<?= http_build_query($qs) ?>"><?=$i?></a>
-                        </li>
-                        <?php endfor; ?>
-                    </ul>
-                </nav>
-                        <!-- <a class="page-disabled"><i></i>PREV</a>
+
+                <!-- <a class="page-disabled"><i></i>PREV</a>
                         <a href="#">＜</a>
                         <a class="page-current page-active">1</a>
                         <a href="#">2</a>
@@ -1284,7 +1299,7 @@ if ($totalRows > 0) {
                         <a href="#">7</a>
                         <a href="#">＞</a>
                         <a class="page-next" href="#">NEXT<i></i></a> -->
-                    </li>
+                </li>
                 </ul>
             </div>
         </div>
@@ -1388,10 +1403,49 @@ if ($totalRows > 0) {
             return false;
         });
     });
+    // -----------------
+    $('.single-product-box').click(function() {
+        let jump = $('.single-product-box').attr("product-detail.php?page=[sid]")
+        jump()
+    });
 
-// ------------頁碼--------------
+
+    // ------------頁碼--------------
 
 
+
+    // const pagination = $('.pagination');
+
+    //     function pageBtnTpl(obj){
+    //         // obj.i // 頁碼
+    //         // obj.isActive // 當前這頁要做反白
+    //         return `<li class="page-item ${obj.isActive ? 'active' : ''}">
+    //                     <a class="page-link" href="#${obj.i}">${obj.i}</a>
+    //                 </li>`;
+    //     }
+
+
+    //     function itemTpl(obj){
+    //     }
+
+    //     function handleHash(){
+    //         let h = location.hash.slice(1);
+    //         h = parseInt(h) || 1;
+    //         info.innerHTML = h;
+
+    //         $.get('ab-list2-api.php', {page: h}, function(data){
+    //             console.log(data);
+
+    //             pagination.empty();
+    //             for(let s in data.pageBtns){
+    //                 pagination.append( pageBtnTpl({
+    //                     i: data.pageBtns[s],
+    //                     isActive: data.pageBtns[s]==data.page
+    //                 }) )
+    //             }
+
+
+    //         }, 'json');
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
