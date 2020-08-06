@@ -6,6 +6,10 @@ $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 $t_sql = "SELECT * FROM `product` WHERE `sid`= $sid";
 $row = $pdo->query($t_sql)->fetch();
 
+$series_sid = $row['series'];
+$s_sql = "SELECT `series` FROM `product_series` WHERE `series_sid`=$series_sid ";
+$series_name = $pdo->query($s_sql)->fetch()['series'];
+
 
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
@@ -586,7 +590,7 @@ $row = $pdo->query($t_sql)->fetch();
                 <div class="bread-crumb transition">
                     <a href="">商品</a>
                     <span> > </span>
-                    <a href="">素色經典</a>
+                    <a href=""><?= $series_name ?></a>
                 </div>
                 <div class="box-photo flex transition mobile-none">
                     <div class="box-photo-left flex transition">
