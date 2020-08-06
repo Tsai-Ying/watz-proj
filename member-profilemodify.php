@@ -365,16 +365,16 @@ $row = $pdo ->query($sql)->fetch();
                 console.log(data);
 
                 if (data.success) {
+                    setTimeout(function() {
+                        location.href = 'member-profile.php';
+                    }, 1000)
                     // info_bar.removeClass('alert-danger')
                     //     .addClass('alert-success')
                     //     .html('新增成功!');
-                    console.log('成功')
                 } else {
                     // info_bar.removeClass('alert-success')
                     //     .addClass('alert-danger')
                     //     .html(data.error || '新增失敗!');
-                    console.log('失敗')
-
                 }
                 // info_bar.slideDown();
 
