@@ -135,7 +135,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                     meishaonu***@gamil.com</h5>
 
                 <h6>有任何問題請洽客服 Mon.-Fir. 9:00-17:00</h6>
-                <button class="pay-btn btn-blue prev">查看訂單</button>
+                <button class="pay-btn btn-blue prev" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-historydetail.php'">查看訂單</button>
             </div>
 
 

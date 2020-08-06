@@ -1009,8 +1009,8 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                 </div>
             </div>
             <div class="prev-next-btn flex">
-                <button class="pay-btn btn-blue prev">回上一頁</button>
-                <button class="pay-btn btn-coral gopay">前往付款</button>
+                <button class="pay-btn btn-blue prev" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment2.php'">回上一頁</button>
+                <button class="pay-btn btn-coral gopay" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment4.php'">前往付款</button>
 
             </div>
         </div>
