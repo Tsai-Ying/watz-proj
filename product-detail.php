@@ -1,33 +1,10 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = 'product-detail';  // 這裡放你的pagename
 
-$qs = [];
-$perPage = 12;
-$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-$cate_id = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
+$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+$t_sql = "SELECT * FROM `product` WHERE `sid`= $sid";
+$row = $pdo->query($t_sql)->fetch();
 
-
-$where = "WHERE 1";
-
-
-$rows = [];
-$totalPages = 0;
-$t_sql = "SELECT COUNT(1) FROM `product` $where";
-$totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
-
-if ($totalRows > 0) {
-    $totalPages = ceil($totalRows / $perPage);
-    if ($page < 1) {
-        header('Location: product-list.php');
-        exit;
-    }
-    if ($page > $totalPages) {
-        header('Location: product-list.php?page=' . $totalPages);
-        exit;
-    }
-    $sql = sprintf("SELECT * FROM `product` %s LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
-    $rows = $pdo->query($sql)->fetchAll();
-}
 
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
@@ -212,15 +189,27 @@ if ($totalRows > 0) {
     .box-photo-left div {
         width: 120px;
         height: 120px;
-        background: grey;
+        background: white;
         margin-bottom: 10px;
+    }
+
+    .box-photo-left div img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .box-photo-right {
         width: 500px;
         height: 600px;
-        background: grey;
+        background: white;
         margin-left: 10px;
+    }
+
+    .box-photo-right div img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .box-text {
@@ -262,7 +251,7 @@ if ($totalRows > 0) {
         font-weight: 300;
     }
 
-    .box-bigphoto>div {
+    .box-bigphoto div {
         width: 600px;
         height: 400px;
         background: gray;
@@ -351,6 +340,12 @@ if ($totalRows > 0) {
         .box-photo-right {
             width: 400px;
             height: 480px;
+        }
+
+        .box-photo-right img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
         }
 
         .box-bigphoto>div {
@@ -521,6 +516,19 @@ if ($totalRows > 0) {
 
         .box-photo-right {
             background: rgb(212, 212, 212);
+            position: relative;
+        }
+
+        .box-photo-right div {
+            width: 70vw;
+            height: 84vw;
+            position: absolute;
+        }
+
+        .box-photo-right img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .box-photo {
@@ -536,6 +544,7 @@ if ($totalRows > 0) {
             align-items: center;
             position: absolute;
             top: 0;
+            cursor: pointer;
         }
 
         .arrow-right {
@@ -612,38 +621,47 @@ if ($totalRows > 0) {
                     </div>
                     <div class="box-photo flex transition mobile-none">
                         <div class="box-photo-left flex transition">
-                            <div><img src="" alt=""></div>
-                            <div><img src="" alt=""></div>
-                            <div><img src="" alt=""></div>
-                            <div><img src="" alt=""></div>
+                            <div><img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt=""></div>
+                            <div><img src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt=""></div>
+                            <div><img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt=""></div>
+                            <div><img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt=""></div>
                         </div>
                         <div class="box-photo-right transition">
-                            <img src="" alt="">
+                            <img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
                         </div>
                     </div>
                     <div class="box-photo flex transition slider-box flex">
                         <div class="box-photo-left flex transition mobile-none">
-                            <div><img src="" alt=""></div>
-                            <div><img src="" alt=""></div>
-                            <div><img src="" alt=""></div>
-                            <div><img src="" alt=""></div>
+                            <div><img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt=""></div>
+                            <div><img src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt=""></div>
+                            <div><img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt=""></div>
+                            <div><img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt=""></div>
                         </div>
-                        <div class="box-photo-right transition">
-                            <img src="" alt="">
+                        <div class="box-photo-right">
+                              <div>
+                                <img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt="">
+                            </div>
                         </div>
                         <div class="arrow-left flex">
-                            <img src="images/arrow-left-thiner.svg" alt="">
+                                <img src="images/arrow-left-thiner.svg" alt="">
                         </div>
                         <div class="arrow-right flex">
-                            <img src="images/arrow-right-thiner.svg" alt="">
+                                <img src="images/arrow-right-thiner.svg" alt="">
                         </div>
                     </div>
                     <div class="block-fixed flex mobile-visible mobile-none">
-                        <h3>01 偶素襪子</h3>
-                        <p>後腳跟設計可配合兒童成長而長期穿著。具有可抑制汗味的效果。使用對環境溫和的有機棉所製成。</p>
-                        <p>中長襪<br>
-                            22-25cm<br>
-                            材質:100%純棉</p>
+                        <h3><?= $row['product_name'] ?></h3>
+                        <p><?= $row['introduction'] ?></p>
+                        <p><?= $row['detail'] ?></p>
                         <ul class="flex">
                             <li class="active">
                                 <div class="socks-pattern flex">
@@ -671,7 +689,7 @@ if ($totalRows > 0) {
                                 </div>
                             </li>
                         </ul>
-                        <h3 class="price">售價 120元</h3>
+                        <h3 class="price">售價 <?= $row['price'] ?>元</h3>
                         <div class="buy flex">
                             <div class="quantity-choose flex">
                                 <span class="minus">-</span>
@@ -726,9 +744,9 @@ if ($totalRows > 0) {
                         </ul>
                     </div>
                     <div class="box-bigphoto">
-                        <div><img src="" alt=""></div>
-                        <div><img src="" alt=""></div>
-                        <div><img src="" alt=""></div>
+                        <div><img src="images/product/<?= $row['img_ID'] ?>-5.jpg" alt=""></div>
+                        <div><img src="images/product/<?= $row['img_ID'] ?>-6.jpg" alt=""></div>
+                        <div><img src="images/product/<?= $row['img_ID'] ?>-7.jpg" alt=""></div>
                     </div>
                 </div>
                 <div class="block-left-bottom">
@@ -744,14 +762,9 @@ if ($totalRows > 0) {
             </div>
             <div class="block-right">
                 <div class="block-fixed flex position-sticky">
-                <?php foreach ($rows as $r) : ?>
-                <h3><?= $r['product_name'] ?></h3>
-                    <!-- <h3>01 偶素襪子</h3> -->
-                    <?php endforeach; ?>
-                    <p>後腳跟設計可配合兒童成長而長期穿著。具有可抑制汗味的效果。使用對環境溫和的有機棉所製成。</p>
-                    <p>中長襪<br>
-                        22-25cm<br>
-                        材質:100%純棉</p>
+                <h3><?= $row['product_name'] ?></h3>
+                    <p><?= $row['introduction'] ?></p>
+                    <p><?= $row['detail'] ?></p>
                     <ul class="flex">
                         <li class="active">
                             <div class="socks-pattern flex">
@@ -778,7 +791,7 @@ if ($totalRows > 0) {
                             </div>
                         </li>
                     </ul>
-                    <h3 class="price">售價 120元</h3>
+                    <h3 class="price">售價 <?= $row['price'] ?>元</h3>
                     <div class="quantity-choose flex">
                         <span class="minus">-</span>
                         <input class="quantity-input" type="text" value="1" />
@@ -821,67 +834,7 @@ if ($totalRows > 0) {
         });
     });
 
-<<<<<<< HEAD
-    // 加入購物車
-    const buy_btns = $('.buy-btn');
 
-    buy_btns.click(function(){
-        const p_item = $(this).closest('.p-item');
-        const sid = p_item.attr('data-sid');
-        const qty = p_item.find('select').val();
-
-        const sendObj = {
-            action: 'add',
-            sid,
-            quantity: qty
-        }
-        $.get('handle-cart.php', sendObj, function(data){
-            console.log(data);
-            setCartCount(data);
-        }, 'json');
-    });
-=======
-    // ----------------
-    // function itemTpl(obj){
-    //     let s = obj.address.replace(/</gm, '&lt;');
-    //     s = s.replace(/>/gm, '&gt;');
-    //     return `<tr>
-    //                 <td>${obj.sid}</td>
-    //                 <td>${obj.name}</td>
-    //                 <td>${obj.email}</td>
-    //                 <td>${obj.mobile}</td>
-    //                 <td>${obj.birthday}</td>
-    //                 <td>${s}</td>
-    //             </tr>`;
-    // }
-
-    function handleHash(){
-        let h = location.hash.slice(1);
-        h = parseInt(h) || 1;
-        info.innerHTML = h;
-
-        $.get('product-detail-api.php', {sid: h}, function(data){
-            console.log(data);
-
-            // pagination.empty();
-            // for(let s in data.pageBtns){
-            //     pagination.append( pageBtnTpl({
-            //         i: data.pageBtns[s],
-            //         isActive: data.pageBtns[s]==data.page
-            //     }) )
-            // }
-
-            // tbody.empty();
-            // for(let s in data.rows){
-            //     tbody.append( itemTpl(data.rows[s]) );
-            // }
-
-        }, 'json');
-
-    }
-    window.addEventListener('hashchange', handleHash);
-    handleHash();
->>>>>>> 5408f3e19224e389246a9b7d93dcd398700264da
 
 </script>
 
