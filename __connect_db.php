@@ -19,4 +19,4 @@ if (! isset($_SESSION)){
     session_start();
 }
 
-define('WEB_ROOT', '/proj-watz/watz-proj');
+define('WEB_ROOT', '/watz/watz-proj');
