@@ -263,47 +263,50 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             <div class="box"><a href="">隱私權政策</a></div>
         </div>
         <form class="" name="form1" method="post" novalidate>
-        <div class="bg-membercard flex">
-            <div class="membercard flex">
-                <div class="membercard-img" />
-                <div class="member-info flex">
-                    <div class="bg-photo flex">
-                        <div class="member-photo flex">
-                            <img src="images/red square-01.jpg" alt="">
+            <div class="bg-membercard flex">
+                <div class="membercard flex">
+                    <div class="membercard-img">
+                        <div class="member-info flex">
+                            <div class="bg-photo flex">
+                                <div class="member-photo flex">
+                                    <img src="images/red square-01.jpg" alt="">
+                                </div>
+                            </div>
+
+                            <ul class="bg-form flex">
+                                <li class="form-item flex">
+                                    <h5 class="flex">姓名</h5>
+                                    <input class="form-name flex" type="text" id="name" name="name" required value="<?= htmlentities($_SESSION['member']['name']) ?>">
+                                </li>
+                                <li class="form-item flex">
+                                    <h5 class="flex">電話</h5>
+                                    <input class="form-name" type="text" id="mobile" name="mobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($_SESSION['member']['mobile']) ?>">
+                                </li>
+                                <li class="form-item flex">
+                                    <h5 class="adress flex">地址</h5>
+                                    <textarea style="overflow:hidden; resize:none; " class="form-name" type="text" id="address" name="address" cols="30" rows="3"><?= htmlentities($_SESSION['member']['address']) ?></textarea>
+                                </li>
+                                <li class="form-item flex">
+                                    <h5 class="flex">舊密碼</h5>
+                                    <input class="form-name" type="text" id="oldpassword" name="oldpassword">
+                                </li>
+                                <li class="form-item flex">
+                                    <h5 class="flex">新密碼</h5>
+                                    <input class="form-name" type="text" id="newpassword" name="newpassword">
+                                </li>
+                                <li class="form-item flex">
+                                    <h5 class="flex">再次確認密碼</h5>
+                                    <input class="form-name" type="text" id="confirmpassword" name="confirmpassword">
+                                </li>
+                            </ul>
+
                         </div>
                     </div>
-                    
-                    <ul class="bg-form flex">
-                        <li class="form-item flex">
-                            <h5 class="flex">姓名</h5>
-                            <input class="form-name flex" type="text" id="name" name="name" required value="<?= htmlentities($_SESSION['member']['name']) ?>">
-                        </li>
-                        <li class="form-item flex">
-                            <h5 class="flex">電話</h5>
-                            <input class="form-name" type="text" id="mobile" name="mobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($_SESSION['member']['mobile']) ?>"> 
-                        </li>
-                        <li class="form-item flex">
-                            <h5 class="adress flex">地址</h5>
-                            <textarea style="overflow:hidden; resize:none; " class="form-name" type="text" id="address" name="address" cols="30" rows="3" ><?= htmlentities($_SESSION['member']['address']) ?></textarea>
-                        </li>
-                        <li class="form-item flex">
-                            <h5 class="flex">舊密碼</h5>
-                            <input class="form-name" type="text" id="oldpassword" name="oldpassword">
-                        </li>
-                        <li class="form-item flex">
-                            <h5 class="flex">新密碼</h5>
-                            <input class="form-name" type="text" id="newpassword" name="newpassword">
-                        </li>
-                        <li class="form-item flex">
-                            <h5 class="flex">再次確認密碼</h5>
-                            <input class="form-name" type="text" id="confirmpassword" name="confirmpassword">
-                        </li>
-                    </ul>
-                    
+                </div>
+                <div>
+                    <button class="btn-blue" type="submit" onclick="return formCheck()">修改會員資料</button>
                 </div>
             </div>
-        </div>
-        <div><button class="btn-blue" type="submit" onsubmit="return formCheck()">修改會員資料</button></div>
         </form>
     </div>
 </div>
@@ -322,8 +325,10 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     // const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
 
     function formCheck() {
-        email.text('');
+        console.log("123")
+        name.text('');
         mobile.text('');
+        password.text('');
         // email.css('border-color', 'lightblue');
         // mobile.css('border-color', 'lightblue');
         //TODO : 檢查欄位
