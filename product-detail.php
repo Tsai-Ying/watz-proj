@@ -945,7 +945,7 @@ $series_name = $pdo->query($s_sql)->fetch()['series_name'];
             setCartCount(data);
         }, 'json');
 
-        alert(sid + ',' + qty)
+        // alert(sid + ',' + qty)
     });
 
     // 購買數量輸入同步
