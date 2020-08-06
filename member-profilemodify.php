@@ -3,7 +3,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
 $id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
 $sql = "SELECT * FROM `members` WHERE `id`= $id";
-$row = $pdo ->query($sql)->fetch();
+$row = $pdo->query($sql)->fetch();
 
 // if(empty($row)){
 //     header('Location: ab-list.php');
@@ -91,11 +91,6 @@ $row = $pdo ->query($sql)->fetch();
         /* margin-top: 13px; */
     }
 
-    .membercard ul li {
-        align-items: center;
-        justify-content: flex-end;
-    }
-
     .membercard ul li h5 {
         font-weight: 400;
         letter-spacing: 3px;
@@ -115,7 +110,7 @@ $row = $pdo ->query($sql)->fetch();
     }
 
     .form-name {
-        background: #ffffff;
+        /* background: #ffffff; */
         width: 240px;
         height: 40px;
         margin: 5px 10px;
@@ -123,13 +118,41 @@ $row = $pdo ->query($sql)->fetch();
         border: none;
     }
 
+    .form-item img {
+        cursor: pointer;
+    }
+
+    .bg-pw {
+        width: 240px;
+        background: #ffffff;
+        align-items: center;
+    }
+
+    .bg-pw img {
+        margin-right: 10px;
+    }
+
+    .form-password {
+        /* background: #ffffff; */
+        width: 220px;
+        height: 40px;
+        outline: none;
+        border: none;
+    }
+
     .form-item {
         width: 380px;
         height: 56px;
+        align-items: center;
+        justify-content: center;
         /* border-radius: 26px; */
         /* margin-left: 10px; */
     }
 
+    .form-item img {
+        width: 20px;
+        height: 20px;
+    }
 
     .selector {
         width: 120px;
@@ -225,11 +248,25 @@ $row = $pdo ->query($sql)->fetch();
 
         .form-item {
             width: 60vw;
+            justify-content: center;
+
         }
 
         .form-name {
             width: 36vw;
             height: 6vw;
+        }
+
+        .form-password {
+            width: 36vw;
+            height: 6vw;
+            margin: 5px 10px;
+        }
+
+        .bg-pw {
+            width: 36vw;
+            height: 6vw;
+            justify-content: center;
         }
 
         .selector {
@@ -283,30 +320,39 @@ $row = $pdo ->query($sql)->fetch();
                             </div>
 
                             <ul class="bg-form flex">
-                            <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                                <input type="hidden" name="id" value="<?= $row['id'] ?>">
                                 <li class="form-item flex">
                                     <h5 class="flex">姓名</h5>
-                                    <input class="form-name flex" type="text" id="name" name="name" required value="<?= htmlentities($row['name']) ?>">
+                                    <input class="form-name flex" type="text" id="name" name="name" required value="<?= htmlentities($_SESSION['member']['name']) ?>">
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">電話</h5>
-                                    <input class="form-name" type="text" id="mobile" name="mobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>">
+                                    <input class="form-name" type="text" id="mobile" name="mobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($_SESSION['member']['mobile']) ?>">
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="adress flex">地址</h5>
-                                    <textarea style="overflow:hidden; resize:none; " class="form-name" type="text" id="address" name="address" cols="30" rows="3"><?= htmlentities($row['address']) ?></textarea>
+                                    <textarea style="overflow:hidden; resize:none; " class="form-name" type="text" id="address" name="address" cols="30" rows="3"><?= htmlentities($_SESSION['member']['address']) ?></textarea>
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">舊密碼</h5>
-                                    <input class="form-name" type="password" id="oldpassword" >
+                                    <div class="bg-pw flex">
+                                        <input class="password form-name" type="password" id="oldpassword">
+                                        <img class="eyes" id="eyes" src="images/eye.svg" alt="">
+                                    </div>
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">新密碼</h5>
-                                    <input class="form-name" type="password" id="newpassword" name="newpassword">
+                                    <div class="bg-pw flex">
+                                        <input class="password form-name" type="password" id="newpassword" name="newpassword">
+                                        <img class="eyes" id="" src="images/eye.svg" alt="">
+                                    </div>
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">再次確認密碼</h5>
-                                    <input class="form-name" type="password" id="confirmpassword" >
+                                    <div class="bg-pw flex">
+                                        <input class="password form-name" type="password" id="confirmpassword">
+                                        <img class="eyes" src="images/eye.svg" alt="">
+                                    </div>
                                 </li>
                             </ul>
 
@@ -324,6 +370,42 @@ $row = $pdo ->query($sql)->fetch();
 
 <?php include __DIR__ . '/__scripts.php' ?>
 
+<script>
+    // $('#eyes').on( 'click' , function() {
+    //     console.log('123')
+    //     if( $('#newpassword').hasAttr('type','password')){
+    //         $('#newpassword').attr('type','text');
+    //     }else{
+    //         $('#newpassword').attr('type','password');
+    //     }
+    //     // $('#newpassword').attr('type', 'password')
+    //     // console.log('hi')
+    // })
+    $('.eyes').on('click',function(e) {
+      let $pwd = $(this).prev('.password');
+
+      $pwd.text(($pwd.text() === 'Hide' ? 'Show' : 'Hide'));
+
+      if ($pwd.attr('type') === 'password') {
+       $pwd.attr('type', 'text');
+      } else {
+        $pwd.attr('type', 'password');
+      }
+      e.preventDefault();
+     });
+    // var demoImg = document.getElementById("eyes");
+    // var demoInput = document.getElementById("newpassword");
+
+    // function hideShowPsw() {
+    //     if (demoInput.type = "password") {
+    //         demoInput.type = "text";
+    //         // demoImg.src = "../Images/showPasswd.png";
+    //     } else {
+    //         demoInput.type = "password";
+    //         // demoImg.src = "../Images/hidePasswd.png";
+    //     }
+    // }
+</script>
 <script>
     const
         name = $('#name'),
