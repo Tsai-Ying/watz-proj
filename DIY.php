@@ -18,7 +18,11 @@ $pageName = 'DIY';  // 這裡放你的pagename
         position: absolute;
         z-index: 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
         /* clip-path: circle(140px at center); */
+=======
+        display: none;
+>>>>>>> parent of b0e0326... Revert "Merge branch 'master' of https://github.com/Tsai-Ying/watz-proj"
 =======
         display: none;
 >>>>>>> parent of b0e0326... Revert "Merge branch 'master' of https://github.com/Tsai-Ying/watz-proj"
@@ -1004,9 +1008,15 @@ $pageName = 'DIY';  // 這裡放你的pagename
                 <h1 class="transition">Create your own WATZ !</h1>
                 <div class="flex transition">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <div class="diy-socks"><img class="transition" src="images/product/linebox-02.png" alt=""></div>
                     <div class="diy-socks"><img class="transition" src="images/product/linebox2-05.png" alt=""></div>
                     <div class="diy-socks"><img class="transition" src="images/product/linebox2-04.png" alt=""></div>
+=======
+                    <div class="diy-socks"><img class="transition" src="images/linebox-02.png" alt=""></div>
+                    <div class="diy-socks"><img class="transition" src="images/linebox2-05.png" alt=""></div>
+                    <div class="diy-socks"><img class="transition" src="images/linebox2-04.png" alt=""></div>
+>>>>>>> parent of b0e0326... Revert "Merge branch 'master' of https://github.com/Tsai-Ying/watz-proj"
 =======
                     <div class="diy-socks"><img class="transition" src="images/linebox-02.png" alt=""></div>
                     <div class="diy-socks"><img class="transition" src="images/linebox2-05.png" alt=""></div>
@@ -1324,9 +1334,12 @@ $pageName = 'DIY';  // 這裡放你的pagename
 
     $(".tutorial#tutor2").click(function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $(".modal").css({
             "display": "none"
         })
+=======
+>>>>>>> parent of b0e0326... Revert "Merge branch 'master' of https://github.com/Tsai-Ying/watz-proj"
 =======
 >>>>>>> parent of b0e0326... Revert "Merge branch 'master' of https://github.com/Tsai-Ying/watz-proj"
         $(".modal").fadeOut(500);
@@ -1343,6 +1356,10 @@ $pageName = 'DIY';  // 這裡放你的pagename
     $(window).mousemove(function (e) {
         // console.log(e.screenX)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        $(".spot").css("display", "flex")
+>>>>>>> parent of b0e0326... Revert "Merge branch 'master' of https://github.com/Tsai-Ying/watz-proj"
 =======
         $(".spot").css("display", "flex")
 >>>>>>> parent of b0e0326... Revert "Merge branch 'master' of https://github.com/Tsai-Ying/watz-proj"
