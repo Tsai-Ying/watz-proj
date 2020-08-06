@@ -1088,8 +1088,8 @@ $pageName = 'cart-payment2';  // 這裡放你的pagename
         });
 
         //寄件人同收件人//
-        $('.samePplBtn').click(function(){
-            if($(this).is(":checked")){
+        $('.samePplBtn').click(function() {
+            if ($(this).is(":checked")) {
                 let NameVal = $('.shipperName').val();
                 let phoneVal = $('.shipperPhone').val();
                 let emailVal = $('.shipperemail').val();
@@ -1100,8 +1100,7 @@ $pageName = 'cart-payment2';  // 這裡放你的pagename
                 $(".receiverEmail").val(emailVal);
                 $(".receiverZipcode").val(zipcodeVal);
                 $(".receiverAddress").val(addressVal);;
-            }
-            else if($(this).is(":not(:checked)")){
+            } else if ($(this).is(":not(:checked)")) {
                 $(".receiverName").val('');
                 $(".receiverPhone").val('');
                 $(".receiverEmail").val('');
@@ -1109,6 +1108,10 @@ $pageName = 'cart-payment2';  // 這裡放你的pagename
                 $(".receiverAddress").val('');
             }
         });
+
+
+        // ------------------php---------------------//
+       
     </script>
 
     <?php require __DIR__ . '/__html_foot.php' ?>
