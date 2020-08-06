@@ -187,20 +187,20 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         justify-content: flex-start;
         align-items: center;
         margin-bottom: 20px;
-        border: 2px solid transparent;
     }
 
-    .member-login img {
-        width: 24px;
-        height: 24px;
+    .input-wrapper img {
+        width: 20px;
+        height: 20px;
         margin: 11px 16px;
+        cursor: pointer;
     }
 
     .member-input {
         border: transparent;
         outline: none;
         width: 292px;
-        height: 43px;
+        height: 45px;
     }
 
     @media screen and (max-width: 992px) {
@@ -331,12 +331,9 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
     }
 
     .box-signup {
-        display: none;
+        z-index: 10;
     }
 
-    .tag-login {
-        z-index: -1;
-    }
 
 
     @media screen and (max-width: 992px) {
@@ -354,7 +351,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
             display: none;
         }
     }
-
 
     /* jumpout notice */
 
@@ -443,11 +439,13 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                             </div>
                             <div class="input-wrapper flex">
                                 <img src="images/icon-password.svg" alt="">
-                                <input class="member-input" type="password" placeholder="Password" id="signupPassword" name="password" required>
+                                <input class="member-input password" type="password" placeholder="Password" id="signupPassword" name="password" required>
+                                <img class="eyes" src="images/hidden.svg" alt="">
                             </div>
                             <div class="input-wrapper flex">
                                 <img src="images/icon-confirmPassword.svg" alt="">
-                                <input class="member-input" type="password" placeholder="Confirm Password" id="confirmPassword" name="confirmPassword" required>
+                                <input class="member-input password" type="password" placeholder="Confirm Password" id="confirmPassword" name="confirmPassword" required>
+                                <img class="eyes" src="images/hidden.svg" alt="">
                             </div>
                         </div>
                         <div class="agree flex">
@@ -474,7 +472,8 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                         </div>
                         <div class="input-wrapper flex">
                             <img src="images/icon-password.svg" alt="">
-                            <input class="member-input" type="password" placeholder="Password" id="loginPassword" name="password" required>
+                            <input class="member-input password" type="password" placeholder="Password" id="loginPassword" name="password" required>
+                            <img class="eyes" src="images/hidden.svg" alt="">
                         </div>
                         <div class="remember flex">
                             <div class="member-remember flex">
@@ -503,6 +502,23 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 <?php include __DIR__ . '/__scripts.php' ?>
 
 <script>
+    $('.eyes').on('click', function(e) {
+        let $pwd = $(this).prev('.password');
+
+        $pwd.text(($pwd.text() === 'Hide' ? 'Show' : 'Hide'));
+
+        if ($pwd.attr('type') === 'password') {
+            $(this).attr('src','images/eye.svg')
+            $pwd.attr('type', 'text');
+        } else {
+            $(this).attr('src','images/hidden.svg')
+            $pwd.attr('type', 'password');
+        }
+        e.preventDefault();
+    });
+
+
+
     $('#tag-login').click(function() {
         $('#box-login').css("display", "block");
         $('#box-signup').css("display", "none");

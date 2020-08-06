@@ -3,7 +3,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
 $id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
 $sql = "SELECT * FROM `members` WHERE `id`= $id";
-$row = $pdo ->query($sql)->fetch();
+$row = $pdo->query($sql)->fetch();
 
 // if(empty($row)){
 //     header('Location: ab-list.php');
@@ -91,11 +91,6 @@ $row = $pdo ->query($sql)->fetch();
         /* margin-top: 13px; */
     }
 
-    .membercard ul li {
-        align-items: center;
-        justify-content: flex-end;
-    }
-
     .membercard ul li h5 {
         font-weight: 400;
         letter-spacing: 3px;
@@ -115,7 +110,7 @@ $row = $pdo ->query($sql)->fetch();
     }
 
     .form-name {
-        background: #ffffff;
+        /* background: #ffffff; */
         width: 240px;
         height: 40px;
         margin: 5px 10px;
@@ -123,13 +118,42 @@ $row = $pdo ->query($sql)->fetch();
         border: none;
     }
 
+    .form-item img {
+        cursor: pointer;
+    }
+
+    .bg-pw {
+        width: 240px;
+        height: 40px;
+        background: #ffffff;
+        align-items: center;
+    }
+
+    .bg-pw img {
+        margin-right: 10px;
+    }
+
+    .form-password {
+        /* background: #ffffff; */
+        width: 220px;
+        height: 40px;
+        outline: none;
+        border: none;
+    }
+
     .form-item {
         width: 380px;
         height: 56px;
+        align-items: center;
+        justify-content: center;
         /* border-radius: 26px; */
         /* margin-left: 10px; */
     }
 
+    .form-item img {
+        width: 20px;
+        height: 20px;
+    }
 
     .selector {
         width: 120px;
@@ -225,11 +249,25 @@ $row = $pdo ->query($sql)->fetch();
 
         .form-item {
             width: 60vw;
+            justify-content: center;
+
         }
 
         .form-name {
             width: 36vw;
             height: 6vw;
+        }
+
+        .form-password {
+            width: 36vw;
+            height: 6vw;
+            margin: 5px 10px;
+        }
+
+        .bg-pw {
+            width: 36vw;
+            height: 6vw;
+            justify-content: center;
         }
 
         .selector {
@@ -257,7 +295,73 @@ $row = $pdo ->query($sql)->fetch();
             margin: 0;
         }
     }
+        /* jumpout notice */
+
+        .notice {
+        transition: .2s;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        visibility: hidden;
+    }
+
+    .notice-block {
+        transition: .2s;
+        padding: 30px;
+        background: #FF9685;
+        border-radius: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        align-items: center;
+        z-index: 21;
+        opacity: 0;
+    }
+
+    .notice-bg {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: #404040;
+        opacity: .8;
+    }
+
+    .notice-top {
+        margin-bottom: 10px;
+    }
+
+    .notice-top img {
+        height: 40px;
+    }
+
+    .notice-bottom h3 {
+        color: white;
+        white-space: nowrap;
+    }
+
+    .notice.active {
+        visibility: visible;
+        z-index: 20;
+    }
+
+    .notice.active .notice-block {
+        opacity: 1;
+    }
 </style>
+<!-- jumpout notice -->
+<div class="notice">
+    <div class="notice-bg"></div>
+    <div class="notice-block flex">
+        <div class="notice-top">
+            <img src="images/icon-success.svg " alt=" ">
+        </div>
+        <div class="notice-bottom">
+            <h3>修改完成</h3>
+        </div>
+    </div>
+</div>
 <div class="container flex">
     <!-- 如果container有其它class要自己加上 -->
 
@@ -266,10 +370,10 @@ $row = $pdo ->query($sql)->fetch();
 
     <div class="wrapper flex">
         <div class="selector flex">
-            <div class="box"><a href="">會員資料</a></div>
-            <div class="box"><a href="">訂單紀錄</a></div>
-            <div class="box"><a href="">會員條款</a></div>
-            <div class="box"><a href="">隱私權政策</a></div>
+            <div class="box"><a href="<?= WEB_ROOT ?>/member-profile.php">會員資料</a></div>
+            <div class="box"><a href="<?= WEB_ROOT ?>/member-historylist.php">訂單紀錄</a></div>
+            <div class="box"><a href="<?= WEB_ROOT ?>/product.php">會員條款</a></div>
+            <div class="box"><a href="<?= WEB_ROOT ?>/product.php">隱私權政策</a></div>
         </div>
         <form class="" name="form1" method="post" novalidate>
             <div class="bg-membercard flex">
@@ -283,30 +387,39 @@ $row = $pdo ->query($sql)->fetch();
                             </div>
 
                             <ul class="bg-form flex">
-                            <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                                <input type="hidden" name="id" value="<?= $row['id'] ?>">
                                 <li class="form-item flex">
                                     <h5 class="flex">姓名</h5>
-                                    <input class="form-name flex" type="text" id="name" name="name" required value="<?= htmlentities($row['name']) ?>">
+                                    <input class="form-name flex" type="text" id="name" name="name" required value="<?= htmlentities($_SESSION['member']['name']) ?>">
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">電話</h5>
-                                    <input class="form-name" type="text" id="mobile" name="mobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>">
+                                    <input class="form-name" type="text" id="mobile" name="mobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($_SESSION['member']['mobile']) ?>">
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="adress flex">地址</h5>
-                                    <textarea style="overflow:hidden; resize:none; " class="form-name" type="text" id="address" name="address" cols="30" rows="3"><?= htmlentities($row['address']) ?></textarea>
+                                    <textarea style="overflow:hidden; resize:none; " class="form-name" type="text" id="address" name="address" cols="30" rows="3"><?= htmlentities($_SESSION['member']['address']) ?></textarea>
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">舊密碼</h5>
-                                    <input class="form-name" type="password" id="oldpassword" >
+                                    <div class="bg-pw flex">
+                                        <input class="password form-name" type="password" id="oldpassword">
+                                        <img class="eyes" id="eyes" src="images/hidden.svg" alt="">
+                                    </div>
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">新密碼</h5>
-                                    <input class="form-name" type="password" id="newpassword" name="newpassword">
+                                    <div class="bg-pw flex">
+                                        <input class="password form-name" type="password" id="newpassword" name="newpassword">
+                                        <img class="eyes" id="" src="images/hidden.svg" alt="">
+                                    </div>
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">再次確認密碼</h5>
-                                    <input class="form-name" type="password" id="confirmpassword" >
+                                    <div class="bg-pw flex">
+                                        <input class="password form-name" type="password" id="confirmpassword">
+                                        <img class="eyes" src="images/hidden.svg" alt="">
+                                    </div>
                                 </li>
                             </ul>
 
@@ -324,6 +437,44 @@ $row = $pdo ->query($sql)->fetch();
 
 <?php include __DIR__ . '/__scripts.php' ?>
 
+<script>
+    // $('#eyes').on( 'click' , function() {
+    //     console.log('123')
+    //     if( $('#newpassword').hasAttr('type','password')){
+    //         $('#newpassword').attr('type','text');
+    //     }else{
+    //         $('#newpassword').attr('type','password');
+    //     }
+    //     // $('#newpassword').attr('type', 'password')
+    //     // console.log('hi')
+    // })
+    $('.eyes').on('click',function(e) {
+      let $pwd = $(this).prev('.password');
+
+      $pwd.text(($pwd.text() === 'Hide' ? 'Show' : 'Hide'));
+
+      if ($pwd.attr('type') === 'password') {
+        $(this).attr('src','images/eye.svg')
+       $pwd.attr('type', 'text');
+      } else {
+        $(this).attr('src','images/hidden.svg')
+        $pwd.attr('type', 'password');
+      }
+      e.preventDefault();
+     });
+    // var demoImg = document.getElementById("eyes");
+    // var demoInput = document.getElementById("newpassword");
+
+    // function hideShowPsw() {
+    //     if (demoInput.type = "password") {
+    //         demoInput.type = "text";
+    //         // demoImg.src = "../Images/showPasswd.png";
+    //     } else {
+    //         demoInput.type = "password";
+    //         // demoImg.src = "../Images/hidePasswd.png";
+    //     }
+    // }
+</script>
 <script>
     const
         name = $('#name'),
@@ -365,6 +516,8 @@ $row = $pdo ->query($sql)->fetch();
                 console.log(data);
 
                 if (data.success) {
+                    $('.notice h3').text('修改完成');
+                    notice();
                     setTimeout(function() {
                         location.href = 'member-profile.php';
                     }, 1000)
@@ -385,6 +538,9 @@ $row = $pdo ->query($sql)->fetch();
             }, 'json');
         }
         return false;
+    }
+    function notice() {
+        $(".notice").addClass("active");
     }
 </script>
 

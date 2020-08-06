@@ -8,11 +8,15 @@ $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $cate_id = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 // $search = isset($_GET['search']) ? $_GET['search'] : '';
 
+
+
 $where = "WHERE 1";
 // if ($cate_id) {
 //     $where .= " AND `category_sid`=$cate_id ";
 //     $qs['cate'] = $cate_id;
 // }
+
+// $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 1;
 
 $rows = [];
 $totalPages = 0;
@@ -22,16 +26,18 @@ $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 if ($totalRows > 0) {
     $totalPages = ceil($totalRows / $perPage);
     if ($page < 1) {
-        header('Location: product-list.php');
+        header('Location: product.php');
         exit;
     }
     if ($page > $totalPages) {
-        header('Location: product-list.php?page=' . $totalPages);
+        header('Location: product.php?page=' . $totalPages);
         exit;
     }
     $sql = sprintf("SELECT * FROM `product` %s LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
     $rows = $pdo->query($sql)->fetchAll();
 }
+$stmt = null;
+$stmt = $pdo->query($sql);
 
 // $c_sql = "SELECT * FROM `categories` ";
 
@@ -1176,7 +1182,7 @@ if ($totalRows > 0) {
                             </a>
                             <h5 class="flex">></h5>
                             <a href="" class="flex">
-                                <h5>素色流行</h5>
+                                <h5>商品一覽</h5>
                             </a>
                         </div>
                         <div class="right-select-rwd flex">
@@ -1190,13 +1196,12 @@ if ($totalRows > 0) {
                                 </select>
                             </div>
                         </div>
-
                     </div>
                     <ul class="product-box
                         flex">
+                  
                         <?php foreach ($rows as $r) : ?>
-
-                            <li class="single-product-box flex">
+                            <a href="product-detail.php?sid=<?= $r['sid'] ?>" class="single-product-box flex">
                                 <div class="product-top-img flex">
                                     <img src='images/product/<?= $r['img_ID'] ?>-1.jpg?' alt="">
                                 </div>
@@ -1204,8 +1209,9 @@ if ($totalRows > 0) {
                                     <h5><?= $r['product_name'] ?></h5>
                                     <img src="images/color1.svg" alt="">
                                 </div>
-                            </li>
+                            </a>
                         <?php endforeach; ?>
+                      
 
                         <!-- <li class="single-product-box flex">
                             <div class="product-top-img flex">
@@ -1238,42 +1244,35 @@ if ($totalRows > 0) {
                     </ul>
                 </div>
 
-                <ul class="pagination flex">
-                    <li class="page-btn flex page-item <?= $page==1 ? 'disabled' : '' ?>">
-                    <a class="href=?page=<?= $page-1 ?>">
-                    PREV
-                    <i></i></a>  
-                    </li>
-
-                    <?php for($i=$page-2; $i<=$page+2; $i++):
-                          if($i<1) continue;
-                        if($i>$totalPages) continue;
-                            ?>
-                            <li class="page-item page-btn  <?= $page==$i ? 'active' : '' ?>">
-                                <a class="page-current" href="?page=<?= $i ?>"><?= $i ?></a>
+                <div class="flex">
+                    <?php if (!empty($stmt)) : ?>
+                        <ul class="pagination flex">
+                            <li class="page-btn page-item <?= $page == 1 ? 'disabled' : '' ?>">
+                                <a class="page-link" href="?page=<?= $page - 1 ?>">
+                                    PREV
+                                </a>
                             </li>
-                        <?php endfor; ?>
-                        <li class="page-item page-btn <?= $page==$totalPages ? 'disabled' : '' ?>">
-                            <a class="page-link" href="?page=<?= $page+1 ?>">
-                            NEXT
-                                <i class=""></i>
-                            </a>
-                        </li>
-                    </ul>
+                            <?php
+                            for ($i = $page - 2; $i <= $page + 2; $i++) :
+                                if ($i < 1) continue;
+                                if ($i > 9) break ?>
+                                <li class="page-item page-btn  <?= $page == $i ? 'active' : '' ?>">
+                                    <a class="page-current" href="?page=<?= $i ?>"><?= $i ?></a>
+                                </li>
+                            <?php endfor; ?>
+                            <li class=" page-btn page-item <?= $page == $totalPages ? 'disabled' : '' ?>">
+                                <a class="page-link" href="?page=<?= $page + 1 ?>">
+                                    NEXT
+                                </a>
+                            </li>
+                        </ul>
+                  
+                    <?php endif; ?>
+                </div>
 
 
-                    <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <?php for($i=1; $i<=$totalPages; $i++):
-                            $qs['page'] = $i;
-                            ?>
-                        <li class="page-item <?= $page==$i ? 'active' : '' ?>">
-                            <a class="page-link" href="?<?= http_build_query($qs) ?>"><?=$i?></a>
-                        </li>
-                        <?php endfor; ?>
-                    </ul>
-                </nav>
-                        <!-- <a class="page-disabled"><i></i>PREV</a>
+
+                <!-- <a class="page-disabled"><i></i>PREV</a>
                         <a href="#">＜</a>
                         <a class="page-current page-active">1</a>
                         <a href="#">2</a>
@@ -1284,7 +1283,7 @@ if ($totalRows > 0) {
                         <a href="#">7</a>
                         <a href="#">＞</a>
                         <a class="page-next" href="#">NEXT<i></i></a> -->
-                    </li>
+                </li>
                 </ul>
             </div>
         </div>
@@ -1388,10 +1387,17 @@ if ($totalRows > 0) {
             return false;
         });
     });
+    
 
-// ------------頁碼--------------
+
+    // ----------- 商品圖hover --------------
+    $(".product-top-img img").hover(function(){
+        let imgSrc = $(this).attr("src");
+        $(".photo-change").attr("src", imgSrc);
+});
 
 
+    
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
