@@ -286,15 +286,15 @@ $row = $pdo ->query($sql)->fetch();
                             <input type="hidden" name="id" value="<?= $row['id'] ?>">
                                 <li class="form-item flex">
                                     <h5 class="flex">姓名</h5>
-                                    <input class="form-name flex" type="text" id="name" name="name" required value="<?= htmlentities($_SESSION['member']['name']) ?>">
+                                    <input class="form-name flex" type="text" id="name" name="name" required value="<?= htmlentities($row['name']) ?>">
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">電話</h5>
-                                    <input class="form-name" type="text" id="mobile" name="mobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($_SESSION['member']['mobile']) ?>">
+                                    <input class="form-name" type="text" id="mobile" name="mobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>">
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="adress flex">地址</h5>
-                                    <textarea style="overflow:hidden; resize:none; " class="form-name" type="text" id="address" name="address" cols="30" rows="3"><?= htmlentities($_SESSION['member']['address']) ?></textarea>
+                                    <textarea style="overflow:hidden; resize:none; " class="form-name" type="text" id="address" name="address" cols="30" rows="3"><?= htmlentities($row['address']) ?></textarea>
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">舊密碼</h5>

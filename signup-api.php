@@ -32,7 +32,9 @@ $stmt->execute([
 if($stmt->rowCount()){
     $output['success'] = true;
     $output['id'] = $pdo->lastInsertId(); //自動登入
-    $_SESSION['member']=$row;
+    $_SESSION['member']['email']= $email;
+    $_SESSION['member']['id']= $output['id'];
+
 }
 
 
