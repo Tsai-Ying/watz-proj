@@ -5,10 +5,9 @@ $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 $t_sql = "SELECT * FROM `product` WHERE `sid`= $sid";
 $row = $pdo->query($t_sql)->fetch();
 
-// $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
-// $series_num = $pdo->query($b_sql)->fetch();
-// $series_sid = "SELECT `series_name` FROM `product_series` WHERE `series_sid`=$series_sid";
-// $series_name = $pdo->query($series_sid)->fetch();
+$series_sid = $row['series'];
+$s_sql = "SELECT `series_name` FROM `product_series` WHERE `series_sid`=$series_sid ";
+$series_name = $pdo->query($s_sql)->fetch()['series_name'];
 
 
 ?>
@@ -653,8 +652,7 @@ $row = $pdo->query($t_sql)->fetch();
                 <div class="bread-crumb transition">
                     <a href="">商品</a>
                     <span> > </span>
-                    <!-- <a href=""><?= $series_sid['series_name'] ?></a> -->
-                    <a href="">素色經典</a>
+                    <a href=""><?= $series_name ?></a>
                 </div>
                 <div class="box-photo flex transition mobile-none">
                     <div class="box-photo-left flex transition">
@@ -698,7 +696,7 @@ $row = $pdo->query($t_sql)->fetch();
                     </div>
                 </div>
                 <div class="block-fixed flex mobile-visible mobile-none">
-                    <h3><?= $row['product_name'] ?></h3>
+                    <h3 class="p_item" data-sid="<?= $sid ?>"><?= $row['product_name'] ?></h3>
                     <p><?= $row['introduction'] ?></p>
                     <p><?= $row['detail'] ?></p>
                     <ul class="flex">
@@ -731,10 +729,10 @@ $row = $pdo->query($t_sql)->fetch();
                     <div class="buy flex">
                         <div class="quantity-choose flex">
                             <span class="minus">-</span>
-                            <input class="quantity-input" type="text" value="1" />
+                            <input class="quantity-input qty mobile-qty" type="text" value="1" />
                             <span class="plus">+</span>
                         </div>
-                        <button class="transition btn-coral buy-btn">加入購物車</button>
+                        <button class="transition btn-coral buy_btn">加入購物車</button>
                     </div>
                 </div>
                 <div class="box-text">
@@ -800,7 +798,7 @@ $row = $pdo->query($t_sql)->fetch();
         </div>
         <div class="block-right">
             <div class="block-fixed flex position-sticky">
-                <h3><?= $row['product_name'] ?></h3>
+                <h3 class="p_item" data-sid="<?= $sid ?>"><?= $row['product_name'] ?></h3>
                 <p><?= $row['introduction'] ?></p>
                 <p><?= $row['detail'] ?></p>
                 <ul class="flex">
@@ -832,10 +830,10 @@ $row = $pdo->query($t_sql)->fetch();
                 <h3 class="price">售價 <?= $row['price'] ?>元</h3>
                 <div class="quantity-choose flex">
                     <span class="minus">-</span>
-                    <input class="quantity-input" type="text" value="1" />
+                    <input class="quantity-input qty web-qty" type="text" value="1" />
                     <span class="plus">+</span>
                 </div>
-                <button class="transition">加入購物車</button>
+                <button class="transition buy_btn">加入購物車</button>
             </div>
         </div>
     </div>
@@ -928,6 +926,46 @@ $row = $pdo->query($t_sql)->fetch();
         }
         $("#blockPhoto ul").css("left", 0 - slideIndex * slideWidth)
     }
+
+    // php 加入購物車
+
+    const buy_btn = $('.buy_btn');
+
+    buy_btn.click(function() {
+        const p_item = $('.p_item');
+        const sid = p_item.attr('data-sid');
+        const qty = $('.qty').val();
+        const sendObj = {
+            action: 'add',
+            sid,
+            qty
+        }
+        $.get('cart-handle.php', sendObj, function(data) {
+            console.log(data);
+            setCartCount(data);
+        }, 'json');
+
+        alert(sid + ',' + qty)
+    });
+
+    // 購買數量輸入同步
+    $(".quantity-input").keyup(function() {
+        let val = $(this).val();
+        console.log(val);
+        $(".mobile-qty").val(val);
+    });
+
+
+    // 數量雙向同步
+    $('.web-qty').on('change', function(e) {
+        let value = $(this).val();
+        $('.mobile-qty').val(value);
+    });
+
+    $('.mobile-qty').on('change', function(e) {
+        let value = $(this).val();
+        $('.web-qty').val(value);
+    });
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
