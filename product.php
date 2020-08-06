@@ -8,11 +8,15 @@ $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $cate_id = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 // $search = isset($_GET['search']) ? $_GET['search'] : '';
 
+
+
 $where = "WHERE 1";
 // if ($cate_id) {
 //     $where .= " AND `category_sid`=$cate_id ";
 //     $qs['cate'] = $cate_id;
 // }
+
+// $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 1;
 
 $rows = [];
 $totalPages = 0;
@@ -1178,7 +1182,7 @@ $stmt = $pdo->query($sql);
                             </a>
                             <h5 class="flex">></h5>
                             <a href="" class="flex">
-                                <h5>素色流行</h5>
+                                <h5>商品一覽</h5>
                             </a>
                         </div>
                         <div class="right-select-rwd flex">
@@ -1192,13 +1196,12 @@ $stmt = $pdo->query($sql);
                                 </select>
                             </div>
                         </div>
-
                     </div>
                     <ul class="product-box
                         flex">
+                  
                         <?php foreach ($rows as $r) : ?>
-
-                            <li class="single-product-box flex">
+                            <a href="product-detail.php?sid=<?= $r['sid'] ?>" class="single-product-box flex">
                                 <div class="product-top-img flex">
                                     <img src='images/product/<?= $r['img_ID'] ?>-1.jpg?' alt="">
                                 </div>
@@ -1206,8 +1209,9 @@ $stmt = $pdo->query($sql);
                                     <h5><?= $r['product_name'] ?></h5>
                                     <img src="images/color1.svg" alt="">
                                 </div>
-                            </li>
+                            </a>
                         <?php endforeach; ?>
+                      
 
                         <!-- <li class="single-product-box flex">
                             <div class="product-top-img flex">
@@ -1262,27 +1266,7 @@ $stmt = $pdo->query($sql);
                                 </a>
                             </li>
                         </ul>
-                    <?php else : ?>
-                        <ul class="pagination flex">
-                            <li class="page-btn page-item <?= $page == 1 ? 'disabled' : '' ?>">
-                                <a class="page-link" href="?page=<?= $page - 1 ?>">
-                                    PREV
-                                </a>
-                            </li>
-                            <?php
-                            for ($i = $page - 2; $i <= $page + 2; $i++) :
-                                if ($i < 1) continue;
-                                if ($i > 9) break ?>
-                                <li class="page-item page-btn  <?= $page == $i ? 'active' : '' ?>">
-                                    <a class="page-current" href="?page=<?= $i ?>"><?= $i ?></a>
-                                </li>
-                            <?php endfor; ?>
-                            <li class=" page-btn page-item <?= $page == $totalPages ? 'disabled' : '' ?>">
-                                <a class="page-link" href="?page=<?= $page + 1 ?>">
-                                    NEXT
-                                </a>
-                            </li>
-                        </ul>
+                  
                     <?php endif; ?>
                 </div>
 
@@ -1403,49 +1387,17 @@ $stmt = $pdo->query($sql);
             return false;
         });
     });
-    // -----------------
-    $('.single-product-box').click(function() {
-        let jump = $('.single-product-box').attr("product-detail.php?page=[sid]")
-        jump()
-    });
+    
 
 
-    // ------------頁碼--------------
+    // ----------- 商品圖hover --------------
+    $(".product-top-img img").hover(function(){
+        let imgSrc = $(this).attr("src");
+        $(".photo-change").attr("src", imgSrc);
+});
 
 
-
-    // const pagination = $('.pagination');
-
-    //     function pageBtnTpl(obj){
-    //         // obj.i // 頁碼
-    //         // obj.isActive // 當前這頁要做反白
-    //         return `<li class="page-item ${obj.isActive ? 'active' : ''}">
-    //                     <a class="page-link" href="#${obj.i}">${obj.i}</a>
-    //                 </li>`;
-    //     }
-
-
-    //     function itemTpl(obj){
-    //     }
-
-    //     function handleHash(){
-    //         let h = location.hash.slice(1);
-    //         h = parseInt(h) || 1;
-    //         info.innerHTML = h;
-
-    //         $.get('ab-list2-api.php', {page: h}, function(data){
-    //             console.log(data);
-
-    //             pagination.empty();
-    //             for(let s in data.pageBtns){
-    //                 pagination.append( pageBtnTpl({
-    //                     i: data.pageBtns[s],
-    //                     isActive: data.pageBtns[s]==data.page
-    //                 }) )
-    //             }
-
-
-    //         }, 'json');
+    
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
