@@ -943,8 +943,8 @@ $row = $pdo->query($sql)->fetch();
                 </div>
 
                 <div class="flex">
-                    <button class="pay-btn btn-blue prev">回上一頁</button>
-                    <button class="pay-btn btn-coral gopay">前往結帳</button>
+                    <button class="pay-btn btn-blue prev" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment1.php'">回上一頁</button>
+                    <button class="pay-btn btn-coral gopay" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment3.php'">前往結帳</button>
 
                 </div>
             </div>
@@ -964,8 +964,8 @@ $row = $pdo->query($sql)->fetch();
                 </ul>
             </div>
             <div class="pay-showin922 flex">
-                <button class="pay-btn  btn-blue prev">回上一頁</button>
-                <button class="pay-btn  btn-coral gopay">前往結帳</button>
+                <button class="pay-btn btn-blue prev" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment1.php'">回上一頁</button>
+                <button class="pay-btn btn-coral gopay" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment3.php'">前往結帳</button>
 
             </div>
         </div>
