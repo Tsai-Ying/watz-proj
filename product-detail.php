@@ -5,7 +5,7 @@ $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 $t_sql = "SELECT * FROM `product` WHERE `sid`= $sid";
 $row = $pdo->query($t_sql)->fetch();
 
-$series = isset($_GET['series']) ? intval($_GET['series']) : 0;
+// $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
 // $series_num = $pdo->query($b_sql)->fetch();
 // $series_sid = "SELECT `series_name` FROM `product_series` WHERE `series_sid`=$series_sid";
 // $series_name = $pdo->query($series_sid)->fetch();
@@ -543,14 +543,21 @@ $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
             width: 70vw;
             height: 84vw;
             background: rgb(212, 212, 212);
+            overflow: hidden;
             position: relative;
+        }
+
+        .box-photo-right ul {
+            position: absolute;
+            left: 0;
+            transition: 1s;
         }
 
         .box-photo-right li {
             width: 70vw;
             height: 84vw;
-            /* position: absolute; */
             margin: 0;
+            position: unset;
         }
 
         .box-photo-right img {
@@ -594,6 +601,7 @@ $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
 
         .mobile-visible .price {
             margin-bottom: 30px;
+            margin-top: -42px;
         }
 
         .mobile-visible .quantity-choose,
@@ -666,20 +674,22 @@ $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
                         <div><img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt=""></div>
                         <div><img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt=""></div>
                     </div>
-                    <ul class="box-photo-right" id="blockPhoto">
-                        <li>
-                            <img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt="">
-                        </li>
-                    </ul>
+                    <div class="box-photo-right flex" id="blockPhoto">
+                        <ul class="flex">
+                            <li>
+                                <img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
                     <div class="arrow-left flex" id="goPrev">
                         <img src="images/arrow-left-thiner.svg" alt="">
                     </div>
@@ -887,6 +897,16 @@ $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
     if ($(window).width() < 567) {
         slider()
     }
+
+    $(window).resize(function() {
+        slideCount = $("#blockPhoto ul").find("li").length;
+        slideWidth = $("#blockPhoto ul li").width();
+        $("#blockPhoto ul").css("left", 0)
+
+        if ($(window).width() < 567) {
+            slider()
+        }
+    })
 
     function slider() {
         $("#goNext").click(function() {
