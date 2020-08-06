@@ -859,7 +859,7 @@
                             </div>
                             <div class="credit-mid flex">
                                 <h6>Card Number</h6>
-                                <div class="flex" id="topcard-mid-info">
+                                <div class="topcard-mid-info flex" id="">
                                     <div class="info-number">
                                         <h5 class="cardNumberShow cardNumberShow1" maxlength="4"></h5>
                                     </div>
@@ -876,9 +876,9 @@
                             </div>
                             <div class="credit-bottom flex">
 
-                                <div class="credit-month">
+                                <div class="credit-month card">
                                     <h6>Expiration</h6>
-                                    <div class="flex" id="topcard-mon-info">
+                                    <div class="topcard-mon-info flex" id="">
                                         <div class="info-number">
                                             <h5 class="cardMonthsShow"></h5>
                                         </div>
@@ -889,7 +889,7 @@
                                         <img src="images/credit-down.svg" alt="">
                                     </div>
                                 </div>
-                                <div class="credit-ccv" id="topcard-ccv-info">
+                                <div class="credit-ccv topcard-ccv-info" id="">
                                     <h6>CCV</h6>
                                     <div class="info-number">
                                         <h5 class="cardCcvShow"></h5>
@@ -920,9 +920,9 @@
                                 <li class="">
                                     <h5>有效期限</h5>
                                     <h5>Expiration</h5>
-                                    <div class="month-input monthInput  flex">
-                                        <input class="cardMonthsInput" type="text" maxlength="2">
-                                        <input class="cardYearsInput" type="text" maxlength="2">
+                                    <div class="month-input flex">
+                                        <input class="expirInput cardMonthsInput" type="text" maxlength="2">
+                                        <input class="expirInput cardYearsInput" type="text" maxlength="2">
                                     </div>
                                 </li>
                                 <li>
@@ -963,10 +963,10 @@
                                     <input class="cardNumberInput" type="text" maxlength="4" data-val="3">
                                     <input class="cardNumberInput" type="text" maxlength="4" data-val="4">
                                 </li>
-                                <li class="month-input monthYearInput  flex">
-                                    <input class="cardmonthsInput cardMonthsInput" type="text" maxlength="2">
+                                <li class="month-input monthYearInput flex">
+                                    <input class="expirInput cardmonthsInput cardMonthsInput" type="text" maxlength="2">
                                     /
-                                    <input class="year-input cardYearsInput" type="text" maxlength="2">
+                                    <input class="year-input expirInput cardYearsInput" type="text" maxlength="2">
                                 </li>
                                 <li class="ccv-input">
                                     <input class="cardCcvInput" type="text" maxlength="3"></li>
@@ -1111,28 +1111,28 @@
 
     //輸入欄底線變色//
     $(".cardNameInput").click(function () {
-        $("#topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
-        $("#topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
-        $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $(".topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $(".topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $(".topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
 
     });
 
     $(".cardNumberInput").click(function () {
-        $("#topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
-        $("#topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
-        $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $(".topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
+        $(".topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $(".topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
 
     });
 
-    $(".monthInput").click(function () {
-        $("#topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
-        $("#topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
-        $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
+    $(".expirInput").click(function () {
+        $(".topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $(".topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
+        $(".topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
     });
     $(".cardCcvInput").click(function () {
-        $("#topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
-        $("#topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
-        $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
+        $(".topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $(".topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $(".topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
     });
 
     //信用卡輸入同步///
