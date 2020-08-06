@@ -1,6 +1,9 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = 'cart-payment2';  // 這裡放你的pagename
 
+$id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
+$sql = "SELECT * FROM `members` WHERE `id`= $id";
+$row = $pdo->query($sql)->fetch();
 
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
@@ -599,7 +602,7 @@ $pageName = 'cart-payment2';  // 這裡放你的pagename
     }
 
     .eachsock-list {
-        width: 97%;
+        width: 95%;
         align-items: center;
         justify-content: space-between;
         margin-top: 10px;
@@ -766,33 +769,39 @@ $pageName = 'cart-payment2';  // 這裡放你的pagename
                                     </div>
                                 </div>
                             </div>
+
                             <div class="socks-detail flex">
                                 <h4>禮盒內容</h4>
-                                <div class="eachsock-list flex">
-                                    <div class="img-product">
-                                        <img src="/images/product/yellowline-01.jpg" alt="">
+                                <?php foreach ($_SESSION['cart'] as $i) : ?>
+                                    <div class="eachsock-list flex">
+                                        <div class="img-product">
+                                            <img src="images/product/<?= $i['img_ID'] ?>-01.jpg" alt="">
+                                        </div>
+                                        <div class="socks-nameNprice flex">
+                                            <h5 class="socks-title"><?= $i['product_name'] ?></h5>
+                                            <h5>X<?= $i['price'] ?></h5>
+                                            <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
+                                        </div>
                                     </div>
-                                    <div class="socks-nameNprice flex">
-                                        <h5 class="socks-title">偶速襪子</h5>
-                                        <h5>X1</h5>
-                                        <h5 class="socks-price">NT$180</h5>
-                                    </div>
-                                </div>
+                                <?php endforeach; ?>
                             </div>
+
                         </div>
                         <div class="line"></div>
                         <div class="socks-detail flex">
                             <h4>單購襪子</h4>
-                            <div class="eachsock-list flex">
-                                <div class="img-product">
-                                    <img src="/images/product/yellowline-01.jpg" alt="">
+                            <?php foreach ($_SESSION['cart'] as $i) : ?>
+                                <div class="eachsock-list p-item flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
+                                    <div class="img-product">
+                                        <img src="images/product/<?= $i['img_ID'] ?>-01.jpg" alt="">
+                                    </div>
+                                    <div class="socks-nameNprice flex">
+                                        <h5 class="socks-title"><?= $i['product_name'] ?></h5>
+                                        <h5>X<?= $i['quantity'] ?></h5>
+                                        <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
+                                    </div>
                                 </div>
-                                <div class="socks-nameNprice flex">
-                                    <h5 class="socks-title">偶速襪子</h5>
-                                    <h5>X1</h5>
-                                    <h5 class="socks-price">NT $180</h5>
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -826,23 +835,23 @@ $pageName = 'cart-payment2';  // 這裡放你的pagename
                     <ul class="shipperInfo flex">
                         <li class="flex">
                             <p>訂購人姓名</p>
-                            <input class="shipperName" type="text" data-val="1">
+                            <input class="shipperName" type="text" data-val="1" id="name" name="name" required value="<?= htmlentities($row['name']) ?>">
                         </li>
                         <li class="flex">
                             <p>電話</p>
-                            <input class="shipperPhone" type="text" data-val="2">
+                            <input class="shipperPhone" type="text" data-val="2" maxlength="10" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>">
                         </li>
                         <li class="flex">
                             <p>E-mail</p>
-                            <input class="shipperemail" type="text" data-val="3">
+                            <input class="shipperemail" type="text" data-val="3" value="<?= htmlentities($row['email']) ?>">
                         </li>
                         <li class="flex">
                             <p>郵遞區號</p>
-                            <input class="shipperZipcode" type="text" data-val="4">
+                            <input class="shipperZipcode" type="text" data-val="4" maxlength="6" value="<?= htmlentities($row['zip_code']) ?>">
                         </li>
                         <li class="flex">
                             <p>地址</p>
-                            <input class="shipperAddress" type="text" data-val="5">
+                            <input class="shipperAddress" type="text" data-val="5" id="address" name="address" value="<?= htmlentities($row['address']) ?>">
                         </li>
                     </ul>
                     <div class="line"></div>
@@ -977,33 +986,39 @@ $pageName = 'cart-payment2';  // 這裡放你的pagename
                                     </div>
                                 </div>
                             </div>
-                            <div class="socks-detail flex">
-                                <h4>禮盒內容</h4>
-                                <div class="eachsock-list flex">
-                                    <div class="img-product">
-                                        <img src="/images/product/yellowline-01.jpg" alt="">
-                                    </div>
-                                    <div class="socks-nameNprice flex">
-                                        <h5 class="socks-title">偶速襪子</h5>
-                                        <h5>X1</h5>
-                                        <h5 class="socks-price">NT$180</h5>
+                            <?php foreach ($_SESSION['cart'] as $i) : ?>
+
+                                <div class="socks-detail flex">
+                                    <h4>禮盒內容</h4>
+                                    <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
+                                        <div class="img-product">
+                                            <img src="images/product/<?= $i['img_ID'] ?>.jpg" alt="">
+                                        </div>
+                                        <div class="socks-nameNprice flex">
+                                            <h5 class="socks-title"><?= $i['product_name'] ?></h5>
+                                            <h5>X<?= $i['quantity'] ?></h5>
+                                            <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php endforeach; ?>
+
                         </div>
                         <div class="line"></div>
                         <div class="socks-detail flex">
                             <h4>單購襪子</h4>
-                            <div class="eachsock-list flex">
-                                <div class="img-product">
-                                    <img src="/images/product/yellowline-01.jpg" alt="">
+                            <?php foreach ($_SESSION['cart'] as $i) : ?>
+                                <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
+                                    <div class="img-product">
+                                        <img src="images/product/<?= $i['img_ID'] ?>-01.jpg" alt="">
+                                    </div>
+                                    <div class="socks-nameNprice flex">
+                                        <h5 class="socks-title"><?= $i['product_name'] ?></h5>
+                                        <h5>X<?= $i['quantity'] ?></h5>
+                                        <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
+                                    </div>
                                 </div>
-                                <div class="socks-nameNprice flex">
-                                    <h5 class="socks-title">偶速襪子</h5>
-                                    <h5>X1</h5>
-                                    <h5 class="socks-price">NT $180</h5>
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -1111,7 +1126,33 @@ $pageName = 'cart-payment2';  // 這裡放你的pagename
 
 
         // ------------------php---------------------//
-       
+        const dallorCommas = function(n) {
+            return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        };
+
+        function prepareCartTable() {
+            $p_items = $('.p-item');
+            let total = 0;
+
+            if (!$p_items.length && $('#totalPrice').length) {
+                // location.href = 'product-list.php';
+                location.reload();
+                return;
+            }
+            $p_items.each(function() {
+                const sid = $(this).attr('data-sid');
+                const price = $(this).attr('data-price');
+                const quantity = $(this).attr('data-quantity');
+
+                $(this).find('.price').text('NT $' + dallorCommas(price));
+                $(this).find('.qty').val(quantity);
+                $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
+                total += quantity * price;
+                $('#productPrice').text('NT $' + dallorCommas(total));
+                $('#totalPrice').text('NT $' + dallorCommas(total - 60 - 20));
+
+            })
+        }
     </script>
 
     <?php require __DIR__ . '/__html_foot.php' ?>
