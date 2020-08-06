@@ -5,10 +5,9 @@ $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 $t_sql = "SELECT * FROM `product` WHERE `sid`= $sid";
 $row = $pdo->query($t_sql)->fetch();
 
-$series = isset($_GET['series']) ? intval($_GET['series']) : 0;
-// $series_num = $pdo->query($b_sql)->fetch();
-// $series_sid = "SELECT `series_name` FROM `product_series` WHERE `series_sid`=$series_sid";
-// $series_name = $pdo->query($series_sid)->fetch();
+$series_sid = $row['series'];
+$s_sql = "SELECT `series_name` FROM `product_series` WHERE `series_sid`=$series_sid ";
+$series_name = $pdo->query($s_sql)->fetch()['series_name'];
 
 
 ?>
@@ -543,14 +542,21 @@ $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
             width: 70vw;
             height: 84vw;
             background: rgb(212, 212, 212);
+            overflow: hidden;
             position: relative;
+        }
+
+        .box-photo-right ul {
+            position: absolute;
+            left: 0;
+            transition: 1s;
         }
 
         .box-photo-right li {
             width: 70vw;
             height: 84vw;
-            /* position: absolute; */
             margin: 0;
+            position: unset;
         }
 
         .box-photo-right img {
@@ -594,6 +600,7 @@ $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
 
         .mobile-visible .price {
             margin-bottom: 30px;
+            margin-top: -42px;
         }
 
         .mobile-visible .quantity-choose,
@@ -645,8 +652,7 @@ $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
                 <div class="bread-crumb transition">
                     <a href="">商品</a>
                     <span> > </span>
-                    <!-- <a href=""><?= $series_sid['series_name'] ?></a> -->
-                    <a href="">素色經典</a>
+                    <a href=""><?= $series_name ?></a>
                 </div>
                 <div class="box-photo flex transition mobile-none">
                     <div class="box-photo-left flex transition">
@@ -666,20 +672,22 @@ $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
                         <div><img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt=""></div>
                         <div><img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt=""></div>
                     </div>
-                    <ul class="box-photo-right" id="blockPhoto">
-                        <li>
-                            <img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt="">
-                        </li>
-                    </ul>
+                    <div class="box-photo-right flex" id="blockPhoto">
+                        <ul class="flex">
+                            <li>
+                                <img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
                     <div class="arrow-left flex" id="goPrev">
                         <img src="images/arrow-left-thiner.svg" alt="">
                     </div>
@@ -688,7 +696,7 @@ $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
                     </div>
                 </div>
                 <div class="block-fixed flex mobile-visible mobile-none">
-                    <h3><?= $row['product_name'] ?></h3>
+                    <h3 class="p_item" data-sid="<?= $sid ?>"><?= $row['product_name'] ?></h3>
                     <p><?= $row['introduction'] ?></p>
                     <p><?= $row['detail'] ?></p>
                     <ul class="flex">
@@ -721,10 +729,10 @@ $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
                     <div class="buy flex">
                         <div class="quantity-choose flex">
                             <span class="minus">-</span>
-                            <input class="quantity-input" type="text" value="1" />
+                            <input class="quantity-input qty mobile-qty" type="text" value="1" />
                             <span class="plus">+</span>
                         </div>
-                        <button class="transition btn-coral buy-btn">加入購物車</button>
+                        <button class="transition btn-coral buy_btn">加入購物車</button>
                     </div>
                 </div>
                 <div class="box-text">
@@ -790,7 +798,7 @@ $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
         </div>
         <div class="block-right">
             <div class="block-fixed flex position-sticky">
-                <h3><?= $row['product_name'] ?></h3>
+                <h3 class="p_item" data-sid="<?= $sid ?>"><?= $row['product_name'] ?></h3>
                 <p><?= $row['introduction'] ?></p>
                 <p><?= $row['detail'] ?></p>
                 <ul class="flex">
@@ -822,10 +830,10 @@ $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
                 <h3 class="price">售價 <?= $row['price'] ?>元</h3>
                 <div class="quantity-choose flex">
                     <span class="minus">-</span>
-                    <input class="quantity-input" type="text" value="1" />
+                    <input class="quantity-input qty web-qty" type="text" value="1" />
                     <span class="plus">+</span>
                 </div>
-                <button class="transition">加入購物車</button>
+                <button class="transition buy_btn">加入購物車</button>
             </div>
         </div>
     </div>
@@ -888,6 +896,16 @@ $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
         slider()
     }
 
+    $(window).resize(function() {
+        slideCount = $("#blockPhoto ul").find("li").length;
+        slideWidth = $("#blockPhoto ul li").width();
+        $("#blockPhoto ul").css("left", 0)
+
+        if ($(window).width() < 567) {
+            slider()
+        }
+    })
+
     function slider() {
         $("#goNext").click(function() {
             slideIndex = slideIndex + 1;
@@ -908,6 +926,46 @@ $series = isset($_GET['series']) ? intval($_GET['series']) : 0;
         }
         $("#blockPhoto ul").css("left", 0 - slideIndex * slideWidth)
     }
+
+    // php 加入購物車
+
+    const buy_btn = $('.buy_btn');
+
+    buy_btn.click(function() {
+        const p_item = $('.p_item');
+        const sid = p_item.attr('data-sid');
+        const qty = $('.qty').val();
+        const sendObj = {
+            action: 'add',
+            sid,
+            qty
+        }
+        $.get('cart-handle.php', sendObj, function(data) {
+            console.log(data);
+            setCartCount(data);
+        }, 'json');
+
+        // alert(sid + ',' + qty)
+    });
+
+    // 購買數量輸入同步
+    $(".quantity-input").keyup(function() {
+        let val = $(this).val();
+        console.log(val);
+        $(".mobile-qty").val(val);
+    });
+
+
+    // 數量雙向同步
+    $('.web-qty').on('change', function(e) {
+        let value = $(this).val();
+        $('.mobile-qty').val(value);
+    });
+
+    $('.mobile-qty').on('change', function(e) {
+        let value = $(this).val();
+        $('.web-qty').val(value);
+    });
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
