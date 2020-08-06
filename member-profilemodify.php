@@ -124,6 +124,7 @@ $row = $pdo->query($sql)->fetch();
 
     .bg-pw {
         width: 240px;
+        height: 40px;
         background: #ffffff;
         align-items: center;
     }
@@ -294,7 +295,73 @@ $row = $pdo->query($sql)->fetch();
             margin: 0;
         }
     }
+        /* jumpout notice */
+
+        .notice {
+        transition: .2s;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        visibility: hidden;
+    }
+
+    .notice-block {
+        transition: .2s;
+        padding: 30px;
+        background: #FF9685;
+        border-radius: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        align-items: center;
+        z-index: 21;
+        opacity: 0;
+    }
+
+    .notice-bg {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: #404040;
+        opacity: .8;
+    }
+
+    .notice-top {
+        margin-bottom: 10px;
+    }
+
+    .notice-top img {
+        height: 40px;
+    }
+
+    .notice-bottom h3 {
+        color: white;
+        white-space: nowrap;
+    }
+
+    .notice.active {
+        visibility: visible;
+        z-index: 20;
+    }
+
+    .notice.active .notice-block {
+        opacity: 1;
+    }
 </style>
+<!-- jumpout notice -->
+<div class="notice">
+    <div class="notice-bg"></div>
+    <div class="notice-block flex">
+        <div class="notice-top">
+            <img src="images/icon-success.svg " alt=" ">
+        </div>
+        <div class="notice-bottom">
+            <h3>修改完成</h3>
+        </div>
+    </div>
+</div>
 <div class="container flex">
     <!-- 如果container有其它class要自己加上 -->
 
@@ -303,10 +370,10 @@ $row = $pdo->query($sql)->fetch();
 
     <div class="wrapper flex">
         <div class="selector flex">
-            <div class="box"><a href="">會員資料</a></div>
-            <div class="box"><a href="">訂單紀錄</a></div>
-            <div class="box"><a href="">會員條款</a></div>
-            <div class="box"><a href="">隱私權政策</a></div>
+            <div class="box"><a href="<?= WEB_ROOT ?>/member-profile.php">會員資料</a></div>
+            <div class="box"><a href="<?= WEB_ROOT ?>/member-historylist.php">訂單紀錄</a></div>
+            <div class="box"><a href="<?= WEB_ROOT ?>/product.php">會員條款</a></div>
+            <div class="box"><a href="<?= WEB_ROOT ?>/product.php">隱私權政策</a></div>
         </div>
         <form class="" name="form1" method="post" novalidate>
             <div class="bg-membercard flex">
@@ -337,21 +404,21 @@ $row = $pdo->query($sql)->fetch();
                                     <h5 class="flex">舊密碼</h5>
                                     <div class="bg-pw flex">
                                         <input class="password form-name" type="password" id="oldpassword">
-                                        <img class="eyes" id="eyes" src="images/eye.svg" alt="">
+                                        <img class="eyes" id="eyes" src="images/hidden.svg" alt="">
                                     </div>
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">新密碼</h5>
                                     <div class="bg-pw flex">
                                         <input class="password form-name" type="password" id="newpassword" name="newpassword">
-                                        <img class="eyes" id="" src="images/eye.svg" alt="">
+                                        <img class="eyes" id="" src="images/hidden.svg" alt="">
                                     </div>
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">再次確認密碼</h5>
                                     <div class="bg-pw flex">
                                         <input class="password form-name" type="password" id="confirmpassword">
-                                        <img class="eyes" src="images/eye.svg" alt="">
+                                        <img class="eyes" src="images/hidden.svg" alt="">
                                     </div>
                                 </li>
                             </ul>
@@ -387,8 +454,10 @@ $row = $pdo->query($sql)->fetch();
       $pwd.text(($pwd.text() === 'Hide' ? 'Show' : 'Hide'));
 
       if ($pwd.attr('type') === 'password') {
+        $(this).attr('src','images/eye.svg')
        $pwd.attr('type', 'text');
       } else {
+        $(this).attr('src','images/hidden.svg')
         $pwd.attr('type', 'password');
       }
       e.preventDefault();
@@ -447,6 +516,8 @@ $row = $pdo->query($sql)->fetch();
                 console.log(data);
 
                 if (data.success) {
+                    $('.notice h3').text('修改完成');
+                    notice();
                     setTimeout(function() {
                         location.href = 'member-profile.php';
                     }, 1000)
@@ -467,6 +538,9 @@ $row = $pdo->query($sql)->fetch();
             }, 'json');
         }
         return false;
+    }
+    function notice() {
+        $(".notice").addClass("active");
     }
 </script>
 
