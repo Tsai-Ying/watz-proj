@@ -4,7 +4,11 @@ $pageName = 'product-detail';  // 這裡放你的pagename
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 $t_sql = "SELECT * FROM `product` WHERE `sid`= $sid";
 $row = $pdo->query($t_sql)->fetch();
-$b_sql = "SELECT"
+
+$series = isset($_GET['series']) ? intval($_GET['series']) : 0;
+// $series_num = $pdo->query($b_sql)->fetch();
+// $series_sid = "SELECT `series_name` FROM `product_series` WHERE `series_sid`=$series_sid";
+// $series_name = $pdo->query($series_sid)->fetch();
 
 
 ?>
@@ -346,15 +350,15 @@ $b_sql = "SELECT"
         }
 
         .box-photo-left img {
-             width: 100%;
-             height: 100%;
-             object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .box-photo-right img {
-             width: 100%;
-             height: 100%;
-             object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .box-bigphoto>div {
@@ -542,14 +546,14 @@ $b_sql = "SELECT"
             position: relative;
         }
 
-        .box-photo-right div {
+        .box-photo-right li {
             width: 70vw;
             height: 84vw;
-            position: absolute;
+            /* position: absolute; */
             margin: 0;
         }
 
-        .box-photo-right img{
+        .box-photo-right img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -635,158 +639,56 @@ $b_sql = "SELECT"
     <?php include __DIR__ . '/__navbar.php' ?>
     <?php include __DIR__ . '/__html_btn-top.php' ?>
 
-        <div class="wrapper flex transition">
-            <div class="block-left transition">
-                <div class="block-left-top flex transition">
-                    <div class="bread-crumb transition">
-                        <a href="">商品</a>
-                        <span> > </span>
-                        <a href="">素色經典</a>
+    <div class="wrapper flex transition">
+        <div class="block-left transition">
+            <div class="block-left-top flex transition">
+                <div class="bread-crumb transition">
+                    <a href="">商品</a>
+                    <span> > </span>
+                    <!-- <a href=""><?= $series_sid['series_name'] ?></a> -->
+                    <a href="">素色經典</a>
+                </div>
+                <div class="box-photo flex transition mobile-none">
+                    <div class="box-photo-left flex transition">
+                        <div><img class="imgID-1" src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt=""></div>
+                        <div><img class="imgID-2" src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt=""></div>
+                        <div><img class="imgID-3" src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt=""></div>
+                        <div><img class="imgID-4" src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt=""></div>
                     </div>
-                    <div class="box-photo flex transition mobile-none">
-                        <div class="box-photo-left flex transition">
-                            <div><img class="imgID-1" src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt=""></div>
-                            <div><img class="imgID-2" src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt=""></div>
-                            <div><img class="imgID-3" src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt=""></div>
-                            <div><img class="imgID-4" src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt=""></div>
-                        </div>
-                        <div class="box-photo-right transition">
-                            <img class="photo-change" src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="box-photo flex transition slider-box flex">
-                        <div class="box-photo-left flex transition mobile-none">
-                            <div><img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt=""></div>
-                            <div><img src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt=""></div>
-                            <div><img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt=""></div>
-                            <div><img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt=""></div>
-                        </div>
-                        <div class="box-photo-right">
-                              <div>
-                                <img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
-                            </div>
-                            <div>
-                                <img src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt="">
-                            </div>
-                            <div>
-                                <img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt="">
-                            </div>
-                            <div>
-                                <img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="arrow-left flex">
-                                <img src="images/arrow-left-thiner.svg" alt="">
-                        </div>
-                        <div class="arrow-right flex">
-                                <img src="images/arrow-right-thiner.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="block-fixed flex mobile-visible mobile-none">
-                        <h3><?= $row['product_name'] ?></h3>
-                        <p><?= $row['introduction'] ?></p>
-                        <p><?= $row['detail'] ?></p>
-                        <ul class="flex">
-                            <li class="active">
-                                <div class="socks-pattern flex">
-                                    <img class="img-select-circle transition active" src="images/select circle.svg"
-                                        alt="">
-                                    <div class=""><img src="" alt=""></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="socks-pattern flex">
-                                    <img class="img-select-circle transition" src="images/select circle.svg" alt="">
-                                    <div class=""><img src="" alt=""></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="socks-pattern flex">
-                                    <img class="img-select-circle transition" src="images/select circle.svg" alt="">
-                                    <div class=""><img src="" alt=""></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="socks-pattern flex">
-                                    <img class="img-select-circle transition" src="images/select circle.svg" alt="">
-                                    <div class=""><img src="" alt=""></div>
-                                </div>
-                            </li>
-                        </ul>
-                        <h3 class="price">售價 <?= $row['price'] ?>元</h3>
-                        <div class="buy flex">
-                            <div class="quantity-choose flex">
-                                <span class="minus">-</span>
-                                <input class="quantity-input" type="text" value="1" />
-                                <span class="plus">+</span>
-                            </div>
-                            <button class="transition btn-coral buy-btn">加入購物車</button>
-                        </div>
-                    </div>
-                    <div class="box-text">
-                        <ul>
-                            <li>
-                                <p>・手洗／最高水溫不超過30℃</p>
-                            </li>
-                            <li>
-                                <p>・不可以用機器烘乾</p>
-                            </li>
-                            <li>
-                                <p>・棉襪穿起來長度有±2cm彈性，可用腳底長度及穿著舒適感來做選擇</p>
-                            </li>
-                            <li>
-                                <p>＊由於雙針筒織法，可能會有1至2公分的線頭，為正常現象</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="box-promise flex">
-                        <div class="title-promise flex">
-                            <h5>WATZ與你的五個約定</h5>
-                            <img src="images/title-bgc.svg" alt="">
-                        </div>
-                        <ul class="flex">
-                            <li>
-                                <img src="images/promise1.svg" alt="">
-                                <h5>台灣製造</h5>
-                            </li>
-                            <li>
-                                <img src="images/promise2.svg" alt="">
-                                <h5>舒適透氣</h5>
-                            </li>
-                            <li>
-                                <img src="images/promise3.svg" alt="">
-                                <h5>蓬鬆柔軟</h5>
-                            </li>
-                            <li>
-                                <img src="images/promise4.svg" alt="">
-                                <h5>耐洗耐穿</h5>
-                            </li>
-                            <li>
-                                <img src="images/promise5.svg" alt="">
-                                <h5>無害環境</h5>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="box-bigphoto">
-                        <div><img src="images/product/<?= $row['img_ID'] ?>-5.jpg" alt=""></div>
-                        <div><img src="images/product/<?= $row['img_ID'] ?>-6.jpg" alt=""></div>
-                        <div><img src="images/product/<?= $row['img_ID'] ?>-7.jpg" alt=""></div>
+                    <div class="box-photo-right transition">
+                        <img class="photo-change" src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
                     </div>
                 </div>
-                <div class="block-left-bottom">
-                    <div class="box-suggest">
-                        <h5>你可能會喜歡:</h5>
-                        <ul class="flex">
-                            <li><img src="" alt=""></li>
-                            <li><img src="" alt=""></li>
-                            <li><img src="" alt=""></li>
-                        </ul>
+                <div class="box-photo flex transition slider-box flex">
+                    <div class="box-photo-left flex transition mobile-none">
+                        <div><img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt=""></div>
+                        <div><img src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt=""></div>
+                        <div><img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt=""></div>
+                        <div><img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt=""></div>
+                    </div>
+                    <ul class="box-photo-right" id="blockPhoto">
+                        <li>
+                            <img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt="">
+                        </li>
+                    </ul>
+                    <div class="arrow-left flex" id="goPrev">
+                        <img src="images/arrow-left-thiner.svg" alt="">
+                    </div>
+                    <div class="arrow-right flex" id="goNext">
+                        <img src="images/arrow-right-thiner.svg" alt="">
                     </div>
                 </div>
-            </div>
-            <div class="block-right">
-                <div class="block-fixed flex position-sticky">
-                <h3><?= $row['product_name'] ?></h3>
+                <div class="block-fixed flex mobile-visible mobile-none">
+                    <h3><?= $row['product_name'] ?></h3>
                     <p><?= $row['introduction'] ?></p>
                     <p><?= $row['detail'] ?></p>
                     <ul class="flex">
@@ -816,33 +718,134 @@ $b_sql = "SELECT"
                         </li>
                     </ul>
                     <h3 class="price">售價 <?= $row['price'] ?>元</h3>
-                    <div class="quantity-choose flex">
-                        <span class="minus">-</span>
-                        <input class="quantity-input" type="text" value="1" />
-                        <span class="plus">+</span>
+                    <div class="buy flex">
+                        <div class="quantity-choose flex">
+                            <span class="minus">-</span>
+                            <input class="quantity-input" type="text" value="1" />
+                            <span class="plus">+</span>
+                        </div>
+                        <button class="transition btn-coral buy-btn">加入購物車</button>
                     </div>
-                    <button class="transition">加入購物車</button>
+                </div>
+                <div class="box-text">
+                    <ul>
+                        <li>
+                            <p>・手洗／最高水溫不超過30℃</p>
+                        </li>
+                        <li>
+                            <p>・不可以用機器烘乾</p>
+                        </li>
+                        <li>
+                            <p>・棉襪穿起來長度有±2cm彈性，可用腳底長度及穿著舒適感來做選擇</p>
+                        </li>
+                        <li>
+                            <p>＊由於雙針筒織法，可能會有1至2公分的線頭，為正常現象</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-promise flex">
+                    <div class="title-promise flex">
+                        <h5>WATZ與你的五個約定</h5>
+                        <img src="images/title-bgc.svg" alt="">
+                    </div>
+                    <ul class="flex">
+                        <li>
+                            <img src="images/promise1.svg" alt="">
+                            <h5>台灣製造</h5>
+                        </li>
+                        <li>
+                            <img src="images/promise2.svg" alt="">
+                            <h5>舒適透氣</h5>
+                        </li>
+                        <li>
+                            <img src="images/promise3.svg" alt="">
+                            <h5>蓬鬆柔軟</h5>
+                        </li>
+                        <li>
+                            <img src="images/promise4.svg" alt="">
+                            <h5>耐洗耐穿</h5>
+                        </li>
+                        <li>
+                            <img src="images/promise5.svg" alt="">
+                            <h5>無害環境</h5>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-bigphoto">
+                    <div><img src="images/product/<?= $row['img_ID'] ?>-5.jpg" alt=""></div>
+                    <div><img src="images/product/<?= $row['img_ID'] ?>-6.jpg" alt=""></div>
+                    <div><img src="images/product/<?= $row['img_ID'] ?>-7.jpg" alt=""></div>
+                </div>
+            </div>
+            <div class="block-left-bottom">
+                <div class="box-suggest">
+                    <h5>你可能會喜歡:</h5>
+                    <ul class="flex">
+                        <li><img src="" alt=""></li>
+                        <li><img src="" alt=""></li>
+                        <li><img src="" alt=""></li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <?php include __DIR__ . '/__html_footer.php' ?>
+        <div class="block-right">
+            <div class="block-fixed flex position-sticky">
+                <h3><?= $row['product_name'] ?></h3>
+                <p><?= $row['introduction'] ?></p>
+                <p><?= $row['detail'] ?></p>
+                <ul class="flex">
+                    <li class="active">
+                        <div class="socks-pattern flex">
+                            <img class="img-select-circle transition active" src="images/select circle.svg" alt="">
+                            <div class=""><img src="" alt=""></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="socks-pattern flex">
+                            <img class="img-select-circle transition" src="images/select circle.svg" alt="">
+                            <div class=""><img src="" alt=""></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="socks-pattern flex">
+                            <img class="img-select-circle transition" src="images/select circle.svg" alt="">
+                            <div class=""><img src="" alt=""></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="socks-pattern flex">
+                            <img class="img-select-circle transition" src="images/select circle.svg" alt="">
+                            <div class=""><img src="" alt=""></div>
+                        </div>
+                    </li>
+                </ul>
+                <h3 class="price">售價 <?= $row['price'] ?>元</h3>
+                <div class="quantity-choose flex">
+                    <span class="minus">-</span>
+                    <input class="quantity-input" type="text" value="1" />
+                    <span class="plus">+</span>
+                </div>
+                <button class="transition">加入購物車</button>
+            </div>
+        </div>
+    </div>
+    <?php include __DIR__ . '/__html_footer.php' ?>
 </div>
-<?php include __DIR__ . '/__scripts.php' ?>        
+<?php include __DIR__ . '/__scripts.php' ?>
 
 <script>
-
     // 同款樣式hover
-    $("img.img-select-circle").hover(function (event) {
+    $("img.img-select-circle").hover(function(event) {
         $(".img-select-circle").removeClass("active")
     })
 
-    $("img.img-select-circle").mouseleave(function (event) {
+    $("img.img-select-circle").mouseleave(function(event) {
         $(".img-select-circle").eq(0).addClass("active")
     })
 
     // 數量加減功能
-    $(document).ready(function () {
-        $('.minus').click(function () {
+    $(document).ready(function() {
+        $('.minus').click(function() {
             var $input = $(this).parent().find('input');
             var count = parseInt($input.val()) - 1;
             count = count < 1 ? 1 : count;
@@ -850,7 +853,7 @@ $b_sql = "SELECT"
             $input.change();
             return false;
         });
-        $('.plus').click(function () {
+        $('.plus').click(function() {
             var $input = $(this).parent().find('input');
             $input.val(parseInt($input.val()) + 1);
             $input.change();
@@ -859,23 +862,52 @@ $b_sql = "SELECT"
     });
 
     // block-left 點擊改變照片功能
-    $(".imgID-1").click(function(){
+    $(".imgID-1").click(function() {
         let imgSrc = $(this).attr("src");
         $(".photo-change").attr("src", imgSrc);
     })
-    $(".imgID-2").click(function(){
+    $(".imgID-2").click(function() {
         let imgSrc = $(this).attr("src");
         $(".photo-change").attr("src", imgSrc);
     })
-    $(".imgID-3").click(function(){
+    $(".imgID-3").click(function() {
         let imgSrc = $(this).attr("src");
         $(".photo-change").attr("src", imgSrc);
     })
-    $(".imgID-4").click(function(){
+    $(".imgID-4").click(function() {
         let imgSrc = $(this).attr("src");
         $(".photo-change").attr("src", imgSrc);
     })
 
+    // mobile slider
+    let slideIndex = 0;
+    let slideCount = $("#blockPhoto ul").find("li").length;
+    let slideWidth = $("#blockPhoto ul li").width();
+
+    if ($(window).width() < 567) {
+        slider()
+    }
+
+    function slider() {
+        $("#goNext").click(function() {
+            slideIndex = slideIndex + 1;
+            goSlide()
+        })
+        $("#goPrev").click(function() {
+            slideIndex = slideIndex - 1;
+            goSlide()
+        })
+    }
+
+    function goSlide() {
+        if (slideIndex < 0) {
+            slideIndex = slideCount - 1
+        }
+        if (slideIndex >= slideCount) {
+            slideIndex = 0
+        }
+        $("#blockPhoto ul").css("left", 0 - slideIndex * slideWidth)
+    }
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
