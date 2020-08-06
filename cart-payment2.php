@@ -5,6 +5,20 @@ $id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
 $sql = "SELECT * FROM `members` WHERE `id`= $id";
 $row = $pdo->query($sql)->fetch();
 
+//**抓到當下的價格資訊***begin
+
+$sids = array_column($_SESSION['cart'], 'sid');
+$sql = "SELECT * FROM `product` WHERE `sid` IN (" . implode(',', $sids) . ")";
+$sql;
+$productData = [];
+$stmt = $pdo->query($sql);
+while ($r = $stmt->fetch()) {
+    $productData[$r['sid']] = $r;
+}
+foreach ($_SESSION['cart'] as $k => $v) {
+    $_SESSION['cart'][$k]['price'] = $productData[$v['sid']]['price'];
+}
+
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
@@ -775,11 +789,11 @@ $row = $pdo->query($sql)->fetch();
                                 <?php foreach ($_SESSION['cart'] as $i) : ?>
                                     <div class="eachsock-list flex">
                                         <div class="img-product">
-                                            <img src="images/product/<?= $i['img_ID'] ?>-01.jpg" alt="">
+                                            <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
                                         </div>
                                         <div class="socks-nameNprice flex">
                                             <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                            <h5>X<?= $i['price'] ?></h5>
+                                            <h5>X<?= $i['qty'] ?></h5>
                                             <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
                                         </div>
                                     </div>
@@ -791,13 +805,13 @@ $row = $pdo->query($sql)->fetch();
                         <div class="socks-detail flex">
                             <h4>單購襪子</h4>
                             <?php foreach ($_SESSION['cart'] as $i) : ?>
-                                <div class="eachsock-list p-item flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
+                                <div class="eachsock-list p-item flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
                                     <div class="img-product">
-                                        <img src="images/product/<?= $i['img_ID'] ?>-01.jpg" alt="">
+                                        <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
                                     </div>
                                     <div class="socks-nameNprice flex">
                                         <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                        <h5>X<?= $i['quantity'] ?></h5>
+                                        <h5>X<?= $i['qty'] ?></h5>
                                         <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
                                     </div>
                                 </div>
@@ -812,7 +826,7 @@ $row = $pdo->query($sql)->fetch();
                     <h3>訂購金額</h3>
                     <li class="flex">
                         <p>商品總計</p>
-                        <p>900</p>
+                        <p id="productPrice"></p>
                     </li>
                     <li class="flex">
                         <p>運費</p>
@@ -825,7 +839,7 @@ $row = $pdo->query($sql)->fetch();
                     <div class="line"></div>
                     <li class="flex">
                         <h4>結帳金額</h4>
-                        <h4>940 元</h4>
+                        <h4 id="totalPrice"> 元</h4>
                     </li>
                 </ul>
             </div>
@@ -992,11 +1006,11 @@ $row = $pdo->query($sql)->fetch();
                                     <h4>禮盒內容</h4>
                                     <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
                                         <div class="img-product">
-                                            <img src="images/product/<?= $i['img_ID'] ?>.jpg" alt="">
+                                            <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
                                         </div>
                                         <div class="socks-nameNprice flex">
                                             <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                            <h5>X<?= $i['quantity'] ?></h5>
+                                            <h5>X<?= $i['qty'] ?></h5>
                                             <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
                                         </div>
                                     </div>
@@ -1008,13 +1022,13 @@ $row = $pdo->query($sql)->fetch();
                         <div class="socks-detail flex">
                             <h4>單購襪子</h4>
                             <?php foreach ($_SESSION['cart'] as $i) : ?>
-                                <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
+                                <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
                                     <div class="img-product">
-                                        <img src="images/product/<?= $i['img_ID'] ?>-01.jpg" alt="">
+                                        <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
                                     </div>
                                     <div class="socks-nameNprice flex">
                                         <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                        <h5>X<?= $i['quantity'] ?></h5>
+                                        <h5>X<?= $i['qty'] ?></h5>
                                         <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
                                     </div>
                                 </div>
@@ -1027,7 +1041,7 @@ $row = $pdo->query($sql)->fetch();
                     <ul>
                         <li class="flex">
                             <p>商品總計</p>
-                            <p>900</p>
+                            <p id="productPrice">元</p>
                         </li>
                         <li class="flex">
                             <p>運費</p>
@@ -1040,7 +1054,7 @@ $row = $pdo->query($sql)->fetch();
                         <div class="line"></div>
                         <li class="flex">
                             <h4>結帳金額</h4>
-                            <h4>940 元</h4>
+                            <h4 id="totalPrice">元</h4>
                         </li>
                     </ul>
                 </div>
@@ -1126,33 +1140,53 @@ $row = $pdo->query($sql)->fetch();
 
 
         // ------------------php---------------------//
+        const cart_count = $('.cart-count'); // span tag
+        const cart_short_list = $('.cart-short-list');
+
+        $.get('cart-handle.php', function(data) {
+            setCartCount(data);
+        }, 'json');
+
+        function setCartCount(data) {
+            let count = 0;
+            if (data && data.cart && data.cart.length) {
+                for (let i in data.cart) {
+                    let item = data.cart[i];
+                    count += item.quantity;
+                    cart_short_list.append(`<a class="dropdown-item"
+                href="#">${item.bookname} ${item.quantity}</a>`)
+                }
+                cart_count.text(count);
+            }
+        }
+
         const dallorCommas = function(n) {
             return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         };
 
         function prepareCartTable() {
-            $p_items = $('.p-item');
+            const $p_items = $('.p-item');
             let total = 0;
+            if ($p_items.length == 0) {
+                location.href = 'product-list.php';
+            } else {
+                $p_items.each(function() {
+                    const sid = $(this).attr('data-sid');
+                    const price = $(this).attr('data-price');
+                    const quantity = $(this).attr('data-quantity');
 
-            if (!$p_items.length && $('#totalPrice').length) {
-                // location.href = 'product-list.php';
-                location.reload();
-                return;
+                    $(this).find('.price').text('$' + dallorCommas(price));
+                    $(this).find('.qty').val(quantity);
+                    $(this).find('.sub-total').text('$' + dallorCommas(price * quantity));
+                    total += price * quantity;
+                    $('#total-price').text('$' + dallorCommas(total));
+
+                })
             }
-            $p_items.each(function() {
-                const sid = $(this).attr('data-sid');
-                const price = $(this).attr('data-price');
-                const quantity = $(this).attr('data-quantity');
 
-                $(this).find('.price').text('NT $' + dallorCommas(price));
-                $(this).find('.qty').val(quantity);
-                $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
-                total += quantity * price;
-                $('#productPrice').text('NT $' + dallorCommas(total));
-                $('#totalPrice').text('NT $' + dallorCommas(total - 60 - 20));
-
-            })
         }
+
+        prepareCartTable();
     </script>
 
     <?php require __DIR__ . '/__html_foot.php' ?>
