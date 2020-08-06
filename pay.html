@@ -50,6 +50,7 @@
             width: 1000px;
             height: 500px;
             justify-content: space-evenly;
+            margin-bottom: 30px;
             /* border: 1px solid royalblue; */
             /* -webkit-transition: all 0.5s ease-in-out; */
         }
@@ -60,7 +61,7 @@
             display: none;
             flex-direction: column;
             justify-content: flex-start;
-            /* border: 1px solid slateblue; */
+
             position: relative;
             margin-bottom: 30px;
             overflow: hidden;
@@ -75,6 +76,7 @@
             bottom: 0;
             transform: translateX(50px);
             z-index: 0;
+            /* border: 1px solid rgb(90, 205, 109); */
         }
 
         .block-left {
@@ -96,14 +98,10 @@
 
         .pay-frame.open .open-btn p {
             display: none;
-
-
         }
 
         .pay-frame.open .open-btn img {
             display: block;
-
-
         }
 
         @media screen and (max-width: 1200px) {
@@ -121,35 +119,46 @@
 
         @media screen and (max-width: 922px) {
             .wrapper {
+                height: 100%;
                 flex-direction: column;
                 align-items: center;
                 justify-content: flex-start;
             }
 
-            .top-block {
-                display: flex;
+            .pay-frame {
+                height: 100%;
+                flex-direction: column-reverse;
+                align-items: center;
+                justify-content: space-between;
             }
 
             .block-right {
-                display: none;
+                position: relative;
+                height: 100%;
+                flex-direction: column;
+                justify-content: flex-start;
+                -webkit-transition: all 0.5s ease-in-out;
+                top: 0;
+                transform: translateX(0px);
+                margin: 30px 0;
             }
 
             .block-left {
-                border-bottom: 50px;
                 height: 580px;
             }
 
             .pay-frame {
                 height: 100%;
-                margin-bottom: 40px;
+                margin-bottom: 30px;
+            }
+
+            .open-btn {
+                display: none;
             }
 
         }
 
         @media screen and (max-width: 576px) {
-            .top-block {
-                width: 80vw;
-            }
 
             .block-right {
                 width: 80vw;
@@ -197,7 +206,15 @@
             height: 40px;
             align-items: flex-start;
             justify-content: space-between;
+            /* border: 1px solid rgb(87, 71, 73); */
+        }
+
+        .name-frame h5 {
+            width: 140px;
+            height: 20px;
             /* border: 1px solid pink; */
+            overflow: initial;
+
         }
 
         .credit-top-img {
@@ -224,9 +241,13 @@
         .info-number {
             width: 50px;
             height: 20px;
-            border-bottom: 2px solid #FF9685;
+            border-bottom: 2px solid #707070;
             margin-right: 20px;
             text-align: center;
+        }
+
+        .info-number.showpink {
+            border-bottom: 2px solid #FF9685;
         }
 
         .credit-bottom {
@@ -252,6 +273,7 @@
             margin-right: 10px;
             text-align: center;
         }
+
         @media screen and (max-width: 576px) {
             .credit-card {
                 /* width: 60%; */
@@ -311,6 +333,7 @@
             border: none;
             border-radius: 6px;
             outline: none;
+            text-align: center;
         }
 
         .name-input input {
@@ -321,6 +344,11 @@
 
         .month-input input {
             align-items: center;
+            margin-right: 10px;
+
+        }
+        .year-input{
+            margin-left: 10px;
 
         }
 
@@ -363,6 +391,12 @@
             border-radius: 2px;
             outline: none;
             margin-top: 5px;
+            text-align: center;
+        }
+
+        .card-num-922 {
+            align-items: center;
+            background-color: #ffffff;
         }
 
         .credit-info-frame.showin922 .month-input {
@@ -381,6 +415,20 @@
 
             .credit-info-frame.showin922 {
                 display: flex;
+            }
+
+            .top-block .total-price {
+                width: 100%;
+                height: 200px;
+                background-color: #ffffff;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                /* margin-bottom: 30px; */
+                /* z-index: 5; */
+                position: absolute;
+                transform: translateY(30%);
+
             }
         }
 
@@ -411,7 +459,7 @@
 
         .total-price {
             width: 400px;
-            height: 170px;
+            /* height: 170px; */
             /* height: 500px; */
             background-color: #ffffff;
             border-radius: 0 0 15px 15px;
@@ -495,6 +543,23 @@
             margin-bottom: 10px;
         }
 
+        @media screen and (max-width: 922px) {
+
+            .ordered-list {
+                height: 100%;
+                flex-direction: column;
+                align-items: center;
+                transform: none;
+                /* justify-content: flex-start; */
+            }
+
+            .total-price {
+                z-index: 0;
+            }
+
+        }
+
+
 
         /* ---------------hide scroll---------- */
         .hide {
@@ -511,6 +576,7 @@
             top: 260px;
             left: 0;
             transition: 1s ease-in-out;
+            /* border: 1px solid sienna; */
 
         }
 
@@ -556,21 +622,23 @@
         .box-detail {
             width: 200px;
             height: 60px;
+            /* border: 1px solid teal; */
+            flex-direction: column;
             justify-content: space-between;
         }
 
         .box-product-orderlist {
             width: 280px;
             flex-direction: column;
-            justify-content: center;
-
+            justify-content: flex-start;
+            margin-bottom: 30px;
         }
 
         .product-orderlist {
             width: 280px;
-            height: 200px;
+            /* height: 200px; */
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         .box-socks {
@@ -585,6 +653,7 @@
             align-items: center;
             justify-content: space-between;
             border-bottom: 2px solid #E2E2E2;
+            /* border: 1px solid orange; */
         }
 
         .socks-nameNprice {
@@ -600,12 +669,24 @@
             height: 350px;
         }
 
+        @media screen and (max-width: 922px) {
+            .hide {
+                border-radius: 15px 15px 0px 0;
+                height: 50px;
+                position: unset;
+                z-index: 0;
+            }
+
+            .hide.open {
+                height: 250px;
+            }
+
+        }
 
         /* ------------------btn------------------- */
         .prev-next-btn {
             width: 300px;
             justify-content: space-between;
-            margin: 0 auto;
         }
 
         .pay-btn {
@@ -759,71 +840,6 @@
             <div class="pay-title">
                 <h3>填寫信用卡資訊</h3>
             </div>
-            <div class="top-block order-list showin922">
-                <div class="order-list-frame flex">
-                    <div class="order-list-title flex">
-                        <h3>訂單資訊</h3>
-                        <h4 class="seemore">查看訂單內容</h4>
-                    </div>
-                    <div class="list-scroll">
-                        <div class="box-detail">
-                            <div class="box-info flex">
-                                <div class="box-detail flex">
-                                    <h4>芒果派對</h4>
-                                    <div class="box-amount-detail">
-                                        <h6 class="box-type">包裝禮盒</h6>
-                                        <h6 class="box-socks-amount">3入裝</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box-product-orderlist flex">
-                                <h4>禮盒內容</h4>
-                                <div class="box-socks flex">
-                                    <div class="socks-nameNprice flex">
-                                        <h5 class="socks-title">偶速襪子</h5>
-                                        <h5>X1</h5>
-                                        <h5 class="socks-price">NT $180</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-orderlist flex">
-                                <h4>單購襪子</h4>
-                                <div class="socks flex">
-                                    <div class="socks-nameNprice flex">
-                                        <h5 class="socks-title">偶速襪子</h5>
-                                        <h5>數量：1</h5>
-                                        <h5 class="socks-price">NT $180</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-                <div class="total-price flex">
-                    <ul class="">
-                        <h3>訂購金額</h3>
-                        <li class="flex">
-                            <p>商品總計</p>
-                            <p>900</p>
-                        </li>
-                        <li class="flex">
-                            <p>運費</p>
-                            <p>60</p>
-                        </li>
-                        <li class="flex">
-                            <p>折扣</p>
-                            <p>-20</p>
-                        </li>
-                        <div class="line"></div>
-                        <li class="flex">
-                            <h4>結帳金額</h4>
-                            <h4>940 元</h4>
-                        </li>
-                    </ul>
-                </div>
-            </div>
             <div class="pay-frame flex">
                 <div class="block-left  flex">
                     <div class="credit-card flex">
@@ -834,7 +850,7 @@
                             <div class="credit-top flex">
                                 <div class="name-frame">
                                     <h6>Name</h6>
-                                    <h5>MEI SHAO NU</h5>
+                                    <h5 class="nameInputShow"></h5>
                                 </div>
                                 <div class="credit-top-img flex">
                                     <img class="img-chip" src="images/chip.svg" alt="">
@@ -843,18 +859,18 @@
                             </div>
                             <div class="credit-mid flex">
                                 <h6>Card Number</h6>
-                                <div class="flex">
+                                <div class="flex" id="topcard-mid-info">
                                     <div class="info-number">
-                                        <h5></h5>
+                                        <h5 class="cardNumberShow cardNumberShow1" maxlength="4"></h5>
                                     </div>
                                     <div class="info-number">
-                                        <h5></h5>
+                                        <h5 class="cardNumberShow cardNumberShow2" maxlength="4"></h5>
                                     </div>
                                     <div class="info-number">
-                                        <h5></h5>
+                                        <h5 class="cardNumberShow cardNumberShow3" maxlength="4"></h5>
                                     </div>
                                     <div class="info-number">
-                                        <h5></h5>
+                                        <h5 class="cardNumberShow cardNumberShow4" maxlength="4"></h5>
                                     </div>
                                 </div>
                             </div>
@@ -862,52 +878,57 @@
 
                                 <div class="credit-month">
                                     <h6>Expiration</h6>
-                                    <div class="flex">
+                                    <div class="flex" id="topcard-mon-info">
                                         <div class="info-number">
-                                            <h5></h5>
+                                            <h5 class="cardMonthsShow"></h5>
                                         </div>
                                         <img src="images/credit-down.svg" alt="">
                                         <div class="info-number">
-                                            <h5></h5>
+                                            <h5 class="cardYearsShow"></h5>
                                         </div>
                                         <img src="images/credit-down.svg" alt="">
                                     </div>
                                 </div>
-                                <div class="credit-ccv">
+                                <div class="credit-ccv" id="topcard-ccv-info">
                                     <h6>CCV</h6>
                                     <div class="info-number">
-                                        <h5></h5>
+                                        <h5 class="cardCcvShow"></h5>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
                     </div>
-                    <div class="credit-input-form showin922 flex">
+                    <form class="credit-input-form showin922 flex">
                         <div class="credit-info-frame showin922 flex">
                             <ul class="flex">
                                 <li>
                                     <h5>信用卡姓名</h5>
                                     <h5>Name</h5>
-                                    <input type="text">
+                                    <input class="cardNameInput" type="text">
                                 </li>
                                 <li>
                                     <h5>信用卡卡號</h5>
                                     <h6>Card Number</h6>
-                                    <input type="text">
+                                    <div class="card-num-922 flex">
+                                        <input class="cardNumberInput" type="text" maxlength="4" data-val="1">-
+                                        <input class="cardNumberInput" type="text" maxlength="4" data-val="2">-
+                                        <input class="cardNumberInput" type="text" maxlength="4" data-val="3">-
+                                        <input class="cardNumberInput" type="text" maxlength="4" data-val="4">
+                                    </div>
                                 </li>
                                 <li class="">
                                     <h5>有效期限</h5>
                                     <h5>Expiration</h5>
-                                    <div class="month-input flex">
-                                        <input type="text">
-                                        <input type="text">
+                                    <div class="month-input monthInput  flex">
+                                        <input class="cardMonthsInput" type="text" maxlength="2">
+                                        <input class="cardYearsInput" type="text" maxlength="2">
                                     </div>
                                 </li>
                                 <li>
                                     <h5>安全碼</h5>
                                     <h5>CCV</h5>
-                                    <input type="text">
+                                    <input class="cardCcvInput" type="text" maxlength="3">
                                 </li>
                             </ul>
                         </div>
@@ -934,27 +955,69 @@
                             </ul>
                             <ul class="info-input flex">
                                 <div class="name-input">
-                                    <input type="text">
+                                    <input class="cardNameInput" type="text">
                                 </div>
-                                <li class="credit-number-input flex">
-                                    <input type="text">
-                                    <input type="text">
-                                    <input type="text">
-                                    <input type="text">
+                                <li class="credit-number-input creditNumberInput flex">
+                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="1">
+                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="2">
+                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="3">
+                                    <input class="cardNumberInput" type="text" maxlength="4" data-val="4">
                                 </li>
-                                <li class="month-input flex">
-                                    <input type="text">
-                                    <p>/</p>
-                                    <input type="text">
+                                <li class="month-input monthYearInput  flex">
+                                    <input class="cardmonthsInput cardMonthsInput" type="text" maxlength="2">
+                                    /
+                                    <input class="year-input cardYearsInput" type="text" maxlength="2">
                                 </li>
-                                <li><input type="text"></li>
+                                <li class="ccv-input">
+                                    <input class="cardCcvInput" type="text" maxlength="3"></li>
 
                             </ul>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="block-right flex">
                     <div class="ordered-list flex">
+                        <div class="hide flex">
+                            <div class="total-price-title flex">
+                                <h3>結帳金額</h3>
+                                <h4 class="seemore seeMore">查看訂單內容</h4>
+                            </div>
+                            <div class="list-scroll listScroll">
+                                <div class="box-detail">
+                                    <div class="box-info flex">
+                                        <div class="box-detail flex">
+                                            <h4>芒果派對</h4>
+                                            <div class="box-amount-detail">
+                                                <h6 class="box-type">包裝禮盒</h6>
+                                                <h6 class="box-socks-amount">3入裝</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-product-orderlist flex">
+                                        <h4>禮盒內容</h4>
+                                        <div class="box-socks flex">
+                                            <div class="socks-nameNprice flex">
+                                                <h5 class="socks-title">偶速襪子</h5>
+                                                <h5>數量：1</h5>
+                                                <h5 class="socks-price">NT $180</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-orderlist flex">
+                                        <h4>單購襪子</h4>
+                                        <div class="socks flex">
+                                            <div class="socks-nameNprice flex">
+                                                <h5 class="socks-title">偶速襪子</h5>
+                                                <h5>數量：1</h5>
+                                                <h5 class="socks-price">NT $180</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
                         <div class="total-price flex">
                             <div class="total-price-frame flex">
                                 <div class="total-price-detail flex">
@@ -979,59 +1042,12 @@
                                     </ul>
                                 </div>
                             </div>
-
                         </div>
-
-
-                        <div class="open-btn flex">
+                        <div class="open-btn openBtn flex" id="">
                             <img src="images/pay-close.svg" alt="">
                             <p>訂單資訊</p>
                         </div>
-                        <div class="hide flex">
-                            <div class="total-price-title flex">
-                                <h3>結帳金額</h3>
-                                <h4 class="seemore">查看訂單內容</h4>
-                            </div>
-                            <div class="list-scroll">
-                                <div class="box-detail">
-                                    <div class="box-info flex">
-                                        <!-- <img class="box-img" src="images/watzbox1-2.png" alt=""> -->
-                                        <div class="box-detail flex">
-                                            <h4>芒果派對</h4>
-                                            <div class="box-amount-detail">
-                                                <h6 class="box-type">包裝禮盒</h6>
-                                                <h6 class="box-socks-amount">3入裝</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="box-product-orderlist flex">
-                                        <h4>禮盒內容</h4>
-                                        <div class="box-socks flex">
-                                            <div class="socks-nameNprice flex">
-                                                <h5 class="socks-title">偶速襪子</h5>
-                                                <h5>數量：1</h5>
-                                                <h5 class="socks-price">NT $180</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="line"></div> -->
-                                    <div class="product-orderlist flex">
-                                        <h4>單購襪子</h4>
-                                        <div class="socks flex">
-                                            <div class="socks-nameNprice flex">
-                                                <h5 class="socks-title">偶速襪子</h5>
-                                                <h5>數量：1</h5>
-                                                <h5 class="socks-price">NT $180</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
-
                 </div>
             </div>
             <div class="prev-next-btn flex">
@@ -1062,12 +1078,114 @@
 
     $(".open-btn").click(function () {
         $(".pay-frame").toggleClass("open");
+        $(".hide").removeClass("open");
     });
-    $(".seemore").click(function () {
+
+    $('.seeMore').click(function () {
         $(".hide").toggleClass("open");
+
     });
 
+    $(window).resize(function () {
+        if ($(window).width() < 922) {
+            // alert('Less than 960');
+            $(".pay-frame").removeClass("open");
+            $(".hide").removeClass("open");
 
+        }
+    });
+
+    // $(".seeMore").click(function () {
+    //     if ($(window).width() < 992) {
+    //         // $(document).ready(function () {
+    //         $(".listScroll").hide();
+    //         $(".seeMore").click(function () {
+    //             $(".listScroll").slideToggle()
+    //             $('#open-btn').toggleClass('close');
+    //         });
+    //         // });
+    //     } else {
+    //         $(".hide").toggleClass("open");
+    //     }
+    // });
+
+    //輸入欄底線變色//
+    $(".cardNameInput").click(function () {
+        $("#topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $("#topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
+
+    });
+
+    $(".cardNumberInput").click(function () {
+        $("#topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
+        $("#topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
+
+    });
+
+    $(".monthInput").click(function () {
+        $("#topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $("#topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
+        $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
+    });
+    $(".cardCcvInput").click(function () {
+        $("#topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $("#topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
+        $("#topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
+    });
+
+    //信用卡輸入同步///
+    $(".cardNameInput").keyup(function () {
+        let val = $(this).val();
+        console.log(val);
+        $(".nameInputShow").html(val);
+    });
+
+    $(".cardNumberInput").keyup(function () {
+
+        let val = $(this).val();
+        let dataVal = $(this).attr('data-val');
+        console.log('dataVal:', dataVal);
+        console.log('val:', val);
+        $(".cardNumberShow" + dataVal).html(val);
+    });
+
+    $(".cardMonthsInput").keyup(function () {
+        let val = $(this).val();
+        console.log(val);
+        $(".cardMonthsShow").html(val);
+    });
+    $(".cardYearsInput").keyup(function () {
+        let val = $(this).val();
+        console.log(val);
+        $(".cardYearsShow").html(val);
+    });
+    $(".cardCcvInput").keyup(function () {
+        let val = $(this).val();
+        console.log(val);
+        $(".cardCcvShow").html(val);
+    });
+
+    $(".cardNumberInput").keyup(function () {
+        let maxLength = $(this).attr("maxlength")
+        let currentLength = $(this).val().length
+        console.log(maxLength + ", " + currentLength)
+        if (maxLength == currentLength) {
+            // $(this).parent().next().find(":input").focus()
+            $(this).next(":input").focus();
+        }
+    });
+
+    $(".cardMonthsInput").keyup(function () {
+        let maxLength = $(this).attr("maxlength")
+        let currentLength = $(this).val().length
+        console.log(maxLength + ", " + currentLength)
+        if (maxLength == currentLength) {
+            // $(this).parent().next().find(":input").focus()
+            $(this).next(":input").focus();
+        }
+    });
 
 
 </script>
