@@ -744,7 +744,10 @@ if ($totalRows > 0) {
             </div>
             <div class="block-right">
                 <div class="block-fixed flex position-sticky">
-                    <h3>01 偶素襪子</h3>
+                <?php foreach ($rows as $r) : ?>
+                <h3><?= $r['product_name'] ?></h3>
+                    <!-- <h3>01 偶素襪子</h3> -->
+                    <?php endforeach; ?>
                     <p>後腳跟設計可配合兒童成長而長期穿著。具有可抑制汗味的效果。使用對環境溫和的有機棉所製成。</p>
                     <p>中長襪<br>
                         22-25cm<br>
@@ -817,6 +820,47 @@ if ($totalRows > 0) {
             return false;
         });
     });
+
+    // ----------------
+    // function itemTpl(obj){
+    //     let s = obj.address.replace(/</gm, '&lt;');
+    //     s = s.replace(/>/gm, '&gt;');
+    //     return `<tr>
+    //                 <td>${obj.sid}</td>
+    //                 <td>${obj.name}</td>
+    //                 <td>${obj.email}</td>
+    //                 <td>${obj.mobile}</td>
+    //                 <td>${obj.birthday}</td>
+    //                 <td>${s}</td>
+    //             </tr>`;
+    // }
+
+    function handleHash(){
+        let h = location.hash.slice(1);
+        h = parseInt(h) || 1;
+        info.innerHTML = h;
+
+        $.get('product-detail-api.php', {sid: h}, function(data){
+            console.log(data);
+
+            // pagination.empty();
+            // for(let s in data.pageBtns){
+            //     pagination.append( pageBtnTpl({
+            //         i: data.pageBtns[s],
+            //         isActive: data.pageBtns[s]==data.page
+            //     }) )
+            // }
+
+            // tbody.empty();
+            // for(let s in data.rows){
+            //     tbody.append( itemTpl(data.rows[s]) );
+            // }
+
+        }, 'json');
+
+    }
+    window.addEventListener('hashchange', handleHash);
+    handleHash();
 
 </script>
 
