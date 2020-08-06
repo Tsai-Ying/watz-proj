@@ -3,7 +3,7 @@ $pageName = '';  // 這裡放你的pagename
 
 
 $qs = [];
-$perPage = 12;
+$perPage = 9;
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $cate_id = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 // $search = isset($_GET['search']) ? $_GET['search'] : '';
@@ -1238,21 +1238,54 @@ if ($totalRows > 0) {
                     </ul>
                 </div>
 
-                <div class="pagination flex">
-                    <div class="page-btn flex">
-                        <span class="page-disabled"><i></i>PREV</span>
+                <ul class="pagination flex">
+                    <li class="page-btn flex page-item <?= $page==1 ? 'disabled' : '' ?>">
+                    <a class="href=?page=<?= $page-1 ?>">
+                    PREV
+                    <i></i></a>  
+                    </li>
+
+                    <?php for($i=$page-2; $i<=$page+2; $i++):
+                          if($i<1) continue;
+                        if($i>$totalPages) continue;
+                            ?>
+                            <li class="page-item page-btn  <?= $page==$i ? 'active' : '' ?>">
+                                <a class="page-current" href="?page=<?= $i ?>"><?= $i ?></a>
+                            </li>
+                        <?php endfor; ?>
+                        <li class="page-item page-btn <?= $page==$totalPages ? 'disabled' : '' ?>">
+                            <a class="page-link" href="?page=<?= $page+1 ?>">
+                            NEXT
+                                <i class=""></i>
+                            </a>
+                        </li>
+                    </ul>
+
+
+                    <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <?php for($i=1; $i<=$totalPages; $i++):
+                            $qs['page'] = $i;
+                            ?>
+                        <li class="page-item <?= $page==$i ? 'active' : '' ?>">
+                            <a class="page-link" href="?<?= http_build_query($qs) ?>"><?=$i?></a>
+                        </li>
+                        <?php endfor; ?>
+                    </ul>
+                </nav>
+                        <!-- <a class="page-disabled"><i></i>PREV</a>
                         <a href="#">＜</a>
-                        <span class="page-current page-active">1</span>
+                        <a class="page-current page-active">1</a>
                         <a href="#">2</a>
                         <a href="#">3</a>
                         <a href="#">4</a>
                         <a href="#">5</a>
-                        <span>...</span>
+                       
                         <a href="#">7</a>
                         <a href="#">＞</a>
-                        <a class="page-next" href="#">NEXT<i></i></a>
-                    </div>
-                </div>
+                        <a class="page-next" href="#">NEXT<i></i></a> -->
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -1304,23 +1337,6 @@ if ($totalRows > 0) {
 
     });
 
-    // --- selector hover ---
-    // 系列
-
-    // $(document).ready(function(){
-    //   $("p").mouseenter(function(){
-    //     $("p").css("background-color","yellow");
-    //   });
-    //   $("p").mouseleave(function(){
-    //     $("p").css("background-color","lightgray");
-    //   });
-    //   $("#btn1").click(function(){
-    //     $("p").mouseenter();
-    //   });  
-    //   $("#btn2").click(function(){
-    //     $("p").mouseleave();
-    //   }); 
-    // });
 
     //----- 滑動 -------
     let slideIndex = 0;
@@ -1363,7 +1379,7 @@ if ($totalRows > 0) {
             return false;
         });
     });
-    // ------------ 幫我搭 ---------------
+    // ------------ 幫我搭 show/hide  ---------------
 
     $(document).ready(function() {
         $('.help-bg').hide();
@@ -1372,6 +1388,10 @@ if ($totalRows > 0) {
             return false;
         });
     });
+
+// ------------頁碼--------------
+
+
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
