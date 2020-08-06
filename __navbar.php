@@ -15,26 +15,14 @@
                 </div>
             </div>
         </li>
-        <li><a href="<?= WEB_ROOT ?>/product.php">SHOP</a></li>
-        <li><a href="<?= WEB_ROOT ?>/diy.php">DIY</a></li>
-        <li><a href="<?= WEB_ROOT ?>/aboutWATZ.php">WATZ</a></li>
-        <li><a href="<?= WEB_ROOT ?>/contact.php">CONTACT</a></li>
+        <li><a href="">SHOP</a></li>
+        <li><a href="">DIY</a></li>
+        <li><a href="">WATZ</a></li>
+        <li><a href="">CONTACT</a></li>
     </ul>
     <div class="nav-icon flex transition">
-        <?php if (isset($_SESSION['member'])) : ?>
-            <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/member-profile.php"><img class="svg icon" src="images/icon-member.svg" alt=""></a>
-            <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/logout.php"><img class="svg icon" src="images/icon-logout.svg" alt=""></a>
-        <?php else : ?>
-            <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/member-login-signup.php"><img class="svg icon" src="images/icon-member.svg" alt=""></a>
-        <?php endif ?>
-
-        <?php if (empty($_SESSION['cart'])): ?>
-        <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/cart-empty.php"><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
-        <?php else : ?>
-            <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/cart-payment1.php"><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
-        <?php endif ?>
-
-
+        <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
+        <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
         <div class="menu flex">
             <div class="click-area flex transition" id="menuClickArea">
                 <div class="box-bar transition">
@@ -57,10 +45,10 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="<?= WEB_ROOT ?>/product.php">SHOP</a></li>
-                        <li><a href="<?= WEB_ROOT ?>/diy.php">DIY</a></li>
-                        <li><a href="<?= WEB_ROOT ?>/aboutWATZ.php">WATZ</a></li>
-                        <li><a href="<?= WEB_ROOT ?>/contact.php">CONTACT</a></li>
+                        <li><a href="">SHOP</a></li>
+                        <li><a href="">DIY</a></li>
+                        <li><a href="">WATZ</a></li>
+                        <li><a href="">CONTACT</a></li>
                     </ul>
                     <div class="flex">
                         <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
