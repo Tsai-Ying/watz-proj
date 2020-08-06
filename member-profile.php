@@ -1,5 +1,14 @@
 <?php require __DIR__ . '/__connect_db.php';
-$pageName = 'member-profile';  // 這裡放你的pagename
+$pageName = 'aboutWATZ';  // 這裡放你的pagename
+
+$id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
+$sql = "SELECT * FROM `members` WHERE `id`= $id";
+$row = $pdo ->query($sql)->fetch();
+
+// if(empty($row)){
+//     header('Location: ab-list.php');
+//     exit;
+// }
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
@@ -271,19 +280,19 @@ $pageName = 'member-profile';  // 這裡放你的pagename
                         <ul class="bg-form flex">
                             <li class="form-name flex">
                                 <h5>姓名</h5>
-                                <h5 class="name-content"><?= htmlentities($_SESSION['member']['name']) ?></h5>
+                                <h5 class="name-content"><?= htmlentities($row['name']) ?></h5>
                             </li>
                             <li class="form-item flex">
                                 <h5>電話</h5>
-                                <h5><?= htmlentities($_SESSION['member']['mobile']) ?></h5>
+                                <h5><?= htmlentities($row['mobile']) ?></h5>
                             </li>
                             <li class="form-item flex">
                                 <h5>信箱</h5>
-                                <h5><?= htmlentities($_SESSION['member']['email']) ?></h5>
+                                <h5><?= htmlentities($row['email']) ?></h5>
                             </li>
                             <li class="form-item flex">
                                 <h5 class="adress">地址</h5>
-                                <h5><?= htmlentities($_SESSION['member']['address']) ?></h5>
+                                <h5><?= htmlentities($row['address']) ?></h5>
                             </li>
                             <li class="form-item flex">
                                 <h5>密碼</h5>
@@ -293,7 +302,7 @@ $pageName = 'member-profile';  // 這裡放你的pagename
                     </div>
                 </div>
                 <div class="bg-btn flex"></div>
-                <button class="btn-blue"  onclick="javascript:location.href='<?= WEB_ROOT ?>/member-profilemodify.php'">修改會員資料</button>
+                <button class="btn-blue"  onclick="javascript:location.href='<?= WEB_ROOT ?>/member-profilemodify.php?id=<?= $row['id'] ?>'">修改會員資料</button>
             </div>
             </div>
         </div>

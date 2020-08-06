@@ -1,5 +1,14 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = 'aboutWATZ';  // 這裡放你的pagename
+
+$id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
+$sql = "SELECT * FROM `members` WHERE `id`= $id";
+$row = $pdo ->query($sql)->fetch();
+
+// if(empty($row)){
+//     header('Location: ab-list.php');
+//     exit;
+// }
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
@@ -274,6 +283,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                             </div>
 
                             <ul class="bg-form flex">
+                            <input type="hidden" name="id" value="<?= $row['id'] ?>">
                                 <li class="form-item flex">
                                     <h5 class="flex">姓名</h5>
                                     <input class="form-name flex" type="text" id="name" name="name" required value="<?= htmlentities($_SESSION['member']['name']) ?>">
@@ -288,15 +298,15 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">舊密碼</h5>
-                                    <input class="form-name" type="text" id="oldpassword" name="oldpassword">
+                                    <input class="form-name" type="password" id="oldpassword" >
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">新密碼</h5>
-                                    <input class="form-name" type="text" id="newpassword" name="newpassword">
+                                    <input class="form-name" type="password" id="newpassword" name="newpassword">
                                 </li>
                                 <li class="form-item flex">
                                     <h5 class="flex">再次確認密碼</h5>
-                                    <input class="form-name" type="text" id="confirmpassword" name="confirmpassword">
+                                    <input class="form-name" type="password" id="confirmpassword" >
                                 </li>
                             </ul>
 
@@ -319,7 +329,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         name = $('#name'),
         mobile = $('#mobile'),
         address = $('#address'),
-        password = $('#newpassword')
+        newpassword = $('#newpassword')
 
     //     const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     // const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
@@ -328,7 +338,14 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         console.log("123")
         name.text('');
         mobile.text('');
-        password.text('');
+        newpassword.text('');
+        address.text('');
+
+        // console.log(name.text(''))
+        // console.log(mobile.text(''))
+        // console.log(newpassword.text(''))
+        // console.log(address.text(''))
+
         // email.css('border-color', 'lightblue');
         // mobile.css('border-color', 'lightblue');
         //TODO : 檢查欄位
