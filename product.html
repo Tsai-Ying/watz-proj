@@ -37,10 +37,10 @@
 
         /* ---------商品頁幫我搭Btn---------- */
         .product-help-btn {
-            height: 100px;
-            width: 100px;
+            height: 70px;
+            width: 70px;
             position: fixed;
-            right: 3vw;
+            right: 3.5vw;
             top: 55vh;
             z-index: 21;
             background-color: #FF9685;
@@ -59,36 +59,34 @@
         }
 
         .product-help-btn img {
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             filter: drop-shadow(3px 3px 0px rgba(70, 70, 70, 0.5));
         }
 
         .product-help-btn h3 {
             color: white;
-            font-size: 1rem;
+            font-size: 0.6rem;
             filter: drop-shadow(2px 2px 0px rgba(124, 124, 124, 0.637));
-            font-weight: 400;
         }
 
         @media screen and (max-width: 576px) {
             .product-help-btn {
-                height: 80px;
-                width: 80px;
-                right: 2vw;
+                height: 60px;
+                width: 60px;
+                right: 3vw;
                 top: 58vh;
                 border: white 3px solid;
             }
 
             .product-help-btn img {
-                width: 30px;
-                height: 30px;
+                width: 20px;
+                height: 20px;
                 filter: drop-shadow(2px 2px 0px rgba(70, 70, 70, 0.5));
             }
 
             .product-help-btn h3 {
                 filter: drop-shadow(0px 0px 0px rgba(124, 124, 124, 0.637));
-                font-size: 0.88rem;
             }
 
 
@@ -140,9 +138,8 @@
             padding: 8px;
             font-size: 1rem;
             font-weight: 400;
-            padding: 5px 5px 5px 0;
+            padding: 5px 5px 5px 0;  
         }
-
         .box-series p {
             padding-bottom: 15px;
         }
@@ -152,13 +149,13 @@
             transition: linear 1s;
         }
 
-
+      
 
         .series-active {
             background: #F2DE79;
         }
 
-
+       
         /* ---------selector color ----------- */
 
         .box-color {
@@ -186,16 +183,15 @@
         }
 
         .img-select-circle {
-            width: 30px;
-            height: 30px;
-            position: absolute;
-            opacity: 0;
-        }
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        opacity: 0;
+    }
 
-        .img-select-circle:hover {
-            opacity: 1;
-        }
-
+         .img-select-circle:hover {
+        opacity: 1;
+    }
         /* .color-active {
             width: 30px;
             height: 30px;
@@ -478,11 +474,9 @@
 
             .wrapper {
                 width: 100vw;
-                /* min-height:110vh; */
                 justify-content: center;
                 align-items: center;
                 position: relative;
-                margin-bottom: 10vh;
             }
 
             .vegas-box {
@@ -495,7 +489,8 @@
                 left: 10px;
                 top: 100px;
                 width: 60vw;
-                height: 90vh;
+                height: 120vh;
+                /* min-height: 90vh; */
                 justify-content: space-evenly;
                 box-shadow: 10px 10px 5px #a0a0a088;
             }
@@ -634,6 +629,9 @@
                 position: absolute;
             }
 
+            footer {
+                margin-top: 15vh;
+            }
         }
 
         @media screen and (max-width: 576px) {
@@ -654,7 +652,7 @@
                 left: 1vh;
                 right: 1vh;
                 width: 80vw;
-                height: 100vh;
+                height: 110vh;
                 flex-direction: column;
                 justify-content: space-evenly;
             }
@@ -662,7 +660,7 @@
             .select-check-btn {
                 bottom: 4%;
                 right: 2%;
-                width: 12vh;
+                width: 14vh;
                 height: 7vh;
 
             }
@@ -856,14 +854,13 @@
                                         </div>
                                         <h5>踝襪</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block2-btn2"
-                                                name="number">
+                                            <input type="radio" class="radio-input goNext" id="block2-btn2" name="number">
                                             <label for="block2-btn2" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
                                             </input>
                                         </div>
-
+    
                                     </div>
                                 </div>
                                 <div class="BR-right flex ">
@@ -875,8 +872,7 @@
                                         </div>
                                         <h5>短襪</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block2-btn3"
-                                                name="number">
+                                            <input type="radio" class="radio-input goNext" id="block2-btn3" name="number">
                                             <label for="block2-btn3" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -891,17 +887,16 @@
                                         </div>
                                         <h5>長襪</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block2-btn4"
-                                                name="number">
+                                            <input type="radio" class="radio-input goNext" id="block2-btn4" name="number">
                                             <label for="block2-btn4" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
                                             </input>
                                         </div>
-
+    
                                     </div>
                                 </div>
-
+    
                             </form>
                         </div>
                     </li>
@@ -922,8 +917,7 @@
                                         </div>
                                         <h5 class="block3-text">古著文青風</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block3-btn1"
-                                                name="number">
+                                            <input type="radio" class="radio-input goNext" id="block3-btn1" name="number">
                                             <label for="block3-btn1" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -938,14 +932,13 @@
                                         </div>
                                         <h5 class="block3-text">時下流行單品</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block3-btn2"
-                                                name="number">
+                                            <input type="radio" class="radio-input goNext" id="block3-btn2" name="number">
                                             <label for="block3-btn2" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
                                             </input>
                                         </div>
-
+    
                                     </div>
                                 </div>
                                 <div class="BR-right flex">
@@ -957,8 +950,7 @@
                                         </div>
                                         <h5 class="block3-text">襯衫和長褲</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block3-btn3"
-                                                name="number">
+                                            <input type="radio" class="radio-input goNext" id="block3-btn3" name="number">
                                             <label for="block3-btn3" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -973,17 +965,16 @@
                                         </div>
                                         <h5 class="block3-text">休閒洋裝</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block3-btn4"
-                                                name="number">
+                                            <input type="radio" class="radio-input goNext" id="block3-btn4" name="number">
                                             <label for="block3-btn4" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
                                             </input>
                                         </div>
-
+    
                                     </div>
                                 </div>
-
+    
                             </form>
                         </div>
                     </li>
@@ -1004,8 +995,7 @@
                                         </div>
                                         <h5>朋友聚會</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block4-btn1"
-                                                name="number">
+                                            <input type="radio" class="radio-input goNext" id="block4-btn1" name="number">
                                             <label for="block4-btn1" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -1020,14 +1010,13 @@
                                         </div>
                                         <h5>辦公室</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block4-btn2"
-                                                name="number">
+                                            <input type="radio" class="radio-input goNext" id="block4-btn2" name="number">
                                             <label for="block4-btn2" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
                                             </input>
                                         </div>
-
+    
                                     </div>
                                 </div>
                                 <div class="BR-right flex">
@@ -1039,8 +1028,7 @@
                                         </div>
                                         <h5>露營踏青</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block4-btn3"
-                                                name="number">
+                                            <input type="radio" class="radio-input goNext" id="block4-btn3" name="number">
                                             <label for="block4-btn3" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -1055,17 +1043,16 @@
                                         </div>
                                         <h5>逛街血拼</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block4-btn4"
-                                                name="number">
+                                            <input type="radio" class="radio-input goNext" id="block4-btn4" name="number">
                                             <label for="block4-btn4" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
                                             </input>
                                         </div>
-
+    
                                     </div>
                                 </div>
-
+    
                             </form>
                         </div>
                     </li>
@@ -1139,7 +1126,7 @@
                                             </label>
                                             </input>
                                         </div>
-
+    
                                     </div>
                                 </div>
                             </form>
@@ -1149,7 +1136,7 @@
                                     <h3 class="cursor">完成!</h3>
                                 </div>
                             </div>
-
+    
                         </div>
                     </li>
                     <li class="block6 flex">
@@ -1159,27 +1146,27 @@
                             </div>
                             <h5 class="flex">讓我來 搜尋你的理想型....</h5>
                         </div>
+    
                     </li>
                 </ul>
             </div>
-
+    
         </div>
         <div class="wrapper flex">
 
             <div class="block flex">
                 <div class="selector flex">
                     <ul class="box-series">
-
-                        <p>Series</p>
-
+                        
+                            <p>Series</p>
+                       
                         <li> <label class="cursor">
                                 <input type="checkbox" name="series1" value="series1" class="cursor">夏日特輯</label></li>
                         <li> <label class="cursor"><input type="checkbox" name="series2" value="series2"
                                     class="cursor">群魔亂舞</label></li>
                         <li><label class="cursor"><input type="checkbox" name="series3" value="series3"
                                     class="cursor">灰姑娘的水晶襪</label></li>
-                        <li> <label class="cursor"><input type="checkbox" name="series4" value="series4"
-                                    class="cursor">素色流行</label></li>
+                        <li> <label class="cursor"><input type="checkbox" name="series4" value="series4" class="cursor">素色流行</label></li>
                         <li> <label class="cursor"><input type="checkbox" name="series5" value="series5"
                                     class="cursor">幾何色塊</label></li>
                         <li> <label class="cursor"><input type="checkbox" name="series6" value="series6"
@@ -1188,30 +1175,26 @@
                     <div class="box-color">
                         <p>Color</p>
                         <ul class="color-btn-box flex">
-                            <li class="flex"> <img class="img-select-circle transition active"
-                                    src="images/select circle.svg" alt=""><button
-                                    class="color-btn1 btn-border cursor"></button></li>
+                            <li class="flex">  <img class="img-select-circle transition active" src="images/select circle.svg"
+                                alt=""><button class="color-btn1 btn-border cursor"></button></li>
                             <li class="flex">
                                 <img class="img-select-circle transition active" src="images/select circle.svg"
-                                    alt=""><button class="color-btn2 btn-border cursor"></button></li>
+                                alt=""><button class="color-btn2 btn-border cursor"></button></li>
                             <li class="flex">
                                 <img class="img-select-circle transition active" src="images/select circle.svg"
-                                    alt=""><button class="color-btn3 btn-border cursor"></button></li>
+                                alt=""><button class="color-btn3 btn-border cursor"></button></li>
                             <li class="flex">
                                 <img class="img-select-circle transition active" src="images/select circle.svg"
-                                    alt=""><button class="color-btn4 btn-border cursor"></button></li>
+                                alt=""><button class="color-btn4 btn-border cursor"></button></li>
                             <li class="flex">
                                 <img class="img-select-circle transition active" src="images/select circle.svg"
-                                    alt=""><button class="color-btn5 btn-border cursor"></button></li>
-                            <li class="flex"> <img class="img-select-circle transition active"
-                                    src="images/select circle.svg" alt=""><button
-                                    class="color-btn6 btn-border cursor"></button></li>
-                            <li class="flex"> <img class="img-select-circle transition active"
-                                    src="images/select circle.svg" alt=""><button class="color-btn7 cursor"></button>
-                            </li>
-                            <li class="flex"> <img class="img-select-circle transition active"
-                                    src="images/select circle.svg" alt=""><button
-                                    class="color-btn8 btn-border cursor"></button></li>
+                                alt=""><button class="color-btn5 btn-border cursor"></button></li>
+                            <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg"
+                                alt=""><button class="color-btn6 btn-border cursor"></button></li>
+                            <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg"
+                                alt=""><button class="color-btn7 cursor"></button></li>
+                            <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg"
+                                alt=""><button class="color-btn8 btn-border cursor"></button></li>
                         </ul>
                     </div>
                     <div class="box-type ">
@@ -1319,7 +1302,7 @@
             </div>
         </div>
     </div>
-
+    
 
     <footer class="flex">
         <div class="footer-icon flex">
@@ -1345,10 +1328,6 @@
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="js/nav.js"></script>
     <script src="js/vegas.min.js"></script>
-    <script src=" https://cdn.jsdelivr.net/npm/vivus@latest/dist/vivus.min.js"></script>
-    <script src=" https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.4/vivus.min.js"></script>
-   
-
 
     <script>
         //  ----------- vegas -----------------
@@ -1385,7 +1364,23 @@
 
         });
 
-
+        // --- selector hover ---
+        // 系列
+     
+// $(document).ready(function(){
+//   $("p").mouseenter(function(){
+//     $("p").css("background-color","yellow");
+//   });
+//   $("p").mouseleave(function(){
+//     $("p").css("background-color","lightgray");
+//   });
+//   $("#btn1").click(function(){
+//     $("p").mouseenter();
+//   });  
+//   $("#btn2").click(function(){
+//     $("p").mouseleave();
+//   }); 
+// });
 
         //----- 滑動 -------
         let slideIndex = 0;
@@ -1405,27 +1400,19 @@
                 goSlide()
                 $("#blockPhoto ul").css("transition-delay", "50ms");
             })
-            
         }
         function goSlide() {
             if (slideIndex < 0) {
                 slideIndex = slideCount - 1
             }
-            console.log(slideIndex)
-            if (slideIndex>4) {
-                setTimeout(function () {
-                    $(".help-bg").fadeOut(500);
-                }, 5000);
+            if (slideIndex >= slideCount) {
+                slideIndex = 0
             }
+
             $("#blockPhoto ul").css("left", 0 - slideIndex * slideWidth)
         }
 
         slider()
-
-
-       
-
-
 
 
         // ------- X close --------
@@ -1444,9 +1431,6 @@
                 return false;
             });
         });
-
-
-        // 
     </script>
 
 </body>
