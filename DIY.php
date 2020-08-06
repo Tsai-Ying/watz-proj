@@ -17,7 +17,11 @@ $pageName = 'DIY';  // 這裡放你的pagename
         height: 100vh;
         position: absolute;
         z-index: 0;
+<<<<<<< HEAD
         /* clip-path: circle(140px at center); */
+=======
+        display: none;
+>>>>>>> parent of b0e0326... Revert "Merge branch 'master' of https://github.com/Tsai-Ying/watz-proj"
     }
 
     .diy-pattern div {
@@ -999,9 +1003,15 @@ $pageName = 'DIY';  // 這裡放你的pagename
             <div class="block-top flex mobile-none">
                 <h1 class="transition">Create your own WATZ !</h1>
                 <div class="flex transition">
+<<<<<<< HEAD
                     <div class="diy-socks"><img class="transition" src="images/product/linebox-02.png" alt=""></div>
                     <div class="diy-socks"><img class="transition" src="images/product/linebox2-05.png" alt=""></div>
                     <div class="diy-socks"><img class="transition" src="images/product/linebox2-04.png" alt=""></div>
+=======
+                    <div class="diy-socks"><img class="transition" src="images/linebox-02.png" alt=""></div>
+                    <div class="diy-socks"><img class="transition" src="images/linebox2-05.png" alt=""></div>
+                    <div class="diy-socks"><img class="transition" src="images/linebox2-04.png" alt=""></div>
+>>>>>>> parent of b0e0326... Revert "Merge branch 'master' of https://github.com/Tsai-Ying/watz-proj"
                 </div>
                 <div class="img-title-bgc flex transition go-next">
                     <img class="svg icon" src="images/title-bgc.svg" alt="">
@@ -1313,9 +1323,12 @@ $pageName = 'DIY';  // 這裡放你的pagename
 
 
     $(".tutorial#tutor2").click(function () {
+<<<<<<< HEAD
         $(".modal").css({
             "display": "none"
         })
+=======
+>>>>>>> parent of b0e0326... Revert "Merge branch 'master' of https://github.com/Tsai-Ying/watz-proj"
         $(".modal").fadeOut(500);
         $(".tutorial#tutor2").css({
             "display": "none"
@@ -1329,6 +1342,10 @@ $pageName = 'DIY';  // 這裡放你的pagename
     // mousemove
     $(window).mousemove(function (e) {
         // console.log(e.screenX)
+<<<<<<< HEAD
+=======
+        $(".spot").css("display", "flex")
+>>>>>>> parent of b0e0326... Revert "Merge branch 'master' of https://github.com/Tsai-Ying/watz-proj"
         $(".spot").css("clip-path", `circle(140px at ${e.pageX}px ${e.pageY - 30}px`)
     })
 
