@@ -816,9 +816,9 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                             </ul>
                         </div>
                         <?php if (isset($_SESSION['member'])) : ?>
-                            <button class="btn-pay">前往結帳</button>
+                            <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment.php?id=<?= $row['id'] ?>'">前往結帳</button>
                         <?php else : ?>
-                            <button class="btn-pay">前往結帳</button>
+                            <button class="btn-pay" onclick="">前往結帳</button>
                         <?php endif; ?>
 
                     </div>

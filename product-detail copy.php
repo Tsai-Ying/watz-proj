@@ -816,6 +816,7 @@ $row = $pdo->query($t_sql)->fetch();
 
         // alert(sid +','+qty)
     });
+
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
