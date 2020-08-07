@@ -329,12 +329,11 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     }
 
     .boxChooseDetail {
-        flex-direction: column;
-        align-items: center;
+        display: none;
     }
 
     .boxChooseDetail.addInBox {
-        /* display: flex; */
+        display: flex;
     }
 
     .add-box-frame {
@@ -365,8 +364,28 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         color: #F2DE79;
         cursor: pointer;
     }
-    .removeInBox{
-        display: none;
+
+    .remove-box {
+        width: 25px;
+        height: 25px;
+        border: 2px solid #F2DE79;
+        cursor: pointer;
+        /* flex-direction: column; */
+        align-items: center;
+        justify-content: center;
+    }
+
+    .remove-box.show {
+        opacity: 1;
+    }
+
+    .remove-box p {
+        font-weight: 900;
+        font-size: 1.2rem;
+        line-height: 21px;
+        letter-spacing: 0;
+        color: #F2DE79;
+        cursor: pointer;
     }
 
     .box-product .line {
@@ -764,47 +783,73 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                         <h4>Step1 想要什麼包裝呢?</h4>
                         <ul class="watzbox-choose flex" id="">
 
-                            <li class="img-watzbox imgWatzBox" id="watzbox1">
+                            <li class="img-watzbox">
                                 <img class="transition" src="images/watzbox1-1.png" alt="">
                             </li>
-                            <li class="img-watzbox imgWatzBox" id="watzbox2">
+                            <li class="img-watzbox">
                                 <img class="transition" src="images/watzbox2-1.png" alt="">
                             </li>
-                            <li class="img-watzbox imgWatzBox" id="watzbox3">
+                            <li class="img-watzbox">
                                 <img class="transition" src="images/watzbox3-1.png" alt="">
                             </li>
                         </ul>
-                        <!-- <h4>Step2 請加選雙襪子到您的包裝盒裡</h4> -->
-                        
-                        <div class="boxChooseDetail flex" id="sockInBox">
+                        <h4>Step2 想放幾雙襪子呢?</h4>
+                        <div class="pair-choose">
+                            <button data-val="3" class="button pairBtns" type="button" href="#jdhfkj">3雙</button>
+                            <button data-val="6" class="button pairBtns" href="#">6雙</button>
+                            <button data-val="8" class="button pairBtns" href="#">8雙</button>
+                        </div>
+                        <div class="eachsock-list boxChooseDetail flex " id="boxChooseDetail">
+                            <div class="remove-box removeBox flex">
+                                <p>-</p>
+                            </div>
+                            <div class="img-socks"><img src="images/yellowline-01.jpg" alt=""></div>
+                            <div class="product-detail flex">
+                                <div class="sock-name flex">
+                                    <h4>偶素襪子</h4>
+                                    <div>
+                                        <h6>中長襪</h6>
+                                        <h6>22-25cm</h6>
+                                        <h6>材質:100%純棉</h6>
+                                    </div>
+                                </div>
+                                <div class="socks-amount-choose flex">
+                                    <div class="quantity-choose flex">
+                                        <span class="minus">-</span>
+                                        <input class="quantity-input" type="text" value="1" />
+                                        <span class="plus">-</span>
+                                    </div>
+                                    <h4>NT $180</h4>
+                                    <span class="remove" onclick="notice()"></span>
+                                </div>
+                            </div>
                         </div>
                         <div class="step3 flex" id="step3">
                             <img src="images/dotted-line.svg" alt="">
-                            <h4>Step2 請加選雙襪子到您的包裝盒裡</h4>
-                            <h5>Step2 請加選襪子到<br>您的包裝盒裡</h5>
+                            <h4>Step3 請勾選3雙襪子到您的包裝盒裡</h4>
+                            <h5>Step3 請勾選3雙襪子到<br>您的包裝盒裡</h5>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="box-product flex">
-                <ul class="box-product-frame flex" id="sockOutBox">
+                <ul class="box-product-frame flex">
                     <?php foreach ($_SESSION['cart'] as $i) : ?>
-                        <div class="eachsock-list eachSocksList flex p_item" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
+                        <li class="eachsock-list eachSocksList flex p_item" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
 
                             <div class="add-box-frame">
-                                <div class="add-box flex moveToBox-btn">
-                                    <p class="addBox">+</p>
-                                    <p class="removeInBox">-</p>
+                                <div class="add-box addBox flex">
+                                    <p>+</p>
                                 </div>
                             </div>
-                            <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt=""></a>
+                            <div class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt=""></div>
                             <div class="product-detail flex">
-                                <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="sock-name flex">
+                                <div class="sock-name flex">
                                     <h4><?= $i['product_name'] ?></h4>
                                     <div>
                                         <h6><?= $i['detail'] ?></h6>
                                     </div>
-                                </a>
+                                </div>
                                 <div class="socks-amount-choose flex">
                                     <div class="quantity-choose flex">
                                         <span class="minus">-</span>
@@ -815,7 +860,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                     <span class="remove" onclick="notice()"></span>
                                 </div>
                             </div>
-                        </div>
+                        </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
@@ -864,7 +909,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                         <?php if (isset($_SESSION['member'])) : ?>
                             <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment2.php'">前往結帳</button>
                         <?php else : ?>
-                            <button class="btn-pay" onclick="">前往結帳</button>
+                            <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-login-signup.php'">請先登入會員</button>
                         <?php endif; ?>
 
                     </div>
@@ -901,6 +946,12 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             .siblings().removeClass('active');
     });
 
+    $('.img-watzbox').click(function() {
+        $(this).toggleClass('active')
+            .siblings().removeClass('active');
+    });
+
+
     $(document).ready(function() {
         $(".hide-choose-box").hide();
         $(".box-watzbox-title").click(function() {
@@ -913,7 +964,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
 
     //襪子選擇而退出選項//
-    const pairBtns = $('.imgWatzBox');
+    const pairBtns = $('.pairBtns');
 
     pairBtns.click(function() {
         const me = this;
@@ -935,25 +986,17 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     });
 
 
-
-    $('.moveToBox-btn').click(function(){
-        const p_item = $(this).closest('.p_item');
-        const ifInBox = $(this).closest('#sockInBox').length;
-        console.log(ifInBox);
-        if(ifInBox){
-            $('#sockOutBox').append(p_item);
-            $(this).children(".removeInBox").css("display", "none");
-            $(this).children(".addBox").css("display", "flex");
-
-        } else{
-            $('#sockInBox').append(p_item);
-            $(this).children(".addBox").css("display", "none");
-            $(this).children(".removeInBox").css("display", "flex");
-        }
+    $('.addBox').click(function() {
+        $('.boxChooseDetail').addClass('addInBox');
+        $(".eachSocksList").css("display", "none");
     });
+    $('.removeBox').click(function() {
+        $('.boxChooseDetail').removeClass('addInBox');
+        $(".eachSocksList").css("display", "flex");
+    })
 
-
-    // <!-- remove jumpout notice -->
+    //確定要把我丟掉?//
+// <!-- jumpout notice -->
 
     function notice() {
         $(".notice").addClass("active");
@@ -1005,11 +1048,11 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         const sendObj = {
             action: 'add',
             sid: sid,
-            quantity: $(this).val()
+            qty: $(this).val()
         }
         $.get('cart-handle.php', sendObj, function(data) {
             setCartCount(data); // navbar
-            p_item.attr('data-quantity', sendObj.quantity);
+            p_item.attr('data-quantity', sendObj.qty);
             prepareCartTable();
         }, 'json');
     });

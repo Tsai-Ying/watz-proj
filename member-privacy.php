@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php require __DIR__ . '/__connect_db.php';
+$pageName = 'aboutWATZ';  // 這裡放你的pagename
+?>
+<?php include __DIR__ . '/__html_head.php' ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>member-privacy</title>
-    <link rel="stylesheet" href="css/nav.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
-        rel="stylesheet">
-    <style>
+<!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
+
+<style>
         body {
             width: 100vw;
             background-image: url(images/BG2.svg);
@@ -106,73 +102,14 @@
             }
         }
     </style>
-</head>
 
-<body>
-    <div class="container flex">
-        <nav class="nav flex transition">
-            <div class="nav-logo flex">
-                <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
-                <a class="img-logo-text" href=""><img src="images/logo-text.svg" alt=""></a>
-            </div>
-            <ul class="nav-list flex transition">
-                <li class="dropdown">
-                    <a>PROJECT</a>
-                    <div class="dropdown-menu flex transition">
-                        <div class="dropdown-bg flex transition">
-                            <a class="" href="">芒果派對</a>
-                            <a class="" href="">群魔亂舞</a>
-                            <a class="" href="">灰姑娘的<br>水晶襪</a>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="">SHOP</a></li>
-                <li><a href="">DIY</a></li>
-                <li><a href="">WATZ</a></li>
-                <li><a href="">CONTACT</a></li>
-            </ul>
-            <div class="nav-icon flex transition">
-                <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
-                <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
-                <div class="menu flex">
-                    <div class="click-area flex transition" id="menuClickArea">
-                        <div class="box-bar transition">
-                            <div class="bar bar1 transition"></div>
-                            <div class="bar bar2 transition"></div>
-                            <div class="bar bar3 transition"></div>
-                        </div>
-                    </div>
-                    <div class="menu-bg transition">
-                        <div class="menu-content transition flex">
-                            <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
-                            <ul class="menu-list">
-                                <li class="dropdown">
-                                    <a>PROJECT</a>
-                                    <div class="dropdown-menu flex transition">
-                                        <div class="dropdown-bg flex transition">
-                                            <a class="" href="">芒果派對</a>
-                                            <a class="" href="">群魔亂舞</a>
-                                            <a class="" href="">灰姑娘的水晶襪</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li><a href="">SHOP</a></li>
-                                <li><a href="">DIY</a></li>
-                                <li><a href="">WATZ</a></li>
-                                <li><a href="">CONTACT</a></li>
-                            </ul>
-                            <div class="flex">
-                                <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
-                                <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
-                                <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
-                                <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <div class="wrapper flex">
+<div class="container flex">
+    <!-- 如果container有其它class要自己加上 -->
+
+    <?php include __DIR__ . '/__navbar.php' ?>
+    <?php include __DIR__ . '/__html_btn-top.php' ?>
+
+    <div class="wrapper flex">
             <div class="bg-term flex">
             <div class="selector flex">
                 <div class="box"><a href="">會員資料</a></div>
@@ -245,19 +182,12 @@
                 </div>
             </div>
         </div>
-        <footer class="flex">
-            <div class="footer-icon flex">
-                <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
-                <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
-                <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
-                <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
-            </div>
-            <h6>Copyright© WATZ Company All rights Reserved.</h6>
-            <img class="bg-footer flex" src="images/footer.svg" alt="">
-        </footer>
-</body>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=" anonymous"></script>
-<script src="js/nav.js"></script>
+    <?php include __DIR__ . '/__html_footer.php' ?>
+</div>
+<?php include __DIR__ . '/__scripts.php' ?>
 
-</html>
+<script>
+    // 這邊放你自己寫的JS
+</script>
+
+<?php require __DIR__ . '/__html_foot.php' ?>
