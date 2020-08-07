@@ -365,7 +365,8 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         color: #F2DE79;
         cursor: pointer;
     }
-    .removeInBox{
+
+    .removeInBox {
         display: none;
     }
 
@@ -775,8 +776,9 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                             </li>
                         </ul>
                         <!-- <h4>Step2 請加選雙襪子到您的包裝盒裡</h4> -->
-                        
+
                         <div class="boxChooseDetail flex" id="sockInBox">
+
                         </div>
                         <div class="step3 flex" id="step3">
                             <img src="images/dotted-line.svg" alt="">
@@ -913,39 +915,47 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
 
     //襪子選擇而退出選項//
-    const pairBtns = $('.imgWatzBox');
+    const imgWatzBox = $('.imgWatzBox');
 
-    pairBtns.click(function() {
+    imgWatzBox.click(function() {
         const me = this;
-        pairBtns.each(function() {
+
+        imgWatzBox.each(function() {
             if (this !== me) {
                 $(this).removeClass('active');
             }
         });
         $(this).toggleClass('active');
 
+
+
         if ($(this).hasClass('active')) {
             $('.step3').addClass('show');
             $('.add-box').addClass('show');
+            $('.p_item').children(".removeInBox").css("display", "none");
+            $('.p_item').children(".addBox").css("display", "flex");
         } else {
             $('.step3').removeClass('show');
             $('.add-box').removeClass('show');
+            const box_item = $('#sockInBox').find('.p_item');
+            $('#sockOutBox').append(box_item);
+            // console.log();
         }
 
     });
 
 
 
-    $('.moveToBox-btn').click(function(){
+    $('.moveToBox-btn').click(function() {
         const p_item = $(this).closest('.p_item');
         const ifInBox = $(this).closest('#sockInBox').length;
         console.log(ifInBox);
-        if(ifInBox){
+        if (ifInBox) {
             $('#sockOutBox').append(p_item);
             $(this).children(".removeInBox").css("display", "none");
             $(this).children(".addBox").css("display", "flex");
 
-        } else{
+        } else {
             $('#sockInBox').append(p_item);
             $(this).children(".addBox").css("display", "none");
             $(this).children(".removeInBox").css("display", "flex");
