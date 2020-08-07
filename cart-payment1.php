@@ -1020,8 +1020,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         let total = 0;
 
         if (!$p_items.length && $('#totalPrice').length) {
-            // location.href = 'product-list.php';
-            location.reload();
+            location.href = 'product.php';
             return;
         }
         $p_items.each(function() {
