@@ -9,8 +9,13 @@ $series_sid = $row['series'];
 $s_sql = "SELECT `series_name` FROM `product_series` WHERE `series_sid`=$series_sid ";
 $series_name = $pdo->query($s_sql)->fetch()['series_name'];
 
+$c_sql ="SELECT `img_ID` FROM `product` WHERE `series`=$series_sid ORDER BY RAND() LIMIT 3";
+$suggest = [];
+$suggest = $pdo->query($c_sql)->fetchAll();
+
 
 ?>
+
 <?php include __DIR__ . '/__html_head.php' ?>
 
 <style>
@@ -284,12 +289,19 @@ $series_name = $pdo->query($s_sql)->fetch()['series_name'];
         align-items: center;
     }
 
-    .box-suggest>ul>li {
+    .box-suggest ul li {
         width: 190px;
         height: 240px;
         background: gray;
         margin-right: 10px;
     }
+
+    .box-suggest ul img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
 
     footer {
         z-index: 0;
@@ -786,9 +798,9 @@ $series_name = $pdo->query($s_sql)->fetch()['series_name'];
                 <div class="box-suggest">
                     <h5>你可能會喜歡:</h5>
                     <ul class="flex">
-                        <li><img src="" alt=""></li>
-                        <li><img src="" alt=""></li>
-                        <li><img src="" alt=""></li>
+                        <?php foreach($suggest as $r): ?>
+                            <li><img src="images/product/<?= $r['img_ID'] ?>-1.jpg" alt=""></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
