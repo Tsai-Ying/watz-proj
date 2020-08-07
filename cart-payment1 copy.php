@@ -1,6 +1,9 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = 'aboutWATZ';  // 這裡放你的pagename
-?>
+ if(empty($_SESSION['cart'])){
+     header( 'Location: /product.php');
+  }
+ ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
@@ -732,6 +735,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     }
 </style>
 <!-- jumpout notice -->
+
 <div class="notice ">
     <div class="notice-bg "></div>
     <div class="notice-block flex ">

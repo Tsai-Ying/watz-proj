@@ -14,7 +14,7 @@
         if (data && data.cart && data.cart.length) {
             for (let i in data.cart) {
                 let item = data.cart[i];
-                count += item.quantity;
+                count += item[qty];
                 // cart_short_list.append(`<a class="dropdown-item"
                 // href="#">${item.product_name} ${item.qty}</a>`)
             }

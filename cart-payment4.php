@@ -28,9 +28,15 @@ foreach ($_SESSION['cart'] as $k=>$v){
 // *** 抓到當下的價格資訊 *** end
 
 // 寫入 orders
-$sql = "INSERT INTO `orders`(`member_sid`, `amount`, `order_date`) VALUES (?, ? , NOW())";
+$sql = "INSERT INTO `orders`(`member_sid`, `amount`, `receiver`, `receiver_mobile`, `receiver_address`, `order_date`) VALUES (?, ? ,? ,? ,? , NOW())";
 $stmt = $pdo->prepare($sql);
-$stmt->execute([ $_SESSION['member']['id'], $totalPrice]);
+$stmt->execute([
+    $_SESSION['member']['id'],
+    $totalPrice,
+    $_SESSION['receiver']['receiver'],
+    $_SESSION['receiver']['receiverMobile'],
+    $_SESSION['receiver']['receiverAddress'],
+]);
 
 $order_sid = $pdo->lastInsertId();  // 訂單流水號
 

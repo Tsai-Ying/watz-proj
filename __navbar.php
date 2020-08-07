@@ -28,11 +28,9 @@
             <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/member-login-signup.php"><img class="svg icon" src="images/icon-member.svg" alt=""></a>
         <?php endif ?>
 
-        <?php if (empty($_SESSION['cart'])): ?>
-        <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/cart-empty.php"><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
-        <?php else : ?>
-            <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/cart-payment1.php"><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
-        <?php endif ?>
+
+        <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/cart-payment1.php"><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
+
 
 
         <div class="menu flex">

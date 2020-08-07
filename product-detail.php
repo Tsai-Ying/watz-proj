@@ -668,7 +668,7 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                 <div class="box-photo flex transition mobile-none">
                     <div class="box-photo-left flex transition">
                         <div>
-                        <?php for ($i = 1; $i <= 4; $i++) :
+                            <?php for ($i = 1; $i <= 4; $i++) :
                                 if (file_exists(__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i . '.jpg')) {
 
                             ?>
@@ -984,7 +984,7 @@ $suggest = $pdo->query($c_sql)->fetchAll();
         const sendObj = {
             action: 'add',
             sid,
-            qty
+            qty: qty
         }
         $.get('cart-handle.php', sendObj, function(data) {
             console.log(data);
@@ -1012,6 +1012,7 @@ $suggest = $pdo->query($c_sql)->fetchAll();
         let value = $(this).val();
         $('.web-qty').val(value);
     });
+
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>

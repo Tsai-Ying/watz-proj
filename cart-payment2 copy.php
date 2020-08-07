@@ -1,5 +1,5 @@
 <?php require __DIR__ . '/__connect_db.php';
-$pageName = 'cart-payment2';  // 這裡放你的pagename
+$page = 'cart-payment2';  // 這裡放你的pagename
 
 $id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
 $sql = "SELECT * FROM `members` WHERE `id`= $id";
@@ -883,7 +883,7 @@ $row = $pdo->query($sql)->fetch();
                                 <p>郵遞區號</p>
                                 <input class="receiverZipcode" type="text" data-val="4" name="receiver">
                             </li> -->
-                            <li class="flex" name="receiver">
+                            <li class="flex">
                                 <p>地址</p>
                                 <input class="receiverAddress" id="receiverAddress" type="text" data-val="5" name="receiverAddress">
                             </li>
@@ -1186,27 +1186,7 @@ $row = $pdo->query($sql)->fetch();
         receiverAddress = $('#receiverAddress')
 
         function formCheck() {
-            // console.log("123")
-            // name.text('');
-            // mobile.text('');
-            // newpassword.text('');
-            // address.text('');
-
-            // email.css('border-color', 'lightblue');
-            // mobile.css('border-color', 'lightblue');
-            //TODO : 檢查欄位
-            let isPass = true;
-            // if (!email_re.test(email.val())) {
-            //     isPass = false;
-            //     email.css('border-color', 'darkred');
-            //     email.next().text('請填寫正確的 email 格式');
-            // }
-            // if (!mobile_re.test(mobile.val())) {
-            //     isPass = false;
-            //     mobile.css('border-color', 'darkred');
-            //     mobile.next().text('請填寫正確的 手機 格式');
-            // }
-            if (isPass) {
+            
                 $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
                     console.log(data);
 
@@ -1217,42 +1197,9 @@ $row = $pdo->query($sql)->fetch();
                         //     .html('新增成功!');
                     } 
                 }, 'json');
-            }
-            return false;
-        }
 
+        };
 
-        const qty_sel = $('.qty');
-        qty_sel.on('change', function() {
-            const p_item = $(this).closest('.p_item');
-            const sid = p_item.attr('data-sid');
-            // alert(sid +', '+ $(this).val() )
-            const sendObj = {
-                action: 'add',
-                sid: sid,
-                qty: $(this).val()
-            }
-            $.get('cart-handle.php', sendObj, function(data) {
-                setCartCount(data); // navbar
-                p_item.attr('data-quantity', sendObj.qty);
-                prepareCartTable();
-            }, 'json');
-        });
-
-        $('.remove-item').on('click', function() {
-            const p_item = $('.p_item');
-            const sid = p_item.attr('data-sid');
-            const sendObj = {
-                action: 'remove',
-                sid: sid
-            }
-            $.get('cart-handle.php', sendObj, function(data) {
-                setCartCount(data); // navbar
-                p_item.remove();
-                prepareCartTable();
-            }, 'json');
-
-        });
     </script>
 
     <?php require __DIR__ . '/__html_foot.php' ?>
