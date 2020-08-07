@@ -1,7 +1,15 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = 'aboutWATZ';  // 這裡放你的pagename
+
+$id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
+$sql = "SELECT * FROM `members` WHERE `id`= $id";
+$row = $pdo->query($sql)->fetch();
+
+
+
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
+
 
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
 
@@ -132,8 +140,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                 <h4>訂單編號：000123456</h4>
                 <h5>感謝您的購買</h5>
                 <h5>訂單明細已寄到您的信箱：
-                    meishaonu***@gamil.com</h5>
-
+                <?= $_SESSION['member']['email'] ?></h5>
                 <h6>有任何問題請洽客服 Mon.-Fir. 9:00-17:00</h6>
                 <button class="pay-btn btn-blue prev" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-historydetail.php'">查看訂單</button>
             </div>
