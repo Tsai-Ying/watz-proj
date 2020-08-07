@@ -486,16 +486,11 @@ $row = $pdo->query($sql)->fetch();
     // const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
 
     function formCheck() {
-        console.log("123")
-        name.text('');
-        mobile.text('');
-        newpassword.text('');
-        address.text('');
-
-        // console.log(name.text(''))
-        // console.log(mobile.text(''))
-        // console.log(newpassword.text(''))
-        // console.log(address.text(''))
+        // console.log("123")
+        // name.text('');
+        // mobile.text('');
+        // newpassword.text('');
+        // address.text('');
 
         // email.css('border-color', 'lightblue');
         // mobile.css('border-color', 'lightblue');
@@ -525,6 +520,11 @@ $row = $pdo->query($sql)->fetch();
                     //     .addClass('alert-success')
                     //     .html('新增成功!');
                 } else {
+                    $('.notice h3').text('資料未修改');
+                    notice();
+                    setTimeout(function() {
+                        location.href = 'member-profile.php';
+                    }, 1000)
                     // info_bar.removeClass('alert-success')
                     //     .addClass('alert-danger')
                     //     .html(data.error || '新增失敗!');
