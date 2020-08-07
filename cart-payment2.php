@@ -787,7 +787,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                             <div class="socks-detail flex">
                                 <h4>禮盒內容</h4>
                                 <?php foreach ($_SESSION['cart'] as $i) : ?>
-                                    <div class="eachsock-list flex">
+                                    <div class="eachsock-list p_item flex">
                                         <div class="img-product">
                                             <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
                                         </div>
@@ -805,7 +805,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                         <div class="socks-detail flex">
                             <h4>單購襪子</h4>
                             <?php foreach ($_SESSION['cart'] as $i) : ?>
-                                <div class="eachsock-list p-item flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
+                                <div class="eachsock-list p_item flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
                                     <div class="img-product">
                                         <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
                                     </div>
@@ -1140,50 +1140,52 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
 
         // ------------------php---------------------//
-        const cart_count = $('.cart-count'); // span tag
-        const cart_short_list = $('.cart-short-list');
+        // const cart_count = $('.cart-count'); // span tag
+        // const cart_short_list = $('.cart-short-list');
 
-        $.get('cart-handle.php', function(data) {
-            setCartCount(data);
-        }, 'json');
+        // $.get('cart-handle.php', function(data) {
+        //     setCartCount(data);
+        // }, 'json');
 
-        function setCartCount(data) {
-            let count = 0;
-            if (data && data.cart && data.cart.length) {
-                for (let i in data.cart) {
-                    let item = data.cart[i];
-                    count += item.quantity;
-                    cart_short_list.append(`<a class="dropdown-item"
-                href="#">${item.bookname} ${item.quantity}</a>`)
-                }
-                cart_count.text(count);
-            }
-        }
+        // function setCartCount(data) {
+        //     let count = 0;
+        //     if (data && data.cart && data.cart.length) {
+        //         for (let i in data.cart) {
+        //             let item = data.cart[i];
+        //             count += item.quantity;
+        //             cart_short_list.append(`<a class="dropdown-item"
+        //         href="#">${item.bookname} ${item.quantity}</a>`)
+        //         }
+        //         cart_count.text(count);
+        //     }
+        // }
+
 
         const dallorCommas = function(n) {
             return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         };
 
         function prepareCartTable() {
-            const $p_items = $('.p-item');
+            $p_items = $('.p_item');
             let total = 0;
-            if ($p_items.length == 0) {
-                location.href = 'product-list.php';
-            } else {
-                $p_items.each(function() {
-                    const sid = $(this).attr('data-sid');
-                    const price = $(this).attr('data-price');
-                    const quantity = $(this).attr('data-quantity');
 
-                    $(this).find('.price').text('$' + dallorCommas(price));
-                    $(this).find('.qty').val(quantity);
-                    $(this).find('.sub-total').text('$' + dallorCommas(price * quantity));
-                    total += price * quantity;
-                    $('#total-price').text('$' + dallorCommas(total));
-
-                })
+            if (!$p_items.length && $('#totalPrice').length) {
+                // location.href = 'product.php';
+                return;
             }
+            $p_items.each(function() {
+                const sid = $(this).attr('data-sid');
+                const price = $(this).attr('data-price');
+                const quantity = $(this).attr('data-quantity');
 
+                $(this).find('.price').text('NT $' + dallorCommas(price));
+                $(this).find('.qty').val(quantity);
+                $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
+                total += quantity * price;
+                $('#productPrice').text('NT $' + dallorCommas(total));
+                $('#totalPrice').text('NT $' + dallorCommas(total - 60 - 20));
+
+            })
         }
 
         prepareCartTable();

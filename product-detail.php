@@ -193,7 +193,7 @@ $series_name = $pdo->query($s_sql)->fetch()['series_name'];
     .box-photo-left div {
         width: 120px;
         height: 120px;
-        background: white;
+        /* background: white; */
         margin-bottom: 10px;
         cursor: pointer;
     }
@@ -656,10 +656,11 @@ $series_name = $pdo->query($s_sql)->fetch()['series_name'];
                 </div>
                 <div class="box-photo flex transition mobile-none">
                     <div class="box-photo-left flex transition">
-                        <div><img class="imgID-1" src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt=""></div>
-                        <div><img class="imgID-2" src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt=""></div>
-                        <div><img class="imgID-3" src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt=""></div>
-                        <div><img class="imgID-4" src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt=""></div>
+                        <div>
+                            <?php for ($i = 1; $i <= 4; $i++) : ?>
+                                <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
+                            <?php endfor; ?>
+                        </div>
                     </div>
                     <div class="box-photo-right transition">
                         <img class="photo-change" src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
@@ -667,25 +668,19 @@ $series_name = $pdo->query($s_sql)->fetch()['series_name'];
                 </div>
                 <div class="box-photo flex transition slider-box flex">
                     <div class="box-photo-left flex transition mobile-none">
-                        <div><img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt=""></div>
-                        <div><img src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt=""></div>
-                        <div><img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt=""></div>
-                        <div><img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt=""></div>
+                        <div>
+                            <?php for ($i = 1; $i <= 4; $i++) : ?>
+                                <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
+                            <?php endfor; ?>
+                        </div>
                     </div>
                     <div class="box-photo-right flex" id="blockPhoto">
                         <ul class="flex">
-                            <li>
-                                <img src="images/product/<?= $row['img_ID'] ?>-1.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="images/product/<?= $row['img_ID'] ?>-2.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="images/product/<?= $row['img_ID'] ?>-3.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="images/product/<?= $row['img_ID'] ?>-4.jpg" alt="">
-                            </li>
+                            <?php for ($i = 1; $i <= 4; $i++) : ?>
+                                <li>
+                                    <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
+                                </li>
+                            <?php endfor; ?>
                         </ul>
                     </div>
                     <div class="arrow-left flex" id="goPrev">
@@ -780,9 +775,11 @@ $series_name = $pdo->query($s_sql)->fetch()['series_name'];
                     </ul>
                 </div>
                 <div class="box-bigphoto">
-                    <div><img src="images/product/<?= $row['img_ID'] ?>-5.jpg" alt=""></div>
-                    <div><img src="images/product/<?= $row['img_ID'] ?>-6.jpg" alt=""></div>
-                    <div><img src="images/product/<?= $row['img_ID'] ?>-7.jpg" alt=""></div>
+                    <?php for ($i = 5; $i <= 7; $i++) : ?>
+                        <div>
+                            <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
+                        </div>
+                    <?php endfor; ?>
                 </div>
             </div>
             <div class="block-left-bottom">
@@ -802,9 +799,9 @@ $series_name = $pdo->query($s_sql)->fetch()['series_name'];
                 <p><?= $row['introduction'] ?></p>
                 <p><?= $row['detail'] ?></p>
                 <ul class="flex">
-                    <li class="active">
+                    <li>
                         <div class="socks-pattern flex">
-                            <img class="img-select-circle transition active" src="images/select circle.svg" alt="">
+                            <img class="img-select-circle transition active first-pattern" src="images/select circle.svg" alt="">
                             <div class=""><img src="" alt=""></div>
                         </div>
                     </li>
@@ -843,13 +840,14 @@ $series_name = $pdo->query($s_sql)->fetch()['series_name'];
 
 <script>
     // 同款樣式hover
-    $("img.img-select-circle").hover(function(event) {
-        $(".img-select-circle").removeClass("active")
-    })
-
-    $("img.img-select-circle").mouseleave(function(event) {
-        $(".img-select-circle").eq(0).addClass("active")
-    })
+    $(".img-select-circle").hover(
+        function() {
+            $(".img-select-circle").removeClass("active");
+        },
+        function() {
+            $(".first-pattern").addClass("active")
+        }
+    );
 
     // 數量加減功能
     $(document).ready(function() {
