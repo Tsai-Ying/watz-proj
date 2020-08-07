@@ -764,13 +764,13 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                         <h4>Step1 想要什麼包裝呢?</h4>
                         <ul class="watzbox-choose flex" id="">
 
-                            <li class="img-watzbox">
+                            <li class="img-watzbox imgWatzBox" id="watzbox1">
                                 <img class="transition" src="images/watzbox1-1.png" alt="">
                             </li>
-                            <li class="img-watzbox">
+                            <li class="img-watzbox imgWatzBox" id="watzbox2">
                                 <img class="transition" src="images/watzbox2-1.png" alt="">
                             </li>
-                            <li class="img-watzbox">
+                            <li class="img-watzbox imgWatzBox" id="watzbox3">
                                 <img class="transition" src="images/watzbox3-1.png" alt="">
                             </li>
                         </ul>
@@ -923,7 +923,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
 
     //襪子選擇而退出選項//
-    const pairBtns = $('.pairBtns');
+    const pairBtns = $('.imgWatzBox');
 
     pairBtns.click(function() {
         const me = this;
