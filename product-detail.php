@@ -9,7 +9,7 @@ $series_sid = $row['series'];
 $s_sql = "SELECT `series_name` FROM `product_series` WHERE `series_sid`=$series_sid ";
 $series_name = $pdo->query($s_sql)->fetch()['series_name'];
 
-$c_sql = "SELECT `sid`,`img_ID` FROM `product` WHERE `series`=$series_sid ORDER BY RAND() LIMIT 3";
+$c_sql = "SELECT `sid`,`img_ID` FROM `product` WHERE `series`=$series_sid AND `sid`!=$sid ORDER BY RAND() LIMIT 3";
 $suggest = [];
 $suggest = $pdo->query($c_sql)->fetchAll();
 
@@ -648,8 +648,6 @@ $suggest = $pdo->query($c_sql)->fetchAll();
             height: 30vw;
             margin: 0 5px;
         }
-
-
     }
 </style>
 
@@ -669,9 +667,18 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                 <div class="box-photo flex transition mobile-none">
                     <div class="box-photo-left flex transition">
                         <div>
-                            <?php for ($i = 1; $i <= 4; $i++) : ?>
-                                <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
-                            <?php endfor; ?>
+                        <?php for ($i = 1; $i <= 4; $i++) :
+                                if (file_exists(__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i . '.jpg')) {
+
+                            ?>
+                                    <div>
+                                        <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
+                                    </div>
+                            <?php
+                                } else {
+                                    break;
+                                }
+                            endfor; ?>
                         </div>
                     </div>
                     <div class="box-photo-right transition">
@@ -681,18 +688,34 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                 <div class="box-photo flex transition slider-box flex">
                     <div class="box-photo-left flex transition mobile-none">
                         <div>
-                            <?php for ($i = 1; $i <= 4; $i++) : ?>
-                                <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
-                            <?php endfor; ?>
+                            <?php for ($i = 1; $i <= 4; $i++) :
+                                if (file_exists(__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i . '.jpg')) {
+
+                            ?>
+                                    <div>
+                                        <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
+                                    </div>
+                            <?php
+                                } else {
+                                    break;
+                                }
+                            endfor; ?>
                         </div>
                     </div>
                     <div class="box-photo-right flex" id="blockPhoto">
                         <ul class="flex">
-                            <?php for ($i = 1; $i <= 4; $i++) : ?>
-                                <li>
-                                    <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
-                                </li>
-                            <?php endfor; ?>
+                            <?php for ($i = 1; $i <= 4; $i++) :
+                                if (file_exists(__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i . '.jpg')) {
+
+                            ?>
+                                    <li>
+                                        <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
+                                    </li>
+                            <?php
+                                } else {
+                                    break;
+                                }
+                            endfor; ?>
                         </ul>
                     </div>
                     <div class="arrow-left flex" id="goPrev">
@@ -787,11 +810,19 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                     </ul>
                 </div>
                 <div class="box-bigphoto">
-                    <?php for ($i = 5; $i <= 7; $i++) : ?>
-                        <div>
-                            <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
-                        </div>
-                    <?php endfor; ?>
+                    <?php for ($i = 5; $i <= 7; $i++) :
+                        //echo (__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i). ".jpg<br>";
+                        if (file_exists(__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i . '.jpg')) {
+
+                    ?>
+                            <div>
+                                <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
+                            </div>
+                    <?php
+                        } else {
+                            break;
+                        }
+                    endfor; ?>
                 </div>
             </div>
             <div class="block-left-bottom">

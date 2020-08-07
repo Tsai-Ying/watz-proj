@@ -3,7 +3,7 @@ $pageName = '';  // 這裡放你的pagename
 
 
 $qs = [];
-$perPage = 9;
+$perPage = 15;
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $cate_id = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 // $search = isset($_GET['search']) ? $_GET['search'] : '';
@@ -37,7 +37,7 @@ if ($totalRows > 0) {
         exit;
     }
    
-    $sql = sprintf("SELECT * FROM product WHERE series IN (1,2,3) AND color IN (1) AND type IN (1,2)", $where, ($page - 1) * $perPage, $perPage);
+    $sql = sprintf("SELECT * FROM `product` %s LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
     // $sql = sprintf("SELECT * FROM `product` WHERE LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
     $rows = $pdo->query($sql)->fetchAll();
 }
@@ -45,10 +45,11 @@ $stmt = null;
 $stmt = $pdo->query($sql);
 
 
-
-// $c_sql = "SELECT * FROM `categories` ";
-
+// --- 分類資料
+// $c_sql = "SELECT * FROM `product` WHERE `series`=0";
 // $cates = $pdo->query($c_sql)->fetchAll();
+
+
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
@@ -1138,17 +1139,18 @@ $stmt = $pdo->query($sql);
 
         <div class="block flex">
             <div class="selector flex">
+                <form name="form1" onsubmit="return false">
                 <ul class="box-series">
 
                     <p>Series</p>
 
                     <li> <label class="cursor">
-                            <input type="checkbox" name="series1" value="series1" class="cursor">芒果派對</label></li>
-                    <li> <label class="cursor"><input type="checkbox" name="series2" value="series2" class="cursor">群魔亂舞</label></li>
-                    <li><label class="cursor"><input type="checkbox" name="series3" value="series3" class="cursor">灰姑娘的水晶襪</label></li>
-                    <li> <label class="cursor"><input type="checkbox" name="series4" value="series4" class="cursor">素色流行</label></li>
-                    <li> <label class="cursor"><input type="checkbox" name="series5" value="series5" class="cursor">幾何色塊</label></li>
-                    <li> <label class="cursor"><input type="checkbox" name="series6" value="series6" class="cursor">美式風格</label></li>
+                            <input type="checkbox" name="series[]" value="1" class="cursor">芒果派對</label></li>
+                    <li> <label class="cursor"><input type="checkbox" name="series[]" value="2" class="cursor">群魔亂舞</label></li>
+                    <li><label class="cursor"><input type="checkbox" name="series[]" value="3" class="cursor">灰姑娘的水晶襪</label></li>
+                    <li> <label class="cursor"><input type="checkbox" name="series[]" value="4" class="cursor">素色流行</label></li>
+                    <li> <label class="cursor"><input type="checkbox" name="series[]" value="5" class="cursor">幾何色塊</label></li>
+                    <li> <label class="cursor"><input type="checkbox" name="series[]" value="6" class="cursor">美式風格</label></li>
                 </ul>
                 <div class="box-color">
                     <p>Color</p>
@@ -1172,15 +1174,15 @@ $stmt = $pdo->query($sql);
                     <div class="type-box flex">
                         <div class="img-selector flex"><img src="images/selector.svg"></div>
                         <ul class="type-btn-box">
-                            <li> <label class="type-active cursor"><input type="checkbox" name="type1" value="type1" class="cursor">長襪</label></li>
-                            <li><label class="type-active cursor"><input type="checkbox" name="type2" value="type2" class="cursor">短襪</label></li>
-                            <li> <label class="cursor"><input type="checkbox" name="type3" value="type3" class="cursor">踝襪</label></li>
-                            <li> <label class="cursor"><input type="checkbox" name="type4" value="type4" class="cursor">隱形襪</label></li>
+                            <li> <label class="type-active cursor"><input type="checkbox" name="types[]" value="1" class="cursor">長襪</label></li>
+                            <li><label class="type-active cursor"><input type="checkbox" name="types[]" value="2" class="cursor">短襪</label></li>
+                            <li> <label class="cursor"><input type="checkbox" name="types[]" value="3" class="cursor">踝襪</label></li>
+                            <li> <label class="cursor"><input type="checkbox" name="types[]" value="4" class="cursor">隱形襪</label></li>
                         </ul>
                     </div>
                     <div class="select-check-btn cursor">確認</div>
                 </div>
-
+                </form>
             </div>
             <div class="block-right flex">
                 <div class="block-right-bg flex">
@@ -1210,7 +1212,8 @@ $stmt = $pdo->query($sql);
                         flex">
                   
                         <?php foreach ($rows as $r) : ?>
-                            <a href="product-detail.php?sid=<?= $r['sid'] ?>" class="single-product-box flex">
+                            <li class="single-product-box flex">
+                            <a href="product-detail.php?sid=<?= $r['sid'] ?>">
                                 <div class="product-top-img flex">
                                     <img src='images/product/<?= $r['img_ID'] ?>-1.jpg?' alt="">
                                 </div>
@@ -1218,7 +1221,8 @@ $stmt = $pdo->query($sql);
                                     <h5><?= $r['product_name'] ?>&nbsp &nbsp<?= $r['price'] ?>元</h5>
                                     <!-- <img src="images/color1.svg" alt=""> -->
                                 </div>
-                            </a>
+                                </a>
+                            </li>
                         <?php endforeach; ?>
                       
 
@@ -1342,9 +1346,19 @@ $stmt = $pdo->query($sql);
         });
 
     });
-    // ----------------    ------------------
+    // -------------selector active---------------------
     
+        // if ($(".box-series li").click) {
 
+        //     $(this).addClass("series-active");
+          
+
+        // }else{
+        //     $(this).removeClass("series-active");
+        // }
+       
+
+   
 
     // ----------- 商品圖hover --------------
     $(".product-top-img img").mouseenter(function(){
@@ -1354,6 +1368,10 @@ $stmt = $pdo->query($sql);
 $(".product-top-img img").mouseleave(function(){
     $(this).attr("src", $(this).attr('src').replace("-2.jpg","-1.jpg"));
 });
+
+
+
+// ---------------------------  幫我搭----------------------------------
 
 
 
@@ -1408,6 +1426,15 @@ let slideIndex = 0;
         });
     });
     
+    $('form[name=form1] input[type=checkbox]').click(function(){
+        console.log($(document.form1).serialize());
+        $.get('product-api.php', $(document.form1).serialize(), function(data){
+            console.log(data);
+        })
+    });
+
+
+
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
