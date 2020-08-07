@@ -834,37 +834,37 @@ $row = $pdo->query($sql)->fetch();
             <div class="shipping-form flex">
                 <div class="shipping-form-frame">
                     <h3>訂購資料填寫</h3>
-                    <ul class="shipperInfo flex">
-                        <li class="flex">
-                            <p>訂購人姓名</p>
-                            <input class="shipperName" type="text" data-val="1" id="name" name="name" required value="<?= htmlentities($row['name']) ?>">
-                        </li>
-                        <li class="flex">
-                            <p>電話</p>
-                            <input class="shipperPhone" type="text" data-val="2" maxlength="10" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>">
-                        </li>
-                        <li class="flex">
-                            <p>E-mail</p>
-                            <input class="shipperemail" type="text" data-val="3" value="<?= htmlentities($row['email']) ?>">
-                        </li>
-                        <!-- <li class="flex">
+                    <form class="" name="form1" method="post" novalidate>
+                        <ul class="shipperInfo flex">
+                            <li class="flex">
+                                <p>訂購人姓名</p>
+                                <input class="shipperName" type="text" data-val="1" id="sender" name="sender" required value="<?= htmlentities($row['name']) ?>">
+                            </li>
+                            <li class="flex">
+                                <p>電話</p>
+                                <input class="shipperPhone" type="text" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>">
+                            </li>
+                            <li class="flex">
+                                <p>E-mail</p>
+                                <input class="shipperemail" type="text" data-val="3" value="<?= htmlentities($row['email']) ?>" name="senderEmail" id="senderEmail">
+                            </li>
+                            <!-- <li class="flex">
                             <p>郵遞區號</p>
                             <input class="shipperZipcode" type="text" data-val="4" maxlength="6" value="">
                         </li> -->
-                        <li class="flex">
-                            <p>地址</p>
-                            <input class="shipperAddress" type="text" data-val="5" id="address" name="address" value="<?= htmlentities($row['address']) ?>">
-                        </li>
-                    </ul>
-                    <div class="line"></div>
-                    <div class="pickup-ppl-title flex">
-                        <h3>收件人資料填寫</h3>
-                        <div class="same-bookppl flex">
-                            <input type="checkbox" class="samePplBtn">
-                            <h5>收件人同訂購人</h5>
+                            <li class="flex">
+                                <p>地址</p>
+                                <input class="shipperAddress" type="text" data-val="5" id="senderaddress" name="senderaddress" value="<?= htmlentities($row['address']) ?>">
+                            </li>
+                        </ul>
+                        <div class="line"></div>
+                        <div class="pickup-ppl-title flex">
+                            <h3>收件人資料填寫</h3>
+                            <div class="same-bookppl flex">
+                                <input type="checkbox" class="samePplBtn">
+                                <h5>收件人同訂購人</h5>
+                            </div>
                         </div>
-                    </div>
-                    <form class="" name="form1" method="post" novalidate>
                         <ul class="receiverInfo flex">
 
                             <li class="flex">
@@ -888,56 +888,56 @@ $row = $pdo->query($sql)->fetch();
                                 <input class="receiverAddress" id="receiverAddress" type="text" data-val="5" name="receiverAddress">
                             </li>
                         </ul>
+                        <div class="line"></div>
+                        <div class="pay-choose">
+                            <h3>付款方式選擇</h3>
+                            <div>
+                                <button class="button payBtn active" href="#">信用卡</button>
+                                <button class="button payBtn" href="#">到貨付款</button>
+                            </div>
+                        </div>
+                        <div class="receipt-choose">
+                            <h3>發票選擇</h3>
+                            <div class="receipt-choose-frame flex">
+                                <div>
+                                    <button class="button receiptBtn active" href="#" id="paper" data-val="1">紙本發票</button>
+                                    <button class="button receiptBtn" href="#" id="elec" data-val="1">電子發票</button></div>
+                                <div>
+                                    <button class="button receiptBtn" href="#" id="icloud" data-val="1">雲端載具</button>
+                                    <button class="button receiptBtn" href="#" id="donate" data-val="1">發票捐贈</button></div>
+                            </div>
+                            <div class="peper-receipt flex show">
+                                <div class="radio-frame flex">
+                                    <input class="radio-btn " name="receipt-radio-btn" type="radio" checked></input>
+                                    <p>二聯式發票</p>
+                                </div>
+                                <div class="radio-frame flex">
+                                    <input class="radio-btn" name="receipt-radio-btn" type="radio"></input>
+                                    <p>三聯式發票</p>
+                                </div>
+                                <div class="info flex">
+                                    <p>統一編號號碼</p>
+                                    <input class="info-input" type="text">
+                                </div>
+                                <div class="info flex">
+                                    <p>公司抬頭名稱</p>
+                                    <input class="info-input" type="text">
+                                </div>
+                            </div>
+                            <div class="cloud-receipt">
+                                <div class="info flex">
+                                    <p>載具手機條碼</p>
+                                    <input class="info-input" type="text">
+                                </div>
+                            </div>
+                            <div class="donate-receipt flex">
+                                <div class="radio-frame flex">
+                                    <input class="radio-btn " name="receipt-radio-btn" type="radio"></input>
+                                    <p class="">捐贈至心路基金會</p>
+                                </div>
+                            </div>
+                        </div>
                     </form>
-                    <div class="line"></div>
-                    <div class="pay-choose">
-                        <h3>付款方式選擇</h3>
-                        <div>
-                            <button class="button payBtn active" href="#">信用卡</button>
-                            <button class="button payBtn" href="#">到貨付款</button>
-                        </div>
-                    </div>
-                    <div class="receipt-choose">
-                        <h3>發票選擇</h3>
-                        <div class="receipt-choose-frame flex">
-                            <div>
-                                <button class="button receiptBtn active" href="#" id="paper" data-val="1">紙本發票</button>
-                                <button class="button receiptBtn" href="#" id="elec" data-val="1">電子發票</button></div>
-                            <div>
-                                <button class="button receiptBtn" href="#" id="icloud" data-val="1">雲端載具</button>
-                                <button class="button receiptBtn" href="#" id="donate" data-val="1">發票捐贈</button></div>
-                        </div>
-                        <div class="peper-receipt flex show">
-                            <div class="radio-frame flex">
-                                <input class="radio-btn " name="receipt-radio-btn" type="radio" checked></input>
-                                <p>二聯式發票</p>
-                            </div>
-                            <div class="radio-frame flex">
-                                <input class="radio-btn" name="receipt-radio-btn" type="radio"></input>
-                                <p>三聯式發票</p>
-                            </div>
-                            <div class="info flex">
-                                <p>統一編號號碼</p>
-                                <input class="info-input" type="text">
-                            </div>
-                            <div class="info flex">
-                                <p>公司抬頭名稱</p>
-                                <input class="info-input" type="text">
-                            </div>
-                        </div>
-                        <div class="cloud-receipt">
-                            <div class="info flex">
-                                <p>載具手機條碼</p>
-                                <input class="info-input" type="text">
-                            </div>
-                        </div>
-                        <div class="donate-receipt flex">
-                            <div class="radio-frame flex">
-                                <input class="radio-btn " name="receipt-radio-btn" type="radio"></input>
-                                <p class="">捐贈至心路基金會</p>
-                            </div>
-                        </div>
-                    </div>
                     <div class="line"></div>
                     <div class="order-remark">
                         <h3>訂單備註</h3>
@@ -1181,25 +1181,24 @@ $row = $pdo->query($sql)->fetch();
         prepareCartTable();
 
 
-        const receiver = $('#receiverName'),
-        receiverMobile = $('#receiverMobile'),
-        receiverAddress = $('#receiverAddress')
+        // const receiver = $('#receiverName'),
+        //     receiverMobile = $('#receiverMobile'),
+        //     receiverAddress = $('#receiverAddress')
 
         function formCheck() {
-            
-                $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
-                    console.log(data);
 
-                    if (data.success) {
-                        location.href = 'cart-payment3.php';
-                        // info_bar.removeClass('alert-danger')
-                        //     .addClass('alert-success')
-                        //     .html('新增成功!');
-                    } 
-                }, 'json');
+            $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
+                console.log(data);
+
+                if (data.success) {
+                    location.href = 'cart-payment3.php';
+                    // info_bar.removeClass('alert-danger')
+                    //     .addClass('alert-success')
+                    //     .html('新增成功!');
+                }
+            }, 'json');
 
         };
-
     </script>
 
     <?php require __DIR__ . '/__html_foot.php' ?>

@@ -184,9 +184,9 @@ unset($_SESSION['cart']);
                 <h4>訂單編號：202007<?= $order_sid ?></h4>
                 <h5>感謝您的購買</h5>
                 <h5>訂單明細已寄到您的信箱：
-                <?= $_SESSION['member']['email'] ?></h5>
+                <?= $_SESSION['sender']['senderEmail'] ?></h5>
                 <h6>有任何問題請洽客服 Mon.-Fir. 9:00-17:00</h6>
-                <button class="pay-btn btn-blue prev" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-historydetail.php'">查看訂單</button>
+                <button class="pay-btn btn-blue prev" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-historydetail.php?sid=<?= $order_sid ?>'">查看訂單</button>
             </div>
 
 

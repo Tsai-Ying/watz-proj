@@ -413,8 +413,8 @@ $totalprice = 0;
                             </div>
                             <div class="address-info flex">
                                 <h5>姓名: <?= $historylists['receiver'] ?></h5>
-                                <h5>電話: <?= $historylists['receiver'] ?></h5>
-                                <h5>地址: <?= $historylists['receiver'] ?></h5>
+                                <h5>電話: <?= $historylists['receiver_mobile'] ?></h5>
+                                <h5>地址: <?= $historylists['receiver_address'] ?></h5>
                             </div>
                         </div>
                         <div class="bg-address flex">
