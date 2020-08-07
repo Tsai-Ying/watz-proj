@@ -648,8 +648,6 @@ $suggest = $pdo->query($c_sql)->fetchAll();
             height: 30vw;
             margin: 0 5px;
         }
-
-
     }
 </style>
 
@@ -669,9 +667,18 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                 <div class="box-photo flex transition mobile-none">
                     <div class="box-photo-left flex transition">
                         <div>
-                            <?php for ($i = 1; $i <= 4; $i++) : ?>
-                                <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
-                            <?php endfor; ?>
+                        <?php for ($i = 1; $i <= 4; $i++) :
+                                if (file_exists(__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i . '.jpg')) {
+
+                            ?>
+                                    <div>
+                                        <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
+                                    </div>
+                            <?php
+                                } else {
+                                    break;
+                                }
+                            endfor; ?>
                         </div>
                     </div>
                     <div class="box-photo-right transition">
@@ -681,13 +688,13 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                 <div class="box-photo flex transition slider-box flex">
                     <div class="box-photo-left flex transition mobile-none">
                         <div>
-                        <?php for ($i = 1; $i <= 4; $i++) :
-                                if (file_exists(__DIR__ . '/images/product/' . $row['img_ID'] . '-' . $i)) {
+                            <?php for ($i = 1; $i <= 4; $i++) :
+                                if (file_exists(__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i . '.jpg')) {
 
                             ?>
-                                    <li>
+                                    <div>
                                         <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
-                                    </li>
+                                    </div>
                             <?php
                                 } else {
                                     break;
@@ -698,7 +705,7 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                     <div class="box-photo-right flex" id="blockPhoto">
                         <ul class="flex">
                             <?php for ($i = 1; $i <= 4; $i++) :
-                                if (file_exists(__DIR__ . '/images/product/' . $row['img_ID'] . '-' . $i)) {
+                                if (file_exists(__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i . '.jpg')) {
 
                             ?>
                                     <li>
@@ -804,11 +811,13 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                 </div>
                 <div class="box-bigphoto">
                     <?php for ($i = 5; $i <= 7; $i++) :
-                        if (file_exists(__DIR__ . '/images/product/' . $row['img_ID'] . '-' . $i)) {
+                        //echo (__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i). ".jpg<br>";
+                        if (file_exists(__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i . '.jpg')) {
+
                     ?>
-                        <div>
-                            <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
-                        </div>
+                            <div>
+                                <img class="imgID-<?= $i ?>" src="images/product/<?= $row['img_ID'] ?>-<?= $i ?>.jpg" alt="">
+                            </div>
                     <?php
                         } else {
                             break;
