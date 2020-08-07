@@ -1,5 +1,15 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = 'member-historylist';  // 這裡放你的pagename
+
+$id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
+$sql = "SELECT * FROM `members` WHERE `id`= $id";
+$row = $pdo->query($sql)->fetch();
+
+$historylists = [];
+
+$o_sql = "SELECT * FROM `orders` WHERE `member_sid`= $id";
+$historylists = $pdo->query($o_sql)->fetchAll();
+
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
@@ -225,19 +235,21 @@ $pageName = 'member-historylist';  // 這裡放你的pagename
                             <div class="box2"></div>
                         </li>
 
+                        <?php foreach ($historylists as $r) : ?>
+
                         <li class="order flex">
                             <div class="order-block flex">
                                 <div class="between flex">
                                     <div class="flex"><h4 class="flex">訂單編號</h4></div>
-                                    <div class=" flex"><h5>20200730</h5></div>
+                                    <div class=" flex"><h5>202007<?= $r['sid'] ?></h5></div>
                                 </div>
                                 <div class="between flex">
                                     <div class="flex"><h4 class="flex">訂購時間</h4></div>
-                                    <div class="flex"><h5>2020/07/30</h5></div>
+                                    <div class="flex"><h5><?= $r['order_date'] ?></h5></div>
                                 </div>
                                 <div class="between flex">
                                     <div class="flex"><h4 class="flex">訂購金額</h4></div>
-                                    <div class="flex"><h5>2,200</h5></div>
+                                    <div class="flex"><h5><?= $r['amount'] ?></h5></div>
                                 </div>
                                 <div class="between flex">
                                     <div class="flex"><h4 class="flex">出貨狀態</h4></div>
@@ -245,35 +257,13 @@ $pageName = 'member-historylist';  // 這裡放你的pagename
                                 </div>
                             </div>
                             <div class="btn flex">
-                                <button class="btn-coral">詳細訂單</button>
+                                <button class="btn-coral" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-historydetail.php?sid=<?= $r['sid'] ?>'">詳細訂單</button>
                                 <button class="btn-blue gray">退貨申請</button>
                             </div>
                         </li>
-                        <li class="order flex">
-                            <div class="order-block flex">
-                                <div class="between flex">
-                                    <div class="flex"><h4 class="flex">訂單編號</h4></div>
-                                    <div class="flex"><h5>20200730</h5></div>
-                                </div>
-                                <div class="between flex">
-                                    <div class="flex"><h4 class="flex">訂購時間</h4></div>
-                                    <div class="flex"><h5>2020/07/30</h5></div>
-                                </div>
-                                <div class="between flex">
-                                    <div class="flex"><h4 class="flex">訂購金額</h4></div>
-                                    <div class="flex"><h5>2,200</h5></div>
-                                </div>
-                                <div class="between flex">
-                                    <div class="flex"><h4 class="flex">出貨狀態</h4></div>
-                                    <div class="flex"><h5>待出貨</h5></div>
-                                </div>
-                            </div>
-                            <div class="btn flex">
-                                <button class="btn-coral">詳細訂單</button>
-                                <button class="btn-blue gray">退貨申請</button>
-                            </div>
-                        </li>
-                        <li class="order flex">
+
+                        <?php endforeach; ?>
+                        <!-- <li class="order flex">
                             <div class="order-block flex">
                                 <div class="between flex">
                                     <div class="flex"><h4 class="flex">訂單編號</h4></div>
@@ -369,6 +359,30 @@ $pageName = 'member-historylist';  // 這裡放你的pagename
                                 <button class="btn-blue gray">退貨申請</button>
                             </div>
                         </li>
+                        <li class="order flex">
+                            <div class="order-block flex">
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂單編號</h4></div>
+                                    <div class="flex"><h5>20200730</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂購時間</h4></div>
+                                    <div class="flex"><h5>2020/07/30</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">訂購金額</h4></div>
+                                    <div class="flex"><h5>2,200</h5></div>
+                                </div>
+                                <div class="between flex">
+                                    <div class="flex"><h4 class="flex">出貨狀態</h4></div>
+                                    <div class="flex"><h5>待出貨</h5></div>
+                                </div>
+                            </div>
+                            <div class="btn flex">
+                                <button class="btn-coral">詳細訂單</button>
+                                <button class="btn-blue gray">退貨申請</button>
+                            </div>
+                        </li> -->
                     </ul>
                 </div>
             </div>

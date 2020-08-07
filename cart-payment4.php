@@ -175,7 +175,7 @@ unset($_SESSION['cart']);
             <div class="pay-finish-frame flex">
                 <img src="images/cart-finished.svg" alt="">
                 <h3>訂單已完成</h3>
-                <h4>訂單編號：00012594<?= $order_sid ?></h4>
+                <h4>訂單編號：202007<?= $order_sid ?></h4>
                 <h5>感謝您的購買</h5>
                 <h5>訂單明細已寄到您的信箱：
                 <?= $_SESSION['member']['email'] ?></h5>
