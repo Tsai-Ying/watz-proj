@@ -835,8 +835,8 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                     <div class="total-price-frame flex">
 
                         <div class="coupon flex">
-                            <input type="text" placeholder="輸入折扣代碼">
-                            <button class="button">兌換</button>
+                            <input class="couponInput" type="text" placeholder="輸入折扣代碼">
+                            <button class="button couponBtn">兌換</button>
                         </div>
                         <div class="total-price-detail flex">
                             <ul>
@@ -846,11 +846,11 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                 </li>
                                 <li class="flex">
                                     <p>運費</p>
-                                    <p>60</p>
+                                    <p class="shipFee">0</p>
                                 </li>
                                 <li class="flex">
                                     <p>折扣</p>
-                                    <p>-20</p>
+                                    <p class="discount">0</p>
                                 </li>
                                 <div class="line"></div>
                                 <li class="flex">
@@ -897,7 +897,10 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     $(".ShipBtn").click(function() {
         $(this).toggleClass('active')
             .siblings().removeClass('active');
-    });
+        $('.shipFee').text('60');
+        prepareCartTable();
+    })
+    
 
     $(document).ready(function() {
         $(".hide-choose-box").hide();
@@ -972,6 +975,21 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
     }
 
+    //coupon
+    
+    $('.couponBtn').click(function(){
+        if ($('.couponInput').val() == 'watz60'){
+            $('.discount').html('-60');
+        }else if($('.couponInput').val() == 'watz40'){
+            $('.discount').html('-40');
+        }else{
+            $('.discount').html('0');
+        }
+        prepareCartTable();
+    });
+
+    
+
 
     // php
     const dallorCommas = function(n) {
@@ -980,6 +998,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
     function prepareCartTable() {
         $p_items = $('.p_item');
+        
         let total = 0;
 
         if (!$p_items.length && $('#totalPrice').length) {
@@ -990,13 +1009,15 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             const sid = $(this).attr('data-sid');
             const price = $(this).attr('data-price');
             const quantity = $(this).attr('data-quantity');
+            const shipFee = $('.shipFee').text();
+            const discount = $('.discount').text();
 
             $(this).find('.price').text('NT $' + dallorCommas(price));
             $(this).find('.qty').val(quantity);
             $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
             total += quantity * price;
             $('#productPrice').text('NT $' + dallorCommas(total));
-            $('#totalPrice').text('NT $' + dallorCommas(total - 60 - 20));
+            $('#totalPrice').text('NT $' + dallorCommas(total+parseInt(shipFee)+parseInt(discount)));
 
         })
     }
