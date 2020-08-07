@@ -7,8 +7,8 @@ $t_sql = "SELECT * FROM `product` WHERE `sid`= $sid";
 $row = $pdo->query($t_sql)->fetch();
 
 $series_sid = $row['series'];
-$s_sql = "SELECT `series` FROM `product_series` WHERE `series_sid`=$series_sid ";
-$series_name = $pdo->query($s_sql)->fetch()['series'];
+$s_sql = "SELECT `series_name` FROM `product_series` WHERE `series_sid`=$series_sid ";
+$series_name = $pdo->query($s_sql)->fetch()['series_name'];
 
 
 ?>
