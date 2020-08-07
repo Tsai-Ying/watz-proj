@@ -798,7 +798,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                             <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt=""></a>
                             <div class="product-detail flex">
                                 <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="sock-name flex">
-                                    <h4><?= $i['product_name'] ?></h4>
+                                    <h4><?= htmlentities($i['product_name']) ?></h4>
                                     <div>
                                         <h6><?= $i['detail'] ?></h6>
                                     </div>
