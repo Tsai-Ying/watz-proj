@@ -329,12 +329,11 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     }
 
     .boxChooseDetail {
-        flex-direction: column;
-        align-items: center;
+        display: none;
     }
 
     .boxChooseDetail.addInBox {
-        /* display: flex; */
+        display: flex;
     }
 
     .add-box-frame {
@@ -800,8 +799,8 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                             <button data-val="6" class="button pairBtns" href="#">6雙</button>
                             <button data-val="8" class="button pairBtns" href="#">8雙</button>
                         </div>
-                        <div class="boxChooseDetail flex" id="sockInBox">
-                            <!-- <div class="remove-box removeBox flex">
+                        <div class="eachsock-list boxChooseDetail flex " id="boxChooseDetail">
+                            <div class="remove-box removeBox flex">
                                 <p>-</p>
                             </div>
                             <div class="img-socks"><img src="images/yellowline-01.jpg" alt=""></div>
@@ -823,7 +822,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                     <h4>NT $180</h4>
                                     <span class="remove" onclick="notice()"></span>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                         <div class="step3 flex" id="step3">
                             <img src="images/dotted-line.svg" alt="">
@@ -834,23 +833,23 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                 </div>
             </div>
             <div class="box-product flex">
-                <ul class="box-product-frame flex" id="sockOutBox">
+                <ul class="box-product-frame flex">
                     <?php foreach ($_SESSION['cart'] as $i) : ?>
-                        <div class="eachsock-list eachSocksList flex p_item" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
+                        <li class="eachsock-list eachSocksList flex p_item" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
 
                             <div class="add-box-frame">
-                                <div class="add-box addBox flex moveToBox-btn">
+                                <div class="add-box addBox flex">
                                     <p>+</p>
                                 </div>
                             </div>
-                            <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt=""></a>
+                            <div class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt=""></div>
                             <div class="product-detail flex">
-                                <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="sock-name flex">
+                                <div class="sock-name flex">
                                     <h4><?= $i['product_name'] ?></h4>
                                     <div>
                                         <h6><?= $i['detail'] ?></h6>
                                     </div>
-                                </a>
+                                </div>
                                 <div class="socks-amount-choose flex">
                                     <div class="quantity-choose flex">
                                         <span class="minus">-</span>
@@ -861,7 +860,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                     <span class="remove" onclick="notice()"></span>
                                 </div>
                             </div>
-                        </div>
+                        </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
@@ -910,7 +909,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                         <?php if (isset($_SESSION['member'])) : ?>
                             <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment2.php'">前往結帳</button>
                         <?php else : ?>
-                            <button class="btn-pay" onclick="">前往結帳</button>
+                            <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-login-signup.php'">請先登入會員</button>
                         <?php endif; ?>
 
                     </div>
@@ -987,20 +986,17 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     });
 
 
-
-    $('.moveToBox-btn').click(function(){
-        const p_item = $(this).closest('.p_item');
-        const ifInBox = $(this).closest('#sockInBox').length;
-        console.log(ifInBox);
-        if(ifInBox){
-            $('#sockOutBox').append(p_item);
-        } else{
-            $('#sockInBox').append(p_item);
-        }
+    $('.addBox').click(function() {
+        $('.boxChooseDetail').addClass('addInBox');
+        $(".eachSocksList").css("display", "none");
     });
+    $('.removeBox').click(function() {
+        $('.boxChooseDetail').removeClass('addInBox');
+        $(".eachSocksList").css("display", "flex");
+    })
 
-
-    // <!-- remove jumpout notice -->
+    //確定要把我丟掉?//
+// <!-- jumpout notice -->
 
     function notice() {
         $(".notice").addClass("active");
@@ -1052,11 +1048,11 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         const sendObj = {
             action: 'add',
             sid: sid,
-            quantity: $(this).val()
+            qty: $(this).val()
         }
         $.get('cart-handle.php', sendObj, function(data) {
             setCartCount(data); // navbar
-            p_item.attr('data-quantity', sendObj.quantity);
+            p_item.attr('data-quantity', sendObj.qty);
             prepareCartTable();
         }, 'json');
     });
