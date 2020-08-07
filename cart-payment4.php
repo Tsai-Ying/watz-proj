@@ -5,7 +5,45 @@ $id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
 $sql = "SELECT * FROM `members` WHERE `id`= $id";
 $row = $pdo->query($sql)->fetch();
 
+$pageName = 'buy-start';
+if(empty($_SESSION['cart']) or empty($_SESSION['member'])){
+    header('Location: product.php');
+    exit;
+}
 
+// *** 抓到當下的價格資訊 *** begin
+$sids = array_column($_SESSION['cart'], 'sid');
+$sql = "SELECT * FROM `product` WHERE `sid` IN (". implode(',', $sids). ")";
+$productData = [];
+$stmt = $pdo->query($sql);
+while($r = $stmt->fetch()){
+    $productData[$r['sid']] = $r;
+}
+$totalPrice = 0;
+foreach ($_SESSION['cart'] as $k=>$v){
+    $_SESSION['cart'][$k]['price'] = $productData[$v['sid']]['price'];
+
+    $totalPrice += $_SESSION['cart'][$k]['price'] * $v['qty'];
+}
+// *** 抓到當下的價格資訊 *** end
+
+// 寫入 orders
+$sql = "INSERT INTO `orders`(`member_sid`, `amount`, `order_date`) VALUES (?, ? , NOW())";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([ $_SESSION['member']['id'], $totalPrice]);
+
+$order_sid = $pdo->lastInsertId();  // 訂單流水號
+
+// 寫入 order_details
+$sql2 = "INSERT INTO `order_details`(`order_sid`, `product_sid`, `price`, `qty`) VALUES (?,?,?,?)";
+$stmt2 = $pdo->prepare($sql2);
+
+foreach($_SESSION['cart'] as $i){
+    $stmt2->execute([$order_sid, $i['sid'], $i['price'] , $i['qty'] ]);
+}
+
+// 清除購物車內容
+unset($_SESSION['cart']);
 
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
@@ -137,7 +175,7 @@ $row = $pdo->query($sql)->fetch();
             <div class="pay-finish-frame flex">
                 <img src="images/cart-finished.svg" alt="">
                 <h3>訂單已完成</h3>
-                <h4>訂單編號：000123456</h4>
+                <h4>訂單編號：00012594<?= $order_sid ?></h4>
                 <h5>感謝您的購買</h5>
                 <h5>訂單明細已寄到您的信箱：
                 <?= $_SESSION['member']['email'] ?></h5>
