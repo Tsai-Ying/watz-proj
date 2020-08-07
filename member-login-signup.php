@@ -200,7 +200,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         border: transparent;
         outline: none;
         width: 292px;
-        height: 45px;
+        height: 43px;
     }
 
     @media screen and (max-width: 992px) {
@@ -330,7 +330,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         color: #0388A6;
     }
 
-    .box-signup {
+    .box-login {
         z-index: 10;
     }
 
@@ -502,6 +502,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 <?php include __DIR__ . '/__scripts.php' ?>
 
 <script>
+    // 眼睛開關
     $('.eyes').on('click', function(e) {
         let $pwd = $(this).prev('.password');
 
@@ -518,6 +519,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
     });
 
 
+    //login-signup切換
 
     $('#tag-login').click(function() {
         $('#box-login').css("display", "block");
@@ -533,6 +535,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         $('#tab1').css("z-index", "1")
         // $('#box-login').removeAttr('style');
     })
+
 
     const signupEmail = $('#signupEmail'),
         signupPassword = $('#signupPassword'),
