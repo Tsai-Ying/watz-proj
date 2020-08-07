@@ -333,10 +333,6 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         align-items: center;
     }
 
-    .boxChooseDetail.addInBox {
-        /* display: flex; */
-    }
-
     .add-box-frame {
         width: 25px;
         height: 25px;
@@ -791,7 +787,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             <div class="box-product flex">
                 <ul class="box-product-frame flex" id="sockOutBox">
                     <?php foreach ($_SESSION['cart'] as $i) : ?>
-                        <div class="eachsock-list eachSocksList flex p_item" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
+                        <li class="eachsock-list eachSocksList flex p_item" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
 
                             <div class="add-box-frame">
                                 <div class="add-box flex moveToBox-btn">
@@ -817,7 +813,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                     <span class="remove" onclick="notice()"></span>
                                 </div>
                             </div>
-                        </div>
+                        </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
@@ -865,9 +861,9 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                         </div>
                         <?php if (isset($_SESSION['member'])) : ?>
                             <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment2.php'">前往結帳</button>
-                        <?php else : ?>
-                            <button class="btn-pay" onclick="">前往結帳</button>
+                        <?php else : ?>請先登入會員</button>
                         <?php endif; ?>
+                            <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-login-signup.php'">
 
                     </div>
                 </div>
@@ -1015,11 +1011,11 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         const sendObj = {
             action: 'add',
             sid: sid,
-            quantity: $(this).val()
+            qty: $(this).val()
         }
         $.get('cart-handle.php', sendObj, function(data) {
             setCartCount(data); // navbar
-            p_item.attr('data-quantity', sendObj.quantity);
+            p_item.attr('data-quantity', sendObj.qty);
             prepareCartTable();
         }, 'json');
     });
