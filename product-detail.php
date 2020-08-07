@@ -9,7 +9,7 @@ $series_sid = $row['series'];
 $s_sql = "SELECT `series_name` FROM `product_series` WHERE `series_sid`=$series_sid ";
 $series_name = $pdo->query($s_sql)->fetch()['series_name'];
 
-$c_sql ="SELECT `img_ID` FROM `product` WHERE `series`=$series_sid ORDER BY RAND() LIMIT 3";
+$c_sql = "SELECT `sid`,`img_ID` FROM `product` WHERE `series`=$series_sid ORDER BY RAND() LIMIT 3";
 $suggest = [];
 $suggest = $pdo->query($c_sql)->fetchAll();
 
@@ -798,8 +798,12 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                 <div class="box-suggest">
                     <h5>你可能會喜歡:</h5>
                     <ul class="flex">
-                        <?php foreach($suggest as $r): ?>
-                            <li><img src="images/product/<?= $r['img_ID'] ?>-1.jpg" alt=""></li>
+                        <?php foreach ($suggest as $r) : ?>
+                            <li>
+                                <a href="product-detail.php?sid=<?= $r['sid'] ?>">
+                                    <img src="images/product/<?= $r['img_ID'] ?>-1.jpg" alt="">
+                                </a>
+                            </li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
