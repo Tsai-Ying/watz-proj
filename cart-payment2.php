@@ -734,6 +734,12 @@ foreach ($_SESSION['cart'] as $k => $v) {
             display: flex;
         }
     }
+
+    /* ------------error words---------- */
+
+    .form-group small {
+        color: red;
+    }
 </style>
 
 <div class="container flex">
@@ -843,21 +849,24 @@ foreach ($_SESSION['cart'] as $k => $v) {
                     </li>
                 </ul>
             </div>
-            <div class="shipping-form flex">
+            <div class="shipping-form form-group flex">
                 <div class="shipping-form-frame">
                     <h3>訂購資料填寫</h3>
                     <ul class="shipperInfo flex">
                         <li class="flex">
                             <p>訂購人姓名</p>
                             <input class="shipperName" type="text" data-val="1" id="name" name="name" required value="<?= htmlentities($row['name']) ?>">
+                            <small id="shippernameHelp" class="form-text"></small>
                         </li>
                         <li class="flex">
                             <p>電話</p>
                             <input class="shipperPhone" type="text" data-val="2" maxlength="10" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>">
+                            <small id="shippermobileHelp" class="form-text"></small>
                         </li>
                         <li class="flex">
                             <p>E-mail</p>
                             <input class="shipperemail" type="text" data-val="3" value="<?= htmlentities($row['email']) ?>">
+                            <small id="shipperemailHelp" class="form-text"></small>
                         </li>
                         <li class="flex">
                             <p>郵遞區號</p>
