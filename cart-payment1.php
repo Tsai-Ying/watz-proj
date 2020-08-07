@@ -652,8 +652,99 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     }
 
     @media screen and (max-width: 576px) {}
-</style>
 
+
+
+    /* -------------prodout remove----------- */
+    /* jumpout notice */
+
+    .notice {
+        transition: .2s;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        visibility: hidden;
+        z-index: 30;
+    }
+
+    .notice-block {
+        transition: .2s;
+        padding: 30px;
+        background: #FF9685;
+        border-radius: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        align-items: center;
+        z-index: 21;
+        opacity: 0;
+    }
+
+    .notice-bg {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: #404040;
+        opacity: .8;
+    }
+
+    .notice-top {
+        margin-bottom: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .notice-top img {
+        height: 40px;
+    }
+
+    .notice-top h3 {
+        margin-left: 8px;
+        white-space: nowrap;
+        color: white;
+    }
+
+    .notice-btn {
+        width: 80px;
+        height: 40px;
+        background: #F2DE79;
+        border: 0;
+        border-radius: 2px;
+        color: #404040;
+        outline: none;
+        cursor: pointer;
+        margin: 0 5px;
+    }
+
+    .notice-bottom h3 {
+        color: white;
+        white-space: nowrap;
+    }
+
+    .notice.active {
+        visibility: visible;
+    }
+
+    .notice.active .notice-block {
+        opacity: 1;
+    }
+</style>
+<!-- jumpout notice -->
+<div class="notice ">
+    <div class="notice-bg "></div>
+    <div class="notice-block flex ">
+        <div class="notice-top flex">
+            <img src="images/icon-sadtrashcan.svg " alt=" ">
+            <h3>確定要把我丟掉?</h3>
+        </div>
+        <div class="notice-bottom">
+            <button class="notice-btn remove-item">丟</button>
+            <button class="notice-btn" onclick="keepitem()">不丟</button>
+        </div>
+    </div>
+</div>
 <div class="container flex">
     <!-- 如果container有其它class要自己加上 -->
 
@@ -729,7 +820,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                         <span class="plus">-</span>
                                     </div>
                                     <h4>NT $180</h4>
-                                    <span class="remove"></span>
+                                    <span class="remove" onclick="notice()"></span>
                                 </div>
                             </div>
                         </div>
@@ -766,7 +857,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                         <span class="plus">+</span>
                                     </div>
                                     <h4 class="sub-total"></h4>
-                                    <span class="remove remove-item"></span>
+                                    <span class="remove" onclick="notice()"></span>
                                 </div>
                             </div>
                         </li>
@@ -827,6 +918,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         </div>
     </div>
 </div>
+
 <?php include __DIR__ . '/__html_footer.php' ?>
 
 <?php include __DIR__ . '/__scripts.php' ?>
@@ -903,9 +995,22 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         $(".eachSocksList").css("display", "flex");
     })
 
+    //確定要把我丟掉?//
+// <!-- jumpout notice -->
+
+    function notice() {
+        $(".notice").addClass("active");
+        console.log('2');
+    }
+
+    function keepitem() {
+        $(".notice").removeClass("active");
+        console.log('3');
+
+    }
 
 
-// php
+    // php
     const dallorCommas = function(n) {
         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     };
@@ -929,7 +1034,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
             total += quantity * price;
             $('#productPrice').text('NT $' + dallorCommas(total));
-            $('#totalPrice').text('NT $' + dallorCommas(total-60-20));
+            $('#totalPrice').text('NT $' + dallorCommas(total - 60 - 20));
 
         })
     }
@@ -968,10 +1073,10 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
     });
 
-    const cart_count = $('.cart-count');  // span tag
+    const cart_count = $('.cart-count'); // span tag
     const cart_short_list = $('.cart-short-list');
 
-    $.get('cart-handle.php', function (data) {
+    $.get('cart-handle.php', function(data) {
         setCartCount(data);
     }, 'json');
 
