@@ -23,6 +23,9 @@ $totalPages = 0;
 $t_sql = "SELECT COUNT(1) FROM `product` $where";
 $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 
+
+
+
 if ($totalRows > 0) {
     $totalPages = ceil($totalRows / $perPage);
     if ($page < 1) {
@@ -33,11 +36,15 @@ if ($totalRows > 0) {
         header('Location: product.php?page=' . $totalPages);
         exit;
     }
-    $sql = sprintf("SELECT * FROM `product` %s LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
+   
+    $sql = sprintf("SELECT * FROM product WHERE series IN (1,2,3) AND color IN (1) AND type IN (1,2)", $where, ($page - 1) * $perPage, $perPage);
+    // $sql = sprintf("SELECT * FROM `product` WHERE LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
     $rows = $pdo->query($sql)->fetchAll();
 }
 $stmt = null;
 $stmt = $pdo->query($sql);
+
+
 
 // $c_sql = "SELECT * FROM `categories` ";
 
@@ -48,11 +55,13 @@ $stmt = $pdo->query($sql);
 <!--jquery-plugin-vegas  -->
 <link rel="stylesheet" href="css/vegas.min.css">
 <!--jquery-plugin-vegas  -->
-<!-- <link rel="stylesheet" href="css/help.css"> -->
+
 
 <style>
     /* -------------- */
-    <?php include __DIR__ . '/product-helpcss.php' ?>body {
+    <?php include __DIR__ . '/product-helpcss.php' ?>
+    
+    body {
         background-size: cover;
         background-image: url("images/BG3.svg");
         background-repeat: repeat-y;
@@ -1134,7 +1143,7 @@ $stmt = $pdo->query($sql);
                     <p>Series</p>
 
                     <li> <label class="cursor">
-                            <input type="checkbox" name="series1" value="series1" class="cursor">夏日特輯</label></li>
+                            <input type="checkbox" name="series1" value="series1" class="cursor">芒果派對</label></li>
                     <li> <label class="cursor"><input type="checkbox" name="series2" value="series2" class="cursor">群魔亂舞</label></li>
                     <li><label class="cursor"><input type="checkbox" name="series3" value="series3" class="cursor">灰姑娘的水晶襪</label></li>
                     <li> <label class="cursor"><input type="checkbox" name="series4" value="series4" class="cursor">素色流行</label></li>
@@ -1206,8 +1215,8 @@ $stmt = $pdo->query($sql);
                                     <img src='images/product/<?= $r['img_ID'] ?>-1.jpg?' alt="">
                                 </div>
                                 <div class="product-text flex">
-                                    <h5><?= $r['product_name'] ?></h5>
-                                    <img src="images/color1.svg" alt="">
+                                    <h5><?= $r['product_name'] ?>&nbsp &nbsp<?= $r['price'] ?>元</h5>
+                                    <!-- <img src="images/color1.svg" alt=""> -->
                                 </div>
                             </a>
                         <?php endforeach; ?>
@@ -1332,13 +1341,24 @@ $stmt = $pdo->query($sql);
             return false;
         });
 
-
-
     });
+    // ----------------    ------------------
+    
 
 
-    //----- 滑動 -------
-    let slideIndex = 0;
+    // ----------- 商品圖hover --------------
+    $(".product-top-img img").mouseenter(function(){
+    $(this).attr("src", $(this).attr('src').replace("-1.jpg","-2.jpg"));
+});
+
+$(".product-top-img img").mouseleave(function(){
+    $(this).attr("src", $(this).attr('src').replace("-2.jpg","-1.jpg"));
+});
+
+
+
+//----- 幫我搭 滑動 -------
+let slideIndex = 0;
     let slideCount = $("#blockPhoto ul").find("li").length;
     let slideWidth = $("#blockPhoto ul li").width();
     $("#blockPhoto ul").css("left", 0)
@@ -1371,7 +1391,7 @@ $stmt = $pdo->query($sql);
     slider()
 
 
-    // ------- X close --------
+    // ------- 幫我搭  X close --------
     $(document).ready(function() {
         $('#close-btn').click(function() {
             $('.help-bg').fadeOut(500);
@@ -1387,16 +1407,6 @@ $stmt = $pdo->query($sql);
             return false;
         });
     });
-    
-
-
-    // ----------- 商品圖hover --------------
-    $(".product-top-img img").hover(function(){
-        let imgSrc = $(this).attr("src");
-        $(".photo-change").attr("src", imgSrc);
-});
-
-
     
 </script>
 
