@@ -774,18 +774,14 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                 <img class="transition" src="images/watzbox3-1.png" alt="">
                             </li>
                         </ul>
-                        <h4>Step3 請勾選雙襪子到您的包裝盒裡</h4>
-                        <div class="pair-choose">
-                            <button data-val="3" class="button pairBtns" type="button" href="#jdhfkj">3雙</button>
-                            <button data-val="6" class="button pairBtns" href="#">6雙</button>
-                            <button data-val="8" class="button pairBtns" href="#">8雙</button>
-                        </div>
+                        <!-- <h4>Step2 請加選雙襪子到您的包裝盒裡</h4> -->
+                        
                         <div class="boxChooseDetail flex" id="sockInBox">
                         </div>
                         <div class="step3 flex" id="step3">
                             <img src="images/dotted-line.svg" alt="">
-                            <h4>請加選雙襪子到您的包裝盒裡</h4>
-                            <h5>請加選襪子到<br>您的包裝盒裡</h5>
+                            <h4>Step2 請加選雙襪子到您的包裝盒裡</h4>
+                            <h5>Step2 請加選襪子到<br>您的包裝盒裡</h5>
                         </div>
                     </div>
                 </div>
@@ -904,12 +900,6 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         $(this).toggleClass('active')
             .siblings().removeClass('active');
     });
-
-    $('.img-watzbox').click(function() {
-        $(this).toggleClass('active')
-            .siblings().removeClass('active');
-    });
-
 
     $(document).ready(function() {
         $(".hide-choose-box").hide();
