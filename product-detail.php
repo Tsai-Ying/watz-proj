@@ -26,6 +26,7 @@ $suggest = $pdo->query($c_sql)->fetchAll();
         background-size: cover;
         background-image: url(images/BG3.svg);
         background-repeat: repeat-y;
+        user-select: none;
     }
 
     .wrapper {
@@ -725,7 +726,7 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                         <img src="images/arrow-right-thiner.svg" alt="">
                     </div>
                 </div>
-                <div class="block-fixed flex mobile-visible mobile-none">
+                <div class="block-fixed flex mobile-none">
                     <h3 class="p_item" data-sid="<?= $sid ?>"><?= $row['product_name'] ?></h3>
                     <p><?= $row['introduction'] ?></p>
                     <p><?= $row['detail'] ?></p>
@@ -733,7 +734,7 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                         <li class="active">
                             <div class="socks-pattern flex">
                                 <img class="img-select-circle transition active" src="images/select circle.svg" alt="">
-                                <div class=""><img src="" alt=""></div>
+                                <div class=""><img src="images/product/irregular16-1-1.jpg" alt=""></div>
                             </div>
                         </li>
                         <li>
