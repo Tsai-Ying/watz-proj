@@ -1,23 +1,11 @@
 <?php require __DIR__ . '/__connect_db.php';
-$pageName = 'cart-payment2';  // 這裡放你的pagename
+$page = 'cart-payment2';  // 這裡放你的pagename
 
 $id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
 $sql = "SELECT * FROM `members` WHERE `id`= $id";
 $row = $pdo->query($sql)->fetch();
 
-//**抓到當下的價格資訊***begin
 
-$sids = array_column($_SESSION['cart'], 'sid');
-$sql = "SELECT * FROM `product` WHERE `sid` IN (" . implode(',', $sids) . ")";
-$sql;
-$productData = [];
-$stmt = $pdo->query($sql);
-while ($r = $stmt->fetch()) {
-    $productData[$r['sid']] = $r;
-}
-foreach ($_SESSION['cart'] as $k => $v) {
-    $_SESSION['cart'][$k]['price'] = $productData[$v['sid']]['price'];
-}
 
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
@@ -734,12 +722,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
             display: flex;
         }
     }
-
-    /* ------------error words---------- */
-
-    .form-group small {
-        color: red;
-    }
 </style>
 
 <div class="container flex">
@@ -849,32 +831,30 @@ foreach ($_SESSION['cart'] as $k => $v) {
                     </li>
                 </ul>
             </div>
-            <div class="shipping-form form-group flex">
+            <div class="shipping-form flex">
                 <div class="shipping-form-frame">
                     <h3>訂購資料填寫</h3>
+                    <form class="" name="form1" method="post" novalidate>
                     <ul class="shipperInfo flex">
                         <li class="flex">
                             <p>訂購人姓名</p>
-                            <input class="shipperName" type="text" data-val="1" id="name" name="name" required value="<?= htmlentities($row['name']) ?>">
-                            <small id="shippernameHelp" class="form-text"></small>
+                            <input class="shipperName" type="text" data-val="1" id="sender" name="sender" required value="<?= htmlentities($row['name']) ?>">
                         </li>
                         <li class="flex">
                             <p>電話</p>
-                            <input class="shipperPhone" type="text" data-val="2" maxlength="10" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>">
-                            <small id="shippermobileHelp" class="form-text"></small>
+                            <input class="shipperPhone" type="text" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>">
                         </li>
                         <li class="flex">
                             <p>E-mail</p>
-                            <input class="shipperemail" type="text" data-val="3" value="<?= htmlentities($row['email']) ?>">
-                            <small id="shipperemailHelp" class="form-text"></small>
+                            <input class="shipperemail" type="text" data-val="3" value="<?= htmlentities($row['email']) ?>" name="senderEmail" id="senderEmail">
                         </li>
-                        <li class="flex">
+                        <!-- <li class="flex">
                             <p>郵遞區號</p>
-                            <input class="shipperZipcode" type="text" data-val="4" maxlength="6" value="<?= htmlentities($row['zip_code']) ?>">
-                        </li>
+                            <input class="shipperZipcode" type="text" data-val="4" maxlength="6" value="">
+                        </li> -->
                         <li class="flex">
                             <p>地址</p>
-                            <input class="shipperAddress" type="text" data-val="5" id="address" name="address" value="<?= htmlentities($row['address']) ?>">
+                            <input class="shipperAddress" type="text" data-val="5" id="senderaddress" name="senderaddress" value="<?= htmlentities($row['address']) ?>">
                         </li>
                     </ul>
                     <div class="line"></div>
@@ -889,23 +869,23 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
                         <li class="flex">
                             <p>收件人姓名</p>
-                            <input class="receiverName" type="text" data-val="1">
+                            <input class="receiverName" id="receiverName" type="text" data-val="1" name="receiver">
                         </li>
                         <li class="flex">
                             <p>電話</p>
-                            <input class="receiverPhone" type="text" data-val="2">
+                            <input class="receiverMobile" id="receiverMobile" type="text" data-val="2" name="receiverMobile">
                         </li>
-                        <li class="flex">
+                        <!-- <li class="flex">
                             <p>E-mail</p>
                             <input class="receiverEmail" type="text" data-val="3">
-                        </li>
-                        <li class="flex">
+                        </li> -->
+                        <!-- <li class="flex">
                             <p>郵遞區號</p>
-                            <input class="receiverZipcode" type="text" data-val="4">
-                        </li>
+                                                            <input class="receiverZipcode" type="text" data-val="4" name="receiver">
+                        </li> -->
                         <li class="flex">
                             <p>地址</p>
-                            <input class="receiverAddress" type="text" data-val="5">
+                            <input class="receiverAddress" id="receiverAddress" type="text" data-val="5" name="receiverAddress">
                         </li>
                     </ul>
                     <div class="line"></div>
@@ -957,6 +937,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                             </div>
                         </div>
                     </div>
+                    </form>
                     <div class="line"></div>
                     <div class="order-remark">
                         <h3>訂單備註</h3>
@@ -967,7 +948,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
                 <div class="flex">
                     <button class="pay-btn btn-blue prev" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment1.php'">回上一頁</button>
-                    <button class="pay-btn btn-coral gopay" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment3.php'">前往結帳</button>
+                    <button class="pay-btn btn-coral gopay" onclick="return formCheck()">前往結帳</button>
 
                 </div>
             </div>
@@ -1134,13 +1115,13 @@ foreach ($_SESSION['cart'] as $k => $v) {
                 let zipcodeVal = $('.shipperZipcode').val();
                 let addressVal = $('.shipperAddress').val();
                 $(".receiverName").val(NameVal);
-                $(".receiverPhone").val(phoneVal);
+                $(".receiverMobile").val(phoneVal);
                 $(".receiverEmail").val(emailVal);
                 $(".receiverZipcode").val(zipcodeVal);
                 $(".receiverAddress").val(addressVal);;
             } else if ($(this).is(":not(:checked)")) {
                 $(".receiverName").val('');
-                $(".receiverPhone").val('');
+                $(".receiverMobile").val('');
                 $(".receiverEmail").val('');
                 $(".receiverZipcode").val('');
                 $(".receiverAddress").val('');
@@ -1198,6 +1179,26 @@ foreach ($_SESSION['cart'] as $k => $v) {
         }
 
         prepareCartTable();
+
+        
+        // const receiver = $('#receiverName'),
+        //     receiverMobile = $('#receiverMobile'),
+        //     receiverAddress = $('#receiverAddress')
+
+        function formCheck() {
+
+            $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
+                console.log(data);
+
+                if (data.success) {
+                    location.href = 'cart-payment3.php';
+                    // info_bar.removeClass('alert-danger')
+                    //     .addClass('alert-success')
+                    //     .html('新增成功!');
+                }
+            }, 'json');
+
+        };
     </script>
 
     <?php require __DIR__ . '/__html_foot.php' ?>
