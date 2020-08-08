@@ -814,7 +814,7 @@ if(empty($_SESSION['cart'])){
                                         <span class="plus">+</span>
                                     </div>
                                     <h4 class="sub-total"></h4>
-                                    <span class="remove" onclick="notice()"></span>
+                                    <span class="remove"></span>
                                 </div>
                             </div>
                         </li>
@@ -968,12 +968,15 @@ if(empty($_SESSION['cart'])){
 
     // <!-- remove jumpout notice -->
 
-    function notice() {
+    $('.remove').click(function() {
+        let p_item= $(this).closest('.p_item');
+        p_item.addClass("noticed");
         $(".notice").addClass("active");
         console.log('2');
-    }
+    })
 
     function keepitem() {
+        $('.p_item.noticed').removeClass('noticed');
         $(".notice").removeClass("active");
         console.log('3');
 
@@ -1005,10 +1008,10 @@ if(empty($_SESSION['cart'])){
         
         let total = 0;
 
-        if (!$p_items.length && $('#totalPrice').length) {
-            location.href = 'product.php';
-            return;
-        }
+        // if (!$p_items.length && $('#totalPrice').length) {
+        //     location.href = 'product.php';
+        //     return;
+        // }
         $p_items.each(function() {
             const sid = $(this).attr('data-sid');
             const price = $(this).attr('data-price');
@@ -1047,7 +1050,7 @@ if(empty($_SESSION['cart'])){
     });
 
     $('.remove-item').on('click', function() {
-        const p_item = $('.p_item');
+        const p_item = $('.p_item.noticed');
         const sid = p_item.attr('data-sid');
         const sendObj = {
             action: 'remove',
@@ -1058,7 +1061,7 @@ if(empty($_SESSION['cart'])){
             p_item.remove();
             prepareCartTable();
         }, 'json');
-
+        $(".notice").removeClass("active");
     });
 
 </script>
