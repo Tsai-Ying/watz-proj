@@ -741,7 +741,7 @@ $row = $pdo->query($sql)->fetch();
         height: 20px;
         cursor: pointer;
         margin-right: 5px;
-        /* display: none; */
+        display: none;
     }
     .error-frame h6 {
         color: red;
@@ -870,7 +870,7 @@ $row = $pdo->query($sql)->fetch();
                                 <input class="shipperPhone" type="text" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
-                                    <h6 class="flex">電話號碼格式錯誤</h6>
+                                    <h6 class="flex"></h6>
                                 </div>
                             </li>
                             <li class="form-group flex">
@@ -878,7 +878,7 @@ $row = $pdo->query($sql)->fetch();
                                 <input class="shipperemail" type="text" data-val="3" value="<?= htmlentities($row['email']) ?>" name="senderEmail" id="senderEmail">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
-                                    <h6 class="flex">e-mail格式錯誤</h6>
+                                    <h6 class="flex"></h6>
                                 </div>
                             </li>
                             <!-- <li class="flex">
@@ -909,7 +909,7 @@ $row = $pdo->query($sql)->fetch();
                                 <input class="receiverMobile" id="receiverMobile" type="text" data-val="2" name="receiverMobile">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
-                                    <h6 class="flex">電話號碼格式錯誤</h6>
+                                    <h6 class="flex"></h6>
                                 </div>
                             </li>
                             <!-- <li class="flex">
@@ -1238,27 +1238,21 @@ $row = $pdo->query($sql)->fetch();
 
         };
 
-        const email = $('#senderEmail'),
-        // nickname = $('#nickname'),
-        // password = $('#password'),
-        // info_bar = $('#info-bar');
+        const email = $('#senderEmail');
         const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
         function formCheck(){
         email.text('');
-        // password.next().text('');
-        // nickname.next().text('');
-        email.css('border-color', '#CCCCCC');
-        // password.css('border-color', '#CCCCCC');
-        // nickname.css('border-color', '#CCCCCC');
-        // TODO: 檢查欄位
+        email.css('border-color', '#F2DE79');
         let isPass = true;
+        console.log('pass');
 
         if(! email_re.test(email.val())){
             isPass = false;
             email.css('border-color', 'red');
-            email.next().find(h6).img().css("display", "flex");
-            email.next('.error-frame h6').text('請填寫正確的 email 格式');
+            email.next('.error-frame img').css("display", "flex");
+            email.next('.error-frame h6').html('e-mail格式錯誤');
+            console.log('false');
         }
 
         // if(password.val().length <6){
@@ -1299,6 +1293,7 @@ $row = $pdo->query($sql)->fetch();
 
     //     return false;
     // }
+        }
     </script>
 
     <?php require __DIR__ . '/__html_foot.php' ?>
