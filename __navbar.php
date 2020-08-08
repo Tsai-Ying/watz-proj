@@ -29,7 +29,11 @@
         <?php endif ?>
 
 
-        <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/cart-payment1.php"><img class="svg icon" src="images/icon-cart.svg" alt=""></a>
+        <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/cart-payment1.php">
+            <img class="svg icon" src="images/icon-cart.svg" alt="">
+        </a>
+        <span class="cart_count"></span>
+
 
 
 
