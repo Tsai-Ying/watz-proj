@@ -1039,6 +1039,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             p_item.attr('data-quantity', sendObj.qty);
             prepareCartTable();
         }, 'json');
+
     });
 
     $('.remove-item').on('click', function() {
@@ -1056,25 +1057,6 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
     });
 
-    const cart_count = $('.cart-count'); // span tag
-    const cart_short_list = $('.cart-short-list');
-
-    $.get('cart-handle.php', function(data) {
-        setCartCount(data);
-    }, 'json');
-
-    function setCartCount(data) {
-        let count = 0;
-        if (data && data.cart && data.cart.length) {
-            for (let i in data.cart) {
-                let item = data.cart[i];
-                count += item.quantity;
-                cart_short_list.append(`<a class="dropdown-item"
-                href="#">${item.bookname} ${item.quantity}</a>`)
-            }
-            cart_count.text(count);
-        }
-    }
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>

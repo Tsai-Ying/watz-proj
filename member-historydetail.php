@@ -34,9 +34,10 @@ $totalprice = 0;
     }
 
     .wrapper {
+        margin-top: 140px;
         max-width: 100vw;
         position: relative;
-        height: 180vh;
+        min-height: 100vh;
         align-items: center;
         justify-content: center;
     }
@@ -372,25 +373,6 @@ $totalprice = 0;
                                         <h5><?= $subtotal ?></h5>
                                     </li>
                                 <?php endforeach; ?>
-
-                                <!-- <div class="title flex">
-                                        <h5>偶素襪子</h5>
-                                        <h5>黑色</h5>
-                                        <h5>1</h5>
-                                        <h5>NT.190</h5>
-                                    </div>
-                                    <div class="title flex">
-                                        <h5>偶素襪子</h5>
-                                        <h5>黑色</h5>
-                                        <h5>1</h5>
-                                        <h5>NT.190</h5>
-                                    </div>
-                                    <div class="title flex">
-                                        <h5>偶素襪子</h5>
-                                        <h5>黑色</h5>
-                                        <h5>1</h5>
-                                        <h5>NT.190</h5>
-                                    </div> -->
                             </ul>
                             <div class="bg-bill flex">
                                 <div>
@@ -419,11 +401,10 @@ $totalprice = 0;
                         </div>
                         <div class="bg-address flex">
                             <div class="address-title flex">
-                                <h4 class="flex">付款資訊</h4>
+                                <h4 class="flex">訂單備註</h4>
                             </div>
                             <div class="address-info flex">
-                                <h5>付款方式: 信用卡</h5>
-                                <h5>卡號: xxxx-xxxx-xxxx-5055</h5>
+                                <h5><?= $historylists['note'] ?></h5>
                             </div>
                         </div>
                         <div class="button-box flex">

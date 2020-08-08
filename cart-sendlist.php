@@ -16,6 +16,7 @@ $output = [
 $receiver = isset($_POST['receiver']) ? $_POST['receiver'] : '';
 $receiverMobile = isset($_POST['receiverMobile']) ? $_POST['receiverMobile'] : 0;
 $receiverAddress = isset($_POST['receiverAddress']) ? $_POST['receiverAddress'] : 0;
+$note = isset($_POST['note']) ? $_POST['note'] : 0;
 
 $sender = isset($_POST['sender']) ? $_POST['sender'] : '';
 $senderMobile = isset($_POST['senderMobile']) ? $_POST['senderMobile'] : 0;
@@ -26,6 +27,7 @@ $output = [
     $_SESSION['receiver']['receiver'] = $receiver,
     $_SESSION['receiver']['receiverMobile'] = $receiverMobile,
     $_SESSION['receiver']['receiverAddress'] = $receiverAddress,
+    $_SESSION['receiver']['note'] = $note,
     $_SESSION['sender']['sender'] = $sender,
     $_SESSION['sender']['senderMobile'] = $senderMobile,
     $_SESSION['sender']['senderAddress'] = $senderAddress,

@@ -23,7 +23,7 @@ $row = $pdo->query($sql)->fetch();
     }
 
     .wrapper {
-        height: 100vh;
+        margin-top: 140px;
         align-items: center;
         justify-content: center;
     }
@@ -314,8 +314,9 @@ $row = $pdo->query($sql)->fetch();
             <button class="btn-blue" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-profilemodify.php?id=<?= $row['id'] ?>'">修改會員資料</button>
         </div>
     </div>
-</div>
 <?php include __DIR__ . '/__html_footer.php' ?>
+
+</div>
 </div>
 <?php include __DIR__ . '/__scripts.php' ?>
 <?php require __DIR__ . '/__html_foot.php' ?>
