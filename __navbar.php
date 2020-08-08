@@ -28,11 +28,16 @@
             <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/member-login-signup.php"><img class="svg icon" src="images/icon-member.svg" alt=""></a>
         <?php endif ?>
 
-
-        <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/cart-payment1.php">
+        <a class="icon-wrapper none a-cart">
             <img class="svg icon" src="images/icon-cart.svg" alt="">
             <span class="cart_count"></span>
         </a>
+        <div class="nav-bg"></div>
+        <div class="box-cart-short transition">
+            <div class="cart-short-list nav-list-scroll">
+            </div>
+            <a class="go-cart" href="<?= WEB_ROOT ?>/cart-payment1.php">前往購物車</a>
+        </div>
 
 
 

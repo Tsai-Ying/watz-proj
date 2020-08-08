@@ -1,9 +1,10 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = 'aboutWATZ';  // 這裡放你的pagename
- if(empty($_SESSION['cart'])){
-     header( 'Location: /product.php');
-  }
- ?>
+
+if(empty($_SESSION['cart'])){
+    header( 'Location: cart-empty.php');
+ }
+?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
@@ -332,11 +333,8 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     }
 
     .boxChooseDetail {
-        display: none;
-    }
-
-    .boxChooseDetail.addInBox {
-        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .add-box-frame {
@@ -368,27 +366,8 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         cursor: pointer;
     }
 
-    .remove-box {
-        width: 25px;
-        height: 25px;
-        border: 2px solid #F2DE79;
-        cursor: pointer;
-        /* flex-direction: column; */
-        align-items: center;
-        justify-content: center;
-    }
-
-    .remove-box.show {
-        opacity: 1;
-    }
-
-    .remove-box p {
-        font-weight: 900;
-        font-size: 1.2rem;
-        line-height: 21px;
-        letter-spacing: 0;
-        color: #F2DE79;
-        cursor: pointer;
+    .removeInBox {
+        display: none;
     }
 
     .box-product .line {
@@ -735,7 +714,6 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     }
 </style>
 <!-- jumpout notice -->
-
 <div class="notice ">
     <div class="notice-bg "></div>
     <div class="notice-block flex ">
@@ -787,73 +765,48 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                         <h4>Step1 想要什麼包裝呢?</h4>
                         <ul class="watzbox-choose flex" id="">
 
-                            <li class="img-watzbox">
+                            <li class="img-watzbox imgWatzBox" id="watzbox1">
                                 <img class="transition" src="images/watzbox1-1.png" alt="">
                             </li>
-                            <li class="img-watzbox">
+                            <li class="img-watzbox imgWatzBox" id="watzbox2">
                                 <img class="transition" src="images/watzbox2-1.png" alt="">
                             </li>
-                            <li class="img-watzbox">
+                            <li class="img-watzbox imgWatzBox" id="watzbox3">
                                 <img class="transition" src="images/watzbox3-1.png" alt="">
                             </li>
                         </ul>
-                        <h4>Step2 想放幾雙襪子呢?</h4>
-                        <div class="pair-choose">
-                            <button data-val="3" class="button pairBtns" type="button" href="#jdhfkj">3雙</button>
-                            <button data-val="6" class="button pairBtns" href="#">6雙</button>
-                            <button data-val="8" class="button pairBtns" href="#">8雙</button>
-                        </div>
-                        <div class="eachsock-list boxChooseDetail flex " id="boxChooseDetail">
-                            <div class="remove-box removeBox flex">
-                                <p>-</p>
-                            </div>
-                            <div class="img-socks"><img src="images/yellowline-01.jpg" alt=""></div>
-                            <div class="product-detail flex">
-                                <div class="sock-name flex">
-                                    <h4>偶素襪子</h4>
-                                    <div>
-                                        <h6>中長襪</h6>
-                                        <h6>22-25cm</h6>
-                                        <h6>材質:100%純棉</h6>
-                                    </div>
-                                </div>
-                                <div class="socks-amount-choose flex">
-                                    <div class="quantity-choose flex">
-                                        <span class="minus">-</span>
-                                        <input class="quantity-input" type="text" value="1" />
-                                        <span class="plus">-</span>
-                                    </div>
-                                    <h4>NT $180</h4>
-                                    <span class="remove" onclick="notice()"></span>
-                                </div>
-                            </div>
+                        <!-- <h4>Step2 請加選雙襪子到您的包裝盒裡</h4> -->
+
+                        <div class="boxChooseDetail flex" id="sockInBox">
+
                         </div>
                         <div class="step3 flex" id="step3">
                             <img src="images/dotted-line.svg" alt="">
-                            <h4>Step3 請勾選3雙襪子到您的包裝盒裡</h4>
-                            <h5>Step3 請勾選3雙襪子到<br>您的包裝盒裡</h5>
+                            <h4>Step2 請加選雙襪子到您的包裝盒裡</h4>
+                            <h5>Step2 請加選襪子到<br>您的包裝盒裡</h5>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="box-product flex">
-                <ul class="box-product-frame flex">
+                <ul class="box-product-frame flex" id="sockOutBox">
                     <?php foreach ($_SESSION['cart'] as $i) : ?>
-                        <li class="eachsock-list eachSocksList flex p_item" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
+                        <li class="eachsock-list eachSocksList flex p_item" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
 
                             <div class="add-box-frame">
-                                <div class="add-box addBox flex">
-                                    <p>+</p>
+                                <div class="add-box flex moveToBox-btn">
+                                    <p class="addBox">+</p>
+                                    <p class="removeInBox">-</p>
                                 </div>
                             </div>
-                            <div class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt=""></div>
+                            <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt=""></a>
                             <div class="product-detail flex">
-                                <div class="sock-name flex">
-                                    <h4><?= $i['product_name'] ?></h4>
+                                <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="sock-name flex">
+                                    <h4><?= htmlentities($i['product_name']) ?></h4>
                                     <div>
                                         <h6><?= $i['detail'] ?></h6>
                                     </div>
-                                </div>
+                                </a>
                                 <div class="socks-amount-choose flex">
                                     <div class="quantity-choose flex">
                                         <span class="minus">-</span>
@@ -861,7 +814,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                         <span class="plus">+</span>
                                     </div>
                                     <h4 class="sub-total"></h4>
-                                    <span class="remove" onclick="notice()"></span>
+                                    <span class="remove"></span>
                                 </div>
                             </div>
                         </li>
@@ -886,8 +839,8 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                     <div class="total-price-frame flex">
 
                         <div class="coupon flex">
-                            <input type="text" placeholder="輸入折扣代碼">
-                            <button class="button">兌換</button>
+                            <input class="couponInput" type="text" placeholder="輸入折扣代碼">
+                            <button class="button couponBtn">兌換</button>
                         </div>
                         <div class="total-price-detail flex">
                             <ul>
@@ -897,11 +850,11 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                 </li>
                                 <li class="flex">
                                     <p>運費</p>
-                                    <p>60</p>
+                                    <p class="shipFee">0</p>
                                 </li>
                                 <li class="flex">
                                     <p>折扣</p>
-                                    <p>-20</p>
+                                    <p class="discount">0</p>
                                 </li>
                                 <div class="line"></div>
                                 <li class="flex">
@@ -948,13 +901,10 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     $(".ShipBtn").click(function() {
         $(this).toggleClass('active')
             .siblings().removeClass('active');
-    });
-
-    $('.img-watzbox').click(function() {
-        $(this).toggleClass('active')
-            .siblings().removeClass('active');
-    });
-
+        $('.shipFee').text('60');
+        prepareCartTable();
+    })
+    
 
     $(document).ready(function() {
         $(".hide-choose-box").hide();
@@ -968,50 +918,84 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
 
     //襪子選擇而退出選項//
-    const pairBtns = $('.pairBtns');
+    const imgWatzBox = $('.imgWatzBox');
 
-    pairBtns.click(function() {
+    imgWatzBox.click(function() {
         const me = this;
-        pairBtns.each(function() {
+
+        imgWatzBox.each(function() {
             if (this !== me) {
                 $(this).removeClass('active');
             }
         });
         $(this).toggleClass('active');
 
+
+
         if ($(this).hasClass('active')) {
             $('.step3').addClass('show');
             $('.add-box').addClass('show');
+            $('.p_item').children(".removeInBox").css("display", "none");
+            $('.p_item').children(".addBox").css("display", "flex");
         } else {
             $('.step3').removeClass('show');
             $('.add-box').removeClass('show');
+            const box_item = $('#sockInBox').find('.p_item');
+            $('#sockOutBox').append(box_item);
+            // console.log();
         }
 
     });
 
 
-    $('.addBox').click(function() {
-        $('.boxChooseDetail').addClass('addInBox');
-        $(".eachSocksList").css("display", "none");
+
+    $('.moveToBox-btn').click(function() {
+        const p_item = $(this).closest('.p_item');
+        const ifInBox = $(this).closest('#sockInBox').length;
+        console.log(ifInBox);
+        if (ifInBox) {
+            $('#sockOutBox').append(p_item);
+            $(this).children(".removeInBox").css("display", "none");
+            $(this).children(".addBox").css("display", "flex");
+
+        } else {
+            $('#sockInBox').append(p_item);
+            $(this).children(".addBox").css("display", "none");
+            $(this).children(".removeInBox").css("display", "flex");
+        }
     });
-    $('.removeBox').click(function() {
-        $('.boxChooseDetail').removeClass('addInBox');
-        $(".eachSocksList").css("display", "flex");
-    })
 
-    //確定要把我丟掉?//
-// <!-- jumpout notice -->
 
-    function notice() {
+    // <!-- remove jumpout notice -->
+
+    $('.remove').click(function() {
+        let p_item= $(this).closest('.p_item');
+        p_item.addClass("noticed");
         $(".notice").addClass("active");
         console.log('2');
-    }
+    })
 
     function keepitem() {
+        $('.p_item.noticed').removeClass('noticed');
         $(".notice").removeClass("active");
         console.log('3');
 
     }
+
+    //coupon
+    
+    $('.couponBtn').click(function(){
+        if ($('.couponInput').val() == 'watz60'){
+            $('.discount').html('-60');
+        }else if($('.couponInput').val() == 'watz40'){
+            $('.discount').html('-40');
+        }else{
+            $('.discount').html('0');
+        }
+        prepareCartTable();
+    });
+
+    
 
 
     // php
@@ -1021,23 +1005,26 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
     function prepareCartTable() {
         $p_items = $('.p_item');
+        
         let total = 0;
 
-        if (!$p_items.length && $('#totalPrice').length) {
-            location.href = 'product.php';
-            return;
-        }
+        // if (!$p_items.length && $('#totalPrice').length) {
+        //     location.href = 'product.php';
+        //     return;
+        // }
         $p_items.each(function() {
             const sid = $(this).attr('data-sid');
             const price = $(this).attr('data-price');
             const quantity = $(this).attr('data-quantity');
+            const shipFee = $('.shipFee').text();
+            const discount = $('.discount').text();
 
             $(this).find('.price').text('NT $' + dallorCommas(price));
             $(this).find('.qty').val(quantity);
             $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
             total += quantity * price;
             $('#productPrice').text('NT $' + dallorCommas(total));
-            $('#totalPrice').text('NT $' + dallorCommas(total - 60 - 20));
+            $('#totalPrice').text('NT $' + dallorCommas(total+parseInt(shipFee)+parseInt(discount)));
 
         })
     }
@@ -1059,10 +1046,11 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             p_item.attr('data-quantity', sendObj.qty);
             prepareCartTable();
         }, 'json');
+
     });
 
     $('.remove-item').on('click', function() {
-        const p_item = $('.p_item');
+        const p_item = $('.p_item.noticed');
         const sid = p_item.attr('data-sid');
         const sendObj = {
             action: 'remove',
@@ -1073,28 +1061,10 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             p_item.remove();
             prepareCartTable();
         }, 'json');
+        $(".notice").removeClass("active");
 
     });
 
-    const cart_count = $('.cart-count'); // span tag
-    const cart_short_list = $('.cart-short-list');
-
-    $.get('cart-handle.php', function(data) {
-        setCartCount(data);
-    }, 'json');
-
-    function setCartCount(data) {
-        let count = 0;
-        if (data && data.cart && data.cart.length) {
-            for (let i in data.cart) {
-                let item = data.cart[i];
-                count += item.quantity;
-                cart_short_list.append(`<a class="dropdown-item"
-                href="#">${item.bookname} ${item.quantity}</a>`)
-            }
-            cart_count.text(count);
-        }
-    }
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>

@@ -781,7 +781,7 @@ $row = $pdo->query($sql)->fetch();
                                         </div>
                                         <div class="socks-nameNprice flex">
                                             <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                            <h5>X<?= $i['qty'] ?></h5>
+                                            <h5>×<?= $i['qty'] ?></h5>
                                             <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
                                         </div>
                                     </div>
