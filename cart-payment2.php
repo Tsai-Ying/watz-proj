@@ -722,6 +722,30 @@ $row = $pdo->query($sql)->fetch();
             display: flex;
         }
     }
+    /* ---------------error notice--------- */
+    .shipperInfo .form-group{
+        position: relative;
+    }
+    .receiverInfo .form-group{
+        position: relative;
+    }
+    .error-frame{
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        right: 0;
+    }
+    .error-icon{
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        margin-right: 5px;
+        /* display: none; */
+    }
+    .error-frame h6 {
+        color: red;
+    }
 </style>
 
 <div class="container flex">
@@ -836,23 +860,32 @@ $row = $pdo->query($sql)->fetch();
                     <h3>訂購資料填寫</h3>
                     <form class="" name="form1" method="post" novalidate>
                         <ul class="shipperInfo flex">
-                            <li class="flex">
+                            <li class="form-group flex">
                                 <p>訂購人姓名</p>
                                 <input class="shipperName" type="text" data-val="1" id="sender" name="sender" required value="<?= htmlentities($row['name']) ?>">
+                                
                             </li>
-                            <li class="flex">
+                            <li class="form-group flex">
                                 <p>電話</p>
                                 <input class="shipperPhone" type="text" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>">
+                                <div class="error-frame flex">
+                                    <img class="error-icon flex" src="images/alert.svg">
+                                    <h6 class="flex">電話號碼格式錯誤</h6>
+                                </div>
                             </li>
-                            <li class="flex">
+                            <li class="form-group flex">
                                 <p>E-mail</p>
                                 <input class="shipperemail" type="text" data-val="3" value="<?= htmlentities($row['email']) ?>" name="senderEmail" id="senderEmail">
+                                <div class="error-frame flex">
+                                    <img class="error-icon flex" src="images/alert.svg">
+                                    <h6 class="flex">e-mail格式錯誤</h6>
+                                </div>
                             </li>
                             <!-- <li class="flex">
                             <p>郵遞區號</p>
                             <input class="shipperZipcode" type="text" data-val="4" maxlength="6" value="">
                         </li> -->
-                            <li class="flex">
+                            <li class="form-group flex">
                                 <p>地址</p>
                                 <input class="shipperAddress" type="text" data-val="5" id="senderaddress" name="senderaddress" value="<?= htmlentities($row['address']) ?>">
                             </li>
@@ -867,13 +900,17 @@ $row = $pdo->query($sql)->fetch();
                         </div>
                         <ul class="receiverInfo flex">
 
-                            <li class="flex">
+                            <li class="form-group flex">
                                 <p>收件人姓名</p>
                                 <input class="receiverName" id="receiverName" type="text" data-val="1" name="receiver">
                             </li>
-                            <li class="flex">
+                            <li class="form-group flex">
                                 <p>電話</p>
                                 <input class="receiverMobile" id="receiverMobile" type="text" data-val="2" name="receiverMobile">
+                                <div class="error-frame flex">
+                                    <img class="error-icon flex" src="images/alert.svg">
+                                    <h6 class="flex">電話號碼格式錯誤</h6>
+                                </div>
                             </li>
                             <!-- <li class="flex">
                             <p>E-mail</p>
@@ -883,7 +920,7 @@ $row = $pdo->query($sql)->fetch();
                             <p>郵遞區號</p>
                                                             <input class="receiverZipcode" type="text" data-val="4" name="receiver">
                         </li> -->
-                            <li class="flex">
+                            <li class="form-group flex">
                                 <p>地址</p>
                                 <input class="receiverAddress" id="receiverAddress" type="text" data-val="5" name="receiverAddress">
                             </li>
@@ -907,25 +944,26 @@ $row = $pdo->query($sql)->fetch();
                                     <button class="button receiptBtn" href="#" id="donate" data-val="1">發票捐贈</button></div>
                             </div>
                             <div class="peper-receipt flex show">
-                                <div class="radio-frame flex">
+                                <div class="radio-frame form-group flex">
                                     <input class="radio-btn " name="receipt-radio-btn" type="radio" checked></input>
                                     <p>二聯式發票</p>
                                 </div>
-                                <div class="radio-frame flex">
+                                <div class="radio-frame form-group flex">
                                     <input class="radio-btn" name="receipt-radio-btn" type="radio"></input>
                                     <p>三聯式發票</p>
                                 </div>
-                                <div class="info flex">
+                                <div class="info form-group flex">
                                     <p>統一編號號碼</p>
                                     <input class="info-input" type="text">
+                                    
                                 </div>
-                                <div class="info flex">
+                                <div class="info form-group flex">
                                     <p>公司抬頭名稱</p>
                                     <input class="info-input" type="text">
                                 </div>
                             </div>
                             <div class="cloud-receipt">
-                                <div class="info flex">
+                                <div class="info form-group flex">
                                     <p>載具手機條碼</p>
                                     <input class="info-input" type="text">
                                 </div>
@@ -1199,6 +1237,68 @@ $row = $pdo->query($sql)->fetch();
             }, 'json');
 
         };
+
+        const email = $('#senderEmail'),
+        // nickname = $('#nickname'),
+        // password = $('#password'),
+        // info_bar = $('#info-bar');
+        const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+
+        function formCheck(){
+        email.text('');
+        // password.next().text('');
+        // nickname.next().text('');
+        email.css('border-color', '#CCCCCC');
+        // password.css('border-color', '#CCCCCC');
+        // nickname.css('border-color', '#CCCCCC');
+        // TODO: 檢查欄位
+        let isPass = true;
+
+        if(! email_re.test(email.val())){
+            isPass = false;
+            email.css('border-color', 'red');
+            email.next().find(h6).img().css("display", "flex");
+            email.next('.error-frame h6').text('請填寫正確的 email 格式');
+        }
+
+        // if(password.val().length <6){
+        //     isPass = false;
+        //     password.css('border-color', 'red');
+        //     password.next().text('密碼長度太短');
+        // }
+
+        // if(nickname.val().trim().length <2){
+        //     isPass = false;
+        //     nickname.css('border-color', 'red');
+        //     nickname.next().text('暱稱長度太短');
+        // }
+
+    //     if(isPass){
+    //         $.post('cart-payment3.php', $(document.form1).serialize(), function(data){
+    //             console.log(data);
+    //             if(data.success){
+    //                 info_bar.removeClass('alert-danger')
+    //                     .addClass('alert-success')
+    //                     .html('註冊成功');
+    //                 setTimeout(function(){
+    //                     location.href = 'login.php';
+    //                 }, 3000);
+    //             } else {
+    //                 info_bar.removeClass('alert-success')
+    //                     .addClass('alert-danger')
+    //                     .html(data.error || '註冊失敗');
+    //             }
+    //             info_bar.slideDown();
+
+    //             setTimeout(function(){
+    //                 info_bar.slideUp();
+    //             }, 2000);
+
+    //         }, 'json');
+    //     }
+
+    //     return false;
+    // }
     </script>
 
     <?php require __DIR__ . '/__html_foot.php' ?>
