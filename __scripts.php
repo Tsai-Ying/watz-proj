@@ -2,7 +2,7 @@
 <script src="js/nav.js"></script>
 
 <script>
-    // const cart_count = $('.cart-count');
+    const cart_count = $('.cart_count');
     // const cart_short_list = $('.cart-short-list');
 
     $.get('cart-handle.php', function (data) {
@@ -14,11 +14,11 @@
         if (data && data.cart && data.cart.length) {
             for (let i in data.cart) {
                 let item = data.cart[i];
-                count += item[qty];
+                count += item['qty'];
                 // cart_short_list.append(`<a class="dropdown-item"
                 // href="#">${item.product_name} ${item.qty}</a>`)
             }
-            // cart_count.text(count);
+            cart_count.text(count);
         }
     }
 </script>

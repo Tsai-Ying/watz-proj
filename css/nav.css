@@ -322,6 +322,20 @@
     .nav-icon {
         align-items: center;
     }
+    .cart_count{
+        color: #F8F4EB;
+        display: block;
+        background: #FF9685;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        text-align: center;
+        line-height: 18px;
+        font-size: 10px;
+        transform: translate(-10px,-10px);
+        /* padding-left: 2px; */
+        letter-spacing: 0;
+    }
     
     .menu {
         margin-left: 20px;
