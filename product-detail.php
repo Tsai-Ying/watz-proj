@@ -13,6 +13,7 @@ $c_sql = "SELECT `sid`,`img_ID` FROM `product` WHERE `series`=$series_sid AND `s
 $suggest = [];
 $suggest = $pdo->query($c_sql)->fetchAll();
 
+$file = __DIR__ . '/images/product/' . $row['img_ID'] ;
 
 ?>
 
@@ -669,7 +670,7 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                     <div class="box-photo-left flex transition">
                         <div>
                             <?php for ($i = 1; $i <= 4; $i++) :
-                                if (file_exists(__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i . '.jpg')) {
+                                if (file_exists( $file . '-' . $i . '.jpg')) {
 
                             ?>
                                     <div>
@@ -690,7 +691,7 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                     <div class="box-photo-left flex transition mobile-none">
                         <div>
                             <?php for ($i = 1; $i <= 4; $i++) :
-                                if (file_exists(__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i . '.jpg')) {
+                                if (file_exists()) {
 
                             ?>
                                     <div>
@@ -706,7 +707,7 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                     <div class="box-photo-right flex" id="blockPhoto">
                         <ul class="flex">
                             <?php for ($i = 1; $i <= 4; $i++) :
-                                if (file_exists(__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i . '.jpg')) {
+                                if (file_exists( $file . '-' . $i . '.jpg')) {
 
                             ?>
                                     <li>
@@ -813,7 +814,7 @@ $suggest = $pdo->query($c_sql)->fetchAll();
                 <div class="box-bigphoto">
                     <?php for ($i = 5; $i <= 7; $i++) :
                         //echo (__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i). ".jpg<br>";
-                        if (file_exists(__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i . '.jpg')) {
+                        if (file_exists( $file . '-' . $i . '.jpg')) {
 
                     ?>
                             <div>
