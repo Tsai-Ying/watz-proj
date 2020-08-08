@@ -16,6 +16,9 @@
         <a class="icon-wrapper" href=""><img src="images/icon-faq.svg" alt=""></a>
         <a class="icon-wrapper" href=""><img src="images/icon-sock.svg" alt=""></a>
         <a class="icon-wrapper" href=""><img src="images/icon-member.svg" alt=""></a>
-        <a class="icon-wrapper" href="cart.html"><img src="images/icon-cart.svg" alt=""></a>
+        <a class="icon-wrapper" href="cart.html"><img src="images/icon-cart.svg" alt="">
+        <span class="cart_count"></span>
+    
+    </a>
     </div>
 </div>

@@ -31,8 +31,8 @@
 
         <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/cart-payment1.php">
             <img class="svg icon" src="images/icon-cart.svg" alt="">
+            <span class="cart_count"></span>
         </a>
-        <span class="cart_count"></span>
 
 
 

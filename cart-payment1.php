@@ -1,5 +1,9 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = 'aboutWATZ';  // 這裡放你的pagename
+
+if(empty($_SESSION['cart'])){
+    header( 'Location: cart-empty.php');
+ }
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 

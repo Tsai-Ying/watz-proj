@@ -18,6 +18,7 @@
                 // cart_short_list.append(`<a class="dropdown-item"
                 // href="#">${item.product_name} ${item.qty}</a>`)
             }
+            cart_count.css('background','#FF9685');
             cart_count.text(count);
         }
     }
