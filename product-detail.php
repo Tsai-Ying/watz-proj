@@ -230,17 +230,17 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
         height: 120px;
         margin-bottom: 10px;
         cursor: pointer;
-        opacity: .7;
     }
 
-    .box-photo-left div:hover {
+    .box-photo-left img:hover {
         opacity: 1;
     }
 
-    .box-photo-left div img {
+    .box-photo-left img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        opacity: .7;
     }
 
     .box-photo-right div {
@@ -879,9 +879,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
                                 <img class="img-select-circle transition active  first-pattern" src="images/select circle.svg" alt="">
                             </div>
                             <div class="img-pattern">
-                                <a href="product-detail.php?sid=<?= $row['sid'] ?>">
                                     <img src="images/product/<?= $row['img_ID'] ?>-1-<?= $row['pattern'] ?>.jpg" alt="">
-                                </a>
                             </div>
                         </li>
                     <?php } ?>
