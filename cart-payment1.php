@@ -387,22 +387,23 @@ if(empty($_SESSION['cart'])){
     }
 
     .product-detail {
-        width: 75%;
+        width: 70%;
         height: 100px;
         justify-content: space-between;
     }
 
     .sock-name {
-        width: 100%;
+        width: 45%;
+        height:100%;
         flex-grow: 1;
         flex-direction: column;
         justify-content: space-between;
     }
 
     .socks-amount-choose {
-        width: 70%;
+        width: 65%;
         align-items: flex-end;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 
     .quantity-choose {
@@ -424,7 +425,7 @@ if(empty($_SESSION['cart'])){
 
     .quantity-input {
         height: 25px;
-        width: 40px;
+        width: 45px;
         text-align: center;
         font-size: 14px;
         border: 1px solid transparent;
