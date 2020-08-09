@@ -5,6 +5,12 @@ $id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
 $sql = "SELECT * FROM `members` WHERE `id`= $id";
 $row = $pdo->query($sql)->fetch();
 
+$sender = isset($_SESSION['sender']) ? $_SESSION['sender']['sender'] : $row['name'] ;
+$senderEmail = isset($_SESSION['sender']) ? $_SESSION['sender']['senderEmail'] : $row['email'] ;
+$senderMobile = isset($_SESSION['sender']) ? $_SESSION['sender']['senderMobile'] : $row['mobile'] ;
+$senderAddress = isset($_SESSION['sender']) ? $_SESSION['sender']['senderAddress'] : $row['address'] ;
+
+$receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
 
 
 ?>
@@ -240,6 +246,7 @@ $row = $pdo->query($sql)->fetch();
         width: 100px;
         height: 40px;
         border: 1px solid #F2DE79;
+        font-size: 14px;
         border-radius: 2px;
         background-color: #ffffff;
         margin: 15px;
@@ -247,6 +254,8 @@ $row = $pdo->query($sql)->fetch();
         outline: none;
         text-align: center;
         cursor: pointer;
+        padding: 8px;
+        font-family: 'Noto Sans TC', sans-serif;
     }
 
     .button.active {
@@ -326,18 +335,19 @@ $row = $pdo->query($sql)->fetch();
     }
 
     .info .info-input {
-        width: 250px;
+        width: 65%;
         height: 35px;
         border: 1px solid #F2DE79;
         border-radius: 2px;
         margin-left: 20px;
         outline: none;
+        
     }
 
     .peper-receipt .info {
-        width: 65%;
+        width: 60%;
         align-items: center;
-        justify-content: start;
+        justify-content: space-between;
         margin: 20px 30px;
     }
 
@@ -453,6 +463,7 @@ $row = $pdo->query($sql)->fetch();
         }
 
         .peper-receipt .info {
+            width:90%;
             margin: 10px 15px;
         }
     }
@@ -729,7 +740,7 @@ $row = $pdo->query($sql)->fetch();
     .receiverInfo .form-group{
         position: relative;
     }
-    .peper-receipt .info {
+    .peper-receipt .form-group {
         position: relative;
 
     }
@@ -808,7 +819,7 @@ $row = $pdo->query($sql)->fetch();
                                         </div>
                                         <div class="socks-nameNprice flex">
                                             <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                            <h5>×<?= $i['qty'] ?></h5>
+                                            <h5>X<?= $i['qty'] ?></h5>
                                             <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
                                         </div>
                                     </div>
@@ -858,19 +869,18 @@ $row = $pdo->query($sql)->fetch();
                     </li>
                 </ul>
             </div>
-            <div class="shipping-form flex" >
+            <div class="shipping-form flex">
                 <div class="shipping-form-frame">
                     <h3>訂購資料填寫</h3>
-                    <form class="" name="form1" method="post" onsubmit="return formCheck()" novalidate>
+                    <form class="" name="form1" method="post" novalidate>
                         <ul class="shipperInfo flex">
-                            <li class="form-group flex">
+                            <li class="flex">
                                 <p>訂購人姓名</p>
-                                <input class="shipperName" type="text" data-val="1" id="sender" name="sender" required value="<?= htmlentities($row['name']) ?>">
-                                
+                                <input class="shipperName" type="text" data-val="1" id="sender" name="sender" required value="<?= htmlentities($sender) ?>">                               
                             </li>
                             <li class="form-group flex">
                                 <p>電話</p>
-                                <input class="shipperMobile" type="text" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>" id="senderMobile">
+                                <input class="shipperMobile" type="text" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($senderMobile) ?>" id="senderMobile">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -878,7 +888,7 @@ $row = $pdo->query($sql)->fetch();
                             </li>
                             <li class="form-group flex">
                                 <p>E-mail</p>
-                                <input class="shipperemail shipperEmail" type="text" data-val="3" value="<?= htmlentities($row['email']) ?>" name="senderEmail" id="senderShipperEmail">
+                                <input class="shipperemail shipperEmail" type="text" data-val="3" value="<?= htmlentities($senderEmail) ?>" name="senderEmail" id="senderShipperEmail">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -886,7 +896,7 @@ $row = $pdo->query($sql)->fetch();
                             </li>
                             <li class="form-group flex">
                                 <p>地址</p>
-                                <input class="shipperAddress" type="text" data-val="5" id="senderaddress" name="senderaddress" value="<?= htmlentities($row['address']) ?>">
+                                <input class="shipperAddress" type="text" data-val="5" id="senderaddress" name="senderaddress" value="<?= htmlentities($senderAddress) ?>">
                             </li>
                         </ul>
                         <div class="line"></div>
@@ -901,7 +911,7 @@ $row = $pdo->query($sql)->fetch();
 
                             <li class="form-group flex">
                                 <p>收件人姓名</p>
-                                <input class="receiverName" id="receiverName" type="text" data-val="1" name="receiver">
+                                <input class="receiverName" id="receiverName" type="text" data-val="1" name="receiver" value="<?= htmlentities($receiver['receiver']) ?>">
                             </li>
                             <li class="form-group flex">
                                 <p>電話</p>
@@ -913,52 +923,53 @@ $row = $pdo->query($sql)->fetch();
                             </li>
                             <li class="form-group flex">
                                 <p>地址</p>
-                                <input class="receiverAddress" id="receiverAddress" type="text" data-val="5" name="receiverAddress">
+                                <input class="receiverAddress" id="receiverAddress" type="text" data-val="5" name="receiverAddress" value="<?= htmlentities($receiver['receiverAddress']) ?>">
                             </li>
                         </ul>
                         <div class="line"></div>
                         <div class="pay-choose">
                             <h3>付款方式選擇</h3>
-                            <div>
-                                <button class="button payBtn active" href="#">信用卡</button>
-                                <button class="button payBtn" href="#">到貨付款</button>
+                            <div class="flex">
+                                <div class="button payBtn active" >信用卡</div>
+                                <div class="button payBtn" >到貨付款</div>
                             </div>
                         </div>
                         <div class="receipt-choose">
                             <h3>發票選擇</h3>
                             <div class="receipt-choose-frame flex">
-                                <div>
-                                    <button class="button receiptBtn active" href="#" id="paper" data-val="1">紙本發票</button>
-                                    <button class="button receiptBtn" href="#" id="elec" data-val="1">電子發票</button></div>
-                                <div>
-                                    <button class="button receiptBtn" href="#" id="icloud" data-val="1">雲端載具</button>
-                                    <button class="button receiptBtn" href="#" id="donate" data-val="1">發票捐贈</button></div>
+                                <div class="flex">
+                                    <div class="button receiptBtn active"  id="paper" data-val="1">紙本發票</div>
+                                    <div class="button receiptBtn" id="elec" data-val="1">電子發票</div>
+                                </div>
+                                <div class="flex">
+                                    <div class="button receiptBtn" id="icloud" data-val="1">雲端載具</div>
+                                    <div class="button receiptBtn" id="donate" data-val="1">發票捐贈</div>
+                                </div>
                             </div>
                             <div class="peper-receipt flex show">
-                                <div class="radio-frame form-group flex">
+                                <div class="radio-frame flex">
                                     <input class="radio-btn " name="receipt-radio-btn" type="radio" checked></input>
                                     <p>二聯式發票</p>
                                 </div>
-                                <div class="radio-frame form-group flex">
+                                <div class="radio-frame flex">
                                     <input class="radio-btn" name="receipt-radio-btn" type="radio"></input>
                                     <p>三聯式發票</p>
                                 </div>
-                                <div class="info form-group flex">
+                                <div class="info flex">
                                     <p>統一編號號碼</p>
                                     <input class="info-input coNumber" type="text">
                                     <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
+                                </div>                                  
                                 </div>
-                                    
-                                </div>
-                                <div class="info form-group flex">
+                                <div class="info flex">
                                     <p>公司抬頭名稱</p>
                                     <input class="info-input" type="text">
                                 </div>
                             </div>
                             <div class="cloud-receipt">
-                                <div class="info form-group flex">
+                                <div class="info flex">
                                     <p>載具手機條碼</p>
                                     <input class="info-input" type="text">
                                 </div>
@@ -970,13 +981,13 @@ $row = $pdo->query($sql)->fetch();
                                 </div>
                             </div>
                         </div>
+
                         <div class="line"></div>
                         <div class="order-remark">
                             <h3>訂單備註</h3>
                             <textarea class="remark-textarea" name="note" id="note" cols="30" rows="10" placeholder="禮盒訂單細節或收件時間須備註的都可以跟我們說哦！（限200字以內）"></textarea>
                         </div>
                     </form>
-
                 </div>
 
                 <div class="flex">
@@ -1144,16 +1155,14 @@ $row = $pdo->query($sql)->fetch();
             if ($(this).is(":checked")) {
                 let NameVal = $('.shipperName').val();
                 let phoneVal = $('.shipperMobile').val();
-                let emailVal = $('.shipperemail').val();
+                let emailVal = $('.shipperEmail').val();
                 let addressVal = $('.shipperAddress').val();
                 $(".receiverName").val(NameVal);
                 $(".receiverMobile").val(phoneVal);
-                $(".receiverEmail").val(emailVal);
                 $(".receiverAddress").val(addressVal);;
             } else if ($(this).is(":not(:checked)")) {
                 $(".receiverName").val('');
                 $(".receiverMobile").val('');
-                $(".receiverEmail").val('');
                 $(".receiverAddress").val('');
             }
         });
@@ -1181,38 +1190,34 @@ $row = $pdo->query($sql)->fetch();
         // }
 
 
-    //     const dallorCommas = function(n) {
-    //     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    // };
+        const dallorCommas = function(n) {
+            return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        };
 
-    // function prepareCartTable() {
-    //     $p_items = $('.p_item');
-        
-    //     let total = 0;
+        function prepareCartTable() {
+            $p_items = $('.p_item');
+            let total = 0;
 
-    //     // if (!$p_items.length && $('#totalPrice').length) {
-    //     //     location.href = 'product.php';
-    //     //     return;
-    //     // }
-    //     $p_items.each(function() {
-    //         const sid = $(this).attr('data-sid');
-    //         const price = $(this).attr('data-price');
-    //         const quantity = $(this).attr('data-quantity');
-    //         const shipFee = $('.shipFee').text();
-    //         const discount = $('.discount').text();
+            if (!$p_items.length && $('#totalPrice').length) {
+                // location.href = 'product.php';
+                return;
+            }
+            $p_items.each(function() {
+                const sid = $(this).attr('data-sid');
+                const price = $(this).attr('data-price');
+                const quantity = $(this).attr('data-quantity');
 
-    //         $(this).find('.price').text('NT $' + dallorCommas(price));
-    //         $(this).find('.qty').val(quantity);
-    //         $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
-    //         total += quantity * price;
-    //         $('#productPrice').text('NT $' + dallorCommas(total));
-    //         $('#totalPrice').text('NT $' + dallorCommas(total+parseInt(shipFee)+parseInt(discount)));
+                $(this).find('.price').text('NT $' + dallorCommas(price));
+                $(this).find('.qty').val(quantity);
+                $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
+                total += quantity * price;
+                $('#productPrice').text('NT $' + dallorCommas(total));
+                $('#totalPrice').text('NT $' + dallorCommas(total - 60 - 20));
 
-    //     })
-    // }
+            })
+        }
 
-    // prepareCartTable();
-
+        prepareCartTable();    
 
 
         // const receiver = $('#receiverName'),
@@ -1221,14 +1226,14 @@ $row = $pdo->query($sql)->fetch();
 
         // function formCheck() {
 
-        //     $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
-        //         console.log(data);
+        // $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
+        // console.log(data);
 
-        //         if (data.success) {
-        //             location.href = 'cart-payment3.php';
-        //             // info_bar.removeClass('alert-danger')
-        //             //     .addClass('alert-success')
-        //             //     .html('新增成功!');
+        // if (data.success) {
+        // location.href = 'cart-payment3.php';
+        // // info_bar.removeClass('alert-danger')
+        // //     .addClass('alert-success')
+        // //     .html('新增成功!');
         //         }
         //     }, 'json');
 
@@ -1277,31 +1282,20 @@ $row = $pdo->query($sql)->fetch();
         // }
 
 
-    //     if(isPass){
-    //         $.post('cart-payment3.php', $(document.form1).serialize(), function(data){
-    //             console.log(data);
-    //             if(data.success){
-    //                 info_bar.removeClass('alert-danger')
-    //                     .addClass('alert-success')
-    //                     .html('註冊成功');
-    //                 setTimeout(function(){
-    //                     location.href = 'login.php';
-    //                 }, 3000);
-    //             } else {
-    //                 info_bar.removeClass('alert-success')
-    //                     .addClass('alert-danger')
-    //                     .html(data.error || '註冊失敗');
-    //             }
-    //             info_bar.slideDown();
+        if(isPass){
+            $.post('cart-payment3.php', $(document.form1).serialize(), function(data){
+                console.log(data);
+                if(data.success){
+                    location.href = 'cart-payment3.php';
+                } else {
+                   
+                }
+                
 
-    //             setTimeout(function(){
-    //                 info_bar.slideUp();
-    //             }, 2000);
+            }, 'json');
+        }
 
-    //         }, 'json');
-    //     }
-
-    //     return false;
+        return false;
         }
     </script>
 
