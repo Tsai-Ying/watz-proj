@@ -50,6 +50,9 @@ foreach($_SESSION['cart'] as $i){
 
 // 清除購物車內容
 unset($_SESSION['cart']);
+unset($_SESSION['receiver']);
+unset($_SESSION['sender']);
+
 
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>

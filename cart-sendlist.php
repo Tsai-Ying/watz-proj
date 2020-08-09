@@ -13,15 +13,15 @@ $output = [
     'postData' => $_POST
 ];
 
-$receiver = isset($_POST['receiver']) ? $_POST['receiver'] : '';
-$receiverMobile = isset($_POST['receiverMobile']) ? $_POST['receiverMobile'] : 0;
-$receiverAddress = isset($_POST['receiverAddress']) ? $_POST['receiverAddress'] : 0;
-$note = isset($_POST['note']) ? $_POST['note'] : 0;
+$receiver = isset($_POST['receiver']) ? $_POST['receiver'] : Null;
+$receiverMobile = isset($_POST['receiverMobile']) ? $_POST['receiverMobile'] : Null;
+$receiverAddress = isset($_POST['receiverAddress']) ? $_POST['receiverAddress'] : Null;
+$note = isset($_POST['note']) ? $_POST['note'] : Null;
 
-$sender = isset($_POST['sender']) ? $_POST['sender'] : '';
-$senderMobile = isset($_POST['senderMobile']) ? $_POST['senderMobile'] : 0;
-$senderAddress = isset($_POST['senderAddress']) ? $_POST['senderAddress'] : 0;
-$senderEmail = isset($_POST['senderEmail']) ? $_POST['senderEmail'] : 0;
+$sender = isset($_POST['sender']) ? $_POST['sender'] : Null;
+$senderMobile = isset($_POST['senderMobile']) ? $_POST['senderMobile'] : Null;
+$senderAddress = isset($_POST['senderAddress']) ? $_POST['senderAddress'] : Null;
+$senderEmail = isset($_POST['senderEmail']) ? $_POST['senderEmail'] : Null;
 
 $output = [
     $_SESSION['receiver']['receiver'] = $receiver,

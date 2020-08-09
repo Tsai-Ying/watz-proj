@@ -5,6 +5,12 @@ $id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
 $sql = "SELECT * FROM `members` WHERE `id`= $id";
 $row = $pdo->query($sql)->fetch();
 
+$sender = isset($_SESSION['sender']) ? $_SESSION['sender']['sender'] : $row['name'] ;
+$senderEmail = isset($_SESSION['sender']) ? $_SESSION['sender']['senderEmail'] : $row['email'] ;
+$senderMobile = isset($_SESSION['sender']) ? $_SESSION['sender']['senderMobile'] : $row['mobile'] ;
+$senderAddress = isset($_SESSION['sender']) ? $_SESSION['sender']['senderAddress'] : $row['address'] ;
+
+$receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
 
 
 ?>
@@ -838,15 +844,15 @@ $row = $pdo->query($sql)->fetch();
                         <ul class="shipperInfo flex">
                             <li class="flex">
                                 <p>訂購人姓名</p>
-                                <input class="shipperName" type="text" data-val="1" id="sender" name="sender" required value="<?= htmlentities($row['name']) ?>">
+                                <input class="shipperName" type="text" data-val="1" id="sender" name="sender" required value="<?= htmlentities($sender) ?>">
                             </li>
                             <li class="flex">
                                 <p>電話</p>
-                                <input class="shipperPhone" type="text" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>">
+                                <input class="shipperPhone" type="text" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($senderMobile) ?>">
                             </li>
                             <li class="flex">
                                 <p>E-mail</p>
-                                <input class="shipperemail" type="text" data-val="3" value="<?= htmlentities($row['email']) ?>" name="senderEmail" id="senderEmail">
+                                <input class="shipperemail" type="text" data-val="3" value="<?= htmlentities($senderEmail) ?>" name="senderEmail" id="senderEmail">
                             </li>
                             <!-- <li class="flex">
                             <p>郵遞區號</p>
@@ -854,7 +860,7 @@ $row = $pdo->query($sql)->fetch();
                         </li> -->
                             <li class="flex">
                                 <p>地址</p>
-                                <input class="shipperAddress" type="text" data-val="5" id="senderaddress" name="senderaddress" value="<?= htmlentities($row['address']) ?>">
+                                <input class="shipperAddress" type="text" data-val="5" id="senderaddress" name="senderaddress" value="<?= htmlentities($senderAddress) ?>">
                             </li>
                         </ul>
                         <div class="line"></div>
@@ -869,11 +875,11 @@ $row = $pdo->query($sql)->fetch();
 
                             <li class="flex">
                                 <p>收件人姓名</p>
-                                <input class="receiverName" id="receiverName" type="text" data-val="1" name="receiver">
+                                <input class="receiverName" id="receiverName" type="text" data-val="1" name="receiver" value="<?= htmlentities($receiver['receiver']) ?>">
                             </li>
                             <li class="flex">
                                 <p>電話</p>
-                                <input class="receiverMobile" id="receiverMobile" type="text" data-val="2" name="receiverMobile">
+                                <input class="receiverMobile" id="receiverMobile" type="text" data-val="2" name="receiverMobile" value="<?= htmlentities($receiver['receiverMobile']) ?>">
                             </li>
                             <!-- <li class="flex">
                                 <p>E-mail</p>
@@ -885,7 +891,7 @@ $row = $pdo->query($sql)->fetch();
                             </li> -->
                             <li class="flex">
                                 <p>地址</p>
-                                <input class="receiverAddress" id="receiverAddress" type="text" data-val="5" name="receiverAddress">
+                                <input class="receiverAddress" id="receiverAddress" type="text" data-val="5" name="receiverAddress" value="<?= htmlentities($receiver['receiverAddress']) ?>">
                             </li>
                         </ul>
                         <div class="line"></div>
@@ -937,13 +943,13 @@ $row = $pdo->query($sql)->fetch();
                                 </div>
                             </div>
                         </div>
-                    </form>
-                    <div class="line"></div>
-                    <div class="order-remark">
-                        <h3>訂單備註</h3>
-                        <textarea class="remark-textarea" name="" id="" cols="30" rows="10" placeholder="禮盒訂單細節或收件時間須備註的都可以跟我們說哦！（限200字以內）"></textarea>
-                    </div>
 
+                        <div class="line"></div>
+                        <div class="order-remark">
+                            <h3>訂單備註</h3>
+                            <textarea class="remark-textarea" name="note" id="note" cols="30" rows="10" placeholder="禮盒訂單細節或收件時間須備註的都可以跟我們說哦！（限200字以內）"></textarea>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="flex">

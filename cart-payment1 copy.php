@@ -831,7 +831,7 @@ if(empty($_SESSION['cart'])){
                             <button class="button ShipBtn" href="#">宅配</button>
                             <button class="button conv-store ShipBtn" href="#">超商取貨</button>
                         </div>
-                        <p>只差60元即享1000元免運！</p>
+                        <p class="noShipFee">只差60元即享1000元免運！</p>
                     </div>
                 </div>
                 <div class="total-price flex">
@@ -1005,6 +1005,11 @@ if(empty($_SESSION['cart'])){
 
     function prepareCartTable() {
         $p_items = $('.p_item');
+        console.log(p_items.length)
+
+        if (p_items.length==0){
+            location.href = 'empty-cart.php'
+        }
         
         let total = 0;
 
@@ -1019,13 +1024,22 @@ if(empty($_SESSION['cart'])){
             const shipFee = $('.shipFee').text();
             const discount = $('.discount').text();
 
+
             $(this).find('.price').text('NT $' + dallorCommas(price));
             $(this).find('.qty').val(quantity);
             $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
             total += quantity * price;
-            $('#productPrice').text('NT $' + dallorCommas(total));
-            $('#totalPrice').text('NT $' + dallorCommas(total+parseInt(shipFee)+parseInt(discount)));
+            const totalPrice = total+parseInt(shipFee)+parseInt(discount);
 
+
+            $('#productPrice').text('NT $' + dallorCommas(total));
+            $('#totalPrice').text('NT $' + dallorCommas(totalPrice));
+
+            if ( totalPrice < 1000){
+                $('.noShipFee').text(`只差${ 1000 - totalPrice}元即享1000元免運！`);
+            }else{
+                $('.noShipFee').text(`消費金額已免運！`);
+            }
         })
     }
 
@@ -1062,7 +1076,6 @@ if(empty($_SESSION['cart'])){
             prepareCartTable();
         }, 'json');
         $(".notice").removeClass("active");
-
     });
 
 </script>
