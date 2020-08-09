@@ -46,8 +46,6 @@
 
             cart_count.css('background', 'transparent');
             cart_count.text('');
-
-            // location.href='<?= WEB_ROOT ?>/payment1.php';
         }
     }
 
