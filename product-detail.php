@@ -13,7 +13,19 @@ $c_sql = "SELECT `sid`,`img_ID` FROM `product` WHERE `series`=$series_sid AND `s
 $suggest = [];
 $suggest = $pdo->query($c_sql)->fetchAll();
 
-$file = __DIR__ . '/images/product/' . $row['img_ID'] ;
+$pattern = $row['pattern'];
+$patternArray = [];
+if ($pattern > 0) {
+    $p_sql = "SELECT `sid`,`img_ID` FROM `product` WHERE `pattern`=$pattern AND `sid`!=$sid ORDER BY RAND() LIMIT 3";
+    $patternArray = $pdo->query($p_sql)->fetchAll();
+};
+
+
+// echo $pattern;
+// print_r($patternArray) ;
+
+
+$file = __DIR__ . '/images/product/' . $row['img_ID'];
 
 ?>
 
@@ -78,7 +90,8 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'] ;
         position: sticky;
     }
 
-    .block-fixed>h3 {
+
+    .block-fixed h3 {
         margin-bottom: 3vh;
         font-weight: 400;
     }
@@ -123,7 +136,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'] ;
         outline: none;
     }
 
-    .block-fixed>button {
+    .block-fixed button {
         width: 100%;
         height: 45px;
         background: #FF9685;
@@ -136,28 +149,43 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'] ;
         cursor: pointer;
     }
 
-    .block-fixed>button:hover {
+    .block-fixed button:hover {
         background: #0388A6;
     }
 
-    .block-fixed>ul {
-        width: 250px;
-        margin: 20px 0;
-        justify-content: space-evenly;
+    .block-fixed ul {
+        width: 100%;
+        justify-content: flex-end;
         cursor: pointer;
+        position: relative;
     }
 
-    .block-fixed>ul>li {
+    .block-fixed ul li {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    .img-pattern {
         width: 40px;
         height: 40px;
         border-radius: 50%;
         background: lightcoral;
     }
 
+    .img-pattern img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
     .img-select-circle {
         width: 50px;
-        margin-left: -5px;
         margin-top: -5px;
+        margin-left: -5px;
+        position: absolute;
         opacity: 0;
     }
 
@@ -670,7 +698,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'] ;
                     <div class="box-photo-left flex transition">
                         <div>
                             <?php for ($i = 1; $i <= 4; $i++) :
-                                if (file_exists( $file . '-' . $i . '.jpg')) {
+                                if (file_exists($file . '-' . $i . '.jpg')) {
 
                             ?>
                                     <div>
@@ -691,7 +719,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'] ;
                     <div class="box-photo-left flex transition mobile-none">
                         <div>
                             <?php for ($i = 1; $i <= 4; $i++) :
-                                if (file_exists()) {
+                                if (file_exists($file . '-' . $i . '.jpg')) {
 
                             ?>
                                     <div>
@@ -707,7 +735,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'] ;
                     <div class="box-photo-right flex" id="blockPhoto">
                         <ul class="flex">
                             <?php for ($i = 1; $i <= 4; $i++) :
-                                if (file_exists( $file . '-' . $i . '.jpg')) {
+                                if (file_exists($file . '-' . $i . '.jpg')) {
 
                             ?>
                                     <li>
@@ -727,35 +755,12 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'] ;
                         <img src="images/arrow-right-thiner.svg" alt="">
                     </div>
                 </div>
-                <div class="block-fixed flex mobile-none">
+                <div class="block-fixed flex mobile-visible">
                     <h3 class="p_item" data-sid="<?= $sid ?>"><?= $row['product_name'] ?></h3>
                     <p><?= $row['introduction'] ?></p>
                     <p><?= $row['detail'] ?></p>
                     <ul class="flex">
-                        <li class="active">
-                            <div class="socks-pattern flex">
-                                <img class="img-select-circle transition active" src="images/select circle.svg" alt="">
-                                <div class=""><img src="images/product/irregular16-1-1.jpg" alt=""></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="socks-pattern flex">
-                                <img class="img-select-circle transition" src="images/select circle.svg" alt="">
-                                <div class=""><img src="" alt=""></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="socks-pattern flex">
-                                <img class="img-select-circle transition" src="images/select circle.svg" alt="">
-                                <div class=""><img src="" alt=""></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="socks-pattern flex">
-                                <img class="img-select-circle transition" src="images/select circle.svg" alt="">
-                                <div class=""><img src="" alt=""></div>
-                            </div>
-                        </li>
+                        <li></li>
                     </ul>
                     <h3 class="price">售價 <?= $row['price'] ?>元</h3>
                     <div class="buy flex">
@@ -814,7 +819,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'] ;
                 <div class="box-bigphoto">
                     <?php for ($i = 5; $i <= 7; $i++) :
                         //echo (__DIR__ . '\\images\\product\\' . $row['img_ID'] . '-' . $i). ".jpg<br>";
-                        if (file_exists( $file . '-' . $i . '.jpg')) {
+                        if (file_exists($file . '-' . $i . '.jpg')) {
 
                     ?>
                             <div>
@@ -848,30 +853,51 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'] ;
                 <p><?= $row['introduction'] ?></p>
                 <p><?= $row['detail'] ?></p>
                 <ul class="flex">
-                    <li>
+                    <?php if (file_exists($file . '-1-' . $pattern . '.jpg')) { ?>
+                        <li>
+                            <div class="socks-pattern flex">
+                                <img class="img-select-circle transition active  first-pattern" src="images/select circle.svg" alt="">
+                            </div>
+                            <div class="img-pattern">
+                                <a href="product-detail.php?sid=<?= $row['sid'] ?>">
+                                    <img src="images/product/<?= $row['img_ID'] ?>-1-<?= $row['pattern'] ?>.jpg" alt="">
+                                </a>
+                            </div>
+                        </li>
+                    <?php } ?>
+                    <?php foreach ($patternArray as $p) :
+                        //  print_r ($p);
+                        if (file_exists($file . '-1-' . $row['pattern'] . '.jpg')) {
+
+                    ?>
+                            <li>
+                                <a href="product-detail.php?sid=<?= $p['sid'] ?>">
+                                    <div class="socks-pattern flex">
+                                        <img class="img-select-circle transition" src="images/select circle.svg" alt="">
+                                    </div>
+                                    <div class="img-pattern">
+
+                                        <img src="images/product/<?= $p['img_ID'] ?>-1-<?= $row['pattern'] ?>.jpg" alt="">
+
+                                    </div>
+                                </a>
+                            </li>
+                    <?php
+                        } else {
+                            break;
+                        }
+                    endforeach; ?>
+                    <!-- <li>
                         <div class="socks-pattern flex">
-                            <img class="img-select-circle transition active first-pattern" src="images/select circle.svg" alt="">
-                            <div class=""><img src="" alt=""></div>
+                            <img class="img-select-circle transition " src="images/select circle.svg" alt="">
                         </div>
-                    </li>
-                    <li>
-                        <div class="socks-pattern flex">
-                            <img class="img-select-circle transition" src="images/select circle.svg" alt="">
-                            <div class=""><img src="" alt=""></div>
+                        <div class="img-pattern">
+                            <a href="">
+                                <img src="images/product/<?= $row['img_ID'] ?>-1-1.jpg" alt="">
+                            </a>
                         </div>
-                    </li>
-                    <li>
-                        <div class="socks-pattern flex">
-                            <img class="img-select-circle transition" src="images/select circle.svg" alt="">
-                            <div class=""><img src="" alt=""></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="socks-pattern flex">
-                            <img class="img-select-circle transition" src="images/select circle.svg" alt="">
-                            <div class=""><img src="" alt=""></div>
-                        </div>
-                    </li>
+                    </li> -->
+
                 </ul>
                 <h3 class="price">售價 <?= $row['price'] ?>元</h3>
                 <div class="quantity-choose flex">
@@ -1013,7 +1039,6 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'] ;
         let value = $(this).val();
         $('.web-qty').val(value);
     });
-
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
