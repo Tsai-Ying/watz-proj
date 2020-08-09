@@ -38,13 +38,13 @@ if ($totalRows > 0) {
         header('Location: product.php?page=' . $totalPages);
         exit;
     }
-    if(!empty($_GET['series'])){
+    if (!empty($_GET['series'])) {
         $where .= sprintf(" AND `series` IN (%s) ", implode(',', $_GET['series']));
     }
-    if(!empty($_GET['colors'])){
+    if (!empty($_GET['colors'])) {
         $where .= sprintf(" AND `color` IN (%s) ", implode(',', $_GET['colors']));
     }
-    if(!empty($_GET['types'])){
+    if (!empty($_GET['types'])) {
         $where .= sprintf(" AND `type` IN (%s) ", implode(',', $_GET['types']));
     }
 
@@ -1154,8 +1154,8 @@ $stmt = $pdo->query($sql);
 
         <div class="block flex">
             <div class="selector flex">
-                <form name="form1" onsubmit="return false" method="get" >
-                <!-- <form name="form1" onsubmit="return false" > -->
+                <form name="form1" onsubmit="return false" method="get">
+                    <!-- <form name="form1" onsubmit="return false" > -->
                     <ul class="box-series">
 
                         <p>Series</p>
@@ -1174,7 +1174,7 @@ $stmt = $pdo->query($sql);
                             <li class="flex">
                                 <button class="color-btn1 btn-border cursor" id="color-btn1"></button>
                                 <!-- <img class="img-select-circle transition active" src="images/select circle.svg" alt=""> -->
-                                <input type="checkbox" id="colorIn1"name="color[]" value="1" class="cursor color-in1 " onclick="showInfo()">
+                                <input type="checkbox" id="colorIn1" name="color[]" value="1" class="cursor color-in1 " onclick="showInfo()">
                             </li>
                             <li class="flex">
                                 <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn2 btn-border cursor"></button></li>
@@ -1350,37 +1350,37 @@ $stmt = $pdo->query($sql);
     });
 
     // ----------- selector  --------------
-  
-        if ($(window).width() <= 992) {
 
-            $('.selector').hide();
-            $('.btn-mo-select').click(function() {
-                $('.selector').slideToggle(1000);
-                return false;
-            });
+    if ($(window).width() <= 992) {
 
-        };
-        $('.select-check-btn').click(function() {
-            $('.selector').slideUp(1000);
+        $('.selector').hide();
+        $('.btn-mo-select').click(function() {
+            $('.selector').slideToggle(1000);
             return false;
         });
 
-   
-    // -------------selector color---------------------
-    
-// document.addEventListener("on", function(data){
-//     document.getElementById("colorIn1")
-//     $('.color-btn1').click(function() {
-//         $("#colorIn1").prop("checked", true);
-//         $("#colorIn1").attr("checked", true);
-//         });
-//         console.log($(document.form1).serialize());
-// });
+    };
+    $('.select-check-btn').click(function() {
+        $('.selector').slideUp(1000);
+        return false;
+    });
 
-// document.getElementById("color-btn1").addEventListener("on", function()
-// {
-//     document.getElementById("demo").innerHTML = "Hello World";
-// });
+
+    // -------------selector color---------------------
+
+    // document.addEventListener("on", function(data){
+    //     document.getElementById("colorIn1")
+    //     $('.color-btn1').click(function() {
+    //         $("#colorIn1").prop("checked", true);
+    //         $("#colorIn1").attr("checked", true);
+    //         });
+    //         console.log($(document.form1).serialize());
+    // });
+
+    // document.getElementById("color-btn1").addEventListener("on", function()
+    // {
+    //     document.getElementById("demo").innerHTML = "Hello World";
+    // });
 
 
 
@@ -1389,7 +1389,7 @@ $stmt = $pdo->query($sql);
         $(".color-in1").attr("checked", true);
         console.log($(document.form1).serialize());
     });
-    
+
 
 
     // ------------------  幫我搭------------------
@@ -1431,31 +1431,31 @@ $stmt = $pdo->query($sql);
 
 
     // ------- 幫我搭  X close --------
-   
-        $('#close-btn').click(function() {
-            $('.help-bg').fadeOut(500);
-            return false;
-        });
-   
+
+    $('#close-btn').click(function() {
+        $('.help-bg').fadeOut(500);
+        return false;
+    });
+
     // ------------ 幫我搭 show/hide  ---------------
 
-   
-        $('.help-bg').hide();
-        $('#product-help-btn').click(function() {
-            $('.help-bg').slideDown(800);
-            return false;
-        });
-    
+
+    $('.help-bg').hide();
+    $('#product-help-btn').click(function() {
+        $('.help-bg').slideDown(800);
+        return false;
+    });
+
     // ---------------------------------------
-   
+
     const productBox = $('.product-box');
 
     $('form[name=form1] input[type=checkbox]').click(function() {
         console.log($(document.form1).serialize());
         $.get('product-api.php', $(document.form1).serialize(), function(data) {
             console.log(data);
-           productGet(data);
-        },'json')
+            productGet(data);
+        }, 'json')
     });
 
     function productGet(data) {
@@ -1479,22 +1479,27 @@ $stmt = $pdo->query($sql);
                                 </a>
                             </li>
                 `)
+                $(".product-top-img img").mouseenter(function() {
+                    $(this).attr("src", $(this).attr('src').replace("-1.jpg", "-2.jpg"));
+                });
+
+                $(".product-top-img img").mouseleave(function() {
+                    $(this).attr("src", $(this).attr('src').replace("-2.jpg", "-1.jpg"));
+                });
             }
             // productBox.text(count);
 
-        } 
+        }
     }
-  
-// ----------- 商品圖hover --------------
-$(".product-top-img img").mouseenter(function() {
+
+    // ----------- 商品圖hover --------------
+    $(".product-top-img img").mouseenter(function() {
         $(this).attr("src", $(this).attr('src').replace("-1.jpg", "-2.jpg"));
     });
 
     $(".product-top-img img").mouseleave(function() {
         $(this).attr("src", $(this).attr('src').replace("-2.jpg", "-1.jpg"));
     });
-
-    
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
