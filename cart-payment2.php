@@ -634,8 +634,14 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
 
     .socks-nameNprice {
         width: 65%;
-        align-items: center;
+        height: 100%;
+        flex-direction: column;
         justify-content: space-between;
+    }
+    .qty-n-price{
+        width:80%;
+        justify-content: space-between;
+        margin-top: 20px;
     }
 
     @media screen and (max-width: 1200px) {}
@@ -648,6 +654,9 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
         .order-list.showin922 {
             display: flex;
         }
+        .eachsock-list {
+        justify-content: flex-start;
+    }
 
     }
 
@@ -812,18 +821,7 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
 
                             <div class="socks-detail flex">
                                 <h4>禮盒內容</h4>
-                                <?php foreach ($_SESSION['cart'] as $i) : ?>
-                                    <div class="eachsock-list p_item flex">
-                                        <div class="img-product">
-                                            <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
-                                        </div>
-                                        <div class="socks-nameNprice flex">
-                                            <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                            <h5>X<?= $i['qty'] ?></h5>
-                                            <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
+                            
                             </div>
 
                         </div>
@@ -831,16 +829,18 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
                         <div class="socks-detail flex">
                             <h4>單購襪子</h4>
                             <?php foreach ($_SESSION['cart'] as $i) : ?>
-                                <div class="eachsock-list p_item flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
-                                    <div class="img-product">
-                                        <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
+                                <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
+                                        <div class="img-product">
+                                            <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
+                                        </div>
+                                        <div class="socks-nameNprice flex">
+                                            <h5 class="socks-title"><?= $i['product_name'] ?></h5>
+                                            <div class="qty-n-price flex">
+                                            <h5>X<?= $i['qty'] ?></h5>
+                                            <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
+                                        </div>
+                                        </div>
                                     </div>
-                                    <div class="socks-nameNprice flex">
-                                        <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                        <h5>X<?= $i['qty'] ?></h5>
-                                        <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
-                                    </div>
-                                </div>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -888,7 +888,7 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
                             </li>
                             <li class="form-group flex">
                                 <p>E-mail</p>
-                                <input class="shipperemail shipperEmail" type="text" data-val="3" value="<?= htmlentities($senderEmail) ?>" name="senderEmail" id="senderShipperEmail">
+                                <input class="shipperemail shipperEmail" type="text" data-val="3" value="<?= htmlentities($senderEmail) ?>" name="senderEmail" id="senderEmail">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -1044,8 +1044,10 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
                                         </div>
                                         <div class="socks-nameNprice flex">
                                             <h5 class="socks-title"><?= $i['product_name'] ?></h5>
+                                            <div class="qty-n-price flex">
                                             <h5>X<?= $i['qty'] ?></h5>
                                             <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1056,16 +1058,18 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
                         <div class="socks-detail flex">
                             <h4>單購襪子</h4>
                             <?php foreach ($_SESSION['cart'] as $i) : ?>
-                                <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
-                                    <div class="img-product">
-                                        <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
+                                <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
+                                        <div class="img-product">
+                                            <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
+                                        </div>
+                                        <div class="socks-nameNprice flex">
+                                            <h5 class="socks-title"><?= $i['product_name'] ?></h5>
+                                            <div class="qty-n-price flex">
+                                            <h5>X<?= $i['qty'] ?></h5>
+                                            <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
+                                        </div>
+                                        </div>
                                     </div>
-                                    <div class="socks-nameNprice flex">
-                                        <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                        <h5>X<?= $i['qty'] ?></h5>
-                                        <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
-                                    </div>
-                                </div>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -1220,35 +1224,19 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
         prepareCartTable();    
 
 
-        // const receiver = $('#receiverName'),
-        //     receiverMobile = $('#receiverMobile'),
-        //     receiverAddress = $('#receiverAddress')
 
-        // function formCheck() {
 
-        // $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
-        // console.log(data);
 
-        // if (data.success) {
-        // location.href = 'cart-payment3.php';
-        // // info_bar.removeClass('alert-danger')
-        // //     .addClass('alert-success')
-        // //     .html('新增成功!');
-        //         }
-        //     }, 'json');
-
-        // };
-
-        const shipperEmail = $('.shipperEmail'),
-            shipperMobile = $('.shipperMobile'),
-            receiverMobile = $('.receiverMobile'),
-            coNumber = $('.coNumber');
-
-        const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-
+        const receiver = $('#receiverName'),
+            receiverMobile = $('#receiverMobile'),
+            receiverAddress = $('#receiverAddress');
         
-        function formCheck(){
-        let isPass = true;
+        
+
+        function formCheck() {
+
+        $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
+        console.log(data);
 
         if(! email_re.test(shipperEmail.val())){
             isPass = false;
@@ -1282,21 +1270,21 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
         // }
 
 
-        if(isPass){
-            $.post('cart-payment3.php', $(document.form1).serialize(), function(data){
-                console.log(data);
-                if(data.success){
-                    location.href = 'cart-payment3.php';
-                } else {
-                   
+        if (data.success) {
+        location.href = 'cart-payment3.php';
+        // info_bar.removeClass('alert-danger')
+        //     .addClass('alert-success')
+        //     .html('新增成功!');
                 }
-                
-
             }, 'json');
-        }
 
-        return false;
-        }
+        };
+
+        
+
+        
+        
+
     </script>
 
     <?php require __DIR__ . '/__html_foot.php' ?>
