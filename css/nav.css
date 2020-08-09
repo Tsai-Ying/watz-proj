@@ -448,6 +448,23 @@
         text-align: center;
         line-height: 40px;
     }
+
+    .nav-icon-empty-cart {
+        width: 100%;
+        height: 100%;
+        /* background-color: #ffffff; */
+        border-radius: 15px;
+        /* border: 1px solid rgb(121, 126, 138); */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .img-empty-cart {
+        width: 150px;
+        /* transform: translateX(30px); */
+        /* margin-bottom: 30px; */
+    }
     
     .menu {
         margin-left: 20px;

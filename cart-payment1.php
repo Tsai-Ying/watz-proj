@@ -1005,7 +1005,11 @@ if(empty($_SESSION['cart'])){
 
     function prepareCartTable() {
         $p_items = $('.p_item');
-        
+
+        if ($p_items.length==0){
+            location.href = 'cart-empty.php'
+        }
+
         let total = 0;
 
         // if (!$p_items.length && $('#totalPrice').length) {
@@ -1056,6 +1060,7 @@ if(empty($_SESSION['cart'])){
             action: 'remove',
             sid: sid
         }
+
         $.get('cart-handle.php', sendObj, function(data) {
             setCartCount(data); // navbar
             p_item.remove();

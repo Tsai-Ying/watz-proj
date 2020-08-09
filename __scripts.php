@@ -5,17 +5,20 @@
     const cart_count = $('.cart_count');
     const cart_short_list = $('.cart-short-list');
 
-    $.get('cart-handle.php', function (data) {
-        setCartCount(data);
+    //將資料送到api取得結果
+
+    $.get('cart-handle.php', function(data) {
+        setCartCount(data); //將取得的結果送到function處理
     }, 'json');
+
 
     function setCartCount(data) {
         let count = 0;
+        cart_short_list.empty(); //先清空再append新的內容
         if (data && data.cart && data.cart.length) {
-            cart_short_list.empty();
             for (let i in data.cart) {
                 let item = data.cart[i];
-                let subtotal = item['price']*item['qty']
+                let subtotal = item['price'] * item['qty']
                 count += item['qty'];
                 cart_short_list.append(`
                 <div class="nav-eachsock-list flex">
@@ -31,12 +34,24 @@
                     </div>
                 </div>`)
             }
-            cart_count.css('background','#FF9685');
+            cart_count.css('background', '#FF9685');
             cart_count.text(count);
+
+        } else {
+            cart_short_list.append(`
+            <div class="nav-icon-empty-cart>    
+                <img class="img-empty-cart" src="images/cart-empty.svg" alt="">
+                <h3 class="nav-empty-cart">購物車空空的。</h3>
+            </div>`)
+
+            cart_count.css('background', 'transparent');
+            cart_count.text('');
+
+            // location.href='<?= WEB_ROOT ?>/payment1.php';
         }
     }
 
-    $('.a-cart').click(function(){
+    $('.a-cart').click(function() {
         $('.box-cart-short').toggleClass('show')
     })
 </script>
