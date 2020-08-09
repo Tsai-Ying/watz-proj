@@ -228,9 +228,13 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
     .box-photo-left div {
         width: 120px;
         height: 120px;
-        /* background: white; */
         margin-bottom: 10px;
         cursor: pointer;
+        opacity: .7;
+    }
+
+    .box-photo-left div:hover {
+        opacity: 1;
     }
 
     .box-photo-left div img {
@@ -372,8 +376,24 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
             font-size: .9rem;
         }
 
-        .block-fixed>ul {
-            margin: 20px 0 0 -25px;
+        .block-fixed ul li{
+            margin-right: 15px;
+        }
+
+        .img-select-circle {
+            width: 35px;
+            margin-top: -4px;
+            margin-left: -2.5px;
+        }
+
+        .img-pattern {
+            width: 28px;
+            height: 28px;
+        }
+
+        .img-pattern img{
+            width: 100%;
+            height: 100%;
         }
 
         .bread-crumb {
@@ -876,9 +896,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
                                         <img class="img-select-circle transition" src="images/select circle.svg" alt="">
                                     </div>
                                     <div class="img-pattern">
-
                                         <img src="images/product/<?= $p['img_ID'] ?>-1-<?= $row['pattern'] ?>.jpg" alt="">
-
                                     </div>
                                 </a>
                             </li>
