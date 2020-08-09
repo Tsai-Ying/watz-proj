@@ -99,7 +99,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
     .block-fixed .price {
         text-align: right;
         color: #03588C;
-        margin: 10vh 0 20px 0;
+        margin: 15% 0 20px 0;
         font-weight: 600;
     }
 
@@ -183,7 +183,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
 
     .img-select-circle {
         width: 50px;
-        margin-top: -5px;
+        margin-top: -6px;
         margin-left: -5px;
         position: absolute;
         opacity: 0;
@@ -383,7 +383,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
         .img-select-circle {
             width: 35px;
             margin-top: -4px;
-            margin-left: -2.5px;
+            margin-left: -3px;
         }
 
         .img-pattern {
