@@ -26,7 +26,6 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             height: 640px;
             overflow: hidden;
             position: relative;
-            /* border: 1px solid pink; */
             margin-top: 100px;
             flex-direction: column;
             align-items: center;
@@ -50,8 +49,6 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             height: 500px;
             justify-content: space-evenly;
             margin-bottom: 30px;
-            /* border: 1px solid royalblue; */
-            /* -webkit-transition: all 0.5s ease-in-out; */
         }
 
         .top-block {
@@ -96,6 +93,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         }
 
         .pay-frame.open .open-btn p {
+        font-family: 'Noto Sans TC', sans-serif;
             display: none;
         }
 
@@ -523,6 +521,10 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             cursor: pointer;
 
         }
+        .seemore:active{
+            color: #03588C;
+
+        }
 
         .total-price ul {
             width: 300px;
@@ -564,7 +566,6 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         .hide {
             width: 400px;
             height: 230px;
-            /* height: 500px; */
             background-color: #ffffff;
             border-radius: 15px 15px 15px 0;
             flex-direction: column;
@@ -1040,19 +1041,6 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         }
     });
 
-    // $(".seeMore").click(function () {
-    //     if ($(window).width() < 992) {
-    //         // $(document).ready(function () {
-    //         $(".listScroll").hide();
-    //         $(".seeMore").click(function () {
-    //             $(".listScroll").slideToggle()
-    //             $('#open-btn').toggleClass('close');
-    //         });
-    //         // });
-    //     } else {
-    //         $(".hide").toggleClass("open");
-    //     }
-    // });
 
     //輸入欄底線變色//
     $(".cardNameInput").click(function () {
