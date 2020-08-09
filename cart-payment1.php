@@ -390,11 +390,10 @@ if(empty($_SESSION['cart'])){
         width: 75%;
         height: 100px;
         justify-content: space-between;
-        /* border: 1px solid green; */
     }
 
     .sock-name {
-        width: 30%;
+        width: 100%;
         flex-grow: 1;
         flex-direction: column;
         justify-content: space-between;
@@ -462,7 +461,7 @@ if(empty($_SESSION['cart'])){
         }
 
         .sock-name {
-            width: 60%;
+            width: 100%;
         }
 
         .product-detail {
