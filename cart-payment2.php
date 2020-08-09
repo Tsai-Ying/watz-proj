@@ -335,10 +335,10 @@ $row = $pdo->query($sql)->fetch();
     }
 
     .peper-receipt .info {
+        width: 65%;
         align-items: center;
         justify-content: start;
         margin: 20px 30px;
-        /* border: 1px solid royalblue; */
     }
 
     .cloud-receipt {
@@ -729,6 +729,10 @@ $row = $pdo->query($sql)->fetch();
     .receiverInfo .form-group{
         position: relative;
     }
+    .peper-receipt .info {
+        position: relative;
+
+    }
     .error-frame{
         position: absolute;
         align-items: center;
@@ -739,7 +743,6 @@ $row = $pdo->query($sql)->fetch();
     .error-icon{
         width: 20px;
         height: 20px;
-        cursor: pointer;
         margin-right: 5px;
         display: none;
     }
@@ -855,10 +858,10 @@ $row = $pdo->query($sql)->fetch();
                     </li>
                 </ul>
             </div>
-            <div class="shipping-form flex">
+            <div class="shipping-form flex" >
                 <div class="shipping-form-frame">
                     <h3>訂購資料填寫</h3>
-                    <form class="" name="form1" method="post" novalidate>
+                    <form class="" name="form1" method="post" onsubmit="return formCheck()" novalidate>
                         <ul class="shipperInfo flex">
                             <li class="form-group flex">
                                 <p>訂購人姓名</p>
@@ -867,7 +870,7 @@ $row = $pdo->query($sql)->fetch();
                             </li>
                             <li class="form-group flex">
                                 <p>電話</p>
-                                <input class="shipperPhone" type="text" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>">
+                                <input class="shipperMobile" type="text" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>" id="senderMobile">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -875,16 +878,12 @@ $row = $pdo->query($sql)->fetch();
                             </li>
                             <li class="form-group flex">
                                 <p>E-mail</p>
-                                <input class="shipperemail" type="text" data-val="3" value="<?= htmlentities($row['email']) ?>" name="senderEmail" id="senderEmail">
+                                <input class="shipperemail shipperEmail" type="text" data-val="3" value="<?= htmlentities($row['email']) ?>" name="senderEmail" id="senderShipperEmail">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
                                 </div>
                             </li>
-                            <!-- <li class="flex">
-                            <p>郵遞區號</p>
-                            <input class="shipperZipcode" type="text" data-val="4" maxlength="6" value="">
-                        </li> -->
                             <li class="form-group flex">
                                 <p>地址</p>
                                 <input class="shipperAddress" type="text" data-val="5" id="senderaddress" name="senderaddress" value="<?= htmlentities($row['address']) ?>">
@@ -912,14 +911,6 @@ $row = $pdo->query($sql)->fetch();
                                     <h6 class="flex"></h6>
                                 </div>
                             </li>
-                            <!-- <li class="flex">
-                            <p>E-mail</p>
-                            <input class="receiverEmail" type="text" data-val="3">
-                        </li> -->
-                            <!-- <li class="flex">
-                            <p>郵遞區號</p>
-                                                            <input class="receiverZipcode" type="text" data-val="4" name="receiver">
-                        </li> -->
                             <li class="form-group flex">
                                 <p>地址</p>
                                 <input class="receiverAddress" id="receiverAddress" type="text" data-val="5" name="receiverAddress">
@@ -954,7 +945,11 @@ $row = $pdo->query($sql)->fetch();
                                 </div>
                                 <div class="info form-group flex">
                                     <p>統一編號號碼</p>
-                                    <input class="info-input" type="text">
+                                    <input class="info-input coNumber" type="text">
+                                    <div class="error-frame flex">
+                                    <img class="error-icon flex" src="images/alert.svg">
+                                    <h6 class="flex"></h6>
+                                </div>
                                     
                                 </div>
                                 <div class="info form-group flex">
@@ -986,7 +981,7 @@ $row = $pdo->query($sql)->fetch();
 
                 <div class="flex">
                     <button class="pay-btn btn-blue prev" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment1.php'">回上一頁</button>
-                    <button class="pay-btn btn-coral gopay" onclick="return formCheck()">前往結帳</button>
+                    <button class="pay-btn btn-coral gopay goPay" onclick="return formCheck()">前往結帳</button>
 
                 </div>
             </div>
@@ -1148,20 +1143,17 @@ $row = $pdo->query($sql)->fetch();
         $('.samePplBtn').click(function() {
             if ($(this).is(":checked")) {
                 let NameVal = $('.shipperName').val();
-                let phoneVal = $('.shipperPhone').val();
+                let phoneVal = $('.shipperMobile').val();
                 let emailVal = $('.shipperemail').val();
-                let zipcodeVal = $('.shipperZipcode').val();
                 let addressVal = $('.shipperAddress').val();
                 $(".receiverName").val(NameVal);
                 $(".receiverMobile").val(phoneVal);
                 $(".receiverEmail").val(emailVal);
-                $(".receiverZipcode").val(zipcodeVal);
                 $(".receiverAddress").val(addressVal);;
             } else if ($(this).is(":not(:checked)")) {
                 $(".receiverName").val('');
                 $(".receiverMobile").val('');
                 $(".receiverEmail").val('');
-                $(".receiverZipcode").val('');
                 $(".receiverAddress").val('');
             }
         });
@@ -1189,83 +1181,101 @@ $row = $pdo->query($sql)->fetch();
         // }
 
 
-        const dallorCommas = function(n) {
-            return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        };
+    //     const dallorCommas = function(n) {
+    //     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    // };
 
-        function prepareCartTable() {
-            $p_items = $('.p_item');
-            let total = 0;
+    // function prepareCartTable() {
+    //     $p_items = $('.p_item');
+        
+    //     let total = 0;
 
-            if (!$p_items.length && $('#totalPrice').length) {
-                // location.href = 'product.php';
-                return;
-            }
-            $p_items.each(function() {
-                const sid = $(this).attr('data-sid');
-                const price = $(this).attr('data-price');
-                const quantity = $(this).attr('data-quantity');
+    //     // if (!$p_items.length && $('#totalPrice').length) {
+    //     //     location.href = 'product.php';
+    //     //     return;
+    //     // }
+    //     $p_items.each(function() {
+    //         const sid = $(this).attr('data-sid');
+    //         const price = $(this).attr('data-price');
+    //         const quantity = $(this).attr('data-quantity');
+    //         const shipFee = $('.shipFee').text();
+    //         const discount = $('.discount').text();
 
-                $(this).find('.price').text('NT $' + dallorCommas(price));
-                $(this).find('.qty').val(quantity);
-                $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
-                total += quantity * price;
-                $('#productPrice').text('NT $' + dallorCommas(total));
-                $('#totalPrice').text('NT $' + dallorCommas(total - 60 - 20));
+    //         $(this).find('.price').text('NT $' + dallorCommas(price));
+    //         $(this).find('.qty').val(quantity);
+    //         $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
+    //         total += quantity * price;
+    //         $('#productPrice').text('NT $' + dallorCommas(total));
+    //         $('#totalPrice').text('NT $' + dallorCommas(total+parseInt(shipFee)+parseInt(discount)));
 
-            })
-        }
+    //     })
+    // }
 
-        prepareCartTable();
+    // prepareCartTable();
+
 
 
         // const receiver = $('#receiverName'),
         //     receiverMobile = $('#receiverMobile'),
         //     receiverAddress = $('#receiverAddress')
 
-        function formCheck() {
+        // function formCheck() {
 
-            $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
-                console.log(data);
+        //     $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
+        //         console.log(data);
 
-                if (data.success) {
-                    location.href = 'cart-payment3.php';
-                    // info_bar.removeClass('alert-danger')
-                    //     .addClass('alert-success')
-                    //     .html('新增成功!');
-                }
-            }, 'json');
+        //         if (data.success) {
+        //             location.href = 'cart-payment3.php';
+        //             // info_bar.removeClass('alert-danger')
+        //             //     .addClass('alert-success')
+        //             //     .html('新增成功!');
+        //         }
+        //     }, 'json');
 
-        };
+        // };
 
-        const email = $('#senderEmail');
+        const shipperEmail = $('.shipperEmail'),
+            shipperMobile = $('.shipperMobile'),
+            receiverMobile = $('.receiverMobile'),
+            coNumber = $('.coNumber');
+
         const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
+        
         function formCheck(){
-        email.text('');
-        email.css('border-color', '#F2DE79');
         let isPass = true;
-        console.log('pass');
 
-        if(! email_re.test(email.val())){
+        if(! email_re.test(shipperEmail.val())){
             isPass = false;
-            email.css('border-color', 'red');
-            email.next('.error-frame img').css("display", "flex");
-            email.next('.error-frame h6').html('e-mail格式錯誤');
+            shipperEmail.css('border-color', 'red');
+            shipperEmail.next('.error-frame').children('img').css("display", "block");
+            shipperEmail.next('.error-frame').children('h6').html('e-mail格式錯誤');
             console.log('false');
+            
         }
 
-        // if(password.val().length <6){
+        if(shipperMobile.val().length <10){
+            isPass = false;
+            shipperMobile.css('border-color', 'red');
+            shipperMobile.next('.error-frame').children('img').css("display", "block");
+            shipperMobile.next('.error-frame').children('h6').html('手機號碼格式錯誤');
+            console.log('false');
+        }
+        if(receiverMobile.val().length <10){
+            isPass = false;
+            receiverMobile.css('border-color', 'red');
+            receiverMobile.next('.error-frame').children('img').css("display", "block");
+            receiverMobile.next('.error-frame').children('h6').html('手機號碼格式錯誤');
+            console.log('false');
+        }
+        // if(coNumber.val().length !=8){
         //     isPass = false;
-        //     password.css('border-color', 'red');
-        //     password.next().text('密碼長度太短');
+        //     coNumber.css('border-color', 'red');
+        //     coNumber.next('.error-frame').children('img').css("display", "block");
+        //     coNumber.next('.error-frame').children('h6').html('統一編號格式錯誤');
+        //     console.log('false');
         // }
 
-        // if(nickname.val().trim().length <2){
-        //     isPass = false;
-        //     nickname.css('border-color', 'red');
-        //     nickname.next().text('暱稱長度太短');
-        // }
 
     //     if(isPass){
     //         $.post('cart-payment3.php', $(document.form1).serialize(), function(data){
@@ -1292,7 +1302,6 @@ $row = $pdo->query($sql)->fetch();
     //     }
 
     //     return false;
-    // }
         }
     </script>
 
