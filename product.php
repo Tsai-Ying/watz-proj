@@ -1350,7 +1350,7 @@ $stmt = $pdo->query($sql);
     });
 
     // ----------- selector  --------------
-    $(document).ready(function() {
+  
         if ($(window).width() <= 992) {
 
             $('.selector').hide();
@@ -1365,7 +1365,7 @@ $stmt = $pdo->query($sql);
             return false;
         });
 
-    });
+   
     // -------------selector color---------------------
     
 // document.addEventListener("on", function(data){
@@ -1377,29 +1377,22 @@ $stmt = $pdo->query($sql);
 //         console.log($(document.form1).serialize());
 // });
 
+// document.getElementById("color-btn1").addEventListener("on", function()
+// {
+//     document.getElementById("demo").innerHTML = "Hello World";
+// });
+
+
+
     $('.color-btn1').on('click', function(data) {
         $(".color-in1").prop("checked", true);
         $(".color-in1").attr("checked", true);
         console.log($(document.form1).serialize());
     });
     
-        
-        
-    
 
 
-    // ----------- 商品圖hover --------------
-    $(".product-top-img img").mouseenter(function() {
-        $(this).attr("src", $(this).attr('src').replace("-1.jpg", "-2.jpg"));
-    });
-
-    $(".product-top-img img").mouseleave(function() {
-        $(this).attr("src", $(this).attr('src').replace("-2.jpg", "-1.jpg"));
-    });
-
-
-
-    // ---------------------------  幫我搭----------------------------------
+    // ------------------  幫我搭------------------
 
 
 
@@ -1438,57 +1431,68 @@ $stmt = $pdo->query($sql);
 
 
     // ------- 幫我搭  X close --------
-    $(document).ready(function() {
+   
         $('#close-btn').click(function() {
             $('.help-bg').fadeOut(500);
             return false;
         });
-    });
+   
     // ------------ 幫我搭 show/hide  ---------------
 
-    $(document).ready(function() {
+   
         $('.help-bg').hide();
         $('#product-help-btn').click(function() {
             $('.help-bg').slideDown(800);
             return false;
         });
-    });
+    
     // ---------------------------------------
-    // $('form[name=form1] input[type=checkbox]').click(function() {
-    //     console.log($(document.form1).serialize());
-    //     $.get('product-api.php', $(document.form1).serialize(), function(data) {
-    //         console.log(data);
-    //     },'json')
-    // });
+   
     const productBox = $('.product-box');
 
     $('form[name=form1] input[type=checkbox]').click(function() {
         console.log($(document.form1).serialize());
-        $.get('product-api.php', $(document.form1).serialize(),productGet(data));
-    },'json');
-
+        $.get('product-api.php', $(document.form1).serialize(), function(data) {
+            console.log(data);
+           productGet(data);
+        },'json')
+    });
 
     function productGet(data) {
         let count = 0;
-        if (data && data.row && data.row.length) {
-            productBox.empty();
-            for (let i in data.row) {
-                let item = data.row[i];
-                productBox.append(`
+        productBox.empty(); //先清空再append新的內容
+        if (data && data.rows) {
+            for (let i in data.rows) {
+                let item = data.rows[i];
+                // let subtotal = item['sid'] * item['qty']
+                // count += item['qty'];
+                productBox.append(` 
                 <li class="single-product-box flex">
-                                <a href="product-detail.php?sid=<?= $r['sid'] ?>">
+                                <a href="product-detail.php?sid=${item['sid']}">
                                     <div class="product-top-img flex">
-                                        <img src='images/product/<?= $r['img_ID'] ?>-1.jpg?' alt="">
+                                        <img src='images/product/${item['img_ID']}-1.jpg?' alt="">
                                     </div>
                                     <div class="product-text flex">
-                                        <h5><?= $r['product_name'] ?>&nbsp &nbsp<?= $r['price'] ?>元</h5>
+                                        <h5>${item['product_name']}&nbsp &nbsp
+                                        ${item['price']}元</h5>
                                     </div>
                                 </a>
-                            </li>`)
+                            </li>
+                `)
             }
-        }
-    }
+            // productBox.text(count);
 
+        } 
+    }
+  
+// ----------- 商品圖hover --------------
+$(".product-top-img img").mouseenter(function() {
+        $(this).attr("src", $(this).attr('src').replace("-1.jpg", "-2.jpg"));
+    });
+
+    $(".product-top-img img").mouseleave(function() {
+        $(this).attr("src", $(this).attr('src').replace("-2.jpg", "-1.jpg"));
+    });
 
     
 </script>
