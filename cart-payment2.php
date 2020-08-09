@@ -5,10 +5,10 @@ $id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
 $sql = "SELECT * FROM `members` WHERE `id`= $id";
 $row = $pdo->query($sql)->fetch();
 
-$sender = isset($_SESSION['sender']) ? $_SESSION['sender']['sender'] : $row['name'] ;
-$senderEmail = isset($_SESSION['sender']) ? $_SESSION['sender']['senderEmail'] : $row['email'] ;
-$senderMobile = isset($_SESSION['sender']) ? $_SESSION['sender']['senderMobile'] : $row['mobile'] ;
-$senderAddress = isset($_SESSION['sender']) ? $_SESSION['sender']['senderAddress'] : $row['address'] ;
+$sender = isset($_SESSION['sender']) ? $_SESSION['sender']['sender'] : $row['name'];
+$senderEmail = isset($_SESSION['sender']) ? $_SESSION['sender']['senderEmail'] : $row['email'];
+$senderMobile = isset($_SESSION['sender']) ? $_SESSION['sender']['senderMobile'] : $row['mobile'];
+$senderAddress = isset($_SESSION['sender']) ? $_SESSION['sender']['senderAddress'] : $row['address'];
 
 $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
 
@@ -341,7 +341,7 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
         border-radius: 2px;
         margin-left: 20px;
         outline: none;
-        
+
     }
 
     .peper-receipt .info {
@@ -463,7 +463,7 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
         }
 
         .peper-receipt .info {
-            width:90%;
+            width: 90%;
             margin: 10px 15px;
         }
     }
@@ -634,14 +634,8 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
 
     .socks-nameNprice {
         width: 65%;
-        height: 100%;
-        flex-direction: column;
+        align-items: center;
         justify-content: space-between;
-    }
-    .qty-n-price{
-        width:80%;
-        justify-content: space-between;
-        margin-top: 20px;
     }
 
     @media screen and (max-width: 1200px) {}
@@ -654,9 +648,6 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
         .order-list.showin922 {
             display: flex;
         }
-        .eachsock-list {
-        justify-content: flex-start;
-    }
 
     }
 
@@ -742,30 +733,36 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
             display: flex;
         }
     }
+
     /* ---------------error notice--------- */
-    .shipperInfo .form-group{
+    .shipperInfo .form-group {
         position: relative;
     }
-    .receiverInfo .form-group{
+
+    .receiverInfo .form-group {
         position: relative;
     }
+
     .peper-receipt .form-group {
         position: relative;
 
     }
-    .error-frame{
+
+    .error-frame {
         position: absolute;
         align-items: center;
         justify-content: center;
         flex-direction: row;
         right: 0;
     }
-    .error-icon{
+
+    .error-icon {
         width: 20px;
         height: 20px;
         margin-right: 5px;
         display: none;
     }
+
     .error-frame h6 {
         color: red;
     }
@@ -821,7 +818,18 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
 
                             <div class="socks-detail flex">
                                 <h4>禮盒內容</h4>
-                            
+                                <?php foreach ($_SESSION['cart'] as $i) : ?>
+                                    <div class="eachsock-list p_item flex">
+                                        <div class="img-product">
+                                            <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
+                                        </div>
+                                        <div class="socks-nameNprice flex">
+                                            <h5 class="socks-title"><?= $i['product_name'] ?></h5>
+                                            <h5>X<?= $i['qty'] ?></h5>
+                                            <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
                             </div>
 
                         </div>
@@ -829,18 +837,16 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
                         <div class="socks-detail flex">
                             <h4>單購襪子</h4>
                             <?php foreach ($_SESSION['cart'] as $i) : ?>
-                                <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
-                                        <div class="img-product">
-                                            <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
-                                        </div>
-                                        <div class="socks-nameNprice flex">
-                                            <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                            <div class="qty-n-price flex">
-                                            <h5>X<?= $i['qty'] ?></h5>
-                                            <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
-                                        </div>
-                                        </div>
+                                <div class="eachsock-list p_item flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
+                                    <div class="img-product">
+                                        <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
                                     </div>
+                                    <div class="socks-nameNprice flex">
+                                        <h5 class="socks-title"><?= $i['product_name'] ?></h5>
+                                        <h5>X<?= $i['qty'] ?></h5>
+                                        <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
+                                    </div>
+                                </div>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -876,7 +882,7 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
                         <ul class="shipperInfo flex">
                             <li class="flex">
                                 <p>訂購人姓名</p>
-                                <input class="shipperName" type="text" data-val="1" id="sender" name="sender" required value="<?= htmlentities($sender) ?>">                               
+                                <input class="shipperName" type="text" data-val="1" id="sender" name="sender" required value="<?= htmlentities($sender) ?>">
                             </li>
                             <li class="form-group flex">
                                 <p>電話</p>
@@ -930,15 +936,15 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
                         <div class="pay-choose">
                             <h3>付款方式選擇</h3>
                             <div class="flex">
-                                <div class="button payBtn active" >信用卡</div>
-                                <div class="button payBtn" >到貨付款</div>
+                                <div class="button payBtn active">信用卡</div>
+                                <div class="button payBtn">到貨付款</div>
                             </div>
                         </div>
                         <div class="receipt-choose">
                             <h3>發票選擇</h3>
                             <div class="receipt-choose-frame flex">
                                 <div class="flex">
-                                    <div class="button receiptBtn active"  id="paper" data-val="1">紙本發票</div>
+                                    <div class="button receiptBtn active" id="paper" data-val="1">紙本發票</div>
                                     <div class="button receiptBtn" id="elec" data-val="1">電子發票</div>
                                 </div>
                                 <div class="flex">
@@ -959,9 +965,9 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
                                     <p>統一編號號碼</p>
                                     <input class="info-input coNumber" type="text">
                                     <div class="error-frame flex">
-                                    <img class="error-icon flex" src="images/alert.svg">
-                                    <h6 class="flex"></h6>
-                                </div>                                  
+                                        <img class="error-icon flex" src="images/alert.svg">
+                                        <h6 class="flex"></h6>
+                                    </div>
                                 </div>
                                 <div class="info flex">
                                     <p>公司抬頭名稱</p>
@@ -1044,10 +1050,8 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
                                         </div>
                                         <div class="socks-nameNprice flex">
                                             <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                            <div class="qty-n-price flex">
                                             <h5>X<?= $i['qty'] ?></h5>
                                             <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
-                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1058,18 +1062,16 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
                         <div class="socks-detail flex">
                             <h4>單購襪子</h4>
                             <?php foreach ($_SESSION['cart'] as $i) : ?>
-                                <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
-                                        <div class="img-product">
-                                            <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
-                                        </div>
-                                        <div class="socks-nameNprice flex">
-                                            <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                            <div class="qty-n-price flex">
-                                            <h5>X<?= $i['qty'] ?></h5>
-                                            <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
-                                        </div>
-                                        </div>
+                                <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
+                                    <div class="img-product">
+                                        <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
                                     </div>
+                                    <div class="socks-nameNprice flex">
+                                        <h5 class="socks-title"><?= $i['product_name'] ?></h5>
+                                        <h5>X<?= $i['qty'] ?></h5>
+                                        <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
+                                    </div>
+                                </div>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -1221,70 +1223,87 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
             })
         }
 
-        prepareCartTable();    
+        prepareCartTable();
 
 
+        // const receiver = $('#receiverName'),
+        //     receiverMobile = $('#receiverMobile'),
+        //     receiverAddress = $('#receiverAddress')
+
+        // function formCheck() {
+
+        // $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
+        // console.log(data);
+
+        // if (data.success) {
+        // location.href = 'cart-payment3.php';
+        // // info_bar.removeClass('alert-danger')
+        // //     .addClass('alert-success')
+        // //     .html('新增成功!');
+        //         }
+        //     }, 'json');
+
+        // };
 
 
-
-        const receiver = $('#receiverName'),
-            receiverMobile = $('#receiverMobile'),
-            receiverAddress = $('#receiverAddress');
-        
-        
 
         function formCheck() {
+            const shipperEmail = $('.shipperEmail'),
+            shipperMobile = $('.shipperMobile'),
+            receiverMobile = $('.receiverMobile'),
+            coNumber = $('.coNumber');
 
-        $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
-        console.log(data);
-
-        if(! email_re.test(shipperEmail.val())){
-            isPass = false;
-            shipperEmail.css('border-color', 'red');
-            shipperEmail.next('.error-frame').children('img').css("display", "block");
-            shipperEmail.next('.error-frame').children('h6').html('e-mail格式錯誤');
-            console.log('false');
+            let isPass = true;
             
+            const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+
+            if (! email_re.test(shipperEmail.val())) {
+                isPass = false;
+                shipperEmail.css('border-color', 'red');
+                shipperEmail.next('.error-frame').children('img').css("display", "block");
+                shipperEmail.next('.error-frame').children('h6').html('e-mail格式錯誤');
+                console.log('false');
+
+            }
+
+            if (shipperMobile.val().length < 10) {
+                isPass = false;
+                shipperMobile.css('border-color', 'red');
+                shipperMobile.next('.error-frame').children('img').css("display", "block");
+                shipperMobile.next('.error-frame').children('h6').html('手機號碼格式錯誤');
+                console.log('false');
+            }
+            if (receiverMobile.val().length < 10) {
+                isPass = false;
+                receiverMobile.css('border-color', 'red');
+                receiverMobile.next('.error-frame').children('img').css("display", "block");
+                receiverMobile.next('.error-frame').children('h6').html('手機號碼格式錯誤');
+                console.log('false');
+            }
+            // if(coNumber.val().length !=8){
+            //     isPass = false;
+            //     coNumber.css('border-color', 'red');
+            //     coNumber.next('.error-frame').children('img').css("display", "block");
+            //     coNumber.next('.error-frame').children('h6').html('統一編號格式錯誤');
+            //     console.log('false');
+            // }
+
+
+            if (isPass) {
+                $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
+                    console.log(data);
+                    if (data.success) {
+                        location.href = 'cart-payment3.php';
+                    } else {
+
+                    }
+
+
+                }, 'json');
+            }
+
+            return false;
         }
-
-        if(shipperMobile.val().length <10){
-            isPass = false;
-            shipperMobile.css('border-color', 'red');
-            shipperMobile.next('.error-frame').children('img').css("display", "block");
-            shipperMobile.next('.error-frame').children('h6').html('手機號碼格式錯誤');
-            console.log('false');
-        }
-        if(receiverMobile.val().length <10){
-            isPass = false;
-            receiverMobile.css('border-color', 'red');
-            receiverMobile.next('.error-frame').children('img').css("display", "block");
-            receiverMobile.next('.error-frame').children('h6').html('手機號碼格式錯誤');
-            console.log('false');
-        }
-        // if(coNumber.val().length !=8){
-        //     isPass = false;
-        //     coNumber.css('border-color', 'red');
-        //     coNumber.next('.error-frame').children('img').css("display", "block");
-        //     coNumber.next('.error-frame').children('h6').html('統一編號格式錯誤');
-        //     console.log('false');
-        // }
-
-
-        if (data.success) {
-        location.href = 'cart-payment3.php';
-        // info_bar.removeClass('alert-danger')
-        //     .addClass('alert-success')
-        //     .html('新增成功!');
-                }
-            }, 'json');
-
-        };
-
-        
-
-        
-        
-
     </script>
 
     <?php require __DIR__ . '/__html_foot.php' ?>
