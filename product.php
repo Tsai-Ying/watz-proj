@@ -1,5 +1,5 @@
 <?php require __DIR__ . '/__connect_db.php';
-$pageName = '';  // 這裡放你的pagename
+$pageName = 'product';  // 這裡放你的pagename
 
 
 $qs = [];
@@ -10,7 +10,9 @@ $cate_id = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 
 
 
-$where = "WHERE 1";
+
+$where = " WHERE 1";
+
 // if ($cate_id) {
 //     $where .= " AND `category_sid`=$cate_id ";
 //     $qs['cate'] = $cate_id;
@@ -36,11 +38,21 @@ if ($totalRows > 0) {
         header('Location: product.php?page=' . $totalPages);
         exit;
     }
-   
+    if(!empty($_GET['series'])){
+        $where .= sprintf(" AND `series` IN (%s) ", implode(',', $_GET['series']));
+    }
+    if(!empty($_GET['colors'])){
+        $where .= sprintf(" AND `color` IN (%s) ", implode(',', $_GET['colors']));
+    }
+    if(!empty($_GET['types'])){
+        $where .= sprintf(" AND `type` IN (%s) ", implode(',', $_GET['types']));
+    }
+
     $sql = sprintf("SELECT * FROM `product` %s LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
-    // $sql = sprintf("SELECT * FROM `product` WHERE LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
+
     $rows = $pdo->query($sql)->fetchAll();
 }
+
 $stmt = null;
 $stmt = $pdo->query($sql);
 
@@ -60,13 +72,12 @@ $stmt = $pdo->query($sql);
 
 <style>
     /* -------------- */
-    <?php include __DIR__ . '/product-helpcss.php' ?>
-    
-    body {
+    <?php include __DIR__ . '/product-helpcss.php' ?>body {
         background-size: cover;
         background-image: url("images/BG3.svg");
         background-repeat: repeat-y;
         /* overflow-x: hidden; */
+        user-select: none;
     }
 
     .wrapper {
@@ -239,6 +250,10 @@ $stmt = $pdo->query($sql);
 
     .img-select-circle:hover {
         opacity: 1;
+    }
+
+    .color-in1 {
+        display: none;
     }
 
     /* .color-active {
@@ -1139,49 +1154,54 @@ $stmt = $pdo->query($sql);
 
         <div class="block flex">
             <div class="selector flex">
-                <form name="form1" onsubmit="return false">
-                <ul class="box-series">
+                <form name="form1" onsubmit="return false" method="get" >
+                <!-- <form name="form1" onsubmit="return false" > -->
+                    <ul class="box-series">
 
-                    <p>Series</p>
+                        <p>Series</p>
 
-                    <li> <label class="cursor">
-                            <input type="checkbox" name="series[]" value="1" class="cursor">芒果派對</label></li>
-                    <li> <label class="cursor"><input type="checkbox" name="series[]" value="2" class="cursor">群魔亂舞</label></li>
-                    <li><label class="cursor"><input type="checkbox" name="series[]" value="3" class="cursor">灰姑娘的水晶襪</label></li>
-                    <li> <label class="cursor"><input type="checkbox" name="series[]" value="4" class="cursor">素色流行</label></li>
-                    <li> <label class="cursor"><input type="checkbox" name="series[]" value="5" class="cursor">幾何色塊</label></li>
-                    <li> <label class="cursor"><input type="checkbox" name="series[]" value="6" class="cursor">美式風格</label></li>
-                </ul>
-                <div class="box-color">
-                    <p>Color</p>
-                    <ul class="color-btn-box flex">
-                        <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn1 btn-border cursor"></button></li>
-                        <li class="flex">
-                            <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn2 btn-border cursor"></button></li>
-                        <li class="flex">
-                            <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn3 btn-border cursor"></button></li>
-                        <li class="flex">
-                            <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn4 btn-border cursor"></button></li>
-                        <li class="flex">
-                            <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn5 btn-border cursor"></button></li>
-                        <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn6 btn-border cursor"></button></li>
-                        <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn7 cursor"></button></li>
-                        <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn8 btn-border cursor"></button></li>
+                        <li> <label class="cursor">
+                                <input type="checkbox" name="series[]" value="1" class="cursor">芒果派對</label></li>
+                        <li> <label class="cursor"><input type="checkbox" name="series[]" value="2" class="cursor">群魔亂舞</label></li>
+                        <li><label class="cursor"><input type="checkbox" name="series[]" value="3" class="cursor">灰姑娘的水晶襪</label></li>
+                        <li> <label class="cursor"><input type="checkbox" name="series[]" value="4" class="cursor">素色流行</label></li>
+                        <li> <label class="cursor"><input type="checkbox" name="series[]" value="5" class="cursor">幾何色塊</label></li>
+                        <li> <label class="cursor"><input type="checkbox" name="series[]" value="6" class="cursor">美式風格</label></li>
                     </ul>
-                </div>
-                <div class="box-type ">
-                    <p>Type</p>
-                    <div class="type-box flex">
-                        <div class="img-selector flex"><img src="images/selector.svg"></div>
-                        <ul class="type-btn-box">
-                            <li> <label class="type-active cursor"><input type="checkbox" name="types[]" value="1" class="cursor">長襪</label></li>
-                            <li><label class="type-active cursor"><input type="checkbox" name="types[]" value="2" class="cursor">短襪</label></li>
-                            <li> <label class="cursor"><input type="checkbox" name="types[]" value="3" class="cursor">踝襪</label></li>
-                            <li> <label class="cursor"><input type="checkbox" name="types[]" value="4" class="cursor">隱形襪</label></li>
+                    <div class="box-color">
+                        <p>Color</p>
+                        <ul class="color-btn-box flex">
+                            <li class="flex">
+                                <button class="color-btn1 btn-border cursor" id="color-btn1"></button>
+                                <!-- <img class="img-select-circle transition active" src="images/select circle.svg" alt=""> -->
+                                <input type="checkbox" id="colorIn1"name="color[]" value="1" class="cursor color-in1 " onclick="showInfo()">
+                            </li>
+                            <li class="flex">
+                                <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn2 btn-border cursor"></button></li>
+                            <li class="flex">
+                                <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn3 btn-border cursor"></button></li>
+                            <li class="flex">
+                                <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn4 btn-border cursor"></button></li>
+                            <li class="flex">
+                                <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn5 btn-border cursor"></button></li>
+                            <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn6 btn-border cursor"></button></li>
+                            <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn7 cursor"></button></li>
+                            <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn8 btn-border cursor"></button></li>
                         </ul>
                     </div>
-                    <div class="select-check-btn cursor">確認</div>
-                </div>
+                    <div class="box-type ">
+                        <p>Type</p>
+                        <div class="type-box flex">
+                            <div class="img-selector flex"><img src="images/selector.svg"></div>
+                            <ul class="type-btn-box">
+                                <li> <label class="type-active cursor"><input type="checkbox" name="types[]" value="1" class="cursor">長襪</label></li>
+                                <li><label class="type-active cursor"><input type="checkbox" name="types[]" value="2" class="cursor">短襪</label></li>
+                                <li> <label class="cursor"><input type="checkbox" name="types[]" value="3" class="cursor">踝襪</label></li>
+                                <li> <label class="cursor"><input type="checkbox" name="types[]" value="4" class="cursor">隱形襪</label></li>
+                            </ul>
+                        </div>
+                        <div class="select-check-btn cursor">確認</div>
+                    </div>
                 </form>
             </div>
             <div class="block-right flex">
@@ -1210,21 +1230,21 @@ $stmt = $pdo->query($sql);
                     </div>
                     <ul class="product-box
                         flex">
-                  
+
                         <?php foreach ($rows as $r) : ?>
                             <li class="single-product-box flex">
-                            <a href="product-detail.php?sid=<?= $r['sid'] ?>">
-                                <div class="product-top-img flex">
-                                    <img src='images/product/<?= $r['img_ID'] ?>-1.jpg?' alt="">
-                                </div>
-                                <div class="product-text flex">
-                                    <h5><?= $r['product_name'] ?>&nbsp &nbsp<?= $r['price'] ?>元</h5>
-                                    <!-- <img src="images/color1.svg" alt=""> -->
-                                </div>
+                                <a href="product-detail.php?sid=<?= $r['sid'] ?>">
+                                    <div class="product-top-img flex">
+                                        <img src='images/product/<?= $r['img_ID'] ?>-1.jpg?' alt="">
+                                    </div>
+                                    <div class="product-text flex">
+                                        <h5><?= $r['product_name'] ?>&nbsp &nbsp<?= $r['price'] ?>元</h5>
+                                        <!-- <img src="images/color1.svg" alt=""> -->
+                                    </div>
                                 </a>
                             </li>
                         <?php endforeach; ?>
-                      
+
 
                         <!-- <li class="single-product-box flex">
                             <div class="product-top-img flex">
@@ -1279,7 +1299,7 @@ $stmt = $pdo->query($sql);
                                 </a>
                             </li>
                         </ul>
-                  
+
                     <?php endif; ?>
                 </div>
 
@@ -1346,37 +1366,45 @@ $stmt = $pdo->query($sql);
         });
 
     });
-    // -------------selector active---------------------
+    // -------------selector color---------------------
     
-        // if ($(".box-series li").click) {
+// document.addEventListener("on", function(data){
+//     document.getElementById("colorIn1")
+//     $('.color-btn1').click(function() {
+//         $("#colorIn1").prop("checked", true);
+//         $("#colorIn1").attr("checked", true);
+//         });
+//         console.log($(document.form1).serialize());
+// });
 
-        //     $(this).addClass("series-active");
-          
+    $('.color-btn1').on('click', function(data) {
+        $(".color-in1").prop("checked", true);
+        $(".color-in1").attr("checked", true);
+        console.log($(document.form1).serialize());
+    });
+    
+        
+        
+    
 
-        // }else{
-        //     $(this).removeClass("series-active");
-        // }
-       
-
-   
 
     // ----------- 商品圖hover --------------
-    $(".product-top-img img").mouseenter(function(){
-    $(this).attr("src", $(this).attr('src').replace("-1.jpg","-2.jpg"));
-});
+    $(".product-top-img img").mouseenter(function() {
+        $(this).attr("src", $(this).attr('src').replace("-1.jpg", "-2.jpg"));
+    });
 
-$(".product-top-img img").mouseleave(function(){
-    $(this).attr("src", $(this).attr('src').replace("-2.jpg","-1.jpg"));
-});
-
-
-
-// ---------------------------  幫我搭----------------------------------
+    $(".product-top-img img").mouseleave(function() {
+        $(this).attr("src", $(this).attr('src').replace("-2.jpg", "-1.jpg"));
+    });
 
 
 
-//----- 幫我搭 滑動 -------
-let slideIndex = 0;
+    // ---------------------------  幫我搭----------------------------------
+
+
+
+    //----- 幫我搭 滑動 -------
+    let slideIndex = 0;
     let slideCount = $("#blockPhoto ul").find("li").length;
     let slideWidth = $("#blockPhoto ul li").width();
     $("#blockPhoto ul").css("left", 0)
@@ -1425,16 +1453,44 @@ let slideIndex = 0;
             return false;
         });
     });
-    
-    $('form[name=form1] input[type=checkbox]').click(function(){
+    // ---------------------------------------
+    // $('form[name=form1] input[type=checkbox]').click(function() {
+    //     console.log($(document.form1).serialize());
+    //     $.get('product-api.php', $(document.form1).serialize(), function(data) {
+    //         console.log(data);
+    //     },'json')
+    // });
+    const productBox = $('.product-box');
+
+    $('form[name=form1] input[type=checkbox]').click(function() {
         console.log($(document.form1).serialize());
-        $.get('product-api.php', $(document.form1).serialize(), function(data){
-            console.log(data);
-        })
-    });
+        $.get('product-api.php', $(document.form1).serialize(),productGet(data));
+    },'json');
 
 
+    function productGet(data) {
+        let count = 0;
+        if (data && data.row && data.row.length) {
+            productBox.empty();
+            for (let i in data.row) {
+                let item = data.row[i];
+                productBox.append(`
+                <li class="single-product-box flex">
+                                <a href="product-detail.php?sid=<?= $r['sid'] ?>">
+                                    <div class="product-top-img flex">
+                                        <img src='images/product/<?= $r['img_ID'] ?>-1.jpg?' alt="">
+                                    </div>
+                                    <div class="product-text flex">
+                                        <h5><?= $r['product_name'] ?>&nbsp &nbsp<?= $r['price'] ?>元</h5>
+                                    </div>
+                                </a>
+                            </li>`)
+            }
+        }
+    }
 
+
+    
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
