@@ -191,6 +191,7 @@ if(empty($_SESSION['cart'])){
         transform: rotate(180deg);
         margin-right: 20px;
         transition: .5s;
+        cursor: pointer;
     }
 
     .box-watzbox-title img.close {
@@ -243,7 +244,7 @@ if(empty($_SESSION['cart'])){
         background-color: #f2de79a6;
     }
 
-    .step3 {
+    .step2 {
         width: 600px;
         opacity: 1;
         align-items: center;
@@ -252,20 +253,20 @@ if(empty($_SESSION['cart'])){
         display: none;
     }
 
-    .step3 img {
+    .step2 img {
         width: 50px;
     }
 
-    .step3 h4 {
+    .step2 h4 {
         color: #FF9685;
     }
 
-    .step3 h5 {
+    .step2 h5 {
         color: #FF9685;
         display: none;
     }
 
-    .step3.show {
+    .step2.show {
         display: flex;
     }
 
@@ -290,15 +291,15 @@ if(empty($_SESSION['cart'])){
             margin: 10px;
         }
 
-        .step3 img {
+        .step2 img {
             width: 40px;
         }
 
-        .step3 h4 {
+        .step2 h4 {
             display: none;
         }
 
-        .step3 h5 {
+        .step2 h5 {
             display: block;
         }
     }
@@ -403,7 +404,7 @@ if(empty($_SESSION['cart'])){
     .socks-amount-choose {
         width: 65%;
         align-items: flex-end;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     .quantity-choose {
@@ -563,6 +564,7 @@ if(empty($_SESSION['cart'])){
         border: 1px solid #F2DE79;
         border-radius: 2px 0 0 2px;
         outline: none;
+        padding: 0 10px;
     }
 
     .coupon .button {
@@ -780,7 +782,7 @@ if(empty($_SESSION['cart'])){
                         <div class="boxChooseDetail flex" id="sockInBox">
 
                         </div>
-                        <div class="step3 flex" id="step3">
+                        <div class="step2 flex" id="step2">
                             <img src="images/dotted-line.svg" alt="">
                             <h4>Step2 請加選雙襪子到您的包裝盒裡</h4>
                             <h5>Step2 請加選襪子到<br>您的包裝盒裡</h5>
@@ -831,7 +833,7 @@ if(empty($_SESSION['cart'])){
                             <button class="button ShipBtn" href="#">宅配</button>
                             <button class="button conv-store ShipBtn" href="#">超商取貨</button>
                         </div>
-                        <p>只差60元即享1000元免運！</p>
+                        <p class="noShipFee">只差60元即享1000元免運！</p>
                     </div>
                 </div>
                 <div class="total-price flex">
@@ -911,7 +913,7 @@ if(empty($_SESSION['cart'])){
         $(".box-watzbox-title").click(function() {
             $(".hide-choose-box").slideToggle()
             $('#open-btn').toggleClass('close');
-            $('.step3').removeClass('show');
+            $('.step2').removeClass('show');
             $('.add-box').removeClass('show');
         });
     });
@@ -930,19 +932,21 @@ if(empty($_SESSION['cart'])){
         });
         $(this).toggleClass('active');
 
-
+        
 
         if ($(this).hasClass('active')) {
-            $('.step3').addClass('show');
+            $('.step2').addClass('show');
             $('.add-box').addClass('show');
-            $('.p_item').children(".removeInBox").css("display", "none");
-            $('.p_item').children(".addBox").css("display", "flex");
+                 
         } else {
-            $('.step3').removeClass('show');
+            $('.step2').removeClass('show');
             $('.add-box').removeClass('show');
             const box_item = $('#sockInBox').find('.p_item');
             $('#sockOutBox').append(box_item);
-            // console.log();
+            $(box_item).find(".removeInBox").css("display", "none");
+            $(box_item).find(".addBox").css("display", "flex");
+            console.log('cancal remove');
+            
         }
 
     });
@@ -1005,8 +1009,9 @@ if(empty($_SESSION['cart'])){
 
     function prepareCartTable() {
         $p_items = $('.p_item');
+        console.log(p_items.length)
 
-        if ($p_items.length==0){
+        if (p_items.length==0){
             location.href = 'cart-empty.php'
         }
 
@@ -1023,13 +1028,22 @@ if(empty($_SESSION['cart'])){
             const shipFee = $('.shipFee').text();
             const discount = $('.discount').text();
 
+
             $(this).find('.price').text('NT $' + dallorCommas(price));
             $(this).find('.qty').val(quantity);
             $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
             total += quantity * price;
-            $('#productPrice').text('NT $' + dallorCommas(total));
-            $('#totalPrice').text('NT $' + dallorCommas(total+parseInt(shipFee)+parseInt(discount)));
+            const totalPrice = total+parseInt(shipFee)+parseInt(discount);
 
+
+            $('#productPrice').text('NT $' + dallorCommas(total));
+            $('#totalPrice').text('NT $' + dallorCommas(totalPrice));
+
+            if ( totalPrice < 1000){
+                $('.noShipFee').text(`只差${ 1000 - totalPrice}元即享1000元免運！`);
+            }else{
+                $('.noShipFee').text(`消費金額已免運！`);
+            }
         })
     }
 
@@ -1060,7 +1074,6 @@ if(empty($_SESSION['cart'])){
             action: 'remove',
             sid: sid
         }
-
         $.get('cart-handle.php', sendObj, function(data) {
             setCartCount(data); // navbar
             p_item.remove();
