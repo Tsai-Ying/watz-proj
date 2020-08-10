@@ -177,7 +177,7 @@ $stmt = $pdo->query($sql);
     /* ---------------------- selector   ------------------------- */
     .selector {
         width: 300px;
-        height: 860px;
+        height: 800px;
         flex-direction: column;
         justify-content: space-evenly;
     }
@@ -239,8 +239,7 @@ $stmt = $pdo->query($sql);
         justify-content: center;
         margin: 3px;
         position: relative;
-        
-        background:url("images/select circle.svg") no-repeat;
+        /* background:url('images/select circle.svg')no-repeat; */
     }
 
     .img-select-circle {
@@ -328,39 +327,7 @@ $stmt = $pdo->query($sql);
         border: transparent;
     }
 
-    /* .color-btn1 {
-        background: #FF8B78;
-
-    }
-
-    .color-btn2 {
-        background: #FFE45E;
-    }
-
-    .color-btn3 {
-        background: #29A6C2;
-    } */
-
-    /* .color-btn4 {
-        background: #AADF3A;
-    }
-
-    .color-btn5 {
-        background: #DFB5DF;
-    }
-
-    .color-btn6 {
-        background: #A57E70;
-    }
-
-    .color-btn7 {
-        background: #FFFFFF;
-        border: 1px solid #707070;
-    }
-
-    .color-btn8 {
-        background: #636363;
-    } */
+   
 
     /* ----------selector type ----------- */
     .box-type {
@@ -1211,9 +1178,7 @@ $stmt = $pdo->query($sql);
                 <form name="form1" onsubmit="return false" method="get">
                     <!-- <form name="form1" onsubmit="return false" > -->
                     <ul class="box-series">
-
                         <p>Series</p>
-
                         <li> <label class="cursor">
                                 <input type="checkbox" name="series[]" value="1" class="cursor">芒果派對</label></li>
                         <li> <label class="cursor"><input type="checkbox" name="series[]" value="2" class="cursor">群魔亂舞</label></li>
@@ -1421,16 +1386,16 @@ $stmt = $pdo->query($sql);
         autoplay: true,
         transition: 'slideLeft2',
         slides: [{
-                src: "images/product/asym06-1.jpg"
+                src: "images/asym06-1.jpg"
             },
             {
-                src: "images/product/asym06-2.jpg"
+                src: "images/asym06-2.jpg"
             },
             {
-                src: "images/product/asym10-1.jpg"
+                src: "images/asym10-1.jpg"
             },
             {
-                src: "images/product/asym02-2.jpg"
+                src: "images/asym02-2.jpg"
             }
         ]
     });
@@ -1450,26 +1415,14 @@ $stmt = $pdo->query($sql);
         $('.selector').slideUp(1000);
         return false;
     });
-
+    // ----active狀態-----
+    
+    $('.box-series li').click(function() {
+        $('.selector').slideUp(1000);
+        return false;
+    });
 
     // -------------selector color---------------------
-
-    // document.addEventListener("on", function(data){
-    //     document.getElementById("color-btn")
-    //     $('#color-btn').click(function() {
-    //         $("#colorIn").prop("checked", true);
-    //         $("#colorIn").attr("checked", true);
-    //         });
-
-    //         console.log($(document.form1).serialize());
-    // });
-
-    // document.getElementById("color-btn1").addEventListener("on", function()
-    // {
-    //     document.getElementById("demo").innerHTML = "Hello World";
-    // });
-
-
 
     // $('.color-btn1').on('click', function(data) {
     //     $(".color-in1").prop("checked", true);
@@ -1477,9 +1430,14 @@ $stmt = $pdo->query($sql);
     //     console.log($(document.form1).serialize());
     // });
 
-    $(".color-in1").mouseenter(function() {
-        $(".img-select-circle").css( "opacity","1" );
-    });
+
+
+    $(".color-btn-box li").hover(function(){
+    $(this).css({"transition":"linear 1s","background":"url('images/select circle.svg') no-repeat"});
+},function(){
+    $(this).css({"transition":"linear 1s","background":"none"});
+});
+  
 
     // ------------------  幫我搭------------------
 
