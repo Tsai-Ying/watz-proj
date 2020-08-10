@@ -13,6 +13,8 @@
     * {
         box-sizing: border-box;
         letter-spacing: 2px;
+        font-family: 'Noto Sans TC', sans-serif;
+
     }
     
     body {
