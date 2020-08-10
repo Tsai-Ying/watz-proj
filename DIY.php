@@ -1490,13 +1490,8 @@ $pageName = 'DIY';  // 這裡放你的pagename
 <?php include __DIR__ . '/__scripts.php' ?>
 
 <script>
-    // anchor point
-    $(".go-next").click(function() {
-        let nextPosition = $(".block-bottom").offset().top;
-        console.log(nextPosition)
-        $("html").animate({
-            scrollTop: nextPosition
-        })
+    // 定義tutorial的function
+    const openTutorial = () => {
         $(".modal").fadeIn(500);
         $(".modal").css({
             "display": "block"
@@ -1507,45 +1502,17 @@ $pageName = 'DIY';  // 這裡放你的pagename
         $(".dash-box").css("display", "block")
         $(".shape-color").addClass("transition")
         $(".shape-color").addClass("move-left")
-    })
+    };
 
-    // shape-color move left
-    $(".color-active").click(function(event) {
-        console.log("click", event)
-        // $(this).css({
-        //     transform: "translateX(-500px)",
-        // })
-        $(".shape-color").addClass("transition")
-        $(".shape-color").toggleClass("move-left")
-    })
-
-    // 打開使用說明
-    $(".tutorial").click(function() {
-        console.log("click")
-        $(".modal").fadeIn(500);
-        $(".modal").css("display", "block")
-
-        $(".tutorial#tutor2").css("display", "block")
-        $(".dash-box").css("display", "block")
-        $(".shape-color").addClass("transition")
-        $(".shape-color").addClass("move-left")
-    })
-
-
-    $(".tutorial#tutor2").click(function() {
+    const closeTutorial = () => {
         $(".modal").fadeOut(500);
-        $(".tutorial#tutor2").css({
-            "display": "none"
-        })
-        $(".dash-box").css({
-            "display": "none"
-        })
+        $(".tutorial#tutor2").css("display", "none")
+        $(".dash-box").css("display", "none")
         $(".shape-color").removeClass("move-left")
-    })
+    };
 
-    // mousemove
-    // default tutorial
 
+    // 定義mousemove function
     let hasMouseMove = false;
 
     const followCursor = () => {
@@ -1559,18 +1526,48 @@ $pageName = 'DIY';  // 這裡放你的pagename
         })
     };
 
+
+    // anchor point
+    $(".go-next").click(function() {
+        let nextPosition = $(".block-bottom").offset().top;
+        console.log(nextPosition)
+        $("html").animate({
+            scrollTop: nextPosition
+        })
+        openTutorial();
+    })
+
+    // shape-color move left
+    $(".color-active").click(function(event) {
+        console.log("click", event)
+        // $(this).css({
+        //     transform: "translateX(-500px)",
+        // })
+        $(".shape-color").addClass("transition")
+        $(".shape-color").toggleClass("move-left")
+    })
+
+
+
+    // 打開使用說明
+    $(".tutorial").click(function() {
+        // console.log("click")
+        openTutorial();
+    })
+
+
+    $(".tutorial#tutor2").click(function() {
+        closeTutorial();
+    })
+
+
+    // mousemove
     if ($(window).width() > 992) {
         if (!hasMouseMove) {
-                followCursor();
+            followCursor();
         }
     } else {
-        $(".modal").fadeIn(500);
-        $(".spot").css("display", "none")
-        $(".modal").css("display", "block")
-        $(".tutorial#tutor2").css("display", "block")
-        $(".dash-box").css("display", "block")
-        $(".shape-color").addClass("transition")
-        $(".shape-color").addClass("move-left")
+        openTutorial();
     }
 
     $(window).resize(function() {
@@ -1579,26 +1576,17 @@ $pageName = 'DIY';  // 這裡放你的pagename
             if (!hasMouseMove) {
                 followCursor();
             }
-            $(".modal").fadeOut(500);
-            $(".tutorial#tutor2").css("display", "none")
-            $(".dash-box").css("display", "none")
-            $(".shape-color").removeClass("move-left")
+            closeTutorial();
         } else {
             $(".spot").css("display", "none")
             $(".diy-pattern").css("display", "none")
-            $(".modal").fadeIn(500);
-            $(".modal").css("display", "block")
-
-            $(".tutorial#tutor2").css("display", "block")
-            $(".dash-box").css("display", "block")
-            $(".shape-color").addClass("transition")
-            $(".shape-color").addClass("move-left")
+            openTutorial();
         }
     })
 
     //DIY change Pattern
     $(".img-pattern-watz img").click(function() {
-  
+
         $(".diy-area").attr("src", imgSrc)
     })
     $(".img-pattern-stripe img").click(function() {
@@ -1630,7 +1618,6 @@ $pageName = 'DIY';  // 這裡放你的pagename
             "stroke": shapecolor
         })
     })
- 
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
