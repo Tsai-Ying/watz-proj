@@ -4,6 +4,8 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 if (empty($_SESSION['cart'])) {
     header('Location: cart-empty.php');
 }
+
+$watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['receiver']['watzbox_style'] : Null;
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
@@ -793,13 +795,13 @@ if (empty($_SESSION['cart'])) {
                         <h4>Step1 想要什麼包裝呢?</h4>
                         <ul class="watzbox-choose flex" id="">
 
-                            <li class="img-watzbox imgWatzBox" id="watzbox1">
+                            <li class="img-watzbox imgWatzBox <?= $watzbox_style=='watzbox1'? 'active':'' ?>" id="watzbox1">
                                 <img class="transition" src="images/watzbox1-1.png" alt="">
                             </li>
-                            <li class="img-watzbox imgWatzBox" id="watzbox2">
+                            <li class="img-watzbox imgWatzBox <?= $watzbox_style=='watzbox2'? 'active':'' ?>" id="watzbox2">
                                 <img class="transition" src="images/watzbox2-1.png" alt="">
                             </li>
-                            <li class="img-watzbox imgWatzBox" id="watzbox3">
+                            <li class="img-watzbox imgWatzBox <?= $watzbox_style=='watzbox3'? 'active':'' ?>" id="watzbox3">
                                 <img class="transition" src="images/watzbox3-1.png" alt="">
                             </li>
                         </ul>
@@ -1001,6 +1003,16 @@ if (empty($_SESSION['cart'])) {
         if ($(this).hasClass('active')) {
             $('.step2').addClass('show');
             $('.add-box').addClass('show');
+            const watzbox_style = $(this).attr('id');
+            console.log(watzbox_style);
+
+            const sendObj = {
+                    action: 'getWatzboxStyle',
+                    watzbox_style
+                }
+                $.get('cart-handle.php', sendObj, function(data) {
+                    console.log(data);
+                }, 'json');
 
         } else {
             $('.step2').removeClass('show');
@@ -1017,7 +1029,6 @@ if (empty($_SESSION['cart'])) {
                 const p_item = box_item.eq(i);
                 const sid = p_item.attr('data-sid');
 
-
                 const sendObj = {
                     action: 'moveOutOfBox',
                     sid: sid
@@ -1026,6 +1037,15 @@ if (empty($_SESSION['cart'])) {
                     console.log(data);
                 }, 'json');
             }
+
+            const sendObj2 = {
+                    action: 'removeWatzboxStyle'
+                }
+
+                $.get('cart-handle.php', sendObj2, function(data) {
+                    console.log(data);
+                }, 'json');
+                
         }
 
     });

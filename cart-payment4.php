@@ -28,24 +28,27 @@ foreach ($_SESSION['cart'] as $k=>$v){
 // *** 抓到當下的價格資訊 *** end
 
 // 寫入 orders
-$sql = "INSERT INTO `orders`(`member_sid`, `amount`, `receiver`, `receiver_mobile`, `receiver_address`, `order_date`) VALUES (?, ? ,? ,? ,? , NOW())";
+$watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['receiver']['watzbox_style'] : Null;
+$sql = "INSERT INTO `orders`(`member_sid`, `amount`, `watzbox_style`, `receiver`, `receiver_mobile`, `receiver_address`, `note`, `order_date`) VALUES (?, ?, ?, ? ,? ,? ,? , NOW())";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([
     $_SESSION['member']['id'],
     $totalPrice,
+    $watzbox_style,
     $_SESSION['receiver']['receiver'],
     $_SESSION['receiver']['receiverMobile'],
     $_SESSION['receiver']['receiverAddress'],
+    $_SESSION['receiver']['note'],
 ]);
 
 $order_sid = $pdo->lastInsertId();  // 訂單流水號
 
 // 寫入 order_details
-$sql2 = "INSERT INTO `order_details`(`order_sid`, `product_sid`, `price`, `qty`) VALUES (?,?,?,?)";
+$sql2 = "INSERT INTO `order_details`(`order_sid`, `product_sid`, `watzbox`, `price`, `qty`) VALUES (?,?,?,?,?)";
 $stmt2 = $pdo->prepare($sql2);
 
 foreach($_SESSION['cart'] as $i){
-    $stmt2->execute([$order_sid, $i['sid'], $i['price'] , $i['qty'] ]);
+    $stmt2->execute([$order_sid, $i['sid'], $i['watzbox'], $i['price'] , $i['qty'] ]);
 }
 
 // 清除購物車內容
