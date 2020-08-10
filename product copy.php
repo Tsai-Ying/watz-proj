@@ -1,48 +1,63 @@
 <?php require __DIR__ . '/__connect_db.php';
-$pageName = '';  // 這裡放你的pagename
+$pageName = 'product';  // 這裡放你的pagename
 
 
-$qs = [];
-$perPage = 12;
+
+$perPage = 15;
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-$cate_id = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
-// $search = isset($_GET['search']) ? $_GET['search'] : '';
 
-$where = "WHERE 1";
-// if ($cate_id) {
-//     $where .= " AND `category_sid`=$cate_id ";
-//     $qs['cate'] = $cate_id;
-// }
+
+
+
+
+$where = " WHERE 1";
 
 $rows = [];
 $totalPages = 0;
 $t_sql = "SELECT COUNT(1) FROM `product` $where";
 $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 
+
+
+
 if ($totalRows > 0) {
     $totalPages = ceil($totalRows / $perPage);
     if ($page < 1) {
-        header('Location: product-list.php');
+        header('Location: product.php');
         exit;
     }
     if ($page > $totalPages) {
-        header('Location: product-list.php?page=' . $totalPages);
+        header('Location: product.php?page=' . $totalPages);
         exit;
     }
+    if (!empty($_GET['series'])) {
+        $where .= sprintf(" AND `series` IN (%s) ", implode(',', $_GET['series']));
+    }
+    if (!empty($_GET['colors'])) {
+        $where .= sprintf(" AND `color` IN (%s) ", implode(',', $_GET['colors']));
+    }
+    if (!empty($_GET['types'])) {
+        $where .= sprintf(" AND `type` IN (%s) ", implode(',', $_GET['types']));
+    }
+
     $sql = sprintf("SELECT * FROM `product` %s LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
+
     $rows = $pdo->query($sql)->fetchAll();
 }
 
-// $c_sql = "SELECT * FROM `categories` ";
+$stmt = null;
+$stmt = $pdo->query($sql);
 
-// $cates = $pdo->query($c_sql)->fetchAll();
+
+
+
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
 <!--jquery-plugin-vegas  -->
 <link rel="stylesheet" href="css/vegas.min.css">
 <!--jquery-plugin-vegas  -->
-<!-- <link rel="stylesheet" href="css/help.css"> -->
+
 
 <style>
     /* -------------- */
@@ -51,6 +66,7 @@ if ($totalRows > 0) {
         background-image: url("images/BG3.svg");
         background-repeat: repeat-y;
         /* overflow-x: hidden; */
+        user-select: none;
     }
 
     .wrapper {
@@ -206,24 +222,90 @@ if ($totalRows > 0) {
     }
 
     .color-btn-box li {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
         align-items: center;
         justify-content: center;
         margin: 3px;
         position: relative;
+
+        background: url("images/select circle.svg") no-repeat;
     }
 
     .img-select-circle {
         width: 30px;
         height: 30px;
         position: absolute;
-        opacity: 0;
+        /* opacity: 1; */
+        z-index: -20;
     }
 
     .img-select-circle:hover {
         opacity: 1;
     }
+
+
+
+
+    .color-lb {
+        padding: 0;
+        margin-right: 3px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .color-in[type=checkbox] {
+        display: none;
+    }
+
+    .color-in[type=checkbox]+span {
+        display: inline-block;
+        padding: 3px 6px;
+        user-select: none;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        margin-left: 1px;
+    }
+
+    #color-in1[type=checkbox]+span {
+        background-color: #FF8B78;
+    }
+
+    #color-in2[type=checkbox]+span {
+        background-color: #FFE45E;
+    }
+
+    #color-in3[type=checkbox]+span {
+        background-color: #29A6C2;
+    }
+
+    #color-in4[type=checkbox]+span {
+        background-color: #AADF3A;
+    }
+
+    #color-in5[type=checkbox]+span {
+        background-color: #DFB5DF;
+    }
+
+    #color-in6[type=checkbox]+span {
+        background-color: #A57E70;
+    }
+
+    #color-in7[type=checkbox]+span {
+        background-color: #FFFFFF;
+        border: 1px solid #707070;
+    }
+
+    #color-in8[type=checkbox]+span {
+        background-color: #636363;
+    }
+
+    /* .color-in1[type=checkbox]:checked+span {
+        
+    } */
 
     /* .color-active {
             width: 30px;
@@ -243,7 +325,7 @@ if ($totalRows > 0) {
         border: transparent;
     }
 
-    .color-btn1 {
+    /* .color-btn1 {
         background: #FF8B78;
 
     }
@@ -254,9 +336,9 @@ if ($totalRows > 0) {
 
     .color-btn3 {
         background: #29A6C2;
-    }
+    } */
 
-    .color-btn4 {
+    /* .color-btn4 {
         background: #AADF3A;
     }
 
@@ -275,7 +357,7 @@ if ($totalRows > 0) {
 
     .color-btn8 {
         background: #636363;
-    }
+    } */
 
     /* ----------selector type ----------- */
     .box-type {
@@ -1123,49 +1205,101 @@ if ($totalRows > 0) {
 
         <div class="block flex">
             <div class="selector flex">
-                <ul class="box-series">
+                <form name="form1" onsubmit="return false" method="get">
+                    <!-- <form name="form1" onsubmit="return false" > -->
+                    <ul class="box-series">
+                    <input type="hidden" name="page" id="page" value="">
+                        <p>Series</p>
 
-                    <p>Series</p>
-
-                    <li> <label class="cursor">
-                            <input type="checkbox" name="series1" value="series1" class="cursor">夏日特輯</label></li>
-                    <li> <label class="cursor"><input type="checkbox" name="series2" value="series2" class="cursor">群魔亂舞</label></li>
-                    <li><label class="cursor"><input type="checkbox" name="series3" value="series3" class="cursor">灰姑娘的水晶襪</label></li>
-                    <li> <label class="cursor"><input type="checkbox" name="series4" value="series4" class="cursor">素色流行</label></li>
-                    <li> <label class="cursor"><input type="checkbox" name="series5" value="series5" class="cursor">幾何色塊</label></li>
-                    <li> <label class="cursor"><input type="checkbox" name="series6" value="series6" class="cursor">美式風格</label></li>
-                </ul>
-                <div class="box-color">
-                    <p>Color</p>
-                    <ul class="color-btn-box flex">
-                        <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn1 btn-border cursor"></button></li>
-                        <li class="flex">
-                            <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn2 btn-border cursor"></button></li>
-                        <li class="flex">
-                            <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn3 btn-border cursor"></button></li>
-                        <li class="flex">
-                            <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn4 btn-border cursor"></button></li>
-                        <li class="flex">
-                            <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn5 btn-border cursor"></button></li>
-                        <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn6 btn-border cursor"></button></li>
-                        <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn7 cursor"></button></li>
-                        <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn8 btn-border cursor"></button></li>
+                        <li>
+                            <label class="cursor">
+                                <input type="checkbox" name="series[]" value="1" class="cursor">芒果派對</label>
+                        </li>
+                        <li>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="2" class="cursor">群魔亂舞</label>
+                        </li>
+                        <li>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="3" class="cursor">灰姑娘的水晶襪</label>
+                        </li>
+                        <li>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="4" class="cursor">素色流行</label>
+                        </li>
+                        <li>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="5" class="cursor">幾何色塊</label>
+                        </li>
+                        <li>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="6" class="cursor">美式風格</label>
+                        </li>
                     </ul>
-                </div>
-                <div class="box-type ">
-                    <p>Type</p>
-                    <div class="type-box flex">
-                        <div class="img-selector flex"><img src="images/selector.svg"></div>
-                        <ul class="type-btn-box">
-                            <li> <label class="type-active cursor"><input type="checkbox" name="type1" value="type1" class="cursor">長襪</label></li>
-                            <li><label class="type-active cursor"><input type="checkbox" name="type2" value="type2" class="cursor">短襪</label></li>
-                            <li> <label class="cursor"><input type="checkbox" name="type3" value="type3" class="cursor">踝襪</label></li>
-                            <li> <label class="cursor"><input type="checkbox" name="type4" value="type4" class="cursor">隱形襪</label></li>
+                    <div class="box-color">
+                        <p>Color</p>
+                        <ul class="color-btn-box flex">
+                            <li class="flex">
+                                <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in1" name="colors[]" value="1" class="cursor flex color-in" />
+                                    <span></span>
+                                </label>
+                            </li>
+                            <li class="flex">
+                                <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in2" name="colors[]" value="2" class="cursor color-in flex" />
+                                    <span></span>
+                                </label>
+
+                            </li>
+                            <li class="flex">
+                                <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in3" name="colors[]" value="3" class="cursor color-in flex" />
+                                    <span></span>
+                                </label>
+                            </li>
+
+                            <li class="flex">
+                                <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in4" name="colors[]" value="4" class="cursor color-in flex" />
+                                    <span></span>
+                                </label>
+                            </li>
+                            </li>
+                            <li class="flex">
+                                <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in5" name="colors[]" value="5" class="cursor color-in flex" />
+                                    <span></span>
+                                </label></li>
+                            <li class="flex">
+                                <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in6" name="colors[]" value="6" class="cursor color-in flex" />
+                                    <span></span>
+                                </label>
+                            </li>
+                            <li class="flex">
+                                <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in7" name="colors[]" value="7" class="cursor color-in flex" />
+                                    <span></span>
+                                </label>
+                            </li>
+                            <li class="flex">
+                                <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in8" name="colors[]" value="8" class="cursor color-in flex" />
+                                    <span></span>
+                                </label>
+                            </li>
                         </ul>
                     </div>
-                    <div class="select-check-btn cursor">確認</div>
-                </div>
-
+                    <div class="box-type ">
+                        <p>Type</p>
+                        <div class="type-box flex">
+                            <div class="img-selector flex"><img src="images/selector.svg"></div>
+                            <ul class="type-btn-box">
+                                <li> <label class="type-active cursor"><input type="checkbox" name="types[]" value="1" class="cursor">長襪</label></li>
+                                <li><label class="type-active cursor"><input type="checkbox" name="types[]" value="2" class="cursor">短襪</label></li>
+                                <li> <label class="cursor"><input type="checkbox" name="types[]" value="3" class="cursor">踝襪</label></li>
+                                <li> <label class="cursor"><input type="checkbox" name="types[]" value="4" class="cursor">隱形襪</label></li>
+                            </ul>
+                        </div>
+                        <div class="select-check-btn cursor">確認</div>
+                    </div>
+                </form>
             </div>
             <div class="block-right flex">
                 <div class="block-right-bg flex">
@@ -1176,7 +1310,7 @@ if ($totalRows > 0) {
                             </a>
                             <h5 class="flex">></h5>
                             <a href="" class="flex">
-                                <h5>素色流行</h5>
+                                <h5>商品一覽</h5>
                             </a>
                         </div>
                         <div class="right-select-rwd flex">
@@ -1190,22 +1324,23 @@ if ($totalRows > 0) {
                                 </select>
                             </div>
                         </div>
-
                     </div>
                     <ul class="product-box
                         flex">
-                        <?php foreach ($rows as $r) : ?>
 
+                        <?php foreach ($rows as $r) : ?>
                             <li class="single-product-box flex">
-                                <div class="product-top-img flex">
-                                    <img src='images/product/<?= $r['img_ID'] ?>-1.jpg?' alt="">
-                                </div>
-                                <div class="product-text flex">
-                                    <h5><?= $r['product_name'] ?></h5>
-                                    <img src="images/color1.svg" alt="">
-                                </div>
+                                <a href="product-detail.php?sid=<?= $r['sid'] ?>">
+                                    <div class="product-top-img flex">
+                                        <img src='images/product/<?= $r['img_ID'] ?>-1.jpg?' alt="">
+                                    </div>
+                                    <div class="product-text flex">
+                                        <h5><?= $r['product_name'] ?>&nbsp &nbsp<?= $r['price'] ?>元</h5>
+                                    </div>
+                                </a>
                             </li>
                         <?php endforeach; ?>
+
 
                         <!-- <li class="single-product-box flex">
                             <div class="product-top-img flex">
@@ -1238,21 +1373,47 @@ if ($totalRows > 0) {
                     </ul>
                 </div>
 
-                <div class="pagination flex">
-                    <div class="page-btn flex">
-                        <span class="page-disabled"><i></i>PREV</span>
+                <div class="flex">
+                    <?php if (!empty($stmt)) : ?>
+                        <ul class="pagination flex">
+                            <li class="page-btn page-item <?= $page == 1 ? 'disabled' : '' ?>">
+                                <a class="page-link" href="?page=<?= $page - 1 ?>">
+                                    PREV
+                                </a>
+                            </li>
+                            <?php
+                            for ($i = $page - 2; $i <= $page + 2; $i++) :
+                                if ($i < 1) continue;
+                                if ($i > 9) break ?>
+                                <li class="page-item page-btn  <?= $page == $i ? 'active' : '' ?>">
+                                    <a class="page-current" href="?page=<?= $i ?>"><?= $i ?></a>
+                                </li>
+                            <?php endfor; ?>
+                            <li class=" page-btn page-item <?= $page == $totalPages ? 'disabled' : '' ?>">
+                                <a class="page-link" href="?page=<?= $page + 1 ?>">
+                                    NEXT
+                                </a>
+                            </li>
+                        </ul>
+
+                    <?php endif; ?>
+                </div>
+
+
+
+                <!-- <a class="page-disabled"><i></i>PREV</a>
                         <a href="#">＜</a>
-                        <span class="page-current page-active">1</span>
+                        <a class="page-current page-active">1</a>
                         <a href="#">2</a>
                         <a href="#">3</a>
                         <a href="#">4</a>
                         <a href="#">5</a>
-                        <span>...</span>
+                       
                         <a href="#">7</a>
                         <a href="#">＞</a>
-                        <a class="page-next" href="#">NEXT<i></i></a>
-                    </div>
-                </div>
+                        <a class="page-next" href="#">NEXT<i></i></a> -->
+                </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -1285,44 +1446,56 @@ if ($totalRows > 0) {
     });
 
     // ----------- selector  --------------
-    $(document).ready(function() {
-        if ($(window).width() <= 992) {
 
-            $('.selector').hide();
-            $('.btn-mo-select').click(function() {
-                $('.selector').slideToggle(1000);
-                return false;
-            });
+    if ($(window).width() <= 992) {
 
-        };
-        $('.select-check-btn').click(function() {
-            $('.selector').slideUp(1000);
+        $('.selector').hide();
+        $('.btn-mo-select').click(function() {
+            $('.selector').slideToggle(1000);
             return false;
         });
 
-
-
+    };
+    $('.select-check-btn').click(function() {
+        $('.selector').slideUp(1000);
+        return false;
     });
 
-    // --- selector hover ---
-    // 系列
 
-    // $(document).ready(function(){
-    //   $("p").mouseenter(function(){
-    //     $("p").css("background-color","yellow");
-    //   });
-    //   $("p").mouseleave(function(){
-    //     $("p").css("background-color","lightgray");
-    //   });
-    //   $("#btn1").click(function(){
-    //     $("p").mouseenter();
-    //   });  
-    //   $("#btn2").click(function(){
-    //     $("p").mouseleave();
-    //   }); 
+    // -------------selector color---------------------
+
+    // document.addEventListener("on", function(data){
+    //     document.getElementById("color-btn")
+    //     $('#color-btn').click(function() {
+    //         $("#colorIn").prop("checked", true);
+    //         $("#colorIn").attr("checked", true);
+    //         });
+
+    //         console.log($(document.form1).serialize());
     // });
 
-    //----- 滑動 -------
+    // document.getElementById("color-btn1").addEventListener("on", function()
+    // {
+    //     document.getElementById("demo").innerHTML = "Hello World";
+    // });
+
+
+
+    // $('.color-btn1').on('click', function(data) {
+    //     $(".color-in1").prop("checked", true);
+    //     $(".color-in1").attr("checked", true);
+    //     console.log($(document.form1).serialize());
+    // });
+
+    $(".color-in1").mouseenter(function() {
+        $(".img-select-circle").css("opacity", "1");
+    });
+
+    // ------------------  幫我搭------------------
+
+
+
+    //----- 幫我搭 滑動 -------
     let slideIndex = 0;
     let slideCount = $("#blockPhoto ul").find("li").length;
     let slideWidth = $("#blockPhoto ul li").width();
@@ -1356,22 +1529,132 @@ if ($totalRows > 0) {
     slider()
 
 
-    // ------- X close --------
-    $(document).ready(function() {
-        $('#close-btn').click(function() {
-            $('.help-bg').fadeOut(500);
-            return false;
-        });
-    });
-    // ------------ 幫我搭 ---------------
+    // ------- 幫我搭  X close --------
 
-    $(document).ready(function() {
-        $('.help-bg').hide();
-        $('#product-help-btn').click(function() {
-            $('.help-bg').slideDown(800);
-            return false;
-        });
+    $('#close-btn').click(function() {
+        $('.help-bg').fadeOut(500);
+        return false;
     });
+
+    // ------------ 幫我搭 show/hide  ---------------
+
+
+    $('.help-bg').hide();
+    $('#product-help-btn').click(function() {
+        $('.help-bg').slideDown(800);
+        return false;
+    });
+
+    // ---------------------------------------
+
+
+    // ----------- 商品圖hover --------------
+    $(".product-top-img img").mouseenter(function() {
+        $(this).attr("src", $(this).attr('src').replace("-1.jpg", "-2.jpg"));
+    });
+
+    $(".product-top-img img").mouseleave(function() {
+        $(this).attr("src", $(this).attr('src').replace("-2.jpg", "-1.jpg"));
+    });
+</script>
+
+
+<script>
+    const productBox = $('.product-box');
+
+    $('form[name=form1] input[type=checkbox]').click(function() {
+        $('#page').val('1');
+
+        $.get('product-api.php', $(document.form1).serialize() , function(data) {
+            console.log(data);
+
+            pagination.empty();
+            for (let s in data.pageBtns) {
+                pagination.append(pageBtnTpl({
+                    i: data.pageBtns[s],
+                    isActive: data.pageBtns[s] == data.page
+                }));
+            }
+            productBox.empty(); //先清空再append新的內容
+            productGet(data);
+        }, 'json')
+        
+    });
+
+    
+
+    const pagination = $('.pagination');
+    const tbody = $('.tbody');
+    
+
+    function pageBtnTpl(obj) {
+        //obj.i 頁碼
+        //obj.isActive 本頁頁碼active
+        return `
+                <li class="page-item page-btn ${obj.isActive ? 'active' : ''}">
+                    <a class="page-current" href="#${obj.i}">${obj.i}</a>
+                </li>`
+    }
+
+    
+
+    //.hash抓頁面的hash(#)值
+    function handleHash() {
+        let h = location.hash.slice(1);
+        h = parseInt(h) || 1; //如果h為NaN則值給1
+        $('#page').val(h);
+        console.log($('#page').val())
+
+        //取得api的資料
+        $.get('product-api.php', $(document.form1).serialize() , function(data) {
+            console.log(data);
+
+            pagination.empty();
+            for (let s in data.pageBtns) {
+                pagination.append(pageBtnTpl({
+                    i: data.pageBtns[s],
+                    isActive: data.pageBtns[s] == data.page
+                }));
+            }
+            productBox.empty(); //先清空再append新的內容
+            productGet(data);
+        }, 'json')
+
+    }
+
+    function productGet(data) {
+        
+        if (data && data.rows) {
+            for (let i in data.rows) {
+                productBox.append(itemTpl(data.rows[i]));
+
+                $(".product-top-img img").mouseenter(function() {
+                    $(this).attr("src", $(this).attr('src').replace("-1.jpg", "-2.jpg"));
+                });
+
+                $(".product-top-img img").mouseleave(function() {
+                    $(this).attr("src", $(this).attr('src').replace("-2.jpg", "-1.jpg"));
+                });
+            }
+        }
+    }
+
+    function itemTpl(obj) {
+        return `<li class="single-product-box flex">
+                    <a href="product-detail.php?sid=${obj['sid']}">
+                        <div class="product-top-img flex">
+                            <img src='images/product/${obj['img_ID']}-1.jpg?' alt="">
+                        </div>
+                        <div class="product-text flex">
+                            <h5>${obj['product_name']}&nbsp &nbsp
+                                ${obj['price']}元</h5>
+                        </div>
+                    </a>
+                </li>`
+    }
+
+    window.addEventListener('hashchange', handleHash); //在window監聽hashChange的event
+    handleHash();
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>

@@ -177,7 +177,7 @@ $stmt = $pdo->query($sql);
     /* ---------------------- selector   ------------------------- */
     .selector {
         width: 300px;
-        height: 860px;
+        height: 800px;
         flex-direction: column;
         justify-content: space-evenly;
     }
@@ -233,28 +233,81 @@ $stmt = $pdo->query($sql);
     }
 
     .color-btn-box li {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
         align-items: center;
         justify-content: center;
         margin: 3px;
         position: relative;
+        /* background:url('images/select circle.svg')no-repeat; */
     }
 
     .img-select-circle {
         width: 30px;
         height: 30px;
         position: absolute;
-        opacity: 0;
+        /* opacity: 1; */
+        z-index: -20;
     }
 
     .img-select-circle:hover {
         opacity: 1;
     }
 
-    .color-in1 {
+
+
+
+    .color-lb {
+        padding: 0;
+        margin-right: 3px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .color-in[type=checkbox] {
         display: none;
     }
+
+    .color-in[type=checkbox]+span {
+        display: inline-block;
+        padding: 3px 6px;
+        user-select: none;
+        width:22px;
+        height:22px;
+        border-radius: 50%;
+       margin-left: 1px;
+    }
+    #color-in1[type=checkbox]+span {
+        background-color: #FF8B78;
+    }
+    #color-in2[type=checkbox]+span {
+        background-color:  #FFE45E;
+    }
+    #color-in3[type=checkbox]+span {
+        background-color: #29A6C2;
+    }
+    #color-in4[type=checkbox]+span {
+        background-color: #AADF3A;
+    }
+    #color-in5[type=checkbox]+span {
+        background-color: #DFB5DF;
+    }
+    #color-in6[type=checkbox]+span {
+        background-color:  #A57E70;
+    }
+    #color-in7[type=checkbox]+span {
+        background-color:#FFFFFF;
+        border: 1px solid #707070;
+    }
+    #color-in8[type=checkbox]+span {
+        background-color: #636363;
+    }
+
+    /* .color-in1[type=checkbox]:checked+span {
+        
+    } */
 
     /* .color-active {
             width: 30px;
@@ -274,39 +327,7 @@ $stmt = $pdo->query($sql);
         border: transparent;
     }
 
-    .color-btn1 {
-        background: #FF8B78;
-
-    }
-
-    .color-btn2 {
-        background: #FFE45E;
-    }
-
-    .color-btn3 {
-        background: #29A6C2;
-    }
-
-    .color-btn4 {
-        background: #AADF3A;
-    }
-
-    .color-btn5 {
-        background: #DFB5DF;
-    }
-
-    .color-btn6 {
-        background: #A57E70;
-    }
-
-    .color-btn7 {
-        background: #FFFFFF;
-        border: 1px solid #707070;
-    }
-
-    .color-btn8 {
-        background: #636363;
-    }
+   
 
     /* ----------selector type ----------- */
     .box-type {
@@ -1157,9 +1178,7 @@ $stmt = $pdo->query($sql);
                 <form name="form1" onsubmit="return false" method="get">
                     <!-- <form name="form1" onsubmit="return false" > -->
                     <ul class="box-series">
-
                         <p>Series</p>
-
                         <li> <label class="cursor">
                                 <input type="checkbox" name="series[]" value="1" class="cursor">芒果派對</label></li>
                         <li> <label class="cursor"><input type="checkbox" name="series[]" value="2" class="cursor">群魔亂舞</label></li>
@@ -1172,21 +1191,54 @@ $stmt = $pdo->query($sql);
                         <p>Color</p>
                         <ul class="color-btn-box flex">
                             <li class="flex">
-                                <button class="color-btn1 btn-border cursor" id="color-btn1"></button>
-                                <!-- <img class="img-select-circle transition active" src="images/select circle.svg" alt=""> -->
-                                <input type="checkbox" id="colorIn1" name="color[]" value="1" class="cursor color-in1 " onclick="showInfo()">
+                                <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in1" name="colors[]" value="1" class="cursor flex color-in" />
+                                    <span></span>
+                                </label>
                             </li>
                             <li class="flex">
-                                <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn2 btn-border cursor"></button></li>
+                            <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in2" name="colors[]" value="2" class="cursor color-in flex" />
+                                    <span></span>
+                                </label>
+                              
+                            </li>
                             <li class="flex">
-                                <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn3 btn-border cursor"></button></li>
+                            <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in3" name="colors[]" value="3" class="cursor color-in flex" />
+                                    <span></span>
+                                </label>
+                             </li>
+                          
                             <li class="flex">
-                                <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn4 btn-border cursor"></button></li>
+                            <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in4" name="colors[]" value="4" class="cursor color-in flex" />
+                                    <span></span>
+                                </label>
+                             </li></li>
                             <li class="flex">
-                                <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn5 btn-border cursor"></button></li>
-                            <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn6 btn-border cursor"></button></li>
-                            <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn7 cursor"></button></li>
-                            <li class="flex"> <img class="img-select-circle transition active" src="images/select circle.svg" alt=""><button class="color-btn8 btn-border cursor"></button></li>
+                            <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in5" name="colors[]" value="5" class="cursor color-in flex" />
+                                    <span></span>
+                                </label></li>
+                            <li class="flex">  
+                                 <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in6" name="colors[]" value="6" class="cursor color-in flex" />
+                                    <span></span>
+                                </label>
+                            </li>
+                            <li class="flex"> 
+                            <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in7" name="colors[]" value="7" class="cursor color-in flex" />
+                                    <span></span>
+                                </label>
+                            </li>
+                            <li class="flex">
+                            <label class="cursor color-lb flex">
+                                    <input type="checkbox" id="color-in8" name="colors[]" value="8" class="cursor color-in flex" />
+                                    <span></span>
+                                </label>        
+                        </li>
                         </ul>
                     </div>
                     <div class="box-type ">
@@ -1239,7 +1291,6 @@ $stmt = $pdo->query($sql);
                                     </div>
                                     <div class="product-text flex">
                                         <h5><?= $r['product_name'] ?>&nbsp &nbsp<?= $r['price'] ?>元</h5>
-                                        <!-- <img src="images/color1.svg" alt=""> -->
                                     </div>
                                 </a>
                             </li>
@@ -1335,16 +1386,16 @@ $stmt = $pdo->query($sql);
         autoplay: true,
         transition: 'slideLeft2',
         slides: [{
-                src: "images/product/asym06-1.jpg"
+                src: "images/asym06-1.jpg"
             },
             {
-                src: "images/product/asym06-2.jpg"
+                src: "images/asym06-2.jpg"
             },
             {
-                src: "images/product/asym10-1.jpg"
+                src: "images/asym10-1.jpg"
             },
             {
-                src: "images/product/asym02-2.jpg"
+                src: "images/asym02-2.jpg"
             }
         ]
     });
@@ -1364,33 +1415,29 @@ $stmt = $pdo->query($sql);
         $('.selector').slideUp(1000);
         return false;
     });
-
+    // ----active狀態-----
+    
+    $('.box-series li').click(function() {
+        $('.selector').slideUp(1000);
+        return false;
+    });
 
     // -------------selector color---------------------
 
-    // document.addEventListener("on", function(data){
-    //     document.getElementById("colorIn1")
-    //     $('.color-btn1').click(function() {
-    //         $("#colorIn1").prop("checked", true);
-    //         $("#colorIn1").attr("checked", true);
-    //         });
-    //         console.log($(document.form1).serialize());
-    // });
-
-    // document.getElementById("color-btn1").addEventListener("on", function()
-    // {
-    //     document.getElementById("demo").innerHTML = "Hello World";
+    // $('.color-btn1').on('click', function(data) {
+    //     $(".color-in1").prop("checked", true);
+    //     $(".color-in1").attr("checked", true);
+    //     console.log($(document.form1).serialize());
     // });
 
 
 
-    $('.color-btn1').on('click', function(data) {
-        $(".color-in1").prop("checked", true);
-        $(".color-in1").attr("checked", true);
-        console.log($(document.form1).serialize());
-    });
-
-
+    $(".color-btn-box li").hover(function(){
+    $(this).css({"transition":"linear 1s","background":"url('images/select circle.svg') no-repeat"});
+},function(){
+    $(this).css({"transition":"linear 1s","background":"none"});
+});
+  
 
     // ------------------  幫我搭------------------
 
@@ -1500,6 +1547,10 @@ $stmt = $pdo->query($sql);
     $(".product-top-img img").mouseleave(function() {
         $(this).attr("src", $(this).attr('src').replace("-2.jpg", "-1.jpg"));
     });
+
+
+    
+    
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
