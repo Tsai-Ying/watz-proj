@@ -935,14 +935,20 @@ if (empty($_SESSION['cart'])) {
 
 
     $(".ShipBtn").click(function() {
+
         $(this).toggleClass('active')
             .siblings().removeClass('active');
+        $('.shipFee').text('120');
+        if ($(".conv-store").hasClass('active')){
         $('.shipFee').text('60');
-        prepareCartTable();
-        if ($this).hasClass('active') {
-            $(".ShipBtn").children('img').css("display", "none");
-            $(".ShipBtn").children('h6').html('');
+
         }
+
+        if (!$(this).hasClass('active')) {
+            $('.shipFee').text('0');
+        }
+        prepareCartTable();
+
 
     })
 
@@ -1127,6 +1133,11 @@ if (empty($_SESSION['cart'])) {
         let isPass = true;
         const shipError = $('.ship-title').children('.error-frame');
         const shippingBtn = $('.shipping-btn');
+
+        $(shippingBtn).on("click", function() {
+            shipError.children('img').css("display", "none");
+            shipError.children('h6').html('');
+        })
 
 
         if (!(shippingBtn).children('.button').hasClass('active')) {
