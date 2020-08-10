@@ -930,7 +930,7 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
                             </li>
                             <li class="input-frame flex">
                                 <p>地址</p>
-                                <input class="senderAddress" type="text" data-val="5" id="senderaddress" name="senderaddress" value="<?= htmlentities($senderAddress) ?>">
+                                <input class="senderAddress" type="text" data-val="5" id="senderAddress" name="senderAddress" value="<?= htmlentities($senderAddress) ?>">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>

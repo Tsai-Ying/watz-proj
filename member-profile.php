@@ -21,6 +21,10 @@ $row = $pdo->query($sql)->fetch();
         background-repeat: no-repeat;
         background-size: cover;
     }
+    .container{
+        justify-content: space-between;
+        min-height: 100vh;
+    }
 
     .wrapper {
         margin-top: 140px;

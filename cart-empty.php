@@ -1,5 +1,5 @@
 <?php require __DIR__ . '/__connect_db.php';
-$pageName = 'aboutWATZ';  // 這裡放你的pagename
+$pageName = 'empty';  // 這裡放你的pagename
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 

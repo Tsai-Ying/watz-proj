@@ -303,7 +303,7 @@ $pageName = 'aboutWATZ';
         }
         
         .picture {
-            background: url(images/product/cheetahfriends-03.png) right no-repeat;
+            background: url(images/cheetahfriends-03.png) right no-repeat;
             height: 200px;
             width: 60vw;
             background-attachment: fixed;
