@@ -838,8 +838,8 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
 
                             <div class="socks-detail flex">
                                 <h4>禮盒內容</h4>
-                                <?php foreach ($_SESSION['cart'] as $i) : ?>
-                                    <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
+                                <!-- <?php foreach ($_SESSION['cart'] as $i) : ?>
+                                    <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
                                         <div class="img-product">
                                             <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
                                         </div>
@@ -851,7 +851,7 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
                                             </div>
                                         </div>
                                     </div>
-                                <?php endforeach; ?>
+                                <?php endforeach; ?> -->
                             </div>
 
                         </div>
@@ -859,7 +859,7 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
                         <div class="socks-detail flex">
                             <h4>單購襪子</h4>
                             <?php foreach ($_SESSION['cart'] as $i) : ?>
-                                <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
+                                <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
                                     <div class="img-product">
                                         <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
                                     </div>
@@ -882,20 +882,20 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
                     <h3>訂購金額</h3>
                     <li class="flex">
                         <p>商品總計</p>
-                        <p id="productPrice"></p>
+                        <p class="productPrice"></p>
                     </li>
                     <li class="flex">
                         <p>運費</p>
-                        <p>60</p>
+                        <p>120</p>
                     </li>
                     <li class="flex">
                         <p>折扣</p>
-                        <p>-20</p>
+                        <p>-40</p>
                     </li>
                     <div class="line"></div>
                     <li class="flex">
                         <h4>結帳金額</h4>
-                        <h4 id="totalPrice"> 元</h4>
+                        <h4 class="totalPrice"> 元</h4>
                     </li>
                 </ul>
             </div>
@@ -914,7 +914,7 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
                             </li>
                             <li class="input-frame flex">
                                 <p>電話</p>
-                                <input class="senderMobile" type="text" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($senderMobile) ?>" id="senderMobile">
+                                <input class="senderMobile" type="tel" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($senderMobile) ?>" id="senderMobile">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -957,7 +957,7 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
                             </li>
                             <li class="input-frame flex">
                                 <p>電話</p>
-                                <input class="receiverMobile receiverInput" id="receiverMobile" type="text" data-val="2" name="receiverMobile" value="<?= htmlentities($receiverMobile) ?>">
+                                <input class="receiverMobile receiverInput" maxlength="10" id="receiverMobile" type="tel" data-val="2" name="receiverMobile" value="<?= htmlentities($receiverMobile) ?>">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -1080,11 +1080,12 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
                                     </div>
                                 </div>
                             </div>
-                            <?php foreach ($_SESSION['cart'] as $i) : ?>
+                            
 
                                 <div class="socks-detail flex">
                                     <h4>禮盒內容</h4>
-                                    <!-- <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
+                                    <!-- <?php foreach ($_SESSION['cart'] as $i) : ?>
+                                    <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
                                         <div class="img-product">
                                             <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
                                         </div>
@@ -1095,9 +1096,10 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
                                                 <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
+                                    <?php endforeach; ?> -->
                                 </div>
-                            <?php endforeach; ?>
+                            
 
                         </div>
                         <div class="line"></div>
@@ -1125,20 +1127,20 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
                     <ul>
                         <li class="flex">
                             <p>商品總計</p>
-                            <p id="productPrice">元</p>
+                            <p class="productPrice">元</p>
                         </li>
                         <li class="flex">
                             <p>運費</p>
-                            <p class="shipFee">0</p>
+                            <p class="shipFee">120</p>
                         </li>
                         <li class="flex">
                             <p>折扣</p>
-                            <p class="discount"></p>
+                            <p class="discount">-40</p>
                         </li>
                         <div class="line"></div>
                         <li class="flex">
                             <h4>結帳金額</h4>
-                            <h4 id="totalPrice">元</h4>
+                            <h4 class="totalPrice">元</h4>
                         </li>
                     </ul>
                 </div>
@@ -1225,37 +1227,45 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
         // ------------------php---------------------//
         // php
         const dallorCommas = function(n) {
-            return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        };
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    };
 
-        function prepareCartTable() {
-            const $p_items = $('.p_item');
-            console.log($p_items);
+    function prepareCartTable() {
+        $p_items = $('.p_item');
+        // console.log($p_items.length);
 
-            let total = 0;
-
-            if (!$p_items.length && $('#totalPrice').length) {
-                location.href = 'product.php';
-                return;
-            }
-            $p_items.each(function() {
-                const sid = $(this).attr('data-sid');
-                const price = $(this).attr('data-price');
-                const quantity = $(this).attr('data-quantity');
-                const shipFee = $('.shipFee').text();
-                const discount = $('.discount').text();
-
-                $(this).find('.price').text('NT $' + dallorCommas(price));
-                $(this).find('.qty').val(quantity);
-                $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
-                total += quantity * price;
-                $('#productPrice').text('NT $' + dallorCommas(total));
-                $('#totalPrice').text('NT $' + dallorCommas(total + parseInt(shipFee) + parseInt(discount)));
-
-            })
+        if ($p_items.length == 0) {
+            location.href = 'cart-empty.php'
         }
 
-        prepareCartTable();
+        let total = 0;
+
+        // if (!$p_items.length && $('#totalPrice').length) {
+        //     location.href = 'product.php';
+        //     return;
+        // }
+        $p_items.each(function() {
+            const sid = $(this).attr('data-sid');
+            const price = $(this).attr('data-price');
+            const quantity = $(this).attr('data-quantity');
+            const shipFee = $('.shipFee').text();
+            const discount = $('.discount').text();
+
+
+            // $(this).find('.price').text('NT $' + dallorCommas(price));
+            // $(this).find('.qty').val(quantity);
+            // $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
+            total += quantity * price;
+            const totalPrice = total + parseInt(shipFee) + parseInt(discount);
+
+
+            $('.productPrice').text('NT $' + dallorCommas(total));
+            $('.totalPrice').text('NT $' + dallorCommas(totalPrice));
+
+        })
+    }
+
+    prepareCartTable();
 
 
 
