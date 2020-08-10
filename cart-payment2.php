@@ -914,7 +914,7 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
                             </li>
                             <li class="input-frame flex">
                                 <p>電話</p>
-                                <input class="senderMobile" type="tel" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($senderMobile) ?>" id="senderMobile">
+                                <input class="senderMobile" type="tel" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($senderMobile) ?>" id="senderMobile" oninput = "value=value.replace(/[^\d]/g,'')">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -957,7 +957,7 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
                             </li>
                             <li class="input-frame flex">
                                 <p>電話</p>
-                                <input class="receiverMobile receiverInput" maxlength="10" id="receiverMobile" type="tel" data-val="2" name="receiverMobile" value="<?= htmlentities($receiverMobile) ?>">
+                                <input class="receiverMobile receiverInput" maxlength="10" id="receiverMobile" type="tel" data-val="2" name="receiverMobile" value="<?= htmlentities($receiverMobile) ?>" oninput = "value=value.replace(/[^\d]/g,'')">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
