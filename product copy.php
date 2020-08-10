@@ -1569,12 +1569,23 @@ $stmt = $pdo->query($sql);
             console.log(data);
 
             pagination.empty();
+            pagination.append(`<li class="page-btn page-item ${data.page == 1 ? 'disabled' : ''} ">
+                                <a class="page-link" href="#${data.page - 1 }">
+                                    PREV
+                                </a>
+                            </li>`)
             for (let s in data.pageBtns) {
                 pagination.append(pageBtnTpl({
                     i: data.pageBtns[s],
                     isActive: data.pageBtns[s] == data.page
                 }));
             }
+            pagination.append(`<li class=" page-btn page-item ${data.page == data.totalPages ? 'disabled' : ''}">
+                                <a class="page-link" href="#${data.page + 1 }">
+                                    NEXT
+                                </a>
+                            </li>`)
+
             productBox.empty(); //先清空再append新的內容
             productGet(data);
         }, 'json')
@@ -1610,12 +1621,22 @@ $stmt = $pdo->query($sql);
             console.log(data);
 
             pagination.empty();
+            pagination.append(`<li class="page-btn page-item ${data.page == 1 ? 'disabled' : ''} ">
+                                <a class="page-link" href="#${data.page - 1 }">
+                                    PREV
+                                </a>
+                            </li>`)
             for (let s in data.pageBtns) {
                 pagination.append(pageBtnTpl({
                     i: data.pageBtns[s],
                     isActive: data.pageBtns[s] == data.page
                 }));
             }
+            pagination.append(`<li class=" page-btn page-item ${data.page == data.totalPages ? 'disabled' : ''}">
+                                <a class="page-link" href="#${data.page + 1 }">
+                                    NEXT
+                                </a>
+                            </li>`)
             productBox.empty(); //先清空再append新的內容
             productGet(data);
         }, 'json')

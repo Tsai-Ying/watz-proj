@@ -30,6 +30,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
 ?>
 
 <?php include __DIR__ . '/__html_head.php' ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 
 <style>
     .container {
@@ -347,7 +348,6 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
         z-index: 0;
     }
 
-
     @media screen and (max-width: 1280px) {
         .wrapper {
             width: 950px;
@@ -382,7 +382,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
             font-size: .9rem;
         }
 
-        .block-fixed ul li{
+        .block-fixed ul li {
             margin-right: 15px;
         }
 
@@ -397,7 +397,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
             height: 28px;
         }
 
-        .img-pattern img{
+        .img-pattern img {
             width: 100%;
             height: 100%;
         }
@@ -705,8 +705,76 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
             margin: 0 5px;
         }
     }
+
+    /* jumpout notice */
+
+    .notice {
+        /* transition: .2s; */
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        visibility: hidden;
+        user-select: none;
+    }
+
+    .notice-block {
+        /* transition: .4s; */
+        padding: 30px;
+        background: #FF9685;
+        border-radius: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        align-items: center;
+        z-index: 5;
+        opacity: 0;
+    }
+
+    .notice-bg {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: #404040;
+        opacity: .8;
+    }
+
+    .notice-top {
+        margin-bottom: 10px;
+    }
+
+    .notice-top img {
+        height: 40px;
+    }
+
+    .notice-bottom h3 {
+        color: white;
+        white-space: nowrap;
+    }
+
+    .notice.success {
+        visibility: visible;
+        z-index: 20;
+    }
+
+    .notice.success .notice-block {
+        opacity: 1;
+    }
 </style>
 
+<!-- jumpout notice -->
+<div class="notice">
+    <!-- <div class="notice-bg"></div> -->
+    <div class="notice-block  flex">
+        <div class="notice-top">
+            <img src="images/icon-success.svg " alt=" ">
+        </div>
+        <div class="notice-bottom">
+            <h3>加入購物車</h3>
+        </div>
+    </div>
+</div>
 
 <div class="container flex">
     <?php include __DIR__ . '/__navbar.php' ?>
@@ -885,7 +953,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
                                 <img class="img-select-circle transition active  first-pattern" src="images/select circle.svg" alt="">
                             </div>
                             <div class="img-pattern">
-                                    <img src="images/product/<?= $row['img_ID'] ?>-1-<?= $row['pattern'] ?>.jpg" alt="">
+                                <img src="images/product/<?= $row['img_ID'] ?>-1-<?= $row['pattern'] ?>.jpg" alt="">
                             </div>
                         </li>
                     <?php } ?>
@@ -909,17 +977,6 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
                             break;
                         }
                     endforeach; ?>
-                    <!-- <li>
-                        <div class="socks-pattern flex">
-                            <img class="img-select-circle transition " src="images/select circle.svg" alt="">
-                        </div>
-                        <div class="img-pattern">
-                            <a href="">
-                                <img src="images/product/<?= $row['img_ID'] ?>-1-1.jpg" alt="">
-                            </a>
-                        </div>
-                    </li> -->
-
                 </ul>
                 <h3 class="price">售價 <?= $row['price'] ?>元</h3>
                 <div class="quantity-choose flex">
@@ -1041,7 +1098,15 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
         }, 'json');
 
         // alert(sid + ',' + qty)
+        // 彈跳視窗
+        $(".notice").addClass("animate__animated animate__flipInX animate__faster");
+        $(".notice").addClass("success");
+        setTimeout(function() {
+            $(".notice").removeClass("success");
+            $(".notice").removeClass("animate__animated animate__flipInX animate__faster");
+        }, 800);
     });
+
 
     // 購買數量輸入同步
     $(".quantity-input").keyup(function() {
