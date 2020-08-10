@@ -15,10 +15,18 @@
                 </div>
             </div>
         </li>
-        <li><a href="<?= WEB_ROOT ?>/product.php">SHOP</a></li>
-        <li><a href="<?= WEB_ROOT ?>/diy.php">DIY</a></li>
-        <li><a href="<?= WEB_ROOT ?>/aboutWATZ.php">WATZ</a></li>
-        <li><a href="<?= WEB_ROOT ?>/contact.php">CONTACT</a></li>
+        <li>
+            <a class="navShop <?= $pageName=='product'? 'active':'' ?>" href="<?= WEB_ROOT ?>/product.php">SHOP</a>
+        </li>
+        <li>
+            <a class="navDIY <?= $pageName=='DIY'? 'active':'' ?>" href="<?= WEB_ROOT ?>/diy.php">DIY</a>
+        </li>
+        <li>
+            <a class="navAboutWATZ <?= $pageName=='aboutWATZ'? 'active':'' ?>" href="<?= WEB_ROOT ?>/aboutWATZ.php">WATZ</a>
+        </li>
+        <li>
+            <a class="navContact <?= $pageName=='contact'? 'active':'' ?>" href="<?= WEB_ROOT ?>/contact.php">CONTACT</a>
+        </li>
     </ul>
     <div class="nav-icon flex transition">
         <?php if (isset($_SESSION['member'])) : ?>
