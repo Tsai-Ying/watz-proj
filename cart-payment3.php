@@ -365,6 +365,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         bottom: 5%;
         /* border: 1px solid rebeccapurple; */
         display: none;
+        margin-bottom:10px;
 
     }
 
@@ -687,12 +688,11 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
     /* ------------------btn------------------- */
     .prev-next-btn {
-        width: 300px;
         justify-content: space-between;
     }
 
     .pay-btn {
-        width: 200px;
+        width: 140px;
         height: 40px;
         border: none;
         background-color: #FF9685;
@@ -1130,7 +1130,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
     function prepareCartTable() {
         $p_items = $('.p_item');
-        // console.log($p_items.length);
+        console.log($p_items);
 
         if ($p_items.length == 0) {
             location.href = 'cart-empty.php'
