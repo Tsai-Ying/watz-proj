@@ -365,6 +365,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         bottom: 5%;
         /* border: 1px solid rebeccapurple; */
         display: none;
+        margin-bottom:10px;
 
     }
 
@@ -687,12 +688,11 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
     /* ------------------btn------------------- */
     .prev-next-btn {
-        width: 300px;
         justify-content: space-between;
     }
 
     .pay-btn {
-        width: 200px;
+        width: 140px;
         height: 40px;
         border: none;
         background-color: #FF9685;
@@ -916,21 +916,21 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                         </ul>
                         <ul class="info-input flex">
                             <div class="name-input">
-                                <input class="cardNameInput" type="text">
+                                <input class="cardNameInput" type="text" >
                             </div>
                             <li class="credit-number-input creditNumberInput flex">
-                                <input class="cardNumberInput" type="text" maxlength="4" data-val="1">
-                                <input class="cardNumberInput" type="text" maxlength="4" data-val="2">
-                                <input class="cardNumberInput" type="text" maxlength="4" data-val="3">
-                                <input class="cardNumberInput" type="text" maxlength="4" data-val="4">
+                                <input class="cardNumberInput" type="text" maxlength="4" data-val="1" oninput = "value=value.replace(/[^\d]/g,'')">
+                                <input class="cardNumberInput" type="text" maxlength="4" data-val="2" oninput = "value=value.replace(/[^\d]/g,'')">
+                                <input class="cardNumberInput" type="text" maxlength="4" data-val="3" oninput = "value=value.replace(/[^\d]/g,'')">
+                                <input class="cardNumberInput" type="text" maxlength="4" data-val="4" oninput = "value=value.replace(/[^\d]/g,'')">
                             </li>
                             <li class="month-input monthYearInput flex">
-                                <input class="expirInput cardmonthsInput cardMonthsInput" type="text" maxlength="2">
+                                <input class="expirInput cardmonthsInput cardMonthsInput" type="text" maxlength="2" oninput = "value=value.replace(/[^\d]/g,'')">
                                 /
-                                <input class="year-input expirInput cardYearsInput" type="text" maxlength="2">
+                                <input class="year-input expirInput cardYearsInput" type="text" maxlength="2" oninput = "value=value.replace(/[^\d]/g,'')">
                             </li>
                             <li class="ccv-input">
-                                <input class="cardCcvInput" type="text" maxlength="3"></li>
+                                <input class="cardCcvInput" type="text" maxlength="3" oninput = "value=value.replace(/[^\d]/g,'')"></li>
 
                         </ul>
                     </div>
@@ -954,20 +954,19 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                         </div>
                                     </div>
                                 </div>
-
-
-
                                 <div class="box-product-orderlist flex">
                                     <h4>禮盒內容</h4>
-                                    <!-- <div class="box-socks p_item flex">
+                                    <!-- <?php foreach ($_SESSION['cart'] as $i) : ?>
+                                    <div class="box-socks p_item flex">
                                         <div class="socks-nameNprice flex" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
                                             <h5 class="socks-title"><?= $i['product_name'] ?></h5>
                                             <h5>X<?= $i['qty'] ?></h5>
                                             <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
                                         </div>
-                                    </div> -->
+                                    </div>
+                                    <?php endforeach; ?> -->
                                 </div>
-                                <div class="product-orderlist flex" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
+                                <div class="product-orderlist p_item flex" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
                                     <h4>單購襪子</h4>
                                     <?php foreach ($_SESSION['cart'] as $i) : ?>
                                         <div class="single-socks p_item flex">
@@ -979,10 +978,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                         </div>
                                     <?php endforeach; ?>
                                 </div>
-
-
                             </div>
-
                         </div>
                     </div>
                     <div class="total-price flex">
@@ -995,11 +991,11 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                     </li>
                                     <li class="flex">
                                         <p>運費</p>
-                                        <p class="shipFee"></p>
+                                        <p class="shipFee">120</p>
                                     </li>
                                     <li class="flex">
                                         <p>折扣</p>
-                                        <p class="discount">0</p>
+                                        <p class="discount">-40</p>
                                     </li>
                                     <div class="line"></div>
                                     <li class="flex">
@@ -1134,6 +1130,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
     function prepareCartTable() {
         $p_items = $('.p_item');
+        console.log($p_items);
 
         if ($p_items.length == 0) {
             location.href = 'cart-empty.php'
@@ -1152,12 +1149,15 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             const shipFee = $('.shipFee').text();
             const discount = $('.discount').text();
 
+
             $(this).find('.price').text('NT $' + dallorCommas(price));
             $(this).find('.qty').val(quantity);
-            $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
             total += quantity * price;
+            const totalPrice = total + parseInt(shipFee) + parseInt(discount);
+
+
             $('#productPrice').text('NT $' + dallorCommas(total));
-            $('#totalPrice').text('NT $' + dallorCommas(total + parseInt(shipFee) + parseInt(discount)));
+            $('#totalPrice').text('NT $' + dallorCommas(totalPrice));
 
         })
     }
