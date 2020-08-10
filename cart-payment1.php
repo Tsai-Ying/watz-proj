@@ -403,7 +403,7 @@ if(empty($_SESSION['cart'])){
     .socks-amount-choose {
         width: 65%;
         align-items: flex-end;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     .quantity-choose {
