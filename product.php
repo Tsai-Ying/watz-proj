@@ -2,23 +2,16 @@
 $pageName = 'product';  // 這裡放你的pagename
 
 
-$qs = [];
+
 $perPage = 15;
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-$cate_id = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
-// $search = isset($_GET['search']) ? $_GET['search'] : '';
+
 
 
 
 
 $where = " WHERE 1";
 
-// if ($cate_id) {
-//     $where .= " AND `category_sid`=$cate_id ";
-//     $qs['cate'] = $cate_id;
-// }
-
-// $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 1;
 
 $rows = [];
 $totalPages = 0;
@@ -57,9 +50,6 @@ $stmt = null;
 $stmt = $pdo->query($sql);
 
 
-// --- 分類資料
-// $c_sql = "SELECT * FROM `product` WHERE `series`=0";
-// $cates = $pdo->query($c_sql)->fetchAll();
 
 
 ?>
@@ -177,7 +167,7 @@ $stmt = $pdo->query($sql);
     /* ---------------------- selector   ------------------------- */
     .selector {
         width: 300px;
-        height: 800px;
+        height: 860px;
         flex-direction: column;
         justify-content: space-evenly;
     }
@@ -207,8 +197,6 @@ $stmt = $pdo->query($sql);
         background: #F2DE79;
         transition: linear 1s;
     }
-
-
 
     .series-active {
         background: #F2DE79;
@@ -254,16 +242,13 @@ $stmt = $pdo->query($sql);
         opacity: 1;
     }
 
-
-
-
     .color-lb {
         padding: 0;
         margin-right: 3px;
         cursor: pointer;
         align-items: center;
         justify-content: center;
-        
+
     }
 
     .color-in[type=checkbox] {
@@ -274,33 +259,41 @@ $stmt = $pdo->query($sql);
         display: inline-block;
         padding: 3px 6px;
         user-select: none;
-        width:22px;
-        height:22px;
+        width: 22px;
+        height: 22px;
         border-radius: 50%;
-       margin-left: 1px;
+        margin-left: 1px;
     }
+
     #color-in1[type=checkbox]+span {
         background-color: #FF8B78;
     }
+
     #color-in2[type=checkbox]+span {
-        background-color:  #FFE45E;
+        background-color: #FFE45E;
     }
+
     #color-in3[type=checkbox]+span {
         background-color: #29A6C2;
     }
+
     #color-in4[type=checkbox]+span {
         background-color: #AADF3A;
     }
+
     #color-in5[type=checkbox]+span {
         background-color: #DFB5DF;
     }
+
     #color-in6[type=checkbox]+span {
-        background-color:  #A57E70;
+        background-color: #A57E70;
     }
+
     #color-in7[type=checkbox]+span {
-        background-color:#FFFFFF;
+        background-color: #FFFFFF;
         border: 1px solid #707070;
     }
+
     #color-in8[type=checkbox]+span {
         background-color: #636363;
     }
@@ -327,7 +320,7 @@ $stmt = $pdo->query($sql);
         border: transparent;
     }
 
-   
+
 
     /* ----------selector type ----------- */
     .box-type {
@@ -451,7 +444,7 @@ $stmt = $pdo->query($sql);
         min-height: 400px;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: start;
     }
 
     .single-product-box {
@@ -459,6 +452,7 @@ $stmt = $pdo->query($sql);
         /* height: 300px; */
         flex-direction: column;
         margin-bottom: 5px;
+        padding: 20px;
     }
 
     .product-top-img {
@@ -492,12 +486,13 @@ $stmt = $pdo->query($sql);
     /* -----------分頁----------- */
     .pagination {
         width: 830px;
-        height: 60px;
+        height: 30px;
         justify-content: flex-end;
     }
 
     .page-btn {
         align-items: center;
+
     }
 
     .page-btn span,
@@ -511,7 +506,9 @@ $stmt = $pdo->query($sql);
         align-items: center;
     }
 
-    .page-active {
+    .active {
+        padding-bottom: 0px;
+        margin-bottom: 0px;
         border-bottom: 0.5px solid #404040;
     }
 
@@ -704,6 +701,7 @@ $stmt = $pdo->query($sql);
             width: 80vw;
             justify-content: center;
         }
+
 
         .block {
             position: relative;
@@ -1178,14 +1176,28 @@ $stmt = $pdo->query($sql);
                 <form name="form1" onsubmit="return false" method="get">
                     <!-- <form name="form1" onsubmit="return false" > -->
                     <ul class="box-series">
+                        <input type="hidden" name="page" id="page" value="">
                         <p>Series</p>
-                        <li> <label class="cursor">
-                                <input type="checkbox" name="series[]" value="1" class="cursor">芒果派對</label></li>
-                        <li> <label class="cursor"><input type="checkbox" name="series[]" value="2" class="cursor">群魔亂舞</label></li>
-                        <li><label class="cursor"><input type="checkbox" name="series[]" value="3" class="cursor">灰姑娘的水晶襪</label></li>
-                        <li> <label class="cursor"><input type="checkbox" name="series[]" value="4" class="cursor">素色流行</label></li>
-                        <li> <label class="cursor"><input type="checkbox" name="series[]" value="5" class="cursor">幾何色塊</label></li>
-                        <li> <label class="cursor"><input type="checkbox" name="series[]" value="6" class="cursor">美式風格</label></li>
+
+                        <li>
+                            <label class="cursor series-check">
+                                <input type="checkbox" name="series[]" value="1" class="cursor">芒果派對</label>
+                        </li>
+                        <li>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="2" class="cursor">群魔亂舞</label>
+                        </li>
+                        <li>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="3" class="cursor">灰姑娘的水晶襪</label>
+                        </li>
+                        <li>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="4" class="cursor">素色流行</label>
+                        </li>
+                        <li>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="5" class="cursor">幾何色塊</label>
+                        </li>
+                        <li>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="6" class="cursor">美式風格</label>
+                        </li>
                     </ul>
                     <div class="box-color">
                         <p>Color</p>
@@ -1197,48 +1209,49 @@ $stmt = $pdo->query($sql);
                                 </label>
                             </li>
                             <li class="flex">
-                            <label class="cursor color-lb flex">
+                                <label class="cursor color-lb flex">
                                     <input type="checkbox" id="color-in2" name="colors[]" value="2" class="cursor color-in flex" />
                                     <span></span>
                                 </label>
-                              
+
                             </li>
                             <li class="flex">
-                            <label class="cursor color-lb flex">
+                                <label class="cursor color-lb flex">
                                     <input type="checkbox" id="color-in3" name="colors[]" value="3" class="cursor color-in flex" />
                                     <span></span>
                                 </label>
-                             </li>
-                          
+                            </li>
+
                             <li class="flex">
-                            <label class="cursor color-lb flex">
+                                <label class="cursor color-lb flex">
                                     <input type="checkbox" id="color-in4" name="colors[]" value="4" class="cursor color-in flex" />
                                     <span></span>
                                 </label>
-                             </li></li>
+                            </li>
+                            </li>
                             <li class="flex">
-                            <label class="cursor color-lb flex">
+                                <label class="cursor color-lb flex">
                                     <input type="checkbox" id="color-in5" name="colors[]" value="5" class="cursor color-in flex" />
                                     <span></span>
                                 </label></li>
-                            <li class="flex">  
-                                 <label class="cursor color-lb flex">
+                            <li class="flex">
+                                <label class="cursor color-lb flex">
                                     <input type="checkbox" id="color-in6" name="colors[]" value="6" class="cursor color-in flex" />
                                     <span></span>
                                 </label>
                             </li>
-                            <li class="flex"> 
-                            <label class="cursor color-lb flex">
+                            <li class="flex">
+                                <label class="cursor color-lb flex">
                                     <input type="checkbox" id="color-in7" name="colors[]" value="7" class="cursor color-in flex" />
                                     <span></span>
                                 </label>
                             </li>
                             <li class="flex">
-                            <label class="cursor color-lb flex">
+                                <label class="cursor color-lb flex">
                                     <input type="checkbox" id="color-in8" name="colors[]" value="8" class="cursor color-in flex" />
                                     <span></span>
-                                </label>        
-                        </li>
+                                </label>
+                            </li>
                         </ul>
                     </div>
                     <div class="box-type ">
@@ -1416,11 +1429,18 @@ $stmt = $pdo->query($sql);
         return false;
     });
     // ----active狀態-----
-    
-    $('.box-series li').click(function() {
-        $('.selector').slideUp(1000);
-        return false;
-    });
+
+    // $('.box-series li ').click(function() {
+    //     $(this).toggleClass("series-active")
+    // });
+if( $('form[name=form1] input[type=checkbox]').prop("checked", true)){
+    $('.box-series li ').removeClass("series-active");
+}else{
+    $('.box-series li ').addClass("series-active");
+}
+   
+
+
 
     // -------------selector color---------------------
 
@@ -1432,12 +1452,18 @@ $stmt = $pdo->query($sql);
 
 
 
-    $(".color-btn-box li").hover(function(){
-    $(this).css({"transition":"linear 1s","background":"url('images/select circle.svg') no-repeat"});
-},function(){
-    $(this).css({"transition":"linear 1s","background":"none"});
-});
-  
+    $(".color-btn-box li ").hover(function() {
+        $(this).css({
+            "transition": "linear 1s",
+            "background": "url('images/select circle.svg') no-repeat"
+        });
+    }, function() {
+        $(this).css({
+            "transition": "linear 1s",
+            "background": "none"
+        });
+    });
+
 
     // ------------------  幫我搭------------------
 
@@ -1494,51 +1520,7 @@ $stmt = $pdo->query($sql);
     });
 
     // ---------------------------------------
-
-    const productBox = $('.product-box');
-
-    $('form[name=form1] input[type=checkbox]').click(function() {
-        console.log($(document.form1).serialize());
-        $.get('product-api.php', $(document.form1).serialize(), function(data) {
-            console.log(data);
-            productGet(data);
-        }, 'json')
-    });
-
-    function productGet(data) {
-        let count = 0;
-        productBox.empty(); //先清空再append新的內容
-        if (data && data.rows) {
-            for (let i in data.rows) {
-                let item = data.rows[i];
-                // let subtotal = item['sid'] * item['qty']
-                // count += item['qty'];
-                productBox.append(` 
-                <li class="single-product-box flex">
-                                <a href="product-detail.php?sid=${item['sid']}">
-                                    <div class="product-top-img flex">
-                                        <img src='images/product/${item['img_ID']}-1.jpg?' alt="">
-                                    </div>
-                                    <div class="product-text flex">
-                                        <h5>${item['product_name']}&nbsp &nbsp
-                                        ${item['price']}元</h5>
-                                    </div>
-                                </a>
-                            </li>
-                `)
-                $(".product-top-img img").mouseenter(function() {
-                    $(this).attr("src", $(this).attr('src').replace("-1.jpg", "-2.jpg"));
-                });
-
-                $(".product-top-img img").mouseleave(function() {
-                    $(this).attr("src", $(this).attr('src').replace("-2.jpg", "-1.jpg"));
-                });
-            }
-            // productBox.text(count);
-
-        }
-    }
-
+  
     // ----------- 商品圖hover --------------
     $(".product-top-img img").mouseenter(function() {
         $(this).attr("src", $(this).attr('src').replace("-1.jpg", "-2.jpg"));
@@ -1547,10 +1529,116 @@ $stmt = $pdo->query($sql);
     $(".product-top-img img").mouseleave(function() {
         $(this).attr("src", $(this).attr('src').replace("-2.jpg", "-1.jpg"));
     });
+</script>
 
 
-    
-    
+<script>
+    const productBox = $('.product-box');
+
+    $('form[name=form1] input[type=checkbox]').click(function() {
+        $('#page').val('1');
+
+        $.get('product-api.php', $(document.form1).serialize(), function(data) {
+            console.log(data);
+
+            pagination.empty();
+            for (let s in data.pageBtns) {
+                pagination.append(pageBtnTpl({
+                    i: data.pageBtns[s],
+                    isActive: data.pageBtns[s] == data.page
+                }));
+            }
+            productBox.empty(); //先清空再append新的內容
+            productGet(data);
+        }, 'json')
+
+    });
+
+
+
+    const pagination = $('.pagination');
+    const tbody = $('.tbody');
+
+
+    function pageBtnTpl(obj) {
+        //obj.i 頁碼
+        //obj.isActive 本頁頁碼active
+        return `
+                <li class="page-item page-btn ${obj.isActive ? 'active' : ''}">
+                    <a class="page-current " href="#${obj.i}">${obj.i}</a>
+                </li>`
+    }
+
+
+
+    //.hash抓頁面的hash(#)值
+    function handleHash() {
+        let h = location.hash.slice(1);
+        h = parseInt(h) || 1; //如果h為NaN則值給1
+        $('#page').val(h);
+        console.log($('#page').val())
+
+        //取得api的資料
+        $.get('product-api.php', $(document.form1).serialize(), function(data) {
+            console.log(data);
+
+            pagination.empty();
+            pagination.append(`<li class="page-btn page-item ${data.page == 1 ? 'disabled' : ''} ">
+                                <a class="page-link" href="#${data.page - 1 }">
+                                    PREV
+                                </a>
+                            </li>`)
+            for (let s in data.pageBtns) {
+                pagination.append(pageBtnTpl({
+                    i: data.pageBtns[s],
+                    isActive: data.pageBtns[s] == data.page
+                }));
+            }
+            pagination.append(`<li class=" page-btn page-item ${data.page == data.totalPages ? 'disabled' : ''}">
+                                <a class="page-link" href="#${data.page + 1 }">
+                                    NEXT
+                                </a>
+                            </li>`)
+
+            productBox.empty(); //先清空再append新的內容
+            productGet(data);
+        }, 'json')
+
+    }
+
+    function productGet(data) {
+
+        if (data && data.rows) {
+            for (let i in data.rows) {
+                productBox.append(itemTpl(data.rows[i]));
+
+                $(".product-top-img img").mouseenter(function() {
+                    $(this).attr("src", $(this).attr('src').replace("-1.jpg", "-2.jpg"));
+                });
+
+                $(".product-top-img img").mouseleave(function() {
+                    $(this).attr("src", $(this).attr('src').replace("-2.jpg", "-1.jpg"));
+                });
+            }
+        }
+    }
+
+    function itemTpl(obj) {
+        return `<li class="single-product-box flex">
+                    <a href="product-detail.php?sid=${obj['sid']}">
+                        <div class="product-top-img flex">
+                            <img src='images/product/${obj['img_ID']}-1.jpg?' alt="">
+                        </div>
+                        <div class="product-text flex">
+                            <h5>${obj['product_name']}&nbsp &nbsp
+                                ${obj['price']}元</h5>
+                        </div>
+                    </a>
+                </li>`
+    }
+
+    window.addEventListener('hashchange', handleHash); //在window監聽hashChange的event
+    handleHash();
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
