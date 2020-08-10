@@ -30,6 +30,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
 ?>
 
 <?php include __DIR__ . '/__html_head.php' ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 
 <style>
     .container {
@@ -708,7 +709,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
     /* jumpout notice */
 
     .notice {
-        transition: .2s;
+        /* transition: .2s; */
         position: fixed;
         width: 100vw;
         height: 100vh;
@@ -717,7 +718,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
     }
 
     .notice-block {
-        transition: .2s;
+        /* transition: .4s; */
         padding: 30px;
         background: #FF9685;
         border-radius: 15px;
@@ -764,13 +765,13 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
 
 <!-- jumpout notice -->
 <div class="notice">
-    <div class="notice-bg"></div>
-    <div class="notice-block flex">
+    <!-- <div class="notice-bg"></div> -->
+    <div class="notice-block  flex">
         <div class="notice-top">
             <img src="images/icon-success.svg " alt=" ">
         </div>
         <div class="notice-bottom">
-            <h3>成功加入購物車</h3>
+            <h3>加入購物車</h3>
         </div>
     </div>
 </div>
@@ -1098,11 +1099,11 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
 
         // alert(sid + ',' + qty)
         // 彈跳視窗
-
-        $(".notice").css("display", "block");
+        $(".notice").addClass("animate__animated animate__flipInX animate__faster");
         $(".notice").addClass("success");
         setTimeout(function() {
-            $(".notice").fadeOut(500);
+            $(".notice").removeClass("success");
+            $(".notice").removeClass("animate__animated animate__flipInX animate__faster");
         }, 800);
     });
 
