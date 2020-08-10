@@ -10,7 +10,10 @@ $senderEmail = isset($_SESSION['sender']) ? $_SESSION['sender']['senderEmail'] :
 $senderMobile = isset($_SESSION['sender']) ? $_SESSION['sender']['senderMobile'] : $row['mobile'];
 $senderAddress = isset($_SESSION['sender']) ? $_SESSION['sender']['senderAddress'] : $row['address'];
 
-$receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
+$receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receiver'] : '';
+$receiverMobile = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receiverMobile'] : '';
+$receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receiverAddress'] : '';
+
 
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
@@ -944,7 +947,7 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
 
                             <li class="input-frame flex">
                                 <p>收件人姓名</p>
-                                <input class="receiverName receiverInput" id="receiverName" type="text" data-val="1" name="receiver" value="<?= htmlentities($receiver['receiver']) ?>">
+                                <input class="receiverName receiverInput" id="receiverName" type="text" data-val="1" name="receiver" value="<?= htmlentities($receiver) ?>">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -952,7 +955,7 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
                             </li>
                             <li class="input-frame flex">
                                 <p>電話</p>
-                                <input class="receiverMobile receiverInput" id="receiverMobile" type="text" data-val="2" name="receiverMobile">
+                                <input class="receiverMobile receiverInput" id="receiverMobile" type="text" data-val="2" name="receiverMobile" value="<?= htmlentities($receiverMobile) ?>">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -960,7 +963,7 @@ $receiver = isset($_SESSION['receiver']) ? $_SESSION['receiver'] : '';
                             </li>
                             <li class="input-frame flex">
                                 <p>地址</p>
-                                <input class="receiverAddress receiverInput" id="receiverAddress" type="text" data-val="5" name="receiverAddress" value="<?= htmlentities($receiver['receiverAddress']) ?>">
+                                <input class="receiverAddress receiverInput" id="receiverAddress" type="text" data-val="5" name="receiverAddress" value="<?= htmlentities($receiverAddress) ?>">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
