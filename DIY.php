@@ -1035,8 +1035,235 @@ $pageName = 'DIY';  // 這裡放你的pagename
             </div>
             <div class="flexbox flex transition">
                 <div class="box-left transition">
-                    <div><img class="diy-area transition" src="images/pattern-white.svg" alt="">
-                    </div>
+                    <!-- <img class="diy-area transition" src="images/pattern-white.svg" alt=""> -->
+                    <svg class="diy-area transition pattern-white" version="1.1" id="pattern-white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.1 108" style="enable-background:new 0 0 66.1 108;" xml:space="preserve">
+                        <style type="text/css">
+                            .socks-color {
+                                fill: #FFFFFF;
+                                stroke: #404040;
+                                stroke-width: 3;
+                            }
+
+                            .socks-border {
+                                fill: #404040;
+                            }
+                        </style>
+                        <g id="圖層_2_1_">
+                            <g id="圖層_1-2">
+                                <path id="Path_4454" class="socks-color" d="M64.6,59.5c0.1,2.3-1,4.5-2.8,5.9c-1.8,1.3-3.7,2.4-5.7,3.3c-4.9,2.3-9.2,5.7-12.6,10
+			                        c-2.4,3.4-4.6,7-6.5,10.7c-1.8,3.4-3.9,6.7-6.3,9.8c-5.4,6.9-13.6,9.1-21.7,5.7c-3.6-1.5-6.2-4.7-7-8.5C1.2,93,1.3,89.4,2.4,86
+			                        c1.4-4.5,3.7-8.6,6.7-12.2c4.2-5.4,8.8-10.4,13.4-15.4c2.3-2.6,4.6-5.2,6.7-7.9c1.6-2.1,2.4-4.6,2.4-7.2
+			                        c-0.1-8.2-0.2-16.5-0.3-24.7c0-3.9,0-7.9-0.1-11.8c-0.1-1.4,0.7-2.8,2.1-3.3c1.5-0.7,3.1-1.1,4.7-1.3c6.2-1,12.5-0.9,18.7,0.2
+			                        c1.5,0.3,3,0.7,4.5,1.3c0.9,0.2,1.5,1.1,1.4,2c-0.2,3.6-0.4,7.2-0.6,10.8c-0.7,9-0.6,18.1,0.1,27.1c0.4,4,1.2,8,2,11.9
+			                        C64.3,56.8,64.5,58.1,64.6,59.5z" />
+                            </g>
+                        </g>
+                        <g id="圖層_2_3_">
+                            <g id="圖層_1-2_2_">
+                                <g id="Path_4454_1_">
+                                    <path class="socks-border" d="M16.5,108c-2.6,0-5.4-0.6-8-1.7c-4-1.7-7-5.2-7.9-9.5c-0.9-3.7-0.8-7.6,0.3-11.2c1.5-4.7,3.9-8.9,7-12.7
+				                        c3.5-4.6,7.5-8.9,11.4-13.2l2.1-2.3c2.6-2.8,4.7-5.2,6.6-7.8c1.4-1.8,2.1-4,2-6.3c-0.1-8.3-0.2-16.6-0.3-24.8
+				                        c0-3.8,0-7.8-0.1-11.7c-0.2-2.1,1.1-4,3-4.7c1.6-0.7,3.3-1.2,5-1.4c6.3-1,12.8-0.9,19.2,0.2c1.6,0.3,3.1,0.8,4.6,1.3
+				                        c1.6,0.4,2.7,1.9,2.5,3.6c-0.1,1.5-0.2,3-0.2,4.5c-0.1,2.1-0.2,4.2-0.3,6.2c-0.7,8.9-0.6,18,0.1,26.9c0.3,3.4,1,6.8,1.7,10.2
+				                        l0.3,1.6c0.3,1.4,0.5,2.8,0.5,4.3c0.1,2.8-1.2,5.5-3.4,7.2c-1.8,1.4-3.8,2.5-5.9,3.5c-4.7,2.2-8.8,5.5-12,9.6
+				                        c-2.3,3.3-4.5,6.8-6.3,10.4c-1.9,3.5-4,6.9-6.4,10.1C27.9,105.3,22.4,108,16.5,108z M46.8,3c-2.9,0-5.8,0.2-8.7,0.7
+				                        c-1.5,0.2-2.9,0.6-4.3,1.2l-0.1,0c-0.7,0.2-1.2,0.9-1.1,1.7l0,0.1c0.1,3.9,0.1,8,0.1,11.8c0.1,8.1,0.2,16.5,0.3,24.7
+				                        c0.1,2.9-0.9,5.8-2.7,8.2c-2,2.7-4.2,5.1-6.8,8l-2.1,2.3c-3.8,4.2-7.8,8.5-11.2,13c-2.9,3.5-5.1,7.5-6.5,11.7
+				                        c-1,3.1-1,6.5-0.2,9.7c0.7,3.4,3,6.1,6.1,7.4c7.4,3.1,14.9,1.2,19.9-5.3c2.3-3,4.3-6.2,6.1-9.6c1.9-3.8,4.1-7.4,6.6-10.9
+				                        c3.5-4.5,8.1-8.1,13.2-10.5c1.9-0.9,3.7-1.9,5.4-3.2c1.5-1.1,2.3-2.8,2.2-4.6v0c-0.1-1.3-0.2-2.6-0.5-3.8l-0.3-1.6
+				                        c-0.7-3.4-1.4-6.9-1.7-10.5c-0.8-9.1-0.8-18.3-0.1-27.4c0.1-2,0.2-4.1,0.3-6.2c0.1-1.5,0.2-3,0.2-4.5l0-0.1
+				                        c0-0.1-0.1-0.3-0.2-0.3L60.6,5c-1.4-0.5-2.8-0.9-4.3-1.2C53.2,3.3,50,3,46.8,3z" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+
+                    <svg class="diy-area transition pattern-watz" version="1.1" id="pattern-watz" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.1 108" style="enable-background:new 0 0 66.1 108;" xml:space="preserve">
+                        <style type="text/css">
+                            .socks-color {
+                                fill: #FFFFFF;
+                                stroke: #404040;
+                                stroke-width: 3;
+                            }
+
+                            .socks-path {
+                                fill: #404040;
+                            }
+
+                            .socks-border {
+                                fill: #404040;
+                            }
+                        </style>
+                        <g id="圖層_2_1_">
+                            <g id="圖層_1-2">
+                                <g id="Group_84">
+                                    <path id="Path_4446" class="socks-color" d="M64.6,59.5c0.1,2.3-1,4.5-2.8,5.9c-1.8,1.3-3.7,2.4-5.7,3.3c-4.9,2.3-9.2,5.7-12.6,10
+				                        c-2.4,3.4-4.6,7-6.5,10.7c-1.8,3.4-3.9,6.7-6.3,9.8c-5.4,6.9-13.6,9.1-21.7,5.7c-3.6-1.5-6.2-4.7-7-8.5C1.2,93,1.3,89.4,2.4,86
+			                        	c1.4-4.5,3.7-8.6,6.7-12.2c4.2-5.4,8.8-10.4,13.4-15.4c2.3-2.6,4.6-5.2,6.7-7.9c1.6-2.1,2.4-4.6,2.4-7.2
+				                        c-0.1-8.2-0.2-16.5-0.3-24.7c0-3.9,0-7.9-0.1-11.8c-0.1-1.4,0.7-2.8,2.1-3.3c1.5-0.7,3.1-1.1,4.7-1.3c6.2-1,12.5-0.9,18.7,0.2
+				                        c1.5,0.3,3,0.7,4.5,1.3c0.9,0.2,1.5,1.1,1.4,2c-0.2,3.6-0.4,7.2-0.6,10.8c-0.7,9-0.6,18.1,0.1,27.1c0.4,4,1.2,8,2,11.9
+				                        C64.3,56.8,64.5,58.1,64.6,59.5z" />
+                                    <path id="Path_4447" class="socks-path" d="M35.3,31.5c2-1.3,4-2.9,6-4.2l0,0c-3.6-1.6-7.1-3.5-10.4-5.5c0.3,3.9,0.6,7.8,0.9,11.7
+				                        C33,32.9,34.2,32.2,35.3,31.5z" />
+                                    <path id="Path_4448" class="socks-path" d="M43,67.9c-0.1-1.7-0.3-3.4-0.4-5.1c-0.1-1.5-0.4-2.9-0.4-4.4c0-0.5,0-1,0-1.5
+				                        c0-0.2,0-0.4,0-0.5l0,0c0-0.1-0.1-0.1-0.1-0.2c0,0-0.1-0.1,0-0.2L42,55.8c0,0-0.1-0.1-0.1-0.1l0,0c-1.1-0.6-2.3-1-3.5-1.4
+				                        c-1.6-0.5-3.3-0.8-4.9-1.2c-1.9-0.5-3.9-1-5.8-1.7c-0.4,0.6-0.9,1.2-1.4,1.8c-3.6,3.9-7,7.9-10.5,11.8c-4,4.6-8.1,9.1-11.2,14.3
+			                        	c-2.8,4.6-4.3,9.5-3.3,14.8c0.9,4.7,3.4,8.5,8.5,10.3c4.1,1.5,8.5,1.6,12.7,0.6c4.5-1.1,8.4-4,10.8-8c2.6-4,5-8.1,7.1-12.3
+			                        	c1.1-2.2,2.4-4.2,3.8-6.1C43.7,75,43.3,71.4,43,67.9z" />
+                                    <path id="Path_4449" class="socks-path" d="M58.4,43c-0.3-2.1-0.6-4.3-0.8-6.4c-3.7-0.7-7.2-1.7-10.6-3.2c-0.9,0.6-1.8,1.1-2.6,1.8
+				                        c-2.8,2.1-5.8,4.9-9.2,6.3c0,0.4,0.1,0.8,0.1,1.2c0.1,0.7,0.1,1.3,0.1,2c0.4,0.5,0.8,1,1.3,1.4c3,1.3,6.2,2.3,9.5,2.9
+				                        c1,0,2.1,0,3.1-0.1c0.7-0.6,1.4-1.1,2.1-1.5C53.6,45.7,55.9,44.3,58.4,43z" />
+                                    <path id="Path_4450" class="socks-path" d="M63.9,58c-0.1-0.9-0.3-1.8-0.5-2.7c-0.6-2.1-1.2-4.2-1.6-6.4c-0.5,0.2-1,0.5-1.4,0.7
+				                        c-4.1,2.3-8.2,6-9.6,10.6c-0.7,2.4-0.7,5,0,7.4c0.3,1.3,0.6,2.5,0.9,3.8c1.6-1.3,3.3-2.4,5.2-3.3c1.4-0.8,2.7-1.6,4-2.5
+				                        C63.4,64.1,64.7,61,63.9,58z" />
+                                    <path id="Path_4451" class="socks-path" d="M32.4,14.2c2,1.4,4,2.8,6.1,4.1c3.2,2,6.6,3.9,10.1,5.5c1.2-0.8,2.5-1.6,3.7-2.4
+				                        c3.4-2.3,6.6-5,9.5-8.1c0-2.7-0.1-5.4-0.1-8.1C61.8,4.2,61.1,3.2,60,3c-2.5-0.5-5-1-7.2-1.5c-2.9,0.1-5.5,0.1-8,0.2
+				                        c-1.7,0.1-3.4,0.3-5.1,0.6c-2,0.4-3.9,0.9-5.8,1.6c-1.5,0.4-2.4,2-2,3.5C32.2,9.6,32.3,11.9,32.4,14.2z" />
+                                    <path id="Path_4452" class="socks-path" d="M60.8,23.9c-2,1.8-4.2,3.5-6.5,5L54.1,29c2.3,0.9,4.6,1.5,7,2c-0.1-2.4-0.2-4.9-0.2-7.3
+				                        L60.8,23.9z" />
+                                </g>
+                            </g>
+                        </g>
+                        <g id="圖層_2_3_">
+                            <g id="圖層_1-2_2_">
+                                <g id="Path_4454_1_">
+                                    <path class="socks-border" d="M16.5,108c-2.6,0-5.4-0.6-8-1.7c-4-1.7-7-5.2-7.9-9.5c-0.9-3.7-0.8-7.6,0.3-11.2c1.5-4.7,3.9-8.9,7-12.7
+				                        c3.5-4.6,7.5-8.9,11.4-13.2l2.1-2.3c2.6-2.8,4.7-5.2,6.6-7.8c1.4-1.8,2.1-4,2-6.3c-0.1-8.3-0.2-16.6-0.3-24.8
+				                        c0-3.8,0-7.8-0.1-11.7c-0.2-2.1,1.1-4,3-4.7c1.6-0.7,3.3-1.2,5-1.4c6.3-1,12.8-0.9,19.2,0.2c1.6,0.3,3.1,0.8,4.6,1.3
+				                        c1.6,0.4,2.7,1.9,2.5,3.6c-0.1,1.5-0.2,3-0.2,4.5c-0.1,2.1-0.2,4.2-0.3,6.2c-0.7,8.9-0.6,18,0.1,26.9c0.3,3.4,1,6.8,1.7,10.2
+				                        l0.3,1.6c0.3,1.4,0.5,2.8,0.5,4.3c0.1,2.8-1.2,5.5-3.4,7.2c-1.8,1.4-3.8,2.5-5.9,3.5c-4.7,2.2-8.8,5.5-12,9.6
+				                        c-2.3,3.3-4.5,6.8-6.3,10.4c-1.9,3.5-4,6.9-6.4,10.1C27.9,105.3,22.4,108,16.5,108z M46.8,3c-2.9,0-5.8,0.2-8.7,0.7
+				                        c-1.5,0.2-2.9,0.6-4.3,1.2l-0.1,0c-0.7,0.2-1.2,0.9-1.1,1.7l0,0.1c0.1,3.9,0.1,8,0.1,11.8c0.1,8.1,0.2,16.5,0.3,24.7
+				                        c0.1,2.9-0.9,5.8-2.7,8.2c-2,2.7-4.2,5.1-6.8,8l-2.1,2.3c-3.8,4.2-7.8,8.5-11.2,13c-2.9,3.5-5.1,7.5-6.5,11.7
+				                        c-1,3.1-1,6.5-0.2,9.7c0.7,3.4,3,6.1,6.1,7.4c7.4,3.1,14.9,1.2,19.9-5.3c2.3-3,4.3-6.2,6.1-9.6c1.9-3.8,4.1-7.4,6.6-10.9
+				                        c3.5-4.5,8.1-8.1,13.2-10.5c1.9-0.9,3.7-1.9,5.4-3.2c1.5-1.1,2.3-2.8,2.2-4.6v0c-0.1-1.3-0.2-2.6-0.5-3.8l-0.3-1.6
+				                        c-0.7-3.4-1.4-6.9-1.7-10.5c-0.8-9.1-0.8-18.3-0.1-27.4c0.1-2,0.2-4.1,0.3-6.2c0.1-1.5,0.2-3,0.2-4.5l0-0.1
+				                        c0-0.1-0.1-0.3-0.2-0.3L60.6,5c-1.4-0.5-2.8-0.9-4.3-1.2C53.2,3.3,50,3,46.8,3z" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+
+                    <svg class="diy-area transition pattern-stripe" version="1.1" id="pattern-stripe" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.1 108" style="enable-background:new 0 0 66.1 108;" xml:space="preserve">
+                        <style type="text/css">
+                            .socks-color {
+                                fill: #FFFFFF;
+                                stroke: #404040;
+                                stroke-width: 3;
+                            }
+
+                            .socks-path {
+                                fill: none;
+                                stroke: #404040;
+                            }
+
+                            .stroke-width {
+                                stroke-width: 5;
+                            }
+
+                            .round {
+                                stroke-linecap: round;
+                            }
+
+                            .socks-border {
+                                fill: #404040;
+                            }
+                        </style>
+                        <g id="圖層_2_1_">
+                            <g id="圖層_1-2">
+                                <g id="Group_83">
+                                    <path id="Path_4445" class="socks-color" d="M64.6,59.5c0.1,2.3-1,4.5-2.8,5.9c-1.8,1.3-3.7,2.4-5.7,3.3c-4.9,2.3-9.2,5.7-12.6,10
+				                        c-2.4,3.4-4.6,7-6.5,10.7c-1.8,3.4-3.9,6.7-6.3,9.8c-5.4,6.9-13.6,9.1-21.7,5.7c-3.6-1.5-6.2-4.7-7-8.5C1.2,93,1.3,89.4,2.4,86
+				                        c1.4-4.5,3.7-8.6,6.7-12.2c4.2-5.4,8.8-10.4,13.4-15.4c2.3-2.6,4.6-5.2,6.7-7.9c1.6-2.1,2.4-4.6,2.4-7.2
+				                        c-0.1-8.2-0.2-16.5-0.3-24.7c0-3.9,0-7.9-0.1-11.8c-0.1-1.4,0.7-2.8,2.1-3.3c1.5-0.7,3.1-1.1,4.7-1.3c6.2-1,12.5-0.9,18.7,0.2
+				                        c1.5,0.3,3,0.7,4.5,1.3c0.9,0.2,1.5,1.1,1.4,2c-0.2,3.6-0.4,7.2-0.6,10.8c-0.7,9-0.6,18.1,0.1,27.1c0.4,4,1.2,8,2,11.9
+				                        C64.3,56.8,64.5,58.1,64.6,59.5z" />
+                                    <line id="Line_1" class="socks-path stroke-width" x1="31.1" y1="10.1" x2="61.9" y2="10.1" />
+                                    <line id="Line_1-2" class="socks-path stroke-width" x1="31.1" y1="20.6" x2="61.9" y2="20.6" />
+                                    <line id="Line_1-3" class="socks-path stroke-width" x1="31.1" y1="31.1" x2="61.9" y2="31.1" />
+                                    <line id="Line_1-4" class="socks-path stroke-width" x1="31.1" y1="41.7" x2="61.9" y2="41.7" />
+                                    <line id="Line_1-5" class="socks-path round stroke-width" x1="29.9" y1="52.2" x2="61.9" y2="52.2" />
+                                    <line id="Line_1-6" class="socks-path round stroke-width" x1="19.9" y1="62.7" x2="61.2" y2="64.2" />
+                                    <line id="Line_1-7" class="socks-path round stroke-width" x1="11.6" y1="73.2" x2="45.1" y2="75" />
+                                    <line id="Line_1-8" class="socks-path stroke-width" x1="4.1" y1="83.7" x2="37.9" y2="86.7" />
+                                    <line id="Line_1-9" class="socks-path round stroke-width" x1="3.4" y1="95.8" x2="29.6" y2="98.7" />
+                                </g>
+                            </g>
+                        </g>
+                        <g id="圖層_2_3_">
+                            <g id="圖層_1-2_2_">
+                                <g id="Path_4454_1_">
+                                    <path class="socks-border" d="M16.5,108c-2.6,0-5.4-0.6-8-1.7c-4-1.7-7-5.2-7.9-9.5c-0.9-3.7-0.8-7.6,0.3-11.2c1.5-4.7,3.9-8.9,7-12.7
+				                        c3.5-4.6,7.5-8.9,11.4-13.2l2.1-2.3c2.6-2.8,4.7-5.2,6.6-7.8c1.4-1.8,2.1-4,2-6.3c-0.1-8.3-0.2-16.6-0.3-24.8
+				                        c0-3.8,0-7.8-0.1-11.7c-0.2-2.1,1.1-4,3-4.7c1.6-0.7,3.3-1.2,5-1.4c6.3-1,12.8-0.9,19.2,0.2c1.6,0.3,3.1,0.8,4.6,1.3
+				                        c1.6,0.4,2.7,1.9,2.5,3.6c-0.1,1.5-0.2,3-0.2,4.5c-0.1,2.1-0.2,4.2-0.3,6.2c-0.7,8.9-0.6,18,0.1,26.9c0.3,3.4,1,6.8,1.7,10.2
+				                        l0.3,1.6c0.3,1.4,0.5,2.8,0.5,4.3c0.1,2.8-1.2,5.5-3.4,7.2c-1.8,1.4-3.8,2.5-5.9,3.5c-4.7,2.2-8.8,5.5-12,9.6
+				                        c-2.3,3.3-4.5,6.8-6.3,10.4c-1.9,3.5-4,6.9-6.4,10.1C27.9,105.3,22.4,108,16.5,108z M46.8,3c-2.9,0-5.8,0.2-8.7,0.7
+				                        c-1.5,0.2-2.9,0.6-4.3,1.2l-0.1,0c-0.7,0.2-1.2,0.9-1.1,1.7l0,0.1c0.1,3.9,0.1,8,0.1,11.8c0.1,8.1,0.2,16.5,0.3,24.7
+				                        c0.1,2.9-0.9,5.8-2.7,8.2c-2,2.7-4.2,5.1-6.8,8l-2.1,2.3c-3.8,4.2-7.8,8.5-11.2,13c-2.9,3.5-5.1,7.5-6.5,11.7
+				                        c-1,3.1-1,6.5-0.2,9.7c0.7,3.4,3,6.1,6.1,7.4c7.4,3.1,14.9,1.2,19.9-5.3c2.3-3,4.3-6.2,6.1-9.6c1.9-3.8,4.1-7.4,6.6-10.9
+				                        c3.5-4.5,8.1-8.1,13.2-10.5c1.9-0.9,3.7-1.9,5.4-3.2c1.5-1.1,2.3-2.8,2.2-4.6v0c-0.1-1.3-0.2-2.6-0.5-3.8l-0.3-1.6
+				                        c-0.7-3.4-1.4-6.9-1.7-10.5c-0.8-9.1-0.8-18.3-0.1-27.4c0.1-2,0.2-4.1,0.3-6.2c0.1-1.5,0.2-3,0.2-4.5l0-0.1
+				                        c0-0.1-0.1-0.3-0.2-0.3L60.6,5c-1.4-0.5-2.8-0.9-4.3-1.2C53.2,3.3,50,3,46.8,3z" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+
+                    <svg class="diy-area transition pattern-dotted" version="1.1" id="pattern-dotted" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.1 108" style="enable-background:new 0 0 66.1 108;" xml:space="preserve">
+                        <style type="text/css">
+                            .socks-color {
+                                fill: #FFFFFF;
+                                stroke: #404040;
+                                stroke-width: 3;
+                            }
+
+                            .socks-path {
+                                fill: #404040;
+                            }
+
+                            .socks-border {
+                                fill: #404040;
+                            }
+                        </style>
+                        <g id="圖層_2_1_">
+                            <g id="圖層_1-2">
+                                <g id="Group_82">
+                                    <path id="Path_4444" class="socks-color" d="M64.6,59.5c0.1,2.3-1,4.5-2.8,5.9c-1.8,1.3-3.7,2.4-5.7,3.3c-4.9,2.3-9.2,5.7-12.6,10
+				                        c-2.4,3.4-4.6,7-6.5,10.7c-1.8,3.4-3.9,6.7-6.3,9.8c-5.4,6.9-13.6,9.1-21.7,5.7c-3.6-1.5-6.2-4.7-7-8.5C1.2,93,1.3,89.4,2.4,86
+				                        c1.4-4.5,3.7-8.6,6.7-12.2c4.2-5.4,8.8-10.4,13.4-15.4c2.3-2.6,4.6-5.2,6.7-7.9c1.6-2.1,2.4-4.6,2.4-7.2
+				                        c-0.1-8.2-0.2-16.5-0.3-24.7c0-3.9,0-7.9-0.1-11.8c-0.1-1.4,0.7-2.8,2.1-3.3c1.5-0.7,3.1-1.1,4.7-1.3c6.2-1,12.5-0.9,18.7,0.2
+				                        c1.5,0.3,3,0.7,4.5,1.3c0.9,0.2,1.5,1.1,1.4,2c-0.2,3.6-0.4,7.2-0.6,10.8c-0.7,9-0.6,18.1,0.1,27.1c0.4,4,1.2,8,2,11.9
+				                        C64.3,56.8,64.5,58.1,64.6,59.5z" />
+                                    <circle id="Ellipse_40" class="socks-path" cx="39.2" cy="15" r="7.5" />
+                                    <circle id="Ellipse_41" class="socks-path" cx="55.2" cy="35" r="7.5" />
+                                    <circle id="Ellipse_42" class="socks-path" cx="33.2" cy="57" r="7.5" />
+                                    <circle id="Ellipse_43" class="socks-path" cx="58.2" cy="59" r="7.5" />
+                                    <circle id="Ellipse_44" class="socks-path" cx="8.1" cy="93" r="7.5" />
+                                    <circle id="Ellipse_45" class="socks-path" cx="33.2" cy="82" r="7.5" />
+                                </g>
+                            </g>
+                        </g>
+                        <g id="圖層_2_3_">
+                            <g id="圖層_1-2_2_">
+                                <g id="Path_4454_1_">
+                                    <path class="socks-border" d="M16.5,108c-2.6,0-5.4-0.6-8-1.7c-4-1.7-7-5.2-7.9-9.5c-0.9-3.7-0.8-7.6,0.3-11.2c1.5-4.7,3.9-8.9,7-12.7
+				                        c3.5-4.6,7.5-8.9,11.4-13.2l2.1-2.3c2.6-2.8,4.7-5.2,6.6-7.8c1.4-1.8,2.1-4,2-6.3c-0.1-8.3-0.2-16.6-0.3-24.8
+				                        c0-3.8,0-7.8-0.1-11.7c-0.2-2.1,1.1-4,3-4.7c1.6-0.7,3.3-1.2,5-1.4c6.3-1,12.8-0.9,19.2,0.2c1.6,0.3,3.1,0.8,4.6,1.3
+				                        c1.6,0.4,2.7,1.9,2.5,3.6c-0.1,1.5-0.2,3-0.2,4.5c-0.1,2.1-0.2,4.2-0.3,6.2c-0.7,8.9-0.6,18,0.1,26.9c0.3,3.4,1,6.8,1.7,10.2
+				                        l0.3,1.6c0.3,1.4,0.5,2.8,0.5,4.3c0.1,2.8-1.2,5.5-3.4,7.2c-1.8,1.4-3.8,2.5-5.9,3.5c-4.7,2.2-8.8,5.5-12,9.6
+				                        c-2.3,3.3-4.5,6.8-6.3,10.4c-1.9,3.5-4,6.9-6.4,10.1C27.9,105.3,22.4,108,16.5,108z M46.8,3c-2.9,0-5.8,0.2-8.7,0.7
+				                        c-1.5,0.2-2.9,0.6-4.3,1.2l-0.1,0c-0.7,0.2-1.2,0.9-1.1,1.7l0,0.1c0.1,3.9,0.1,8,0.1,11.8c0.1,8.1,0.2,16.5,0.3,24.7
+				                        c0.1,2.9-0.9,5.8-2.7,8.2c-2,2.7-4.2,5.1-6.8,8l-2.1,2.3c-3.8,4.2-7.8,8.5-11.2,13c-2.9,3.5-5.1,7.5-6.5,11.7
+				                        c-1,3.1-1,6.5-0.2,9.7c0.7,3.4,3,6.1,6.1,7.4c7.4,3.1,14.9,1.2,19.9-5.3c2.3-3,4.3-6.2,6.1-9.6c1.9-3.8,4.1-7.4,6.6-10.9
+				                        c3.5-4.5,8.1-8.1,13.2-10.5c1.9-0.9,3.7-1.9,5.4-3.2c1.5-1.1,2.3-2.8,2.2-4.6v0c-0.1-1.3-0.2-2.6-0.5-3.8l-0.3-1.6
+				                        c-0.7-3.4-1.4-6.9-1.7-10.5c-0.8-9.1-0.8-18.3-0.1-27.4c0.1-2,0.2-4.1,0.3-6.2c0.1-1.5,0.2-3,0.2-4.5l0-0.1
+				                        c0-0.1-0.1-0.3-0.2-0.3L60.6,5c-1.4-0.5-2.8-0.9-4.3-1.2C53.2,3.3,50,3,46.8,3z" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+
                 </div>
                 <div class="box-right ">
                     <div class="socks-color flex">
@@ -1045,54 +1272,54 @@ $pageName = 'DIY';  // 這裡放你的pagename
                             <li class="flex">
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a1">
+                                    <div class="color color-top" id="a1">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a2">
+                                    <div class="color color-top" id="a2">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a3">
+                                    <div class="color color-top" id="a3">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a4">
+                                    <div class="color color-top" id="a4">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a5">
+                                    <div class="color color-top" id="a5">
                                     </div>
                                 </div>
                             </li>
                             <li class="flex">
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a6">
+                                    <div class="color color-top" id="a6">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a7">
+                                    <div class="color color-top" id="a7">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a8">
+                                    <div class="color color-top" id="a8">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a9">
+                                    <div class="color color-top" id="a9">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a10">
+                                    <div class="color color-top" id="a10">
                                     </div>
                                 </div>
                             </li>
@@ -1132,54 +1359,54 @@ $pageName = 'DIY';  // 這裡放你的pagename
                             <li class="flex">
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a1">
+                                    <div class="color color-bottom" id="b1">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a2">
+                                    <div class="color color-bottom" id="b2">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a3">
+                                    <div class="color color-bottom" id="b3">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a4">
+                                    <div class="color color-bottom" id="b4">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a5">
+                                    <div class="color color-bottom" id="b5">
                                     </div>
                                 </div>
                             </li>
                             <li class="flex">
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a6">
+                                    <div class="color color-bottom" id="b6">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a7">
+                                    <div class="color color-bottom" id="b7">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a8">
+                                    <div class="color color-bottom " id="b8">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a9">
+                                    <div class="color color-bottom" id="b9">
                                     </div>
                                 </div>
                                 <div>
                                     <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                    <div class="color" id="a10">
+                                    <div class="color color-bottom" id="b10">
                                     </div>
                                 </div>
                             </li>
@@ -1201,54 +1428,54 @@ $pageName = 'DIY';  // 這裡放你的pagename
                         <li class="flex">
                             <div>
                                 <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b1">
+                                <div class="color color-bottom" id="b1">
                                 </div>
                             </div>
                             <div>
                                 <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b2">
+                                <div class="color color-bottom" id="b2">
                                 </div>
                             </div>
                             <div>
                                 <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b3">
+                                <div class="color color-bottom" id="b3">
                                 </div>
                             </div>
                             <div>
                                 <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b4">
+                                <div class="color color-bottom" id="b4">
                                 </div>
                             </div>
                             <div>
                                 <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b5">
+                                <div class="color color-bottom" id="b5">
                                 </div>
                             </div>
                         </li>
                         <li class="flex">
                             <div>
                                 <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b6">
+                                <div class="color color-bottom" id="b6">
                                 </div>
                             </div>
                             <div>
                                 <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b7">
+                                <div class="color color-bottom" id="b7">
                                 </div>
                             </div>
                             <div>
                                 <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="a8">
+                                <div class="color color-bottom" id="a8">
                                 </div>
                             </div>
                             <div>
                                 <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b9">
+                                <div class="color color-bottom" id="b9">
                                 </div>
                             </div>
                             <div>
                                 <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color" id="b10">
+                                <div class="color color-bottom" id="b10">
                                 </div>
                             </div>
                         </li>
@@ -1277,9 +1504,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
         $(".tutorial#tutor2").css({
             "display": "block"
         })
-        $(".dash-box").css({
-            "display": "block"
-        })
+        $(".dash-box").css("display", "block")
         $(".shape-color").addClass("transition")
         $(".shape-color").addClass("move-left")
     })
@@ -1298,16 +1523,10 @@ $pageName = 'DIY';  // 這裡放你的pagename
     $(".tutorial").click(function() {
         console.log("click")
         $(".modal").fadeIn(500);
-        $(".modal").css({
-            "display": "block"
-        })
+        $(".modal").css("display", "block")
 
-        $(".tutorial#tutor2").css({
-            "display": "block"
-        })
-        $(".dash-box").css({
-            "display": "block"
-        })
+        $(".tutorial#tutor2").css("display", "block")
+        $(".dash-box").css("display", "block")
         $(".shape-color").addClass("transition")
         $(".shape-color").addClass("move-left")
     })
@@ -1327,69 +1546,59 @@ $pageName = 'DIY';  // 這裡放你的pagename
     // mousemove
     // default tutorial
 
-    if ($(window).width() > 992) {
-        $(window).mousemove(function(e) {
-            // console.log(e.screenX)
-            $(".spot").css("display", "flex")
-            $(".spot").css("clip-path", `circle(140px at ${e.pageX}px ${e.pageY - 30}px`)
-        })
+    let hasMouseMove = false;
 
+    const followCursor = () => {
+        hasMouseMove = true;
+        $(window).mousemove(function(e) {
+            console.log('triggered')
+            if ($(window).width() > 992) {
+                $(".spot").css("display", "flex")
+                $(".spot").css("clip-path", `circle(140px at ${e.pageX}px ${e.pageY - 30}px`)
+            }
+        })
+    };
+
+    if ($(window).width() > 992) {
+        if (!hasMouseMove) {
+                followCursor();
+        }
     } else {
         $(".modal").fadeIn(500);
-        $(".modal").css({
-            "display": "block"
-        })
-
-        $(".tutorial#tutor2").css({
-            "display": "block"
-        })
-        $(".dash-box").css({
-            "display": "block"
-        })
+        $(".spot").css("display", "none")
+        $(".modal").css("display", "block")
+        $(".tutorial#tutor2").css("display", "block")
+        $(".dash-box").css("display", "block")
         $(".shape-color").addClass("transition")
         $(".shape-color").addClass("move-left")
     }
 
     $(window).resize(function() {
+        console.log('triggered');
         if ($(window).width() > 992) {
-            $(window).mousemove(function(e) {
-                $(".spot").css("display", "flex")
-                $(".spot").css("clip-path", `circle(140px at ${e.pageX}px ${e.pageY - 30}px`)
-            })
+            if (!hasMouseMove) {
+                followCursor();
+            }
             $(".modal").fadeOut(500);
-            $(".tutorial#tutor2").css({
-                "display": "none"
-            })
-            $(".dash-box").css({
-                "display": "none"
-            })
+            $(".tutorial#tutor2").css("display", "none")
+            $(".dash-box").css("display", "none")
             $(".shape-color").removeClass("move-left")
         } else {
-            $(".diy-pattern").css({
-                "display": "none"
-            })
-            $(window).off("mousemove");
+            $(".spot").css("display", "none")
+            $(".diy-pattern").css("display", "none")
             $(".modal").fadeIn(500);
-            $(".modal").css({
-                "display": "block"
-            })
+            $(".modal").css("display", "block")
 
-            $(".tutorial#tutor2").css({
-                "display": "block"
-            })
-            $(".dash-box").css({
-                "display": "block"
-            })
+            $(".tutorial#tutor2").css("display", "block")
+            $(".dash-box").css("display", "block")
             $(".shape-color").addClass("transition")
             $(".shape-color").addClass("move-left")
         }
     })
 
-    
-
     //DIY change Pattern
     $(".img-pattern-watz img").click(function() {
-        let imgSrc = $(this).attr("src")
+  
         $(".diy-area").attr("src", imgSrc)
     })
     $(".img-pattern-stripe img").click(function() {
@@ -1405,7 +1614,23 @@ $pageName = 'DIY';  // 這裡放你的pagename
         $(".diy-area").attr("src", imgSrc)
     })
 
-    //DIY change socks color
+    //change socks color
+    $(".color-top").click(function() {
+        let color = $(this).css("background-color")
+        console.log(color)
+        $(".socks-color").css("fill", color)
+    })
+
+    //change shape color
+    $(".color-bottom").click(function() {
+        let shapecolor = $(this).css("background-color")
+        console.log(shapecolor)
+        $(".socks-path").css({
+            "fill": shapecolor,
+            "stroke": shapecolor
+        })
+    })
+ 
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
