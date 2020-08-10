@@ -299,8 +299,14 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
     .box-bigphoto div {
         width: 600px;
         height: 400px;
-        background: gray;
+        /* background: gray; */
         margin-bottom: 20px;
+    }
+
+    .box-bigphoto img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .block-left-bottom {

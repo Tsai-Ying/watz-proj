@@ -10,6 +10,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
         background-size: cover;
         background-image: url(images/BG2.svg);
         background-repeat: repeat-y;
+        user-select: none;
     }
 
     .diy-pattern {
@@ -1331,17 +1332,21 @@ $pageName = 'DIY';  // 這裡放你的pagename
     })
 
     //DIY change Pattern
-    $(".img-pattern-watz").click(function(){
-        $(".diy-area").attr("src", "images/pattern-watz.svg" )
+    $(".img-pattern-watz img").click(function(){
+        let imgSrc = $(this).attr("src")
+        $(".diy-area").attr("src", imgSrc )
     })
-    $(".img-pattern-stripe").click(function(){
-        $(".diy-area").attr("src", "images/pattern-stripe.svg" )
+    $(".img-pattern-stripe img").click(function(){
+        let imgSrc = $(this).attr("src")
+        $(".diy-area").attr("src", imgSrc )
     })
-    $(".img-pattern-dotted").click(function(){
-        $(".diy-area").attr("src", "images/pattern-dotted.svg" )
+    $(".img-pattern-dotted img").click(function(){
+        let imgSrc = $(this).attr("src")
+        $(".diy-area").attr("src", imgSrc )
     })
-    $(".img-pattern-white").click(function(){
-        $(".diy-area").attr("src", "images/pattern-white.svg" )
+    $(".img-pattern-white img").click(function(){
+        let imgSrc = $(this).attr("src")
+        $(".diy-area").attr("src", imgSrc )
     })
 
     //DIY change socks color
