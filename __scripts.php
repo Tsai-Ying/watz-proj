@@ -156,4 +156,14 @@ jQuery('img.svg').each(function () {
     $('.a-cart').click(function() {
         $('.box-cart-short').toggleClass('show')
     })
+
+    // $('.navlist a').hover(function(){
+    //     $(this).css('border-bottom', '4px solid #FF9685;')
+    //     .siblings().css('border-bottom', '4px solid #FFFFFF;')
+    //     $('.navlist a.active').css('border-bottom', '4px solid #FFFFFF;')
+
+    // }, function(){
+    //     $(this).css('border-bottom', '4px solid #FFFFFF')
+    //     $('.navlist a.active').css('border-bottom', '4px solid #FF9685')
+    // });
 </script>

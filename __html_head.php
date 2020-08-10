@@ -295,6 +295,10 @@
         border-bottom: 0;
         background-color: #ffffff;
     }
+
+    .nav-list a.active {
+        border-bottom: 4px solid #FF9685;
+    }
     
     .nav-list a:hover {
         border-bottom: 4px solid #FF9685;
