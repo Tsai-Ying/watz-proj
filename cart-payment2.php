@@ -1223,23 +1223,21 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
 
 
         // ------------------php---------------------//
+        // php
         const dallorCommas = function(n) {
             return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         };
 
         function prepareCartTable() {
-            $p_items = $('.p_item');
-
-            if ($p_items.length == 0) {
-                location.href = 'cart-empty.php'
-            }
+            const $p_items = $('.p_item');
+            console.log($p_items);
 
             let total = 0;
 
-            // if (!$p_items.length && $('#totalPrice').length) {
-            //     location.href = 'product.php';
-            //     return;
-            // }
+            if (!$p_items.length && $('#totalPrice').length) {
+                location.href = 'product.php';
+                return;
+            }
             $p_items.each(function() {
                 const sid = $(this).attr('data-sid');
                 const price = $(this).attr('data-price');
@@ -1257,7 +1255,10 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
             })
         }
 
-        
+        prepareCartTable();
+
+
+
 
         //error notice//
         const receiver = $('#receiverName'),

@@ -939,6 +939,11 @@ if (empty($_SESSION['cart'])) {
             .siblings().removeClass('active');
         $('.shipFee').text('60');
         prepareCartTable();
+        if ($this).hasClass('active') {
+            $(".ShipBtn").children('img').css("display", "none");
+            $(".ShipBtn").children('h6').html('');
+        }
+
     })
 
 
@@ -1040,7 +1045,7 @@ if (empty($_SESSION['cart'])) {
 
     function prepareCartTable() {
         $p_items = $('.p_item');
-        console.log($p_items.length);
+        // console.log($p_items.length);
 
         if ($p_items.length == 0) {
             location.href = 'cart-empty.php'
@@ -1113,19 +1118,25 @@ if (empty($_SESSION['cart'])) {
         $(".notice").removeClass("active");
     });
 
+
+
+
+
+
     function formCheck() {
         let isPass = true;
         const shipError = $('.ship-title').children('.error-frame');
-        if (('.shipping-btn').('.button.active').length = 0) {
+        const shippingBtn = $('.shipping-btn');
+
+
+        if (!(shippingBtn).children('.button').hasClass('active')) {
             isPass = false;
             shipError.children('img').css("display", "block");
             shipError.children('h6').html('尚未選擇運送方式');
-            console.log('false');
-
         }
         if (isPass) {
             location.href = 'cart-payment2.php';
-            console.log(data);
+            // console.log(data);
         }
         return false;
 
