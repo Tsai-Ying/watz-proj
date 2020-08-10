@@ -221,6 +221,7 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
         border: 1px solid #F2DE79;
         border-radius: 2px;
         outline: none;
+        padding: 0 10px;
     }
 
     .shipping-form-frame ul li {
@@ -348,6 +349,7 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
         border-radius: 2px;
         margin-left: 20px;
         outline: none;
+        padding: 0 10px;
 
     }
 
@@ -1082,7 +1084,7 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
 
                                 <div class="socks-detail flex">
                                     <h4>禮盒內容</h4>
-                                    <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
+                                    <!-- <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
                                         <div class="img-product">
                                             <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
                                         </div>
@@ -1093,7 +1095,7 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
                                                 <h5 class="socks-price">NT$<?= $i['price'] ?></h5>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             <?php endforeach; ?>
 
@@ -1102,7 +1104,7 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
                         <div class="socks-detail flex">
                             <h4>單購襪子</h4>
                             <?php foreach ($_SESSION['cart'] as $i) : ?>
-                                <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['quantity'] ?>">
+                                <div class="eachsock-list p_item flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
                                     <div class="img-product">
                                         <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
                                     </div>
@@ -1255,35 +1257,7 @@ $receiverAddress = isset($_SESSION['receiver']) ? $_SESSION['receiver']['receive
             })
         }
 
-
-        // const dallorCommas = function(n) {
-        //     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        // };
-
-        // function prepareCartTable() {
-        //     $p_items = $('.p_item');
-        //     let total = 0;
-
-        //     if (!$p_items.length && $('#totalPrice').length) {
-        //         // location.href = 'product.php';
-        //         return;
-        //     }
-        //     $p_items.each(function() {
-        //         const sid = $(this).attr('data-sid');
-        //         const price = $(this).attr('data-price');
-        //         const quantity = $(this).attr('data-quantity');
-
-        //         $(this).find('.price').text('NT $' + dallorCommas(price));
-        //         $(this).find('.qty').val(quantity);
-        //         $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
-        //         total += quantity * price;
-        //         $('#productPrice').text('NT $' + dallorCommas(total));
-        //         $('#totalPrice').text('NT $' + dallorCommas(total - 60 - 20));
-
-        //     })
-        // }
-
-        // prepareCartTable();
+        
 
         //error notice//
         const receiver = $('#receiverName'),
