@@ -1325,6 +1325,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
     })
 
     // mousemove
+    // default tutorial
 
     if ($(window).width() > 992) {
         $(window).mousemove(function(e) {
@@ -1332,24 +1333,59 @@ $pageName = 'DIY';  // 這裡放你的pagename
             $(".spot").css("display", "flex")
             $(".spot").css("clip-path", `circle(140px at ${e.pageX}px ${e.pageY - 30}px`)
         })
+
+    } else {
+        $(".modal").fadeIn(500);
+        $(".modal").css({
+            "display": "block"
+        })
+
+        $(".tutorial#tutor2").css({
+            "display": "block"
+        })
+        $(".dash-box").css({
+            "display": "block"
+        })
+        $(".shape-color").addClass("transition")
+        $(".shape-color").addClass("move-left")
     }
 
     $(window).resize(function() {
         if ($(window).width() > 992) {
             $(window).mousemove(function(e) {
-                // console.log(e.screenX)
                 $(".spot").css("display", "flex")
                 $(".spot").css("clip-path", `circle(140px at ${e.pageX}px ${e.pageY - 30}px`)
             })
+            $(".modal").fadeOut(500);
+            $(".tutorial#tutor2").css({
+                "display": "none"
+            })
+            $(".dash-box").css({
+                "display": "none"
+            })
+            $(".shape-color").removeClass("move-left")
         } else {
             $(".diy-pattern").css({
                 "display": "none"
             })
             $(window).off("mousemove");
+            $(".modal").fadeIn(500);
+            $(".modal").css({
+                "display": "block"
+            })
+
+            $(".tutorial#tutor2").css({
+                "display": "block"
+            })
+            $(".dash-box").css({
+                "display": "block"
+            })
+            $(".shape-color").addClass("transition")
+            $(".shape-color").addClass("move-left")
         }
     })
 
-
+    
 
     //DIY change Pattern
     $(".img-pattern-watz img").click(function() {
