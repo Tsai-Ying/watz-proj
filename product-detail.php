@@ -1,5 +1,5 @@
 <?php require __DIR__ . '/__connect_db.php';
-$pageName = 'product-detail';  // 這裡放你的pagename
+$pageName = 'product';  // 這裡放你的pagename
 
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 $t_sql = "SELECT * FROM `product` WHERE `sid`= $sid";

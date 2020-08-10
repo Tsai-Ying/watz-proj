@@ -6,7 +6,7 @@ $sql = "SELECT * FROM `members` WHERE `id`= $id";
 $row = $pdo->query($sql)->fetch();
 
 $pageName = 'buy-start';
-if(empty($_SESSION['cart']) or empty($_SESSION['member'])){
+if( empty($_SESSION['cart'])  or empty($_SESSION['member'])){
     header('Location: product.php');
     exit;
 }
@@ -50,6 +50,7 @@ foreach($_SESSION['cart'] as $i){
 
 // 清除購物車內容
 unset($_SESSION['cart']);
+unset($_SESSION['watzbox']);
 unset($_SESSION['receiver']);
 unset($_SESSION['sender']);
 

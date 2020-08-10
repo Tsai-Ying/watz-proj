@@ -806,7 +806,37 @@ if (empty($_SESSION['cart'])) {
                         <!-- <h4>Step2 請加選雙襪子到您的包裝盒裡</h4> -->
 
                         <div class="boxChooseDetail flex" id="sockInBox">
+                            <?php foreach ($_SESSION['cart'] as $i) :
+                                if ($i['watzbox'] == 1) : ?>
+                                    <li class="eachsock-list eachSocksList flex p_item" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
 
+                                        <div class="add-box-frame">
+                                            <div class="add-box flex moveToBox-btn">
+                                                <p class="addBox">+</p>
+                                                <p class="removeInBox">-</p>
+                                            </div>
+                                        </div>
+                                        <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt=""></a>
+                                        <div class="product-detail flex">
+                                            <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="sock-name flex">
+                                                <h4><?= htmlentities($i['product_name']) ?></h4>
+                                                <div>
+                                                    <h6><?= $i['detail'] ?></h6>
+                                                </div>
+                                            </a>
+                                            <div class="socks-amount-choose flex">
+                                                <div class="quantity-choose flex">
+                                                    <span class="minus">-</span>
+                                                    <input class="quantity-input qty" type="text" value="1" />
+                                                    <span class="plus">+</span>
+                                                </div>
+                                                <h4 class="sub-total"></h4>
+                                                <span class="remove"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
                         </div>
                         <div class="step2 flex" id="step2">
                             <img src="images/dotted-line.svg" alt="">
@@ -818,34 +848,36 @@ if (empty($_SESSION['cart'])) {
             </div>
             <div class="box-product flex">
                 <ul class="box-product-frame flex" id="sockOutBox">
-                    <?php foreach ($_SESSION['cart'] as $i) : ?>
-                        <li class="eachsock-list eachSocksList flex p_item" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
+                    <?php foreach ($_SESSION['cart'] as $i) :
+                        if ($i['watzbox'] == 0) : ?>
+                            <li class="eachsock-list eachSocksList flex p_item" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
 
-                            <div class="add-box-frame">
-                                <div class="add-box flex moveToBox-btn">
-                                    <p class="addBox">+</p>
-                                    <p class="removeInBox">-</p>
-                                </div>
-                            </div>
-                            <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt=""></a>
-                            <div class="product-detail flex">
-                                <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="sock-name flex">
-                                    <h4><?= htmlentities($i['product_name']) ?></h4>
-                                    <div>
-                                        <h6><?= $i['detail'] ?></h6>
+                                <div class="add-box-frame">
+                                    <div class="add-box flex moveToBox-btn">
+                                        <p class="addBox">+</p>
+                                        <p class="removeInBox">-</p>
                                     </div>
-                                </a>
-                                <div class="socks-amount-choose flex">
-                                    <div class="quantity-choose flex">
-                                        <span class="minus">-</span>
-                                        <input class="quantity-input qty" type="text" value="1" />
-                                        <span class="plus">+</span>
-                                    </div>
-                                    <h4 class="sub-total"></h4>
-                                    <span class="remove"></span>
                                 </div>
-                            </div>
-                        </li>
+                                <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt=""></a>
+                                <div class="product-detail flex">
+                                    <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="sock-name flex">
+                                        <h4><?= htmlentities($i['product_name']) ?></h4>
+                                        <div>
+                                            <h6><?= $i['detail'] ?></h6>
+                                        </div>
+                                    </a>
+                                    <div class="socks-amount-choose flex">
+                                        <div class="quantity-choose flex">
+                                            <span class="minus">-</span>
+                                            <input class="quantity-input qty" type="text" value="1" />
+                                            <span class="plus">+</span>
+                                        </div>
+                                        <h4 class="sub-total"></h4>
+                                        <span class="remove"></span>
+                                    </div>
+                                </div>
+                            </li>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </ul>
             </div>
@@ -899,11 +931,10 @@ if (empty($_SESSION['cart'])) {
                             </ul>
                         </div>
                         <?php if (isset($_SESSION['member'])) : ?>
-                            <button class="btn-pay" onclick=" javascript:location.href='<?= WEB_ROOT ?>/cart-payment2.php'">前往結帳</button>
+                            <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment2.php'">前往結帳</button>
                         <?php else : ?>
                             <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-login-signup.php'">請先登入會員</button>
                         <?php endif; ?>
-
                     </div>
                 </div>
             </div>
@@ -943,7 +974,7 @@ if (empty($_SESSION['cart'])) {
 
 
     $(document).ready(function() {
-        $(".hide-choose-box").hide();
+        // $(".hide-choose-box").hide();
         $(".box-watzbox-title").click(function() {
             $(".hide-choose-box").slideToggle()
             $('#open-btn').toggleClass('close');
@@ -967,7 +998,6 @@ if (empty($_SESSION['cart'])) {
         $(this).toggleClass('active');
 
 
-
         if ($(this).hasClass('active')) {
             $('.step2').addClass('show');
             $('.add-box').addClass('show');
@@ -981,6 +1011,21 @@ if (empty($_SESSION['cart'])) {
             $(box_item).find(".addBox").css("display", "flex");
             console.log('cancal remove');
 
+            console.log(box_item)
+
+            for (i = 1; i <= box_item.length; i++) {
+                const p_item = box_item.eq(i);
+                const sid = p_item.attr('data-sid');
+
+
+                const sendObj = {
+                    action: 'moveOutOfBox',
+                    sid: sid
+                }
+                $.get('cart-handle.php', sendObj, function(data) {
+                    console.log(data);
+                }, 'json');
+            }
         }
 
     });
@@ -989,6 +1034,8 @@ if (empty($_SESSION['cart'])) {
 
     $('.moveToBox-btn').click(function() {
         const p_item = $(this).closest('.p_item');
+        const sid = p_item.attr('data-sid');
+        const qty = p_item.find('.qty').val();
         const ifInBox = $(this).closest('#sockInBox').length;
         console.log(ifInBox);
         if (ifInBox) {
@@ -996,10 +1043,28 @@ if (empty($_SESSION['cart'])) {
             $(this).children(".removeInBox").css("display", "none");
             $(this).children(".addBox").css("display", "flex");
 
+            const sendObj = {
+                action: 'moveOutOfBox',
+                sid: sid,
+                qty: qty
+            }
+            $.get('cart-handle.php', sendObj, function(data) {
+                console.log(data);
+            }, 'json');
+
         } else {
             $('#sockInBox').append(p_item);
             $(this).children(".addBox").css("display", "none");
             $(this).children(".removeInBox").css("display", "flex");
+
+            const sendObj = {
+                action: 'moveIntoBox',
+                sid: sid,
+                qty: qty
+            }
+            $.get('cart-handle.php', sendObj, function(data) {
+                console.log(data);
+            }, 'json');
         }
     });
 
@@ -1042,9 +1107,9 @@ if (empty($_SESSION['cart'])) {
         $p_items = $('.p_item');
         console.log($p_items.length);
 
-        if ($p_items.length == 0) {
-            location.href = 'cart-empty.php'
-        }
+        // if ($p_items.length == 0) {
+        //     location.href = 'cart-empty.php'
+        // }
 
         let total = 0;
 

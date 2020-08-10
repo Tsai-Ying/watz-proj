@@ -22,7 +22,7 @@ $output = [
 
 switch ($action) {
     case 'add':
-        if(empty($sid) or $qty<=0 ){
+        if (empty($sid) or $qty <= 0) {
             // 不做任何事
             $output['code'] = 400;
         } else {
@@ -36,6 +36,7 @@ switch ($action) {
                     $output['code'] = 240;
                 } else {
                     $row['qty'] = $qty;
+                    $row['watzbox'] = 0;
                     $_SESSION['cart'][] = $row;
                     $output['code'] = 260;
                 }
@@ -61,9 +62,18 @@ switch ($action) {
         $_SESSION['cart'] = [];
         break;
 
+    case 'moveIntoBox':
+        $index = array_search($sid, array_column($_SESSION['cart'], 'sid'));
+        $_SESSION['cart'][$index]['watzbox'] = 1;
+        $output['code'] = 500;
+        break;
+
+    case 'moveOutOfBox':
+        $index = array_search($sid, array_column($_SESSION['cart'], 'sid'));
+        $_SESSION['cart'][$index]['watzbox'] = 0;
+        $output['code'] = 501;
+        break;
 }
 
 $output['cart'] = $_SESSION['cart'];
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
-?>
-

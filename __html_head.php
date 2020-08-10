@@ -297,7 +297,7 @@
     }
 
     .nav-list a.active {
-        border-bottom: 4px solid #FF9685;
+        border-bottom: 4px solid #03588C;
     }
     
     .nav-list a:hover {
