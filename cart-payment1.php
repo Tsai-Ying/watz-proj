@@ -899,7 +899,7 @@ if (empty($_SESSION['cart'])) {
                             </ul>
                         </div>
                         <?php if (isset($_SESSION['member'])) : ?>
-                            <button class="btn-pay" onclick="return formCheck() javascript:location.href='<?= WEB_ROOT ?>/cart-payment2.php'">前往結帳</button>
+                            <button class="btn-pay" onclick=" javascript:location.href='<?= WEB_ROOT ?>/cart-payment2.php'">前往結帳</button>
                         <?php else : ?>
                             <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-login-signup.php'">請先登入會員</button>
                         <?php endif; ?>
