@@ -188,48 +188,71 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         align-items: center;
         margin-bottom: 20px;
         position: relative;
+
+
     }
-    .account{
+
+    .email-input {
+        border: 2px solid transparent;
+    }
+
+    .account {
         width: 20px;
-        height:20px;
+        height: 20px;
         margin: 11px 16px;
     }
+
     .member-input {
         border: transparent;
         outline: none;
         width: 292px;
-        height: 43px;
+        height: 38px;
     }
-    .eyes{
+
+    .eyes {
         width: 20px;
-        height:20px;
+        height: 20px;
         margin: 11px 16px;
         cursor: pointer;
     }
-    .error{
+
+    .error {
         position: absolute;
         align-items: center;
         justify-content: center;
         flex-direction: row;
         right: 0;
+        pointer-events: none;
+        display: none;
+
     }
-    .email{
+
+    .email {
         position: absolute;
         align-items: center;
         justify-content: center;
         flex-direction: row;
         right: 0;
+        display: none;
+
     }
-    .error-icon{
-        width: 20px;
-        height: 20px;
+
+    .email h6 {
+        color: #FF3434;
+    }
+
+    .error-icon {
+        width: 15px;
+        height: 15px;
         cursor: pointer;
         margin-right: 5px;
     }
+
     .error h6 {
         color: #FF3434;
         /* position: absolute; */
     }
+
     @media screen and (max-width: 992px) {
         .member-input {
             width: 70vw;
@@ -460,7 +483,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                     <form class="member-login flex signup" name="form1" method="post" novalidate>
                         <h2>JOIN US</h2>
                         <div class="bg-inputwrapper flex">
-                            <div class="input-wrapper flex" id="signupEmailWrapper">
+                            <div class="input-wrapper email-input flex" id="signupEmailWrapper">
                                 <img class="account" src="images/icon-account.svg" alt="">
                                 <input class="member-input" type="email" id="signupEmail" name="email" placeholder="Email" required>
                                 <div class="email flex">
@@ -472,10 +495,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                                 <img class="account" src="images/icon-password.svg" alt="">
                                 <input class="member-input password" type="password" placeholder="Password" id="signupPassword" name="password" required>
                                 <img class="eyes" src="images/hidden.svg" alt="">
-                                <div class="error flex">
-                                    <img class="error-icon flex" src="images/alert.svg">
-                                    <h6 class="flex">密碼輸入錯誤</h6>
-                                </div>
                             </div>
                             <div class="input-wrapper flex">
                                 <img class="account" src="images/icon-confirmPassword.svg" alt="">
@@ -505,7 +524,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                 <li class="box-login" id="box-login">
                     <form class="member-login flex" name="form2" method="post" novalidate>
                         <h2>LOG IN</h2>
-                        <div class="input-wrapper flex" id="loginEmailWrapper">
+                        <div class="input-wrapper email-input flex" id="loginEmailWrapper">
                             <img class="account" src="images/icon-account.svg" alt="">
                             <input class="member-input" type="email" id="loginEmail" name="email" placeholder="Email" required>
                             <div class="email flex">
@@ -583,30 +602,33 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         // $('#box-login').removeAttr('style');
     })
 
-
-    const signupEmail = $('#signupEmail'),
-        signupPassword = $('#signupPassword'),
-        confirmPassword = $('#confirmPassword');
-
-    const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    $(".email-input").on("click keyup change", function() {
+        console.log('change')
+        $(this).css('border-color', 'transparent');
+        $('.email').css('display', 'none');
+    })
 
     function formCheck() {
+        const signupEmail = $('#signupEmail'),
+            signupPassword = $('#signupPassword'),
+            confirmPassword = $('#confirmPassword'),
+            email = $('.email'),
+            emailInput = $('.email-input');
+        const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
         signupEmail.text('');
-        // TODO: 檢查欄位
+        // // TODO: 檢查欄位
         let isPass = true;
 
-        // if (!email_re.test(loginEmail.val())) {
-        //     isPass = false;
-        //     console.log('請填寫正確的 email')
-        //     $('#loginEmailWrapper').css('border', '2px solid red');
-        //     // email.next().text('請填寫正確的 email 格式');
-        // }
 
-        // if (signupPassword.val().length < 6) {
-        //     isPass = false;
-        //     signupPassword.css('border-color', 'red');
-        //     // password.next().text('密碼長度太短');
-        // }
+
+        if (!email_re.test($(signupEmail).val())) {
+            isPass = false;
+            console.log('false')
+            $('.email').css('display', 'flex');
+            emailInput.css('border-color', 'red');
+
+        }
+
 
         if (isPass) {
             $.post('signup-api.php', $(document.form1).serialize(),
@@ -621,7 +643,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 
                     } else {
 
-                        console.log("fail");
 
                     }
 
@@ -636,28 +657,36 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 
     // 登入 login
 
-    
-    // $('.error').css('display','none');
-    $('.email').css('display','none');
-    // $('.member-input').click(function(){
-    //     $('.error').css('display','block')
-
-    // })
 
     const loginEmail = $('#loginEmail'),
         loginPassword = $('#loginPassword');
 
     function formCheck2() {
+        const
+            email = $('.email'),
+            emailInput = $('.email-input');
         loginEmail.text('');
         loginPassword.text('');
 
+        const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        loginEmail.text('');
+
+        let isPass = true;
+
+        if (!email_re.test($(loginEmail).val())) {
+            isPass = false;
+            console.log('false')
+            $('.email').css('display', 'flex');
+            emailInput.css('border-color', 'red');
+
+        }
 
         // TODO: 檢查欄位
 
 
-        let isPass = true;
-       
-        
+        // let isPass = true;
+
+
         if (isPass) {
             $.post('login-api.php', $(document.form2).serialize(), function(data) {
                 console.log(data);
@@ -669,12 +698,13 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                         history.go(-1);
                     }, 1000)
                 } else {
-                    // $('.error').css('display','block');
+                    $('.error').css('display', 'flex');
+                    $('.eyes').css('display', 'none')
                     // console.log('fail')
                     // info_bar.removeClass('alert-success').addClass('alert-danger').html('帳號或密碼輸入錯誤');
                 }
-                $('.member-input').click(function(){
-                    $('.member-input').css('placeholder','none')
+                $('.member-input').click(function() {
+                    $('.member-input').css('placeholder', 'none')
 
                 })
 
