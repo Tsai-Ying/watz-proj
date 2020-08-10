@@ -171,6 +171,11 @@ $stmt = $pdo->query($sql);
         flex-direction: column;
         justify-content: space-evenly;
     }
+    .form1{
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 860px;
+    }
 
     .select-check-btn {
         display: none;
@@ -187,6 +192,8 @@ $stmt = $pdo->query($sql);
         font-size: 1rem;
         font-weight: 400;
         padding: 5px 5px 5px 0;
+        
+        
     }
 
     .box-series p {
@@ -444,15 +451,21 @@ $stmt = $pdo->query($sql);
         min-height: 400px;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: start;
+        justify-content: flex-start;
+        /* border: 2px solid darkblue; */
+
     }
 
     .single-product-box {
         width: 250px;
         /* height: 300px; */
         flex-direction: column;
-        margin-bottom: 5px;
-        padding: 20px;
+        margin: 5px 5px 5px 15px;
+        padding: 5px 0px;
+        /* padding: 5px; */
+        /* padding: 5px;
+        margin: 10px; */
+        /* border: 2px solid navajowhite; */
     }
 
     .product-top-img {
@@ -1173,14 +1186,14 @@ $stmt = $pdo->query($sql);
 
         <div class="block flex">
             <div class="selector flex">
-                <form name="form1" onsubmit="return false" method="get">
+                <form name="form1" onsubmit="return false" method="get" class="flex form1">
                     <!-- <form name="form1" onsubmit="return false" > -->
                     <ul class="box-series">
                         <input type="hidden" name="page" id="page" value="">
                         <p>Series</p>
 
                         <li>
-                            <label class="cursor series-check">
+                            <label class="cursor series-check ">
                                 <input type="checkbox" name="series[]" value="1" class="cursor">芒果派對</label>
                         </li>
                         <li>
@@ -1227,7 +1240,7 @@ $stmt = $pdo->query($sql);
                                     <input type="checkbox" id="color-in4" name="colors[]" value="4" class="cursor color-in flex" />
                                     <span></span>
                                 </label>
-                            </li>
+
                             </li>
                             <li class="flex">
                                 <label class="cursor color-lb flex">
@@ -1433,13 +1446,21 @@ $stmt = $pdo->query($sql);
     // $('.box-series li ').click(function() {
     //     $(this).toggleClass("series-active")
     // });
-if( $('form[name=form1] input[type=checkbox]').prop("checked", true)){
-    $('.box-series li ').removeClass("series-active");
-}else{
-    $('.box-series li ').addClass("series-active");
-}
-   
+    // if ($('form[name=form1] input[type=checkbox]').prop("checked", true)) {
+    //     $('.box-series li ').removeClass("series-active");
+    // } else {
+    //     $('.box-series li ').addClass("series-active");
+    // }
 
+
+
+$('form[name=form1] input[type=checkbox][name="series[]"] ').change(function() {
+      if(this.checked) {
+        $('.box-series li').addClass("series-active");
+      }else{
+        $('.box-series li').removeClass("series-active");
+      }
+});
 
 
     // -------------selector color---------------------
@@ -1520,7 +1541,7 @@ if( $('form[name=form1] input[type=checkbox]').prop("checked", true)){
     });
 
     // ---------------------------------------
-  
+
     // ----------- 商品圖hover --------------
     $(".product-top-img img").mouseenter(function() {
         $(this).attr("src", $(this).attr('src').replace("-1.jpg", "-2.jpg"));
