@@ -1,9 +1,9 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
-if(empty($_SESSION['cart'])){
-    header( 'Location: cart-empty.php');
- }
+if (empty($_SESSION['cart'])) {
+    header('Location: cart-empty.php');
+}
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
@@ -395,7 +395,7 @@ if(empty($_SESSION['cart'])){
 
     .sock-name {
         width: 45%;
-        height:100%;
+        height: 100%;
         flex-grow: 1;
         flex-direction: column;
         justify-content: space-between;
@@ -499,6 +499,12 @@ if(empty($_SESSION['cart'])){
         margin: 20px 0px;
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .ship-title {
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .shipping-shoose h3 {
@@ -714,6 +720,26 @@ if(empty($_SESSION['cart'])){
     .notice.active .notice-block {
         opacity: 1;
     }
+
+    /* ---------------error notice--------- */
+
+    .error-frame {
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        right: 0;
+    }
+
+    .error-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        display: none;
+    }
+
+    .error-frame h6 {
+        color: red;
+    }
 </style>
 <!-- jumpout notice -->
 <div class="notice ">
@@ -828,11 +854,18 @@ if(empty($_SESSION['cart'])){
             <div class="block-fixed flex">
                 <div class="shipping-shoose flex">
                     <div class="shipping-shoose-frame flex">
-                        <h3>寄送方式</h3>
+                        <div class="ship-title flex">
+                            <h3>寄送方式</h3>
+                            <div class="error-frame flex">
+                                <img class="error-icon flex" src="images/alert.svg">
+                                <h6 class="flex"></h6>
+                            </div>
+                        </div>
                         <div class="shipping-btn flex">
                             <button class="button ShipBtn" href="#">宅配</button>
                             <button class="button conv-store ShipBtn" href="#">超商取貨</button>
                         </div>
+
                         <p class="noShipFee">只差60元即享1000元免運！</p>
                     </div>
                 </div>
@@ -866,7 +899,7 @@ if(empty($_SESSION['cart'])){
                             </ul>
                         </div>
                         <?php if (isset($_SESSION['member'])) : ?>
-                            <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment2.php'">前往結帳</button>
+                            <button class="btn-pay" onclick="return formCheck() javascript:location.href='<?= WEB_ROOT ?>/cart-payment2.php'">前往結帳</button>
                         <?php else : ?>
                             <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-login-signup.php'">請先登入會員</button>
                         <?php endif; ?>
@@ -900,13 +933,14 @@ if(empty($_SESSION['cart'])){
         });
     });
 
+
     $(".ShipBtn").click(function() {
         $(this).toggleClass('active')
             .siblings().removeClass('active');
         $('.shipFee').text('60');
         prepareCartTable();
     })
-    
+
 
     $(document).ready(function() {
         $(".hide-choose-box").hide();
@@ -932,12 +966,12 @@ if(empty($_SESSION['cart'])){
         });
         $(this).toggleClass('active');
 
-        
+
 
         if ($(this).hasClass('active')) {
             $('.step2').addClass('show');
             $('.add-box').addClass('show');
-                 
+
         } else {
             $('.step2').removeClass('show');
             $('.add-box').removeClass('show');
@@ -946,7 +980,7 @@ if(empty($_SESSION['cart'])){
             $(box_item).find(".removeInBox").css("display", "none");
             $(box_item).find(".addBox").css("display", "flex");
             console.log('cancal remove');
-            
+
         }
 
     });
@@ -973,7 +1007,7 @@ if(empty($_SESSION['cart'])){
     // <!-- remove jumpout notice -->
 
     $('.remove').click(function() {
-        let p_item= $(this).closest('.p_item');
+        let p_item = $(this).closest('.p_item');
         p_item.addClass("noticed");
         $(".notice").addClass("active");
         console.log('2');
@@ -987,20 +1021,17 @@ if(empty($_SESSION['cart'])){
     }
 
     //coupon
-    
-    $('.couponBtn').click(function(){
-        if ($('.couponInput').val() == 'watz60'){
+
+    $('.couponBtn').click(function() {
+        if ($('.couponInput').val() == 'watz60') {
             $('.discount').html('-60');
-        }else if($('.couponInput').val() == 'watz40'){
+        } else if ($('.couponInput').val() == 'watz40') {
             $('.discount').html('-40');
-        }else{
+        } else {
             $('.discount').html('0');
         }
         prepareCartTable();
     });
-
-    
-
 
     // php
     const dallorCommas = function(n) {
@@ -1009,9 +1040,9 @@ if(empty($_SESSION['cart'])){
 
     function prepareCartTable() {
         $p_items = $('.p_item');
-        console.log(p_items.length)
+        console.log($p_items.length);
 
-        if (p_items.length==0){
+        if ($p_items.length == 0) {
             location.href = 'cart-empty.php'
         }
 
@@ -1033,15 +1064,15 @@ if(empty($_SESSION['cart'])){
             $(this).find('.qty').val(quantity);
             $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
             total += quantity * price;
-            const totalPrice = total+parseInt(shipFee)+parseInt(discount);
+            const totalPrice = total + parseInt(shipFee) + parseInt(discount);
 
 
             $('#productPrice').text('NT $' + dallorCommas(total));
             $('#totalPrice').text('NT $' + dallorCommas(totalPrice));
 
-            if ( totalPrice < 1000){
+            if (totalPrice < 1000) {
                 $('.noShipFee').text(`只差${ 1000 - totalPrice}元即享1000元免運！`);
-            }else{
+            } else {
                 $('.noShipFee').text(`消費金額已免運！`);
             }
         })
@@ -1082,6 +1113,38 @@ if(empty($_SESSION['cart'])){
         $(".notice").removeClass("active");
     });
 
+    function formCheck() {
+        let isPass = true;
+        const shipError = $('.ship-title').children('.error-frame');
+        if (('.shipping-btn').children('.button.active').length = 0) {
+            isPass = false;
+            shipError.children('img').css("display", "block");
+            shipError.children('h6').html('尚未選擇運送方式');
+            console.log('false');
+
+        }
+        if (isPass) {
+
+            $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
+
+                if (data.success) {
+                    location.href = 'cart-payment2.php';
+                    console.log(data);
+                }
+            }, 'json');
+        }
+        return false;
+
+    };
+
+
+
+    // $('.pay-btn').click(function() {
+    //     let isPass = true;
+
+
+
+    // });
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
