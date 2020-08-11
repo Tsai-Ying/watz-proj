@@ -1,7 +1,7 @@
 .help-bg {
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.733);
+    background: rgba(0, 0, 0, 0.9);
     position: fixed;
     align-items: center;
     justify-content: center;
