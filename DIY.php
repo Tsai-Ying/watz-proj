@@ -1614,7 +1614,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
         $(".pattern-stripe").removeClass("appear")
         $(".pattern-dotted").removeClass("appear")
     })
-    
+
     //change socks color
     $(".color-top").click(function() {
         let color = $(this).css("background-color")
