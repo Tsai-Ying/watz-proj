@@ -224,14 +224,19 @@ $pageName = 'DIY';  // 這裡放你的pagename
         z-index: 0;
     }
 
+    .cls-1 {
+        fill: red;
+    }
+
     .diy-area {
+        display: none;
         width: 290px;
         height: 480px;
         margin-left: 150px;
     }
 
-    .cls-1 {
-        fill: red;
+    .appear {
+        display: block;
     }
 
     .box-right {
@@ -1036,7 +1041,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
             <div class="flexbox flex transition">
                 <div class="box-left transition">
                     <!-- <img class="diy-area transition" src="images/pattern-white.svg" alt=""> -->
-                    <svg class="diy-area transition pattern-white" version="1.1" id="pattern-white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.1 108" style="enable-background:new 0 0 66.1 108;" xml:space="preserve">
+                    <svg class="diy-area transition pattern-white appear" version="1.1" id="pattern-white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.1 108" style="enable-background:new 0 0 66.1 108;" xml:space="preserve">
                         <style type="text/css">
                             .socks-color {
                                 fill: #FFFFFF;
@@ -1586,22 +1591,30 @@ $pageName = 'DIY';  // 這裡放你的pagename
 
     //DIY change Pattern
     $(".img-pattern-watz img").click(function() {
-
-        $(".diy-area").attr("src", imgSrc)
+        $(".pattern-watz").addClass("appear")
+        $(".pattern-white").removeClass("appear")
+        $(".pattern-stripe").removeClass("appear")
+        $(".pattern-dotted").removeClass("appear")
     })
     $(".img-pattern-stripe img").click(function() {
-        let imgSrc = $(this).attr("src")
-        $(".diy-area").attr("src", imgSrc)
+        $(".pattern-watz").removeClass("appear")
+        $(".pattern-white").removeClass("appear")
+        $(".pattern-stripe").addClass("appear")
+        $(".pattern-dotted").removeClass("appear")
     })
     $(".img-pattern-dotted img").click(function() {
-        let imgSrc = $(this).attr("src")
-        $(".diy-area").attr("src", imgSrc)
+        $(".pattern-watz").removeClass("appear")
+        $(".pattern-white").removeClass("appear")
+        $(".pattern-stripe").removeClass("appear")
+        $(".pattern-dotted").addClass("appear")
     })
     $(".img-pattern-white img").click(function() {
-        let imgSrc = $(this).attr("src")
-        $(".diy-area").attr("src", imgSrc)
+        $(".pattern-watz").removeClass("appear")
+        $(".pattern-white").addClass("appear")
+        $(".pattern-stripe").removeClass("appear")
+        $(".pattern-dotted").removeClass("appear")
     })
-
+    
     //change socks color
     $(".color-top").click(function() {
         let color = $(this).css("background-color")
