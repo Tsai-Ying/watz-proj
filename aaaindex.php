@@ -1,5 +1,6 @@
 <?php require __DIR__ . '/__connect_db.php';
-$pageName = '';  // 這裡放你的pagename
+$pageName = 'index';  // 這裡放你的pagename
+
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
@@ -468,31 +469,58 @@ $pageName = '';  // 這裡放你的pagename
         <div class="block4 flex">
             <div class="slider-product">
                 <div>
-                    <a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=99"><img src="images/product/american09-2.jpg" alt=""></a>
                 </div>
                 <div>
-                    <a href=""><img src="images/product/banana-02.jpeg" alt=""></a>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=47"><img src="images/product/american20-2.jpg" alt=""></a>
                 </div>
                 <div>
-                    <a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=100"><img src="images/product/american11-3.jpg" alt=""></a>
                 </div>
                 <div>
-                    <a href=""><img src="images/product/banana-02.jpeg" alt=""></a>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=33"><img src="images/product/crystal05-3.jpg" alt=""></a>
                 </div>
                 <div>
-                    <a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=37"><img src="images/product/crystal13-5.jpg" alt=""></a>
                 </div>
                 <div>
-                    <a href=""><img src="images/product/banana-02.jpeg" alt=""></a>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=55"><img src="images/product/geom05-3.jpg" alt=""></a>
                 </div>
                 <div>
-                    <a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=58"><img src="images/product/geom08-4.jpg" alt=""></a>
                 </div>
                 <div>
-                    <a href=""><img src="images/product/banana-02.jpeg" alt=""></a>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=59"><img src="images/product/geom09-3.jpg" alt=""></a>
                 </div>
                 <div>
-                    <a href=""><img src="images/product/blueyellowsquare-05.jpg" alt=""></a>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=10"><img src="images/product/irregular05-3.jpg" alt=""></a>
+                </div>
+                <div>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=1"><img src="images/product/irregular01-2.jpg" alt=""></a>
+                </div>
+                <div>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=12"><img src="images/product/irregular13-2.jpg" alt=""></a>
+                </div>
+                <div>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=67"><img src="images/product/plain01-3.jpg" alt=""></a>
+                </div>
+                <div>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=73"><img src="images/product/plain13-3.jpg" alt=""></a>
+                </div>
+                <div>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=75"><img src="images/product/plain15-3.jpg" alt=""></a>
+                </div>
+                <div>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=21"><img src="images/product/summer03-3.jpg" alt=""></a>
+                </div>
+                <div>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=117"><img src="images/product/summer10-2.jpg" alt=""></a>
+                </div>
+                <div>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=27"><img src="images/product/summer11-2.jpg" alt=""></a>
+                </div>
+                <div>
+                    <a href="<?= WEB_ROOT ?>/product-detail.php?sid=86"><img src="images/product/summer15-6.jpg" alt=""></a>
                 </div>
             </div>
             <div class="block4-bg flex">

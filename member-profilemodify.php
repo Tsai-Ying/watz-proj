@@ -372,8 +372,8 @@ $row = $pdo->query($sql)->fetch();
         <div class="selector flex">
             <div class="box"><a href="<?= WEB_ROOT ?>/member-profile.php">會員資料</a></div>
             <div class="box"><a href="<?= WEB_ROOT ?>/member-historylist.php">訂單紀錄</a></div>
-            <div class="box"><a href="<?= WEB_ROOT ?>/product.php">會員條款</a></div>
-            <div class="box"><a href="<?= WEB_ROOT ?>/product.php">隱私權政策</a></div>
+            <div class="box"><a href="<?= WEB_ROOT ?>/member-term.php">會員條款</a></div>
+            <div class="box"><a href="<?= WEB_ROOT ?>/member-privacy.php">隱私權政策</a></div>
         </div>
         <form class="" name="form1" method="post" novalidate>
             <div class="bg-membercard flex">
