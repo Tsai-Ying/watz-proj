@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>empty-cart</title>
+    <title>project-irregular</title>
     <link rel="stylesheet" href="css/nav.css">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -16,6 +16,7 @@
             width: 100vw;
             min-height: 100vh;
             user-select: none;
+            overflow: hidden;
         }
 
         .block1 {
@@ -87,17 +88,18 @@
             object-fit: cover;
 
         }
-        .center-frame{
+
+        .center-frame {
             position: absolute;
             flex-direction: column;
             justify-content: space-between;
-            
+
         }
 
         .watzbox {
             width: 450px;
             height: 450px;
-            margin-bottom: 40px;            
+            margin-bottom: 40px;
         }
 
         .watzbox img {
@@ -118,51 +120,119 @@
             align-items: center;
             justify-content: center;
         }
-        .seemore h3{
+
+        .seemore h3 {
             color: #ffffff;
         }
-        .seemore:hover{
+
+        .seemore:hover {
             background-color: #FF9685;
         }
-        .block3{
+
+        .block3 {
             /* width: 100vw;
             height: 100vh; */
             align-items: center;
             justify-content: center;
             position: relative;
         }
-        .bg{
+
+        .bg-3 {
             width: 100vw;
             height: 100vh;
             justify-content: flex-start;
         }
-        .bg img{
+
+        .bg-3 img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        .block3 .pic{
+
+        .block3 .pic {
             width: 550px;
             position: absolute;
             z-index: 1;
         }
-        .path-up{
+
+        .path-up {
             position: absolute;
             left: 20px;
             top: 0;
             width: 700px;
         }
-        .path-down{
+
+        .path-down {
             position: absolute;
             right: 0px;
             bottom: 0;
             width: 700px;
         }
-        .block3 .seemore{
+
+        .block3 .seemore {
             position: absolute;
             right: 10%;
             bottom: 30%;
         }
+
+        .block4 {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bg4 {
+            width: 70vw;
+            height: 100vh;
+            position: absolute;
+            right: -5%;
+        }
+
+        .bg4 img {
+            width: 100%;
+            height: 100%;
+        }
+        .info{
+            height: 100vh;
+            /* position: absolute; */
+            z-index: 1;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* border: 1px solid greenyellow; */
+        }
+        .info img{
+            width: 450px;
+        }
+        .info .title{
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .info .title h1{
+            position: absolute;
+            color: #E7EC99;
+        }
+        .title img{
+            width: 650px;
+            height: 100px;
+        }
+        .info .style1{
+            transform: translateX(-60%);
+        }
+        .info .style2{
+            transform: translateX(-20%);
+        }
+        .block5{
+            width: 100vw;
+            height: 100vh;
+        }
+        .block5 img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
     </style>
 </head>
 
@@ -274,7 +344,7 @@
                     <img src="images/irregular/square4-2.svg" alt="">
                 </li>
                 <li class="">
-                    <img src="images/irregular/square4-3.jpg" alt="">
+                    <img src="images/irregular/square4-3.svg" alt="">
                 </li>
                 <li class="">
                     <img src="images/irregular/square4-4.jpg" alt="">
@@ -284,21 +354,39 @@
                 <div class="watzbox">
                     <img src="images/watzbox2-1.png" alt="">
                 </div>
-                <button class="seemore btn-coral flex"><h3>See More</h3></button>
+                <button class="seemore btn-coral flex">
+                    <h3>See More</h3>
+                </button>
             </div>
         </div>
         <div class="block3 flex">
-            <div class="bg flex">
+            <div class="bg-3 flex">
                 <img src="images/irregular/bg3-left.svg" alt="">
                 <img src="images/irregular/bg3-right.svg" alt="">
             </div>
             <img class="path-up" src="images/irregular/Path-down.svg" alt="">
             <img class="pic" src="images/irregular/WATZ_irregular.png" alt="">
             <img class="path-down" src="images/irregular/Path-up.svg" alt="">
-            <button class="seemore btn-coral flex"><h3>See More</h3></button>
+            <button class="seemore btn-coral flex">
+                <h3>See More</h3>
+            </button>
         </div>
-        <div class="block4">
-            
+        <div class="block4 flex">
+            <div class="bg4 flex">
+                <img src="images/irregular/popcorn.jpg" alt="">
+            </div>
+            <div class="info flex">
+                <img class="style1" src="images/irregular/style1.jpg" alt="">
+                <div class="title flex">
+                    <h1>styling yourself</h1>
+                    <img src="images/irregular/brush.svg" alt="">
+                </div>
+                <img class="style2" src="images/irregular/style2.jpg" alt="">
+            </div>
+        </div>
+        <div class="block5">
+                <img src="images/irregular/bg5.jpeg" alt="">
+
         </div>
 
     </div>
