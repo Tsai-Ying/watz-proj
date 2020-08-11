@@ -13,10 +13,15 @@
 <!-- mobile show list -->
 <div class="mobile-show fixedlist">
     <div class="fixedlist-icon flex">
-        <a class="icon-wrapper" href=""><img src="images/icon-faq.svg" alt=""></a>
-        <a class="icon-wrapper" href=""><img src="images/icon-sock.svg" alt=""></a>
-        <a class="icon-wrapper" href=""><img src="images/icon-member.svg" alt=""></a>
-        <a class="icon-wrapper" href="cart.html"><img src="images/icon-cart.svg" alt="">
+        <a class="icon-wrapper" href="<?= WEB_ROOT ?>/contact.php"><img src="images/icon-faq.svg" alt=""></a>
+        <a class="icon-wrapper" href="<?= WEB_ROOT ?>/product.php"><img src="images/icon-sock.svg" alt=""></a>
+        <?php if (isset($_SESSION['member'])) : ?>
+            <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/member-profile.php"><img class="svg icon" src="images/icon-member.svg" alt=""></a>
+            <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/logout.php"><img class="svg icon" src="images/icon-logout.svg" alt=""></a>
+        <?php else : ?>
+            <a class="icon-wrapper none" href="<?= WEB_ROOT ?>/member-login-signup.php"><img class="svg icon" src="images/icon-member.svg" alt=""></a>
+        <?php endif ?>
+        <a class="icon-wrapper" href="<?= WEB_ROOT ?>/cart-payment1.php"><img src="images/icon-cart.svg" alt="">
         <span class="cart_count"></span>
     
     </a>

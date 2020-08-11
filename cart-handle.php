@@ -3,6 +3,14 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
+
+// if (!isset($_SESSION['receiver'])) {
+//     $_SESSION['receiver'] = [];
+// }
+
+// if (!isset($_SESSION['sender'])) {
+//     $_SESSION['sender'] = [];
+// }
 /*
  * action:
  *   add (加入商品),
@@ -11,9 +19,11 @@ if (!isset($_SESSION['cart'])) {
  *   (預設) (查詢內容)
  */
 
+$watzbox_style = isset($_GET['watzbox_style']) ? $_GET['watzbox_style'] : '';
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 $qty = isset($_GET['qty']) ? intval($_GET['qty']) : 0;
+
 $output = [
     'action' => $action,
     'code' => 0
@@ -22,7 +32,7 @@ $output = [
 
 switch ($action) {
     case 'add':
-        if(empty($sid) or $qty<=0 ){
+        if (empty($sid) or $qty <= 0) {
             // 不做任何事
             $output['code'] = 400;
         } else {
@@ -36,6 +46,7 @@ switch ($action) {
                     $output['code'] = 240;
                 } else {
                     $row['qty'] = $qty;
+                    $row['watzbox'] = 0;
                     $_SESSION['cart'][] = $row;
                     $output['code'] = 260;
                 }
@@ -61,9 +72,28 @@ switch ($action) {
         $_SESSION['cart'] = [];
         break;
 
+    case 'moveIntoBox':
+        $index = array_search($sid, array_column($_SESSION['cart'], 'sid'));
+        $_SESSION['cart'][$index]['watzbox'] = 1;
+        $output['code'] = 500;
+        break;
+
+    case 'moveOutOfBox':
+        $index = array_search($sid, array_column($_SESSION['cart'], 'sid'));
+        $_SESSION['cart'][$index]['watzbox'] = 0;
+        $output['code'] = 501;
+        break;
+
+    case 'getWatzboxStyle':
+        $_SESSION['receiver']['watzbox_style'] = $watzbox_style;
+        $output['code'] = 600;
+        break;
+
+    case 'removeWatzboxStyle':
+        $_SESSION['receiver']['watzbox_style'] = Null;
+        $output['code'] = 601;
+        break;
 }
 
 $output['cart'] = $_SESSION['cart'];
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
-?>
-

@@ -36,16 +36,7 @@ $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 
 
 // 將資料代入判斷頁數
-// if ($totalRows > 0) {
-//     $totalPages = ceil($totalRows / $perPage);
-//     if ($page < 1) {
-//         header('Location: product.php');
-//         exit;
-//     }
-//     if ($page > $totalPages) {
-//         header('Location: product.php?page=' . $totalPages);
-//         exit;
-//     }
+
 
 if ($totalRows > 0) {
     $totalPages = ceil($totalRows / $perPage);
