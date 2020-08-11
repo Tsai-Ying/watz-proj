@@ -1,9 +1,7 @@
 <?php require __DIR__ . '/__connect_db.php';
-$pageName = 'aboutWATZ';  // 這裡放你的pagename
+$pageName = 'contact';  // 這裡放你的pagename
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
-
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
 
 <style>

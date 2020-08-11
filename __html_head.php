@@ -244,8 +244,7 @@
     .nav.hide-nav .nav-list {
         width: 0;
         overflow: hidden;
-        flex-grow: 0;
-
+        /* flex-grow: 0; */
     }
     
     .nav-logo {
@@ -271,9 +270,8 @@
     }
     
     .nav-list {
-        flex-grow: 0;
+        /* flex-grow: 0; */
         justify-content: flex-end;
-        margin: 0 20px;
         width: 100%;
     }
     
