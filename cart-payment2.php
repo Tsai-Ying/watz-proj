@@ -18,15 +18,15 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
 
 
 $sids = array_column($_SESSION['cart'], 'sid');
-$p_sql = "SELECT * FROM `product` WHERE `sid` IN (". implode(',', $sids). ")";
+$p_sql = "SELECT * FROM `product` WHERE `sid` IN (" . implode(',', $sids) . ")";
 $productData = [];
 $p_stmt = $pdo->query($p_sql);
-while($r = $p_stmt->fetch()){
+while ($r = $p_stmt->fetch()) {
     $productData[$r['sid']] = $r;
 }
 
 $totalPrice = 0;
-foreach ($_SESSION['cart'] as $k=>$v){
+foreach ($_SESSION['cart'] as $k => $v) {
     $_SESSION['cart'][$k]['price'] = $productData[$v['sid']]['price'];
 
     $totalPrice += $_SESSION['cart'][$k]['price'] * $v['qty'];
@@ -37,7 +37,6 @@ foreach ($_SESSION['cart'] as $k=>$v){
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
 
 <style>
-
     body {
         background-size: cover;
         background-image: url(images/BG3.svg);
@@ -512,6 +511,10 @@ foreach ($_SESSION['cart'] as $k=>$v){
         margin: 30px;
     }
 
+    .return-detail-frame h6 {
+        font-weight: 400;
+    }
+
     @media screen and (max-width: 1200px) {}
 
     @media screen and (max-width: 992px) {}
@@ -557,14 +560,18 @@ foreach ($_SESSION['cart'] as $k=>$v){
     }
 
     .order-list-frame {
-        width: 90%;
+        width: 85%;
         /* border: 1px solid rgb(212, 52, 132); */
         flex-direction: column;
         margin: 30px 0px;
     }
 
+    .order-list-frame h3{
+        margin-bottom: 10px;
+    }
+
     .order-list-title {
-        width: 98%;
+        width: 100%;
         align-items: flex-end;
         justify-content: space-between;
     }
@@ -729,7 +736,7 @@ foreach ($_SESSION['cart'] as $k=>$v){
 
     .total-price h3 {
         color: #03588C;
-
+        margin-bottom: 10px;
     }
 
     /* .total-price.showin922 h3 {
@@ -749,7 +756,7 @@ foreach ($_SESSION['cart'] as $k=>$v){
     }
 
     .line {
-        width: 95%;
+        width: 100%;
         height: 1px;
         border-top: 2px solid #E2E2E2;
         margin: 10px auto;
@@ -840,15 +847,12 @@ foreach ($_SESSION['cart'] as $k=>$v){
                         <h4 class="seemore">查看訂單內容</h4>
                     </div>
                     <div class="list-scroll showin922" id="hide">
-                        <?php if (isset($_SESSION['receiver']['watzbox']) && $_SESSION['receiver']['watzbox']) :
+                        <?php if ($watzbox_style) :
                         ?>
                             <div class="box-choose-ordered">
                                 <h4>您選購的禮盒</h4>
                                 <div class="box-choose flex">
                                     <img class="box-img" src="images/<?= $watzbox_style ?>-2.png" alt="">
-                                    <!-- <div class="box-type-detail flex">
-                                    <h4>芒果派對</h4>
-                                </div> -->
                                 </div>
 
                                 <div class="socks-detail flex">
@@ -871,7 +875,6 @@ foreach ($_SESSION['cart'] as $k=>$v){
                                     <?php endforeach; ?>
                                 </div>
                             </div>
-                            
                             <div class="line"></div>
                         <?php else : ?>
                         <?php endif; ?>
@@ -917,7 +920,7 @@ foreach ($_SESSION['cart'] as $k=>$v){
                     <div class="line"></div>
                     <li class="flex">
                         <h4>結帳金額</h4>
-                        <h4 class="totalPrice">NT $<?= $totalPrice+120-60 ?></h4>
+                        <h4 class="totalPrice">NT $<?= $totalPrice + 120 - 60 ?></h4>
                     </li>
                 </ul>
             </div>
@@ -1067,16 +1070,14 @@ foreach ($_SESSION['cart'] as $k=>$v){
             <div class="return-detail flex">
                 <ul class="return-detail-frame">
                     <h3>退/換貨與退款資訊</h3>
-                    <p>退/換貨與退款
-                        <br>
-                        ・襪子屬個人貼身用品，如拆封襪子吊牌，將不適用七天鑑賞期。
+                    <h6>・襪子屬個人貼身用品，如拆封襪子吊牌，將不適用七天鑑賞期。
                         <br>
                         ・如需退/換貨或退款，請務必保留完整包裝，並在收到商品後七天內mail至
                         &nbsp;&nbsp;watz@watzservice.com。
                         <br>
                         ・可退/換貨之狀況：商品內容或數量有誤、商品瑕疵（需提供清晰照片）。
                         <br>
-                        ・不可退/換貨之狀況：尺寸不合、商品與想像不符等。 </p>
+                        ・不可退/換貨之狀況：尺寸不合、商品與想像不符等。 </h6>
                 </ul>
             </div>
             <div class="pay-showin922 flex">
@@ -1090,22 +1091,19 @@ foreach ($_SESSION['cart'] as $k=>$v){
                 <div class="order-list-frame flex">
                     <h3>訂單資訊</h3>
                     <div class="list-scroll">
-                        <?php if (isset($_SESSION['receiver']['watzbox']) && $_SESSION['receiver']['watzbox']) :
+                        <?php if ($watzbox_style) :
                         ?>
                             <div class="box-choose-ordered">
                                 <h4>您選購的禮盒</h4>
                                 <div class="box-choose flex">
                                     <img class="box-img" src="images/<?= $watzbox_style ?>-2.png" alt="">
-                                    <!-- <div class="box-type-detail flex">
-                                    <h4>芒果派對</h4>
-                                </div> -->
                                 </div>
 
                                 <div class="socks-detail flex">
                                     <h4>禮盒內容</h4>
                                     <?php foreach ($_SESSION['cart'] as $i) :
                                         if ($i['watzbox'] == 1) : ?>
-                                            <div class="eachsock-list flex" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
+                                            <div class="eachsock-list flex " data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
                                                 <div class="img-product">
                                                     <img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt="">
                                                 </div>
@@ -1123,7 +1121,6 @@ foreach ($_SESSION['cart'] as $k=>$v){
                             </div>
                             <div class="line"></div>
                         <?php else : ?>
-                        
                         <?php endif; ?>
                         <div class="socks-detail flex">
                             <h4>單購襪子</h4>
@@ -1165,7 +1162,7 @@ foreach ($_SESSION['cart'] as $k=>$v){
                         <div class="line"></div>
                         <li class="flex">
                             <h4>結帳金額</h4>
-                            <h4 class="totalPrice">NT $<?= $totalPrice+120-60 ?></h4>
+                            <h4 class="totalPrice">NT $<?= $totalPrice + 120 - 60 ?></h4>
                         </li>
                     </ul>
                 </div>
