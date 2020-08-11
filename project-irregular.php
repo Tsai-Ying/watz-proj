@@ -1,7 +1,7 @@
 <?php require __DIR__ . '/__connect_db.php';
-$pageName = 'aboutWATZ';  // 這裡放你的pagename
+$pageName = 'aboutWATZ'; // 這裡放你的pagename
 ?>
-<?php include __DIR__ . '/__html_head.php' ?>
+<?php include __DIR__ . '/__html_head.php'?>
 
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
 
@@ -57,7 +57,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             to {
                 transform: translate(0, -30px);
             }
-            
+
         }
 
         .scroll-down h3 {
@@ -68,7 +68,16 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         .scroll-down img {
             width: 30px;
         }
-
+        @media screen and (max-width: 992px){
+            .logo{
+                width:350px;
+            }
+        }@media screen and (max-width: 576px){
+            .logo{
+                width:250px;
+            }
+        }
+/* --------------------block2------------------------ */
         .block2 {
             width: 100vw;
             flex-direction: column;
@@ -77,7 +86,6 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         }
 
         .bg-line {
-            /* border: 1px solid blue; */
             align-items: center;
         }
 
@@ -102,7 +110,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
         .watzbox {
             width: 450px;
-            height: 450px;
+            /* height: 450px; */
             margin-bottom: 40px;
         }
 
@@ -131,7 +139,36 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
         .seemore:hover {
             background-color: #FF9685;
+        }@media screen and (max-width: 1200px){
+            .watzbox {
+            width: 350px;
         }
+        .seemore{
+            width:160px;
+            height:40px;
+        }
+        .seemore h3{
+            font-size: 16px;
+        }
+    }
+@media screen and (max-width: 992px){
+    .watzbox {
+            width: 250px;
+        }
+
+}@media screen and (max-width: 576px){
+    .watzbox {
+            width: 150px;
+        }
+        .seemore{
+            width:100px;
+            height:30px;
+        }
+        .seemore h3{
+            font-size: 12px;
+        }
+}
+/* --------------------block3------------------------ */
 
         .block3 {
             /* width: 100vw;
@@ -182,6 +219,66 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         .block3 .seemore:hover{
             background-color: #0388A6;
         }
+        @media screen and (max-width: 1200px){
+            .block3 .pic{
+                width:450px;
+            }
+            .path-up{
+                width:450px;
+                right:0;
+            }
+            .block3 .seemore{
+                right: 10%;
+            bottom: 20%;
+            }
+            
+}
+@media screen and (max-width: 992px){
+    .bg-3{
+        flex-direction:column;
+    }
+    .block3 .pic{
+                width:350px;
+            }
+            .block3 .seemore{
+            width:160px;
+            height:40px;
+            right: 10%;
+            bottom: 15%;
+        }
+        .block3 .seemore h3{
+            font-size: 16px;
+        }
+        .path-up {
+            width: 500px;
+        }
+
+        .path-down {
+            width: 500px;
+        }
+
+}
+@media screen and (max-width: 576px){
+    .block3 .pic{
+                width:250px;
+            }
+            .block3 .seemore{
+            width:100px;
+            height:30px;
+            right: 15%;
+            bottom: 20%;
+        }
+        .block3 .seemore h3{
+            font-size: 12px;
+        }
+        .path-up {
+            width: 400px;
+        }
+        .path-down {
+            width: 550px;
+        }
+}
+/* --------------------block4------------------------ */
 
         .block4 {
             height: 100vh;
@@ -243,14 +340,51 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             position: absolute;
             bottom: 0;
         }
+        @media screen and (max-width: 1200px){
+            .bg4{
+                height:600px;
+            }
+            .info img{
+            width: 400px;
+        }
+}
+@media screen and (max-width: 992px){
+.info img{
+            width: 350px;
+        }
+}@media screen and (max-width: 576px){
+    .bg4{
+                height:400px;
+            }
+            .info img{
+            width: 250px;
+        }
+        .info .title h1{
+            font-size:22px;
+            color:#0388A6;
+        }
+        .info .style1{
+            transform: translateX(-40%);
+        }
+        .block5{
+            width:550px;
+            height:300px;
+        }
+        
+        footer{
+            position: relative;
+            margin-top: 30px;
+        }
+}
+
 
     </style>
 
 <div class="container flex">
     <!-- 如果container有其它class要自己加上 -->
 
-    <?php include __DIR__ . '/__navbar.php' ?>
-    <?php include __DIR__ . '/__html_btn-top.php' ?>
+    <?php include __DIR__ . '/__navbar.php'?>
+    <?php include __DIR__ . '/__html_btn-top.php'?>
 
     <div class="block1 flex">
             <div class="bg-1">
@@ -360,9 +494,9 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
         </div>
 
-    <?php include __DIR__ . '/__html_footer.php' ?>
+    <?php include __DIR__ . '/__html_footer.php'?>
 </div>
-<?php include __DIR__ . '/__scripts.php' ?>
+<?php include __DIR__ . '/__scripts.php'?>
 
 <script>
     $("#watzbox").hover(function() {
@@ -372,4 +506,4 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     })
 </script>
 
-<?php require __DIR__ . '/__html_foot.php' ?>
+<?php require __DIR__ . '/__html_foot.php'?>
