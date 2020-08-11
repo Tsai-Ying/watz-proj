@@ -933,7 +933,7 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
                             </ul>
                         </div>
                         <?php if (isset($_SESSION['member'])) : ?>
-                            <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment2.php'">前往結帳</button>
+                            <button class="btn-pay" onclick="formCheck()">前往結帳</button>
                         <?php else : ?>
                             <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-login-signup.php'">請先登入會員</button>
                         <?php endif; ?>
@@ -970,7 +970,15 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
     $(".ShipBtn").click(function() {
         $(this).toggleClass('active')
             .siblings().removeClass('active');
+            $('.shipFee').text('120');
+        if ($(".conv-store").hasClass('active')){
         $('.shipFee').text('60');
+
+        }
+
+        if (!$(this).hasClass('active')) {
+            $('.shipFee').text('0');
+        }
         prepareCartTable();
     })
 
@@ -1201,22 +1209,22 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
     function formCheck() {
         let isPass = true;
         const shipError = $('.ship-title').children('.error-frame');
-        if (('.shipping-btn').children('.button.active').length = 0) {
+        const shippingBtn = $('.shipping-btn');
+
+        $(shippingBtn).on("click", function() {
+            shipError.children('img').css("display", "none");
+            shipError.children('h6').html('');
+        })
+
+
+        if (!(shippingBtn).children('.button').hasClass('active')) {
             isPass = false;
             shipError.children('img').css("display", "block");
             shipError.children('h6').html('尚未選擇運送方式');
-            console.log('false');
-
         }
         if (isPass) {
-
-            $.post('cart-sendlist.php', $(document.form1).serialize(), function(data) {
-
-                if (data.success) {
-                    location.href = 'cart-payment2.php';
-                    console.log(data);
-                }
-            }, 'json');
+            location.href = 'cart-payment2.php';
+            // console.log(data);
         }
         return false;
 
