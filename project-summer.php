@@ -11,8 +11,52 @@ $pageName = 'project summer';  // 這裡放你的pagename
     .container {
         width: 100vw;
         min-height: 100vh;
-        position: relative;
         user-select: none;
+    }
+
+    .bg-left, .bg-right {
+        width: calc(100vw / 2);
+        height: 100vh;
+        position: relative;
+        z-index: -1;
+    }
+
+    .absolute {
+        position: absolute;
+    }
+
+    .bg-blue, .bg-red {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .img-dot1 {
+        width: 180px;
+        top: 0;
+        left: 80px;
+        mix-blend-mode: multiply;
+    }
+    
+    .img-text {
+        width: 60px;
+        top: 160px;
+        left: 0;
+        position: fixed;
+        z-index: 1;
+    }
+
+    .img-pineapple {
+        width: 460px;
+        bottom: 0;
+        left: -50px;
+        mix-blend-mode: multiply;
+    }
+
+    .img-whiteline {
+        width: 420px;
+        top: 0;
+        right: 0;
     }
 
     .wrapper {
@@ -61,16 +105,16 @@ $pageName = 'project summer';  // 這裡放你的pagename
     <?php include __DIR__ . '/__html_btn-top.php' ?>
     <div class="flex">
         <div class="bg-left">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
+            <img class="bg-blue" src="images/summer-bgblue.svg" alt="">
+            <img class="img-dot1 absolute" src="images/summer-dot1.svg" alt="">
+            <img class="img-pineapple absolute" src="images/summer-pineapple.svg" alt="">
+            <img class="img-text fixed" src="images/summer-text.svg" alt="">
         </div>
         <div class="bg-right">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
+            <img class="bg-red" src="images/summer-bgred.svg" alt="">
+            <img class="img-whiteline absolute" src="images/summer-whiteline.svg" alt="">
+            <img class="img-orangeline absolute" src="images/summer-orangeline.svg" alt="">
+            <img class="img-pinkpaint absolute" src="images/summer-pinkpaint.svg" alt="">
         </div>
     </div>
 
