@@ -21,9 +21,11 @@ $totalprice = 0;
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
 
 <style>
+    p,
     h4,
     h5 {
-        color: #707070
+        color: #707070;
+        font-weight: 500;
     }
 
     body {
@@ -75,6 +77,7 @@ $totalprice = 0;
     .btn-blue {
         width: 170px;
         margin-left: 30px;
+        font-weight: 500;
     }
 
     .btn-blue:hover {
@@ -137,6 +140,22 @@ $totalprice = 0;
 
     .product-info {
         flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .product-info h5 {
+        width: 20%;
+        text-align: center;
+    }
+
+    .product-info h5.product-name {
+        width: 25%;
+        text-align: left;
+    }
+
+    .product-info h5.subtotal {
+        text-align: right;
+        width: 10%;
     }
 
     .bg-bill {
@@ -268,7 +287,9 @@ $totalprice = 0;
             display: inline-block;
             width: 100px;
             text-align: center;
+
         }
+
 
         .title {
             width: 70vw;
@@ -350,10 +371,10 @@ $totalprice = 0;
                         <div class="block2 flex">
                             <ul class="product-info flex">
                                 <li class="title flex">
-                                    <h5>商品名稱</h5>
+                                    <h5 class="product-name">商品名稱</h5>
                                     <h5>款式</h5>
                                     <h5>數量</h5>
-                                    <h5>小計</h5>
+                                    <h5 class="subtotal">小計</h5>
                                 </li>
                                 <?php foreach ($list_detail as $r) :
                                     $r_sid = $r['product_sid'];
@@ -367,16 +388,16 @@ $totalprice = 0;
                                     $totalprice += $subtotal;
                                 ?>
                                     <li class="title flex">
-                                        <h5><?= $p_item['product_name'] ?></h5>
+                                        <h5 class="product-name"><?= $p_item['product_name'] ?></h5>
                                         <h5><?= $type_name ?></h5>
                                         <h5><?= $r['qty'] ?></h5>
-                                        <h5><?= $subtotal ?></h5>
+                                        <h5 class="subtotal"><?= $subtotal ?></h5>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
                             <div class="bg-bill flex">
                                 <div>
-                                    <h5>運費: NT 60</h5>
+                                    <h5>運費: NT 120</h5>
                                 </div>
                                 <div>
                                     <h5>Coupon折抵: NT -60</h5>

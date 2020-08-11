@@ -5,7 +5,11 @@ if (empty($_SESSION['cart'])) {
     header('Location: cart-empty.php');
 }
 
+
 $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['receiver']['watzbox_style'] : Null;
+
+
+
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
@@ -235,6 +239,8 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         outline: none;
         text-align: center;
         cursor: pointer;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 500;
     }
 
     .button.active {
@@ -580,6 +586,8 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         margin: 0;
         background-color: #F2DE79;
         border-radius: 0 2px 2px 0;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 500;
     }
 
     .coupon button:hover {
@@ -613,10 +621,13 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         height: 40px;
         border: none;
         background-color: #FF9685;
+        border-radius: 2px;
         color: #ffffff;
         margin-bottom: 30px;
         outline: none;
         cursor: pointer;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 500;
     }
 
     .btn-pay:hover {
@@ -1163,8 +1174,8 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
             $('#productPrice').text('NT $' + dallorCommas(total));
             $('#totalPrice').text('NT $' + dallorCommas(totalPrice));
 
-            if (totalPrice < 1000) {
-                $('.noShipFee').text(`只差${ 1000 - totalPrice}元即享1000元免運！`);
+            if (total < 1000) {
+                $('.noShipFee').text(`只差${ 1000 - total}元即享1000元免運！`);
             } else {
                 $('.noShipFee').text(`消費金額已免運！`);
             }

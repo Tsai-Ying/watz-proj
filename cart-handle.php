@@ -3,6 +3,14 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
+
+// if (!isset($_SESSION['receiver'])) {
+//     $_SESSION['receiver'] = [];
+// }
+
+// if (!isset($_SESSION['sender'])) {
+//     $_SESSION['sender'] = [];
+// }
 /*
  * action:
  *   add (加入商品),
@@ -15,6 +23,7 @@ $watzbox_style = isset($_GET['watzbox_style']) ? $_GET['watzbox_style'] : '';
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 $qty = isset($_GET['qty']) ? intval($_GET['qty']) : 0;
+
 $output = [
     'action' => $action,
     'code' => 0

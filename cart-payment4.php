@@ -42,6 +42,9 @@ $stmt->execute([
 ]);
 
 $order_sid = $pdo->lastInsertId();  // 訂單流水號
+$list_detail = [];
+$p_sql = "SELECT * FROM `order_details` WHERE `order_sid`= $order_sid";
+$list_detail = $pdo->query($p_sql)->fetchAll();
 
 // 寫入 order_details
 $sql2 = "INSERT INTO `order_details`(`order_sid`, `product_sid`, `watzbox`, `price`, `qty`) VALUES (?,?,?,?,?)";
@@ -55,7 +58,7 @@ foreach($_SESSION['cart'] as $i){
 unset($_SESSION['cart']);
 unset($_SESSION['watzbox']);
 unset($_SESSION['receiver']);
-unset($_SESSION['sender']);
+// unset($_SESSION['sender']);
 
 
 ?>
