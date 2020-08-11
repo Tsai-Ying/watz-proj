@@ -873,7 +873,6 @@ $pageName = 'DIY';  // 這裡放你的pagename
             margin-top: calc(30vh + 2vw);
             width: 90vw;
             height: 50vh;
-            /* border: 1px solid red; */
         }
 
         .dash1 {
@@ -938,7 +937,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
         }
 
         .diy-area {
-            padding-top: 2vh;
+            /* padding-top: 2vh; */
             width: 35vw;
         }
 
@@ -962,6 +961,10 @@ $pageName = 'DIY';  // 這裡放你的pagename
             width: 30px;
         }
 
+        .pattern h3 {
+            margin: -40px 0 0 0;
+        }
+
         .btn-box {
             height: 5vh;
         }
@@ -969,6 +972,20 @@ $pageName = 'DIY';  // 這裡放你的pagename
         .btn-box button {
             height: 30px;
         }
+
+        .dash1 {
+            height: 16vh;
+        }
+
+        .dash2 {
+            height: 25vh;
+            top: 16.5vh;
+        }
+
+        .step2 {
+            top: 17vh;
+        }
+            
 
         .step1,
         .step2,
