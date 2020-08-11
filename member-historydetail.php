@@ -90,10 +90,11 @@ $totalprice = 0;
 
     .bg-order-content {
         width: 870px;
-        height: 1235px;
+        min-height: 100vh;
         background: #ffffff;
         border-radius: 15px;
         margin-top: 25px;
+        padding-bottom: 25px;
         flex-direction: column;
         align-items: center;
     }
@@ -132,6 +133,10 @@ $totalprice = 0;
         margin-bottom: 30px;
     }
 
+    .title1{
+        margin-top: 50px;
+    }
+
     .block2 {
         width: 720px;
         flex-direction: column;
@@ -144,7 +149,7 @@ $totalprice = 0;
     }
 
     .product-info h5 {
-        width: 20%;
+        width: 15%;
         text-align: center;
     }
 
@@ -205,6 +210,10 @@ $totalprice = 0;
     .block3 {
         flex-direction: column;
         align-items: flex-end;
+    }
+
+    .button-box{
+        margin-top: 60px;
     }
 
     @media screen and (max-width: 992px) {
@@ -362,7 +371,22 @@ $totalprice = 0;
                             </div>
                             <div class="order-num flex">
                                 <p>貨運單號</p>
-                                <a class="margin" href="">123456789</a>
+                                <p class="margin" href="">123456789</p>
+                            </div>
+                        </div>
+                        <div class="order-info1 flex">
+                            <div class="order-num flex">
+                                <p class="product-name">禮盒款式 </p>
+                                <p class="margin">
+                                    <?php if ($historylists['watzbox_style'] == 'watzbox1') {
+                                        echo '夏日芒果';
+                                    } else if ($historylists['watzbox_style'] == 'watzbox2') {
+                                        echo '群魔亂舞';
+                                    } else if ($historylists['watzbox_style'] == 'watzbox3') {
+                                        echo '灰姑娘的水晶襪';
+                                    } else {
+                                        echo '無';
+                                    } ?></p>
                             </div>
                         </div>
                     </div>
@@ -371,7 +395,7 @@ $totalprice = 0;
                         <div class="block2 flex">
                             <ul class="product-info flex">
                                 <li class="title flex">
-                                    <h5 class="product-name">商品名稱</h5>
+                                    <h5 class="product-name">禮盒內容</h5>
                                     <h5>款式</h5>
                                     <h5>數量</h5>
                                     <h5 class="subtotal">小計</h5>
@@ -386,13 +410,44 @@ $totalprice = 0;
                                     $type_name = $pdo->query($t_sql)->fetch()['type'];
                                     $subtotal = $r['price'] * $r['qty'];
                                     $totalprice += $subtotal;
+
+                                    if ($r['watzbox'] == 1) :
                                 ?>
-                                    <li class="title flex">
-                                        <h5 class="product-name"><?= $p_item['product_name'] ?></h5>
-                                        <h5><?= $type_name ?></h5>
-                                        <h5><?= $r['qty'] ?></h5>
-                                        <h5 class="subtotal"><?= $subtotal ?></h5>
-                                    </li>
+                                        <li class="title flex">
+                                            <h5 class="product-name"><?= $p_item['product_name'] ?></h5>
+                                            <h5><?= $type_name ?></h5>
+                                            <h5><?= $r['qty'] ?></h5>
+                                            <h5 class="subtotal"><?= $subtotal ?></h5>
+                                        </li>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                                <li class="title1 title flex">
+                                    <h5 class="product-name">單購襪子</h5>
+                                    <!-- <h5>款式</h5>
+                                    <h5>數量</h5>
+                                    <h5 class="subtotal">小計</h5> -->
+                                </li>
+
+                                <?php foreach ($list_detail as $r) :
+                                    $r_sid = $r['product_sid'];
+                                    $r_sql = "SELECT * FROM `product` WHERE `sid`= $r_sid";
+                                    $p_item = $pdo->query($r_sql)->fetch();
+
+                                    $type_sid = $p_item['type'];
+                                    $t_sql = "SELECT `type` FROM `product_type` WHERE `type_sid`=$type_sid ";
+                                    $type_name = $pdo->query($t_sql)->fetch()['type'];
+                                    $subtotal = $r['price'] * $r['qty'];
+                                    $totalprice += $subtotal;
+
+                                    if ($r['watzbox'] == 0) :
+                                ?>
+                                        <li class="title flex">
+                                            <h5 class="product-name"><?= $p_item['product_name'] ?></h5>
+                                            <h5><?= $type_name ?></h5>
+                                            <h5><?= $r['qty'] ?></h5>
+                                            <h5 class="subtotal"><?= $subtotal ?></h5>
+                                        </li>
+                                    <?php endif; ?>
                                 <?php endforeach; ?>
                             </ul>
                             <div class="bg-bill flex">

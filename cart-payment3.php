@@ -1,5 +1,22 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = 'aboutWATZ';  // 這裡放你的pagename
+
+$sids = array_column($_SESSION['cart'], 'sid');
+$p_sql = "SELECT * FROM `product` WHERE `sid` IN (". implode(',', $sids). ")";
+$productData = [];
+$p_stmt = $pdo->query($p_sql);
+while($r = $p_stmt->fetch()){
+    $productData[$r['sid']] = $r;
+}
+
+$watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['receiver']['watzbox_style'] : Null;
+
+$totalPrice = 0;
+foreach ($_SESSION['cart'] as $k=>$v){
+    $_SESSION['cart'][$k]['price'] = $productData[$v['sid']]['price'];
+
+    $totalPrice += $_SESSION['cart'][$k]['price'] * $v['qty'];
+}
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
@@ -651,6 +668,14 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         border-bottom: 2px solid #E2E2E2;
     }
 
+    .socks-title {
+        flex-grow: 1;
+    }
+
+    .socks-price{
+        margin-left: 20px;
+    }
+
     .single-socks {
         width: 280px;
         align-items: center;
@@ -945,37 +970,42 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                         </div>
                         <div class="list-scroll listScroll">
                             <div class="box-detail">
-                                <div class="box-info flex">
-                                    <div class="box-detail flex">
-                                        <h4>芒果派對</h4>
-                                        <div class="box-amount-detail">
-                                            <h6 class="box-type">包裝禮盒</h6>
-                                            <h6 class="box-socks-amount">3入裝</h6>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="box-product-orderlist flex">
                                     <h4>禮盒內容</h4>
-                                    <!-- <?php foreach ($_SESSION['cart'] as $i) : ?>
+                                    <p class="margin">
+                                    <?php if ($watzbox_style == 'watzbox1') {
+                                        echo '夏日芒果';
+                                    } else if ($watzbox_style == 'watzbox2') {
+                                        echo '群魔亂舞';
+                                    } else if ($watzbox_style == 'watzbox3') {
+                                        echo '灰姑娘的水晶襪';
+                                    } else {
+                                        echo '無';
+                                    } ?></p>
+                                    <?php foreach ($_SESSION['cart'] as $i) :
+                                        if ($i['watzbox'] == 1) : ?>
                                     <div class="box-socks p_item flex">
                                         <div class="socks-nameNprice flex" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
                                             <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                            <h5>X<?= $i['qty'] ?></h5>
+                                            <h5>×<?= $i['qty'] ?></h5>
                                             <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
                                         </div>
                                     </div>
-                                    <?php endforeach; ?> -->
+                                    <?php endif; ?>
+                                    <?php endforeach; ?>
                                 </div>
                                 <div class="product-orderlist p_item flex" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
                                     <h4>單購襪子</h4>
-                                    <?php foreach ($_SESSION['cart'] as $i) : ?>
+                                    <?php foreach ($_SESSION['cart'] as $i) :
+                                        if ($i['watzbox'] == 0) : ?>
                                         <div class="single-socks p_item flex">
                                             <div class="socks-nameNprice flex">
                                                 <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                                <h5>X<?= $i['qty'] ?></h5>
+                                                <h5>×<?= $i['qty'] ?></h5>
                                                 <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
                                             </div>
                                         </div>
+                                        <?php endif; ?>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
@@ -987,7 +1017,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                 <ul>
                                     <li class="flex">
                                         <p>商品總計</p>
-                                        <p id="productPrice"></p>
+                                        <p id="productPrice">NT $<?= $totalPrice ?></p>
                                     </li>
                                     <li class="flex">
                                         <p>運費</p>
@@ -995,12 +1025,12 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
                                     </li>
                                     <li class="flex">
                                         <p>折扣</p>
-                                        <p class="discount">-40</p>
+                                        <p class="discount">-60</p>
                                     </li>
                                     <div class="line"></div>
                                     <li class="flex">
                                         <h4>結帳金額</h4>
-                                        <h4 id="totalPrice">元</h4>
+                                        <h4 id="totalPrice">NT $<?= $totalPrice+120-60 ?></h4>
                                     </li>
                                 </ul>
                             </div>
