@@ -2347,9 +2347,30 @@ $pageName = 'DIY';  // 這裡放你的pagename
                 "stroke": shapecolor
             })
         } else {
-            console.log("123")
             $(".socks-path").css({
                 "fill": shapecolor,
+            })
+        }
+    })
+
+    // clear btn
+    $('.btn-clear').click(function(){
+        if (currentImage === 'pattern-stripe') {
+            $(".stroke-width").css({
+                "fill": "none",
+                "stroke": "#404040"
+            })
+            $(".socks-color").css({
+                "fill": "#FFFFFF",
+                "stroke": "#404040"
+            })
+        } else {
+            $(".socks-path").css({
+                "fill": "#404040",
+            })
+            $(".socks-color").css({
+                "fill": "#FFFFFF",
+                "stroke": "#404040"
             })
         }
     })

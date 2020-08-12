@@ -262,6 +262,66 @@ $pageName = 'project summer';  // 這裡放你的pagename
         top: 100vh;
     }
 
+    .block3 {
+        position: relative;
+        justify-content: space-between;
+    }
+
+    .block3-left, .block3-right {
+        width: calc(100vw / 2);
+        height: 100vh;
+    }
+
+    .block3-left {
+        position: relative;
+    }
+
+    .img-block3-1 {
+        width: calc(100vw / 2);
+        height: 100vh;
+    }
+
+    .img-block3-1 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .block3-left ul {
+        width: calc(100vw / 2);
+        left: 15px;
+        bottom: 15px;
+    }
+
+    .block3-left li {
+        width: 190px;
+        height: 190px;
+        margin: 0 5px;
+    }
+
+    .block3-left li img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .block3-right {
+        background: white;
+    }
+
+    .block3-right div{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .block3-right p {
+        width: 500px;
+        text-align: center;
+    }
+
+    
+
 
 
 
@@ -373,25 +433,25 @@ $pageName = 'project summer';  // 這裡放你的pagename
     </div>
     <div class="modal absolute"></div>
     <div class="block3 flex">
-        <div>
+        <div class="absolute">
             <img src="images/summer-dot2.svg" alt="">
         </div>
-        <div>
+        <div class="absolute">
             <img src="images/summer-yellowfruit.svg" alt="">
         </div>
         <div class="block3-left">
-            <div>
-                <img src="" alt="">
+            <div class="img-block3-1">
+                <img src="images/summer/block3-1.jpg" alt="">
             </div>
-            <ul>
-                <li><img src="" alt=""></li>
-                <li><img src="" alt=""></li>
-                <li><img src="" alt=""></li>
-                <li><img src="" alt=""></li>
+            <ul class="flex absolute">
+                <li><img src="images/summer/block3-2.jpg" alt=""></li>
+                <li><img src="images/summer/block3-3.jpg" alt=""></li>
+                <li><img src="images/summer/block3-4.jpg" alt=""></li>
+                <li><img src="images/summer/block3-5.jpg" alt=""></li>
             </ul>
         </div>
         <div class="block3-right">
-            <div>
+            <div class="flex">
                 <h3>駕鶴西瓜</h3>
                 <p>襪口部採用具止滑效果的織線，不易滑脫。襪口無鬆緊帶設計，穿著柔軟舒適。使用對環境溫和的有機棉所製成。</p>
                 <p>短襪<br>22-24cm<br>材質:100%純棉</p>
