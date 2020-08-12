@@ -679,6 +679,9 @@
         .nav-logo .img-logo-text {
             height: 21px;
         }
+        .box-cart-short{
+            display: none;
+        }
         .menu {
             width: 40px;
             height: 40px;
@@ -730,7 +733,7 @@
         align-items: center;
         position: fixed;
         right: 3vw;
-        top: 70vh;
+        top: 80vh;
         z-index: 21;
         font-family: 'Fredoka One', cursive;
         cursor: pointer;

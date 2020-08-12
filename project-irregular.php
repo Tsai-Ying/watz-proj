@@ -57,6 +57,7 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
         right: 50px;
         bottom: 30px;
         animation: mouse-scroll 1s infinite alternate;
+        cursor: pointer;
     }
 
     @-webkit-keyframes mouse-scroll {
@@ -69,6 +70,7 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
     .scroll-down h3 {
         writing-mode: vertical-lr;
         margin-bottom: 20px;
+        cursor: pointer;
     }
 
     .scroll-down img {
@@ -76,6 +78,10 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
     }
 
     @media screen and (max-width: 992px) {
+        .block1{
+            width: 100vw;
+            height: 50vh;
+        }
         .logo {
             width: 250px;
         }
@@ -117,6 +123,7 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
     /* --------------------block2------------------------ */
     .block2 {
         width: 100vw;
+        height: fit-content;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -266,10 +273,15 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
         justify-content: flex-start;
     }
 
-    .bg-3 img {
+    .bg-3 .bg3-left {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        background-color: #B4D0E7;
+    }
+    .bg-3 .bg3-right {
+        width: 100%;
+        height: 100%;
+        background-color: #1663A2;
     }
 
     .block3 .pic {
@@ -530,12 +542,12 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
         <div class="logo transition">
             <img src="images/irregular/WATZ_irregular_LOGO.png" alt="">
         </div>
-        <div class="scroll-down flex">
+        <div class="scroll-down flex transition">
             <h3>SCROLL</h3>
-            <img src="images/irregular/scroll-down.svg" alt="">
+            <img src="images/irregular/scroll-down.svg" alt="#block2">
         </div>
     </div>
-    <div class="block2 flex">
+    <div class="block2 flex" id="block2">
         <ul class="bg-line flex">
             <li class="">
                 <img src="images/irregular/square1-1.jpg" alt="">
@@ -599,8 +611,8 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
     </div>
     <div class="block3 flex">
         <div class="bg-3 flex">
-            <img src="images/irregular/bg3-left.svg" alt="">
-            <img src="images/irregular/bg3-right.svg" alt="">
+            <div class="bg3-left"></div>
+            <div class="bg3-right"></div>
         </div>
         <img class="path-up" src="images/irregular/Path-down.svg" alt="">
         <img class="pic" src="images/irregular/WATZ_irregular.png" alt="">
@@ -638,11 +650,16 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
         $(this).attr("src", "images/watzbox2-1.png");
     })
 
-    // $(window).resize(function() {
-    //     if ($(window).width() < 922) {
-    //         $("#bg-1").attr("src", "images/irregular/kv-mobile.jpg");
-    //     }
-    // });
+
+    // anchor point
+    $(".scroll-down").click(function() {
+        let nextPosition = $(".block2").offset().top;
+        // console.log(nextPosition)
+        $("html").animate({
+            scrollTop: nextPosition
+        })
+        openTutorial();
+    })
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
