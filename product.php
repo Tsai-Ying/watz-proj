@@ -1218,28 +1218,28 @@ $stmt = $pdo->query($sql);
 
                         <li>
                             <label class="cursor series-check ">
-                                <input type="checkbox" name="series[]" value="1" class="cursor">芒果派對</label>
+                                <input type="checkbox" name="series[]" value="1" class="cursor" id="summerSeries">芒果派對</label>
                         </li>
                         <li>
-                            <label class="cursor"><input type="checkbox" name="series[]" value="2" class="cursor">群魔亂舞</label>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="2" class="cursor" id="irregularSeries">群魔亂舞</label>
                         </li>
                         <li>
-                            <label class="cursor"><input type="checkbox" name="series[]" value="3" class="cursor">灰姑娘的水晶襪</label>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="3" class="cursor" id="crystalSeries">灰姑娘的水晶襪</label>
                         </li>
                         <li>
-                            <label class="cursor"><input type="checkbox" name="series[]" value="4" class="cursor">素色流行</label>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="4" class="cursor" id="plainSeries">素色流行</label>
                         </li>
                         <li>
-                            <label class="cursor"><input type="checkbox" name="series[]" value="5" class="cursor">幾何色塊</label>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="5" class="cursor" id="geomSeries">幾何色塊</label>
                         </li>
                         <li>
-                            <label class="cursor"><input type="checkbox" name="series[]" value="6" class="cursor">美式風格</label>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="6" class="cursor" id="americanSeries">美式風格</label>
                         </li>
                     </ul>
                     <div class="box-color">
                         <p>Color</p>
                         <ul class="color-btn-box flex">
-                            <li class="flex ">
+                            <li class="flex">
                                 <label class="cursor color-lb flex">
                                     <input type="checkbox" id="color-in1" name="colors[]" value="1" class="cursor flex color-in" />
                                     <span></span>
@@ -1653,7 +1653,8 @@ $stmt = $pdo->query($sql);
         let h = location.hash.slice(1);
         h = parseInt(h) || 1; //如果h為NaN則值給1
         $('#page').val(h);
-        console.log($('#page').val())
+        // console.log($('#page').val())
+        console.log($(document.form1).serialize())
 
         //取得api的資料
         $.get('product-api.php', $(document.form1).serialize(), function(data) {
@@ -1748,9 +1749,104 @@ $stmt = $pdo->query($sql);
                     </a>
                 </li>`
     }
+    function seriesProduct() {
 
-    window.addEventListener('hashchange', handleHash); //在window監聽hashChange的event
-    handleHash();
+let h = location.hash.slice(1);
+h = parseInt(h) || 1; //如果h為NaN則值給1
+$('#page').val(h);
+// console.log('123=' + location.hash.slice(2))
+// console.log('h=' + h)
+let series = location.hash.slice(-1)
+
+console.log('series=' + series)
+
+// if (series==1){
+//         $('#summerSeries').prop('checked','true');
+//         console.log('123')
+// }else if(series==2){
+//         $('#irregularSeries').attr('checked');
+// }
+
+switch (series) {
+    case '1':
+        $('#summerSeries').prop('checked','true');
+        console.log('summerSeriesChecked')
+        break;
+
+    case '2':
+        $('#irregularSeries').prop('checked','true');
+        console.log('irregularSeriesChecked')
+
+        break;
+
+    case '3':
+        $('#crystalSeries').prop('checked','true');
+        console.log('crystalSeriesChecked')
+        break;
+
+    case '4':
+        $('#plainSeries').prop('checked','true');
+        console.log('plainSeriesChecked')
+        break;
+
+    case '5':
+        $('#geomSeries').prop('checked','true');
+        console.log('geomSeriesChecked')
+        break;
+
+    case '6':
+        $('#americanSeries').prop('checked','true');
+        console.log('americanSeriesChecked')
+        break;
+}
+
+const sendObj = location.hash.slice(1)
+
+// console.log(sendObj)
+
+
+
+// console.log(sendObj)
+$.get('product-api.php', sendObj, function(data) {
+    console.log(data);
+
+    pagination.empty();
+    for (let s in data.pageBtns) {
+        pagination.append(pageBtnTpl({
+            i: data.pageBtns[s],
+            isActive: data.pageBtns[s] == data.page
+        }));
+    }
+
+    productBox.empty(); //先清空再append新的內容
+    productGet(data);
+    pagination.empty();
+    pagination.append(`<li class="page-btn page-item ${data.page == 1 ? 'disabled' : ''} ">
+                        <a class="page-link" href="#${data.page - 1 }">
+                            PREV
+                        </a>
+                    </li>`)
+    for (let s in data.pageBtns) {
+        pagination.append(pageBtnTpl({
+            i: data.pageBtns[s],
+            isActive: data.pageBtns[s] == data.page
+        }));
+    }
+    pagination.append(`<li class=" page-btn page-item ${data.page == data.totalPages ? 'disabled' : ''}">
+                        <a class="page-link" href="#${data.page + 1 }">
+                            NEXT
+                        </a>
+                    </li>`)
+
+    productBox.empty(); //先清空再append新的內容
+    productGet(data);
+}, 'json')
+}
+
+window.addEventListener('hashchange', handleHash); //在window監聽hashChange的event
+// handleHash();
+seriesProduct()
+
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
