@@ -562,7 +562,7 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
                 <img src="images/irregular/square1-4.jpg" alt="">
             </li>
         </ul>
-        <ul class="bg-line flex">
+        <ul class="bg-line line2 flex">
             <li class="">
                 <img src="images/irregular/square2-1.jpg" alt="">
             </li>
@@ -604,7 +604,7 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
             <div class="watzbox transition">
                 <img id="watzbox" src="images/watzbox2-1.png" alt="">
             </div>
-            <button class="seemore btn-coral flex transition">
+            <button class="seemore btn-coral flex transition" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#page=1&series%5B%5D=2'">
                 <h3>See More</h3>
             </button>
         </div>
@@ -617,7 +617,7 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
         <img class="path-up" src="images/irregular/Path-down.svg" alt="">
         <img class="pic" src="images/irregular/WATZ_irregular.png" alt="">
         <img class="path-down" src="images/irregular/Path-up.svg" alt="">
-        <button class="seemore btn-coral flex">
+        <button class="seemore btn-coral flex" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#page=1&series%5B%5D=2'">
             <h3>See More</h3>
         </button>
     </div>
@@ -653,7 +653,7 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
 
     // anchor point
     $(".scroll-down").click(function() {
-        let nextPosition = $(".block2").offset().top;
+        let nextPosition = $(".line2").offset().top;
         // console.log(nextPosition)
         $("html").animate({
             scrollTop: nextPosition
