@@ -82,10 +82,11 @@ $pageName = 'project summer';  // 這裡放你的pagename
         justify-content: space-between;
         padding: 120px 0;
         /* border: 1px solid red; */
+        margin: 0 auto;
     }
 
     .btn-top {
-        z-index: 2;
+        z-index: 20;
     }
 
     .block1 {
@@ -193,7 +194,9 @@ $pageName = 'project summer';  // 這裡放你的pagename
 
     .block1-right h1 {
         color: white;
-        letter-spacing: 6px;
+        letter-spacing: 4px;
+        font-family: 'Josefin Sans', sans-serif;
+        margin-top: 10px;
     }
 
     .block1-right h6 {
@@ -242,6 +245,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
         color: white;
         font-size: 3rem;
         margin-bottom: 20px;
+        font-family: 'Josefin Sans', sans-serif;
     }
 
     .block2 button {
@@ -253,7 +257,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
         width: 250px;
         background: #FF9685;
     }
-    
+
     .modal {
         width: 100vw;
         height: 100vh;
@@ -267,7 +271,8 @@ $pageName = 'project summer';  // 這裡放你的pagename
         justify-content: space-between;
     }
 
-    .block3-left, .block3-right {
+    .block3-left,
+    .block3-right {
         width: calc(100vw / 2);
         height: 100vh;
     }
@@ -308,6 +313,13 @@ $pageName = 'project summer';  // 這裡放你的pagename
         right: -60px;
     }
 
+    .img-summer-whiteline2 {
+        width: 250px;
+        z-index: 1;
+        right: 0;
+        bottom: 50px;
+    }
+
     .block3-left ul {
         width: calc(100vw / 2);
         left: 15px;
@@ -330,21 +342,31 @@ $pageName = 'project summer';  // 這裡放你的pagename
         justify-content: center;
         align-items: center;
         background: white;
+        overflow: hidden;
     }
 
-    .block3-right div{
+    .block3-right div {
         flex-direction: column;
         justify-content: center;
         align-items: center;
         margin-right: 80px;
     }
 
-    .block3-right div h3,.block3-right div p {
+    .block3-right div h3,
+    .block3-right div p,
+    .info-left h3,
+    .info-left p {
         color: #38726C;
         margin-bottom: 20px;
     }
 
-    .block3-right div h3 {
+    .info-left h3,
+    .info-left p {
+        color: white;
+    }
+
+    .block3-right div h3,
+    .info-left h3 {
         margin-bottom: 30px;
     }
 
@@ -357,17 +379,152 @@ $pageName = 'project summer';  // 這裡放你的pagename
     .btn-seemore:hover {
         background: #FF538A;
     }
-    
-    .block3-right p {
+
+    .block3-right p,
+    .info-left p {
         width: 500px;
         text-align: center;
     }
 
-    
+    .info-left {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 160px;
+    }
 
+    .cheetah-bg {
+        top: 300vh;
+        z-index: -1;
+    }
 
+    .block4 {
+        width: 100vw;
+        height: 100vh;
+        justify-content: space-between;
+        align-items: center;
+    }
 
+    .img-block4-2 {
+        width: 260px;
+        height: 260px;
+    }
 
+    .img-block4-2 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .info-right {
+        margin: 0 140px 50px 0;
+        align-self: flex-end;
+    }
+
+    .info-right li {
+        width: 170px;
+        height: 250px;
+        margin: 0 5px;
+        border: 1px solid white;
+    }
+
+    .info-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .img-summer-pinkline {
+        width: 370px;
+        z-index: 1;
+        mix-blend-mode: multiply;
+        left: 38%;
+    }
+
+    .img-summer-pinkline img,
+    .img-summer-pinkfruit img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .img-summer-pinkfruit {
+        width: 370px;
+        bottom: 5%;
+        left: -5%;
+        mix-blend-mode: multiply;
+    }
+
+    .block5-left div {
+        margin: 0 0 0 80px;
+    }
+
+    .block6 {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+    }
+
+    .bglast {
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        top: 500vh;
+    }
+
+    .bglast img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .img-summer-dot3 {
+        width: 270px;
+        z-index: 1;
+        mix-blend-mode: multiply;
+        left: 0;
+        bottom: 10%;
+    }
+
+    .wrapper-block6 {
+        padding: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .wrapper-block6 ul {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .wrapper-block6 li {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wrapper-block6 div {
+        width: 280px;
+        height: 430px;
+    }
+
+    .wrapper-block6 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .wrapper-block6 h3 {
+        color: white;
+        margin: 50px 0;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+    }
 
 
     @media screen and (max-width: 1280px) {
@@ -471,7 +628,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
                 <img src="images/summer/block2-1.png" alt="">
             </div>
             <h1>COOL OFF & CHILL OUT.</h1>
-            <button class="btn-coral transition">CHECK ME OUT</button>
+            <button class="btn-coral transition" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#page=1&series%5B%5D=1'">CHECK ME OUT</button>
         </div>
     </div>
     <div class="modal absolute"></div>
@@ -481,6 +638,9 @@ $pageName = 'project summer';  // 這裡放你的pagename
         </div>
         <div class="absolute img-summer-yellowfruit">
             <img src="images/summer-yellowfruit.svg" alt="">
+        </div>
+        <div class="absolute img-summer-whiteline2">
+            <img src="images/summer-whiteline2.svg" alt="">
         </div>
         <div class="block3-left">
             <div class="img-block3-1">
@@ -502,7 +662,81 @@ $pageName = 'project summer';  // 這裡放你的pagename
             </div>
         </div>
     </div>
-    
+    <div class="cheetah-bg absolute">
+        <img src="images/summer/block4-1.jpg" alt="">
+    </div>
+    <div class="block4 flex">
+        <div class="info-left flex">
+            <div class="img-block4-2">
+                <img src="images/summer/block4-2.png" alt="">
+            </div>
+            <h3>豹打老虎</h3>
+            <p>Jungle Friends, our summer collection that expresses animal friends living in the jungle with a detailed and witty cuteness unique to WATZ.<br>
+            </p>
+            <p>長襪<br>22-24cm<br>材質:100%純棉</p>
+            <button class="btn-coral btn-seemore">SEE MORE</button>
+        </div>
+        <ul class="info-right flex">
+            <li><img src="images/summer/block4-3.jpg" alt=""></li>
+            <li><img src="images/summer/block4-4.jpg" alt=""></li>
+            <li><img src="images/summer/block4-5.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div class="block3 block5 flex">
+        <div class="absolute img-summer-pinkline">
+            <img src="images/summer-pinkline.svg" alt="">
+        </div>
+        <div class="absolute img-summer-pinkfruit">
+            <img src="images/summer-pinkfruit.svg" alt="">
+        </div>
+        <div class="block3-right block5-left flex">
+            <div class="flex">
+                <h3>夏日煙火</h3>
+                <p>襪口部採用具止滑效果的織線，不易滑脫。襪口無鬆緊帶設計，穿著柔軟舒適。使用對環境溫和的有機棉所製成。</p>
+                <p>長襪<br>22-24cm<br>材質:100%純棉</p>
+                <button class="btn-coral btn-seemore">SEE MORE</button>
+            </div>
+        </div>
+        <div class="block3-left block5-right">
+            <div class="img-block3-1 img-block5-1">
+                <img src="images/summer/block5-1.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="bglast absolute">
+        <img src="images/summer-bglast.svg" alt="">
+    </div>
+    <div class="block6">
+        <div class="absolute img-summer-dot3">
+            <img src="images/summer-dot3.svg" alt="">
+        </div>
+        <div class="absolute img-summer-leaf">
+            <img src="images/summer-leaf.svg" alt="">
+        </div>
+        <div class="wrapper wrapper-block6 flex">
+            <h3>MORE GOODIES...</h3>
+            <ul class="flex">
+                <li class="flex">
+                    <div class="block6-1"><img src="images/summer/block6-1.jpg" alt=""></div>
+                    <button class="btn-coral btn-seemore">SEE MORE</button>
+                </li>
+                <li class="flex">
+                    <div class="block6-2"><img src="images/summer/block6-2.jpg" alt=""></div>
+                    <button class="btn-coral btn-seemore">SEE MORE</button>
+                </li>
+                <li class="flex">
+                    <div class="block6-3"><img src="images/summer/block6-3.jpg" alt=""></div>
+                    <button class="btn-coral btn-seemore">SEE MORE</button>
+                </li>
+                <li class="flex">
+                    <div class="block6-4"><img src="images/summer/block6-4.jpg" alt=""></div>
+                    <button class="btn-coral btn-seemore">SEE MORE</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
 
     <?php include __DIR__ . '/__html_footer.php' ?>
 </div>
