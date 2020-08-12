@@ -2308,6 +2308,11 @@ $pageName = 'DIY';  // 這裡放你的pagename
     //DIY change Pattern
     let currentImage = '';
     let currentColor = '';
+    let customStyle={};
+    if(localStorage.getItem('customStyle')!=null){
+        customStyle=localStorage.getItem('customStyle')
+        console.log(JSON.parse(customStyle))
+    }
 
     $(".img-pattern-area").click(function(event) {
 
@@ -2323,7 +2328,8 @@ $pageName = 'DIY';  // 這裡放你的pagename
             "fill": currentColor,
             "stroke": currentColor
         })
-
+        customStyle.pattern=currentTargetId;
+        storeLocal()
     })
 
 
@@ -2332,6 +2338,8 @@ $pageName = 'DIY';  // 這裡放你的pagename
         let color = $(this).css("background-color")
         console.log(color)
         $(".socks-color").css("fill", color)
+        customStyle.bottomColor=color;
+        storeLocal()
     })
 
     //change shape color
@@ -2351,7 +2359,14 @@ $pageName = 'DIY';  // 這裡放你的pagename
                 "fill": shapecolor,
             })
         }
+        customStyle.patternColor=shapecolor;
+        storeLocal()
     })
+
+    // localstorage 轉為JSON字串
+    function storeLocal(){
+        localStorage.setItem('customStyle', JSON.stringify(customStyle));
+    }
 
     // clear btn
     $('.btn-clear').click(function(){
