@@ -639,7 +639,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
             // console.log(val());
 
             if (pw1 == pw2) {
-                isPass=ture
+                isPass=true;
             }else{
                 $('.error').css('display','flex');
                 $('.pw-input').css('border-color', 'red');
@@ -649,8 +649,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 
         //判斷註冊成功與否
         if (isPass) {
-            $.post('signup-api.php', $(document.form1).serialize(),
-                function(data) {
+            $.post('signup-api.php', $(document.form1).serialize(),function(data) {
                     console.log(data);
                     if (data.success) {
                         $('.notice h3').text('註冊成功');
