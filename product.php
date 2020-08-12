@@ -205,7 +205,7 @@ $stmt = $pdo->query($sql);
         transition: linear 1s;
     }
 
-    
+
 
     .series-active {
         background: #F2DE79;
@@ -332,6 +332,7 @@ $stmt = $pdo->query($sql);
     .color-btn-box li:hover {
         background: url("images/select circle.svg") no-repeat;
     }
+
     /* .color-active {
            background: url("images/select circle.svg") no-repeat;
            
@@ -383,9 +384,9 @@ $stmt = $pdo->query($sql);
     }
 
     .type-active {
-            background: #F2DE79;
-           
-        }
+        background: #F2DE79;
+
+    }
 
     /* -------------------blocl-right---------------------- */
     .block-right {
@@ -1320,8 +1321,8 @@ $stmt = $pdo->query($sql);
                             <button class="btn-mo-select flex">進階篩選</button>
                             <div class="right-select-box flex">
                                 <select class="right-select flex" name="rightSelect">
-                                    <option value="new">最新上架</option>
-                                    <option value="hot">熱門程度</option>
+                                    <option value="new" id="new">最新上架</option>
+                                    <option value="hot" >熱門程度</option>
                                     <option value="low">$低到高</option>
                                     <option value="high">$高到低</option>
                                 </select>
@@ -1332,7 +1333,7 @@ $stmt = $pdo->query($sql);
                         flex">
 
                         <?php foreach ($rows as $r) : ?>
-                            <li class="single-product-box flex">
+                            <li class="single-product-box flex sid=<?= $r['sid'] ?>">
                                 <a href="product-detail.php?sid=<?= $r['sid'] ?>">
                                     <div class="product-top-img flex">
                                         <img src='images/product/<?= $r['img_ID'] ?>-1.jpg?' alt="">
@@ -1463,7 +1464,7 @@ $stmt = $pdo->query($sql);
         $('.selector').slideUp(1000);
         return false;
     });
-    
+
 
     // active狀態
 
@@ -1478,15 +1479,16 @@ $stmt = $pdo->query($sql);
     $('form[name=form1] input[name="colors[]" ]').change(function() {
         if (this.checked) {
             $(this).parents("li").css({
-            "background": "url('images/select circle.svg') no-repeat"
-        });
+                "background": "url('images/select circle.svg') no-repeat"
+            });
         } else {
             $(this).parents("li").css({
-            "background": "none"
-        });
-    }});
+                "background": "none"
+            });
+        }
+    });
 
-    
+
     $('form[name=form1] input[name="types[]" ]').change(function() {
         if (this.checked) {
             $(this).parents("li").addClass("type-active");
@@ -1609,28 +1611,8 @@ $stmt = $pdo->query($sql);
         handleHash();
     });
     // --------------------------------
-   
-    // $('.right-select').change(function () {
-    //         console.log($(".right-select").val());
-            
-    //     });
 
 
-
-
-        $('.right-select').change(function () {
-            console.log($(".right-select").val());
-            if ($(".right-select").val()="hot") {
-                console.log("hi")
-        //     setTimeout(function() {
-        //         $('.help-bg').fadeOut()
-        //     }, 5000);
-        }
-        });
-
-    // -------------------------------------
-
-    
 
 
     const pagination = $('.pagination');
@@ -1718,11 +1700,30 @@ $stmt = $pdo->query($sql);
 
     }
 
-   
+
     function productGet(data) {
 
         if (data && data.rows) {
             for (let i in data.rows) {
+
+                productBox.append(itemTpl(data.rows[i]));
+
+                $(".product-top-img img").mouseenter(function() {
+                    $(this).attr("src", $(this).attr('src').replace("-1.jpg", "-2.jpg"));
+                });
+
+                $(".product-top-img img").mouseleave(function() {
+                    $(this).attr("src", $(this).attr('src').replace("-2.jpg", "-1.jpg"));
+                });
+            }
+        }
+    }
+
+     function productGet(data) {
+
+        if (data && data.rows) {
+            for (let i in data.rows) {
+                
                 productBox.append(itemTpl(data.rows[i]));
 
                 $(".product-top-img img").mouseenter(function() {
@@ -1737,7 +1738,7 @@ $stmt = $pdo->query($sql);
     }
 
     function itemTpl(obj) {
-        return `<li class="single-product-box flex">
+        return `<li class="single-product-box flex sid=${obj['sid']}">
                     <a href="product-detail.php?sid=${obj['sid']}">
                         <div class="product-top-img flex">
                             <img src='images/product/${obj['img_ID']}-1.jpg?' alt="">
@@ -1749,104 +1750,116 @@ $stmt = $pdo->query($sql);
                     </a>
                 </li>`
     }
+  
+// ------------------------------------
+
+// $(".right-select").change(function (data) {
+//             // console.log($(".right-select").val(data));
+//             let selectdata = $('select[name="rightSelect"]  option[="new"] ').val();
+//          if(data="new"){
+//             console.log("newOK");
+//          }
+//         });
+//         $('form[name=form1] input[name="colors[]" ]').change(function()
+    // ---------------------
     function seriesProduct() {
 
-let h = location.hash.slice(1);
-h = parseInt(h) || 1; //如果h為NaN則值給1
-$('#page').val(h);
-// console.log('123=' + location.hash.slice(2))
-// console.log('h=' + h)
-let series = location.hash.slice(-1)
+        let h = location.hash.slice(1);
+        h = parseInt(h) || 1; //如果h為NaN則值給1
+        $('#page').val(h);
+      
 
-console.log('series=' + series)
+        // ----------
+        let series = location.hash.slice(-1)
 
-// if (series==1){
-//         $('#summerSeries').prop('checked','true');
-//         console.log('123')
-// }else if(series==2){
-//         $('#irregularSeries').attr('checked');
-// }
+        console.log('series=' + series)
 
-switch (series) {
-    case '1':
-        $('#summerSeries').prop('checked','true');
-        console.log('summerSeriesChecked')
-        break;
+        // if (series==1){
+        //         $('#summerSeries').prop('checked','true');
+        //         console.log('123')
+        // }else if(series==2){
+        //         $('#irregularSeries').attr('checked');
+        // }
 
-    case '2':
-        $('#irregularSeries').prop('checked','true');
-        console.log('irregularSeriesChecked')
+        switch (series) {
+            case '1':
+                $('#summerSeries').prop('checked', 'true');
+                console.log('summerSeriesChecked')
+                break;
 
-        break;
+            case '2':
+                $('#irregularSeries').prop('checked', 'true');
+                console.log('irregularSeriesChecked')
 
-    case '3':
-        $('#crystalSeries').prop('checked','true');
-        console.log('crystalSeriesChecked')
-        break;
+                break;
 
-    case '4':
-        $('#plainSeries').prop('checked','true');
-        console.log('plainSeriesChecked')
-        break;
+            case '3':
+                $('#crystalSeries').prop('checked', 'true');
+                console.log('crystalSeriesChecked')
+                break;
 
-    case '5':
-        $('#geomSeries').prop('checked','true');
-        console.log('geomSeriesChecked')
-        break;
+            case '4':
+                $('#plainSeries').prop('checked', 'true');
+                console.log('plainSeriesChecked')
+                break;
 
-    case '6':
-        $('#americanSeries').prop('checked','true');
-        console.log('americanSeriesChecked')
-        break;
-}
+            case '5':
+                $('#geomSeries').prop('checked', 'true');
+                console.log('geomSeriesChecked')
+                break;
 
-const sendObj = location.hash.slice(1)
+            case '6':
+                $('#americanSeries').prop('checked', 'true');
+                console.log('americanSeriesChecked')
+                break;
+        }
 
-// console.log(sendObj)
+        const sendObj = location.hash.slice(1)
+
+        // console.log(sendObj)
 
 
 
-// console.log(sendObj)
-$.get('product-api.php', sendObj, function(data) {
-    console.log(data);
+        // console.log(sendObj)
+        $.get('product-api.php', sendObj, function(data) {
+            console.log(data);
 
-    pagination.empty();
-    for (let s in data.pageBtns) {
-        pagination.append(pageBtnTpl({
-            i: data.pageBtns[s],
-            isActive: data.pageBtns[s] == data.page
-        }));
-    }
+            pagination.empty();
+            for (let s in data.pageBtns) {
+                pagination.append(pageBtnTpl({
+                    i: data.pageBtns[s],
+                    isActive: data.pageBtns[s] == data.page
+                }));
+            }
 
-    productBox.empty(); //先清空再append新的內容
-    productGet(data);
-    pagination.empty();
-    pagination.append(`<li class="page-btn page-item ${data.page == 1 ? 'disabled' : ''} ">
+            productBox.empty(); //先清空再append新的內容
+            productGet(data);
+            pagination.empty();
+            pagination.append(`<li class="page-btn page-item ${data.page == 1 ? 'disabled' : ''} ">
                         <a class="page-link" href="#${data.page - 1 }">
                             PREV
                         </a>
                     </li>`)
-    for (let s in data.pageBtns) {
-        pagination.append(pageBtnTpl({
-            i: data.pageBtns[s],
-            isActive: data.pageBtns[s] == data.page
-        }));
-    }
-    pagination.append(`<li class=" page-btn page-item ${data.page == data.totalPages ? 'disabled' : ''}">
+            for (let s in data.pageBtns) {
+                pagination.append(pageBtnTpl({
+                    i: data.pageBtns[s],
+                    isActive: data.pageBtns[s] == data.page
+                }));
+            }
+            pagination.append(`<li class=" page-btn page-item ${data.page == data.totalPages ? 'disabled' : ''}">
                         <a class="page-link" href="#${data.page + 1 }">
                             NEXT
                         </a>
                     </li>`)
 
-    productBox.empty(); //先清空再append新的內容
-    productGet(data);
-}, 'json')
-}
+            productBox.empty(); //先清空再append新的內容
+            productGet(data);
+        }, 'json')
+    }
 
-window.addEventListener('hashchange', handleHash); //在window監聽hashChange的event
-// handleHash();
-seriesProduct()
-
+    window.addEventListener('hashchange', handleHash); //在window監聽hashChange的event
+    // handleHash();
+    seriesProduct()
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
