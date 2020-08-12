@@ -196,6 +196,11 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         border: 2px solid transparent;
     }
 
+    .pw-input {
+        border: 2px solid transparent;
+
+    }
+
     .account {
         width: 20px;
         height: 20px;
@@ -496,10 +501,10 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                                 <input class="member-input password" type="password" placeholder="Password" id="signupPassword" name="password" required>
                                 <img class="eyes" src="images/hidden.svg" alt="">
                             </div>
-                            <div class="input-wrapper flex">
+                            <div class="input-wrapper pw-input flex">
                                 <img class="account" src="images/icon-confirmPassword.svg" alt="">
                                 <input class="member-input password" type="password" placeholder="Confirm Password" id="confirmPassword" name="confirmPassword" required>
-                                <img class="eyes" src="images/hidden.svg" alt="">
+                                <img id="eyes" class="eyes" src="images/hidden.svg" alt="">
                                 <div class="error flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex">密碼輸入不一致</h6>
@@ -532,7 +537,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                                 <h6 class="flex">e-mail格式錯誤</h6>
                             </div>
                         </div>
-                        <div class="input-wrapper flex">
+                        <div class="input-wrapper pw-input flex">
                             <img class="account" src="images/icon-password.svg" alt="">
                             <input class="member-input password" type="password" placeholder="Password" id="loginPassword" name="password" required>
                             <img class="eyes" src="images/hidden.svg" alt="">
@@ -620,7 +625,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         let isPass = true;
 
 
-
+        //驗證e-mail格式
         if (!email_re.test($(signupEmail).val())) {
             isPass = false;
             console.log('false')
@@ -628,8 +633,21 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
             emailInput.css('border-color', 'red');
 
         }
+        //驗證密碼/密碼確認欄位是否一致
+            let pw1 = $('#signupPassword').val();
+            let pw2 = $('#confirmPassword').val();
+            // console.log(val());
+
+            if (pw1 == pw2) {
+                isPass=ture
+            }else{
+                $('.error').css('display','flex');
+                $('.pw-input').css('border-color', 'red');
+                $('#eyes').css('display','none');
+            }
 
 
+        //判斷註冊成功與否
         if (isPass) {
             $.post('signup-api.php', $(document.form1).serialize(),
                 function(data) {
@@ -646,7 +664,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 
                     }
 
-                    console.log("123");
                 }, 'json');
 
 
@@ -655,21 +672,32 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         return false;
     }
 
+
     // 登入 login
 
 
     const loginEmail = $('#loginEmail'),
         loginPassword = $('#loginPassword');
 
+    $(".pw-input").on("click keyup change", function() {
+        console.log('change')
+        $(this).css('border-color', 'transparent');
+        $('.error').css('display', 'none');
+        $('.eyes').css('display', 'flex')
+    })
+
+
+
     function formCheck2() {
+        loginEmail.text('');
+        loginPassword.text('');
+        loginEmail.text('');
         const
             email = $('.email'),
             emailInput = $('.email-input');
-        loginEmail.text('');
-        loginPassword.text('');
+
 
         const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-        loginEmail.text('');
 
         let isPass = true;
 
@@ -680,7 +708,10 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
             emailInput.css('border-color', 'red');
 
         }
+        $('.member-input').click(function() {
+            $('.member-input').css('placeholder', 'none')
 
+        })
         // TODO: 檢查欄位
 
 
@@ -700,13 +731,12 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                 } else {
                     $('.error').css('display', 'flex');
                     $('.eyes').css('display', 'none')
+                    $('.pw-input').css('border-color', 'red');
+
                     // console.log('fail')
                     // info_bar.removeClass('alert-success').addClass('alert-danger').html('帳號或密碼輸入錯誤');
                 }
-                $('.member-input').click(function() {
-                    $('.member-input').css('placeholder', 'none')
 
-                })
 
 
                 // info_bar.slideDown();

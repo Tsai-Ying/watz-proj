@@ -287,6 +287,27 @@ $pageName = 'project summer';  // 這裡放你的pagename
         object-fit: cover;
     }
 
+    .img-summer-dot2 {
+        width: 280px;
+        z-index: 1;
+        mix-blend-mode: multiply;
+        left: 43%;
+    }
+
+    .img-summer-dot2 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .img-summer-yellowfruit {
+        width: 400px;
+        z-index: 1;
+        mix-blend-mode: multiply;
+        bottom: -140px;
+        right: -60px;
+    }
+
     .block3-left ul {
         width: calc(100vw / 2);
         left: 15px;
@@ -294,8 +315,8 @@ $pageName = 'project summer';  // 這裡放你的pagename
     }
 
     .block3-left li {
-        width: 190px;
-        height: 190px;
+        width: 22%;
+        height: 22%;
         margin: 0 5px;
     }
 
@@ -306,6 +327,8 @@ $pageName = 'project summer';  // 這裡放你的pagename
     }
 
     .block3-right {
+        justify-content: center;
+        align-items: center;
         background: white;
     }
 
@@ -313,6 +336,26 @@ $pageName = 'project summer';  // 這裡放你的pagename
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-right: 80px;
+    }
+
+    .block3-right div h3,.block3-right div p {
+        color: #38726C;
+        margin-bottom: 20px;
+    }
+
+    .block3-right div h3 {
+        margin-bottom: 30px;
+    }
+
+    .btn-seemore {
+        width: 170px;
+        background: #FF9C42;
+        margin-top: 30px;
+    }
+
+    .btn-seemore:hover {
+        background: #FF538A;
     }
     
     .block3-right p {
@@ -433,10 +476,10 @@ $pageName = 'project summer';  // 這裡放你的pagename
     </div>
     <div class="modal absolute"></div>
     <div class="block3 flex">
-        <div class="absolute">
+        <div class="absolute img-summer-dot2">
             <img src="images/summer-dot2.svg" alt="">
         </div>
-        <div class="absolute">
+        <div class="absolute img-summer-yellowfruit">
             <img src="images/summer-yellowfruit.svg" alt="">
         </div>
         <div class="block3-left">
@@ -450,12 +493,12 @@ $pageName = 'project summer';  // 這裡放你的pagename
                 <li><img src="images/summer/block3-5.jpg" alt=""></li>
             </ul>
         </div>
-        <div class="block3-right">
+        <div class="block3-right flex">
             <div class="flex">
                 <h3>駕鶴西瓜</h3>
                 <p>襪口部採用具止滑效果的織線，不易滑脫。襪口無鬆緊帶設計，穿著柔軟舒適。使用對環境溫和的有機棉所製成。</p>
                 <p>短襪<br>22-24cm<br>材質:100%純棉</p>
-                <button class="btn-coral">SEE MORE</button>
+                <button class="btn-coral btn-seemore">SEE MORE</button>
             </div>
         </div>
     </div>
