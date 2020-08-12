@@ -318,7 +318,7 @@ $stmt = $pdo->query($sql);
             border: 1px solid #707070;
         } */
 
-    .color-btn-box li button {
+    /* .color-btn-box li button {
         width: 22px;
         height: 22px;
         border-radius: 50%;
@@ -327,7 +327,15 @@ $stmt = $pdo->query($sql);
 
     .btn-border {
         border: transparent;
+    } */
+
+    .color-btn-box li:hover {
+        background: url("images/select circle.svg") no-repeat;
     }
+    /* .color-active {
+           background: url("images/select circle.svg") no-repeat;
+           
+        } */
 
 
 
@@ -374,10 +382,10 @@ $stmt = $pdo->query($sql);
         transition: linear 1s;
     }
 
-    /* .type-active {
+    .type-active {
             background: #F2DE79;
            
-        } */
+        }
 
     /* -------------------blocl-right---------------------- */
     .block-right {
@@ -1231,7 +1239,7 @@ $stmt = $pdo->query($sql);
                     <div class="box-color">
                         <p>Color</p>
                         <ul class="color-btn-box flex">
-                            <li class="flex">
+                            <li class="flex ">
                                 <label class="cursor color-lb flex">
                                     <input type="checkbox" id="color-in1" name="colors[]" value="1" class="cursor flex color-in" />
                                     <span></span>
@@ -1242,7 +1250,6 @@ $stmt = $pdo->query($sql);
                                     <input type="checkbox" id="color-in2" name="colors[]" value="2" class="cursor color-in flex" />
                                     <span></span>
                                 </label>
-
                             </li>
                             <li class="flex">
                                 <label class="cursor color-lb flex">
@@ -1250,19 +1257,18 @@ $stmt = $pdo->query($sql);
                                     <span></span>
                                 </label>
                             </li>
-
                             <li class="flex">
                                 <label class="cursor color-lb flex">
                                     <input type="checkbox" id="color-in4" name="colors[]" value="4" class="cursor color-in flex" />
                                     <span></span>
                                 </label>
-
                             </li>
                             <li class="flex">
                                 <label class="cursor color-lb flex">
                                     <input type="checkbox" id="color-in5" name="colors[]" value="5" class="cursor color-in flex" />
                                     <span></span>
-                                </label></li>
+                                </label>
+                            </li>
                             <li class="flex">
                                 <label class="cursor color-lb flex">
                                     <input type="checkbox" id="color-in6" name="colors[]" value="6" class="cursor color-in flex" />
@@ -1288,8 +1294,8 @@ $stmt = $pdo->query($sql);
                         <div class="type-box flex">
                             <div class="img-selector flex"><img src="images/selector.svg"></div>
                             <ul class="type-btn-box">
-                                <li> <label class="type-active cursor"><input type="checkbox" name="types[]" value="1" class="cursor">長襪</label></li>
-                                <li><label class="type-active cursor"><input type="checkbox" name="types[]" value="2" class="cursor">短襪</label></li>
+                                <li> <label class=" cursor"><input type="checkbox" name="types[]" value="1" class="cursor">長襪</label></li>
+                                <li><label class=" cursor"><input type="checkbox" name="types[]" value="2" class="cursor">短襪</label></li>
                                 <li> <label class="cursor"><input type="checkbox" name="types[]" value="3" class="cursor">踝襪</label></li>
                                 <li> <label class="cursor"><input type="checkbox" name="types[]" value="4" class="cursor">隱形襪</label></li>
                             </ul>
@@ -1313,11 +1319,11 @@ $stmt = $pdo->query($sql);
                         <div class="right-select-rwd flex">
                             <button class="btn-mo-select flex">進階篩選</button>
                             <div class="right-select-box flex">
-                                <select class="right-select flex">
-                                    <option>最新上架</option>
-                                    <option>熱門程度</option>
-                                    <option>$低到高</option>
-                                    <option>$高到低</option>
+                                <select class="right-select flex" name="rightSelect">
+                                    <option value="new">最新上架</option>
+                                    <option value="hot">熱門程度</option>
+                                    <option value="low">$低到高</option>
+                                    <option value="high">$高到低</option>
                                 </select>
                             </div>
                         </div>
@@ -1457,28 +1463,11 @@ $stmt = $pdo->query($sql);
         $('.selector').slideUp(1000);
         return false;
     });
+    
+
     // active狀態
 
-    // $('.box-series li ').click(function() {
-    //     $(this).toggleClass("series-active")
-    // });
-    // if ($('form[name=form1] input[type=checkbox]').prop("checked", true)) {
-    //     $('.box-series li ').removeClass("series-active");
-    // } else {
-    //     $('.box-series li ').addClass("series-active");
-    // }
-
-
-
-    // $('form[name=form1] input[type=checkbox] ').change(function() {
-    //     if (this.checked) {
-    //         $('.box-series li').addClass("series-active");
-    //     } else {
-    //         $('.box-series li').removeClass("series-active");
-    //     }
-    // });
-
-    $('form[name=form1] input[type=checkbox] ').change(function() {
+    $('form[name=form1] input[name="series[]" ]').change(function() {
         if (this.checked) {
             $(this).parents("li").addClass("series-active");
         } else {
@@ -1486,30 +1475,26 @@ $stmt = $pdo->query($sql);
         }
     });
 
-
-
-
-    // selector color 
-
-    // $('.color-btn1').on('click', function(data) {
-    //     $(".color-in1").prop("checked", true);
-    //     $(".color-in1").attr("checked", true);
-    //     console.log($(document.form1).serialize());
-    // });
-
-
-
-    $(".color-btn-box li ").hover(function() {
-        $(this).css({
-            "transition": "linear 1s",
+    $('form[name=form1] input[name="colors[]" ]').change(function() {
+        if (this.checked) {
+            $(this).parents("li").css({
             "background": "url('images/select circle.svg') no-repeat"
         });
-    }, function() {
-        $(this).css({
-            "transition": "linear 1s",
+        } else {
+            $(this).parents("li").css({
             "background": "none"
         });
+    }});
+
+    
+    $('form[name=form1] input[name="types[]" ]').change(function() {
+        if (this.checked) {
+            $(this).parents("li").addClass("type-active");
+        } else {
+            $(this).parents("li").removeClass("type-active");
+        }
     });
+
 
 
     // ------------------  幫我搭------------------
@@ -1623,6 +1608,27 @@ $stmt = $pdo->query($sql);
         }, 'json');
         handleHash();
     });
+    // --------------------------------
+   
+    // $('.right-select').change(function () {
+    //         console.log($(".right-select").val());
+            
+    //     });
+
+
+
+
+        $('.right-select').change(function () {
+            console.log($(".right-select").val());
+            if ($(".right-select").val()="hot") {
+                console.log("hi")
+        //     setTimeout(function() {
+        //         $('.help-bg').fadeOut()
+        //     }, 5000);
+        }
+        });
+
+    // -------------------------------------
 
     
 
