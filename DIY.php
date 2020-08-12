@@ -2140,7 +2140,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
                             <button class="btn-blue btn-clear">Clear</button>
                         </div>
                         <div class="btn-right flex">
-                            <button class="btn-coral btn-finish">Finish</button>
+                            <button class="btn-coral btn-finish" onclick="javascript:location.href='<?= WEB_ROOT ?>/diy-finished.php'">Finish</button>
                         </div>
                     </div>
                 </div>
