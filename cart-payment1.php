@@ -806,13 +806,13 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
                         <h4>Step1 想要什麼包裝呢?</h4>
                         <ul class="watzbox-choose flex" id="">
 
-                            <li class="img-watzbox imgWatzBox <?= $watzbox_style=='watzbox1'? 'active':'' ?>" id="watzbox1">
+                            <li class="img-watzbox imgWatzBox <?= $watzbox_style == 'watzbox1' ? 'active' : '' ?>" id="watzbox1">
                                 <img class="transition" src="images/watzbox1-1.png" alt="">
                             </li>
-                            <li class="img-watzbox imgWatzBox <?= $watzbox_style=='watzbox2'? 'active':'' ?>" id="watzbox2">
+                            <li class="img-watzbox imgWatzBox <?= $watzbox_style == 'watzbox2' ? 'active' : '' ?>" id="watzbox2">
                                 <img class="transition" src="images/watzbox2-1.png" alt="">
                             </li>
-                            <li class="img-watzbox imgWatzBox <?= $watzbox_style=='watzbox3'? 'active':'' ?>" id="watzbox3">
+                            <li class="img-watzbox imgWatzBox <?= $watzbox_style == 'watzbox3' ? 'active' : '' ?>" id="watzbox3">
                                 <img class="transition" src="images/watzbox3-1.png" alt="">
                             </li>
                         </ul>
@@ -981,9 +981,9 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
     $(".ShipBtn").click(function() {
         $(this).toggleClass('active')
             .siblings().removeClass('active');
-            $('.shipFee').text('120');
-        if ($(".conv-store").hasClass('active')){
-        $('.shipFee').text('60');
+        $('.shipFee').text('120');
+        if ($(".conv-store").hasClass('active')) {
+            $('.shipFee').text('60');
 
         }
 
@@ -1026,12 +1026,12 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
             console.log(watzbox_style);
 
             const sendObj = {
-                    action: 'getWatzboxStyle',
-                    watzbox_style
-                }
-                $.get('cart-handle.php', sendObj, function(data) {
-                    console.log(data);
-                }, 'json');
+                action: 'getWatzboxStyle',
+                watzbox_style
+            }
+            $.get('cart-handle.php', sendObj, function(data) {
+                console.log(data);
+            }, 'json');
 
         } else {
             $('.step2').removeClass('show');
@@ -1058,13 +1058,13 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
             }
 
             const sendObj2 = {
-                    action: 'removeWatzboxStyle'
-                }
+                action: 'removeWatzboxStyle'
+            }
 
-                $.get('cart-handle.php', sendObj2, function(data) {
-                    console.log(data);
-                }, 'json');
-                
+            $.get('cart-handle.php', sendObj2, function(data) {
+                console.log(data);
+            }, 'json');
+
         }
 
     });
