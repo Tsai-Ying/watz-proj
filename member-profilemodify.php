@@ -22,11 +22,14 @@ $row = $pdo->query($sql)->fetch();
         background-size: cover;
         /* background-position: center; */
     }
-
+    .container{
+        justify-content: space-between;
+    }
     .wrapper {
-        height: 100vh;
+        /* height: 100vh; */
         align-items: center;
         justify-content: center;
+        margin-top: 140px;
     }
 
     .bg-membercard {
@@ -432,8 +435,9 @@ $row = $pdo->query($sql)->fetch();
             </div>
         </form>
     </div>
-</div>
+
 <?php include __DIR__ . '/__html_footer.php' ?>
+</div>
 
 <?php include __DIR__ . '/__scripts.php' ?>
 
