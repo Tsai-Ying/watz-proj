@@ -229,7 +229,7 @@ $row = $pdo->query($sql)->fetch();
         }
 
         .form-item {
-            width: 50vw;
+            width: 40vw;
             margin: 0;
 
         }

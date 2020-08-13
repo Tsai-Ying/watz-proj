@@ -62,7 +62,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
     .background {
         background: #ffffff;
         width: 870px;
-        height: 670px;
+        /* height: 670px; */
         border-radius: 15px;
         margin-right: 50px;
     }
