@@ -9,7 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Lusitana&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lusitana&display=swap" rel="stylesheet">
     <style>
         /* body {
             width: 100vw;
@@ -78,11 +78,12 @@
             top: 6%;
         }
 
-        .block2{
+        .block2 {
             width: 100vw;
             height: 100%;
             position: relative;
         }
+
         .bg-block {
             background-image: url('images/crystal/bg-web-23vh.svg');
             background-size: cover;
@@ -104,32 +105,77 @@
             top: 0;
         }
 
+        .four-pics {
+            flex-direction: column;
+        }
+
         .pc {
             margin-bottom: 30px;
         }
-        .pc-bg-right{
-            width: 745px;
-            height: 1300px;
+
+        .pc-last {
+            margin-top: 40px;
+        }
+
+        .pc-bg-right {
+            width: 600px;
+            height: 1000px;
             position: absolute;
-            right: 0;
-            top: 0;
+            right: 8%;
+            top: 35%;
 
         }
-        .pc-bg-right h3{
+
+        .text {
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .pc-bg-right h3 {
             font-family: 'Lusitana', serif;
             color: #ffffff;
             font-weight: 400;
-            position: absolute;
-            right: 20%;
-            bottom: 55%;
+            margin-bottom: 10px;
         }
-        .pc-bg-right h5{
+
+        .pc-bg-right h5 {
             font-family: 'Lusitana', serif;
             color: #F2DE79;
             font-weight: 400;
-            position: absolute;
-            right: 20%;
-            bottom: 53%;
+        }
+
+        .undertext {
+            /* width: 500px; */
+            height: 500px;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .absent {
+            width: 350px;
+            height: 350px;
+        }
+
+        .three-pics {
+            justify-content: flex-end;
+        }
+
+        .picture {
+            width: 130px;
+            height: 200px;
+            margin-left: 100px;
+        }
+        .three-seemore{
+            width: 360px;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+        .seemore {
+            width: 120px;
+            height: 40px;
+            margin-left: 100px;
+            
         }
     </style>
 </head>
@@ -212,20 +258,34 @@
             <div class="block2">
                 <div class="bg-block"></div>
                 <div class="pc-bg-left">
-                    <img class="pc" src="images/crystal/socks-color-3.png" alt="">
-                    <img class="pc" src="images/crystal/socks-color-2.png" alt="">
-                    <img class="pc" src="images/crystal/socks-color-1.png" alt="">
-                    <img class="pc" src="images/crystal/circle.svg" alt="">
+                    <div class="four-pics flex">
+                        <img class="pc" src="images/crystal/socks-color-3.png" alt="">
+                        <img class="pc" src="images/crystal/socks-color-2.png" alt="">
+                        <img class="pc" src="images/crystal/socks-color-1.png" alt="">
+                        <img class="pc pc-last" src="images/crystal/circle.svg" alt="">
+                    </div>
                 </div>
                 <div class="pc-bg-right">
-                    <h3>HAVE A COOL DAY</h3>
-                    <h5>WITH YOUR CHIC SOCKS</h5>
-                    <div>
-                        <img src="images/crystal/" alt="">
+                    <div class="text flex">
+                        <h3>HAVE A COOL DAY</h3>
+                        <h5>WITH YOUR CHIC SOCKS</h5>
+                    </div>
+                    <div class="undertext flex">
+                        <img class="absent" src="images/crystal/mermaid-02.jpg" alt="">
+                    </div>
+                    <div class="three-pics flex">
+                        <img class="picture" src="images/crystal/socks-a.png" alt="">
+                        <img class="picture" src="images/crystal/socks-c.png" alt="">
+                        <img class="picture" src="images/crystal/socks-b.png" alt="">
+                    </div>
+                    <div class="three-seemore flex">
+                        <button class="seemore btn-coral flex transition"></button>
+                        <button class="seemore btn-coral flex transition"></button>
+                        <button class="seemore btn-coral flex transition"></button>
                     </div>
                 </div>
             </div>
-           
+
 
 
         </div>
