@@ -60,10 +60,6 @@ $historylists = $pdo->query($o_sql)->fetchAll();
         margin-bottom: 20px;
     }
 
-    .title h4 {
-        margin-right: 50px;
-    }
-
     .box2 {
         width: 133px;
     }
@@ -81,9 +77,6 @@ $historylists = $pdo->query($o_sql)->fetchAll();
         width: 50vw;
     }
 
-    .order-block h5 {
-        margin-right: 50px;
-    }
 
     .selector {
         width: 120px;
@@ -141,7 +134,7 @@ $historylists = $pdo->query($o_sql)->fetchAll();
     ul h4,
     ul h5 {
         display: inline-block;
-        width: 100px;
+        width: 150px;
         text-align: center;
     }
 
@@ -152,12 +145,14 @@ $historylists = $pdo->query($o_sql)->fetchAll();
         }
 
         .wrapper {
-            height: 150vh;
+            margin-top: 110px;
             width: 100%;
         }
 
         .bg-orderpage {
+            width: 100vw;
             flex-direction: column;
+            justify-content: flex-start;
         }
 
         .title {
@@ -208,8 +203,9 @@ $historylists = $pdo->query($o_sql)->fetchAll();
             width: 94vw;
             flex-direction: row;
             justify-content: center;
-            margin-top: 20px;
+            margin-bottom: 20px;
             margin-right: 0;
+            margin-top: 0;
         }
 
         .box {
@@ -227,6 +223,17 @@ $historylists = $pdo->query($o_sql)->fetchAll();
         ul h4,
         ul h5 {
             text-align: unset;
+        }
+    }
+
+    @media screen and (max-width: 576px){
+        .wrapper{
+            margin-top: 70px;
+            margin-bottom: 30px;
+        }
+
+        .selector a{
+            padding: 0;
         }
     }
 </style>

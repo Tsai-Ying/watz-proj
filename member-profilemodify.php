@@ -96,6 +96,7 @@ $row = $pdo->query($sql)->fetch();
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-end;
+        margin-right: 40px;
         /* margin-top: 13px; */
     }
 
@@ -256,6 +257,7 @@ $row = $pdo->query($sql)->fetch();
             /* height: 60vw; */
             width: 54vw;
             margin-top: 0;
+            margin-right: 0;
             align-items: center;
         }
 
@@ -500,7 +502,7 @@ $row = $pdo->query($sql)->fetch();
                     </div>
                 </div>
                 <div>
-                    <button class="btn-blue" type="submit" onclick="return formCheck()">修改會員資料</button>
+                    <button class="btn-blue" type="submit" onclick="return formCheck()">修改完成</button>
                 </div>
             </div>
         </form>
