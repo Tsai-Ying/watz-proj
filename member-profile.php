@@ -170,16 +170,12 @@ $row = $pdo->query($sql)->fetch();
             background-position: center;
         }
 
-        .container {
-            min-height: 0;
-        }
-
         .wrapper {
             margin-top: 110px;
             flex-direction: column;
             width: 100%;
             justify-content: flex-start;
-            height: 80vh;
+            align-items: center;
         }
 
         .bg-membercard {
@@ -197,6 +193,7 @@ $row = $pdo->query($sql)->fetch();
             position: relative;
             width: 94vw;
             height: 100vw;
+            margin-right: 0;
             align-items: flex-start;
         }
 
@@ -244,9 +241,10 @@ $row = $pdo->query($sql)->fetch();
         .selector {
             width: 94vw;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-evenly;
             margin-right: 0;
             margin-bottom: 20px;
+            margin-top: 0;
         }
 
         .box {
@@ -265,6 +263,27 @@ $row = $pdo->query($sql)->fetch();
             width: 170px;
             margin: 0;
         }
+    }
+
+    @media screen and (max-width: 576px){
+
+        .bg-photo{
+            margin-top: 10vw;
+        }
+
+        .membercard-img {
+            height: 147vw;
+        }
+
+        .membercard {
+            height: 147vw;
+        }
+
+        .form-item{
+            width: 100%;
+            margin-left: 10vw;
+        }
+
     }
 </style>
 
@@ -293,7 +312,7 @@ $row = $pdo->query($sql)->fetch();
                     <ul class="bg-form flex">
                         <input type="hidden" name="id" value="<?= $row['id'] ?>">
 
-                        <li class="form-name flex">
+                        <li class="form-item flex">
                             <h5>姓名</h5>
                             <h5 class="name-content"><?= htmlentities($row['name']) ?></h5>
                         </li>
