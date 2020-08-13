@@ -1200,7 +1200,9 @@ $stmt = $pdo->query($sql);
                             <div class="flex">
                                 <img class="flex" src="images/magic.svg" alt="">
                             </div>
-                            <h5 class="flex">讓我來 搜尋你的理想型....</h5>
+                            <h5 class="flex">讓我來 搜尋你的理想型...</h5>
+                            
+                           
                         </div>
 
                     </li>
@@ -1221,22 +1223,22 @@ $stmt = $pdo->query($sql);
 
                         <li>
                             <label class="cursor series-check ">
-                                <input type="checkbox" name="series[]" value="1" class="cursor" id="summerSeries">芒果派對</label>
+                                <input type="checkbox" name="series[]" value="1" class="cursor series-checkbox" id="summerSeries">芒果派對</label>
                         </li>
                         <li>
-                            <label class="cursor"><input type="checkbox" name="series[]" value="2" class="cursor" id="irregularSeries">群魔亂舞</label>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="2" class="cursor series-checkbox" id="irregularSeries">群魔亂舞</label>
                         </li>
                         <li>
-                            <label class="cursor"><input type="checkbox" name="series[]" value="3" class="cursor" id="crystalSeries">灰姑娘的水晶襪</label>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="3" class="cursor series-checkbox" id="crystalSeries">灰姑娘的水晶襪</label>
                         </li>
                         <li>
-                            <label class="cursor"><input type="checkbox" name="series[]" value="4" class="cursor" id="plainSeries">素色流行</label>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="4" class="cursor series-checkbox" id="plainSeries">素色流行</label>
                         </li>
                         <li>
-                            <label class="cursor"><input type="checkbox" name="series[]" value="5" class="cursor" id="geomSeries">幾何色塊</label>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="5" class="cursor series-checkbox" id="geomSeries">幾何色塊</label>
                         </li>
                         <li>
-                            <label class="cursor"><input type="checkbox" name="series[]" value="6" class="cursor" id="americanSeries">美式風格</label>
+                            <label class="cursor"><input type="checkbox" name="series[]" value="6" class="cursor series-checkbox" id="americanSeries">美式風格</label>
                         </li>
                     </ul>
                     <div class="box-color">
@@ -1297,10 +1299,10 @@ $stmt = $pdo->query($sql);
                         <div class="type-box flex">
                             <div class="img-selector flex"><img src="images/selector.svg"></div>
                             <ul class="type-btn-box">
-                                <li> <label class=" cursor"><input type="checkbox" name="types[]" value="1" class="cursor">長襪</label></li>
-                                <li><label class=" cursor"><input type="checkbox" name="types[]" value="2" class="cursor">短襪</label></li>
-                                <li> <label class="cursor"><input type="checkbox" name="types[]" value="3" class="cursor">踝襪</label></li>
-                                <li> <label class="cursor"><input type="checkbox" name="types[]" value="4" class="cursor">隱形襪</label></li>
+                                <li> <label class=" cursor"><input type="checkbox" name="types[]" value="1" class="cursor type-checkbox ">長襪</label></li>
+                                <li><label class=" cursor"><input type="checkbox" name="types[]" value="2" class="cursor type-checkbox">短襪</label></li>
+                                <li> <label class="cursor"><input type="checkbox" name="types[]" value="3" class="cursor type-checkbox">踝襪</label></li>
+                                <li> <label class="cursor"><input type="checkbox" name="types[]" value="4" class="cursor type-checkbox">隱形襪</label></li>
                             </ul>
                         </div>
                         <div class="select-check-btn cursor">確認</div>
@@ -1323,10 +1325,10 @@ $stmt = $pdo->query($sql);
                             <button class="btn-mo-select flex">進階篩選</button>
                             <div class="right-select-box flex">
                                 <select class="right-select flex" name="rightSelect">
-                                    <option value="new">最新上架</option>
-                                    <option value="Popular">熱門程度</option>
-                                    <option value="lowPrice">$低到高</option>
-                                    <option value="highPrice">$高到低</option>
+                                    <option value="new" id="new" class="orderBy-box" name="orderBy">最新上架</option>
+                                    <option value="popular" id="popular" name="orderBy"class="orderBy-box">熱門程度</option>
+                                    <option value="lowPrice" id="lowPrice" class="orderBy-box" name="orderBy">$低到高</option>
+                                    <option value="highPrice" id="highPrice" class="orderBy-box" name="orderBy">$高到低</option>
                                 </select>
                             </div>
                         </div>
@@ -1337,7 +1339,7 @@ $stmt = $pdo->query($sql);
                     </div> -->
                     <ul class="product-box
                         flex">
-
+<?php /*
                         <?php foreach ($rows as $r) : ?>
                             <li class="single-product-box flex sid=<?= $r['sid'] ?>">
                                 <a href="product-detail.php?sid=<?= $r['sid'] ?>">
@@ -1350,7 +1352,7 @@ $stmt = $pdo->query($sql);
                                 </a>
                             </li>
                         <?php endforeach; ?>
-
+*/ ?>
 
                         <!-- <li class="single-product-box flex">
                             <div class="product-top-img flex">
@@ -1362,24 +1364,7 @@ $stmt = $pdo->query($sql);
                                 <img src="images/color2.svg" alt="">
                             </div>
                         </li>
-                        <li class="single-product-box flex">
-                            <div class="product-top-img flex">
-                                <img src="images/product/eatermelom-06.jpg" alt="">
-                            </div>
-                            <div class="product-text flex">
-                                <h5>01 偶素襪子 180元</h5>
-                                <img src="images/color1.svg" alt="">
-                            </div>
-                        </li>
-                        <li class="single-product-box flex">
-                            <div class="product-top-img flex">
-                                <img src="images/product/darkpink-01.jpg" alt="">
-                            </div>
-                            <div class="product-text flex">
-                                <h5>01 偶素襪子 180元</h5>
-                                <img src="images/color1.svg" alt="">
-                            </div>
-                        </li> -->
+                       -->
                     </ul>
                 </div>
 
@@ -1474,34 +1459,34 @@ $stmt = $pdo->query($sql);
 
     // active狀態
 
-    $('form[name=form1] input[name="series[]" ]').change(function() {
-        if (this.checked) {
-            $(this).parents("li").addClass("series-active");
-        } else {
-            $(this).parents("li").removeClass("series-active");
-        }
-    });
+    // $('form[name=form1] input[name="series[]" ]').change(function() {
+    //     if (this.checked) {
+    //         $(this).parents("li").addClass("series-active");
+    //     } else {
+    //         $(this).parents("li").removeClass("series-active");
+    //     }
+    // });
 
-    $('form[name=form1] input[name="colors[]" ]').change(function() {
-        if (this.checked) {
-            $(this).parents("li").css({
-                "background": "url('images/select circle.svg') no-repeat"
-            });
-        } else {
-            $(this).parents("li").css({
-                "background": "none"
-            });
-        }
-    });
+    // $('form[name=form1] input[name="colors[]" ]').change(function() {
+    //     if (this.checked) {
+    //         $(this).parents("li").css({
+    //             "background": "url('images/select circle.svg') no-repeat"
+    //         });
+    //     } else {
+    //         $(this).parents("li").css({
+    //             "background": "none"
+    //         });
+    //     }
+    // });
 
 
-    $('form[name=form1] input[name="types[]" ]').change(function() {
-        if (this.checked) {
-            $(this).parents("li").addClass("type-active");
-        } else {
-            $(this).parents("li").removeClass("type-active");
-        }
-    });
+    // $('form[name=form1] input[name="types[]" ]').change(function() {
+    //     if (this.checked) {
+    //         $(this).parents("li").addClass("type-active");
+    //     } else {
+    //         $(this).parents("li").removeClass("type-active");
+    //     }
+    // });
 
 
 
@@ -1594,44 +1579,55 @@ $stmt = $pdo->query($sql);
             }
             productBox.empty(); //先清空再append新的內容
             productGet(data);
-          if( rows=Array(0)){
-                productBox.append(` <div class="product-empty flex">
-                        <div><img src="images/product-kuku.svg" alt=""></div>
-                        <h3>沒有找到你想要的襪子。</h3>
-                    </div> `)
-            }
+          
         }, 'json')
         handleHash2();
     });
     // ----------------------------
-    $('form[name=form1] input[type=checkbox]').click(function() {
-        $('#page').val('1');
 
-        $.get('product-api.php', $(document.form1).serialize(), function(data) {
-            console.log(data);
-
-            pagination.empty();
-            for (let s in data.pageBtns) {
-                pagination.append(pageBtnTpl({
-                    i: data.pageBtns[s],
-                    isActive: data.pageBtns[s] == data.page
-                }));
-            }
-            productBox.empty(); //先清空再append新的內容
-            productGet(data);
-            if( rows=Array(0)){
-                productBox.append(` <div class="product-empty flex">
-                        <div><img src="images/product-kuku.svg" alt=""></div>
-                        <h3>沒有找到你想要的襪子。</h3>
-                    </div> `)
-            }
-             
+    function findStatus(){
+        hObj = {
             
+        };
+        // series
+        $('input.series-checkbox').each(function(){
+            if($(this).prop('checked')){
+                if(!hObj.series){
+                    hObj.series = [ $(this).val() ];
+                } else {
+                    hObj.series.push($(this).val());
+                }
+            }
+        });
 
-
-        }, 'json');
-        handleHash();
-    });
+        // color
+        $('input.color-in').each(function(){
+            if($(this).prop('checked')){
+                if(!hObj.colors){
+                    hObj.colors = [ $(this).val() ];
+                } else {
+                    hObj.colors.push($(this).val());
+                }
+            }
+        });
+        // type
+        $('input.type-checkbox').each(function(){
+            if($(this).prop('checked')){
+                if(!hObj.types){
+                    hObj.types = [ $(this).val() ];
+                } else {
+                    hObj.types.push($(this).val());
+                }
+            }
+        });
+        // orderBy
+        hObj.orderBy = $('select.right-select').val();
+        location.href = '#' + JSON.stringify(hObj);
+    }
+    
+    $('form[name=form1] input[type=checkbox]').click(findStatus);
+    $('select.right-select').change(findStatus);
+   
     // --------------------------------
 
 
@@ -1651,17 +1647,74 @@ $stmt = $pdo->query($sql);
     }
 
 
-
+    let hObj = {};
     //.hash抓頁面的hash(#)值
     function handleHash() {
         let h = location.hash.slice(1);
-        h = parseInt(h) || 1; //如果h為NaN則值給1
-        $('#page').val(h);
-        // console.log($('#page').val())
-        console.log($(document.form1).serialize())
+        
+        try {
+            hObj = JSON.parse(unescape(h));
+        } catch(ex) {
+            hObj = {}
+        }
+// console.log(hObj);
+// return;
+
+
+ // series
+        $('input.series-checkbox').prop('checked', false);
+        $('input.series-checkbox').closest('li').removeClass('series-active');
+        if(hObj['series'] && hObj['series'].length){
+            for(let i in hObj['series'] ){
+                let cb = $('input.series-checkbox[value=' + hObj['series'][i] + ']');
+                cb.prop('checked', true);
+                cb.closest('li').addClass('series-active');
+
+            }
+        }
+  // color
+  $('input.olor-in').prop('checked', false);
+        $('input.color-in').closest('li').css({
+                "background": "none"
+            });
+        if(hObj['colors'] && hObj['colors'].length){
+            for(let i in hObj['colors'] ){
+                let cb = $('input.color-in[value=' + hObj['colors'][i] + ']');
+                cb.prop('checked', true);
+                cb.closest('li').css({
+                "background": "url('images/select circle.svg') no-repeat"
+            });;
+
+            }
+        }
+
+        // type
+        $('input.type-checkbox').prop('checked', false);
+        $('input.type-checkbox').closest('li').removeClass('type-active');
+        if(hObj['types'] && hObj['types'].length){
+            for(let i in hObj['types'] ){
+                let cb = $('input.type-checkbox[value=' + hObj['types'][i] + ']');
+                cb.prop('checked', true);
+                cb.closest('li').addClass('type-active');
+
+            }
+        }
+        // orderBy
+
+        // $('input.type-checkbox').prop('checked', false);
+        // $('input.type-checkbox').closest('li').removeClass('type-active');
+        // if(hObj['orderBy'] && hObj['orderBy'].length){
+        //     for(let i in hObj['orderBy'] ){
+        //         let cb = $('option.orderBy-box[value=' + hObj['orderBy'][i] + ']');
+                // cb.prop('checked', true);
+                // cb.closest('li').addClass('type-active');
+
+        //     }
+        // }
+
 
         //取得api的資料
-        $.get('product-api.php', $(document.form1).serialize(), function(data) {
+        $.get('product-api.php', hObj, function(data) {
             console.log(data);
 
             pagination.empty();
@@ -1684,61 +1737,20 @@ $stmt = $pdo->query($sql);
 
             productBox.empty(); //先清空再append新的內容
             productGet(data);
-        }, 'json')
-        if( rows=Array(0)){
+            if (!data.rows.length) {
                 productBox.append(` <div class="product-empty flex">
                         <div><img src="images/product-kuku.svg" alt=""></div>
                         <h3>沒有找到你想要的襪子。</h3>
                     </div> `)
             }
-    }
-
-    function handleHash2() {
-        let h = location.hash.slice(1);
-        h = parseInt(h) || 1; //如果h為NaN則值給1
-        $('#page').val(h);
-        console.log($('#page').val())
-
-        //取得api的資料
-        $.get('product-api.php', $(document.form2).serialize(), function(data) {
-            console.log(data);
-
-            pagination.empty();
-            pagination.append(`<li class="page-btn page-item ${data.page == 1 ? 'disabled' : ''} ">
-                                <a class="page-link" href="#${data.page - 1 }">
-                                    PREV
-                                </a>
-                            </li>`)
-            for (let s in data.pageBtns) {
-                pagination.append(pageBtnTpl({
-                    i: data.pageBtns[s],
-                    isActive: data.pageBtns[s] == data.page
-                }));
-            }
-            pagination.append(`<li class=" page-btn page-item ${data.page == data.totalPages ? 'disabled' : ''}">
-                                <a class="page-link" href="#${data.page + 1 }">
-                                    NEXT
-                                </a>
-                            </li>`)
-
-            productBox.empty(); //先清空再append新的內容
-            productGet(data);
-        }, 'json')
-        if( rows=Array(0)){
-                productBox.append(` <div class="product-empty flex">
-                        <div><img src="images/product-kuku.svg" alt=""></div>
-                        <h3>沒有找到你想要的襪子。</h3>
-                    </div> `)
-            }
+        }, 'json');
 
     }
 
 
     function productGet(data) {
-
         if (data && data.rows) {
             for (let i in data.rows) {
-
                 productBox.append(itemTpl(data.rows[i]));
 
                 $(".product-top-img img").mouseenter(function() {
@@ -1751,8 +1763,6 @@ $stmt = $pdo->query($sql);
             }
         }
     }
-
-
 
     function itemTpl(obj) {
         return `<li class="single-product-box flex sid=${obj['sid']}">
@@ -1768,28 +1778,20 @@ $stmt = $pdo->query($sql);
                 </li>`
     }
 
-    // ------------------------------------
-
-    // $(".right-select").change(function (data) {
-    //             // console.log($(".right-select").val(data));
-    //             let selectdata = $('select[name="rightSelect"]  option[="new"] ').val();
-    //          if(data="new"){
-    //             console.log("newOK");
-    //          }
-    //         });
-    //         $('form[name=form1] input[name="colors[]" ]').change(function()
+   
+          
     // ---------------------
     function seriesProduct() {
 
-        let h = location.hash.slice(1);
-        h = parseInt(h) || 1; //如果h為NaN則值給1
-        $('#page').val(h);
+        // let h = location.hash.slice(1);
+        // h = parseInt(h) || 1; //如果h為NaN則值給1
+        // $('#page').val(h);
 
 
         // ----------
-        let series = location.hash.slice(-1)
+        // let series = location.hash.slice(-1)
 
-        console.log('series=' + series)
+        // console.log('series=' + series)
 
         // if (series==1){
         //         $('#summerSeries').prop('checked','true');
@@ -1798,38 +1800,38 @@ $stmt = $pdo->query($sql);
         //         $('#irregularSeries').attr('checked');
         // }
 
-        switch (series) {
-            case '1':
-                $('#summerSeries').prop('checked', 'true');
-                console.log('summerSeriesChecked')
-                break;
+        // switch (series) {
+        //     case '1':
+        //         $('#summerSeries').prop('checked', 'true');
+        //         console.log('summerSeriesChecked')
+        //         break;
 
-            case '2':
-                $('#irregularSeries').prop('checked', 'true');
-                console.log('irregularSeriesChecked')
+        //     case '2':
+        //         $('#irregularSeries').prop('checked', 'true');
+        //         console.log('irregularSeriesChecked')
 
-                break;
+        //         break;
 
-            case '3':
-                $('#crystalSeries').prop('checked', 'true');
-                console.log('crystalSeriesChecked')
-                break;
+        //     case '3':
+        //         $('#crystalSeries').prop('checked', 'true');
+        //         console.log('crystalSeriesChecked')
+        //         break;
 
-            case '4':
-                $('#plainSeries').prop('checked', 'true');
-                console.log('plainSeriesChecked')
-                break;
+        //     case '4':
+        //         $('#plainSeries').prop('checked', 'true');
+        //         console.log('plainSeriesChecked')
+        //         break;
 
-            case '5':
-                $('#geomSeries').prop('checked', 'true');
-                console.log('geomSeriesChecked')
-                break;
+        //     case '5':
+        //         $('#geomSeries').prop('checked', 'true');
+        //         console.log('geomSeriesChecked')
+        //         break;
 
-            case '6':
-                $('#americanSeries').prop('checked', 'true');
-                console.log('americanSeriesChecked')
-                break;
-        }
+        //     case '6':
+        //         $('#americanSeries').prop('checked', 'true');
+        //         console.log('americanSeriesChecked')
+        //         break;
+        // }
 
         const sendObj = location.hash.slice(1)
 
@@ -1875,8 +1877,8 @@ $stmt = $pdo->query($sql);
     }
 
     window.addEventListener('hashchange', handleHash); //在window監聽hashChange的event
-    // handleHash();
-    seriesProduct()
+    handleHash();
+    
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>

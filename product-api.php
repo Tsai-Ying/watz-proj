@@ -1,9 +1,6 @@
 <?php require __DIR__ . '/__connect_db.php';
 $perPage = 15;
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-// echo json_encode($_GET);
-
-// exit;
 $output = [
     'perPage' => $perPage,
     'page' => $page,
@@ -28,9 +25,27 @@ if (!empty($_GET['types'])) {
     $where .= sprintf(" AND `type` IN (%s) ", implode(',', $_GET['types']));
 }
 
+
+switch(empty($_GET['orderBy']) ? '' : $_GET['orderBy']){
+    case 'popular':
+        $orderBy = ' ORDER BY sid DESC ';
+        break;
+    case 'lowPrice':
+        $orderBy = ' ORDER BY price ASC ';
+        break;
+    case 'highPrice':
+        $orderBy = ' ORDER BY price DESC ';
+        break;
+    default:
+        $orderBy = ' ORDER BY sid ASC ';
+
+}
+
+
 // 抓到篩選後商品資料
 $totalPages = 0;
 $t_sql = "SELECT COUNT(1) FROM `product` $where";
+
 $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 
 
@@ -43,7 +58,7 @@ if ($totalRows > 0) {
     if ($page < 1) $page = 1;
     if ($page > $totalPages) $page = $totalPages;
 
-    $sql = sprintf("SELECT * FROM `product` %s LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
+    $sql = sprintf("SELECT * FROM `product` %s %s LIMIT %s, %s", $where, $orderBy, ($page - 1) * $perPage, $perPage);
     $stmt = $pdo->query($sql);
 
     if ($totalPages <= 5) {

@@ -1260,6 +1260,11 @@ $pageName = 'project summer';  // 這裡放你的pagename
     $(".block3-left").mouseleave(function() {
         $(".img-block3-1 img").attr("src", "images/summer/block3-1.jpg");
     })
+
+    //redirect to summer product
+    const toProduct = () => {
+        #{"series":["1"],"orderBy":"new"}
+    };
    
 </script>
 

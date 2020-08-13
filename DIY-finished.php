@@ -3,6 +3,7 @@ $pageName = 'DIY-finished';
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 <link rel="shortcut icon" href="images/favicon.svg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 <style>
     .container {
         width: 100%;
@@ -24,7 +25,7 @@ $pageName = 'DIY-finished';
     .block {
         width: 500px;
         height: 500px;
-        /* border: 1px solid red; */
+        border: 1px solid red;
         position: relative;
         flex-direction: column;
         justify-content: center;
@@ -32,14 +33,61 @@ $pageName = 'DIY-finished';
         margin: 100px 0 30px;
     }
 
+    .block img {
+        position: absolute;
+    }
+
     .img-bling {
         width: 100%;
         height: 100%;
         object-fit: contain;
+        opacity: .3;
     }
 
     .img-bling {
         position: absolute;
+    }
+
+    .img-bling1 {
+        width: 70px;
+        top: 25%;
+        left: 17%;
+    }
+
+    .img-bling1-1 {
+        width: 80px;
+        bottom: 0;
+        right: 12%;
+    }
+
+    .img-bling2 {
+        width: 25px;
+        bottom: 22%;
+        left: 12%;
+    }
+
+    .img-bling2-1 {
+        width: 20px;
+        top: 53%;
+        left: 30%;
+    }
+
+    .img-bling2-2 {
+        width: 30px;
+        top: 25%;
+        right: 12%;
+    }
+
+    .img-bling2-3 {
+        width: 20px;
+        top: 47%;
+        right: 16%;
+    }
+
+    .img-bling3 {
+        width: 50px;
+        top: 0;
+        left: 53%;
     }
 
     .diy-result {
@@ -152,6 +200,7 @@ $pageName = 'DIY-finished';
         }
     }
 
+    /* SVG */
     .socks-color {
         fill: #FFFFFF;
         stroke: #404040;
@@ -174,7 +223,75 @@ $pageName = 'DIY-finished';
     .round {
         stroke-linecap: round;
     }
+
+    /* jumpout notice */
+
+    .notice {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        visibility: hidden;
+        user-select: none;
+    }
+
+    .notice-block {
+        padding: 30px;
+        background: #FF9685;
+        border-radius: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        align-items: center;
+        z-index: 5;
+        opacity: 0;
+    }
+
+    .notice-bg {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: #404040;
+        opacity: .8;
+    }
+
+    .notice-top {
+        margin-bottom: 10px;
+    }
+
+    .notice-top img {
+        height: 40px;
+    }
+
+    .notice-bottom h3 {
+        color: white;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .notice.success {
+        visibility: visible;
+        z-index: 20;
+    }
+
+    .notice.success .notice-block {
+        opacity: 1;
+    }
 </style>
+<!-- jumpout notice -->
+<div class="notice">
+    <!-- <div class="notice-bg"></div> -->
+    <div class="notice-block  flex">
+        <div class="notice-top">
+            <img src="images/icon-success.svg " alt=" ">
+        </div>
+        <div class="notice-bottom">
+            <h3>已收到您的訂單！<br>
+                我們將盡快與您聯繫。</h3>
+        </div>
+    </div>
+</div>
 
 <div class="container flex">
     <?php include __DIR__ . '/__navbar.php' ?>
@@ -182,10 +299,20 @@ $pageName = 'DIY-finished';
 
     <div class="wrapper flex transition">
         <div class="block flex transition">
-            <img class="img-bling transition" src="images/bling.svg" alt="">
+
+            <!-- <img class="img-bling transition" src="images/bling.svg" alt=""> -->
+            <img class="img-bling1 transition" src="images/bling1.svg" alt="">
+            <img class="img-bling1-1 transition" src="images/bling1.svg" alt="">
+            <img class="img-bling2 transition" src="images/bling2.svg" alt="">
+            <img class="img-bling2-1 transition" src="images/bling2.svg" alt="">
+            <img class="img-bling2-2 transition" src="images/bling2.svg" alt="">
+            <img class="img-bling2-3 transition" src="images/bling2.svg" alt="">
+            <img class="img-bling3 transition" src="images/bling3.svg" alt="">
+
+
             <!-- <img class="diy-result transition" src="images/pattern-watz.svg" alt=""> -->
 
-            <svg class="diy-result transition pattern-watz appear" version="1.1" id="pattern-watz" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.1 108" style="enable-background:new 0 0 66.1 108;" xml:space="preserve">
+            <svg class="diy-result transition pattern-watz" version="1.1" id="pattern-watz" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.1 108" style="enable-background:new 0 0 66.1 108;" xml:space="preserve">
                 <g id="圖層_2_1_">
                     <g id="圖層_1-2">
                         <g id="Group_84">
@@ -1078,13 +1205,18 @@ $pageName = 'DIY-finished';
         <h2 class="transition">恭喜完成專屬於你的WATZ襪子!</h2>
         <div class="btn flex transition">
             <button class="btn-blue" onclick="javascript:location.href='<?= WEB_ROOT ?>/DIY.php'">我還要修改</button>
-            <button class="btn-coral">我要訂購</button>
+            <?php if (isset($_SESSION['member'])) : ?>
+                <button class="btn-coral order-btn">送出訂單</button>
+            <?php else : ?>
+                <button class="btn-coral" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-login-signup.php'">請先登入會員</button>
+            <?php endif; ?>
         </div>
     </div>
     <?php include __DIR__ . '/__html_footer.php' ?>
 </div>
 <?php include __DIR__ . '/__scripts.php' ?>
 <script>
+    //get localStorage
     let customStyle = {};
     try {
         customStyle = JSON.parse(localStorage.getItem('customStyle'));
@@ -1093,7 +1225,7 @@ $pageName = 'DIY-finished';
         customStyle = {}
     }
 
-
+    // make current socks
     $('svg .socks-color').css('fill', customStyle["bottomColor"]);
     $('svg .socks-path').css('fill', customStyle["patternColor"]);
     $('svg .stroke-width').css('stroke', customStyle["patternColor"]);
@@ -1104,5 +1236,15 @@ $pageName = 'DIY-finished';
     $(`#${currentID}`).addClass("appear");
     $(`#${currentID}`).siblings().removeClass("appear");
 
+
+    // notice
+    $('.order-btn').click(function() {
+        $(".notice").addClass("animate__animated animate__flipInX animate__faster");
+        $(".notice").addClass("success");
+        setTimeout(function() {
+            $(".notice").removeClass("success");
+            $(".notice").removeClass("animate__animated animate__flipInX animate__faster");
+        }, 1600);
+    });
 </script>
 <?php require __DIR__ . '/__html_foot.php' ?>
