@@ -91,6 +91,10 @@ $pageName = 'project summer';  // 這裡放你的pagename
         margin: 0 auto;
     }
 
+    .pointer {
+        cursor: pointer;
+    }
+
     .btn-top {
         z-index: 20;
     }
@@ -1091,28 +1095,20 @@ $pageName = 'project summer';  // 這裡放你的pagename
                     <img src="images/summer/block1-1.jpg" alt="">
                 </div>
                 <ul class="flex">
-                    <li class="box-li flex">
-                        <a href="">
-                            <img src="images/summer/watzbox1-1.png" alt="">
-                        </a>
+                    <li class="box-li flex pointer">
+                            <img id="watzbox" src="images/summer/watzbox1-1.png" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#page=1&series%5B%5D=1'">
                         <h5>芒果派對禮盒</h5>
                     </li>
-                    <li class="small-li flex">
-                        <a href="">
-                            <img src="images/summer/block1-3.jpg" alt="">
-                        </a>
+                    <li class="small-li flex pointer">
+                            <img src="images/summer/block1-3.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=22'">
                         <h5 class="mobile-none">夏日煙火</h5>
                     </li>
-                    <li class="small-li flex">
-                        <a href="">
-                            <img src="images/summer/block1-4.jpg" alt="">
-                        </a>
+                    <li class="small-li flex pointer">
+                            <img src="images/summer/block1-4.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=24'">
                         <h5 class="mobile-none">一起來跳森巴</h5>
                     </li>
-                    <li class="small-li flex">
-                        <a href="">
-                            <img src="images/summer/block1-5.jpg" alt="">
-                        </a>
+                    <li class="small-li flex pointer">
+                            <img src="images/summer/block1-5.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=19'">
                         <h5 class="mobile-none">綠野仙蹤</h5>
                     </li>
                 </ul>
@@ -1152,10 +1148,10 @@ $pageName = 'project summer';  // 這裡放你的pagename
                 <img src="images/summer/block3-1.jpg" alt="">
             </div>
             <ul class="flex absolute">
-                <li><img src="images/summer/block3-2.jpg" alt=""></li>
-                <li><img src="images/summer/block3-3.jpg" alt=""></li>
-                <li><img src="images/summer/block3-4.jpg" alt=""></li>
-                <li><img src="images/summer/block3-5.jpg" alt=""></li>
+                <li><img class="pointer watermelon" src="images/summer/block3-2.jpg" alt=""></li>
+                <li><img class="pointer watermelon" src="images/summer/block3-3.jpg" alt=""></li>
+                <li><img class="pointer watermelon" src="images/summer/block3-4.jpg" alt=""></li>
+                <li><img class="pointer watermelon" src="images/summer/block3-5.jpg" alt=""></li>
             </ul>
         </div>
         <div class="block3-right flex">
@@ -1163,7 +1159,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
                 <h3>駕鶴西瓜</h3>
                 <p>襪口部採用具止滑效果的織線，不易滑脫。襪口無鬆緊帶設計，穿著柔軟舒適。使用對環境溫和的有機棉所製成。</p>
                 <p>短襪<br>22-24cm<br>材質:100%純棉</p>
-                <button class="btn-coral btn-seemore">SEE MORE</button>
+                <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=86'">SEE MORE</button>
             </div>
         </div>
     </div>
@@ -1180,12 +1176,12 @@ $pageName = 'project summer';  // 這裡放你的pagename
             <p>Jungle Friends, our summer collection that expresses animal friends living in the jungle with a detailed and witty cuteness unique to WATZ.<br>
             </p>
             <p>長襪<br>22-24cm<br>材質:100%純棉</p>
-            <button class="btn-coral btn-seemore">SEE MORE</button>
+            <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=21'">SEE MORE</button>
         </div>
         <ul class="info-right flex transition">
-            <li><img src="images/summer/block4-3.jpg" alt=""></li>
-            <li><img src="images/summer/block4-4.jpg" alt=""></li>
-            <li><img src="images/summer/block4-5.jpg" alt=""></li>
+            <li><img class="pointer" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=21'" src="images/summer/block4-3.jpg" alt=""></li>
+            <li><img class="pointer" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=21'" src="images/summer/block4-4.jpg" alt=""></li>
+            <li><img class="pointer" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=21'" src="images/summer/block4-5.jpg" alt=""></li>
         </ul>
     </div>
     <div class="block3 block5 flex">
@@ -1200,7 +1196,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
                 <h3>夏日煙火</h3>
                 <p>襪口部採用具止滑效果的織線，不易滑脫。襪口無鬆緊帶設計，穿著柔軟舒適。使用對環境溫和的有機棉所製成。</p>
                 <p>長襪<br>22-24cm<br>材質:100%純棉</p>
-                <button class="btn-coral btn-seemore">SEE MORE</button>
+                <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=22'">SEE MORE</button>
             </div>
         </div>
         <div class="block3-left block5-right">
@@ -1224,19 +1220,19 @@ $pageName = 'project summer';  // 這裡放你的pagename
             <ul class="flex">
                 <li class="flex">
                     <div class="block6-1"><img src="images/summer/block6-1.jpg" alt=""></div>
-                    <button class="btn-coral btn-seemore">SEE MORE</button>
+                    <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=28'">SEE MORE</button>
                 </li>
                 <li class="flex">
                     <div class="block6-2"><img src="images/summer/block6-2.jpg" alt=""></div>
-                    <button class="btn-coral btn-seemore">SEE MORE</button>
+                    <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=29'">SEE MORE</button>
                 </li>
                 <li class="flex">
                     <div class="block6-3"><img src="images/summer/block6-3.jpg" alt=""></div>
-                    <button class="btn-coral btn-seemore">SEE MORE</button>
+                    <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=19'">SEE MORE</button>
                 </li>
                 <li class="flex">
                     <div class="block6-4"><img src="images/summer/block6-4.jpg" alt=""></div>
-                    <button class="btn-coral btn-seemore">SEE MORE</button>
+                    <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=25'">SEE MORE</button>
                 </li>
             </ul>
         </div>
@@ -1249,33 +1245,22 @@ $pageName = 'project summer';  // 這裡放你的pagename
 <?php include __DIR__ . '/__scripts.php' ?>
 
 <script>
-    /* // php 加入購物車
+    $("#watzbox").hover(function() {
+        $(this).attr("src", "images/watzbox1-2.png");
+    }, function() {
+        $(this).attr("src", "images/watzbox1-1.png");
+    })
 
-    const buy_btn = $('.buy_btn');
+    // block-left 點擊改變照片功能
+    $(".watermelon").click(function() {
+        let imgSrc = $(this).attr("src");
+        $(".img-block3-1 img").attr("src", imgSrc);
+    })
 
-    buy_btn.click(function() {
-        const p_item = $('.p_item');
-        const sid = p_item.attr('data-sid');
-        const qty = $('.qty').val();
-        const sendObj = {
-            action: 'add',
-            sid,
-            qty: qty
-        }
-        $.get('cart-handle.php', sendObj, function(data) {
-            console.log(data);
-            setCartCount(data);
-        }, 'json');
-
-        // alert(sid + ',' + qty)
-        // 彈跳視窗
-        $(".notice").addClass("animate__animated animate__flipInX animate__faster");
-        $(".notice").addClass("success");
-        setTimeout(function() {
-            $(".notice").removeClass("success");
-            $(".notice").removeClass("animate__animated animate__flipInX animate__faster");
-        }, 800);
-    }); */
+    $(".block3-left").mouseleave(function() {
+        $(".img-block3-1 img").attr("src", "images/summer/block3-1.jpg");
+    })
+   
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
