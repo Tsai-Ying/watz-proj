@@ -103,7 +103,6 @@ $row = $pdo->query($sql)->fetch();
     .membercard ul li h5 {
         font-weight: 400;
         letter-spacing: 3px;
-        color: #707070;
         margin-left: 30px;
     }
 
