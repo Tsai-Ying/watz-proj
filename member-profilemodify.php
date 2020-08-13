@@ -24,7 +24,7 @@ $row = $pdo->query($sql)->fetch();
     }
 
     .wrapper {
-        /* height: 100vh; */
+        height: 100vh;
         align-items: center;
         justify-content: center;
     }
