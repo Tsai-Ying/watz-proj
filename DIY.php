@@ -2187,7 +2187,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
                             </div>
                             <div>
                                 <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color color-bottom" id="a8">
+                                <div class="color color-bottom" id="b8">
                                 </div>
                             </div>
                             <div>
