@@ -786,7 +786,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
                 <div class="bread-crumb transition">
                     <a href="">商品</a>
                     <span> > </span>
-                    <a href="<?= WEB_ROOT ?>/product.php?#page=1&series%5B%5D=<?= $series_sid ?>"><?= $series_name ?></a>
+                    <a href='<?= WEB_ROOT ?>/product.php?#{"series":[ <?= $series_sid ?>],"orderBy":"new"} '><?= $series_name ?></a>
                 </div>
                 <div class="box-photo flex transition mobile-none">
                     <div class="box-photo-left flex transition">
@@ -1098,7 +1098,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
         }, 'json');
 
         // alert(sid + ',' + qty)
-        
+
         // 彈跳視窗
         $(".notice").addClass("animate__animated animate__flipInX animate__faster");
         $(".notice").addClass("success");
