@@ -9,134 +9,251 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lusitana&display=swap" rel="stylesheet">
     <style>
-        .container {
+        /* body {
             width: 100vw;
-            min-height: 200vh;
-            background: url('images/crystal/bg-paper.svg');
+            min-height: 100vh;
+        } */
+
+        .container {
+            height: 100%;
+            width: 100vw;
+            background: url('images/crystal/bg-paper3.png');
             background-repeat: no-repeat;
             background-size: cover;
             /* position: fixed; */
+            /* z-index: -2; */
         }
-        .thunder{
-            /* background: url(images/crystal/thunder.svg); */
-            width: 380px;
-            height: 711px;
-            position: fixed;
-        }
-        .bg{
-            background: url('images/crystal/crys-web-bg.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
+
         .wrapper {
-            height: 450vh;
+            width: 100vw;
+            min-height: 100vh;
+            /* position: relative; */
+            /* border: 1px solid firebrick; */
+
+        }
+
+        .block1 {
+            background-image: url('images/crystal/bg-web-1vh.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100vw;
+            height: 56.25vw;
+            /* position: relative; */
+        }
+
+        .thunder {
+            width: 382px;
+            height: 708px;
+            /* margin-left: 120px; */
+            position: absolute;
+            left: 120px;
+
+        }
+
+        .dot-pink {
+            width: 300px;
+            height: 250px;
+            position: absolute;
+            top: 23%;
+            right: 24%;
+        }
+
+        .dot-pink2 {
+            width: 300px;
+            height: 250px;
+            position: absolute;
+            top: 24%;
+            right: 35%;
+            transform: rotate(120deg);
+        }
+
+        .dot-blue {
+            width: 370px;
+            height: 150px;
+            position: absolute;
+            right: 5%;
+            top: 6%;
+        }
+
+        .block2{
+            width: 100vw;
+            height: 100%;
+            position: relative;
+        }
+        .bg-block {
+            background-image: url('images/crystal/bg-web-23vh.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100vw;
+            height: 112.5vw;
+            /* margin-top: -6px; */
+            z-index: -3;
+            /* position: relative; */
+        }
+
+        .pc-bg-left {
+            width: 200px;
+            height: 700px;
+            /* flex-direction: column; */
+            margin: 30px 0 0 150px;
+            position: absolute;
+            top: 0;
+        }
+
+        .pc {
+            margin-bottom: 30px;
+        }
+        .pc-bg-right{
+            width: 745px;
+            height: 1300px;
+            position: absolute;
+            right: 0;
+            top: 0;
+
+        }
+        .pc-bg-right h3{
+            font-family: 'Lusitana', serif;
+            color: #ffffff;
+            font-weight: 400;
+            position: absolute;
+            right: 20%;
+            bottom: 55%;
+        }
+        .pc-bg-right h5{
+            font-family: 'Lusitana', serif;
+            color: #F2DE79;
+            font-weight: 400;
+            position: absolute;
+            right: 20%;
+            bottom: 53%;
         }
     </style>
 </head>
 
 <body>
     <div class="container flex">
-        <div class="thunder">
-            <img src="images/crystal/thunder.svg" alt="">
-        </div>
-        <div class="bg">
-            
-            <!-- nav -->
-            <nav class="nav flex transition">
-                <div class="nav-logo flex">
-                    <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
-                    <a class="img-logo-text" href=""><img src="images/logo-text.svg" alt=""></a>
-                </div>
-                <ul class="nav-list flex transition">
-                    <li class="dropdown">
-                        <a>PROJECT</a>
-                        <div class="dropdown-menu flex transition">
-                            <div class="dropdown-bg flex transition">
-                                <a class="" href="">芒果派對</a>
-                                <a class="" href="">群魔亂舞</a>
-                                <a class="" href="">灰姑娘的<br>水晶襪</a>
-                            </div>
+        <!-- nav -->
+        <nav class="nav flex transition">
+            <div class="nav-logo flex">
+                <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
+                <a class="img-logo-text" href=""><img src="images/logo-text.svg" alt=""></a>
+            </div>
+            <ul class="nav-list flex transition">
+                <li class="dropdown">
+                    <a>PROJECT</a>
+                    <div class="dropdown-menu flex transition">
+                        <div class="dropdown-bg flex transition">
+                            <a class="" href="">芒果派對</a>
+                            <a class="" href="">群魔亂舞</a>
+                            <a class="" href="">灰姑娘的<br>水晶襪</a>
                         </div>
-                    </li>
-                    <li><a href="">SHOP</a></li>
-                    <li><a href="">DIY</a></li>
-                    <li><a href="">WATZ</a></li>
-                    <li><a href="">CONTACT</a></li>
-                </ul>
-                <div class="nav-icon flex transition">
-                    <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
-                    <a class="icon-wrapper none a-cart" href="">
-                        <img class="svg icon" src="images/icon-cart.svg" alt=""></a>
-                    <span class="cart_count"></span>
+                    </div>
+                </li>
+                <li><a href="">SHOP</a></li>
+                <li><a href="">DIY</a></li>
+                <li><a href="">WATZ</a></li>
+                <li><a href="">CONTACT</a></li>
+            </ul>
+            <div class="nav-icon flex transition">
+                <a class="icon-wrapper none" href=""><img class="svg icon" src="images/icon-member.svg" alt=""></a>
+                <a class="icon-wrapper none a-cart" href="">
+                    <img class="svg icon" src="images/icon-cart.svg" alt=""></a>
+                <span class="cart_count"></span>
 
-                    <div class="menu flex">
-                        <div class="click-area flex transition" id="menuClickArea">
-                            <div class="box-bar transition">
-                                <div class="bar bar1 transition"></div>
-                                <div class="bar bar2 transition"></div>
-                                <div class="bar bar3 transition"></div>
-                            </div>
+                <div class="menu flex">
+                    <div class="click-area flex transition" id="menuClickArea">
+                        <div class="box-bar transition">
+                            <div class="bar bar1 transition"></div>
+                            <div class="bar bar2 transition"></div>
+                            <div class="bar bar3 transition"></div>
                         </div>
-                        <div class="menu-bg transition">
-                            <div class="menu-content transition flex">
-                                <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
-                                <ul class="menu-list">
-                                    <li class="dropdown">
-                                        <a>PROJECT</a>
-                                        <div class="dropdown-menu flex transition">
-                                            <div class="dropdown-bg flex transition">
-                                                <a class="" href="">芒果派對</a>
-                                                <a class="" href="">群魔亂舞</a>
-                                                <a class="" href="">灰姑娘的水晶襪</a>
-                                            </div>
+                    </div>
+                    <div class="menu-bg transition">
+                        <div class="menu-content transition flex">
+                            <a class="img-logo-img" href=""><img src="images/logo-img.svg" alt=""></a>
+                            <ul class="menu-list">
+                                <li class="dropdown">
+                                    <a>PROJECT</a>
+                                    <div class="dropdown-menu flex transition">
+                                        <div class="dropdown-bg flex transition">
+                                            <a class="" href="">芒果派對</a>
+                                            <a class="" href="">群魔亂舞</a>
+                                            <a class="" href="">灰姑娘的水晶襪</a>
                                         </div>
-                                    </li>
-                                    <li><a href="">SHOP</a></li>
-                                    <li><a href="">DIY</a></li>
-                                    <li><a href="">WATZ</a></li>
-                                    <li><a href="">CONTACT</a></li>
-                                </ul>
-                                <div class="flex">
-                                    <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
-                                    <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
-                                    <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
-                                    <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
-                                </div>
+                                    </div>
+                                </li>
+                                <li><a href="">SHOP</a></li>
+                                <li><a href="">DIY</a></li>
+                                <li><a href="">WATZ</a></li>
+                                <li><a href="">CONTACT</a></li>
+                            </ul>
+                            <div class="flex">
+                                <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
+                                <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
+                                <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
+                                <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </nav>
-            <div class="wrapper">
-
             </div>
-            <!-- btn-top -->
-            <div class="btn-top flex transition" id="goTop">
-                <img src="images/arrow-top.svg" alt="">
-                <h3>TOP</h3>
-                <div class="bg-btn-top transition"></div>
+        </nav>
+        <div class="wrapper">
+            <div class="block1">
+                <img class="thunder" src="images/crystal/thunder.svg" alt="">
+                <img class="dot-pink" src="images/crystal/dot-pink.svg" alt="">
+                <img class="dot-pink2" src="images/crystal/dot-pink.svg" alt="">
+                <img class="dot-blue" src="images/crystal/dot-blue.svg" alt="">
             </div>
-            <!-- footer -->
-            <footer class="flex">
-                <div class="footer-icon flex">
-                    <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
-                    <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
-                    <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
-                    <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
+            <div class="block2">
+                <div class="bg-block"></div>
+                <div class="pc-bg-left">
+                    <img class="pc" src="images/crystal/socks-color-3.png" alt="">
+                    <img class="pc" src="images/crystal/socks-color-2.png" alt="">
+                    <img class="pc" src="images/crystal/socks-color-1.png" alt="">
+                    <img class="pc" src="images/crystal/circle.svg" alt="">
                 </div>
-                <h6>Copyright© WATZ Company All rights Reserved.</h6>
-                <img class="bg-footer flex" src="images/footer.svg" alt="">
-            </footer>
+                <div class="pc-bg-right">
+                    <h3>HAVE A COOL DAY</h3>
+                    <h5>WITH YOUR CHIC SOCKS</h5>
+                    <div>
+                        <img src="images/crystal/" alt="">
+                    </div>
+                </div>
+            </div>
+           
 
-            <!-- mobile show list -->
-            <div class="mobile-show fixedlist">
-                <div class="fixedlist-icon flex">
-                    <a class="icon-wrapper" href=""><img src="images/icon-faq.svg" alt=""></a>
-                    <a class="icon-wrapper" href=""><img src="images/icon-sock.svg" alt=""></a>
-                    <a class="icon-wrapper" href=""><img src="images/icon-member.svg" alt=""></a>
-                    <a class="icon-wrapper" href="cart.html"><img src="images/icon-cart.svg" alt=""></a>
-                </div>
+
+        </div>
+        <!-- btn-top -->
+        <div class="btn-top flex transition" id="goTop">
+            <img src="images/arrow-top.svg" alt="">
+            <h3>TOP</h3>
+            <div class="bg-btn-top transition"></div>
+        </div>
+        <!-- footer -->
+        <footer class="flex">
+            <div class="footer-icon flex">
+                <a class="icon-wrapper" href=""><img src="images/icon-fb.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-youtube.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-twitter.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-ig.svg" alt=""></a>
+            </div>
+            <h6>Copyright© WATZ Company All rights Reserved.</h6>
+            <img class="bg-footer flex" src="images/footer.svg" alt="">
+        </footer>
+
+        <!-- mobile show list -->
+        <div class="mobile-show fixedlist">
+            <div class="fixedlist-icon flex">
+                <a class="icon-wrapper" href=""><img src="images/icon-faq.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-sock.svg" alt=""></a>
+                <a class="icon-wrapper" href=""><img src="images/icon-member.svg" alt=""></a>
+                <a class="icon-wrapper" href="cart.html"><img src="images/icon-cart.svg" alt=""></a>
             </div>
         </div>
     </div>
