@@ -1098,6 +1098,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
         }, 'json');
 
         // alert(sid + ',' + qty)
+        
         // 彈跳視窗
         $(".notice").addClass("animate__animated animate__flipInX animate__faster");
         $(".notice").addClass("success");

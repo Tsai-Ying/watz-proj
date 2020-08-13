@@ -3,6 +3,7 @@ $pageName = 'DIY-finished';
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 <link rel="shortcut icon" href="images/favicon.svg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 <style>
     .container {
         width: 100%;
@@ -174,7 +175,77 @@ $pageName = 'DIY-finished';
     .round {
         stroke-linecap: round;
     }
+
+    /* jumpout notice */
+
+    .notice {
+        /* transition: .2s; */
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        visibility: hidden;
+        user-select: none;
+    }
+
+    .notice-block {
+        /* transition: .4s; */
+        padding: 30px;
+        background: #FF9685;
+        border-radius: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        align-items: center;
+        z-index: 5;
+        opacity: 0;
+    }
+
+    .notice-bg {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: #404040;
+        opacity: .8;
+    }
+
+    .notice-top {
+        margin-bottom: 10px;
+    }
+
+    .notice-top img {
+        height: 40px;
+    }
+
+    .notice-bottom h3 {
+        color: white;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .notice.success {
+        visibility: visible;
+        z-index: 20;
+    }
+
+    .notice.success .notice-block {
+        opacity: 1;
+    }
 </style>
+<!-- jumpout notice -->
+<div class="notice">
+    <!-- <div class="notice-bg"></div> -->
+    <div class="notice-block  flex">
+        <div class="notice-top">
+            <img src="images/icon-success.svg " alt=" ">
+        </div>
+        <div class="notice-bottom">
+            <h3>已收到您的訂單！<br>
+                我們將盡快與您聯繫。</h3>
+        </div>
+    </div>
+</div>
 
 <div class="container flex">
     <?php include __DIR__ . '/__navbar.php' ?>
@@ -1078,13 +1149,18 @@ $pageName = 'DIY-finished';
         <h2 class="transition">恭喜完成專屬於你的WATZ襪子!</h2>
         <div class="btn flex transition">
             <button class="btn-blue" onclick="javascript:location.href='<?= WEB_ROOT ?>/DIY.php'">我還要修改</button>
-            <button class="btn-coral">我要訂購</button>
+            <?php if (isset($_SESSION['member'])) : ?>
+                <button class="btn-coral order-btn">送出訂單</button>
+            <?php else : ?>
+                <button class="btn-coral" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-login-signup.php'">請先登入會員</button>
+            <?php endif; ?>
         </div>
     </div>
     <?php include __DIR__ . '/__html_footer.php' ?>
 </div>
 <?php include __DIR__ . '/__scripts.php' ?>
 <script>
+    //get localStorage
     let customStyle = {};
     try {
         customStyle = JSON.parse(localStorage.getItem('customStyle'));
@@ -1093,7 +1169,7 @@ $pageName = 'DIY-finished';
         customStyle = {}
     }
 
-
+    // make current socks
     $('svg .socks-color').css('fill', customStyle["bottomColor"]);
     $('svg .socks-path').css('fill', customStyle["patternColor"]);
     $('svg .stroke-width').css('stroke', customStyle["patternColor"]);
@@ -1104,5 +1180,15 @@ $pageName = 'DIY-finished';
     $(`#${currentID}`).addClass("appear");
     $(`#${currentID}`).siblings().removeClass("appear");
 
+
+    // notice
+    $('.order-btn').click(function() {
+        $(".notice").addClass("animate__animated animate__flipInX animate__faster");
+        $(".notice").addClass("success");
+        setTimeout(function() {
+            $(".notice").removeClass("success");
+            $(".notice").removeClass("animate__animated animate__flipInX animate__faster");
+        }, 1600);
+    });
 </script>
 <?php require __DIR__ . '/__html_foot.php' ?>
