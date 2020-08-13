@@ -77,6 +77,8 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         align-items: center;
         justify-content: center;
         margin: 60px;
+        font-weight: 400;
+
     }
 
     @media screen and (max-width: 992px) {
@@ -88,7 +90,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         .wrapper {
             width: 100%;
             height: 100%;
-            margin-top: 100px;
+            margin-top: 110px;
         }
 
         .bg-term {
@@ -100,8 +102,9 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
             width: 94vw;
             flex-direction: row;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 0;
             margin-right: 0;
+            margin-bottom: 20px;
         }
 
         .box {
@@ -124,8 +127,24 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
         .background li h6 {
             width: 65vw;
+            
         }
     }
+
+    @media screen and (max-width: 576px){
+        .wrapper{
+            margin-top: 70px;
+        }
+
+        .background{
+            width: 94vw;
+        }
+
+        .background li h6{
+            width: 90%;
+            margin: 40px 40px;
+        }
+    } 
 </style>
 
 <div class="container flex">

@@ -77,6 +77,7 @@ $pageName = 'member-term';  // 這裡放你的pagename
         align-items: center;
         justify-content: center;
         margin: 60px;
+        font-weight: 400;
     }
 
     @media screen and (max-width: 992px) {
