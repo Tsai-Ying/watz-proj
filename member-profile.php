@@ -267,8 +267,18 @@ $row = $pdo->query($sql)->fetch();
 
     @media screen and (max-width: 576px){
 
+        .wrapper{
+            margin-top: 70px;
+            margin-bottom: 30px;
+        }
+
+        .selector a{
+            padding: 0;
+        }
+
         .bg-photo{
-            margin-top: 10vw;
+            margin-top: 20vw;
+            margin-bottom: 10vw;
         }
 
         .membercard-img {
@@ -277,11 +287,17 @@ $row = $pdo->query($sql)->fetch();
 
         .membercard {
             height: 147vw;
+            margin-bottom: 30px;
         }
 
         .form-item{
             width: 100%;
             margin-left: 10vw;
+        }
+
+        .member-photo{
+            height: 40vw;
+            width: 40vw;
         }
 
     }
