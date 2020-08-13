@@ -83,7 +83,7 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
 
     @media screen and (max-width: 992px) {
         body {
-            background-image: none;
+            background-image: url(images/BG-mobile2.svg);
             background-position: center;
         }
 
