@@ -164,10 +164,9 @@ $row = $pdo->query($sql)->fetch();
     @media screen and (max-width: 992px) {
         body {
             background-image: url(images/BG-mobile2.svg);
-            background-repeat: no-repeat;
-            background-size: cover;
             background-position: center;
         }
+        
 
         .wrapper {
             margin-top: 110px;
@@ -181,25 +180,26 @@ $row = $pdo->query($sql)->fetch();
             align-items: center;
         }
 
-        .membercard-img {
-            background-image: url(images/user_card_mobile_before.svg);
-            width: 94vw;
-            height: 100vw;
-            top: 0;
-        }
-
         .membercard {
             position: relative;
-            width: 94vw;
-            height: 100vw;
+            width: 60vw;
+            height: 93vw;
             margin-right: 0;
             align-items: flex-start;
         }
 
+        .membercard-img {
+            background-image: url(images/user_card_mobile_before.svg);
+            width: 60vw;
+            height: 93vw;
+            top: 0;
+        }
+
         .bg-photo {
-            width: 100vw;
+            width: 60vw;
             height: 40vw;
         }
+        
 
         .member-photo {
             width: 30vw;
@@ -209,12 +209,13 @@ $row = $pdo->query($sql)->fetch();
         .member-info {
             flex-direction: column;
             align-items: center;
-            margin-top: 10%;
+            margin-top: 10vw;
         }
 
         .bg-form {
             width: 80vw;
             height: 35vw;
+            margin-top: 0;
         }
 
         .membercard ul li h5 {
@@ -275,16 +276,23 @@ $row = $pdo->query($sql)->fetch();
             padding: 0;
         }
 
-        .bg-photo{
-            margin-top: 20vw;
-            margin-bottom: 10vw;
-        }
-
         .membercard-img {
+            width: 94vw;
             height: 147vw;
         }
 
+        .bg-photo{
+            margin-top: 10vw;
+
+        }
+
+        .bg-form{
+            margin-top: 10vw;
+            height: 30vh;
+        }
+
         .membercard {
+            width: 94vw;
             height: 147vw;
             margin-bottom: 30px;
         }
