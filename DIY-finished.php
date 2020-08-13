@@ -1078,10 +1078,31 @@ $pageName = 'DIY-finished';
         <h2 class="transition">恭喜完成專屬於你的WATZ襪子!</h2>
         <div class="btn flex transition">
             <button class="btn-blue" onclick="javascript:location.href='<?= WEB_ROOT ?>/DIY.php'">我還要修改</button>
-            <button class="btn-coral">加入購物車</button>
+            <button class="btn-coral">我要訂購</button>
         </div>
     </div>
     <?php include __DIR__ . '/__html_footer.php' ?>
 </div>
 <?php include __DIR__ . '/__scripts.php' ?>
+<script>
+    let customStyle = {};
+    try {
+        customStyle = JSON.parse(localStorage.getItem('customStyle'));
+        // console.log(customStyle)
+    } catch (ex) {
+        customStyle = {}
+    }
+
+
+    $('svg .socks-color').css('fill', customStyle["bottomColor"]);
+    $('svg .socks-path').css('fill', customStyle["patternColor"]);
+    $('svg .stroke-width').css('stroke', customStyle["patternColor"]);
+
+    let currentID = customStyle["pattern"]
+    console.log(currentID)
+
+    $(`#${currentID}`).addClass("appear");
+    $(`#${currentID}`).siblings().removeClass("appear");
+
+</script>
 <?php require __DIR__ . '/__html_foot.php' ?>
