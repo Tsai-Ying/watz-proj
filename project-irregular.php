@@ -147,6 +147,12 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
         align-items: center;
         justify-content: center;
     }
+    .sock-png img{
+        cursor: pointer;
+    }
+    .sock-png img:hover{
+        transform: scale(1.1);
+    }
 
 
     .square1-2 {
@@ -411,7 +417,7 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
 
     .info {
         height: 100vh;
-        /* position: absolute; */
+        width: 50vw;
         z-index: 1;
         flex-direction: column;
         align-items: center;
@@ -426,7 +432,7 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
     .info .title {
         align-items: center;
         justify-content: center;
-        margin: 20px 0;
+        margin: 40px 0;
     }
 
     .info .title h1 {
@@ -440,9 +446,19 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
     }
 
     .info .style1 {
-        transform: translateX(-60%);
+        margin-right: 50%;
+        cursor: pointer;
     }
-
+    .info .style1:hover{
+        transform: scale(1.1);
+    }
+    .info .style2{
+        cursor: pointer;
+        
+    }
+    .info .style2:hover{
+        transform: scale(1.1);
+    }
     .block5 {
         width: 100vw;
         height: 100vh;
@@ -553,10 +569,10 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
                 <img src="images/irregular/square1-1.jpg" alt="">
             </li>
             <li class="square1-2 sock-png flex">
-                <img class="" src="images/irregular/square1-2.png" alt="">
+                <img class="transition" src="images/irregular/square1-2.png" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=13'">
             </li>
             <li class="square1-3 sock-png flex">
-                <img src="images/irregular/square1-3.png" alt="">
+                <img class="transition" src="images/irregular/square1-3.png" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=10'">
             </li>
             <li class="">
                 <img src="images/irregular/square1-4.jpg" alt="">
@@ -591,10 +607,10 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
                 <img src="images/irregular/square4-1.jpg" alt="">
             </li>
             <li class="square4-2 sock-png flex">
-                <img src="images/irregular/square4-2.png" alt="">
+                <img class="transition" src="images/irregular/square4-2.png" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=3'">
             </li>
             <li class="square4-3 sock-png flex">
-                <img src="images/irregular/square4-3.png" alt="">
+                <img class="transition" src="images/irregular/square4-3.png" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=3'">
             </li>
             <li>
                 <img src="images/irregular/square4-4.jpg" alt="">
@@ -626,12 +642,12 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
             <img src="images/irregular/popcorn.jpg" alt="">
         </div>
         <div class="info flex transition">
-            <img class="style1" src="images/irregular/style1.jpg" alt="">
+            <img class="style1 transition" src="images/irregular/style1.jpg" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=11'">
             <div class="title flex">
                 <h1>styling yourself</h1>
                 <img src="images/irregular/brush.svg" alt="">
             </div>
-            <img src="images/irregular/style2.jpg" alt="">
+            <img class="style2 transition" src="images/irregular/style2.jpg" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=10'">
         </div>
     </div>
     <div class="block5">
