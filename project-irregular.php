@@ -6,7 +6,6 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
 
 <style>
-    /* -----------------empty-cart---------------        */
 
 
     .container {
