@@ -433,23 +433,8 @@
 
 
 
-@keyframes block6 {
-    0% {
-        transform: rotate(0)
-    }
-    50%{
-        transform: rotate(180deg)
-    }
-    100% {
-        transform: rotate(360deg)
-    }
-}
-
-
-
-
 .block6-box h5 {
-    width: 220px;
+    width: 200px;
     height: 30px;
     background: #0388A6;
     border-radius: 13px;
