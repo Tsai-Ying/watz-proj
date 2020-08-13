@@ -550,7 +550,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
     }
 
     .color#b8 {
-        background: #D6E681;
+        background: #E43F6F;
     }
 
     .color#b9 {
@@ -2187,7 +2187,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
                             </div>
                             <div>
                                 <img class=" img-select-circle" src="images/select circle.svg" alt="">
-                                <div class="color color-bottom" id="a8">
+                                <div class="color color-bottom" id="b8">
                                 </div>
                             </div>
                             <div>
@@ -2309,13 +2309,24 @@ $pageName = 'DIY';  // 這裡放你的pagename
     let currentImage = '';
     let currentColor = '';
 
-    // 若是local storage出錯 則回復為空值
+    // 若是localStorage出錯 則回復為空值
     let customStyle = {};
     try {
         customStyle = JSON.parse(localStorage.getItem('customStyle'));
     } catch (ex) {
         customStyle = {}
     }
+
+    //
+    $('svg .socks-color').css('fill', customStyle["bottomColor"]);
+    $('svg .socks-path').css('fill', customStyle["patternColor"]);
+    $('svg .stroke-width').css('stroke', customStyle["patternColor"]);
+
+    let currentID = customStyle["pattern"]
+    console.log(currentID)
+
+    $(`#${currentID}`).addClass("appear");
+    $(`#${currentID}`).siblings().removeClass("appear");
 
     // if(localStorage.getItem('customStyle')!=null){
     //     customStyle=localStorage.getItem('customStyle')
