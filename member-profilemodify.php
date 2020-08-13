@@ -22,10 +22,12 @@ $row = $pdo->query($sql)->fetch();
         background-size: cover;
         /* background-position: center; */
     }
-    .container{
+
+    .container {
         justify-content: space-between;
         min-height: 100vh;
     }
+
     .wrapper {
         /* height: 100vh; */
         /* align-items: center; */
@@ -149,7 +151,6 @@ $row = $pdo->query($sql)->fetch();
 
     .form-item {
         width: 380px;
-        height: 56px;
         align-items: center;
         justify-content: center;
         /* border-radius: 26px; */
@@ -211,27 +212,31 @@ $row = $pdo->query($sql)->fetch();
             flex-direction: column;
             justify-content: flex-start;
             height: 100%;
+            align-items: center;
         }
 
         .bg-membercard {
-            position: relative;
             align-items: center;
 
         }
 
         .membercard {
-            width: 80vw;
-            height: 110vw;
+            width: 60vw;
+            height: 126vw;
+            margin-right: 0;
             align-items: flex-start;
         }
 
         .membercard-img {
-            background-image: none;
+            background-image: url(images/user_card_mobile_after.svg);
+            width: 60vw;
+            height: 126vw;
+            top: 0;
         }
 
         .bg-photo {
             width: 60vw;
-            height: 45vw;
+            height: 40vw;
             justify-content: center;
             align-items: center;
         }
@@ -243,26 +248,28 @@ $row = $pdo->query($sql)->fetch();
 
         .member-info {
             flex-direction: column;
-            margin-top: 0;
+            margin-top: 10vw;
             align-items: center;
         }
 
         .bg-form {
-            width: 100%;
-            height: 60vw;
+            /* height: 60vw; */
+            width: 54vw;
             margin-top: 0;
-            align-items: flex-start;
+            align-items: center;
         }
 
         .form-item {
-            width: 60vw;
+            width: 54vw;
             justify-content: center;
+            margin-left: 0;
 
         }
 
         .form-name {
-            width: 36vw;
-            height: 6vw;
+            width: 30vw;
+            height: 40px;
+            margin: 5px 0;
         }
 
         .form-password {
@@ -272,17 +279,19 @@ $row = $pdo->query($sql)->fetch();
         }
 
         .bg-pw {
-            width: 36vw;
-            height: 6vw;
+            width: 30vw;
+            height: 40px;
+            margin: 5px 0;
             justify-content: center;
         }
 
         .selector {
             width: 94vw;
             flex-direction: row;
-            justify-content: center;
-            margin-top: 20px;
+            justify-content: space-evenly;
+            margin-top: 0px;
             margin-right: 0;
+            margin-bottom: 20px;
         }
 
         .box {
@@ -302,9 +311,66 @@ $row = $pdo->query($sql)->fetch();
             margin: 0;
         }
     }
-        /* jumpout notice */
 
-        .notice {
+    @media screen and (max-width: 576px) {
+
+        .wrapper {
+            margin-top: 70px;
+            margin-bottom: 30px;
+        }
+
+        .selector a {
+            padding: 0;
+        }
+
+        .membercard-img {
+            width: 94vw;
+            height: 198vw;
+        }
+
+        .bg-photo {
+            margin-top: 10vw;
+
+        }
+
+        .form-name{
+            width: 60vw;
+        }
+
+        .bg-form {
+            margin-top: 10vw;
+            width: 80vw;
+        }
+
+        .bg-pw {
+            width: 60vw;
+        }
+
+        .membercard {
+            width: 94vw;
+            height: 198vw;
+            margin-bottom: 30px;
+        }
+
+        .form-item {
+            width: 60vw;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .membercard ul li h5{
+            justify-content: flex-start;
+        }
+
+        .member-photo {
+            height: 40vw;
+            width: 40vw;
+        }
+
+    }
+
+    /* jumpout notice */
+
+    .notice {
         transition: .2s;
         position: fixed;
         width: 100vw;
@@ -440,7 +506,7 @@ $row = $pdo->query($sql)->fetch();
         </form>
     </div>
 
-<?php include __DIR__ . '/__html_footer.php' ?>
+    <?php include __DIR__ . '/__html_footer.php' ?>
 </div>
 
 <?php include __DIR__ . '/__scripts.php' ?>
@@ -456,20 +522,20 @@ $row = $pdo->query($sql)->fetch();
     //     // $('#newpassword').attr('type', 'password')
     //     // console.log('hi')
     // })
-    $('.eyes').on('click',function(e) {
-      let $pwd = $(this).prev('.password');
+    $('.eyes').on('click', function(e) {
+        let $pwd = $(this).prev('.password');
 
-      $pwd.text(($pwd.text() === 'Hide' ? 'Show' : 'Hide'));
+        $pwd.text(($pwd.text() === 'Hide' ? 'Show' : 'Hide'));
 
-      if ($pwd.attr('type') === 'password') {
-        $(this).attr('src','images/eye.svg')
-       $pwd.attr('type', 'text');
-      } else {
-        $(this).attr('src','images/hidden.svg')
-        $pwd.attr('type', 'password');
-      }
-      e.preventDefault();
-     });
+        if ($pwd.attr('type') === 'password') {
+            $(this).attr('src', 'images/eye.svg')
+            $pwd.attr('type', 'text');
+        } else {
+            $(this).attr('src', 'images/hidden.svg')
+            $pwd.attr('type', 'password');
+        }
+        e.preventDefault();
+    });
     // var demoImg = document.getElementById("eyes");
     // var demoInput = document.getElementById("newpassword");
 
@@ -547,6 +613,7 @@ $row = $pdo->query($sql)->fetch();
         }
         return false;
     }
+
     function notice() {
         $(".notice").addClass("active");
     }
