@@ -23,10 +23,15 @@ $historylists = $pdo->query($o_sql)->fetchAll();
         background-size: cover;
     }
 
+    .container{
+        justify-content: space-between;
+        min-height: 100vh;
+    }
+
     .wrapper {
-        height: 100vh;
-        align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        margin-top: 140px;
+        margin-bottom: 50px;
     }
 
     .wrapper ul li h5 {
@@ -84,7 +89,8 @@ $historylists = $pdo->query($o_sql)->fetchAll();
         width: 120px;
         flex-direction: column;
         justify-content: flex-start;
-        margin-right: 20%;
+        /* margin-right: 20%; */
+        margin-top: 15vh;
     }
 
     .box {

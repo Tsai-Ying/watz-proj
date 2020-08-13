@@ -28,8 +28,9 @@ $row = $pdo->query($sql)->fetch();
 
     .wrapper {
         margin-top: 140px;
-        align-items: center;
-        justify-content: center;
+        margin-bottom: 50px;
+        /* align-items: center; */
+        justify-content: space-between;
     }
 
     .bg-membercard {
@@ -42,7 +43,8 @@ $row = $pdo->query($sql)->fetch();
         height: 460px;
         align-items: center;
         justify-content: center;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
+        margin-right: 150px;
     }
 
     .membercard-img {
@@ -126,7 +128,7 @@ $row = $pdo->query($sql)->fetch();
         width: 120px;
         flex-direction: column;
         justify-content: flex-start;
-        margin-right: 20%;
+        margin-top: 15vh;
     }
 
     .box {
@@ -149,7 +151,7 @@ $row = $pdo->query($sql)->fetch();
 
     .btn-blue {
         width: 200px;
-        margin-right: 30px;
+        margin-right: 150px;
     }
 
     .btn-blue:hover {

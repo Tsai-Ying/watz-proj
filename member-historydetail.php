@@ -35,24 +35,31 @@ $totalprice = 0;
         background-size: cover;
     }
 
-    .wrapper {
-        margin-top: 140px;
-        max-width: 100vw;
-        position: relative;
+    .container{
+        justify-content: space-between;
         min-height: 100vh;
-        align-items: center;
-        justify-content: center;
+    }
+    .wrapper {
+        /* height: 100vh; */
+        /* align-items: center; */
+        justify-content: space-between;
+        margin-top: 140px;
+        margin-bottom: 50px;
     }
 
     .bg-orderpage {
+        width: 100%;
+        height: 100%;
         flex-direction: row;
+        justify-content: space-between;
     }
 
     .selector {
         width: 120px;
         flex-direction: column;
         justify-content: flex-start;
-        margin: 210px 100px 0 0;
+        /* margin-right: 20%; */
+        margin-top: 15vh;
     }
 
     .box {
@@ -94,6 +101,7 @@ $totalprice = 0;
         background: #ffffff;
         border-radius: 15px;
         margin-top: 25px;
+        margin-right: 50px;
         padding-bottom: 25px;
         flex-direction: column;
         align-items: center;
