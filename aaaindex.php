@@ -548,13 +548,13 @@ $pageName = 'index';  // 這裡放你的pagename
         <div class="block1-flexcontrol flex">
             <div class="box-kvTop flex">
                 <div class="">
-                    <img id="kvSocks1" src="/images/product/index-clear-01.png" alt="">
+                    <img id="kvSocks1" src="" alt="">
                 </div>
                 <div class="">
-                    <img id="kvSocks2" src="/images/product/index-clear-02.png" alt="">
+                    <img id="kvSocks2" src="" alt="">
                 </div>
                 <div class="">
-                    <img id="kvSocks3" src="/images/product/index-clear-03.png" alt="">
+                    <img id="kvSocks3" src="" alt="">
                 </div>
             </div>
             <div class="box-kvBottom box-wa flex">

@@ -221,7 +221,7 @@
         margin: 20px 0;
         right: 3vw;
         position: fixed;
-        z-index: 20;
+        z-index: 26;
         box-shadow: 0px 3px 3px #70707050;
     }
 
@@ -244,7 +244,6 @@
     .nav.hide-nav .nav-list {
         width: 0;
         overflow: hidden;
-        /* flex-grow: 0; */
     }
     
     .nav-logo {
@@ -270,7 +269,7 @@
     }
     
     .nav-list {
-        /* flex-grow: 0; */
+        transition: .5s;
         justify-content: flex-end;
         width: 100%;
     }
@@ -477,10 +476,12 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        transform: translateX(10px);
     }
 
     .img-empty-cart {
         width: 150px;
+        height: 150px;
         /* transform: translateX(30px); */
         /* margin-bottom: 30px; */
     }
@@ -494,6 +495,7 @@
         align-items: center;
         justify-content: center;
         top: 0;
+        z-index: 2;
     }
     
     .menu .click-area {
@@ -503,7 +505,7 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        z-index: 2;
+        z-index: 5;
     }
     
     .menu .bar {
@@ -540,7 +542,7 @@
         background: #F2DE79;
         height: 100vh;
         width: 300px;
-        z-index: 1;
+        z-index: 2;
         top: -20px;
         right: -3vw;
         transform: translateX(120vw);
@@ -844,6 +846,7 @@
             width: 100vw;
             z-index: 19;
             display: unset;
+            box-shadow: 0 -3px 6px #70707050;
         }
         .fixedlist-icon {
             width: 100vw;

@@ -143,9 +143,9 @@ jQuery('img.svg').each(function () {
 
         } else {
             cart_short_list.append(`
-            <div class="nav-icon-empty-cart>    
+            <div class="nav-icon-empty-cart flex">    
                 <img class="img-empty-cart" src="images/cart-empty.svg" alt="">
-                <h3 class="nav-empty-cart">購物車空空的。</h3>
+                <h4 class="nav-empty-cart">購物車空空的。</h4>
             </div>`)
 
             cart_count.css('background', 'transparent');

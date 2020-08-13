@@ -4,7 +4,7 @@
         <a class="img-logo-img" href="<?= WEB_ROOT ?>/aaaindex.php"><img src="images/logo-img.svg" alt=""></a>
         <a class="img-logo-text" href="<?= WEB_ROOT ?>/aaaindex.php"><img src="images/logo-text.svg" alt=""></a>
     </div>
-    <ul class="nav-list flex transition">
+    <ul class="nav-list flex">
         <li class="dropdown">
             <a>PROJECT</a>
             <div class="dropdown-menu flex transition">
