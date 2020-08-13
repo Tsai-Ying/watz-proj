@@ -25,7 +25,7 @@ $pageName = 'DIY-finished';
     .block {
         width: 500px;
         height: 500px;
-        /* border: 1px solid red; */
+        border: 1px solid red;
         position: relative;
         flex-direction: column;
         justify-content: center;
@@ -33,14 +33,61 @@ $pageName = 'DIY-finished';
         margin: 100px 0 30px;
     }
 
+    .block img {
+        position: absolute;
+    }
+
     .img-bling {
         width: 100%;
         height: 100%;
         object-fit: contain;
+        opacity: .3;
     }
 
     .img-bling {
         position: absolute;
+    }
+
+    .img-bling1 {
+        width: 70px;
+        top: 25%;
+        left: 17%;
+    }
+
+    .img-bling1-1 {
+        width: 80px;
+        bottom: 0;
+        right: 12%;
+    }
+
+    .img-bling2 {
+        width: 25px;
+        bottom: 22%;
+        left: 12%;
+    }
+
+    .img-bling2-1 {
+        width: 20px;
+        top: 53%;
+        left: 30%;
+    }
+
+    .img-bling2-2 {
+        width: 30px;
+        top: 25%;
+        right: 12%;
+    }
+
+    .img-bling2-3 {
+        width: 20px;
+        top: 47%;
+        right: 16%;
+    }
+
+    .img-bling3 {
+        width: 50px;
+        top: 0;
+        left: 53%;
     }
 
     .diy-result {
@@ -153,6 +200,7 @@ $pageName = 'DIY-finished';
         }
     }
 
+    /* SVG */
     .socks-color {
         fill: #FFFFFF;
         stroke: #404040;
@@ -179,7 +227,6 @@ $pageName = 'DIY-finished';
     /* jumpout notice */
 
     .notice {
-        /* transition: .2s; */
         position: fixed;
         width: 100vw;
         height: 100vh;
@@ -188,7 +235,6 @@ $pageName = 'DIY-finished';
     }
 
     .notice-block {
-        /* transition: .4s; */
         padding: 30px;
         background: #FF9685;
         border-radius: 15px;
@@ -253,10 +299,20 @@ $pageName = 'DIY-finished';
 
     <div class="wrapper flex transition">
         <div class="block flex transition">
-            <img class="img-bling transition" src="images/bling.svg" alt="">
+
+            <!-- <img class="img-bling transition" src="images/bling.svg" alt=""> -->
+            <img class="img-bling1 transition" src="images/bling1.svg" alt="">
+            <img class="img-bling1-1 transition" src="images/bling1.svg" alt="">
+            <img class="img-bling2 transition" src="images/bling2.svg" alt="">
+            <img class="img-bling2-1 transition" src="images/bling2.svg" alt="">
+            <img class="img-bling2-2 transition" src="images/bling2.svg" alt="">
+            <img class="img-bling2-3 transition" src="images/bling2.svg" alt="">
+            <img class="img-bling3 transition" src="images/bling3.svg" alt="">
+
+
             <!-- <img class="diy-result transition" src="images/pattern-watz.svg" alt=""> -->
 
-            <svg class="diy-result transition pattern-watz appear" version="1.1" id="pattern-watz" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.1 108" style="enable-background:new 0 0 66.1 108;" xml:space="preserve">
+            <svg class="diy-result transition pattern-watz" version="1.1" id="pattern-watz" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.1 108" style="enable-background:new 0 0 66.1 108;" xml:space="preserve">
                 <g id="圖層_2_1_">
                     <g id="圖層_1-2">
                         <g id="Group_84">
