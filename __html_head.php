@@ -269,7 +269,7 @@
     }
     
     .nav-list {
-        transition: .5s;
+        transition: .45s;
         justify-content: flex-end;
         width: 100%;
     }
@@ -353,6 +353,7 @@
     
     .nav-icon {
         align-items: center;
+        margin-left: 30px;
     }
     
     a.a-cart{
