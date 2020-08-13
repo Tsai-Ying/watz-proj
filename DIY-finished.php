@@ -1219,9 +1219,11 @@ $pageName = 'DIY-finished';
     //get localStorage
     let customStyle = {};
     try {
-        customStyle = JSON.parse(localStorage.getItem('customStyle'));
+        customStyle = localStorage.getItem('customStyle')
+            ? JSON.parse(localStorage.getItem('customStyle'))
+            : {}
         // console.log(customStyle)
-    } catch (ex) {
+    } catch (err) {
         customStyle = {}
     }
 
@@ -1231,7 +1233,7 @@ $pageName = 'DIY-finished';
     $('svg .stroke-width').css('stroke', customStyle["patternColor"]);
 
     let currentID = customStyle["pattern"]
-    console.log(currentID)
+    // console.log(currentID)
 
     $(`#${currentID}`).addClass("appear");
     $(`#${currentID}`).siblings().removeClass("appear");

@@ -1088,7 +1088,6 @@ $pageName = 'DIY';  // 這裡放你的pagename
             </div>
             <div class="flexbox flex transition">
                 <div class="box-left transition">
-                    <!-- <img class="diy-area transition" src="images/pattern-white.svg" alt=""> -->
 
                     <svg class="diy-area transition pattern-watz appear" version="1.1" id="pattern-watz" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.1 108" style="enable-background:new 0 0 66.1 108;" xml:space="preserve">
                         <g id="圖層_2_1_">
@@ -2312,26 +2311,28 @@ $pageName = 'DIY';  // 這裡放你的pagename
     // 若是localStorage出錯 則回復為空值
     let customStyle = {};
     try {
-        customStyle = JSON.parse(localStorage.getItem('customStyle'));
-    } catch (ex) {
+        // console.log('localStorage', localStorage);
+        customStyle = localStorage.getItem('customStyle')
+            ? JSON.parse(localStorage.getItem('customStyle'))
+            : {}
+        // console.log(localStorage.getItem('customStyle'));
+        // console.log('try done');
+    } catch (err) {
         customStyle = {}
     }
+    console.log('customStyle', customStyle);
 
-    //
+    // 返回修改
     $('svg .socks-color').css('fill', customStyle["bottomColor"]);
     $('svg .socks-path').css('fill', customStyle["patternColor"]);
     $('svg .stroke-width').css('stroke', customStyle["patternColor"]);
 
     let currentID = customStyle["pattern"]
-    console.log(currentID)
+    // console.log(currentID)
 
     $(`#${currentID}`).addClass("appear");
     $(`#${currentID}`).siblings().removeClass("appear");
 
-    // if(localStorage.getItem('customStyle')!=null){
-    //     customStyle=localStorage.getItem('customStyle')
-    //     console.log(JSON.parse(customStyle))
-    // }
 
     $(".img-pattern-area").click(function(event) {
 
@@ -2355,7 +2356,6 @@ $pageName = 'DIY';  // 這裡放你的pagename
     //change socks color
     $(".color-top").click(function() {
         let color = $(this).css("background-color")
-        console.log(color)
         $(".socks-color").css("fill", color)
         customStyle.bottomColor = color;
         // console.log('.color-top:', customStyle)
@@ -2385,8 +2385,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
 
     // localstorage 轉為JSON字串
     function storeLocal() {
-        console.log(customStyle);
-        console.log(JSON.stringify(customStyle));
+        // console.log(JSON.stringify(customStyle));
         localStorage.setItem('customStyle', JSON.stringify(customStyle));
     }
 

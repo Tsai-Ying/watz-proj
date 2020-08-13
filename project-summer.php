@@ -1096,19 +1096,19 @@ $pageName = 'project summer';  // 這裡放你的pagename
                 </div>
                 <ul class="flex">
                     <li class="box-li flex pointer">
-                            <img id="watzbox" src="images/summer/watzbox1-1.png" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#page=1&series%5B%5D=1'">
+                            <img id="watzbox" src="images/summer/watzbox1-1.png" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#{series:[1],orderBy:new}'">
                         <h5>芒果派對禮盒</h5>
                     </li>
                     <li class="small-li flex pointer">
-                            <img src="images/summer/block1-3.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=22'">
+                        <img src="images/summer/block1-3.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=22'">
                         <h5 class="mobile-none">夏日煙火</h5>
                     </li>
                     <li class="small-li flex pointer">
-                            <img src="images/summer/block1-4.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=24'">
+                        <img src="images/summer/block1-4.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=24'">
                         <h5 class="mobile-none">一起來跳森巴</h5>
                     </li>
                     <li class="small-li flex pointer">
-                            <img src="images/summer/block1-5.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=19'">
+                        <img src="images/summer/block1-5.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=19'">
                         <h5 class="mobile-none">綠野仙蹤</h5>
                     </li>
                 </ul>
@@ -1129,7 +1129,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
                 <img src="images/summer/block2-1.png" alt="">
             </div>
             <h1>COOL OFF & CHILL OUT.</h1>
-            <button class="btn-coral transition" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#page=1&series%5B%5D=1'">CHECK ME OUT</button>
+            <button class="btn-coral transition" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#{series:[1],orderBy:new}'">CHECK ME OUT</button>
         </div>
     </div>
     <div class="modal absolute"></div>
@@ -1261,11 +1261,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
         $(".img-block3-1 img").attr("src", "images/summer/block3-1.jpg");
     })
 
-    //redirect to summer product
-    const toProduct = () => {
-        #{"series":["1"],"orderBy":"new"}
-    };
-   
+  
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
