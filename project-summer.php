@@ -56,6 +56,12 @@ $pageName = 'project summer';  // 這裡放你的pagename
         mix-blend-mode: multiply;
     }
 
+    .img-pineapple2,
+    .img-orangeline2,
+    .img-pinkpaint2 {
+        display: none;
+    }
+
     .img-whiteline {
         width: 420px;
         top: 0;
@@ -81,7 +87,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
         min-height: 100vh;
         justify-content: space-between;
         padding: 120px 0;
-        /* border: 1px solid red; */
+        border: 1px solid red;
         margin: 0 auto;
     }
 
@@ -190,6 +196,10 @@ $pageName = 'project summer';  // 這裡放你的pagename
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    .block1-right {
+        flex-direction: column;
     }
 
     .block1-right h1 {
@@ -398,6 +408,12 @@ $pageName = 'project summer';  // 這裡放你的pagename
         z-index: -1;
     }
 
+    .modal2 {
+        top: 300vh;
+        z-index: -1;
+        opacity: .3;
+    }
+
     .block4 {
         width: 100vw;
         height: 100vh;
@@ -531,24 +547,241 @@ $pageName = 'project summer';  // 這裡放你的pagename
         .wrapper {
             width: 950px;
             padding: 120px 20px;
+            border: 1px red solid;
         }
+
+        .block1 {
+            left: 0;
+        }
+
+        .border-line {
+            border: 1px solid white;
+            top: -8px;
+            left: -8px;
+        }
+
+
+        .img-block1-1,
+        .border-line,
+        .block1-1 {
+            width: 630px;
+            height: 420px;
+        }
+
+        .img-block1-2 {
+            width: 270px;
+            height: 540px;
+            margin-top: -100px;
+        }
+
+        .block1-right {
+            width: 270px;
+        }
+
+        .block1-left ul {
+            width: 500px;
+            justify-content: space-evenly;
+            align-items: flex-start;
+        }
+
+        .block1-left ul h5 {
+            font-weight: 500;
+            font-size: .75rem;
+        }
+
+        .box-li {
+            width: 150px;
+            height: 150px;
+        }
+
+        .small-li {
+            width: 90px;
+            height: 90px;
+            margin-top: 15px;
+        }
+
+        .block1-right h1 {
+            font-size: 1.8rem;
+        }
+
+        .block1-right h6 {
+            font-size: .75rem;
+        }
+
+        .block2 h1 {
+            font-size: 2.2rem;
+
+        }
+
+        .block2 button {
+            width: 200px;
+            background: #59C3C3;
+        }
+
+        .block3-left ul {
+            width: calc(100vw / 2);
+            left: 10px;
+            bottom: 15px;
+        }
+
+        .block3-right p {
+            width: 400px;
+        }
+
+        .img-block4-2 {
+            width: 180px;
+            height: 180px;
+        }
+
+        .block4 {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .info-left,
+        .info-right {
+            margin: 0;
+            align-self: center;
+        }
+
+        .info-right li {
+            width: 140px;
+            height: 205px;
+            margin-top: 50px;
+        }
+
+        .wrapper-block6 div {
+            width: 220px;
+            height: 340px;
+        }
+
+        .wrapper-block6 {
+            padding: 60px 0 0 0;
+        }
+
     }
 
     @media screen and (max-width: 992px) {
         .wrapper {
             width: 570px;
-            padding: 120px 0;
+            padding: 0;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
+
+        .block1 {
+            height: 100vh;
+        }
+
+        .bg1 {
+            flex-direction: column;
+        }
+
+        .bg-left,
+        .bg-right {
+            width: 100vw;
+            height: calc(100vh / 2);
+        }
+
+        .img-pineapple,
+        .img-orangeline,
+        .img-pinkpaint {
+            display: none;
+        }
+
+        .img-pineapple2 {
+            display: block;
+            bottom: 0;
+            z-index: 1;
+            width: 350px;
+        }
+
+        .img-dot1 {
+            width: 150px;
+        }
+
+        .img-orangeline2 {
+            display: block;
+            width: 200px;
+            right: -20px;
+        }
+
+        .img-pinkpaint2 {
+            display: block;
+            width: 400px;
+            top: 320px;
+            right: -50px;
+        }
+
+        .img-whiteline {
+            width: 240px;
+        }
+
+        .block1 {
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-block1-1,
+        .border-line,
+        .block1-1 {
+            width: 50vw;
+            height: 25vw;
+        }
+
+        .img-block1-2 {
+            width: 30vw;
+            height: 60vw;
+            margin-top: -100px;
+        }
+
+        .summer-tag {
+            width: 150px;
+            height: 35px;
+        }
+
+        .block1-right h6{
+            text-align: center;
+        }
+
+        .block1-left, .block1-right {
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .block1-left ul {
+            width: 400px;
+            justify-content: space-evenly;
+        }
+
+        .box-li {
+            width: 12vw;
+            height: 12vw;
+        }
+
+        .small-li {
+            width: 8vw;
+            height:8vw;
+            margin-top: 10px;
+        }
+
+        .border-line {
+            top: 7%;
+            left: 8.5%;
+        }
+
 
     }
 
     @media screen and (max-width: 576px) {
         .wrapper {
             width: 100vw;
-            padding: 80px 0 0 0;
+            /* padding: 80px 0 0 0; */
         }
 
 
@@ -560,18 +793,21 @@ $pageName = 'project summer';  // 這裡放你的pagename
     <?php include __DIR__ . '/__navbar.php' ?>
     <?php include __DIR__ . '/__html_btn-top.php' ?>
 
-    <div class="flex">
+    <div class="flex bg1">
         <div class="bg-left">
             <img class="bg-blue" src="images/summer-bgblue.svg" alt="">
             <img class="img-dot1 absolute" src="images/summer-dot1.svg" alt="">
             <img class="img-pineapple absolute" src="images/summer-pineapple.svg" alt="">
+            <img class="img-orangeline img-orangeline2 absolute" src="images/summer-orangeline.svg" alt="">
         </div>
         <div class="bg-right">
             <img class="bg-red" src="images/summer-bgred.svg" alt="">
             <img class="img-pinkpaint absolute" src="images/summer-pinkpaint.svg" alt="">
             <img class="img-orangeline absolute" src="images/summer-orangeline.svg" alt="">
+            <img class="img-pineapple img-pineapple2 absolute" src="images/summer-pineapple.svg" alt="">
         </div>
     </div>
+    <img class="img-pinkpaint img-pinkpaint2 absolute" src="images/summer-pinkpaint.svg" alt="">
     <img class="img-text fixed" src="images/summer-text.svg" alt="">
     <img class="img-whiteline absolute" src="images/summer-whiteline.svg" alt="">
 
@@ -612,7 +848,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
                     </li>
                 </ul>
             </div>
-            <div class="block1-right">
+            <div class="block1-right flex">
                 <div class="img-block1-2">
                     <img src="images/summer/block1-2.jpg" alt="">
                 </div>
@@ -665,8 +901,9 @@ $pageName = 'project summer';  // 這裡放你的pagename
     <div class="cheetah-bg absolute">
         <img src="images/summer/block4-1.jpg" alt="">
     </div>
+    <div class="modal modal2 absolute"></div>
     <div class="block4 flex">
-        <div class="info-left flex">
+        <div class="info-left flex transition">
             <div class="img-block4-2">
                 <img src="images/summer/block4-2.png" alt="">
             </div>
@@ -676,7 +913,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
             <p>長襪<br>22-24cm<br>材質:100%純棉</p>
             <button class="btn-coral btn-seemore">SEE MORE</button>
         </div>
-        <ul class="info-right flex">
+        <ul class="info-right flex transition">
             <li><img src="images/summer/block4-3.jpg" alt=""></li>
             <li><img src="images/summer/block4-4.jpg" alt=""></li>
             <li><img src="images/summer/block4-5.jpg" alt=""></li>
@@ -717,19 +954,19 @@ $pageName = 'project summer';  // 這裡放你的pagename
             <h3>MORE GOODIES...</h3>
             <ul class="flex">
                 <li class="flex">
-                    <div class="block6-1"><img src="images/summer/block6-1.jpg" alt=""></div>
+                    <div class="block6-1 transition"><img src="images/summer/block6-1.jpg" alt=""></div>
                     <button class="btn-coral btn-seemore">SEE MORE</button>
                 </li>
                 <li class="flex">
-                    <div class="block6-2"><img src="images/summer/block6-2.jpg" alt=""></div>
+                    <div class="block6-2 transition"><img src="images/summer/block6-2.jpg" alt=""></div>
                     <button class="btn-coral btn-seemore">SEE MORE</button>
                 </li>
                 <li class="flex">
-                    <div class="block6-3"><img src="images/summer/block6-3.jpg" alt=""></div>
+                    <div class="block6-3 transition"><img src="images/summer/block6-3.jpg" alt=""></div>
                     <button class="btn-coral btn-seemore">SEE MORE</button>
                 </li>
                 <li class="flex">
-                    <div class="block6-4"><img src="images/summer/block6-4.jpg" alt=""></div>
+                    <div class="block6-4 transition"><img src="images/summer/block6-4.jpg" alt=""></div>
                     <button class="btn-coral btn-seemore">SEE MORE</button>
                 </li>
             </ul>

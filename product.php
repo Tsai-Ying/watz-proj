@@ -531,6 +531,13 @@ $stmt = $pdo->query($sql);
         border-bottom: 0.5px solid #404040;
     }
 
+    /* 商品欄悾悾 */
+    .product-empty {
+        width: 830px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
     /* ------------ 幫我搭  -------------- */
 
@@ -1316,14 +1323,18 @@ $stmt = $pdo->query($sql);
                             <button class="btn-mo-select flex">進階篩選</button>
                             <div class="right-select-box flex">
                                 <select class="right-select flex" name="rightSelect">
-                                    <option value="new" id="new">最新上架</option>
-                                    <option value="hot" >熱門程度</option>
-                                    <option value="low">$低到高</option>
-                                    <option value="high">$高到低</option>
+                                    <option value="new">最新上架</option>
+                                    <option value="Popular">熱門程度</option>
+                                    <option value="lowPrice">$低到高</option>
+                                    <option value="highPrice">$高到低</option>
                                 </select>
                             </div>
                         </div>
                     </div>
+                    <!-- <div class="product-empty flex">
+                        <div><img src="images/product-kuku.svg" alt=""></div>
+                        <h3>沒有找到你想要的襪子。</h3>
+                    </div> -->
                     <ul class="product-box
                         flex">
 
@@ -1583,6 +1594,12 @@ $stmt = $pdo->query($sql);
             }
             productBox.empty(); //先清空再append新的內容
             productGet(data);
+          if( rows=Array(0)){
+                productBox.append(` <div class="product-empty flex">
+                        <div><img src="images/product-kuku.svg" alt=""></div>
+                        <h3>沒有找到你想要的襪子。</h3>
+                    </div> `)
+            }
         }, 'json')
         handleHash2();
     });
@@ -1602,6 +1619,16 @@ $stmt = $pdo->query($sql);
             }
             productBox.empty(); //先清空再append新的內容
             productGet(data);
+            if( rows=Array(0)){
+                productBox.append(` <div class="product-empty flex">
+                        <div><img src="images/product-kuku.svg" alt=""></div>
+                        <h3>沒有找到你想要的襪子。</h3>
+                    </div> `)
+            }
+             
+            
+
+
         }, 'json');
         handleHash();
     });
@@ -1658,7 +1685,12 @@ $stmt = $pdo->query($sql);
             productBox.empty(); //先清空再append新的內容
             productGet(data);
         }, 'json')
-
+        if( rows=Array(0)){
+                productBox.append(` <div class="product-empty flex">
+                        <div><img src="images/product-kuku.svg" alt=""></div>
+                        <h3>沒有找到你想要的襪子。</h3>
+                    </div> `)
+            }
     }
 
     function handleHash2() {
@@ -1692,6 +1724,12 @@ $stmt = $pdo->query($sql);
             productBox.empty(); //先清空再append新的內容
             productGet(data);
         }, 'json')
+        if( rows=Array(0)){
+                productBox.append(` <div class="product-empty flex">
+                        <div><img src="images/product-kuku.svg" alt=""></div>
+                        <h3>沒有找到你想要的襪子。</h3>
+                    </div> `)
+            }
 
     }
 
@@ -1714,23 +1752,7 @@ $stmt = $pdo->query($sql);
         }
     }
 
-     function productGet(data) {
 
-        if (data && data.rows) {
-            for (let i in data.rows) {
-                
-                productBox.append(itemTpl(data.rows[i]));
-
-                $(".product-top-img img").mouseenter(function() {
-                    $(this).attr("src", $(this).attr('src').replace("-1.jpg", "-2.jpg"));
-                });
-
-                $(".product-top-img img").mouseleave(function() {
-                    $(this).attr("src", $(this).attr('src').replace("-2.jpg", "-1.jpg"));
-                });
-            }
-        }
-    }
 
     function itemTpl(obj) {
         return `<li class="single-product-box flex sid=${obj['sid']}">
@@ -1745,24 +1767,24 @@ $stmt = $pdo->query($sql);
                     </a>
                 </li>`
     }
-  
-// ------------------------------------
 
-// $(".right-select").change(function (data) {
-//             // console.log($(".right-select").val(data));
-//             let selectdata = $('select[name="rightSelect"]  option[="new"] ').val();
-//          if(data="new"){
-//             console.log("newOK");
-//          }
-//         });
-//         $('form[name=form1] input[name="colors[]" ]').change(function()
+    // ------------------------------------
+
+    // $(".right-select").change(function (data) {
+    //             // console.log($(".right-select").val(data));
+    //             let selectdata = $('select[name="rightSelect"]  option[="new"] ').val();
+    //          if(data="new"){
+    //             console.log("newOK");
+    //          }
+    //         });
+    //         $('form[name=form1] input[name="colors[]" ]').change(function()
     // ---------------------
     function seriesProduct() {
 
         let h = location.hash.slice(1);
         h = parseInt(h) || 1; //如果h為NaN則值給1
         $('#page').val(h);
-      
+
 
         // ----------
         let series = location.hash.slice(-1)
