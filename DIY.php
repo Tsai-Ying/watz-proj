@@ -2379,6 +2379,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
                 "fill": "#FFFFFF",
                 "stroke": "#404040"
             })
+            currentColor = "#404040";
         } else {
             $(".socks-path").css({
                 "fill": "#404040",
@@ -2387,6 +2388,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
                 "fill": "#FFFFFF",
                 "stroke": "#404040"
             })
+            currentColor = "#404040";
         }
     })
 </script>
