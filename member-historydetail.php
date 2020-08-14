@@ -168,7 +168,7 @@ $totalprice = 0;
 
     .product-info h5.subtotal {
         text-align: right;
-        width: 10%;
+        width: 20%;
     }
 
     .bg-bill {
@@ -231,8 +231,8 @@ $totalprice = 0;
         }
 
         .wrapper {
-            width: 80vh;
-            height: 140vh;
+            width: 100%;
+            margin-top: 110px;
             justify-content: center;
         }
 
@@ -245,13 +245,14 @@ $totalprice = 0;
         .selector {
             width: 94vw;
             flex-direction: row;
-            justify-content: center;
-            margin-top: 20px;
+            justify-content: space-evenly;
+            margin-bottom: 20px;
             margin-right: 0;
+            margin-top: 0;
         }
 
         .box {
-            width: 30vw;
+            width: auto;
             height: 10vw;
             line-height: 30px;
             text-align: center;
@@ -263,28 +264,27 @@ $totalprice = 0;
         }
 
         .bg-detail {
-            width: 80vw;
-            height: 100%;
+            width: 96vw;
         }
 
         .bg-order-content {
-            width: 80vw;
-            height: 100%;
+            width: 94vw;
+            margin: 0;
         }
 
         .block1 {
-            width: 66vw;
-            margin: 50px;
+            margin: 20px 0;
         }
 
         .order-info1 {
             flex-direction: column;
             align-items: flex-start;
-            width: 70vw;
+            width: 80vw;
         }
 
         .order-num {
             justify-content: flex-start;
+            height: 30px;
         }
 
         .margin {
@@ -292,11 +292,11 @@ $totalprice = 0;
         }
 
         .block2 {
-            width: 80vw;
+            width: 94vw;
         }
 
         .product-info {
-            width: 80vw;
+            width: 94vw;
             align-items: center;
         }
 
@@ -309,11 +309,11 @@ $totalprice = 0;
 
 
         .title {
-            width: 70vw;
+            width: 80vw;
         }
 
         .bg-bill {
-            width: 73vw;
+            width: 90vw;
         }
 
         .block3 {
@@ -330,14 +330,27 @@ $totalprice = 0;
             justify-content: center;
         }
 
-        .btn-blue.gray {
-            width: 18vw;
-        }
-
         .button-box {
-            width: 70vw;
+            width: 80vw;
             justify-content: flex-end;
             margin-bottom: 20px;
+        }
+    }
+
+    @media screen and (max-width: 576px){
+
+        .block1{
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .wrapper{
+            margin-top: 70px;
+            margin-bottom: 30px;
+        }
+
+        .selector a{
+            padding: 0;
         }
     }
 </style>
@@ -357,7 +370,7 @@ $totalprice = 0;
                 <div class="box"><a href="<?= WEB_ROOT ?>/member-privacy.php">隱私權政策</a></div>
             </div>
             <div class="bg-detail flex">
-                <div class="flex">
+                <div class="flex mobile-none">
                     <button class="btn-blue">回上一頁</button>
                 </div>
                 <div class="bg-order-content flex">

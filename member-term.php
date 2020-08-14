@@ -89,7 +89,7 @@ $pageName = 'member-term';  // 這裡放你的pagename
         .wrapper {
             width: 100%;
             height: 100%;
-            margin-top: 100px;
+            margin-top: 110px;
         }
 
         .bg-term {
@@ -101,15 +101,15 @@ $pageName = 'member-term';  // 這裡放你的pagename
         .selector {
             width: 94vw;
             flex-direction: row;
-            justify-content: center;
-            margin-top: 20px;
+            justify-content: space-evenly;
+            margin-top: 0px;
             margin-right: 0;
             margin-bottom: 20px;
 
         }
 
         .box {
-            width: 30vw;
+            width: auto;
             height: 10vw;
             line-height: 30px;
             text-align: center;
@@ -134,6 +134,7 @@ $pageName = 'member-term';  // 這裡放你的pagename
     @media screen and (max-width: 576px){
         .wrapper{
             margin-top: 70px;
+            margin-bottom: 30px;
         }
 
         .background{
@@ -143,6 +144,10 @@ $pageName = 'member-term';  // 這裡放你的pagename
         .background li h6{
             width: 90%;
             margin: 40px 40px;
+        }
+
+        .selector a{
+            padding: 0;
         }
     } 
 </style>

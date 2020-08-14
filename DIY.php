@@ -2,6 +2,7 @@
 $pageName = 'DIY';  // 這裡放你的pagename
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 <style>
     .container {
         width: 100%;
@@ -420,6 +421,12 @@ $pageName = 'DIY';  // 這裡放你的pagename
         z-index: 0;
     }
 
+    .img-pattern-area img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
     .shape-flex {
         flex-wrap: wrap;
         width: 420px;
@@ -534,7 +541,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
 
     .color#b4 {
         background: #D7A6B3;
-       
+
     }
 
     .color#b5 {
@@ -1031,8 +1038,75 @@ $pageName = 'DIY';  // 這裡放你的pagename
     .round {
         stroke-linecap: round;
     }
-</style>
 
+    /* jumpout notice */
+
+    .notice {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        visibility: hidden;
+        user-select: none;
+    }
+
+    .notice-block {
+        padding: 30px;
+        background: #FF9685;
+        border-radius: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        align-items: center;
+        z-index: 5;
+        opacity: 0;
+    }
+
+    .notice-bg {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: #404040;
+        opacity: .8;
+    }
+
+    .notice-top {
+        margin-bottom: 10px;
+    }
+
+    .notice-top img {
+        height: 40px;
+    }
+
+    .notice-bottom h3 {
+        color: white;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .notice.success {
+        visibility: visible;
+        z-index: 20;
+    }
+
+    .notice.success .notice-block {
+        opacity: 1;
+    }
+</style>
+<!-- jumpout notice -->
+<div class="notice">
+    <!-- <div class="notice-bg"></div> -->
+    <div class="notice-block  flex">
+        <div class="notice-top">
+            <img src="images/icon-success.svg " alt=" ">
+        </div>
+        <div class="notice-bottom">
+            <h3>哦喔!<br>
+                沒有收到DIY資料。</h3>
+        </div>
+    </div>
+</div>
 
 <div class="container flex">
     <?php include __DIR__ . '/__navbar.php' ?>
@@ -2138,8 +2212,9 @@ $pageName = 'DIY';  // 這裡放你的pagename
                         <div class="btn-left flex">
                             <button class="btn-blue btn-clear">Clear</button>
                         </div>
+
                         <div class="btn-right flex">
-                            <button class="btn-coral btn-finish" onclick="javascript:location.href='<?= WEB_ROOT ?>/diy-finished.php'">Finish</button>
+                            <button class="btn-coral btn-finish">Finish</button>
                         </div>
                     </div>
                 </div>
@@ -2258,6 +2333,17 @@ $pageName = 'DIY';  // 這裡放你的pagename
         openTutorial();
     })
 
+    // 點了pattern shapecolor自動滑出
+    $('.img-pattern').click(function(){
+        $(".shape-color").addClass("transition")
+        $(".shape-color").addClass("move-left")
+    })
+
+    $(".color-active").mouseenter(function(){
+        $(".shape-color").addClass("transition")
+        $(".shape-color").addClass("move-left")
+    })
+
     // shape-color move left
     $(".color-active").click(function(event) {
         $(".shape-color").addClass("transition")
@@ -2270,8 +2356,6 @@ $pageName = 'DIY';  // 這裡放你的pagename
     $(".tutorial").click(function() {
         openTutorial();
     })
-
-
     $(".tutorial#tutor2").click(function() {
         closeTutorial();
     })
@@ -2300,27 +2384,25 @@ $pageName = 'DIY';  // 這裡放你的pagename
         }
     })
 
-    // 1. Find class to trigger mouse click event
-    // 2. Get svg ID and set to `currentImage`
-    // 3. Use svg ID to change target css
 
-    //DIY change Pattern
     let currentImage = '';
     let currentColor = '';
 
+    // 預設襪子花紋
+    const defaultCustom = {
+        "bottomColor": "#FFFFFF",
+        "pattern": "pattern-watz",
+        "patternColor": "#404040"
+    };
+    let customStyle = Object.assign({}, defaultCustom);
+
     // 若是localStorage出錯 則回復為空值
-    let customStyle = {};
     try {
-        // console.log('localStorage', localStorage);
-        customStyle = localStorage.getItem('customStyle')
-            ? JSON.parse(localStorage.getItem('customStyle'))
-            : {}
-        // console.log(localStorage.getItem('customStyle'));
-        // console.log('try done');
+        customStyle = localStorage.getItem('customStyle') ?
+            JSON.parse(localStorage.getItem('customStyle')) : Object.assign({}, defaultCustom)
     } catch (err) {
-        customStyle = {}
+        customStyle = Object.assign({}, defaultCustom);
     }
-    console.log('customStyle', customStyle);
 
     // 返回修改
     $('svg .socks-color').css('fill', customStyle["bottomColor"]);
@@ -2328,12 +2410,12 @@ $pageName = 'DIY';  // 這裡放你的pagename
     $('svg .stroke-width').css('stroke', customStyle["patternColor"]);
 
     let currentID = customStyle["pattern"]
-    // console.log(currentID)
 
     $(`#${currentID}`).addClass("appear");
     $(`#${currentID}`).siblings().removeClass("appear");
 
 
+    //DIY change Pattern
     $(".img-pattern-area").click(function(event) {
 
         const currentTargetId = event.currentTarget.id;
@@ -2342,7 +2424,6 @@ $pageName = 'DIY';  // 這裡放你的pagename
         $(`.diy-area#${currentTargetId}`).siblings().removeClass("appear")
 
         currentImage = currentTargetId;
-        // console.log(currentImage)
         $('.socks-path').css("fill", currentColor);
         $(".stroke-width").css({
             "fill": currentColor,
@@ -2358,15 +2439,12 @@ $pageName = 'DIY';  // 這裡放你的pagename
         let color = $(this).css("background-color")
         $(".socks-color").css("fill", color)
         customStyle.bottomColor = color;
-        // console.log('.color-top:', customStyle)
         storeLocal()
     })
 
     //change shape color
     $(".color-bottom").click(function() {
         let shapecolor = $(this).css("background-color")
-        // console.log(shapecolor)
-        // console.log(currentImage);
         currentColor = shapecolor;
 
         if (currentImage === 'pattern-stripe') {
@@ -2401,6 +2479,10 @@ $pageName = 'DIY';  // 這裡放你的pagename
                 "stroke": "#404040"
             })
             currentColor = "#404040";
+            customStyle.bottomColor = "#FFFFFF";
+            customStyle.pattern = 'pattern-stripe';
+            customStyle.patternColor = "#404040";
+            storeLocal()
         } else {
             $(".socks-path").css({
                 "fill": "#404040",
@@ -2410,8 +2492,17 @@ $pageName = 'DIY';  // 這裡放你的pagename
                 "stroke": "#404040"
             })
             currentColor = "#404040";
+            customStyle.bottomColor = "#FFFFFF";
+            customStyle.patternColor = "#404040";
+            storeLocal()
         }
     })
+
+    //finish btn
+    $('.btn-finish').click(function() {
+            location.href = '<?= WEB_ROOT ?>/DIY-finished.php';
+    })
+
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>

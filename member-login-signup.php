@@ -287,9 +287,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
             /* margin: 6px 12px 6px 7px; */
         }
 
-        .eyes{
-            /* transform: translateX(-8vw); */
-        }
     }
 
     /* ------------------------------------input---------------------------------------- */
