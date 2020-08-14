@@ -269,7 +269,7 @@
     }
     
     .nav-list {
-        transition: .45s;
+        transition: .6s;
         justify-content: flex-end;
         width: 100%;
     }
@@ -353,7 +353,7 @@
     
     .nav-icon {
         align-items: center;
-        margin-left: 30px;
+        /* margin-left: 30px; */
     }
     
     a.a-cart{
@@ -645,6 +645,15 @@
     
     a:hover .st0 {
         fill: #FF9685;
+    }
+
+    @media screen and (max-width: 1100px){
+        .nav-list{
+            transition: .8s;
+        }
+        .nav-list a{
+            padding: 19px 12px;
+        }
     }
     
     @media screen and (max-width: 992px) {

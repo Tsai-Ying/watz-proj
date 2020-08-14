@@ -11,7 +11,7 @@
                 <div class="dropdown-bg flex transition">
                     <a class="" href="<?= WEB_ROOT ?>/project-summer.php">芒果派對</a>
                     <a class="" href="<?= WEB_ROOT ?>/project-irregular.php">群魔亂舞</a>
-                    <a class="" href="<?= WEB_ROOT ?>/aaaindex.php">灰姑娘的<br>水晶襪</a>
+                    <a class="" href="<?= WEB_ROOT ?>/project-crystal.php">灰姑娘的<br>水晶襪</a>
                 </div>
             </div>
         </li>

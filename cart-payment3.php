@@ -1,5 +1,5 @@
 <?php require __DIR__ . '/__connect_db.php';
-$pageName = 'aboutWATZ';  // 這裡放你的pagename
+$pageName = '';  // 這裡放你的pagename
 
 $sids = array_column($_SESSION['cart'], 'sid');
 $p_sql = "SELECT * FROM `product` WHERE `sid` IN (". implode(',', $sids). ")";

@@ -1,5 +1,5 @@
 <?php require __DIR__ . '/__connect_db.php';
-$pageName = 'aboutWATZ';  // 這裡放你的pagename
+$pageName = '';  // 這裡放你的pagename
 
 $id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
 $sql = "SELECT * FROM `members` WHERE `id`= $id";
