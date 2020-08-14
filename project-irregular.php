@@ -617,7 +617,7 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
                 <img class="transition" src="images/irregular/square4-2.png" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=3'">
             </li>
             <li class="square4-3 sock-png flex">
-                <img class="transition" src="images/irregular/square4-3.png" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=3'">
+                <img class="transition" src="images/irregular/square4-3.png" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=20'">
             </li>
             <li>
                 <img src="images/irregular/square4-4.jpg" alt="">
@@ -638,9 +638,9 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
             <div class="bg3-right"></div>
         </div>
         <img class="path-up" src="images/irregular/Path-down.svg" alt="">
-        <img class="pic" src="images/irregular/WATZ_irregular.png">
+        <img class="pic" src="images/irregular/WATZ_irregular.png" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=16''">
         <img class="path-down" src="images/irregular/Path-up.svg" alt="">
-        <button class="seemore btn-coral flex" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#{series:[2],orderBy:new}'">
+        <button class="seemore btn-coral flex" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=16''">
             <h3>See More</h3>
         </button>
     </div>
