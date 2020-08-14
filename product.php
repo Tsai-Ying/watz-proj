@@ -84,7 +84,7 @@ $stmt = $pdo->query($sql);
         width: 85px;
         position: fixed;
         right: 2.9vw;
-        top: 55vh;
+        top: 70vh;
         z-index: 21;
         background-color: #FF9685;
         border: white 3px solid;
@@ -118,7 +118,7 @@ $stmt = $pdo->query($sql);
             height: 60px;
             width: 60px;
             right: 3.1vw;
-            top: 60vh;
+            top: 72vh;
             border: white 1px solid;
         }
 
@@ -197,7 +197,7 @@ $stmt = $pdo->query($sql);
 
     .box-series li:hover {
         background: #F2DE79;
-        transition: linear 1s;
+        transition: linear 0.4s;
     }
 
 
@@ -224,27 +224,30 @@ $stmt = $pdo->query($sql);
         flex-wrap: wrap;
     }
 
-    .color-btn-box li {
+    .color-btn-box li{
         width: 30px;
         height: 30px;
         align-items: center;
         justify-content: center;
         margin: 3px;
         position: relative;
-        /* background:url('images/select circle.svg')no-repeat; */
+        background:unset !important;
+    }
+    .color-active {
+        background: url('images/select circle.svg') no-repeat;
     }
 
-    .img-select-circle {
+    /* .img-select-circle {
         width: 30px;
         height: 30px;
         position: absolute;
-        /* opacity: 1; */
+        opacity: 1;
         z-index: -20;
     }
 
     .img-select-circle:hover {
         opacity: 1;
-    }
+    } */
 
     .color-lb {
         padding: 0;
@@ -324,9 +327,7 @@ $stmt = $pdo->query($sql);
         border: transparent;
     } */
 
-    .color-btn-box li:hover {
-        background: url("images/select circle.svg") no-repeat;
-    }
+    
 
     /* .color-active {
            background: url("images/select circle.svg") no-repeat;
@@ -375,7 +376,7 @@ $stmt = $pdo->query($sql);
 
     .type-btn-box li:hover {
         background: #F2DE79;
-        transition: linear 1s;
+        transition: linear 0.4s;
     }
 
     .type-active {
@@ -443,6 +444,8 @@ $stmt = $pdo->query($sql);
         font-family: 'Noto Sans TC', sans-serif;
         font-weight: 400;
         letter-spacing: 2px;
+        outline: none;
+        white-space: nowrap;
 
     }
 
@@ -614,7 +617,7 @@ $stmt = $pdo->query($sql);
             height: 50px;
             justify-content: center;
             align-items: center;
-            transition: 0.5s;
+            transition: linear 0.4s;
             border: 2px;
         }
 
@@ -685,7 +688,7 @@ $stmt = $pdo->query($sql);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: ease-in;
+            transition: linear 0.4s;
         }
 
         .right-select-rwd {
@@ -1244,13 +1247,13 @@ $stmt = $pdo->query($sql);
                     <div class="box-color">
                         <p>Color</p>
                         <ul class="color-btn-box flex">
-                            <li class="flex">
+                            <li class="flex" >
                                 <label class="cursor color-lb flex">
                                     <input type="checkbox" id="color-in1" name="colors[]" value="1" class="cursor flex color-in" />
                                     <span></span>
                                 </label>
                             </li>
-                            <li class="flex">
+                            <li class="flex" >
                                 <label class="cursor color-lb flex">
                                     <input type="checkbox" id="color-in2" name="colors[]" value="2" class="cursor color-in flex" />
                                     <span></span>
@@ -1312,13 +1315,13 @@ $stmt = $pdo->query($sql);
             <div class="block-right flex">
                 <div class="block-right-bg flex">
                     <div class="top-box flex">
-                        <div class="breadcrumb flex">
-                            <a href="" class="flex">
-                                <h5>商品</h5>
+                        <div class="breadcrumb flex ">
+                            <a href="product.php" class="flex">
+                                <h5 class="cursor">商品</h5>
                             </a>
                             <h5 class="flex">></h5>
-                            <a href="" class="flex">
-                                <h5>商品一覽</h5>
+                            <a href="product.php" class="flex">
+                                <h5  class="cursor">商品一覽</h5>
                             </a>
                         </div>
                         <div class="right-select-rwd flex">
@@ -1327,8 +1330,8 @@ $stmt = $pdo->query($sql);
                                 <select class="right-select flex" name="rightSelect">
                                     <option value="new" id="new" class="orderBy-box" name="orderBy">最新上架</option>
                                     <option value="popular" id="popular" name="orderBy"class="orderBy-box">熱門程度</option>
-                                    <option value="lowPrice" id="lowPrice" class="orderBy-box" name="orderBy">$低到高</option>
-                                    <option value="highPrice" id="highPrice" class="orderBy-box" name="orderBy">$高到低</option>
+                                    <option value="lowPrice" id="lowPrice" class="orderBy-box" name="orderBy">$價格低到高</option>
+                                    <option value="highPrice" id="highPrice" class="orderBy-box" name="orderBy">$價格高到低</option>
                                 </select>
                             </div>
                         </div>
@@ -1337,76 +1340,14 @@ $stmt = $pdo->query($sql);
                         <div><img src="images/product-kuku.svg" alt=""></div>
                         <h3>沒有找到你想要的襪子。</h3>
                     </div> -->
-                    <ul class="product-box
-                        flex">
-<?php /*
-                        <?php foreach ($rows as $r) : ?>
-                            <li class="single-product-box flex sid=<?= $r['sid'] ?>">
-                                <a href="product-detail.php?sid=<?= $r['sid'] ?>">
-                                    <div class="product-top-img flex">
-                                        <img src='images/product/<?= $r['img_ID'] ?>-1.jpg?' alt="">
-                                    </div>
-                                    <div class="product-text flex">
-                                        <h5><?= $r['product_name'] ?>&nbsp &nbsp<?= $r['price'] ?>元</h5>
-                                    </div>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
-*/ ?>
-
-                        <!-- <li class="single-product-box flex">
-                            <div class="product-top-img flex">
-                                <img src="images/product/darkyellow-01.jpeg" alt="">
-                            </div>
-                            <div class="product-text flex">
-                                <h5>01 偶素襪子 180元</h5>
-                                <img src="images/color1.svg" alt="">
-                                <img src="images/color2.svg" alt="">
-                            </div>
-                        </li>
-                       -->
+                    <ul class="product-box flex">
                     </ul>
                 </div>
 
                 <div class="flex">
-                    <?php if (!empty($stmt)) : ?>
-                        <ul class="pagination flex">
-                            <li class="page-btn page-item <?= $page == 1 ? 'disabled' : '' ?>">
-                                <a class="page-link" href="?page=<?= $page - 1 ?>">
-                                    PREV
-                                </a>
-                            </li>
-                            <?php
-                            for ($i = $page - 2; $i <= $page + 2; $i++) :
-                                if ($i < 1) continue;
-                                if ($i > 9) break ?>
-                                <li class="page-item page-btn  <?= $page == $i ? 'active' : '' ?>">
-                                    <a class="page-current" href="?page=<?= $i ?>"><?= $i ?></a>
-                                </li>
-                            <?php endfor; ?>
-                            <li class=" page-btn page-item <?= $page == $totalPages ? 'disabled' : '' ?>">
-                                <a class="page-link" href="?page=<?= $page + 1 ?>">
-                                    NEXT
-                                </a>
-                            </li>
-                        </ul>
-
-                    <?php endif; ?>
+                    <ul class="pagination flex">
+                    </ul>
                 </div>
-
-
-
-                <!-- <a class="page-disabled"><i></i>PREV</a>
-                        <a href="#">＜</a>
-                        <a class="page-current page-active">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                       
-                        <a href="#">7</a>
-                        <a href="#">＞</a>
-                        <a class="page-next" href="#">NEXT<i></i></a> -->
                 </li>
                 </ul>
             </div>
@@ -1440,8 +1381,22 @@ $stmt = $pdo->query($sql);
         ]
     });
 
-    // --------------------------- selector  ------------------------------
+    // ---------- selector  ----------
+// color hover
+$(".color-btn-box li ").hover(function() {
+        $(this).css({
+            "transition": "1s",
+            "background": "url('images/select circle.svg') no-repeat"
+        });
+    }, function() {
+        $(this).css({
+            "transition": "1s",
+             "background": "none"
+        });
+    });
 
+
+// selector 992 收合
     if ($(window).width() <= 992) {
 
         $('.selector').hide();
@@ -1455,39 +1410,6 @@ $stmt = $pdo->query($sql);
         $('.selector').slideUp(1000);
         return false;
     });
-
-
-    // active狀態
-
-    // $('form[name=form1] input[name="series[]" ]').change(function() {
-    //     if (this.checked) {
-    //         $(this).parents("li").addClass("series-active");
-    //     } else {
-    //         $(this).parents("li").removeClass("series-active");
-    //     }
-    // });
-
-    // $('form[name=form1] input[name="colors[]" ]').change(function() {
-    //     if (this.checked) {
-    //         $(this).parents("li").css({
-    //             "background": "url('images/select circle.svg') no-repeat"
-    //         });
-    //     } else {
-    //         $(this).parents("li").css({
-    //             "background": "none"
-    //         });
-    //     }
-    // });
-
-
-    // $('form[name=form1] input[name="types[]" ]').change(function() {
-    //     if (this.checked) {
-    //         $(this).parents("li").addClass("type-active");
-    //     } else {
-    //         $(this).parents("li").removeClass("type-active");
-    //     }
-    // });
-
 
 
     // ------------------  幫我搭------------------
@@ -1622,17 +1544,30 @@ $stmt = $pdo->query($sql);
         });
         // orderBy
         hObj.orderBy = $('select.right-select').val();
-        location.href = '#' + JSON.stringify(hObj);
+        
     }
-    
-    $('form[name=form1] input[type=checkbox]').click(findStatus);
-    $('select.right-select').change(findStatus);
+    // --------------------------------
+    $('form[name=form1] input[type=checkbox]').click(function(){
+        findStatus();
+        location.href = '#' + JSON.stringify(hObj);
+    });
+        
+
+    $('select.right-select').change(function(){
+        findStatus();
+        location.href = '#' + JSON.stringify(hObj);
+    });
    
     // --------------------------------
+    function goPage(page) {
+        findStatus();
+        hObj.page = page;
+        location.href = '#' + JSON.stringify(hObj);
+    }
 
 
 
-
+    // --------------------------------
     const pagination = $('.pagination');
     const tbody = $('.tbody');
 
@@ -1642,7 +1577,7 @@ $stmt = $pdo->query($sql);
         //obj.isActive 本頁頁碼active
         return `
                 <li class="page-item page-btn ${obj.isActive ? 'active' : ''}">
-                    <a class="page-current " href="#${obj.i}">${obj.i}</a>
+                    <a class="page-current " href="javascript:goPage(${obj.i})">${obj.i}</a>
                 </li>`
     }
 
@@ -1669,11 +1604,10 @@ $stmt = $pdo->query($sql);
                 let cb = $('input.series-checkbox[value=' + hObj['series'][i] + ']');
                 cb.prop('checked', true);
                 cb.closest('li').addClass('series-active');
-
             }
         }
   // color
-  $('input.olor-in').prop('checked', false);
+  $('input.color-in').prop('checked', false);
         $('input.color-in').closest('li').css({
                 "background": "none"
             });
@@ -1681,10 +1615,7 @@ $stmt = $pdo->query($sql);
             for(let i in hObj['colors'] ){
                 let cb = $('input.color-in[value=' + hObj['colors'][i] + ']');
                 cb.prop('checked', true);
-                cb.closest('li').css({
-                "background": "url('images/select circle.svg') no-repeat"
-            });;
-
+                cb.closest('li').addClass("color-active");
             }
         }
 
@@ -1699,19 +1630,6 @@ $stmt = $pdo->query($sql);
 
             }
         }
-        // orderBy
-
-        // $('input.type-checkbox').prop('checked', false);
-        // $('input.type-checkbox').closest('li').removeClass('type-active');
-        // if(hObj['orderBy'] && hObj['orderBy'].length){
-        //     for(let i in hObj['orderBy'] ){
-        //         let cb = $('option.orderBy-box[value=' + hObj['orderBy'][i] + ']');
-                // cb.prop('checked', true);
-                // cb.closest('li').addClass('type-active');
-
-        //     }
-        // }
-
 
         //取得api的資料
         $.get('product-api.php', hObj, function(data) {
@@ -1719,7 +1637,7 @@ $stmt = $pdo->query($sql);
 
             pagination.empty();
             pagination.append(`<li class="page-btn page-item ${data.page == 1 ? 'disabled' : ''} ">
-                                <a class="page-link" href="#${data.page - 1 }">
+                                <a class="page-link" href="javascript:goPage(${data.page-1})">
                                     PREV
                                 </a>
                             </li>`)
@@ -1730,7 +1648,7 @@ $stmt = $pdo->query($sql);
                 }));
             }
             pagination.append(`<li class=" page-btn page-item ${data.page == data.totalPages ? 'disabled' : ''}">
-                                <a class="page-link" href="#${data.page + 1 }">
+                                <a class="page-link" href="javascript:goPage(${data.page + 1 })">
                                     NEXT
                                 </a>
                             </li>`)
@@ -1763,6 +1681,7 @@ $stmt = $pdo->query($sql);
             }
         }
     }
+    
 
     function itemTpl(obj) {
         return `<li class="single-product-box flex sid=${obj['sid']}">
@@ -1779,103 +1698,6 @@ $stmt = $pdo->query($sql);
     }
 
    
-          
-    // ---------------------
-    function seriesProduct() {
-
-        // let h = location.hash.slice(1);
-        // h = parseInt(h) || 1; //如果h為NaN則值給1
-        // $('#page').val(h);
-
-
-        // ----------
-        // let series = location.hash.slice(-1)
-
-        // console.log('series=' + series)
-
-        // if (series==1){
-        //         $('#summerSeries').prop('checked','true');
-        //         console.log('123')
-        // }else if(series==2){
-        //         $('#irregularSeries').attr('checked');
-        // }
-
-        // switch (series) {
-        //     case '1':
-        //         $('#summerSeries').prop('checked', 'true');
-        //         console.log('summerSeriesChecked')
-        //         break;
-
-        //     case '2':
-        //         $('#irregularSeries').prop('checked', 'true');
-        //         console.log('irregularSeriesChecked')
-
-        //         break;
-
-        //     case '3':
-        //         $('#crystalSeries').prop('checked', 'true');
-        //         console.log('crystalSeriesChecked')
-        //         break;
-
-        //     case '4':
-        //         $('#plainSeries').prop('checked', 'true');
-        //         console.log('plainSeriesChecked')
-        //         break;
-
-        //     case '5':
-        //         $('#geomSeries').prop('checked', 'true');
-        //         console.log('geomSeriesChecked')
-        //         break;
-
-        //     case '6':
-        //         $('#americanSeries').prop('checked', 'true');
-        //         console.log('americanSeriesChecked')
-        //         break;
-        // }
-
-        const sendObj = location.hash.slice(1)
-
-        // console.log(sendObj)
-
-
-
-        // console.log(sendObj)
-        $.get('product-api.php', sendObj, function(data) {
-            console.log(data);
-
-            pagination.empty();
-            for (let s in data.pageBtns) {
-                pagination.append(pageBtnTpl({
-                    i: data.pageBtns[s],
-                    isActive: data.pageBtns[s] == data.page
-                }));
-            }
-
-            productBox.empty(); //先清空再append新的內容
-            productGet(data);
-            pagination.empty();
-            pagination.append(`<li class="page-btn page-item ${data.page == 1 ? 'disabled' : ''} ">
-                        <a class="page-link" href="#${data.page - 1 }">
-                            PREV
-                        </a>
-                    </li>`)
-            for (let s in data.pageBtns) {
-                pagination.append(pageBtnTpl({
-                    i: data.pageBtns[s],
-                    isActive: data.pageBtns[s] == data.page
-                }));
-            }
-            pagination.append(`<li class=" page-btn page-item ${data.page == data.totalPages ? 'disabled' : ''}">
-                        <a class="page-link" href="#${data.page + 1 }">
-                            NEXT
-                        </a>
-                    </li>`)
-
-            productBox.empty(); //先清空再append新的內容
-            productGet(data);
-        }, 'json')
-    }
-
     window.addEventListener('hashchange', handleHash); //在window監聽hashChange的event
     handleHash();
     
