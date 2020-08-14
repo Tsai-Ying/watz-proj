@@ -638,9 +638,9 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
             <div class="bg3-right"></div>
         </div>
         <img class="path-up" src="images/irregular/Path-down.svg" alt="">
-        <img class="pic" src="images/irregular/WATZ_irregular.png" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=16''">
+        <img class="pic" src="images/irregular/WATZ_irregular.png" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=16'">
         <img class="path-down" src="images/irregular/Path-up.svg" alt="">
-        <button class="seemore btn-coral flex" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=16''">
+        <button class="seemore btn-coral flex" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=16'">
             <h3>See More</h3>
         </button>
     </div>
