@@ -297,7 +297,7 @@ $row = $pdo->query($sql)->fetch();
         }
 
         .box {
-            width: 30vw;
+            width: auto;
             height: 10vw;
             line-height: 30px;
             text-align: center;
