@@ -560,10 +560,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
     }
 
-    .order-list.showin922.open {
-        /* height: 600px; */
-    }
-
     .order-list h3 {
         color: #03588C;
     }
@@ -575,18 +571,11 @@ foreach ($_SESSION['cart'] as $k => $v) {
         margin: 30px 0px;
     }
 
-    .order-list-frame h3{
-        margin-bottom: 10px;
-    }
-
     .order-list-title {
         width: 100%;
+        height: 30px;
         align-items: flex-end;
         justify-content: space-between;
-    }
-
-    .order-list-title h3 {
-        margin-bottom: 5px;
     }
 
     .seemore {
@@ -600,6 +589,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
         height: 35vh;
         overflow-x: hidden;
         overflow-y: scroll;
+        padding: 15px 0;
     }
 
     .list-scroll.showin922 {
@@ -644,7 +634,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
     }
 
     .box-type-detail {
-        /* width: 300px; */
         height: 120px;
         flex-direction: column;
         justify-content: space-between;
@@ -652,7 +641,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
     .socks-detail {
         flex-direction: column;
-        /* border: 1px solid teal; */
+        border: 1px solid teal;
 
     }
 
@@ -697,9 +686,13 @@ foreach ($_SESSION['cart'] as $k => $v) {
         .order-list.showin922 {
             display: flex;
         }
-
+        .order-list-title.showin922{
+            align-items: center;
+        }
+        
         .eachsock-list {
-            justify-content: flex-start;
+            justify-content: space-evenly;
+            border: 1px solid yellowgreen;   
         }
 
     }
@@ -713,8 +706,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         align-items: flex-start;
         justify-content: space-between;
         margin-bottom: 30px;
-        /* order: ; */
-
     }
 
     .total-price.showin922 {
@@ -724,7 +715,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        /* border: 1px solid yellowgreen; */
         transition: .5s;
         display: none;
         margin: 0;
@@ -733,10 +723,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
     .total-price.showin922 ul {
         width: 85%;
         height: 100%;
-        /* flex-direction: column; */
-        /* margin-bottom: 10px; */
-        /* border: 1px solid yellow; */
-
     }
 
     .total-price.showin922 ul {
@@ -747,10 +733,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         color: #03588C;
         margin-bottom: 10px;
     }
-
-    /* .total-price.showin922 h3 {
-            margin: 20px 0;
-        } */
 
     .total-price ul {
         width: 100%;
@@ -853,7 +835,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
             </div>
             <div class="order-list showin922 flex">
                 <div class="order-list-frame showin922 flex">
-                    <div class="order-list-title flex">
+                    <div class="order-list-title showin922 flex">
                         <h3>訂單資訊</h3>
                         <h4 class="seemore">查看訂單內容</h4>
                     </div>
@@ -922,7 +904,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                     </li>
                     <li class="flex">
                         <p>運費</p>
-                        <p>120</p>
+                        <p>0</p>
                     </li>
                     <li class="flex">
                         <p>折扣</p>
