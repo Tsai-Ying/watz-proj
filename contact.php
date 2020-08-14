@@ -55,7 +55,9 @@ $pageName = 'contact';  // 這裡放你的pagename
             width: 70vw;
             align-items: center;
         }
-
+        .container{
+            justify-content: space-between;
+        }
         .b-bt-blue {
             border-bottom: 0px;
             padding: 10px 15px;
