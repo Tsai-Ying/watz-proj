@@ -125,7 +125,8 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
     .each-process.here {
         background-color: #F2DE79;
     }
-    .each-process .showin576{
+
+    .each-process .showin576 {
         display: none;
     }
 
@@ -170,10 +171,12 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
             /* margin-right: 0px; */
             text-align: center;
         }
-        .each-process .showin576{
+
+        .each-process .showin576 {
             display: flex;
         }
-        .each-process .hidein576{
+
+        .each-process .hidein576 {
             display: none;
         }
     }
@@ -215,9 +218,10 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
 
     .box-watzbox h4 {
         color: #707070;
-        
+
     }
-    .step1{
+
+    .step1 {
         margin-top: 20px;
     }
 
@@ -491,8 +495,8 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
             height: 70px;
             flex-direction: column;
         }
-        
-        .product-detail h6{
+
+        .product-detail h6 {
             display: none;
         }
 
@@ -925,8 +929,8 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
                             </div>
                         </div>
                         <div class="shipping-btn flex">
-                            <button class="button ShipBtn" href="#">宅配</button>
-                            <button class="button conv-store ShipBtn" href="#">超商取貨</button>
+                            <button class="button HomeShipBtn" >宅配</button>
+                            <button class="button conv-store" href="#">超商取貨</button>
                         </div>
 
                         <p class="noShipFee">只差60元即享1000元免運！</p>
@@ -996,20 +1000,28 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
     });
 
 
-    $(".ShipBtn").click(function() {
+    $(".shipping-btn button").click(function() {
         $(this).toggleClass('active')
             .siblings().removeClass('active');
-        $('.shipFee').text('120');
+
+        if ($(".HomeShipBtn").hasClass('active')) {
+            $('.shipFee').text('120');
+
+        }else{
+            $('.shipFee').text('0');
+
+        }
         if ($(".conv-store").hasClass('active')) {
             $('.shipFee').text('60');
 
-        }
-
-        if (!$(this).hasClass('active')) {
+        }else{
             $('.shipFee').text('0');
+
         }
+        
         prepareCartTable();
     })
+    
 
 
     $(document).ready(function() {
@@ -1194,8 +1206,15 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
 
             if (total < 1000) {
                 $('.noShipFee').text(`只差${ 1000 - total}元即享1000元免運！`);
+                if ($(".conv-store").hasClass('active')) {
+                    $('.shipFee').text('60');
+                }
+                if ($(".HomeShipBtn").hasClass('active')) {
+                    $('.shipFee').text('120');
+                }
             } else {
                 $('.noShipFee').text(`消費金額已免運！`);
+                $('.shipFee').text('0');
             }
         })
     }
