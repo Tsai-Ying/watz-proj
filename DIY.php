@@ -52,7 +52,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
     }
 
     .block-top>h1 {
-        margin: 200px 0 60px;
+        margin: 15vh 0 60px;
         font-family: 'Fredoka One';
         color: #03588C;
         letter-spacing: 5px;
