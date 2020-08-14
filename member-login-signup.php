@@ -262,7 +262,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         .member-input {
             width: 70vw;
             height: 8vw;
-            font-size: 16px;
+            /* font-size: 16px; */
         }
 
         .bg-inputwrapper {

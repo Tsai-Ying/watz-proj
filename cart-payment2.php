@@ -1,5 +1,5 @@
 <?php require __DIR__ . '/__connect_db.php';
-$page = 'cart-payment2'; // 這裡放你的pagename
+$pageName = 'cart-payment2'; // 這裡放你的pagename
 
 $id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
 $sql = "SELECT * FROM `members` WHERE `id`= $id";
