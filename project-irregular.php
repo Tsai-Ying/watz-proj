@@ -47,6 +47,10 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
         width: 100%;
         height: 100%;
         filter: drop-shadow(8px 8px 6px rgba(105, 105, 105, 0.7));
+        cursor: pointer;
+    }
+    .logo img:hover{
+        filter: drop-shadow(15px 15px 6px rgba(51, 51, 51, 0.7));
     }
 
     .scroll-down {
@@ -196,6 +200,7 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
     .watzbox {
         width: 450px;
         margin-bottom: 40px;
+        cursor: pointer;
     }
 
     .watzbox img {
@@ -215,10 +220,12 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
         box-shadow: none;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
     }
 
     .seemore h3 {
         color: #ffffff;
+        cursor: pointer;
     }
 
     .seemore:hover {
@@ -293,6 +300,7 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
         width: 550px;
         position: absolute;
         z-index: 1;
+        cursor: pointer;
     }
 
     .path-up {
@@ -555,7 +563,7 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
             <img class="mobile" src="images/irregular/kv-mobile.jpg" alt="">
         </div>
         <div class="logo transition">
-            <img src="images/irregular/WATZ_irregular_LOGO.png" alt="">
+            <img src="images/irregular/WATZ_irregular_LOGO.png" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#{series:[2],orderBy:new}'">
         </div>
         <div class="scroll-down flex transition">
             <h3>SCROLL</h3>
@@ -564,8 +572,8 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
     </div>
     <div class="block2 flex" id="block2">
         <ul class="bg-line flex">
-            <li class="">
-                <img src="images/irregular/square1-1.jpg" alt="">
+            <li>
+                <img src="images/irregular/square1-1.jpg">
             </li>
             <li class="square1-2 sock-png flex">
                 <img class="transition" src="images/irregular/square1-2.png" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=13'">
@@ -581,9 +589,9 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
             <li class="">
                 <img src="images/irregular/square2-1.jpg" alt="">
             </li>
-            <li class="square2-2">
+            <li class="square2-2 fadeout transition">
             </li>
-            <li class="square2-3">
+            <li class="square2-3 fadeout transition">
             </li>
             <li class="">
                 <img src="images/irregular/square2-4.jpg" alt="">
@@ -593,9 +601,9 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
             <li class="">
                 <img src="images/irregular/square3-1.jpg" alt="">
             </li>
-            <li class="square3-2">
+            <li class="square3-2 fadeout transition">
             </li>
-            <li class="square3-3">
+            <li class="square3-3 fadeout transition">
             </li>
             <li>
                 <img src="images/irregular/square3-4.jpg" alt="">
@@ -617,9 +625,9 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
         </ul>
         <div class="center-frame flex">
             <div class="watzbox transition">
-                <img id="watzbox" src="images/watzbox2-1.png" alt="">
+                <img id="watzbox" src="images/watzbox2-1.png" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#{series:[2],orderBy:new}'">
             </div>
-            <button class="seemore btn-coral flex transition" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#page=1&series%5B%5D=2'">
+            <button class="seemore btn-coral flex transition" id="box-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#{series:[2],orderBy:new}'">
                 <h3>See More</h3>
             </button>
         </div>
@@ -630,9 +638,9 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
             <div class="bg3-right"></div>
         </div>
         <img class="path-up" src="images/irregular/Path-down.svg" alt="">
-        <img class="pic" src="images/irregular/WATZ_irregular.png" alt="">
+        <img class="pic" src="images/irregular/WATZ_irregular.png">
         <img class="path-down" src="images/irregular/Path-up.svg" alt="">
-        <button class="seemore btn-coral flex" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#page=1&series%5B%5D=2'">
+        <button class="seemore btn-coral flex" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#{series:[2],orderBy:new}'">
             <h3>See More</h3>
         </button>
     </div>
@@ -661,8 +669,11 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
 <script>
     $("#watzbox").hover(function() {
         $(this).attr("src", "images/watzbox2-2.png");
+        $('.fadeout').css("opacity", "0.8");
     }, function() {
         $(this).attr("src", "images/watzbox2-1.png");
+        $('.fadeout').css("opacity", "1");      
+
     })
 
 
@@ -675,6 +686,14 @@ $pageName = 'aboutWATZ'; // 這裡放你的pagename
         })
         openTutorial();
     })
+
+    $('.fadeout, #box-seemore').hover(function(){
+        $('.fadeout').css("opacity", "0.8");
+    }, function(){
+        $('.fadeout').css("opacity", "1");      
+    })
+   
+    
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
