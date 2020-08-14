@@ -402,15 +402,16 @@ $stmt = $pdo->query($sql);
     }
 
     .right-select-box {
-        margin-left: 55px;
+        width: 200px;
+        
 
     }
 
     .right-select {
         width: 100%;
         height: 30px;
-        padding-left: 20px;
-        padding-right: 30px;
+        padding-left: 10px;
+        padding-right: 20px;
         color: #686868;
         background-color: #ffffff;
         font-family: 'Noto Sans TC', sans-serif;
@@ -418,6 +419,8 @@ $stmt = $pdo->query($sql);
         letter-spacing: 2px;
         outline: none;
         white-space: nowrap;
+       margin-right: 20px;
+       margin-left: 20px;
 
     }
 
@@ -558,6 +561,10 @@ $stmt = $pdo->query($sql);
 
         .pagination {
             width: 600px;
+        }
+
+        .right-select-box{
+            margin-left: 10px;
         }
 
     }
@@ -739,7 +746,10 @@ $stmt = $pdo->query($sql);
         }
 
         .wrapper {
+            width: 100vw;
             margin-top: 10px;
+            min-height: 100vh;
+            justify-content: start;
         }
 
         .vegas-box {
@@ -751,7 +761,7 @@ $stmt = $pdo->query($sql);
             left: 1vh;
             right: 1vh;
             width: 80vw;
-            height: 110vh;
+            height: 95vh;
             flex-direction: column;
             justify-content: space-evenly;
         }
@@ -759,9 +769,8 @@ $stmt = $pdo->query($sql);
         .select-check-btn {
             bottom: 4%;
             right: 2%;
-            width: 14vh;
+            width: 10vh;
             height: 7vh;
-
         }
 
 
@@ -817,14 +826,11 @@ $stmt = $pdo->query($sql);
 
         .right-select {
             margin-left: 0px;
+            width: 70%;
         }
 
-
-
-
-
         footer {
-            margin-top: 32vh;
+            margin-top: 10vh;
         }
 
     }
