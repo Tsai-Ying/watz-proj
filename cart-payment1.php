@@ -125,6 +125,9 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
     .each-process.here {
         background-color: #F2DE79;
     }
+    .each-process .showin576{
+        display: none;
+    }
 
     @media screen and (max-width: 1200px) {
         .each-process {
@@ -167,6 +170,12 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
             /* margin-right: 0px; */
             text-align: center;
         }
+        .each-process .showin576{
+            display: flex;
+        }
+        .each-process .hidein576{
+            display: none;
+        }
     }
 
     /* -----------choose box------------- */
@@ -206,6 +215,9 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
 
     .box-watzbox h4 {
         color: #707070;
+        
+    }
+    .step1{
         margin-top: 20px;
     }
 
@@ -476,13 +488,18 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
 
         .product-detail {
             width: 60%;
-            height: 125px;
+            height: 70px;
             flex-direction: column;
+        }
+        
+        .product-detail h6{
+            display: none;
         }
 
         .socks-amount-choose {
             width: 95%;
             margin: 10px 0;
+            align-items: center;
             justify-content: space-between;
         }
 
@@ -739,13 +756,12 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
     .error-frame {
         align-items: center;
         justify-content: center;
-        flex-direction: row;
         right: 0;
     }
 
     .error-icon {
-        width: 20px;
-        height: 20px;
+        width: 15px;
+        height: 15px;
         margin-right: 5px;
         display: none;
     }
@@ -780,11 +796,13 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
                 <ul class="buy-process-frame flex">
                     <li class="each-process first here flex">
                         <h3></h3>01</h3>
-                        <h6>確認訂單<br>及運送方式</h6>
+                        <h6 class="hidein576">確認訂單<br>及運送方式</h6>
+                        <h6 class="showin576">確認訂單</h6>
                     </li>
                     <li class="each-process flex">
                         <h3>02</h3>
-                        <h6>填寫<br>訂購資料</h6>
+                        <h6 class="hidein576">填寫<br>訂購資料</h6>
+                        <h6 class="showin576">填寫資料</h6>
                     </li>
                     <li class="each-process flex">
                         <h3>03</h3>
@@ -803,7 +821,7 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
                         <h3>客製你的WATZ box</h3>
                     </div>
                     <div class="hide-choose-box">
-                        <h4>Step1 想要什麼包裝呢?</h4>
+                        <h4 class="step1">Step1 想要什麼包裝呢?</h4>
                         <ul class="watzbox-choose flex" id="">
 
                             <li class="img-watzbox imgWatzBox <?= $watzbox_style == 'watzbox1' ? 'active' : '' ?>" id="watzbox1">

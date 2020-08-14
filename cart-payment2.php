@@ -152,6 +152,9 @@ foreach ($_SESSION['cart'] as $k => $v) {
     .each-process.here {
         background-color: #F2DE79;
     }
+    .each-process .showin576{
+        display: none;
+    }
 
     @media screen and (max-width: 1200px) {
         .each-process {
@@ -193,6 +196,12 @@ foreach ($_SESSION['cart'] as $k => $v) {
         .each-process h6 {
             /* margin-right: 0px; */
             text-align: center;
+        }
+        .each-process .showin576{
+            display: flex;
+        }
+        .each-process .hidein576{
+            display: none;
         }
     }
 
@@ -801,8 +810,8 @@ foreach ($_SESSION['cart'] as $k => $v) {
     }
 
     .error-icon {
-        width: 20px;
-        height: 20px;
+        width: 15px;
+        height: 15px;
         margin-right: 5px;
         display: none;
     }
@@ -824,11 +833,13 @@ foreach ($_SESSION['cart'] as $k => $v) {
                 <ul class="buy-process-frame flex">
                     <li class="each-process first flex">
                         <h3></h3>01</h3>
-                        <h6>確認訂單<br>及運送方式</h6>
+                        <h6 class="hidein576">確認訂單<br>及運送方式</h6>
+                        <h6 class="showin576">確認訂單</h6>
                     </li>
                     <li class="each-process here flex">
                         <h3>02</h3>
-                        <h6>填寫<br>訂購資料</h6>
+                        <h6 class="hidein576">填寫<br>訂購資料</h6>
+                        <h6 class="showin576">填寫資料</h6>
                     </li>
                     <li class="each-process flex">
                         <h3>03</h3>
