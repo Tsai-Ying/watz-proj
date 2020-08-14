@@ -231,10 +231,12 @@ $stmt = $pdo->query($sql);
         justify-content: center;
         margin: 3px;
         position: relative;
-        background:unset !important;
+        background:unset; 
+        transition: linear 0.4s;
     }
     .color-active {
-        background: url('images/select circle.svg') no-repeat;
+        transition: linear 0.4s;
+        background: url('images/select circle.svg') no-repeat !important; 
     }
 
     /* .img-select-circle {
@@ -305,36 +307,6 @@ $stmt = $pdo->query($sql);
         background-color: #636363;
     }
 
-    /* .color-in1[type=checkbox]:checked+span {
-        
-    } */
-
-    /* .color-active {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 1px solid #707070;
-        } */
-
-    /* .color-btn-box li button {
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        align-items: center;
-    }
-
-    .btn-border {
-        border: transparent;
-    } */
-
-    
-
-    /* .color-active {
-           background: url("images/select circle.svg") no-repeat;
-           
-        } */
-
-
 
     /* ----------selector type ----------- */
     .box-type {
@@ -384,7 +356,7 @@ $stmt = $pdo->query($sql);
 
     }
 
-    /* -------------------blocl-right---------------------- */
+    /* ---------blocl-right----------- */
     .block-right {
         width: 855px;
         flex-direction: column;
@@ -567,8 +539,22 @@ $stmt = $pdo->query($sql);
 
         .product-box {
             width: 600px;
-            justify-content: space-evenly;
+            padding-left:30px ;
         }
+    
+
+    .product-top-img {
+        width: 250px;
+        height: 300px;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+    .product-top-img img {
+        width: 100%;
+        max-height: 100%;
+    }
+
 
         .pagination {
             width: 600px;
@@ -706,6 +692,7 @@ $stmt = $pdo->query($sql);
 
         .product-box {
             width: 90vw;
+            padding-left:0px ;
             justify-content: space-between;
         }
 
@@ -1365,7 +1352,7 @@ $stmt = $pdo->query($sql);
         timer: false,
         align: 'bottom',
         autoplay: true,
-        transition: 'slideLeft2',
+        transition: 'fade',
         slides: [{
                 src: "images/asym06-1.jpg"
             },
@@ -1608,9 +1595,7 @@ $(".color-btn-box li ").hover(function() {
         }
   // color
   $('input.color-in').prop('checked', false);
-        $('input.color-in').closest('li').css({
-                "background": "none"
-            });
+  $('input.color-in').closest('li').removeClass('color-active');
         if(hObj['colors'] && hObj['colors'].length){
             for(let i in hObj['colors'] ){
                 let cb = $('input.color-in[value=' + hObj['colors'][i] + ']');
