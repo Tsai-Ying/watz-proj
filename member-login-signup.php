@@ -13,20 +13,24 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         background-size: cover;
     }
 
+    .container {
+        min-height: 100vh;
+        justify-content: space-between;
+    }
+
     .wrapper {
+        margin-top: 140px;
+        margin-bottom: 50px;
         justify-content: center;
         align-items: center;
-        min-height: 100vh;
         margin-bottom: 80px;
         position: relative;
+        align-items: center;
     }
 
     .member-bblock {
-        top: calc(50vh + 70px);
-        transform: translateY(-50%);
         width: 465px;
         height: 545px;
-        position: absolute;
     }
 
     .bsignup {
@@ -63,6 +67,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         top: 50%;
         transform: translate(-12%, -50%);
         cursor: pointer;
+        white-space: nowrap;
 
     }
 
@@ -99,8 +104,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
     @media screen and (max-width: 992px) {
         body {
             background-image: url(images/BG-mobile2.svg);
-            background-repeat: no-repeat;
-            background-size: cover;
             background-position: center;
         }
 
@@ -137,14 +140,12 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
             width: 20vw;
             height: 25vw;
             border-radius: 10px;
-            right: -6vw;
+            right: -8vw;
         }
 
         .tag h5 {
             font-size: 12px;
-            right: 8%;
-            top: 40%;
-            transform: translate(-10%, -23%);
+            transform: translate(20%, -50%)
         }
     }
 
@@ -215,10 +216,12 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
     }
 
     .eyes {
+        position: absolute;
         width: 20px;
         height: 20px;
         margin: 11px 16px;
         cursor: pointer;
+        right: 0;
     }
 
     .error {
@@ -278,10 +281,14 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         }
 
         .input-wrapper img {
-            width: 3vw;
-            height: 4vw;
+            width: 5vw;
+            height: 5vw;
             margin: 6px 12px;
             /* margin: 6px 12px 6px 7px; */
+        }
+
+        .eyes{
+            /* transform: translateX(-8vw); */
         }
     }
 
@@ -597,17 +604,33 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
     //login-signup切換
 
     $('#tag-login').click(function() {
-        $('#box-login').css("display", "block");
-        $('#box-signup').css("display", "none");
-        $('#tab1').css("z-index", "-1");
+        $('#box-login').css({
+            "display": "block",
+            "z-index": "2"
+        });
+        $('#box-signup').css({
+            "display": "none",
+            "z-index": "-1"
+        });
+        $('#tag-signup').css("z-index", "1");
+        $('#tag-login').css("z-index", "-1")
+
 
 
     })
 
     $('#tag-signup').click(function() {
-        $('#box-signup').css("display", "block")
-        $('#box-login').css("display", "none")
-        $('#tab1').css("z-index", "1")
+        $('#box-signup').css({
+            "display": "block",
+            "z-index": "2"
+        });
+        $('#box-login').css({
+            "display": "none",
+            "z-index": "-1"
+        });
+        $('#tag-signup').css("z-index", "-1");
+        $('#tag-login').css("z-index", "1")
+
         // $('#box-login').removeAttr('style');
     })
 
@@ -647,7 +670,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         // console.log(val());
 
 
-        if (pw1==false && pw2==false){
+        if (pw1 == false && pw2 == false) {
             isPass = false;
             $('.signupPw').css('border-color', 'red');
             $('.signupPw .error h6').text('請輸入密碼');
@@ -657,7 +680,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
             $('.confirmPw .error h6').text('請輸入密碼');
             $('.confirmPassword.error').css('display', 'flex');
             $('.confirmPw .eyes').css('display', 'none')
-        } else if(pw2 == false){
+        } else if (pw2 == false) {
             isPass = false;
             $('.error').next('h6').text('請輸入密碼');
             $('.error').css('display', 'flex');
