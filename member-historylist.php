@@ -202,14 +202,14 @@ $historylists = $pdo->query($o_sql)->fetchAll();
         .selector {
             width: 94vw;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-evenly;
             margin-bottom: 20px;
             margin-right: 0;
             margin-top: 0;
         }
 
         .box {
-            width: 30vw;
+            width: auto;
             height: 10vw;
             line-height: 30px;
             text-align: center;

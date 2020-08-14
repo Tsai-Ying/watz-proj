@@ -1,9 +1,15 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = '';  // 這裡放你的pagename
 
-if(empty($_SESSION['cart'])){
-    header( 'Location: cart-empty.php');
- }
+if (empty($_SESSION['cart'])) {
+    header('Location: cart-empty.php');
+}
+
+
+$watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['receiver']['watzbox_style'] : Null;
+
+
+
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
@@ -120,6 +126,10 @@ if(empty($_SESSION['cart'])){
         background-color: #F2DE79;
     }
 
+    .each-process .showin576 {
+        display: none;
+    }
+
     @media screen and (max-width: 1200px) {
         .each-process {
             width: 120px;
@@ -161,6 +171,14 @@ if(empty($_SESSION['cart'])){
             /* margin-right: 0px; */
             text-align: center;
         }
+
+        .each-process .showin576 {
+            display: flex;
+        }
+
+        .each-process .hidein576 {
+            display: none;
+        }
     }
 
     /* -----------choose box------------- */
@@ -191,6 +209,7 @@ if(empty($_SESSION['cart'])){
         transform: rotate(180deg);
         margin-right: 20px;
         transition: .5s;
+        cursor: pointer;
     }
 
     .box-watzbox-title img.close {
@@ -199,6 +218,10 @@ if(empty($_SESSION['cart'])){
 
     .box-watzbox h4 {
         color: #707070;
+
+    }
+
+    .step1 {
         margin-top: 20px;
     }
 
@@ -232,6 +255,8 @@ if(empty($_SESSION['cart'])){
         outline: none;
         text-align: center;
         cursor: pointer;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 500;
     }
 
     .button.active {
@@ -243,7 +268,7 @@ if(empty($_SESSION['cart'])){
         background-color: #f2de79a6;
     }
 
-    .step3 {
+    .step2 {
         width: 600px;
         opacity: 1;
         align-items: center;
@@ -252,20 +277,20 @@ if(empty($_SESSION['cart'])){
         display: none;
     }
 
-    .step3 img {
+    .step2 img {
         width: 50px;
     }
 
-    .step3 h4 {
+    .step2 h4 {
         color: #FF9685;
     }
 
-    .step3 h5 {
+    .step2 h5 {
         color: #FF9685;
         display: none;
     }
 
-    .step3.show {
+    .step2.show {
         display: flex;
     }
 
@@ -290,15 +315,15 @@ if(empty($_SESSION['cart'])){
             margin: 10px;
         }
 
-        .step3 img {
+        .step2 img {
             width: 40px;
         }
 
-        .step3 h4 {
+        .step2 h4 {
             display: none;
         }
 
-        .step3 h5 {
+        .step2 h5 {
             display: block;
         }
     }
@@ -387,21 +412,21 @@ if(empty($_SESSION['cart'])){
     }
 
     .product-detail {
-        width: 75%;
+        width: 70%;
         height: 100px;
         justify-content: space-between;
-        /* border: 1px solid green; */
     }
 
     .sock-name {
-        width: 30%;
+        width: 45%;
+        height: 100%;
         flex-grow: 1;
         flex-direction: column;
         justify-content: space-between;
     }
 
     .socks-amount-choose {
-        width: 70%;
+        width: 65%;
         align-items: flex-end;
         justify-content: space-evenly;
     }
@@ -425,7 +450,7 @@ if(empty($_SESSION['cart'])){
 
     .quantity-input {
         height: 25px;
-        width: 40px;
+        width: 45px;
         text-align: center;
         font-size: 14px;
         border: 1px solid transparent;
@@ -462,18 +487,23 @@ if(empty($_SESSION['cart'])){
         }
 
         .sock-name {
-            width: 60%;
+            width: 100%;
         }
 
         .product-detail {
             width: 60%;
-            height: 125px;
+            height: 70px;
             flex-direction: column;
+        }
+
+        .product-detail h6 {
+            display: none;
         }
 
         .socks-amount-choose {
             width: 95%;
             margin: 10px 0;
+            align-items: center;
             justify-content: space-between;
         }
 
@@ -498,6 +528,12 @@ if(empty($_SESSION['cart'])){
         margin: 20px 0px;
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .ship-title {
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .shipping-shoose h3 {
@@ -563,6 +599,7 @@ if(empty($_SESSION['cart'])){
         border: 1px solid #F2DE79;
         border-radius: 2px 0 0 2px;
         outline: none;
+        padding: 0 10px;
     }
 
     .coupon .button {
@@ -570,6 +607,8 @@ if(empty($_SESSION['cart'])){
         margin: 0;
         background-color: #F2DE79;
         border-radius: 0 2px 2px 0;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 500;
     }
 
     .coupon button:hover {
@@ -603,10 +642,13 @@ if(empty($_SESSION['cart'])){
         height: 40px;
         border: none;
         background-color: #FF9685;
+        border-radius: 2px;
         color: #ffffff;
         margin-bottom: 30px;
         outline: none;
         cursor: pointer;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 500;
     }
 
     .btn-pay:hover {
@@ -712,6 +754,25 @@ if(empty($_SESSION['cart'])){
     .notice.active .notice-block {
         opacity: 1;
     }
+
+    /* ---------------error notice--------- */
+
+    .error-frame {
+        align-items: center;
+        justify-content: center;
+        right: 0;
+    }
+
+    .error-icon {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+        display: none;
+    }
+
+    .error-frame h6 {
+        color: red;
+    }
 </style>
 <!-- jumpout notice -->
 <div class="notice ">
@@ -739,11 +800,13 @@ if(empty($_SESSION['cart'])){
                 <ul class="buy-process-frame flex">
                     <li class="each-process first here flex">
                         <h3></h3>01</h3>
-                        <h6>確認訂單<br>及運送方式</h6>
+                        <h6 class="hidein576">確認訂單<br>及運送方式</h6>
+                        <h6 class="showin576">確認訂單</h6>
                     </li>
                     <li class="each-process flex">
                         <h3>02</h3>
-                        <h6>填寫<br>訂購資料</h6>
+                        <h6 class="hidein576">填寫<br>訂購資料</h6>
+                        <h6 class="showin576">填寫資料</h6>
                     </li>
                     <li class="each-process flex">
                         <h3>03</h3>
@@ -762,25 +825,55 @@ if(empty($_SESSION['cart'])){
                         <h3>客製你的WATZ box</h3>
                     </div>
                     <div class="hide-choose-box">
-                        <h4>Step1 想要什麼包裝呢?</h4>
+                        <h4 class="step1">Step1 想要什麼包裝呢?</h4>
                         <ul class="watzbox-choose flex" id="">
 
-                            <li class="img-watzbox imgWatzBox" id="watzbox1">
+                            <li class="img-watzbox imgWatzBox <?= $watzbox_style == 'watzbox1' ? 'active' : '' ?>" id="watzbox1">
                                 <img class="transition" src="images/watzbox1-1.png" alt="">
                             </li>
-                            <li class="img-watzbox imgWatzBox" id="watzbox2">
+                            <li class="img-watzbox imgWatzBox <?= $watzbox_style == 'watzbox2' ? 'active' : '' ?>" id="watzbox2">
                                 <img class="transition" src="images/watzbox2-1.png" alt="">
                             </li>
-                            <li class="img-watzbox imgWatzBox" id="watzbox3">
+                            <li class="img-watzbox imgWatzBox <?= $watzbox_style == 'watzbox3' ? 'active' : '' ?>" id="watzbox3">
                                 <img class="transition" src="images/watzbox3-1.png" alt="">
                             </li>
                         </ul>
                         <!-- <h4>Step2 請加選雙襪子到您的包裝盒裡</h4> -->
 
                         <div class="boxChooseDetail flex" id="sockInBox">
+                            <?php foreach ($_SESSION['cart'] as $i) :
+                                if ($i['watzbox'] == 1) : ?>
+                                    <li class="eachsock-list eachSocksList flex p_item" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
 
+                                        <div class="add-box-frame">
+                                            <div class="add-box flex moveToBox-btn">
+                                                <p class="addBox">+</p>
+                                                <p class="removeInBox">-</p>
+                                            </div>
+                                        </div>
+                                        <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt=""></a>
+                                        <div class="product-detail flex">
+                                            <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="sock-name flex">
+                                                <h4><?= htmlentities($i['product_name']) ?></h4>
+                                                <div>
+                                                    <h6><?= $i['detail'] ?></h6>
+                                                </div>
+                                            </a>
+                                            <div class="socks-amount-choose flex">
+                                                <div class="quantity-choose flex">
+                                                    <span class="minus">-</span>
+                                                    <input class="quantity-input qty" type="text" value="1" />
+                                                    <span class="plus">+</span>
+                                                </div>
+                                                <h4 class="sub-total"></h4>
+                                                <span class="remove"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
                         </div>
-                        <div class="step3 flex" id="step3">
+                        <div class="step2 flex" id="step2">
                             <img src="images/dotted-line.svg" alt="">
                             <h4>Step2 請加選雙襪子到您的包裝盒裡</h4>
                             <h5>Step2 請加選襪子到<br>您的包裝盒裡</h5>
@@ -790,34 +883,36 @@ if(empty($_SESSION['cart'])){
             </div>
             <div class="box-product flex">
                 <ul class="box-product-frame flex" id="sockOutBox">
-                    <?php foreach ($_SESSION['cart'] as $i) : ?>
-                        <li class="eachsock-list eachSocksList flex p_item" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
+                    <?php foreach ($_SESSION['cart'] as $i) :
+                        if ($i['watzbox'] == 0) : ?>
+                            <li class="eachsock-list eachSocksList flex p_item" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
 
-                            <div class="add-box-frame">
-                                <div class="add-box flex moveToBox-btn">
-                                    <p class="addBox">+</p>
-                                    <p class="removeInBox">-</p>
-                                </div>
-                            </div>
-                            <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt=""></a>
-                            <div class="product-detail flex">
-                                <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="sock-name flex">
-                                    <h4><?= htmlentities($i['product_name']) ?></h4>
-                                    <div>
-                                        <h6><?= $i['detail'] ?></h6>
+                                <div class="add-box-frame">
+                                    <div class="add-box flex moveToBox-btn">
+                                        <p class="addBox">+</p>
+                                        <p class="removeInBox">-</p>
                                     </div>
-                                </a>
-                                <div class="socks-amount-choose flex">
-                                    <div class="quantity-choose flex">
-                                        <span class="minus">-</span>
-                                        <input class="quantity-input qty" type="text" value="1" />
-                                        <span class="plus">+</span>
-                                    </div>
-                                    <h4 class="sub-total"></h4>
-                                    <span class="remove"></span>
                                 </div>
-                            </div>
-                        </li>
+                                <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="img-socks"><img src="images/product/<?= $i['img_ID'] ?>-1.jpg" alt=""></a>
+                                <div class="product-detail flex">
+                                    <a href="product-detail.php?sid=<?= $i['sid'] ?>" class="sock-name flex">
+                                        <h4><?= htmlentities($i['product_name']) ?></h4>
+                                        <div>
+                                            <h6><?= $i['detail'] ?></h6>
+                                        </div>
+                                    </a>
+                                    <div class="socks-amount-choose flex">
+                                        <div class="quantity-choose flex">
+                                            <span class="minus">-</span>
+                                            <input class="quantity-input qty" type="text" value="1" />
+                                            <span class="plus">+</span>
+                                        </div>
+                                        <h4 class="sub-total"></h4>
+                                        <span class="remove"></span>
+                                    </div>
+                                </div>
+                            </li>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </ul>
             </div>
@@ -826,11 +921,18 @@ if(empty($_SESSION['cart'])){
             <div class="block-fixed flex">
                 <div class="shipping-shoose flex">
                     <div class="shipping-shoose-frame flex">
-                        <h3>寄送方式</h3>
-                        <div class="shipping-btn flex">
-                            <button class="button ShipBtn" href="#">宅配</button>
-                            <button class="button conv-store ShipBtn" href="#">超商取貨</button>
+                        <div class="ship-title flex">
+                            <h3>寄送方式</h3>
+                            <div class="error-frame flex">
+                                <img class="error-icon flex" src="images/alert.svg">
+                                <h6 class="flex"></h6>
+                            </div>
                         </div>
+                        <div class="shipping-btn flex">
+                            <button class="button HomeShipBtn">宅配</button>
+                            <button class="button conv-store" href="#">超商取貨</button>
+                        </div>
+
                         <p class="noShipFee">只差60元即享1000元免運！</p>
                     </div>
                 </div>
@@ -864,11 +966,10 @@ if(empty($_SESSION['cart'])){
                             </ul>
                         </div>
                         <?php if (isset($_SESSION['member'])) : ?>
-                            <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/cart-payment2.php'">前往結帳</button>
+                            <button class="btn-pay" onclick="formCheck()">前往結帳</button>
                         <?php else : ?>
                             <button class="btn-pay" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-login-signup.php'">請先登入會員</button>
                         <?php endif; ?>
-
                     </div>
                 </div>
             </div>
@@ -898,20 +999,37 @@ if(empty($_SESSION['cart'])){
         });
     });
 
-    $(".ShipBtn").click(function() {
+
+    $(".shipping-btn button").click(function() {
         $(this).toggleClass('active')
             .siblings().removeClass('active');
-        $('.shipFee').text('60');
+
+        if ($(".HomeShipBtn").hasClass('active')) {
+            $('.shipFee').text('120');
+
+        } else {
+            $('.shipFee').text('0');
+
+        }
+        if ($(".conv-store").hasClass('active')) {
+            $('.shipFee').text('60');
+
+        } else {
+            $('.shipFee').text('0');
+
+        }
+
         prepareCartTable();
     })
-    
+
+
 
     $(document).ready(function() {
-        $(".hide-choose-box").hide();
+        // $(".hide-choose-box").hide();
         $(".box-watzbox-title").click(function() {
             $(".hide-choose-box").slideToggle()
             $('#open-btn').toggleClass('close');
-            $('.step3').removeClass('show');
+            $('.step2').removeClass('show');
             $('.add-box').removeClass('show');
         });
     });
@@ -931,18 +1049,52 @@ if(empty($_SESSION['cart'])){
         $(this).toggleClass('active');
 
 
-
         if ($(this).hasClass('active')) {
-            $('.step3').addClass('show');
+            $('.step2').addClass('show');
             $('.add-box').addClass('show');
-            $('.p_item').children(".removeInBox").css("display", "none");
-            $('.p_item').children(".addBox").css("display", "flex");
+            const watzbox_style = $(this).attr('id');
+            console.log(watzbox_style);
+
+            const sendObj = {
+                action: 'getWatzboxStyle',
+                watzbox_style
+            }
+            $.get('cart-handle.php', sendObj, function(data) {
+                console.log(data);
+            }, 'json');
+
         } else {
-            $('.step3').removeClass('show');
+            $('.step2').removeClass('show');
             $('.add-box').removeClass('show');
             const box_item = $('#sockInBox').find('.p_item');
             $('#sockOutBox').append(box_item);
-            // console.log();
+            $(box_item).find(".removeInBox").css("display", "none");
+            $(box_item).find(".addBox").css("display", "flex");
+            console.log('cancal remove');
+
+            console.log(box_item)
+
+            for (i = 1; i <= box_item.length; i++) {
+                const p_item = box_item.eq(i);
+                const sid = p_item.attr('data-sid');
+
+                const sendObj = {
+                    action: 'moveOutOfBox',
+                    sid: sid
+                }
+                $.get('cart-handle.php', sendObj, function(data) {
+                    console.log(data);
+                }, 'json');
+            }
+
+            const sendObj2 = {
+                action: 'removeWatzboxStyle'
+            }
+
+            $.get('cart-handle.php', sendObj2, function(data) {
+                console.log(data);
+            }, 'json');
+
         }
 
     });
@@ -951,6 +1103,8 @@ if(empty($_SESSION['cart'])){
 
     $('.moveToBox-btn').click(function() {
         const p_item = $(this).closest('.p_item');
+        const sid = p_item.attr('data-sid');
+        const qty = p_item.find('.qty').val();
         const ifInBox = $(this).closest('#sockInBox').length;
         console.log(ifInBox);
         if (ifInBox) {
@@ -958,10 +1112,28 @@ if(empty($_SESSION['cart'])){
             $(this).children(".removeInBox").css("display", "none");
             $(this).children(".addBox").css("display", "flex");
 
+            const sendObj = {
+                action: 'moveOutOfBox',
+                sid: sid,
+                qty: qty
+            }
+            $.get('cart-handle.php', sendObj, function(data) {
+                console.log(data);
+            }, 'json');
+
         } else {
             $('#sockInBox').append(p_item);
             $(this).children(".addBox").css("display", "none");
             $(this).children(".removeInBox").css("display", "flex");
+
+            const sendObj = {
+                action: 'moveIntoBox',
+                sid: sid,
+                qty: qty
+            }
+            $.get('cart-handle.php', sendObj, function(data) {
+                console.log(data);
+            }, 'json');
         }
     });
 
@@ -969,7 +1141,7 @@ if(empty($_SESSION['cart'])){
     // <!-- remove jumpout notice -->
 
     $('.remove').click(function() {
-        let p_item= $(this).closest('.p_item');
+        let p_item = $(this).closest('.p_item');
         p_item.addClass("noticed");
         $(".notice").addClass("active");
         console.log('2');
@@ -983,20 +1155,17 @@ if(empty($_SESSION['cart'])){
     }
 
     //coupon
-    
-    $('.couponBtn').click(function(){
-        if ($('.couponInput').val() == 'watz60'){
+
+    $('.couponBtn').click(function() {
+        if ($('.couponInput').val() == 'watz60') {
             $('.discount').html('-60');
-        }else if($('.couponInput').val() == 'watz40'){
+        } else if ($('.couponInput').val() == 'watz40') {
             $('.discount').html('-40');
-        }else{
+        } else {
             $('.discount').html('0');
         }
         prepareCartTable();
     });
-
-    
-
 
     // php
     const dallorCommas = function(n) {
@@ -1005,42 +1174,58 @@ if(empty($_SESSION['cart'])){
 
     function prepareCartTable() {
         $p_items = $('.p_item');
-        console.log(p_items.length)
+        console.log($p_items.length);
 
-        if (p_items.length==0){
-            location.href = 'empty-cart.php'
-        }
-        
+        // if ($p_items.length == 0) {
+        //     location.href = 'cart-empty.php'
+        // }
+
         let total = 0;
 
         // if (!$p_items.length && $('#totalPrice').length) {
         //     location.href = 'product.php';
         //     return;
         // }
+        let shipFee = $('.shipFee').text();
+        let discount = $('.discount').text();
+        let totalPrice = total + parseInt(shipFee) + parseInt(discount);
+
         $p_items.each(function() {
             const sid = $(this).attr('data-sid');
             const price = $(this).attr('data-price');
             const quantity = $(this).attr('data-quantity');
-            const shipFee = $('.shipFee').text();
-            const discount = $('.discount').text();
-
 
             $(this).find('.price').text('NT $' + dallorCommas(price));
             $(this).find('.qty').val(quantity);
             $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
             total += quantity * price;
-            const totalPrice = total+parseInt(shipFee)+parseInt(discount);
-
-
             $('#productPrice').text('NT $' + dallorCommas(total));
-            $('#totalPrice').text('NT $' + dallorCommas(totalPrice));
-
-            if ( totalPrice < 1000){
-                $('.noShipFee').text(`只差${ 1000 - totalPrice}元即享1000元免運！`);
-            }else{
-                $('.noShipFee').text(`消費金額已免運！`);
-            }
         })
+
+        
+
+        if (total < 1000) {
+            $('.noShipFee').text(`只差${ 1000 - total}元即享1000元免運！`);
+            if ($(".conv-store").hasClass('active')) {
+                $('.shipFee').text('60');
+            } else if ($(".HomeShipBtn").hasClass('active')) {
+                $('.shipFee').text('120');
+            } else {
+                $('.shipFee').text('0');
+            }
+            shipFee = $('.shipFee').text();
+            // totalPrice = total + parseInt(shipFee) + parseInt(discount);
+        } else if (total >= 1000){
+            $('.noShipFee').text(`消費金額已免運！`);
+            $('.shipFee').text('0');
+            shipFee = $('.shipFee').text();
+            // totalPrice = total + parseInt(shipFee) + parseInt(discount);
+        }
+        shipFee = $('.shipFee').text();
+        discount = $('.discount').text();
+        totalPrice = total + parseInt(shipFee) + parseInt(discount);
+        $('#totalPrice').text('NT $' + dallorCommas(totalPrice));
+        
     }
 
     prepareCartTable();
@@ -1078,6 +1263,38 @@ if(empty($_SESSION['cart'])){
         $(".notice").removeClass("active");
     });
 
+    function formCheck() {
+        let isPass = true;
+        const shipError = $('.ship-title').children('.error-frame');
+        const shippingBtn = $('.shipping-btn');
+
+        $(shippingBtn).on("click", function() {
+            shipError.children('img').css("display", "none");
+            shipError.children('h6').html('');
+        })
+
+
+        if (!(shippingBtn).children('.button').hasClass('active')) {
+            isPass = false;
+            shipError.children('img').css("display", "block");
+            shipError.children('h6').html('尚未選擇運送方式');
+        }
+        if (isPass) {
+            location.href = 'cart-payment2.php';
+            // console.log(data);
+        }
+        return false;
+
+    };
+
+
+
+    // $('.pay-btn').click(function() {
+    //     let isPass = true;
+
+
+
+    // });
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>

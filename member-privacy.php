@@ -101,14 +101,14 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         .selector {
             width: 94vw;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-evenly;
             margin-top: 0;
             margin-right: 0;
             margin-bottom: 20px;
         }
 
         .box {
-            width: 30vw;
+            width: auto;
             height: 10vw;
             line-height: 30px;
             text-align: center;
@@ -143,6 +143,9 @@ $pageName = 'aboutWATZ';  // 這裡放你的pagename
         .background li h6{
             width: 90%;
             margin: 40px 40px;
+        }
+        .selector a{
+            padding: 0;
         }
     } 
 </style>
