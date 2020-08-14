@@ -127,6 +127,10 @@ $pageName = 'DIY-finished';
         z-index: 0;
     }
 
+    .go-shop {
+        display: none;
+    }
+
     @media screen and (max-width: 1200px) {
         .wrapper {
             width: 100vw;
@@ -1210,21 +1214,25 @@ $pageName = 'DIY-finished';
             <?php else : ?>
                 <button class="btn-coral" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-login-signup.php'">請先登入會員</button>
             <?php endif; ?>
+            <button class="btn-coral go-shop" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php'">逛街去</button>
         </div>
     </div>
     <?php include __DIR__ . '/__html_footer.php' ?>
 </div>
 <?php include __DIR__ . '/__scripts.php' ?>
 <script>
+    const defaultCustom = {
+        "bottomColor": "#FFFFFF",
+        "pattern": "pattern-watz",
+        "patternColor": "#404040"
+    };
     //get localStorage
     let customStyle = {};
     try {
-        customStyle = localStorage.getItem('customStyle')
-            ? JSON.parse(localStorage.getItem('customStyle'))
-            : {}
-        // console.log(customStyle)
+        customStyle = localStorage.getItem('customStyle') ?
+            JSON.parse(localStorage.getItem('customStyle')) : Object.assign({}, defaultCustom)
     } catch (err) {
-        customStyle = {}
+        customStyle = Object.assign({}, defaultCustom);
     }
 
     // make current socks
@@ -1246,7 +1254,15 @@ $pageName = 'DIY-finished';
         setTimeout(function() {
             $(".notice").removeClass("success");
             $(".notice").removeClass("animate__animated animate__flipInX animate__faster");
-        }, 1600);
+        }, 1800);
+        localStorage.removeItem('customStyle');
+        // 送出訂單後 按鈕變為逛街去
+        $('.order-btn').css('display', 'none');
+        $('.btn-blue').css('display', 'none');
+        $('.btn').css('justify-content', 'center');
+        $('.go-shop').css({
+            'display': 'block',
+        });
     });
 </script>
 <?php require __DIR__ . '/__html_foot.php' ?>
