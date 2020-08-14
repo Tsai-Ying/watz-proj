@@ -1208,15 +1208,17 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
                 $('.noShipFee').text(`只差${ 1000 - total}元即享1000元免運！`);
                 if ($(".conv-store").hasClass('active')) {
                     $('.shipFee').text('60');
-                }
-                if ($(".HomeShipBtn").hasClass('active')) {
+                }else if ($(".HomeShipBtn").hasClass('active')) {
                     $('.shipFee').text('120');
+                }else{
+                    
                 }
             } else {
                 $('.noShipFee').text(`消費金額已免運！`);
                 $('.shipFee').text('0');
             }
         })
+        
     }
 
     prepareCartTable();
