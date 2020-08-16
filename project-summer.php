@@ -1096,19 +1096,19 @@ $pageName = 'project summer';  // 這裡放你的pagename
                 </div>
                 <ul class="flex">
                     <li class="box-li flex pointer">
-                            <img id="watzbox" src="images/summer/watzbox1-1.png" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#{series:[1],orderBy:new}'">
+                            <img id="watzbox" src="images/summer/watzbox1-1.png" alt="" onclick=redirect()>
                         <h5>芒果派對禮盒</h5>
                     </li>
                     <li class="small-li flex pointer">
-                        <img src="images/summer/block1-3.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=22'">
+                        <img src="images/summer/block1-3.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=24'">
                         <h5 class="mobile-none">夏日煙火</h5>
                     </li>
                     <li class="small-li flex pointer">
-                        <img src="images/summer/block1-4.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=24'">
+                        <img src="images/summer/block1-4.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=26'">
                         <h5 class="mobile-none">一起來跳森巴</h5>
                     </li>
                     <li class="small-li flex pointer">
-                        <img src="images/summer/block1-5.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=19'">
+                        <img src="images/summer/block1-5.jpg" alt="" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=21'">
                         <h5 class="mobile-none">綠野仙蹤</h5>
                     </li>
                 </ul>
@@ -1129,7 +1129,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
                 <img src="images/summer/block2-1.png" alt="">
             </div>
             <h1>COOL OFF & CHILL OUT.</h1>
-            <button class="btn-coral transition" onclick="javascript:location.href='<?= WEB_ROOT ?>/product.php?#{series:[1],orderBy:new}'">CHECK ME OUT</button>
+            <button class="btn-coral transition" onclick=redirect()>CHECK ME OUT</button>
         </div>
     </div>
     <div class="modal absolute"></div>
@@ -1159,7 +1159,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
                 <h3>駕鶴西瓜</h3>
                 <p>襪口部採用具止滑效果的織線，不易滑脫。襪口無鬆緊帶設計，穿著柔軟舒適。使用對環境溫和的有機棉所製成。</p>
                 <p>短襪<br>22-24cm<br>材質:100%純棉</p>
-                <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=86'">SEE MORE</button>
+                <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=91'">SEE MORE</button>
             </div>
         </div>
     </div>
@@ -1176,12 +1176,12 @@ $pageName = 'project summer';  // 這裡放你的pagename
             <p>Jungle Friends, our summer collection that expresses animal friends living in the jungle with a detailed and witty cuteness unique to WATZ.<br>
             </p>
             <p>長襪<br>22-24cm<br>材質:100%純棉</p>
-            <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=21'">SEE MORE</button>
+            <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=23'">SEE MORE</button>
         </div>
         <ul class="info-right flex transition">
-            <li><img class="pointer" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=21'" src="images/summer/block4-3.jpg" alt=""></li>
-            <li><img class="pointer" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=21'" src="images/summer/block4-4.jpg" alt=""></li>
-            <li><img class="pointer" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=21'" src="images/summer/block4-5.jpg" alt=""></li>
+            <li><img class="pointer" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=23'" src="images/summer/block4-3.jpg" alt=""></li>
+            <li><img class="pointer" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=23'" src="images/summer/block4-4.jpg" alt=""></li>
+            <li><img class="pointer" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=23'" src="images/summer/block4-5.jpg" alt=""></li>
         </ul>
     </div>
     <div class="block3 block5 flex">
@@ -1196,7 +1196,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
                 <h3>夏日煙火</h3>
                 <p>襪口部採用具止滑效果的織線，不易滑脫。襪口無鬆緊帶設計，穿著柔軟舒適。使用對環境溫和的有機棉所製成。</p>
                 <p>長襪<br>22-24cm<br>材質:100%純棉</p>
-                <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=22'">SEE MORE</button>
+                <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=24'">SEE MORE</button>
             </div>
         </div>
         <div class="block3-left block5-right">
@@ -1220,19 +1220,19 @@ $pageName = 'project summer';  // 這裡放你的pagename
             <ul class="flex">
                 <li class="flex">
                     <div class="block6-1"><img src="images/summer/block6-1.jpg" alt=""></div>
-                    <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=28'">SEE MORE</button>
+                    <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=30'">SEE MORE</button>
                 </li>
                 <li class="flex">
                     <div class="block6-2"><img src="images/summer/block6-2.jpg" alt=""></div>
-                    <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=29'">SEE MORE</button>
+                    <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=31'">SEE MORE</button>
                 </li>
                 <li class="flex">
                     <div class="block6-3"><img src="images/summer/block6-3.jpg" alt=""></div>
-                    <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=19'">SEE MORE</button>
+                    <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=21'">SEE MORE</button>
                 </li>
                 <li class="flex">
                     <div class="block6-4"><img src="images/summer/block6-4.jpg" alt=""></div>
-                    <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=25'">SEE MORE</button>
+                    <button class="btn-coral btn-seemore" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=27'">SEE MORE</button>
                 </li>
             </ul>
         </div>
@@ -1261,6 +1261,10 @@ $pageName = 'project summer';  // 這裡放你的pagename
         $(".img-block3-1 img").attr("src", "images/summer/block3-1.jpg");
     })
 
+    // 麵包屑
+    const redirect = () => {
+        location.href='<?= WEB_ROOT ?>/product.php?#{"series":["1"],"orderBy":"new"}';
+    };
   
 </script>
 
