@@ -3,6 +3,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+<title>WATZ - DIY</title>
 <style>
     .container {
         width: 100%;

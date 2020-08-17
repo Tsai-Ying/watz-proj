@@ -13,6 +13,7 @@ $series_name = $pdo->query($s_sql)->fetch()['series_name'];
 
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
+<title>WATZ - 商品頁面</title>
 
 <style>
     .container {

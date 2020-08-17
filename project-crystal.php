@@ -5,6 +5,7 @@ $pageName = 'Crystal';  // 這裡放你的pagename
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
+<title>WATZ - 灰姑娘的水晶襪</title>
 
 <style>
     .container {

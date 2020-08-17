@@ -3,7 +3,7 @@ $pageName = 'contact';  // 這裡放你的pagename
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 
-
+<title>WATZ - 常見問題</title>
 <style>
     body {
         width: 100vw;

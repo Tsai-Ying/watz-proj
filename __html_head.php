@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nav</title>
+    <!-- <title>WATZ</title> -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
     <style>
@@ -14,7 +14,7 @@
         box-sizing: border-box;
         letter-spacing: 2px;
         /* font-family: 'Noto Sans TC', sans-serif; */
-
+        user-select: none;
     }
     
     body {

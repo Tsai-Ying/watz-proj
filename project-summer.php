@@ -6,7 +6,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
 <!-- font-family: 'Josefin Sans', sans-serif; -->
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 
-
+<title>WATZ - 芒果派對</title>
 <style>
     .container {
         width: 100vw;
