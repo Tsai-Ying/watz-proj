@@ -372,7 +372,7 @@ $totalprice = 0;
             </div>
             <div class="bg-detail flex">
                 <div class="flex mobile-none">
-                    <button class="btn-blue">回上一頁</button>
+                    <button class="btn-blue" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-historylist.php'">回上一頁</button>
                 </div>
                 <div class="bg-order-content flex">
                     <div class="block1 flex">
@@ -474,7 +474,7 @@ $totalprice = 0;
                             </ul>
                             <div class="bg-bill flex">
                                 <div>
-                                    <h5>運費: NT 120</h5>
+                                    <h5>運費: NT 0</h5>
                                 </div>
                                 <div>
                                     <h5>Coupon折抵: NT -60</h5>
