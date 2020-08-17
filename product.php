@@ -95,10 +95,26 @@ $stmt = $pdo->query($sql);
         cursor: pointer;
         transition: 0.5s;
         filter: drop-shadow(2px 2px 2px rgba(124, 124, 124, 0.637));
+        animation:btn-move 2s ease-in-out  2 normal none running;
     }
+
+
+@keyframes btn-move {
+    0% {
+        top: 70vh;
+    }
+    50% {
+        top: 68vh;
+    }
+
+    100% {
+        top: 70vh;
+    }
+}
 
     .product-help-btn:hover {
         background-color: #0388A6;
+        animation-play-state:paused;
     }
 
     .product-help-btn img {
