@@ -891,7 +891,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5>隱形襪</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext cursor" id="block2-btn1" name="types[]" value="4,3">
+                                            <input type="radio" class="radio-input goNext cursor" id="block2-btn1" name="types" value="3,4">
                                             <label for="block2-btn1" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -906,7 +906,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5>踝襪</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block2-btn2" name="types[]" value="3,4">
+                                            <input type="radio" class="radio-input goNext" id="block2-btn2" name="types" value="3,4">
                                             <label for="block2-btn2" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -924,7 +924,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5>短襪</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block2-btn3" name="types[]" value="2">
+                                            <input type="radio" class="radio-input goNext" id="block2-btn3" name="types" value="2">
                                             <label for="block2-btn3" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -939,7 +939,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5>長襪</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block2-btn4" name="types[]" value="1">
+                                            <input type="radio" class="radio-input goNext" id="block2-btn4" name="types" value="1">
                                             <label for="block2-btn4" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -969,7 +969,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5 class="block3-text">古著文青風</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block3-btn1" name="series[]" value="4,5">
+                                            <input type="radio" class="radio-input goNext" id="block3-btn1" name="series" value="4,5">
                                             <label for="block3-btn1" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -984,7 +984,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5 class="block3-text">時下流行單品</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block3-btn2" name="series[]" value="1,2,3">
+                                            <input type="radio" class="radio-input goNext" id="block3-btn2" name="series" value="1,2,3">
                                             <label for="block3-btn2" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -1002,7 +1002,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5 class="block3-text">襯衫和長褲</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block3-btn3" name="series[]" value="4">
+                                            <input type="radio" class="radio-input goNext" id="block3-btn3" name="series" value="4">
                                             <label for="block3-btn3" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -1017,7 +1017,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5 class="block3-text">休閒洋裝</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block3-btn4" name="series[]" value="5,6">
+                                            <input type="radio" class="radio-input goNext" id="block3-btn4" name="series" value="5,6">
                                             <label for="block3-btn4" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -1125,7 +1125,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5>粉嫩色系</h5>
                                         <div>
-                                            <input type="radio" class="radio-input" id="block5-btn1" name="colors[]" value="2,7">
+                                            <input type="radio" class="radio-input" id="block5-btn1" name="colors" value="2,5,7">
                                             <label for="block5-btn1" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -1140,7 +1140,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5>大地色系</h5>
                                         <div>
-                                            <input type="radio" class="radio-input" id="block5-btn2" name="colors[]" value="4">
+                                            <input type="radio" class="radio-input" id="block5-btn2" name="colors" value="4">
                                             <label for="block5-btn2" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -1157,7 +1157,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5>黑白灰</h5>
                                         <div>
-                                            <input type="radio" class="radio-input " id="block5-btn3" name="colors[]" value="7,8">
+                                            <input type="radio" class="radio-input " id="block5-btn3" name="colors" value="7,8">
                                             <label for="block5-btn3" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -1172,7 +1172,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5>繽紛色系</h5>
                                         <div>
-                                            <input type="radio" class="radio-input" id="block5-btn4" name="colors[]" value="1,3,6">
+                                            <input type="radio" class="radio-input" id="block5-btn4" name="colors" value="1,3,6">
                                             <label for="block5-btn4" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -1353,6 +1353,7 @@ $stmt = $pdo->query($sql);
 <script src="js/vegas.min.js"></script>
 
 <script>
+    let form2Data = {};
     //  ----------- vegas -----------------
     $("#example").vegas({
         timer: false,
@@ -1439,7 +1440,8 @@ $(".color-btn-box li ").hover(function() {
 
         if (slideIndex > 4) {
             setTimeout(function() {
-                $('.help-bg').fadeOut()
+                $('.help-bg').fadeOut();
+                location.href = '#'+ JSON.stringify(form2Data);
             }, 5000);
         }
 
@@ -1460,6 +1462,7 @@ $(".color-btn-box li ").hover(function() {
 
     $('.help-bg').hide();
     $('#product-help-btn').click(function() {
+        form2Data = {};  // clear data
         $('.help-bg').slideDown(800);
         return false;
     });
@@ -1479,6 +1482,17 @@ $(".color-btn-box li ").hover(function() {
 <script>
     const productBox = $('.product-box');
     // ----------------------------
+
+    $('form[name=form2] input[type=radio]').click(function() {
+        const name = this.name;
+        const values = this.value.split(',');
+        if(name!='number'){
+            form2Data[name] = values;
+        }
+    });
+
+
+/*
     $('form[name=form2] input[type=radio]').click(function() {
         $('#page').val('1');
 
@@ -1496,8 +1510,9 @@ $(".color-btn-box li ").hover(function() {
             productGet(data);
           
         }, 'json')
-        handleHash2();
+        handleHash();
     });
+*/
     // ----------------------------
 
     function findStatus(){
@@ -1550,6 +1565,12 @@ $(".color-btn-box li ").hover(function() {
         findStatus();
         location.href = '#' + JSON.stringify(hObj);
     });
+
+// 我亂寫的
+    // $('form[name=form2] input[type=radio]').click(function() {
+    //     findStatus();
+    //     location.href = '#' + JSON.stringify(hObj);
+    // });
    
     // --------------------------------
     function goPage(page) {
