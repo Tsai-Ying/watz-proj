@@ -51,13 +51,6 @@ $pageName = 'DIY-finished';
         }
     }
 
-    .img-bling {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        opacity: .3;
-        position: absolute;
-    }
 
     .img-bling1 {
         width: 70px;
