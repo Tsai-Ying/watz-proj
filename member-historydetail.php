@@ -19,7 +19,7 @@ $totalprice = 0;
 <?php include __DIR__ . '/__html_head.php' ?>
 
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
-<title>WATZ - 歷史訂單</title>
+<title>WATZ - 訂單紀錄</title>
 
 <style>
     p,
