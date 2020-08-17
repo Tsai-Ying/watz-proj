@@ -245,7 +245,7 @@ $pageName = 'Crystal';  // 這裡放你的pagename
     }
 
     .three-seemore {
-        /* width: 360px; */
+        width: 600px;
         flex-direction: row;
         justify-content: space-between;
     }
@@ -420,7 +420,9 @@ $pageName = 'Crystal';  // 這裡放你的pagename
             width: 40vw;
             margin-bottom: 20px;
         }
-
+        .three-seemore{
+            width: 42vw;
+        }
         .pc-bg-right {
             top: 31%;
             right: 5%;
