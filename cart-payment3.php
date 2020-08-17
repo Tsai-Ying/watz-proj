@@ -2,17 +2,17 @@
 $pageName = '';  // 這裡放你的pagename
 
 $sids = array_column($_SESSION['cart'], 'sid');
-$p_sql = "SELECT * FROM `product` WHERE `sid` IN (". implode(',', $sids). ")";
+$p_sql = "SELECT * FROM `product` WHERE `sid` IN (" . implode(',', $sids) . ")";
 $productData = [];
 $p_stmt = $pdo->query($p_sql);
-while($r = $p_stmt->fetch()){
+while ($r = $p_stmt->fetch()) {
     $productData[$r['sid']] = $r;
 }
 
 $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['receiver']['watzbox_style'] : Null;
 
 $totalPrice = 0;
-foreach ($_SESSION['cart'] as $k=>$v){
+foreach ($_SESSION['cart'] as $k => $v) {
     $_SESSION['cart'][$k]['price'] = $productData[$v['sid']]['price'];
 
     $totalPrice += $_SESSION['cart'][$k]['price'] * $v['qty'];
@@ -40,18 +40,20 @@ foreach ($_SESSION['cart'] as $k=>$v){
 
     .wrapper {
         width: 1200px;
-        height: 640px;
+        /* height: 60%; */
         overflow: hidden;
         position: relative;
-        margin-top: 100px;
+        margin-top: 120px;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
+        border: 1px solid pink;
     }
 
     .pay-title {
         width: 100%;
         height: 30px;
+        /* margin-bottom: 30px; */
     }
 
     .pay-title h3 {
@@ -65,7 +67,7 @@ foreach ($_SESSION['cart'] as $k=>$v){
         width: 1000px;
         height: 500px;
         justify-content: space-evenly;
-        margin-bottom: 30px;
+        margin-bottom: 60px;
     }
 
     .top-block {
@@ -89,7 +91,7 @@ foreach ($_SESSION['cart'] as $k=>$v){
         bottom: 0;
         transform: translateX(50px);
         z-index: 0;
-        /* border: 1px solid rgb(90, 205, 109); */
+        border: 1px solid rgb(90, 205, 109);
     }
 
     .block-left {
@@ -144,6 +146,8 @@ foreach ($_SESSION['cart'] as $k=>$v){
             flex-direction: column-reverse;
             align-items: center;
             justify-content: space-between;
+            margin-bottom: 30px;
+
         }
 
         .block-right {
@@ -161,13 +165,12 @@ foreach ($_SESSION['cart'] as $k=>$v){
             height: 580px;
         }
 
-        .pay-frame {
-            height: 100%;
-            margin-bottom: 30px;
-        }
-
         .open-btn {
             display: none;
+        }
+
+        .wrapper {
+            margin-bottom: 30px;
         }
 
     }
@@ -176,6 +179,11 @@ foreach ($_SESSION['cart'] as $k=>$v){
 
         .block-right {
             width: 80vw;
+
+        }
+
+        .pay-title h3 {
+            margin: 0px;
 
         }
     }
@@ -382,7 +390,7 @@ foreach ($_SESSION['cart'] as $k=>$v){
         bottom: 5%;
         /* border: 1px solid rebeccapurple; */
         display: none;
-        margin-bottom:10px;
+        margin-bottom: 10px;
 
     }
 
@@ -579,6 +587,14 @@ foreach ($_SESSION['cart'] as $k=>$v){
         }
 
     }
+    @media screen and (max-width: 576px){
+        .total-price-title{
+            width: 90%;
+        }
+        .total-price{
+            width: 100%;
+        }
+    }
 
 
 
@@ -672,7 +688,7 @@ foreach ($_SESSION['cart'] as $k=>$v){
         flex-grow: 1;
     }
 
-    .socks-price{
+    .socks-price {
         margin-left: 20px;
     }
 
@@ -697,9 +713,9 @@ foreach ($_SESSION['cart'] as $k=>$v){
         height: 350px;
     }
 
-    @media screen and (max-width: 922px) {
+    @media screen and (max-width: 992px) {
         .hide {
-            border-radius: 15px 15px 0px 0;
+            border-radius: 15px 15px 0px 0px;
             height: 50px;
             position: unset;
             z-index: 0;
@@ -709,6 +725,11 @@ foreach ($_SESSION['cart'] as $k=>$v){
             height: 250px;
         }
 
+    }
+    @media screen and (max-width: 576px){
+        .hide{
+            width: 100%;
+        }
     }
 
     /* ------------------btn------------------- */
@@ -752,8 +773,6 @@ foreach ($_SESSION['cart'] as $k=>$v){
     }
 
 
-    .top-block.order-list.open {}
-
     .order-list h3 {
         color: #03588C;
     }
@@ -781,6 +800,11 @@ foreach ($_SESSION['cart'] as $k=>$v){
             margin-top: 30px;
         }
     }
+    @media screen and (max-width: 922px){
+        .list-scroll{
+            width: 90%;
+        }
+    }
 
     /* --------------total-price------------- */
     .top-block .total-price {
@@ -802,7 +826,6 @@ foreach ($_SESSION['cart'] as $k=>$v){
         width: 85%;
         flex-direction: column;
         margin-bottom: 30px;
-        /* border: 1px solid yellow; */
         justify-content: space-between;
     }
 
@@ -823,6 +846,7 @@ foreach ($_SESSION['cart'] as $k=>$v){
     <?php include __DIR__ . '/__html_btn-top.php' ?>
 
     <div class="wrapper flex">
+        <div class="div"></div>
         <div class="pay-title">
             <h3>填寫信用卡資訊</h3>
         </div>
@@ -941,21 +965,21 @@ foreach ($_SESSION['cart'] as $k=>$v){
                         </ul>
                         <ul class="info-input flex">
                             <div class="name-input">
-                                <input class="cardNameInput" type="text" >
+                                <input class="cardNameInput" type="text">
                             </div>
                             <li class="credit-number-input creditNumberInput flex">
-                                <input class="cardNumberInput" type="text" maxlength="4" data-val="1" oninput = "value=value.replace(/[^\d]/g,'')">
-                                <input class="cardNumberInput" type="text" maxlength="4" data-val="2" oninput = "value=value.replace(/[^\d]/g,'')">
-                                <input class="cardNumberInput" type="text" maxlength="4" data-val="3" oninput = "value=value.replace(/[^\d]/g,'')">
-                                <input class="cardNumberInput" type="text" maxlength="4" data-val="4" oninput = "value=value.replace(/[^\d]/g,'')">
+                                <input class="cardNumberInput" type="text" maxlength="4" data-val="1" oninput="value=value.replace(/[^\d]/g,'')">
+                                <input class="cardNumberInput" type="text" maxlength="4" data-val="2" oninput="value=value.replace(/[^\d]/g,'')">
+                                <input class="cardNumberInput" type="text" maxlength="4" data-val="3" oninput="value=value.replace(/[^\d]/g,'')">
+                                <input class="cardNumberInput" type="text" maxlength="4" data-val="4" oninput="value=value.replace(/[^\d]/g,'')">
                             </li>
                             <li class="month-input monthYearInput flex">
-                                <input class="expirInput cardmonthsInput cardMonthsInput" type="text" maxlength="2" oninput = "value=value.replace(/[^\d]/g,'')">
+                                <input class="expirInput cardmonthsInput cardMonthsInput" type="text" maxlength="2" oninput="value=value.replace(/[^\d]/g,'')">
                                 /
-                                <input class="year-input expirInput cardYearsInput" type="text" maxlength="2" oninput = "value=value.replace(/[^\d]/g,'')">
+                                <input class="year-input expirInput cardYearsInput" type="text" maxlength="2" oninput="value=value.replace(/[^\d]/g,'')">
                             </li>
                             <li class="ccv-input">
-                                <input class="cardCcvInput" type="text" maxlength="3" oninput = "value=value.replace(/[^\d]/g,'')"></li>
+                                <input class="cardCcvInput" type="text" maxlength="3" oninput="value=value.replace(/[^\d]/g,'')"></li>
 
                         </ul>
                     </div>
@@ -973,38 +997,38 @@ foreach ($_SESSION['cart'] as $k=>$v){
                                 <div class="box-product-orderlist flex">
                                     <h4>禮盒內容</h4>
                                     <p class="margin">
-                                    <?php if ($watzbox_style == 'watzbox1') {
-                                        echo '夏日芒果';
-                                    } else if ($watzbox_style == 'watzbox2') {
-                                        echo '群魔亂舞';
-                                    } else if ($watzbox_style == 'watzbox3') {
-                                        echo '灰姑娘的水晶襪';
-                                    } else {
-                                        echo '無';
-                                    } ?></p>
+                                        <?php if ($watzbox_style == 'watzbox1') {
+                                            echo '夏日芒果';
+                                        } else if ($watzbox_style == 'watzbox2') {
+                                            echo '群魔亂舞';
+                                        } else if ($watzbox_style == 'watzbox3') {
+                                            echo '灰姑娘的水晶襪';
+                                        } else {
+                                            echo '無';
+                                        } ?></p>
                                     <?php foreach ($_SESSION['cart'] as $i) :
                                         if ($i['watzbox'] == 1) : ?>
-                                    <div class="box-socks p_item flex">
-                                        <div class="socks-nameNprice flex" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
-                                            <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                            <h5>×<?= $i['qty'] ?></h5>
-                                            <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
-                                        </div>
-                                    </div>
-                                    <?php endif; ?>
+                                            <div class="box-socks p_item flex">
+                                                <div class="socks-nameNprice flex" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
+                                                    <h5 class="socks-title"><?= $i['product_name'] ?></h5>
+                                                    <h5>×<?= $i['qty'] ?></h5>
+                                                    <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
                                     <?php endforeach; ?>
                                 </div>
                                 <div class="product-orderlist p_item flex" id="pbox<?= $i['sid'] ?>" data-sid="<?= $i['sid'] ?>" data-price="<?= $i['price'] ?>" data-quantity="<?= $i['qty'] ?>">
                                     <h4>單購襪子</h4>
                                     <?php foreach ($_SESSION['cart'] as $i) :
                                         if ($i['watzbox'] == 0) : ?>
-                                        <div class="single-socks p_item flex">
-                                            <div class="socks-nameNprice flex">
-                                                <h5 class="socks-title"><?= $i['product_name'] ?></h5>
-                                                <h5>×<?= $i['qty'] ?></h5>
-                                                <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
+                                            <div class="single-socks p_item flex">
+                                                <div class="socks-nameNprice flex">
+                                                    <h5 class="socks-title"><?= $i['product_name'] ?></h5>
+                                                    <h5>×<?= $i['qty'] ?></h5>
+                                                    <h5 class="socks-price">NT $<?= $i['price'] ?></h5>
+                                                </div>
                                             </div>
-                                        </div>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
                                 </div>
@@ -1030,7 +1054,7 @@ foreach ($_SESSION['cart'] as $k=>$v){
                                     <div class="line"></div>
                                     <li class="flex">
                                         <h4>結帳金額</h4>
-                                        <h4 id="totalPrice">NT $<?= $totalPrice+120-60 ?></h4>
+                                        <h4 id="totalPrice">NT $<?= $totalPrice + 120 - 60 ?></h4>
                                     </li>
                                 </ul>
                             </div>
