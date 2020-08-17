@@ -473,7 +473,7 @@ $totalprice = 0;
                             </ul>
                             <div class="bg-bill flex">
                                 <div>
-                                    <h5>運費: NT 120</h5>
+                                    <h5>運費: NT 0</h5>
                                 </div>
                                 <div>
                                     <h5>Coupon折抵: NT -60</h5>
