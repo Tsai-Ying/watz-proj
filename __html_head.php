@@ -92,6 +92,20 @@
         cursor: default;
         transition: .4s;
     }
+    /* ---------scroll bar-------- */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        width:20px;
+        cursor: pointer;
+        background: #F2DE79;
+        border-radius:10px;
+    }
+    ::-webkit-scrollbar-track{
+	    background-color: #F8F4EB;
+    }
     
     @media screen and (max-width: 992px) {
         h1 {
