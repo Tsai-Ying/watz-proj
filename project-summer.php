@@ -6,7 +6,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
 <!-- font-family: 'Josefin Sans', sans-serif; -->
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 
-
+<title>WATZ - 芒果派對</title>
 <style>
     .container {
         width: 100vw;
@@ -1144,7 +1144,7 @@ $pageName = 'project summer';  // 這裡放你的pagename
             <img src="images/summer-whiteline2.svg" alt="">
         </div>
         <div class="block3-left">
-            <div class="img-block3-1">
+            <div class="img-block3-1 img-change">
                 <img src="images/summer/block3-1.jpg" alt="">
             </div>
             <ul class="flex absolute">
@@ -1254,11 +1254,11 @@ $pageName = 'project summer';  // 這裡放你的pagename
     // block-left 點擊改變照片功能
     $(".watermelon").click(function() {
         let imgSrc = $(this).attr("src");
-        $(".img-block3-1 img").attr("src", imgSrc);
+        $(".img-change img").attr("src", imgSrc);
     })
 
     $(".block3-left").mouseleave(function() {
-        $(".img-block3-1 img").attr("src", "images/summer/block3-1.jpg");
+        $(".img-change img").attr("src", "images/summer/block3-1.jpg");
     })
 
     // 麵包屑

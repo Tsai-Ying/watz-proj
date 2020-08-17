@@ -4,6 +4,8 @@ $pageName = 'DIY-finished';
 <?php include __DIR__ . '/__html_head.php' ?>
 <link rel="shortcut icon" href="images/favicon.svg">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+<title>WATZ - DIY</title>
+
 <style>
     .container {
         width: 100%;

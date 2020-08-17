@@ -14,7 +14,7 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
 <?php include __DIR__ . '/__html_head.php' ?>
 
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
-
+<title>WATZ - 購物車</title>
 <style>
     body {
         background-size: cover;

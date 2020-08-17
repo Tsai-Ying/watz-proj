@@ -5,6 +5,7 @@ $pageName = 'empty';  // 這裡放你的pagename
 
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
 
+<title>WATZ - 購物車</title>
 <style>
     /* -----------------empty-cart---------------        */
     body {

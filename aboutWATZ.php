@@ -3,6 +3,7 @@ $pageName = 'aboutWATZ';
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+<title>WATZ - 關於WATZ</title>
 <style>
 
     .container {

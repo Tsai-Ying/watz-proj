@@ -8,6 +8,8 @@ $pageName = 'index';  // 這裡放你的pagename
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 
+<title>WATZ</title>
+
 <style>
     /* -------------區塊一------------- */
 
@@ -53,49 +55,49 @@ $pageName = 'index';  // 這裡放你的pagename
         bottom: -10%;
     }
 
-    .cube1{
+    .cube1 {
         width: 18px;
         height: 18px;
         left: 10%;
         animation-delay: 1s;
     }
 
-    .cube2{
+    .cube2 {
         width: 15px;
         height: 15px;
         left: 20%;
         animation-delay: 3s;
     }
 
-    .cube3{
+    .cube3 {
         width: 10px;
         height: 10px;
         left: 30%;
         animation-delay: 2s;
     }
 
-    .cube7{
+    .cube7 {
         width: 14px;
         height: 14px;
         right: 25%;
         animation-delay: 1.5s;
     }
 
-    .cube4{
+    .cube4 {
         width: 15px;
         height: 15px;
         right: 10%;
         animation-delay: 3s;
     }
 
-    .cube5{
+    .cube5 {
         width: 10px;
         height: 10px;
         right: 20%;
         animation-delay: 1s;
     }
 
-    .cube6{
+    .cube6 {
         width: 14px;
         height: 14px;
         right: 30%;
@@ -107,57 +109,65 @@ $pageName = 'index';  // 這裡放你的pagename
 
 
         0% {
-            transform: translate(-30px,-50px) scale(1);
+            transform: translate(-30px, -50px) scale(1);
             opacity: 1;
         }
 
         10% {
-            transform: translate(30px,-100px) scale(1.2);
+            transform: translate(30px, -100px) scale(1.2);
             opacity: .9;
-            
+
         }
-        
+
         20% {
-            transform: translate(-30px,-150px) scale(1.2);
+            transform: translate(-30px, -150px) scale(1.2);
             opacity: .8;
-            
+
         }
+
         30% {
-            transform: translate(30px,-200px) scale(1.2);
+            transform: translate(30px, -200px) scale(1.2);
             opacity: .7;
-            
+
         }
+
         40% {
-            transform: translate(-30px,-250px) scale(1.4);
+            transform: translate(-30px, -250px) scale(1.4);
 
             opacity: .6;
-            
+
         }
+
         50% {
-            transform: translate(30px,-300px) scale(1.2);
+            transform: translate(30px, -300px) scale(1.2);
             opacity: .5;
-            
+
         }
+
         60% {
-            transform: translate(-30px,-350px) scale(1.6);
+            transform: translate(-30px, -350px) scale(1.6);
             opacity: .4;
         }
+
         70% {
-            transform: translate(30px,-400px) scale(1.2);
+            transform: translate(30px, -400px) scale(1.2);
             opacity: .3;
-            
+
         }
+
         80% {
-            transform: translate(-30px,-450px) scale(1.8);
+            transform: translate(-30px, -450px) scale(1.8);
             opacity: .2;
         }
+
         90% {
-            transform: translate(30px,-500px) scale(1.2);
+            transform: translate(30px, -500px) scale(1.2);
             opacity: .1;
-            
+
         }
+
         100% {
-            transform: translate(-30px,-550px) scale(2.0);
+            transform: translate(-30px, -550px) scale(2.0);
             opacity: 0;
         }
     }
@@ -573,31 +583,31 @@ $pageName = 'index';  // 這裡放你的pagename
                     <img src="images/logo-z.svg" alt="">
                 </div>
             </div>
-        </div>       
-            <!-- <div class="T words">
+        </div>
+        <!-- <div class="T words">
                 <div class="cube cube1"></div>
                 <div class="cube cube2"></div>
             </div> -->
 
-            <div class="cube cube1"><img src="images/bubbleCoral.svg" alt=""></div>
-            <div class="cube cube2"><img src="images/bubbleNavy.svg" alt=""></div>
-            <div class="cube cube7"><img src="images/bubbleGreen.svg" alt=""></div>
-            <div class="cube cube3"><img src="images/bubbleYellow.svg" alt=""></div>
-            <div class="cube cube4"><img src="images/bubbleGreen.svg" alt=""></div>
-            <div class="cube cube5"><img src="images/bubbleCoral.svg" alt=""></div>
-            <div class="cube cube6"><img src="images/bubbleNavy.svg" alt=""></div>
+        <div class="cube cube1"><img src="images/bubbleCoral.svg" alt=""></div>
+        <div class="cube cube2"><img src="images/bubbleNavy.svg" alt=""></div>
+        <div class="cube cube7"><img src="images/bubbleGreen.svg" alt=""></div>
+        <div class="cube cube3"><img src="images/bubbleYellow.svg" alt=""></div>
+        <div class="cube cube4"><img src="images/bubbleGreen.svg" alt=""></div>
+        <div class="cube cube5"><img src="images/bubbleCoral.svg" alt=""></div>
+        <div class="cube cube6"><img src="images/bubbleNavy.svg" alt=""></div>
     </div>
     <!---區塊二：slider---->
 
     <div class="block2">
         <div>
-            <a href=""><img src="images/index-slider1.png" alt=""></a>
+            <a href="<?= WEB_ROOT ?>/project-summer.php"><img src="images/index-slider1.png" alt=""></a>
         </div>
         <div>
-            <a href=""><img src="images/index-slider2.png" alt=""></a>
+            <a href="<?= WEB_ROOT ?>/project-irregular.php"><img src="images/index-slider2.png" alt=""></a>
         </div>
         <div>
-            <a href=""><img src="images/index-slider3.png" alt=""></a>
+            <a href="<?= WEB_ROOT ?>/project-crystal.php"><img src="images/index-slider3.png" alt=""></a>
         </div>
     </div>
     <!---區塊三：禮盒---->
@@ -608,19 +618,19 @@ $pageName = 'index';  // 這裡放你的pagename
         </div>
         <div class="giftbox flex">
             <div class="gift flex transition">
-                <a href="">
+                <a href='<?= WEB_ROOT ?>/product.php?#{"series":["1"],"orderBy":"new"}'>
                     <img id="watzbox1" src="images/watzbox1-1.png" alt="">
                 </a>
                 <h3>芒果派對</h3>
             </div>
             <div class="gift flex transition">
-                <a href="">
+                <a href='<?= WEB_ROOT ?>/product.php?#{"series":["2"],"orderBy":"new"}'>
                     <img id="watzbox2" src="images/watzbox2-1.png" alt="">
                 </a>
                 <h3>群魔亂舞</h3>
             </div>
             <div class="gift flex transition">
-                <a href="">
+                <a href='<?= WEB_ROOT ?>/product.php?#{"series":["3"],"orderBy":"new"}'>
                     <img id="watzbox3" src="images/watzbox3-1.png" alt="">
                 </a>
                 <h3>灰姑娘的水晶襪</h3>
@@ -631,28 +641,28 @@ $pageName = 'index';  // 這裡放你的pagename
     <div class="block4 flex">
         <div class="slider-product">
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=99"><img src="images/product/american09-2.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=105"><img src="images/product/american09-2.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=47"><img src="images/product/american20-2.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=50"><img src="images/product/american20-2.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=100"><img src="images/product/american11-3.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=106"><img src="images/product/american11-3.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=33"><img src="images/product/crystal05-3.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=35"><img src="images/product/crystal05-3.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=37"><img src="images/product/crystal13-5.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=39"><img src="images/product/crystal13-5.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=55"><img src="images/product/geom05-3.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=58"><img src="images/product/geom05-3.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=58"><img src="images/product/geom08-4.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=61"><img src="images/product/geom08-4.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=59"><img src="images/product/geom09-3.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=62"><img src="images/product/geom09-3.jpg" alt=""></a>
             </div>
             <div>
                 <a href="<?= WEB_ROOT ?>/product-detail.php?sid=10"><img src="images/product/irregular05-3.jpg" alt=""></a>
@@ -664,25 +674,25 @@ $pageName = 'index';  // 這裡放你的pagename
                 <a href="<?= WEB_ROOT ?>/product-detail.php?sid=12"><img src="images/product/irregular13-2.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=67"><img src="images/product/plain01-3.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=71"><img src="images/product/plain01-3.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=73"><img src="images/product/plain13-3.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=77"><img src="images/product/plain13-3.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=75"><img src="images/product/plain15-3.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=79"><img src="images/product/plain15-3.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=21"><img src="images/product/summer03-3.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=23"><img src="images/product/summer03-3.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=117"><img src="images/product/summer10-2.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=135"><img src="images/product/summer10-2.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=27"><img src="images/product/summer11-2.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=29"><img src="images/product/summer11-2.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=86"><img src="images/product/summer15-6.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=91"><img src="images/product/summer15-6.jpg" alt=""></a>
             </div>
         </div>
         <div class="block4-bg flex">

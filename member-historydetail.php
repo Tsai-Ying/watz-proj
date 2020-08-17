@@ -19,6 +19,7 @@ $totalprice = 0;
 <?php include __DIR__ . '/__html_head.php' ?>
 
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
+<title>WATZ - 訂單紀錄</title>
 
 <style>
     p,
@@ -473,7 +474,7 @@ $totalprice = 0;
                             </ul>
                             <div class="bg-bill flex">
                                 <div>
-                                    <h5>運費: NT 120</h5>
+                                    <h5>運費: NT 0</h5>
                                 </div>
                                 <div>
                                     <h5>Coupon折抵: NT -60</h5>

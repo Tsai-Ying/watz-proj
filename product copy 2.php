@@ -59,7 +59,7 @@ $stmt = $pdo->query($sql);
 <link rel="stylesheet" href="css/vegas.min.css">
 <!--jquery-plugin-vegas  -->
 
-
+<title>WATZ - 商品一覽</title>
 <style>
     /* -------------- */
     <?php include __DIR__ . '/product-helpcss.php' ?>body {

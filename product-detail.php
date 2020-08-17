@@ -31,7 +31,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
 
 <?php include __DIR__ . '/__html_head.php' ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-
+<title>WATZ - 商品頁面</title>
 <style>
     .container {
         width: 100vw;
@@ -784,7 +784,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
         <div class="block-left transition">
             <div class="block-left-top flex transition">
                 <div class="bread-crumb transition">
-                    <a href="">商品</a>
+                    <a href="<?= WEB_ROOT ?>/product.php">商品</a>
                     <span> > </span>
                     <a href='<?= WEB_ROOT ?>/product.php?#{"series":[ <?= $series_sid ?>],"orderBy":"new"} '><?= $series_name ?></a>
                 </div>
