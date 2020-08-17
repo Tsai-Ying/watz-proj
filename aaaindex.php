@@ -653,7 +653,7 @@ $pageName = 'index';  // 這裡放你的pagename
                 <a href="<?= WEB_ROOT ?>/product-detail.php?sid=35"><img src="images/product/crystal05-3.jpg" alt=""></a>
             </div>
             <div>
-                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=39"><img src="images/product/crystal13-5.jpg" alt=""></a>
+                <a href="<?= WEB_ROOT ?>/product-detail.php?sid=38"><img src="images/product/crystal13-5.jpg" alt=""></a>
             </div>
             <div>
                 <a href="<?= WEB_ROOT ?>/product-detail.php?sid=58"><img src="images/product/geom05-3.jpg" alt=""></a>
