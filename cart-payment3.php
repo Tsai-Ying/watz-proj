@@ -22,7 +22,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
 <title>WATZ - 購物車</title>
-<link rel="stylesheet" href="/path/to/jquery.mCustomScrollbar.css" />
 <style>
     /* -----------------empty-cart---------------        */
     
@@ -93,7 +92,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
         bottom: 0;
         transform: translateX(50px);
         z-index: 0;
-        border: 1px solid rgb(90, 205, 109);
+        /* border: 1px solid rgb(90, 205, 109); */
     }
 
     .block-left {
@@ -121,25 +120,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
     .pay-frame.open .open-btn img {
         display: block;
     }
-
-    .container::-webkit-scrollbar-track-piece {
-        background-color: #F8F4EB;
-    }
-
-    .container::-webkit-scrollbar {
-        width: 5px;
-        height: 5px;
-
-    }
-
-    .container::-webkit-scrollbar-thumb {
-        background-color: #F2DE79;
-        background-clip: padding-box;
-        min-height: 28px;
-        border-radius: 20px;
-    }
-
-
     @media screen and (max-width: 1200px) {
         .wrapper {
             width: 90vw;
@@ -489,7 +469,9 @@ foreach ($_SESSION['cart'] as $k => $v) {
         .credit-info-frame.showin922 {
             display: flex;
         }
-
+        .top-block .total-price{
+            /* width:90%; */
+        }
     }
 
     /* ------------------total price------------ */
@@ -503,26 +485,13 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
     .total-price {
         width: 400px;
-        /* height: 170px; */
-        /* height: 500px; */
         background-color: #ffffff;
         border-radius: 0 0 15px 15px;
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
         z-index: 2;
-        /* border: 1px solid pink; */
     }
-
-
-    /* .total-price-frame {
-            width: 500px;
-            border-radius: 15px;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 30px;
-        } */
 
     .total-price-title {
         width: 320px;
@@ -547,8 +516,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         writing-mode: vertical-lr;
         color: #ffffff;
         cursor: pointer;
-
-
     }
 
     .open-btn img {
@@ -575,10 +542,9 @@ foreach ($_SESSION['cart'] as $k => $v) {
     }
 
     .total-price ul {
-        width: 300px;
+        width: 80%;
         margin: 10px;
         justify-content: space-between;
-
     }
 
     .total-price ul li {
@@ -605,6 +571,9 @@ foreach ($_SESSION['cart'] as $k => $v) {
         .total-price {
             z-index: 0;
         }
+        .total-price ul{
+            width:90%;
+        }
 
     }
 
@@ -615,6 +584,9 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
         .total-price {
             width: 100%;
+        }
+        .total-price ul{
+            
         }
     }
 
@@ -639,7 +611,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
     }
 
     .list-scroll {
-        width: 320px;
+        width: 80%;
         height: 25vh;
         overflow-x: hidden;
         overflow-y: scroll;
@@ -678,7 +650,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
     }
 
     .box-detail {
-        width: 200px;
+        width: 95%;
         height: 60px;
         /* border: 1px solid teal; */
         flex-direction: column;
@@ -686,24 +658,24 @@ foreach ($_SESSION['cart'] as $k => $v) {
     }
 
     .box-product-orderlist {
-        width: 280px;
+        width: 100%;
         flex-direction: column;
         justify-content: flex-start;
         margin-bottom: 30px;
+        border: 1px solid teal;
     }
 
     .product-orderlist {
-        width: 280px;
-        /* height: 200px; */
+        width: 100%;
         flex-direction: column;
         justify-content: flex-start;
+        border: 1px solid greenyellow;
     }
 
     .box-socks {
-        width: 280px;
+        width: 100%;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 2px solid #E2E2E2;
     }
 
     .socks-title {
@@ -715,21 +687,20 @@ foreach ($_SESSION['cart'] as $k => $v) {
     }
 
     .single-socks {
-        width: 280px;
+        width: 100%;
         align-items: center;
         justify-content: space-between;
         border-bottom: 2px solid #E2E2E2;
-        /* border: 1px solid orange; */
+        border: 1px solid orange;
     }
 
     .socks-nameNprice {
-        width: 280px;
+        width: 100%;
         align-items: center;
         justify-content: space-between;
     }
 
     .hide.open {
-        /* transform: translateY(-68%); */
         top: 0;
         z-index: 1;
         height: 350px;
@@ -746,6 +717,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
         .hide.open {
             height: 250px;
         }
+        
 
     }
 
@@ -1060,8 +1032,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
                         </div>
                     </div>
                     <div class="total-price flex">
-                        <div class="total-price-frame flex">
-                            <div class="total-price-detail flex">
                                 <ul>
                                     <li class="flex">
                                         <p>商品總計</p>
@@ -1081,8 +1051,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
                                         <h4 id="totalPrice">NT $<?= $totalPrice + 120 - 60 ?></h4>
                                     </li>
                                 </ul>
-                            </div>
-                        </div>
                     </div>
                     <div class="open-btn openBtn flex" id="">
                         <img src="images/pay-close.svg" alt="">
@@ -1102,7 +1070,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
 </div>
 <?php include __DIR__ . '/__scripts.php' ?>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="/path/to/jquery.mCustomScrollbar.concat.min.js"></script>
 <script>
     $(".open-btn").click(function() {
         $(".pay-frame").toggleClass("open");
