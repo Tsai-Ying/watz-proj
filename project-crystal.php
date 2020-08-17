@@ -2,7 +2,8 @@
 $pageName = 'Crystal';  // 這裡放你的pagename
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
 
 <style>
@@ -188,6 +189,7 @@ $pageName = 'Crystal';  // 這裡放你的pagename
 
     .pc-bg-right h3 {
         font-family: 'Montserrat', sans-serif;
+        font-style: italic;
         color: #ffffff;
         font-weight: 400;
         margin-bottom: 10px;
@@ -321,6 +323,7 @@ $pageName = 'Crystal';  // 這裡放你的pagename
     .album-right {
         width: 255px;
         height: 320px;
+        cursor: pointer;
     }
 
     .bg-album h5 {
@@ -547,9 +550,9 @@ $pageName = 'Crystal';  // 這裡放你的pagename
                         </div>
                     </div>
                     <div class="three-seemore flex">
-                        <button class="seemore btn-coral flex transition">SEE MORE</button>
-                        <button class="seemore btn-coral flex transition">SEE MORE</button>
-                        <button class="seemore btn-coral flex transition">SEE MORE</button>
+                        <button class="seemore btn-coral flex transition"  onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=97'">SEE MORE</button>
+                        <button class="seemore btn-coral flex transition"  onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=88'">SEE MORE</button>
+                        <button class="seemore btn-coral flex transition"  onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=98'">SEE MORE</button>
                     </div>
                 </div>
                 <div class="caketext">
@@ -567,11 +570,11 @@ $pageName = 'Crystal';  // 這裡放你的pagename
                 <img class="album-left" src="images/crystal/socks-album-left.png" alt="">
                 <div class="position">
                     <div class="bg-album flex">
-                        <img class="album-right" src="images/crystal/socks-album-right.png" alt="">
+                        <img class="album-right" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=90'" src="images/crystal/socks-album-right.png" alt="">
                         <div class="last flex">
                             <h5>夏季襪子女式打底中筒襪通透水晶絲材質，絲質韌性高、柔軟穿在腳上完全<br>
                                 <br>沒有束縛感，穿在腳上舒適透氣，是夏天避免腳臭的好夥伴！</h5>
-                            <button class="seemore btn-green btn-coral flex transition">SEE MORE</button>
+                            <button class="seemore btn-green btn-coral flex transition" onclick="javascript:location.href='<?= WEB_ROOT ?>/product-detail.php?sid=90'">SEE MORE</button>
                         </div>
                     </div>
                 </div>
