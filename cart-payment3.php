@@ -22,8 +22,10 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
 <title>WATZ - 購物車</title>
+<link rel="stylesheet" href="/path/to/jquery.mCustomScrollbar.css" />
 <style>
     /* -----------------empty-cart---------------        */
+    
     body {
         background-size: cover;
         background-image: url(images/BG2.svg);
@@ -119,6 +121,24 @@ foreach ($_SESSION['cart'] as $k => $v) {
     .pay-frame.open .open-btn img {
         display: block;
     }
+
+    .container::-webkit-scrollbar-track-piece {
+        background-color: #F8F4EB;
+    }
+
+    .container::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+
+    }
+
+    .container::-webkit-scrollbar-thumb {
+        background-color: #F2DE79;
+        background-clip: padding-box;
+        min-height: 28px;
+        border-radius: 20px;
+    }
+
 
     @media screen and (max-width: 1200px) {
         .wrapper {
@@ -587,11 +607,13 @@ foreach ($_SESSION['cart'] as $k => $v) {
         }
 
     }
-    @media screen and (max-width: 576px){
-        .total-price-title{
+
+    @media screen and (max-width: 576px) {
+        .total-price-title {
             width: 90%;
         }
-        .total-price{
+
+        .total-price {
             width: 100%;
         }
     }
@@ -726,8 +748,9 @@ foreach ($_SESSION['cart'] as $k => $v) {
         }
 
     }
-    @media screen and (max-width: 576px){
-        .hide{
+
+    @media screen and (max-width: 576px) {
+        .hide {
             width: 100%;
         }
     }
@@ -800,8 +823,9 @@ foreach ($_SESSION['cart'] as $k => $v) {
             margin-top: 30px;
         }
     }
-    @media screen and (max-width: 922px){
-        .list-scroll{
+
+    @media screen and (max-width: 922px) {
+        .list-scroll {
             width: 90%;
         }
     }
@@ -1077,7 +1101,8 @@ foreach ($_SESSION['cart'] as $k => $v) {
     <?php include __DIR__ . '/__html_footer.php' ?>
 </div>
 <?php include __DIR__ . '/__scripts.php' ?>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/path/to/jquery.mCustomScrollbar.concat.min.js"></script>
 <script>
     $(".open-btn").click(function() {
         $(".pay-frame").toggleClass("open");

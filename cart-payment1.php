@@ -16,6 +16,16 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
 <title>WATZ - 購物車</title>
 <style>
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        cursor: pointer;
+        background: #ce3232;
+    }
+
     body {
         background-size: cover;
         background-image: url(images/BG3.svg);
