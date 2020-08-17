@@ -2,7 +2,8 @@
 $pageName = 'Crystal';  // 這裡放你的pagename
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 <!-- 自己另外的CSS插件 <link> 請放這邊 (nav.css及google fonts共用的不用放) -->
 
 <style>
@@ -188,6 +189,7 @@ $pageName = 'Crystal';  // 這裡放你的pagename
 
     .pc-bg-right h3 {
         font-family: 'Montserrat', sans-serif;
+        font-style: italic;
         color: #ffffff;
         font-weight: 400;
         margin-bottom: 10px;
