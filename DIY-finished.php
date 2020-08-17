@@ -25,7 +25,7 @@ $pageName = 'DIY-finished';
     .block {
         width: 500px;
         height: 500px;
-        border: 1px solid red;
+        /* border: 1px solid red; */
         position: relative;
         flex-direction: column;
         justify-content: center;
@@ -37,14 +37,25 @@ $pageName = 'DIY-finished';
         position: absolute;
     }
 
+    @keyframes changeSize {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.1);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
     .img-bling {
         width: 100%;
         height: 100%;
         object-fit: contain;
         opacity: .3;
-    }
-
-    .img-bling {
         position: absolute;
     }
 
@@ -52,42 +63,49 @@ $pageName = 'DIY-finished';
         width: 70px;
         top: 25%;
         left: 17%;
+        animation: changeSize 1s ease 0s infinite alternate;
     }
 
     .img-bling1-1 {
         width: 80px;
         bottom: 0;
         right: 12%;
+        animation: changeSize 1.2s ease 0s infinite alternate;
     }
 
     .img-bling2 {
         width: 25px;
         bottom: 22%;
         left: 12%;
+        animation: changeSize 1s ease 0s infinite alternate;
     }
 
     .img-bling2-1 {
         width: 20px;
         top: 53%;
         left: 30%;
+        animation: changeSize 1.2s ease 0s infinite alternate;
     }
 
     .img-bling2-2 {
         width: 30px;
         top: 25%;
         right: 12%;
+        animation: changeSize 1s ease 0s infinite alternate;
     }
 
     .img-bling2-3 {
         width: 20px;
         top: 47%;
         right: 16%;
+        animation: changeSize 1.2s ease 0s infinite alternate;
     }
 
     .img-bling3 {
         width: 50px;
         top: 0;
         left: 53%;
+        animation: changeSize 1s ease 0s infinite alternate;
     }
 
     .diy-result {
@@ -164,6 +182,7 @@ $pageName = 'DIY-finished';
             width: 150px;
             margin-bottom: 10px;
         }
+
     }
 
     @media screen and (max-width: 576px) {
@@ -201,6 +220,48 @@ $pageName = 'DIY-finished';
         .btn button {
             width: 150px;
             margin-bottom: 10px;
+        }
+
+        .img-bling1 {
+            width: 50px;
+            top: 25%;
+            left: 17%;
+        }
+
+        .img-bling1-1 {
+            width: 35px;
+            bottom: 0;
+            right: 12%;
+        }
+
+        .img-bling2 {
+            width: 25px;
+            bottom: 22%;
+            left: 12%;
+        }
+
+        .img-bling2-1 {
+            width: 20px;
+            top: 53%;
+            left: 30%;
+        }
+
+        .img-bling2-2 {
+            width: 25px;
+            top: 25%;
+            right: 12%;
+        }
+
+        .img-bling2-3 {
+            width: 15px;
+            top: 47%;
+            right: 16%;
+        }
+
+        .img-bling3 {
+            width: 35px;
+            top: 0;
+            left: 53%;
         }
     }
 
