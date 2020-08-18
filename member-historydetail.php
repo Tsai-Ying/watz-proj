@@ -460,7 +460,6 @@ $totalprice = 0;
                                     $t_sql = "SELECT `type` FROM `product_type` WHERE `type_sid`=$type_sid ";
                                     $type_name = $pdo->query($t_sql)->fetch()['type'];
                                     $subtotal = $r['price'] * $r['qty'];
-                                    $totalprice += $subtotal;
 
                                     if ($r['watzbox'] == 0) :
                                 ?>
