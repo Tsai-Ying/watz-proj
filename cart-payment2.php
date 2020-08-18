@@ -230,6 +230,13 @@ foreach ($_SESSION['cart'] as $k => $v) {
         margin: 30px 0 0 0;
         /* border: 1px solid plum; */
     }
+    .sender-title{
+        width:95%;
+        /* border:1px solid pink; */
+        align-items: center;
+        justify-content: space-between;
+
+    }
 
     .shipping-form-frame ul {
         flex-direction: column;
@@ -258,7 +265,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
     .pickup-ppl-title {
         width: 95%;
-        align-items: flex-end;
+        align-items: center;
         justify-content: space-between;
         margin-top: 20px;
     }
@@ -943,7 +950,14 @@ foreach ($_SESSION['cart'] as $k => $v) {
             </div>
             <div class="shipping-form flex">
                 <div class="shipping-form-frame">
-                    <h3>訂購資料填寫</h3>
+                    <div class="sender-title flex">
+                       <h3>訂購資料填寫</h3>
+                       <div class="flex">
+                                <input type="checkbox" class="">
+                                <h5>更新會員資訊</h5>
+                            </div>
+                    </div>
+                    
                     <form class="" name="form1" method="post" novalidate>
                         <ul class="senderInfo  flex">
                             <li class="input-frame flex">
