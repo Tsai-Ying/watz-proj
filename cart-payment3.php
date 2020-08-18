@@ -1133,11 +1133,11 @@ foreach ($_SESSION['cart'] as $k => $v) {
         }
     });
 
-    $(".cardMonthsInput").keyup(function() {
-        let maxLength = $(this).attr("maxlength")
-        let currentLength = $(this).val().length
-        console.log(maxLength + ", " + currentLength)
-        if (maxLength == currentLength) {
+    $(".expirInput").keyup(function() {
+        let maxLengthMon = $(this).attr("maxlength")
+        let currentLengthMon = $(this).val().length
+        console.log(maxLengthMon + ", " + currentLengthMon)
+        if (maxLengthMon == currentLengthMon) {
             // $(this).parent().next().find(":input").focus()
             $(this).next(":input").focus();
         }

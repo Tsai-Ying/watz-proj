@@ -419,7 +419,10 @@ foreach ($_SESSION['cart'] as $k => $v) {
         border: 1px solid #F2DE79;
         outline: none;
     }
+    ::-webkit-input-placeholder{
+        font-family: 'Noto Sans TC', sans-serif;
 
+    }
     .pay-btn {
         width: 140px;
         height: 40px;
@@ -1166,7 +1169,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                         </li>
                         <li class="flex">
                             <p>運費</p>
-                            <p class="shipFee">120</p>
+                            <p class="shipFee">0</p>
                         </li>
                         <li class="flex">
                             <p>折扣</p>
@@ -1175,7 +1178,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                         <div class="line"></div>
                         <li class="flex">
                             <h4>結帳金額</h4>
-                            <h4 class="totalPrice">NT $<?= $totalPrice + 120 - 60 ?></h4>
+                            <h4 class="totalPrice">NT $<?= $totalPrice + 0 - 60 ?></h4>
                         </li>
                     </ul>
                 </div>
