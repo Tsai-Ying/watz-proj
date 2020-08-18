@@ -1,6 +1,8 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = 'member-historylist';  // 這裡放你的pagename
 
+
+
 $id = isset($_SESSION['member']['id']) ? intval($_SESSION['member']['id']) : 0;
 $sql = "SELECT * FROM `members` WHERE `id`= $id";
 $row = $pdo->query($sql)->fetch();
@@ -23,7 +25,7 @@ $historylists = $pdo->query($o_sql)->fetchAll();
         background-size: cover;
     }
 
-    .container{
+    .container {
         justify-content: space-between;
         min-height: 100vh;
     }
@@ -62,6 +64,11 @@ $historylists = $pdo->query($o_sql)->fetchAll();
 
     .box2 {
         width: 133px;
+    }
+
+    .empty-list{
+        width: 100%;
+        text-align: center;
     }
 
     .order {
@@ -226,13 +233,13 @@ $historylists = $pdo->query($o_sql)->fetchAll();
         }
     }
 
-    @media screen and (max-width: 576px){
-        .wrapper{
+    @media screen and (max-width: 576px) {
+        .wrapper {
             margin-top: 70px;
             margin-bottom: 30px;
         }
 
-        .selector a{
+        .selector a {
             padding: 0;
         }
     }
@@ -254,65 +261,73 @@ $historylists = $pdo->query($o_sql)->fetchAll();
                     <div class="box"><a href="<?= WEB_ROOT ?>/member-privacy.php">隱私權政策</a></div>
                 </div>
             </div>
+            <?php if (empty($historylists)) : ?>
+                        <h4 class="empty-list">沒有訂單記錄</h4>
+                    <?php else : ?>
             <div class="flex">
+            
                 <ul class="order-title flex">
-                    <li class="title flex">
-                        <h4>訂單編號</h4>
-                        <h4>訂購時間</h4>
-                        <h4>訂購金額</h4>
-                        <h4>出貨狀態</h4>
-                        <div class="box2"></div>
-                        <div class="box2"></div>
-                    </li>
-
-                    <?php foreach ($historylists as $r) : ?>
-
-                        <li class="order flex">
-                            <div class="order-block flex">
-                                <div class="between flex">
-                                    <div class="flex">
-                                        <h4 class="flex">訂單編號</h4>
-                                    </div>
-                                    <div class=" flex">
-                                        <h5>202007<?= $r['sid'] ?></h5>
-                                    </div>
-                                </div>
-                                <div class="between flex">
-                                    <div class="flex">
-                                        <h4 class="flex">訂購時間</h4>
-                                    </div>
-                                    <div class="flex">
-                                        <h5><?= $r['order_date'] ?></h5>
-                                    </div>
-                                </div>
-                                <div class="between flex">
-                                    <div class="flex">
-                                        <h4 class="flex">訂購金額</h4>
-                                    </div>
-                                    <div class="flex">
-                                        <h5><?= $r['amount'] ?></h5>
-                                    </div>
-                                </div>
-                                <div class="between flex">
-                                    <div class="flex">
-                                        <h4 class="flex">出貨狀態</h4>
-                                    </div>
-                                    <div class="flex">
-                                        <h5>待出貨</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="btn flex">
-                                <button class="btn-coral" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-historydetail.php?sid=<?= $r['sid'] ?>'">詳細訂單</button>
-                                <button class="btn-blue gray">退貨申請</button>
-                            </div>
+                        <li class="title flex">
+                            <h4>訂單編號</h4>
+                            <h4>訂購時間</h4>
+                            <h4>訂購金額</h4>
+                            <h4>出貨狀態</h4>
+                            <div class="box2"></div>
+                            <div class="box2"></div>
                         </li>
 
-                    <?php endforeach; ?>
+                        <?php foreach ($historylists as $r) : ?>
+
+                            <li class="order flex">
+                                <div class="order-block flex">
+                                    <div class="between flex">
+                                        <div class="flex">
+                                            <h4 class="flex">訂單編號</h4>
+                                        </div>
+                                        <div class=" flex">
+                                            <h5>202007<?= $r['sid'] ?></h5>
+                                        </div>
+                                    </div>
+                                    <div class="between flex">
+                                        <div class="flex">
+                                            <h4 class="flex">訂購時間</h4>
+                                        </div>
+                                        <div class="flex">
+                                            <h5><?= $r['order_date'] ?></h5>
+                                        </div>
+                                    </div>
+                                    <div class="between flex">
+                                        <div class="flex">
+                                            <h4 class="flex">訂購金額</h4>
+                                        </div>
+                                        <div class="flex">
+                                            <h5><?= $r['amount'] ?></h5>
+                                        </div>
+                                    </div>
+                                    <div class="between flex">
+                                        <div class="flex">
+                                            <h4 class="flex">出貨狀態</h4>
+                                        </div>
+                                        <div class="flex">
+                                            <h5>待出貨</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn flex">
+                                    <button class="btn-coral" onclick="javascript:location.href='<?= WEB_ROOT ?>/member-historydetail.php?sid=<?= $r['sid'] ?>'">詳細訂單</button>
+                                    <button class="btn-blue gray">退貨申請</button>
+                                </div>
+                            </li>
+
+                        <?php endforeach; ?>
                 </ul>
+                
             </div>
+            <?php endif; ?>
+
         </div>
     </div>
+
 
     <?php include __DIR__ . '/__html_footer.php' ?>
 </div>

@@ -53,7 +53,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        border: 1px solid pink;
     }
 
     .pay-title {
@@ -82,7 +81,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         display: none;
         flex-direction: column;
         justify-content: flex-start;
-
         position: relative;
         margin-bottom: 30px;
         overflow: hidden;
@@ -97,7 +95,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         bottom: 0;
         transform: translateX(50px);
         z-index: 0;
-        /* border: 1px solid rgb(90, 205, 109); */
     }
 
     .block-left {
@@ -198,7 +195,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
     .credit-card {
         width: 300px;
         height: 200px;
-        /* border: 1px solid rgb(113, 126, 151);  */
         position: relative;
         flex-direction: column;
         align-items: center;
@@ -208,7 +204,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
     .credit-card-bg {
         width: 300px;
         height: 200px;
-        /* border: 1px solid rgb(126, 148, 28); */
         position: absolute;
         z-index: 1;
     }
@@ -225,7 +220,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         height: 180px;
         justify-content: space-around;
         z-index: 2;
-        /* border: 1px solid cadetblue; */
     }
 
     .credit-top {
@@ -233,13 +227,11 @@ foreach ($_SESSION['cart'] as $k => $v) {
         height: 40px;
         align-items: flex-start;
         justify-content: space-between;
-        /* border: 1px solid rgb(87, 71, 73); */
     }
 
     .name-frame h5 {
         width: 140px;
         height: 20px;
-        /* border: 1px solid pink; */
         overflow: initial;
 
     }
@@ -262,7 +254,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         height: 40px;
         flex-direction: column;
         justify-content: space-between;
-        /* border: 1px solid rgb(255, 251, 15); */
     }
 
     .info-number {
@@ -282,7 +273,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         height: 40px;
         align-items: flex-start;
         justify-content: start;
-        /* border: 1px solid rgb(106, 37, 218); */
     }
 
     .credit-bottom img {
@@ -302,8 +292,9 @@ foreach ($_SESSION['cart'] as $k => $v) {
     }
 
     @media screen and (max-width: 576px) {
-        .credit-card {
-            /* width: 60%; */
+        .credit-card-bg{
+            width: 280px;
+            height: 190px;
         }
     }
 
@@ -311,7 +302,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
     .credit-input-form {
         width: 450px;
         height: 420px;
-        /* height: 500px; */
         background-color: #F2DE79;
         border-radius: 15px;
         position: absolute;
@@ -328,8 +318,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         justify-content: space-around;
         position: absolute;
         bottom: 5%;
-        /* border: 1px solid rebeccapurple; */
-
     }
 
 
@@ -338,7 +326,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         width: 25%;
         flex-direction: column;
         justify-content: space-evenly;
-        /* border: 1px solid rebeccapurple; */
     }
 
     .info-input {
@@ -346,8 +333,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         height: 250px;
         flex-direction: column;
         justify-content: space-evenly;
-        /* border: 1px solid royalblue; */
-
     }
 
     .credit-number-input {
@@ -368,7 +353,10 @@ foreach ($_SESSION['cart'] as $k => $v) {
         height: 30px;
 
     }
-
+    .month-input{
+        align-items: center;
+    }
+    
     .month-input input {
         align-items: center;
         margin-right: 10px;
@@ -393,7 +381,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         justify-content: space-around;
         position: absolute;
         bottom: 5%;
-        /* border: 1px solid rebeccapurple; */
         display: none;
         margin-bottom: 10px;
 
@@ -408,8 +395,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
     }
 
     .credit-info-frame.showin922 ul li {
-
-        /* border: 1px solid teal; */
         width: 100%;
     }
 
@@ -453,8 +438,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            /* margin-bottom: 30px; */
-            /* z-index: 5; */
             position: absolute;
             transform: translateY(30%);
 
@@ -464,25 +447,18 @@ foreach ($_SESSION['cart'] as $k => $v) {
     @media screen and (max-width: 576px) {
         .credit-input-form {
             width: 80vw;
-
         }
-
         .credit-info-frame {
             display: none;
         }
-
         .credit-info-frame.showin922 {
             display: flex;
-        }
-        .top-block .total-price{
-            /* width:90%; */
         }
     }
 
     /* ------------------total price------------ */
     .ordered-list {
         height: 500px;
-        /* border: 1px solid gray; */
         align-items: flex-end;
         position: relative;
 
@@ -570,7 +546,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
             flex-direction: column;
             align-items: center;
             transform: none;
-            /* justify-content: flex-start; */
         }
 
         .total-price {
@@ -611,8 +586,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         top: 260px;
         left: 0;
         transition: 1s ease-in-out;
-        /* border: 1px solid sienna; */
-
     }
 
     .list-scroll {
@@ -621,7 +594,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         overflow-x: hidden;
         overflow-y: scroll;
         margin-top: 20px;
-        /* display: none; */
     }
 
     .list-scroll h4 {
@@ -657,7 +629,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
     .box-detail {
         width: 95%;
         height: 60px;
-        /* border: 1px solid teal; */
         flex-direction: column;
         justify-content: space-between;
     }
@@ -667,14 +638,12 @@ foreach ($_SESSION['cart'] as $k => $v) {
         flex-direction: column;
         justify-content: flex-start;
         margin-bottom: 30px;
-        border: 1px solid teal;
     }
 
     .product-orderlist {
         width: 100%;
         flex-direction: column;
         justify-content: flex-start;
-        border: 1px solid greenyellow;
     }
 
     .box-socks {
@@ -696,7 +665,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         align-items: center;
         justify-content: space-between;
         border-bottom: 2px solid #E2E2E2;
-        border: 1px solid orange;
     }
 
     .socks-nameNprice {
@@ -722,8 +690,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         .hide.open {
             height: 250px;
         }
-        
-
     }
 
     @media screen and (max-width: 576px) {
@@ -767,7 +733,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
     .top-block.order-list {
         background-color: #ffffff;
         border-radius: 15px;
-        /* border: 1px solid rgb(212, 52, 132); */
         flex-direction: column;
         align-items: center;
     }
@@ -779,7 +744,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
     .top-block .order-list-frame {
         width: 90%;
-        /* border: 1px solid rgb(212, 52, 132); */
         flex-direction: column;
         align-items: center;
         margin: 30px 0px;
@@ -860,7 +824,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                     <div class="credit-info flex">
                         <div class="credit-top flex">
                             <div class="name-frame">
-                                <h6>Name</h6>
+                                <h6 class="card-name">Name</h6>
                                 <h5 class="nameInputShow"></h5>
                             </div>
                             <div class="credit-top-img flex">
@@ -933,6 +897,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                                 <h5>Expiration</h5>
                                 <div class="month-input flex">
                                     <input class="expirInput cardMonthsInput" type="text" maxlength="2">
+                                    <p>/</p>
                                     <input class="expirInput cardYearsInput" type="text" maxlength="2">
                                 </div>
                             </li>
@@ -976,7 +941,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                             </li>
                             <li class="month-input monthYearInput flex">
                                 <input class="expirInput cardmonthsInput cardMonthsInput" type="text" maxlength="2" oninput="value=value.replace(/[^\d]/g,'')">
-                                /
+                                <p>/</p>
                                 <input class="year-input expirInput cardYearsInput" type="text" maxlength="2" oninput="value=value.replace(/[^\d]/g,'')">
                             </li>
                             <li class="ccv-input">
@@ -1044,7 +1009,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                                     </li>
                                     <li class="flex">
                                         <p>運費</p>
-                                        <p class="shipFee">120</p>
+                                        <p class="shipFee">0</p>
                                     </li>
                                     <li class="flex">
                                         <p>折扣</p>
@@ -1053,7 +1018,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                                     <div class="line"></div>
                                     <li class="flex">
                                         <h4>結帳金額</h4>
-                                        <h4 id="totalPrice">NT $<?= $totalPrice + 120 - 60 ?></h4>
+                                        <h4 id="totalPrice">NT $<?= $totalPrice + 0 - 60 ?></h4>
                                     </li>
                                 </ul>
                     </div>
@@ -1098,6 +1063,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
     //輸入欄底線變色//
     $(".cardNameInput").click(function() {
+        $(".card-name").css("color", "#FF9685");
         $(".topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
         $(".topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
         $(".topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
@@ -1105,6 +1071,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
     });
 
     $(".cardNumberInput").click(function() {
+        $(".card-name").css("color", "#707070");
         $(".topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
         $(".topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
         $(".topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
@@ -1112,11 +1079,13 @@ foreach ($_SESSION['cart'] as $k => $v) {
     });
 
     $(".expirInput").click(function() {
+        $(".card-name").css("color", "#707070");
         $(".topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
         $(".topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
         $(".topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
     });
     $(".cardCcvInput").click(function() {
+        $(".card-name").css("color", "#707070");
         $(".topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
         $(".topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
         $(".topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
@@ -1164,11 +1133,11 @@ foreach ($_SESSION['cart'] as $k => $v) {
         }
     });
 
-    $(".cardMonthsInput").keyup(function() {
-        let maxLength = $(this).attr("maxlength")
-        let currentLength = $(this).val().length
-        console.log(maxLength + ", " + currentLength)
-        if (maxLength == currentLength) {
+    $(".expirInput").keyup(function() {
+        let maxLengthMon = $(this).attr("maxlength")
+        let currentLengthMon = $(this).val().length
+        console.log(maxLengthMon + ", " + currentLengthMon)
+        if (maxLengthMon == currentLengthMon) {
             // $(this).parent().next().find(":input").focus()
             $(this).next(":input").focus();
         }

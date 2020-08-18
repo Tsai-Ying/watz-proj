@@ -460,7 +460,6 @@ $totalprice = 0;
                                     $t_sql = "SELECT `type` FROM `product_type` WHERE `type_sid`=$type_sid ";
                                     $type_name = $pdo->query($t_sql)->fetch()['type'];
                                     $subtotal = $r['price'] * $r['qty'];
-                                    $totalprice += $subtotal;
 
                                     if ($r['watzbox'] == 0) :
                                 ?>
@@ -481,7 +480,7 @@ $totalprice = 0;
                                     <h5>Coupon折抵: NT -60</h5>
                                 </div>
                                 <div>
-                                    <h5>金額: NT <?= $totalprice ?></h5>
+                                    <h5>金額: NT <?= $historylists['amount'] ?></h5>
                                 </div>
                             </div>
                         </div>
