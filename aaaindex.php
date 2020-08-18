@@ -601,13 +601,13 @@ $pageName = 'index';  // 這裡放你的pagename
 
     <div class="block2">
         <div>
-            <a href="<?= WEB_ROOT ?>/project-summer.php"><img src="images/index-slider1.png" alt=""></a>
+            <a href="<?= WEB_ROOT ?>/project-summer.php"><img class="slider1" src="images/index-slider1.png" alt=""></a>
         </div>
         <div>
-            <a href="<?= WEB_ROOT ?>/project-irregular.php"><img src="images/index-slider2.png" alt=""></a>
+            <a href="<?= WEB_ROOT ?>/project-irregular.php"><img  class="slider2" src="images/index-slider2.png" alt=""></a>
         </div>
         <div>
-            <a href="<?= WEB_ROOT ?>/project-crystal.php"><img src="images/index-slider3.png" alt=""></a>
+            <a href="<?= WEB_ROOT ?>/project-crystal.php"><img class="slider3" src="images/index-slider3.png" alt=""></a>
         </div>
     </div>
     <!---區塊三：禮盒---->
@@ -794,6 +794,10 @@ $pageName = 'index';  // 這裡放你的pagename
                 arrows: true,
                 speed: 800
             });
+
+            $('.slider1').attr('src','images/index-slider1-mobile.jpg');
+            $('.slider2').attr('src','images/index-slider2-mobile.jpg');
+            $('.slider3').attr('src','images/index-slider3-mobile.jpg');
         }
     });
 
