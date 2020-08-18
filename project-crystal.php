@@ -1,5 +1,5 @@
 <?php require __DIR__ . '/__connect_db.php';
-$pageName = 'Crystal';  // 這裡放你的pagename
+$pageName = 'project';  // 這裡放你的pagename
 ?>
 <?php include __DIR__ . '/__html_head.php' ?>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap" rel="stylesheet">
