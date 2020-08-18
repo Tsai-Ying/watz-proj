@@ -23,8 +23,14 @@ $pageName = 'DIY';  // 這裡放你的pagename
         display: none;
     }
 
-    .diy-pattern div {
-        width: calc(100% / 3);
+    .pattern-bg1,
+    .pattern-bg3 {
+        width: 40vw;
+        height: 100vh;
+    }
+
+    .pattern-bg2 {
+        width: 20vw;
         height: 100vh;
     }
 
@@ -594,6 +600,12 @@ $pageName = 'DIY';  // 這裡放你的pagename
             height: 340px;
         }
 
+        .diy-pattern div {
+            width: calc(100vw / 3);
+            height: 100vh;
+        }
+
+
         .box-right {
             width: 350px;
             height: 750px;
@@ -1039,76 +1051,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
     .round {
         stroke-linecap: round;
     }
-
-    /* jumpout notice */
-
-    .notice {
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        visibility: hidden;
-        user-select: none;
-    }
-
-    .notice-block {
-        padding: 30px;
-        background: #FF9685;
-        border-radius: 15px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        flex-direction: column;
-        align-items: center;
-        z-index: 5;
-        opacity: 0;
-    }
-
-    .notice-bg {
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-        background: #404040;
-        opacity: .8;
-    }
-
-    .notice-top {
-        margin-bottom: 10px;
-    }
-
-    .notice-top img {
-        height: 40px;
-    }
-
-    .notice-bottom h3 {
-        color: white;
-        white-space: nowrap;
-        text-align: center;
-    }
-
-    .notice.success {
-        visibility: visible;
-        z-index: 20;
-    }
-
-    .notice.success .notice-block {
-        opacity: 1;
-    }
 </style>
-<!-- jumpout notice -->
-<div class="notice">
-    <!-- <div class="notice-bg"></div> -->
-    <div class="notice-block  flex">
-        <div class="notice-top">
-            <img src="images/icon-success.svg " alt=" ">
-        </div>
-        <div class="notice-bottom">
-            <h3>哦喔!<br>
-                沒有收到DIY資料。</h3>
-        </div>
-    </div>
-</div>
-
 <div class="container flex">
     <?php include __DIR__ . '/__navbar.php' ?>
     <?php include __DIR__ . '/__html_btn-top.php' ?>
@@ -2335,7 +2278,7 @@ $pageName = 'DIY';  // 這裡放你的pagename
     })
 
     // 點了pattern shapecolor自動滑出
-    $('.img-pattern').click(function(){
+    $('.img-pattern').click(function() {
         $(".shape-color").addClass("transition")
         $(".shape-color").addClass("move-left")
     })
@@ -2496,9 +2439,8 @@ $pageName = 'DIY';  // 這裡放你的pagename
 
     //finish btn
     $('.btn-finish').click(function() {
-            location.href = '<?= WEB_ROOT ?>/DIY-finished.php';
+        location.href = '<?= WEB_ROOT ?>/DIY-finished.php';
     })
-
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
