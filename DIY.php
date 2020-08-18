@@ -2340,11 +2340,6 @@ $pageName = 'DIY';  // 這裡放你的pagename
         $(".shape-color").addClass("move-left")
     })
 
-    $(".color-active").mouseenter(function(){
-        $(".shape-color").addClass("transition")
-        $(".shape-color").addClass("move-left")
-    })
-
     // shape-color move left
     $(".color-active").click(function(event) {
         $(".shape-color").addClass("transition")
