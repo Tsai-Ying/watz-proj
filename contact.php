@@ -76,7 +76,7 @@ $pageName = 'contact';  // 這裡放你的pagename
 
     @media screen and (max-width:576px) {
         .block-wrapper {
-            margin-top: 100px;
+            margin-top: 90px;
         }
 
         .faq-wrapper {
