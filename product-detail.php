@@ -259,7 +259,7 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
     }
 
     .box-text {
-        margin-bottom: 150px;
+        margin-bottom: 80px;
         letter-spacing: 2px;
         line-height: 2.5rem;
     }
