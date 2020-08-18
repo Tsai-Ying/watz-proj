@@ -265,6 +265,7 @@ $totalprice = 0;
         }
 
         .bg-detail {
+            align-items: center;
             width: 96vw;
         }
 

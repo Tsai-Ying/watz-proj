@@ -1,6 +1,11 @@
 <?php require __DIR__ . '/__connect_db.php';
 $pageName = '';  // 這裡放你的pagename
 
+
+if (empty($_SESSION['cart'])) {
+    header('Location: cart-empty.php');
+}
+
 $sids = array_column($_SESSION['cart'], 'sid');
 $p_sql = "SELECT * FROM `product` WHERE `sid` IN (" . implode(',', $sids) . ")";
 $productData = [];
