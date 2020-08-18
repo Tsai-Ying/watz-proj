@@ -446,8 +446,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         background-color: #FF9685;
     }
 
-    @media screen and (max-width: 1200px) {}
-
     @media screen and (max-width: 992px) {
         .shipping-form-frame {
             flex-direction: column;
@@ -502,6 +500,15 @@ foreach ($_SESSION['cart'] as $k => $v) {
         .peper-receipt .info {
             width: 90%;
             margin: 10px 15px;
+        }
+        .cloud-receipt p{
+            width: 50%;    
+        }
+        .cloud-receipt .info{
+            margin: 0 15px;
+        }
+        .remark-textarea{
+
         }
     }
 
@@ -925,7 +932,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                     </li>
                     <li class="flex">
                         <p>運費</p>
-                        <p>120</p>
+                        <p>0</p>
                     </li>
                     <li class="flex">
                         <p>折扣</p>
@@ -934,7 +941,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                     <div class="line"></div>
                     <li class="flex">
                         <h4>結帳金額</h4>
-                        <h4 class="totalPrice">NT $<?= $totalPrice + 120 - 60 ?></h4>
+                        <h4 class="totalPrice">NT $<?= $totalPrice + 0 - 60 ?></h4>
                     </li>
                 </ul>
             </div>
@@ -1041,7 +1048,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                                     <p>三聯式發票</p>
                                 </div>
                                 <div class="info flex">
-                                    <p>統一編號號碼</p>
+                                    <p>統一編號</p>
                                     <input class="info-input coNumber" type="text">
                                     <div class="error-frame flex">
                                         <img class="error-icon flex" src="images/alert.svg">
@@ -1049,7 +1056,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                                     </div>
                                 </div>
                                 <div class="info flex">
-                                    <p>公司抬頭名稱</p>
+                                    <p>公司抬頭</p>
                                     <input class="info-input" type="text">
                                 </div>
                             </div>
