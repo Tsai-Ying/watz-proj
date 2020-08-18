@@ -908,7 +908,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5>隱形襪</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext cursor" id="block2-btn1" name="types" value="3,4">
+                                            <input type="radio" class="radio-input goNext cursor block2-btn " id="block2-btn1" name="types" value="3,4">
                                             <label for="block2-btn1" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -918,12 +918,12 @@ $stmt = $pdo->query($sql);
                                     <div class="radio-group flex">
                                         <div class="block-img">
                                             <label for="block2-btn2" class="cursor">
-                                                <img src="images/test-lengthB.svg" alt="">
+                                                <img  src="images/test-lengthB.svg" alt="">
                                             </label>
                                         </div>
                                         <h5>踝襪</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block2-btn2" name="types" value="3,4">
+                                            <input type="radio" class="radio-input goNext cursor block2-btn " id="block2-btn2" name="types" value="3,4">
                                             <label for="block2-btn2" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -941,7 +941,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5>短襪</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block2-btn3" name="types" value="2">
+                                            <input type="radio" class="radio-input goNext cursor block2-btn" id="block2-btn3" name="types" value="2">
                                             <label for="block2-btn3" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -956,7 +956,7 @@ $stmt = $pdo->query($sql);
                                         </div>
                                         <h5>長襪</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext" id="block2-btn4" name="types" value="1">
+                                            <input type="radio" class="radio-input goNext cursor block2-btn" id="block2-btn4" name="types" value="1">
                                             <label for="block2-btn4" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -1505,9 +1505,27 @@ $(".color-btn-box li ").hover(function() {
         if(name!='number'){
             form2Data[name] = values;
         }
+      
+        // if( name='type'){
+        //     $(input[type=radio]).prop('checked', true)   
+        //     console.log("OK")
+            // $(this).parents("div.block-img").find("img").css("background-color","#FFB3A7");
+        // }else{
+        //     $('input.block2-btn').parents("div.block-img").find("img").css("background-color","white");
+        // }
+       
     });
 
+   
 
+    // $('form[name=form2] input[name=types]').click(function() {
+    //     if( $(this).prop('checked', true)){
+    //    $(this).closest('img').css("filter","brightness(0.3)" );
+    //     }else{
+    //         $(this).closest('img').css("filter","brightness(1)");
+    //     }
+       
+    // });
 /*
     $('form[name=form2] input[type=radio]').click(function() {
         $('#page').val('1');
