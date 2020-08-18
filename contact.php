@@ -500,7 +500,7 @@ $pageName = 'contact';  // 這裡放你的pagename
         <!-- block1:member -->
         <div class="block block1 flex">
             <div class="qa-title-wrapper mob-none">
-                <h3>會員條款</h3>
+                <h3>會員須知</h3>
             </div>
             <ul>
                 <li class="flex">
