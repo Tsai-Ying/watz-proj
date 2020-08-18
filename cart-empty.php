@@ -24,9 +24,7 @@ $pageName = 'empty';  // 這裡放你的pagename
 
     .wrapper {
         width: 1200px;
-        height: 650px;
         overflow: hidden;
-        /* border: 1px solid pink; */
         margin-top: 100px;
         flex-direction: column;
         align-items: center;
@@ -51,7 +49,7 @@ $pageName = 'empty';  // 這裡放你的pagename
     }
 
     .btn-coral {
-        width: 160px;
+        width: 200px;
         height: 40px;
         margin-top: 50px;
         cursor: pointer;
@@ -85,8 +83,8 @@ $pageName = 'empty';  // 這裡放你的pagename
 </style>
 
 <div class="container flex">
+    <div class="div"></div>
     <!-- 如果container有其它class要自己加上 -->
-
     <?php include __DIR__ . '/__navbar.php' ?>
     <div class="wrapper flex">
         <div class="icon-empty-cart flex">
