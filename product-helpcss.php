@@ -36,7 +36,7 @@
 }
 
 .mask ul li .goNext {
-    transition-delay: 2s;
+    transition-delay: 1.5s;
     transition: ease-in-out 1s;
 }
 
@@ -421,16 +421,29 @@
     border-radius: 50%;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .block6-box>div>img {
     width: 70%;
-    height: 70%;
+    height:70%;
     filter: drop-shadow(5px 5px 0px rgba(70, 70, 70, 0.5));
     animation-name:block6;
-    animation:3s;
-}
+    animation:2s block6 infinite;
+    position: absolute;
 
+}
+@keyframes block6 {
+    0% {
+        transform: rotate(-10deg);
+    }50% {
+        transform: rotate(20deg);
+    }
+
+    100% {
+        transform: rotate(-10deg);
+    }
+}
 
 
 .block6-box h5 {
