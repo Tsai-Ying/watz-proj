@@ -95,7 +95,7 @@ $stmt = $pdo->query($sql);
         cursor: pointer;
         transition: 0.5s;
         filter: drop-shadow(2px 2px 2px rgba(124, 124, 124, 0.637));
-        animation:btn-move 2s ease-in-out  2 normal none running;
+        animation:btn-move 1.5s ease-in-out  2 normal none running;
     }
 
 
@@ -559,6 +559,7 @@ $stmt = $pdo->query($sql);
         .product-box {
             width: 600px;
             padding-left:30px ;
+           
         }
     
 
@@ -1204,7 +1205,6 @@ $stmt = $pdo->query($sql);
                                     <h3 class="cursor">完成!</h3>
                                 </div>
                             </div>
-
                         </div>
                     </li>
                     <li class="block6 flex">
@@ -1434,7 +1434,7 @@ $(".color-btn-box li ").hover(function() {
         $(".goNext").click(function() {
             slideIndex = slideIndex + 1;
             goSlide()
-            $("#blockPhoto ul").css("transition-delay", "600ms");
+            $("#blockPhoto ul").css("transition-delay", "500ms");
             $("#blockPhoto ul .block5").css("transition-delay", "50ms");
         });
         $(".goPrev").click(function() {
