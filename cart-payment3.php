@@ -824,7 +824,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                     <div class="credit-info flex">
                         <div class="credit-top flex">
                             <div class="name-frame">
-                                <h6>Name</h6>
+                                <h6 class="card-name">Name</h6>
                                 <h5 class="nameInputShow"></h5>
                             </div>
                             <div class="credit-top-img flex">
@@ -1063,6 +1063,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
     //輸入欄底線變色//
     $(".cardNameInput").click(function() {
+        $(".card-name").css("color", "#FF9685");
         $(".topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
         $(".topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
         $(".topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
@@ -1070,6 +1071,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
     });
 
     $(".cardNumberInput").click(function() {
+        $(".card-name").css("color", "#707070");
         $(".topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
         $(".topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
         $(".topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
@@ -1077,11 +1079,13 @@ foreach ($_SESSION['cart'] as $k => $v) {
     });
 
     $(".expirInput").click(function() {
+        $(".card-name").css("color", "#707070");
         $(".topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
         $(".topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
         $(".topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #707070");
     });
     $(".cardCcvInput").click(function() {
+        $(".card-name").css("color", "#707070");
         $(".topcard-mid-info").children('.info-number').css("border-bottom", "2px solid #707070");
         $(".topcard-mon-info").children('.info-number').css("border-bottom", "2px solid #707070");
         $(".topcard-ccv-info").children('.info-number').css("border-bottom", "2px solid #FF9685");
