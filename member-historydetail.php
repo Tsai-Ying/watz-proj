@@ -379,7 +379,7 @@ $totalprice = 0;
                         <div class="order-info1 flex">
                             <div class="order-num flex">
                                 <p>訂購編號</p>
-                                <p class="margin">202007<?= $historylists['sid'] ?></p>
+                                <p class="margin">20200821-0<?= $historylists['sid'] ?></p>
                             </div>
                             <div class="order-num flex">
                                 <p>訂購時間</p>
@@ -393,7 +393,7 @@ $totalprice = 0;
                             </div>
                             <div class="order-num flex">
                                 <p>貨運單號</p>
-                                <p class="margin" href="">123456789</p>
+                                <p class="margin" href="">20200821</p>
                             </div>
                         </div>
                         <div class="order-info1 flex">
