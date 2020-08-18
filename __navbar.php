@@ -6,7 +6,7 @@
     </div>
     <ul class="nav-list flex">
         <li class="dropdown">
-            <a>PROJECT</a>
+            <a class="<?= $pageName=='project'? 'active':'' ?>" >PROJECT</a>
             <div class="dropdown-menu flex transition">
                 <div class="dropdown-bg flex transition">
                     <a class="" href="<?= WEB_ROOT ?>/project-summer.php">芒果派對</a>
