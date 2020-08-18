@@ -508,7 +508,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
             margin: 0 15px;
         }
         .remark-textarea{
-
+            margin: 30px 15px;
         }
     }
 

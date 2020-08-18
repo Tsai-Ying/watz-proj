@@ -929,7 +929,7 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
                             </div>
                         </div>
                         <div class="shipping-btn flex">
-                            <button class="button HomeShipBtn" >宅配</button>
+                            <button class="button HomeShipBtn">宅配</button>
                             <button class="button conv-store" href="#">超商取貨</button>
                         </div>
 
@@ -1007,21 +1007,21 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         if ($(".HomeShipBtn").hasClass('active')) {
             $('.shipFee').text('120');
 
-        }else{
+        } else {
             $('.shipFee').text('0');
 
         }
         if ($(".conv-store").hasClass('active')) {
             $('.shipFee').text('60');
 
-        }else{
+        } else {
             $('.shipFee').text('0');
 
         }
-        
+
         prepareCartTable();
     })
-    
+
 
 
     $(document).ready(function() {
@@ -1193,7 +1193,7 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
             const sid = $(this).attr('data-sid');
             const price = $(this).attr('data-price');
             const quantity = $(this).attr('data-quantity');
-            
+
 
             $(this).find('.price').text('NT $' + dallorCommas(price));
             $(this).find('.qty').val(quantity);
@@ -1203,18 +1203,18 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         })
 
 
-            if (total < 1000) {
-                $('.noShipFee').text(`只差${ 1000 - total}元即享1000元免運！`);
-                if ($(".conv-store").hasClass('active')) {
-                    $('.shipFee').text('60');
-                }else if ($(".HomeShipBtn").hasClass('active')) {
-                    $('.shipFee').text('120');
-                }else {
+        if (total < 1000) {
+            $('.noShipFee').text(`只差${ 1000 - total}元即享1000元免運！`);
+            if ($(".conv-store").hasClass('active')) {
+                $('.shipFee').text('60');
+            } else if ($(".HomeShipBtn").hasClass('active')) {
+                $('.shipFee').text('120');
+            } else {
                 $('.shipFee').text('0');
             }
             shipFee = $('.shipFee').text();
             // totalPrice = total + parseInt(shipFee) + parseInt(discount);
-        } else if (total >= 1000){
+        } else if (total >= 1000) {
             $('.noShipFee').text(`消費金額已免運！`);
             $('.shipFee').text('0');
             shipFee = $('.shipFee').text();
@@ -1224,7 +1224,7 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         discount = $('.discount').text();
         totalPrice = total + parseInt(shipFee) + parseInt(discount);
         $('#totalPrice').text('NT $' + dallorCommas(totalPrice));
-        
+
     }
 
     prepareCartTable();
