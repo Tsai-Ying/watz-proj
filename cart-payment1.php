@@ -1186,23 +1186,22 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         //     location.href = 'product.php';
         //     return;
         // }
+        let shipFee = $('.shipFee').text();
+        let discount = $('.discount').text();
+        let totalPrice = total + parseInt(shipFee) + parseInt(discount);
         $p_items.each(function() {
             const sid = $(this).attr('data-sid');
             const price = $(this).attr('data-price');
             const quantity = $(this).attr('data-quantity');
-            const shipFee = $('.shipFee').text();
-            const discount = $('.discount').text();
-
+            
 
             $(this).find('.price').text('NT $' + dallorCommas(price));
             $(this).find('.qty').val(quantity);
             $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
             total += quantity * price;
-            const totalPrice = total + parseInt(shipFee) + parseInt(discount);
-
-
             $('#productPrice').text('NT $' + dallorCommas(total));
-            $('#totalPrice').text('NT $' + dallorCommas(totalPrice));
+        })
+
 
             if (total < 1000) {
                 $('.noShipFee').text(`只差${ 1000 - total}元即享1000元免運！`);
@@ -1210,14 +1209,21 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
                     $('.shipFee').text('60');
                 }else if ($(".HomeShipBtn").hasClass('active')) {
                     $('.shipFee').text('120');
-                }else{
-                    
-                }
-            } else {
-                $('.noShipFee').text(`消費金額已免運！`);
+                }else {
                 $('.shipFee').text('0');
             }
-        })
+            shipFee = $('.shipFee').text();
+            // totalPrice = total + parseInt(shipFee) + parseInt(discount);
+        } else if (total >= 1000){
+            $('.noShipFee').text(`消費金額已免運！`);
+            $('.shipFee').text('0');
+            shipFee = $('.shipFee').text();
+            // totalPrice = total + parseInt(shipFee) + parseInt(discount);
+        }
+        shipFee = $('.shipFee').text();
+        discount = $('.discount').text();
+        totalPrice = total + parseInt(shipFee) + parseInt(discount);
+        $('#totalPrice').text('NT $' + dallorCommas(totalPrice));
         
     }
 
