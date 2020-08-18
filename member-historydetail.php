@@ -481,7 +481,7 @@ $totalprice = 0;
                                     <h5>Coupon折抵: NT -60</h5>
                                 </div>
                                 <div>
-                                    <h5>金額: NT <?= $totalprice ?></h5>
+                                    <h5>金額: NT <?= $historylists['amount'] ?></h5>
                                 </div>
                             </div>
                         </div>
