@@ -60,6 +60,11 @@ $pageName = 'empty';  // 這裡放你的pagename
     .btn-coral:hover {
         background: #0388A6;
     }
+    @media screen and (max-width: 1200px){
+        .wrapper{
+            width: 100vw;
+        }
+    }
 
     @media screen and (max-width: 576px) {
         .container {
