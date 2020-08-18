@@ -601,6 +601,10 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         outline: none;
         padding: 0 10px;
     }
+    ::-webkit-input-placeholder{
+        font-family: 'Noto Sans TC', sans-serif;
+
+    }
 
     .coupon .button {
         height: 40px;
@@ -675,10 +679,6 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         }
     }
 
-    @media screen and (max-width: 576px) {}
-
-
-
     /* -------------prodout remove----------- */
     /* jumpout notice */
 
@@ -740,6 +740,7 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         outline: none;
         cursor: pointer;
         margin: 0 5px;
+        font-family: 'Noto Sans TC', sans-serif;
     }
 
     .notice-bottom h3 {

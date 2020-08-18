@@ -743,13 +743,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
     .total-price.showin922 ul {
         width: 85%;
         height: 100%;
-        /* flex-direction: column; */
-        /* margin-bottom: 10px; */
-        /* border: 1px solid yellow; */
-
-    }
-
-    .total-price.showin922 ul {
         margin-top: 0;
     }
 
