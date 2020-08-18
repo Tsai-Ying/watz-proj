@@ -45,7 +45,7 @@ $pageName = 'project';  // 這裡放你的pagename
     }
 
     .thunder-stripe {
-        animation: changeColor 3s ease 0s infinite alternate;
+        animation: changeColor 2s ease 0s infinite alternate;
     }
 
     @keyframes changeColor {
