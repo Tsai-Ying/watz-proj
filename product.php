@@ -902,13 +902,13 @@ $stmt = $pdo->query($sql);
                                 <div class="BR-left flex ">
                                     <div class="radio-group flex ">
                                         <div class="block-img ">
-                                            <label for="block2-btn1" class="cursor">
+                                            <label for="block2-btn1" class="cursor block2-radio">
                                                 <img src="images/test-lengthA.svg" alt="">
                                             </label>
                                         </div>
                                         <h5>隱形襪</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext cursor block2-btn " id="block2-btn1" name="types" value="3,4">
+                                            <input type="radio" class="radio-input goNext cursor " id="block2-btn1" name="types" value="3,4">
                                             <label for="block2-btn1" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -917,8 +917,8 @@ $stmt = $pdo->query($sql);
                                     </div>
                                     <div class="radio-group flex">
                                         <div class="block-img">
-                                            <label for="block2-btn2" class="cursor">
-                                                <img  src="images/test-lengthB.svg" alt="">
+                                            <label for="block2-btn2" class="cursor block2-radio">
+                                                <img src="images/test-lengthB.svg" alt="">
                                             </label>
                                         </div>
                                         <h5>踝襪</h5>
@@ -935,13 +935,13 @@ $stmt = $pdo->query($sql);
                                 <div class="BR-right flex ">
                                     <div class="radio-group flex">
                                         <div class="block-img">
-                                            <label for="block2-btn3" class="cursor">
+                                            <label for="block2-btn3" class="cursor block2-radio">
                                                 <img src="images/test-lengthC.svg" alt="">
                                             </label>
                                         </div>
                                         <h5>短襪</h5>
                                         <div>
-                                            <input type="radio" class="radio-input goNext cursor block2-btn" id="block2-btn3" name="types" value="2">
+                                            <input type="radio" class="radio-input goNext cursor " id="block2-btn3" name="types" value="2">
                                             <label for="block2-btn3" class="radio-label">
                                                 <span class="radio-button"></span>
                                             </label>
@@ -950,7 +950,7 @@ $stmt = $pdo->query($sql);
                                     </div>
                                     <div class="radio-group flex">
                                         <div class="block-img">
-                                            <label for="block2-btn4" class="cursor">
+                                            <label for="block2-btn4" class="cursor block2-radio">
                                                 <img src="images/test-lengthD.svg" alt="">
                                             </label>
                                         </div>
@@ -980,7 +980,7 @@ $stmt = $pdo->query($sql);
                                 <div class="BR-left flex">
                                     <div class="radio-group flex block3-group">
                                         <div class="block-img">
-                                            <label for="block3-btn1" class="cursor">
+                                            <label for="block3-btn1" class="cursor block3-radio">
                                                 <img src="images/test-wearA.png" alt="">
                                             </label>
                                         </div>
@@ -995,7 +995,7 @@ $stmt = $pdo->query($sql);
                                     </div>
                                     <div class="radio-group flex block3-group">
                                         <div class="block-img">
-                                            <label for="block3-btn2" class="cursor">
+                                            <label for="block3-btn2" class="cursor block3-radio">
                                                 <img src="images/test-wearB.png" alt="">
                                             </label>
                                         </div>
@@ -1013,7 +1013,7 @@ $stmt = $pdo->query($sql);
                                 <div class="BR-right flex">
                                     <div class="radio-group flex block3-group">
                                         <div class="block-img">
-                                            <label for="block3-btn3" class="cursor">
+                                            <label for="block3-btn3" class="cursor block3-radio">
                                                 <img src="images/test-wearC.png" alt="">
                                             </label>
                                         </div>
@@ -1028,7 +1028,7 @@ $stmt = $pdo->query($sql);
                                     </div>
                                     <div class="radio-group flex block3-group">
                                         <div class="block-img">
-                                            <label for="block3-btn4" class="cursor">
+                                            <label for="block3-btn4" class="cursor block3-radio">
                                                 <img src="images/test-wearD.png" alt="">
                                             </label>
                                         </div>
@@ -1058,7 +1058,7 @@ $stmt = $pdo->query($sql);
                                 <div class="BR-left flex">
                                     <div class="radio-group flex">
                                         <div class="block-img">
-                                            <label for="block4-btn1" class="cursor">
+                                            <label for="block4-btn1" class="cursor block4-radio">
                                                 <img src="images/test-doA.svg" alt="">
                                             </label>
                                         </div>
@@ -1073,7 +1073,7 @@ $stmt = $pdo->query($sql);
                                     </div>
                                     <div class="radio-group flex">
                                         <div class="block-img">
-                                            <label for="block4-btn2" class="cursor">
+                                            <label for="block4-btn2" class="cursor block4-radio">
                                                 <img src="images/test-doB.svg" alt="">
                                             </label>
                                         </div>
@@ -1091,7 +1091,7 @@ $stmt = $pdo->query($sql);
                                 <div class="BR-right flex">
                                     <div class="radio-group flex">
                                         <div class="block-img">
-                                            <label for="block4-btn3" class="cursor">
+                                            <label for="block4-btn3" class="cursor block4-radio">
                                                 <img src="images/test-doC.svg" alt="">
                                             </label>
                                         </div>
@@ -1106,7 +1106,7 @@ $stmt = $pdo->query($sql);
                                     </div>
                                     <div class="radio-group flex">
                                         <div class="block-img">
-                                            <label for="block4-btn4" class="cursor">
+                                            <label for="block4-btn4" class="cursor block4-radio">
                                                 <img src="images/test-doD.svg" alt="">
                                             </label>
                                         </div>
@@ -1136,7 +1136,7 @@ $stmt = $pdo->query($sql);
                                 <div class="BR-left flex">
                                     <div class="radio-group flex">
                                         <div class="block-img block5-pic">
-                                            <label for="block5-btn1" class="cursor ">
+                                            <label for="block5-btn1" class="cursor block5-radio ">
                                                 <img src="images/test-colorA.svg" alt="">
                                             </label>
                                         </div>
@@ -1151,7 +1151,7 @@ $stmt = $pdo->query($sql);
                                     </div>
                                     <div class="radio-group flex">
                                         <div class="block-img block5-pic">
-                                            <label for="block5-btn2" class="cursor">
+                                            <label for="block5-btn2" class="cursor block5-radio">
                                                 <img src="images/test-colorB.svg" alt="">
                                             </label>
                                         </div>
@@ -1168,7 +1168,7 @@ $stmt = $pdo->query($sql);
                                 <div class="BR-right flex">
                                     <div class="radio-group flex">
                                         <div class="block-img block5-pic">
-                                            <label for="block5-btn3" class="cursor">
+                                            <label for="block5-btn3" class="cursor block5-radio">
                                                 <img src="images/test-colorC.svg" alt="">
                                             </label>
                                         </div>
@@ -1183,7 +1183,7 @@ $stmt = $pdo->query($sql);
                                     </div>
                                     <div class="radio-group flex">
                                         <div class="block-img block5-pic">
-                                            <label for="block5-btn4" class="cursor">
+                                            <label for="block5-btn4" class="cursor block5-radio">
                                                 <img src="images/test-colorD.svg" alt="">
                                             </label>
                                         </div>
@@ -1458,7 +1458,7 @@ $(".color-btn-box li ").hover(function() {
             setTimeout(function() {
                 $('.help-bg').fadeOut();
                 location.href = '#'+ JSON.stringify(form2Data);
-            }, 5000);
+            }, 3500);
         }
 
     }
@@ -1506,47 +1506,89 @@ $(".color-btn-box li ").hover(function() {
             form2Data[name] = values;
         }
       
-        // if( name='type'){
-        //     $(input[type=radio]).prop('checked', true)   
-        //     console.log("OK")
-            // $(this).parents("div.block-img").find("img").css("background-color","#FFB3A7");
-        // }else{
-        //     $('input.block2-btn').parents("div.block-img").find("img").css("background-color","white");
-        // }
+     
        
     });
+    const block2Btn = $(".block2-radio");
+    block2Btn.click(function() {
+        const me = this;
+        block2Btn.each(function() {
+            $(this).find("img").css({
+                "-webkit-filter": "grayscale(0)",
+                "filter": "grayscale(0)"
+            })
+            if (this !== me) {
+                $(this).find("img").css({
+                    "transition": " 0.5s",
+                    "-webkit-filter": "grayscale(0.8)",
+                    "filter": "grayscale(0.8)"
+                })
+            }
+        });
 
+    })
+
+    const block3Btn = $(".block3-radio");
+    block3Btn.click(function() {
+        const me = this;
+        block3Btn.each(function() {
+            $(this).find("img").css({
+                "-webkit-filter": "grayscale(0)",
+                "filter": "grayscale(0)"
+            })
+            if (this !== me) {
+                $(this).find("img").css({
+                    "transition": " 0.5s",
+                    "-webkit-filter": "grayscale(0.8)",
+                    "filter": "grayscale(0.8)"
+                })
+            }
+        });
+
+    })
+
+    const block4Btn = $(".block4-radio");
+    block4Btn.click(function() {
+        const me = this;
+        block4Btn.each(function() {
+            $(this).find("img").css({
+                "-webkit-filter": "grayscale(0)",
+                "filter": "grayscale(0)"
+            })
+            if (this !== me) {
+                $(this).find("img").css({
+                    "transition": " 0.5s",
+                    "-webkit-filter": "grayscale(0.8)",
+                    "filter": "grayscale(0.8)"
+                })
+            }
+        });
+
+    })
+
+    const block5Btn = $(".block5-radio");
+    block5Btn.click(function() {
+        const me = this;
+        block5Btn.each(function() {
+            $(this).contents("img").css({
+                "-webkit-filter": "grayscale(0)",
+                "filter": "grayscale(0)"
+            })
+            if (this !== me) {
+                $(this).contents("img").css({
+                    "transition": " 0.5s",
+                    "-webkit-filter": "grayscale(1)",
+                     "-webkit-filter": "brightness(60%)",
+                     "filter": "grayscale(1)",
+                    "filter": "brightness(60%)"
+                })
+            }
+        });
+
+    })
    
 
-    // $('form[name=form2] input[name=types]').click(function() {
-    //     if( $(this).prop('checked', true)){
-    //    $(this).closest('img').css("filter","brightness(0.3)" );
-    //     }else{
-    //         $(this).closest('img').css("filter","brightness(1)");
-    //     }
-       
-    // });
-/*
-    $('form[name=form2] input[type=radio]').click(function() {
-        $('#page').val('1');
-
-        $.get('product-api.php', $(document.form2).serialize(), function(data) {
-            console.log(data);
-
-            pagination.empty();
-            for (let s in data.pageBtns) {
-                pagination.append(pageBtnTpl({
-                    i: data.pageBtns[s],
-                    isActive: data.pageBtns[s] == data.page
-                }));
-            }
-            productBox.empty(); //先清空再append新的內容
-            productGet(data);
-          
-        }, 'json')
-        handleHash();
-    });
-*/
+  
     // ----------------------------
 
     function findStatus(){
@@ -1640,7 +1682,6 @@ $(".color-btn-box li ").hover(function() {
         } catch(ex) {
             hObj = {}
         }
-// console.log(hObj);
 // return;
 
 
@@ -1679,7 +1720,6 @@ $(".color-btn-box li ").hover(function() {
 
         //取得api的資料
         $.get('product-api.php', hObj, function(data) {
-            console.log(data);
 
             pagination.empty();
             pagination.append(`<li class="page-btn page-item ${data.page == 1 ? 'disabled' : ''} ">

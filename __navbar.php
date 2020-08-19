@@ -46,10 +46,6 @@
             </div>
             <a class="go-cart" href="<?= WEB_ROOT ?>/cart-payment1.php">前往購物車</a>
         </div>
-
-
-
-
         <div class="menu flex">
             <div class="click-area flex transition" id="menuClickArea">
                 <div class="box-bar transition">

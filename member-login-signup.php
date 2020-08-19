@@ -19,7 +19,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
     }
 
     .wrapper {
-        margin-top: 140px;
+        margin-top: 190px;
         margin-bottom: 50px;
         justify-content: center;
         align-items: center;
@@ -521,8 +521,8 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                         </div>
                         <div class="agree flex">
                             <input class="member-checkbox" type="checkbox" name="signupCheckBox" id="signupCheckBox" required>
-                            <h6>同意</h6><a href="">會員條款</a>
-                            <h6>與</h6><a href="">隱私權政策</a>
+                            <h6>同意</h6><a href="<?= WEB_ROOT ?>/member-term.php">會員條款</a>
+                            <h6>與</h6><a href="<?= WEB_ROOT ?>/member-privacy.php">隱私權政策</a>
                         </div>
                         <button type="submit" class="btn-blue btn-login" onclick="return formCheck()">註冊會員</button>
                     </form>
@@ -656,7 +656,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         //驗證e-mail格式
         if (!email_re.test($(signupEmail).val())) {
             isPass = false;
-            console.log('false')
             $('#signupEmailWrapper .email').css('display', 'flex');
             emailInput.css('border-color', 'red');
 
@@ -664,7 +663,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         //驗證密碼/密碼確認欄位是否一致
         let pw1 = $('#signupPassword').val();
         let pw2 = $('#confirmPassword').val();
-        // console.log(val());
 
 
         if (pw1 == false && pw2 == false) {
@@ -700,7 +698,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         //判斷註冊成功與否
         if (isPass) {
             $.post('signup-api.php', $(document.form1).serialize(), function(data) {
-                console.log(data);
                 if (data.success) {
                     $('.notice h3').text('註冊成功');
                     notice();
@@ -731,7 +728,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 
         if (!email_re.test($(loginEmail).val())) {
             isPass = false;
-            console.log('false')
             $('.loginEmailError.email').css('display', 'flex');
 
             emailInput.css('border-color', 'red');
@@ -754,8 +750,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 
         if (isPass) {
             $.post('login-api.php', $(document.form2).serialize(), function(data) {
-                console.log(data);
-
                 if (data.success) {
                     $('.notice h3').text('登入成功');
                     notice();
@@ -767,7 +761,6 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                     $('.eyes').css('display', 'none')
                     $('.loginPw').css('border-color', 'red');
 
-                    // console.log('fail')
                     // info_bar.removeClass('alert-success').addClass('alert-danger').html('帳號或密碼輸入錯誤');
                 }
 

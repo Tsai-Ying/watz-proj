@@ -565,9 +565,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         .total-price {
             width: 100%;
         }
-        .total-price ul{
-            
-        }
     }
 
 
@@ -1094,7 +1091,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
     //信用卡輸入同步///
     $(".cardNameInput").keyup(function() {
         let val = $(this).val();
-        console.log(val);
         $(".nameInputShow").html(val);
     });
 
@@ -1102,31 +1098,25 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
         let val = $(this).val();
         let dataVal = $(this).attr('data-val');
-        console.log('dataVal:', dataVal);
-        console.log('val:', val);
         $(".cardNumberShow" + dataVal).html(val);
     });
 
     $(".cardMonthsInput").keyup(function() {
         let val = $(this).val();
-        console.log(val);
         $(".cardMonthsShow").html(val);
     });
     $(".cardYearsInput").keyup(function() {
         let val = $(this).val();
-        console.log(val);
         $(".cardYearsShow").html(val);
     });
     $(".cardCcvInput").keyup(function() {
         let val = $(this).val();
-        console.log(val);
         $(".cardCcvShow").html(val);
     });
 
     $(".cardNumberInput").keyup(function() {
         let maxLength = $(this).attr("maxlength")
         let currentLength = $(this).val().length
-        console.log(maxLength + ", " + currentLength)
         if (maxLength == currentLength) {
             // $(this).parent().next().find(":input").focus()
             $(this).next(":input").focus();
@@ -1136,7 +1126,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
     $(".expirInput").keyup(function() {
         let maxLengthMon = $(this).attr("maxlength")
         let currentLengthMon = $(this).val().length
-        console.log(maxLengthMon + ", " + currentLengthMon)
         if (maxLengthMon == currentLengthMon) {
             // $(this).parent().next().find(":input").focus()
             $(this).parent().find(":input").focus();
@@ -1150,8 +1139,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
     function prepareCartTable() {
         $p_items = $('.p_item');
-        console.log($p_items);
-
         if ($p_items.length == 0) {
             location.href = 'cart-empty.php'
         }

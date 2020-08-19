@@ -34,9 +34,7 @@ $pageName = 'empty';  // 這裡放你的pagename
     .icon-empty-cart {
         width: 550px;
         height: 450px;
-        /* background-color: #ffffff; */
         border-radius: 15px;
-        /* border: 1px solid rgb(121, 126, 138); */
         flex-direction: column;
         align-items: center;
         justify-content: center;
