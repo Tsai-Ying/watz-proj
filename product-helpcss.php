@@ -676,7 +676,9 @@
 .mask ul {
     width:450vw;
     height: 75vh;
-    transition: cubic-bezier(.69, -0.1, .1, 1.1) 2300ms;
+    <!-- transition: cubic-bezier(.69, -0.1, .1, 1.1) 2300ms; -->
+    transition:cubic-bezier(0,0,1,1) 2000ms;;
+    
 }
 .mask ul li {
     width:80vw;
@@ -685,7 +687,7 @@
 
 .mask ul li .goNext {
     transition-delay: 2.5s;
-    transition: ease-in-out 2s;
+    transition: ease-out 2s;
 }
 
 /* ----------block1-------- */
