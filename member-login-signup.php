@@ -677,20 +677,20 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
             $('.confirmPw .eyes').css('display', 'none')
         } else if (pw2 == false) {
             isPass = false;
-            $('.error').next('h6').text('請輸入密碼');
-            $('.error').css('display', 'flex');
-            $('.pw-input').css('border-color', 'red');
-            $('#eyes').css('display', 'none');
+            $('.confirmPw .error h6').text('請再次輸入密碼');
+            $('.confirmPw  .error').css('display', 'flex');
+            $('.confirmPw').css('border-color', 'red');
+            $('.confirmPw .eyes').css('display', 'none');
         } else {
 
             if (pw1 == pw2) {
                 isPass = true;
             } else {
                 isPass = false;
-                $('.error').next('h6').text('密碼輸入不一致');
-                $('.error').css('display', 'flex');
-                $('.pw-input').css('border-color', 'red');
-                $('#eyes').css('display', 'none');
+                $('.confirmPw .error h6').text('密碼輸入不一致');
+                $('.confirmPw  .error').css('display', 'flex');
+                $('.confirmPw').css('border-color', 'red');
+                $('.confirmPw .eyes').css('display', 'none');
             }
         }
 
