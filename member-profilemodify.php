@@ -119,12 +119,11 @@ $row = $pdo->query($sql)->fetch();
     }
 
     .form-name {
-        /* background: #ffffff; */
         width: 240px;
         height: 40px;
-        margin: 5px 10px;
         outline: none;
         border: none;
+        padding: 10px;
     }
 
     .form-item img {
