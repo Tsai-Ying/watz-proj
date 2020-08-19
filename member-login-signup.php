@@ -109,6 +109,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 
         .wrapper {
             width: 100%;
+            margin-top: 160px;
         }
 
         .member-bblock {
