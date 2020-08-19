@@ -20,11 +20,6 @@ if ($pattern > 0) {
     $patternArray = $pdo->query($p_sql)->fetchAll();
 };
 
-
-// echo $pattern;
-// print_r($patternArray) ;
-
-
 $file = __DIR__ . '/images/product/' . $row['img_ID'];
 
 ?>
@@ -1096,8 +1091,6 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
             console.log(data);
             setCartCount(data);
         }, 'json');
-
-        // alert(sid + ',' + qty)
 
         // 彈跳視窗
         $(".notice").addClass("animate__animated animate__flipInX animate__faster");

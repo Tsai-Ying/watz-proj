@@ -2258,7 +2258,6 @@ $pageName = 'DIY';  // 這裡放你的pagename
     const followCursor = () => {
         hasMouseMove = true;
         $(window).mousemove(function(e) {
-            // console.log('triggered')
             if ($(window).width() > 992) {
                 $(".spot").css("display", "flex")
                 $(".spot").css("clip-path", `circle(140px at ${e.pageX}px ${e.pageY - 30}px`)
@@ -2270,7 +2269,6 @@ $pageName = 'DIY';  // 這裡放你的pagename
     // anchor point
     $(".go-next").click(function() {
         let nextPosition = $(".block-bottom").offset().top;
-        // console.log(nextPosition)
         $("html").animate({
             scrollTop: nextPosition
         })
@@ -2310,7 +2308,6 @@ $pageName = 'DIY';  // 這裡放你的pagename
     }
 
     $(window).resize(function() {
-        // console.log('triggered');
         if ($(window).width() > 992) {
             if (!hasMouseMove) {
                 followCursor();
@@ -2402,7 +2399,6 @@ $pageName = 'DIY';  // 這裡放你的pagename
 
     // localstorage 轉為JSON字串
     function storeLocal() {
-        // console.log(JSON.stringify(customStyle));
         localStorage.setItem('customStyle', JSON.stringify(customStyle));
     }
 

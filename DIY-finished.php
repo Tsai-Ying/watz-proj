@@ -1297,7 +1297,6 @@ $pageName = 'DIY-finished';
     $('svg .stroke-width').css('stroke', customStyle["patternColor"]);
 
     let currentID = customStyle["pattern"]
-    // console.log(currentID)
 
     $(`#${currentID}`).addClass("appear");
     $(`#${currentID}`).siblings().removeClass("appear");
