@@ -515,6 +515,7 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         .quantity-choose {
             width: 70px;
         }
+    
     }
 
     /* --------------right fix part------------- */
@@ -569,6 +570,11 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
             margin: 0;
             border-radius: 15px 15px 0 0;
             margin-bottom: 0px;
+        }
+    }
+    @media screen and (max-width: 576px){
+        .shipping-shoose p{
+            margin-left: 10px;
         }
     }
 
@@ -680,7 +686,12 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         }
 
         .total-price h3 {
-            margin: 10px 0px 20px 30px;
+            margin: 10px 0px 20px 40px;
+        }
+    }
+    @media screen and (max-width: 576px){
+        .total-price h3 {
+            margin: 10px 0px 20px 20px;
         }
     }
 

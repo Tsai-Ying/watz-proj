@@ -950,13 +950,13 @@ foreach ($_SESSION['cart'] as $k => $v) {
             </div>
             <div class="shipping-form flex">
                 <div class="shipping-form-frame">
-                    <div class="sender-title flex">
+                    <!-- <div class="sender-title flex"> -->
                        <h3>訂購資料填寫</h3>
-                       <div class="flex">
+                       <!-- <div class="flex">
                                 <input type="checkbox" class="">
                                 <h5>更新會員資訊</h5>
                             </div>
-                    </div>
+                    </div> -->
                     
                     <form class="" name="form1" method="post" novalidate>
                         <ul class="senderInfo  flex">
@@ -1371,6 +1371,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                 senderMobile.next('.error-frame').children('h6').html('手機號碼格式錯誤');
                 console.log('false');
             }
+
             if (senderAddress.val().length < 1) {
                 isPass = false;
                 senderAddress.css('border-color', 'red');
@@ -1401,14 +1402,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
                 console.log('false');
 
             }
-            // if(coNumber.val().length !=8){
-            //     isPass = false;
-            //     coNumber.css('border-color', 'red');
-            //     coNumber.next('.error-frame').children('img').css("display", "block");
-            //     coNumber.next('.error-frame').children('h6').html('統一編號格式錯誤');
-            //     console.log('false');
-            // }
-            // const inputFrame = $('.input-frame');
 
             if (isPass) {
 
@@ -1416,7 +1409,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
                     if (data.success) {
                         location.href = 'cart-payment3.php';
-                        console.log(data);
+                        // console.log(data);
 
                     }
                 }, 'json');

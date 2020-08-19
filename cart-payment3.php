@@ -897,7 +897,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                                 <h5>Expiration</h5>
                                 <div class="month-input flex">
                                     <input class="expirInput cardMonthsInput" type="text" maxlength="2">
-                                    <p>/</p>
+                                    <!-- <p>/</p> -->
                                     <input class="expirInput cardYearsInput" type="text" maxlength="2">
                                 </div>
                             </li>
@@ -1139,7 +1139,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
         console.log(maxLengthMon + ", " + currentLengthMon)
         if (maxLengthMon == currentLengthMon) {
             // $(this).parent().next().find(":input").focus()
-            $(this).next(":input").focus();
+            $(this).parent().find(":input").focus();
         }
     });
 
