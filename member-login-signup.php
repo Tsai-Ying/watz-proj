@@ -19,7 +19,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
     }
 
     .wrapper {
-        margin-top: 140px;
+        margin-top: 190px;
         margin-bottom: 50px;
         justify-content: center;
         align-items: center;
@@ -521,8 +521,8 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
                         </div>
                         <div class="agree flex">
                             <input class="member-checkbox" type="checkbox" name="signupCheckBox" id="signupCheckBox" required>
-                            <h6>同意</h6><a href="">會員條款</a>
-                            <h6>與</h6><a href="">隱私權政策</a>
+                            <h6>同意</h6><a href="<?= WEB_ROOT ?>/member-term.php">會員條款</a>
+                            <h6>與</h6><a href="<?= WEB_ROOT ?>/member-privacy.php">隱私權政策</a>
                         </div>
                         <button type="submit" class="btn-blue btn-login" onclick="return formCheck()">註冊會員</button>
                     </form>
