@@ -656,7 +656,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         //驗證e-mail格式
         if (!email_re.test($(signupEmail).val())) {
             isPass = false;
-            console.log('false')
+            // console.log('false')
             $('#signupEmailWrapper .email').css('display', 'flex');
             emailInput.css('border-color', 'red');
 
@@ -700,7 +700,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
         //判斷註冊成功與否
         if (isPass) {
             $.post('signup-api.php', $(document.form1).serialize(), function(data) {
-                console.log(data);
+                // console.log(data);
                 if (data.success) {
                     $('.notice h3').text('註冊成功');
                     notice();
@@ -731,7 +731,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 
         if (!email_re.test($(loginEmail).val())) {
             isPass = false;
-            console.log('false')
+            // console.log('false')
             $('.loginEmailError.email').css('display', 'flex');
 
             emailInput.css('border-color', 'red');
@@ -754,7 +754,7 @@ $pageName = 'member-login-signup';  // 這裡放你的pagename
 
         if (isPass) {
             $.post('login-api.php', $(document.form2).serialize(), function(data) {
-                console.log(data);
+                // console.log(data);
 
                 if (data.success) {
                     $('.notice h3').text('登入成功');

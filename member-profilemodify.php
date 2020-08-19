@@ -513,16 +513,6 @@ $row = $pdo->query($sql)->fetch();
 <?php include __DIR__ . '/__scripts.php' ?>
 
 <script>
-    // $('#eyes').on( 'click' , function() {
-    //     console.log('123')
-    //     if( $('#newpassword').hasAttr('type','password')){
-    //         $('#newpassword').attr('type','text');
-    //     }else{
-    //         $('#newpassword').attr('type','password');
-    //     }
-    //     // $('#newpassword').attr('type', 'password')
-    //     // console.log('hi')
-    // })
     $('.eyes').on('click', function(e) {
         let $pwd = $(this).prev('.password');
 
@@ -537,18 +527,6 @@ $row = $pdo->query($sql)->fetch();
         }
         e.preventDefault();
     });
-    // var demoImg = document.getElementById("eyes");
-    // var demoInput = document.getElementById("newpassword");
-
-    // function hideShowPsw() {
-    //     if (demoInput.type = "password") {
-    //         demoInput.type = "text";
-    //         // demoImg.src = "../Images/showPasswd.png";
-    //     } else {
-    //         demoInput.type = "password";
-    //         // demoImg.src = "../Images/hidePasswd.png";
-    //     }
-    // }
 </script>
 <script>
     const
@@ -557,33 +535,12 @@ $row = $pdo->query($sql)->fetch();
         address = $('#address'),
         newpassword = $('#newpassword')
 
-    //     const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    // const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
-
     function formCheck() {
-        // console.log("123")
-        // name.text('');
-        // mobile.text('');
-        // newpassword.text('');
-        // address.text('');
-
-        // email.css('border-color', 'lightblue');
-        // mobile.css('border-color', 'lightblue');
-        //TODO : 檢查欄位
         let isPass = true;
-        // if (!email_re.test(email.val())) {
-        //     isPass = false;
-        //     email.css('border-color', 'darkred');
-        //     email.next().text('請填寫正確的 email 格式');
-        // }
-        // if (!mobile_re.test(mobile.val())) {
-        //     isPass = false;
-        //     mobile.css('border-color', 'darkred');
-        //     mobile.next().text('請填寫正確的 手機 格式');
-        // }
+        
         if (isPass) {
             $.post('member-profilemodify-api.php', $(document.form1).serialize(), function(data) {
-                console.log(data);
+                // console.log(data);
 
                 if (data.success) {
                     $('.notice h3').text('修改完成');
@@ -591,25 +548,15 @@ $row = $pdo->query($sql)->fetch();
                     setTimeout(function() {
                         location.href = 'member-profile.php';
                     }, 1000)
-                    // info_bar.removeClass('alert-danger')
-                    //     .addClass('alert-success')
-                    //     .html('新增成功!');
+
                 } else {
                     $('.notice h3').text('資料未修改');
                     notice();
                     setTimeout(function() {
                         location.href = 'member-profile.php';
                     }, 1000)
-                    // info_bar.removeClass('alert-success')
-                    //     .addClass('alert-danger')
-                    //     .html(data.error || '新增失敗!');
+                   
                 }
-                // info_bar.slideDown();
-
-                // setTimeout(function(){
-                //     info_bar.slideUp();
-                // }, 3000);
-
             }, 'json');
         }
         return false;

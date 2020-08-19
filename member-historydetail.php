@@ -446,9 +446,6 @@ $totalprice = 0;
                                 <?php endforeach; ?>
                                 <li class="title1 title flex">
                                     <h5 class="product-name">單購襪子</h5>
-                                    <!-- <h5>款式</h5>
-                                    <h5>數量</h5>
-                                    <h5 class="subtotal">小計</h5> -->
                                 </li>
 
                                 <?php foreach ($list_detail as $r) :
