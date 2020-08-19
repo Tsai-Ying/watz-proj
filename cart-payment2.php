@@ -1226,9 +1226,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         });
 
 
-        // let result = "";
-        // $('input:checkbox:checked[name="receipt-radio-btn"]').val();
-
         ///922顯示訂單資訊裡的查看訂單內容顯示＆隱藏///
         $(document).ready(function() {
             $("#hide").hide();
@@ -1280,19 +1277,9 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
         function prepareCartTable() {
             $p_items = $('.p_item');
-            console.log($p_items);
-            // console.log($p_items.length);
-
-            // if ($p_items.length == 0) {
-            //     location.href = 'cart-empty.php'
-            // }
 
             let total = 0;
 
-            // if (!$p_items.length && $('#totalPrice').length) {
-            //     location.href = 'product.php';
-            //     return;
-            // }
             $p_items.each(function() {
                 const sid = $(this).attr('data-sid');
                 const price = $(this).attr('data-price');
@@ -1300,10 +1287,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
                 const shipFee = $('.shipFee').text();
                 const discount = $('.discount').text();
 
-
-                // $(this).find('.price').text('NT $' + dallorCommas(price));
-                // $(this).find('.qty').val(quantity);
-                // $(this).find('.sub-total').text('$ ' + dallorCommas(quantity * price));
                 total += quantity * price;
                 const totalPrice = total + parseInt(shipFee) + parseInt(discount);
 
@@ -1331,7 +1314,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
 
         $(".input-frame input").on("click keyup change", function() {
-            console.log('change')
             $(this).css('border-color', '#F2DE79');
             $(this).next(".error-frame").children('img').css("display", "none");
             $(this).next('.error-frame').children('h6').html('');
@@ -1348,7 +1330,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
                 sender.css('border-color', 'red');
                 sender.next('.error-frame').children('img').css("display", "block");
                 sender.next('.error-frame').children('h6').html('收件人姓名不能空白');
-                console.log('false');
             }
 
             if (!email_re.test(senderEmail.val())) {
@@ -1356,7 +1337,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
                 senderEmail.css('border-color', 'red');
                 senderEmail.next('.error-frame').children('img').css("display", "block");
                 senderEmail.next('.error-frame').children('h6').html('e-mail格式錯誤');
-                console.log('false');
 
             }
 
@@ -1365,14 +1345,12 @@ foreach ($_SESSION['cart'] as $k => $v) {
                 senderMobile.css('border-color', 'red');
                 senderMobile.next('.error-frame').children('img').css("display", "block");
                 senderMobile.next('.error-frame').children('h6').html('手機號碼格式錯誤');
-                console.log('false');
             }
             if (senderAddress.val().length < 1) {
                 isPass = false;
                 senderAddress.css('border-color', 'red');
                 senderAddress.next('.error-frame').children('img').css("display", "block");
                 senderAddress.next('.error-frame').children('h6').html('寄件人姓名不能空白');
-                console.log('false');
             }
 
             if (receiver.val().length < 1) {
@@ -1380,31 +1358,20 @@ foreach ($_SESSION['cart'] as $k => $v) {
                 receiver.css('border-color', 'red');
                 receiver.next('.error-frame').children('img').css("display", "block");
                 receiver.next('.error-frame').children('h6').html('寄件人姓名不能空白');
-                console.log('false');
             }
             if (receiverMobile.val().length < 10) {
                 isPass = false;
                 receiverMobile.css('border-color', 'red');
                 receiverMobile.next('.error-frame').children('img').css("display", "block");
                 receiverMobile.next('.error-frame').children('h6').html('手機號碼格式錯誤');
-                console.log('false');
             }
             if (receiverAddress.val().length < 1) {
                 isPass = false;
                 receiverAddress.css('border-color', 'red');
                 receiverAddress.next('.error-frame').children('img').css("display", "block");
                 receiverAddress.next('.error-frame').children('h6').html('寄件人姓名不能空白');
-                console.log('false');
 
             }
-            // if(coNumber.val().length !=8){
-            //     isPass = false;
-            //     coNumber.css('border-color', 'red');
-            //     coNumber.next('.error-frame').children('img').css("display", "block");
-            //     coNumber.next('.error-frame').children('h6').html('統一編號格式錯誤');
-            //     console.log('false');
-            // }
-            // const inputFrame = $('.input-frame');
 
             if (isPass) {
 
@@ -1412,8 +1379,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
                     if (data.success) {
                         location.href = 'cart-payment3.php';
-                        console.log(data);
-
                     }
                 }, 'json');
             }

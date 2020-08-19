@@ -1059,14 +1059,12 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
             $('.step2').addClass('show');
             $('.add-box').addClass('show');
             const watzbox_style = $(this).attr('id');
-            console.log(watzbox_style);
 
             const sendObj = {
                 action: 'getWatzboxStyle',
                 watzbox_style
             }
             $.get('cart-handle.php', sendObj, function(data) {
-                console.log(data);
             }, 'json');
 
         } else {
@@ -1076,9 +1074,6 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
             $('#sockOutBox').append(box_item);
             $(box_item).find(".removeInBox").css("display", "none");
             $(box_item).find(".addBox").css("display", "flex");
-            console.log('cancal remove');
-
-            console.log(box_item)
 
             for (i = 1; i <= box_item.length; i++) {
                 const p_item = box_item.eq(i);
@@ -1089,7 +1084,6 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
                     sid: sid
                 }
                 $.get('cart-handle.php', sendObj, function(data) {
-                    console.log(data);
                 }, 'json');
             }
 
@@ -1098,7 +1092,6 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
             }
 
             $.get('cart-handle.php', sendObj2, function(data) {
-                console.log(data);
             }, 'json');
 
         }
@@ -1112,7 +1105,6 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         const sid = p_item.attr('data-sid');
         const qty = p_item.find('.qty').val();
         const ifInBox = $(this).closest('#sockInBox').length;
-        console.log(ifInBox);
         if (ifInBox) {
             $('#sockOutBox').append(p_item);
             $(this).children(".removeInBox").css("display", "none");
@@ -1124,7 +1116,6 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
                 qty: qty
             }
             $.get('cart-handle.php', sendObj, function(data) {
-                console.log(data);
             }, 'json');
 
         } else {
@@ -1138,7 +1129,6 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
                 qty: qty
             }
             $.get('cart-handle.php', sendObj, function(data) {
-                console.log(data);
             }, 'json');
         }
     });
@@ -1150,14 +1140,11 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         let p_item = $(this).closest('.p_item');
         p_item.addClass("noticed");
         $(".notice").addClass("active");
-        console.log('2');
     })
 
     function keepitem() {
         $('.p_item.noticed').removeClass('noticed');
         $(".notice").removeClass("active");
-        console.log('3');
-
     }
 
     //coupon
@@ -1180,8 +1167,6 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
 
     function prepareCartTable() {
         $p_items = $('.p_item');
-        console.log($p_items.length);
-
         let total = 0;
 
         let shipFee = $('.shipFee').text();
@@ -1275,7 +1260,6 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         }
         if (isPass) {
             location.href = 'cart-payment2.php';
-            // console.log(data);
         }
         return false;
 
