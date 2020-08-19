@@ -18,9 +18,10 @@ $pageName = 'DIY-finished';
 
     .wrapper {
         width: 1200px;
-        height: calc(100vh - 160px);
+        margin-top: 140px;
+        /* min-height: 100vh; */
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
     }
 
@@ -32,7 +33,7 @@ $pageName = 'DIY-finished';
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 100px 0 30px;
+        /* margin: 100px 0 30px; */
     }
 
     .block img {
@@ -135,7 +136,7 @@ $pageName = 'DIY-finished';
     }
 
     footer {
-        position: absolute;
+        /* position: absolute; */
         bottom: 0;
         z-index: 0;
     }
@@ -147,15 +148,12 @@ $pageName = 'DIY-finished';
     @media screen and (max-width: 1200px) {
         .wrapper {
             width: 100vw;
-            height: 100vh;
-            margin-bottom: 20vh;
+            /* height: 100vh; */
+            /* margin-bottom: 20vh; */
         }
     }
 
     @media screen and (max-width: 992px) {
-        .wrapper {
-            margin-bottom: 25vh;
-        }
 
         .block {
             width: 50vw;
@@ -187,9 +185,6 @@ $pageName = 'DIY-finished';
             background-repeat: repeat-y;
         }
 
-        .wrapper {
-            margin-bottom: 15vh;
-        }
 
         .block {
             width: 70vw;
