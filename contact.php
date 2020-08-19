@@ -385,6 +385,8 @@ $pageName = 'contact';  // 這裡放你的pagename
         width: 200px;
         margin-top: 25px;
         margin-bottom: 25px;
+        justify-content: center;
+        align-items: center;
     }
 
     .block-bottom ul li input {
@@ -466,8 +468,71 @@ $pageName = 'contact';  // 這裡放你的pagename
     footer {
         z-index: 1;
     }
-</style>
 
+    .notice {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            visibility: hidden;
+        }
+        
+        .notice-block {
+            padding: 30px;
+            background: #FF9685;
+            border-radius: 15px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            flex-direction: column;
+            align-items: center;
+            z-index: 21;
+            opacity: 0;
+        }
+        
+        .notice-bg {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background: #404040;
+            opacity: .8;
+        }
+        
+        .notice-top {
+            margin-bottom: 10px;
+        }
+        
+        .notice-top img {
+            height: 40px;
+        }
+        
+        .notice-bottom h3 {
+            color: white;
+            white-space: nowrap;
+        }
+        
+        .notice.active {
+            visibility: visible;
+            z-index: 20;
+        }
+        
+        .notice.active .notice-block {
+            opacity: 1;
+        }
+</style>
+<!-- jumpout notice -->
+<div class="notice">
+        <div class="notice-bg"></div>
+        <div class="notice-block flex">
+            <div class="notice-top">
+                <img src="images/icon-success.svg " alt=" ">
+            </div>
+            <div class="notice-bottom">
+                <h3>感謝您的提問</h3>
+                <h3>我們將盡快處理</h3>
+            </div>
+        </div>
+    </div>
 <div class="container flex">
 
     <?php include __DIR__ . '/__navbar.php' ?>
@@ -679,7 +744,7 @@ $pageName = 'contact';  // 這裡放你的pagename
                 <li class="flex">
                     <p class="p-reply">回覆內容</p><textarea placeholder="(文字限長度為255字)"></textarea>
             </ul>
-            <button class="btn-blue">送出</button>
+            <div class="btn-blue flex">送出</div>
         </form>
     </div>
 
@@ -781,6 +846,13 @@ $pageName = 'contact';  // 這裡放你的pagename
             $(this).addClass("active").siblings("div").removeClass("active")
         });
     }
+
+    $('.btn-blue').click(function() {
+        $(".notice").addClass("active");
+        setTimeout(function() {
+            $(".notice").removeClass("active");
+        }, 800);
+    });
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>
