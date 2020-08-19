@@ -580,10 +580,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
     }
 
-    .order-list.showin922.open {
-        /* height: 600px; */
-    }
-
     .order-list h3 {
         color: #03588C;
     }

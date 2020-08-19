@@ -565,9 +565,6 @@ foreach ($_SESSION['cart'] as $k => $v) {
         .total-price {
             width: 100%;
         }
-        .total-price ul{
-            
-        }
     }
 
 
