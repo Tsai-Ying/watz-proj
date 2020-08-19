@@ -899,7 +899,7 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
                 </div>
             </div>
             <div class="box-product flex">
-            <h3>單購WATZ的襪子</h3>
+            <!-- <h3>單購WATZ的襪子</h3> -->
                 <ul class="box-product-frame flex" id="sockOutBox">
                     <?php foreach ($_SESSION['cart'] as $i) :
                         if ($i['watzbox'] == 0) : ?>
