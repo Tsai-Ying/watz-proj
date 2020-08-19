@@ -958,7 +958,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                         <ul class="senderInfo  flex">
                             <li class="input-frame flex">
                                 <p>訂購人姓名</p>
-                                <input class="senderName" type="text" data-val="1" id="sender" name="sender" required value="<?= htmlentities($sender) ?>">
+                                <input class="senderName" placeholder="王小美" type="text" data-val="1" id="sender" name="sender" required value="<?= htmlentities($sender) ?>">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -966,7 +966,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                             </li>
                             <li class="input-frame flex">
                                 <p>電話</p>
-                                <input class="senderMobile" type="tel" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($senderMobile) ?>" id="senderMobile" oninput="value=value.replace(/[^\d]/g,'')">
+                                <input class="senderMobile" placeholder="0900-000-000" type="tel" data-val="2" maxlength="10" name="senderMobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($senderMobile) ?>" id="senderMobile" oninput="value=value.replace(/[^\d]/g,'')">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -974,7 +974,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                             </li>
                             <li class="input-frame flex">
                                 <p>E-mail</p>
-                                <input class="senderEmail senderEmail" type="text" data-val="3" value="<?= htmlentities($senderEmail) ?>" name="senderEmail" id="sendersenderEmail">
+                                <input class="senderEmail senderEmail" placeholder="watz@watzmail.com" type="text" data-val="3" value="<?= htmlentities($senderEmail) ?>" name="senderEmail" id="sendersenderEmail">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -982,7 +982,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                             </li>
                             <li class="input-frame flex">
                                 <p>地址</p>
-                                <input class="senderAddress" type="text" data-val="5" id="senderAddress" name="senderAddress" value="<?= htmlentities($senderAddress) ?>">
+                                <input class="senderAddress" placeholder="請輸入訂購人地址" type="text" data-val="5" id="senderAddress" name="senderAddress" value="<?= htmlentities($senderAddress) ?>">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -1001,7 +1001,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
                             <li class="input-frame flex">
                                 <p>收件人姓名</p>
-                                <input class="receiverName receiverInput" id="receiverName" type="text" data-val="1" name="receiver" value="<?= htmlentities($receiver) ?>">
+                                <input class="receiverName receiverInput" placeholder="王小美" id="receiverName" type="text" data-val="1" name="receiver" value="<?= htmlentities($receiver) ?>">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -1009,7 +1009,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                             </li>
                             <li class="input-frame flex">
                                 <p>電話</p>
-                                <input class="receiverMobile receiverInput" maxlength="10" id="receiverMobile" type="tel" data-val="2" name="receiverMobile" value="<?= htmlentities($receiverMobile) ?>" oninput="value=value.replace(/[^\d]/g,'')">
+                                <input class="receiverMobile receiverInput" placeholder="0900-000-000" maxlength="10" id="receiverMobile" type="tel" data-val="2" name="receiverMobile" value="<?= htmlentities($receiverMobile) ?>" oninput="value=value.replace(/[^\d]/g,'')">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
@@ -1017,7 +1017,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
                             </li>
                             <li class="input-frame flex">
                                 <p>地址</p>
-                                <input class="receiverAddress receiverInput" id="receiverAddress" type="text" data-val="5" name="receiverAddress" value="<?= htmlentities($receiverAddress) ?>">
+                                <input class="receiverAddress receiverInput" id="receiverAddress" placeholder="請輸入收件人地址" type="text" data-val="5" name="receiverAddress" value="<?= htmlentities($receiverAddress) ?>">
                                 <div class="error-frame flex">
                                     <img class="error-icon flex" src="images/alert.svg">
                                     <h6 class="flex"></h6>
