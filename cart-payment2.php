@@ -1380,11 +1380,7 @@ foreach ($_SESSION['cart'] as $k => $v) {
 
                     if (data.success) {
                         location.href = 'cart-payment3.php';
-<<<<<<< HEAD
-                        // console.log(data);
 
-=======
->>>>>>> 8b73e32d8d6c5408889872386e4ebeb76f6807d0
                     }
                 }, 'json');
             }
