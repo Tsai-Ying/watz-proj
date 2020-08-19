@@ -1032,7 +1032,6 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
 
 
     $(document).ready(function() {
-        // $(".hide-choose-box").hide();
         $(".box-watzbox-title").click(function() {
             $(".hide-choose-box").slideToggle()
             $('#open-btn').toggleClass('close');
@@ -1183,16 +1182,8 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
         $p_items = $('.p_item');
         console.log($p_items.length);
 
-        // if ($p_items.length == 0) {
-        //     location.href = 'cart-empty.php'
-        // }
-
         let total = 0;
 
-        // if (!$p_items.length && $('#totalPrice').length) {
-        //     location.href = 'product.php';
-        //     return;
-        // }
         let shipFee = $('.shipFee').text();
         let discount = $('.discount').text();
         let totalPrice = total + parseInt(shipFee) + parseInt(discount);
@@ -1220,12 +1211,10 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
                 $('.shipFee').text('0');
             }
             shipFee = $('.shipFee').text();
-            // totalPrice = total + parseInt(shipFee) + parseInt(discount);
         } else if (total >= 1000) {
             $('.noShipFee').text(`消費金額已免運！`);
             $('.shipFee').text('0');
             shipFee = $('.shipFee').text();
-            // totalPrice = total + parseInt(shipFee) + parseInt(discount);
         }
         shipFee = $('.shipFee').text();
         discount = $('.discount').text();
@@ -1240,7 +1229,6 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
     qty_sel.on('change', function() {
         const p_item = $(this).closest('.p_item');
         const sid = p_item.attr('data-sid');
-        // alert(sid +', '+ $(this).val() )
         const sendObj = {
             action: 'add',
             sid: sid,
@@ -1293,14 +1281,6 @@ $watzbox_style = isset($_SESSION['receiver']['watzbox_style']) ? $_SESSION['rece
 
     };
 
-
-
-    // $('.pay-btn').click(function() {
-    //     let isPass = true;
-
-
-
-    // });
 </script>
 
 <?php require __DIR__ . '/__html_foot.php' ?>

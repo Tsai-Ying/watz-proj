@@ -3,14 +3,6 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-
-// if (!isset($_SESSION['receiver'])) {
-//     $_SESSION['receiver'] = [];
-// }
-
-// if (!isset($_SESSION['sender'])) {
-//     $_SESSION['sender'] = [];
-// }
 /*
  * action:
  *   add (加入商品),

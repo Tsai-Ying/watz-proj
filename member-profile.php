@@ -299,7 +299,7 @@ $row = $pdo->query($sql)->fetch();
 
         .form-item{
             width: 100%;
-            margin-left: 10vw;
+            white-space: nowrap;
         }
 
         .member-photo{
