@@ -1088,7 +1088,6 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
             qty: qty
         }
         $.get('cart-handle.php', sendObj, function(data) {
-            console.log(data);
             setCartCount(data);
         }, 'json');
 
@@ -1105,7 +1104,6 @@ $file = __DIR__ . '/images/product/' . $row['img_ID'];
     // 購買數量輸入同步
     $(".quantity-input").keyup(function() {
         let val = $(this).val();
-        console.log(val);
         $(".mobile-qty").val(val);
     });
 

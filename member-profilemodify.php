@@ -540,8 +540,6 @@ $row = $pdo->query($sql)->fetch();
         
         if (isPass) {
             $.post('member-profilemodify-api.php', $(document.form1).serialize(), function(data) {
-                // console.log(data);
-
                 if (data.success) {
                     $('.notice h3').text('修改完成');
                     notice();

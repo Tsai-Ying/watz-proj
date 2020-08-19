@@ -815,7 +815,6 @@ $series_name = $pdo->query($s_sql)->fetch()['series_name'];
             qty
         }
         $.get('cart-handle.php', sendObj, function(data) {
-            console.log(data);
             setCartCount(data);
         }, 'json');
 

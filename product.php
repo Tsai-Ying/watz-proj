@@ -1508,7 +1508,6 @@ $(".color-btn-box li ").hover(function() {
       
         // if( name='type'){
         //     $(input[type=radio]).prop('checked', true)   
-        //     console.log("OK")
             // $(this).parents("div.block-img").find("img").css("background-color","#FFB3A7");
         // }else{
         //     $('input.block2-btn').parents("div.block-img").find("img").css("background-color","white");
@@ -1531,7 +1530,6 @@ $(".color-btn-box li ").hover(function() {
         $('#page').val('1');
 
         $.get('product-api.php', $(document.form2).serialize(), function(data) {
-            console.log(data);
 
             pagination.empty();
             for (let s in data.pageBtns) {
@@ -1640,7 +1638,6 @@ $(".color-btn-box li ").hover(function() {
         } catch(ex) {
             hObj = {}
         }
-// console.log(hObj);
 // return;
 
 
@@ -1679,7 +1676,6 @@ $(".color-btn-box li ").hover(function() {
 
         //取得api的資料
         $.get('product-api.php', hObj, function(data) {
-            console.log(data);
 
             pagination.empty();
             pagination.append(`<li class="page-btn page-item ${data.page == 1 ? 'disabled' : ''} ">
