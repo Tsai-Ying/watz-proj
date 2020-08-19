@@ -259,6 +259,10 @@
     justify-content: center;
     background: #F8F4EB;
 }
+.filter{
+    -webkit-filter: grayscale(0.3);
+    filter: grayscale(0.3);
+};
 
 .box-top {
     margin-bottom: 20px;
@@ -294,7 +298,8 @@
 .block-img>label>img {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0px 0px 2px rgba(114, 114, 114, 0.5));
+    <!-- filter: drop-shadow(0px 0px 2px rgba(114, 114, 114, 0.5)); -->
+    
 }
 
 .bottom-left img {
@@ -431,6 +436,7 @@
     animation-name:block6;
     animation:2s block6 infinite;
     position: absolute;
+    transition: 0.5s;
 
 }
 @keyframes block6 {
